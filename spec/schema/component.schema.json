@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://era-widgets.dev/schema/component.schema.json",
+  "title": "Era Widgets Component Spec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "summary",
+    "anatomy",
+    "variants",
+    "sizes",
+    "states",
+    "aria",
+    "keyboard",
+    "slots",
+    "canonicalHtml",
+    "do",
+    "dont",
+    "tokenDeps"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 280
+    },
+    "className": {
+      "type": "string",
+      "pattern": "^ew-[a-z][a-z0-9-]*$"
+    },
+    "nativeElement": {
+      "type": "string"
+    },
+    "behavior": {
+      "type": "string",
+      "enum": [
+        "native",
+        "css-only",
+        "web-component"
+      ],
+      "description": "How interactive behavior is provided in the core."
+    },
+    "anatomy": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "part",
+          "description"
+        ],
+        "properties": {
+          "part": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean",
+            "default": true
+          },
+          "selector": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "variants": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "values",
+          "default"
+        ],
+        "properties": {
+          "attribute": {
+            "type": "string",
+            "pattern": "^data-[a-z-]+$"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "default": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sizes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attribute",
+        "values",
+        "default"
+      ],
+      "properties": {
+        "attribute": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "default": {
+          "type": "string"
+        }
+      }
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "description"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "selector": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "aria": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "requiredAttributes",
+        "notes"
+      ],
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "requiredAttributes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "optionalAttributes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "keyboard": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "keys",
+          "action"
+        ],
+        "properties": {
+          "keys": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "when": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "kind",
+          "description"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "frame",
+              "ornament-before",
+              "ornament-after",
+              "backdrop",
+              "indicator",
+              "default",
+              "label",
+              "description",
+              "error",
+              "header",
+              "footer",
+              "media"
+            ]
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "decorator",
+              "content"
+            ]
+          },
+          "cssRenderable": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "canonicalHtml": {
+      "type": "string",
+      "minLength": 1
+    },
+    "imports": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "CSS import lines agents should use."
+    },
+    "do": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "dont": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "tokenDeps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    }
+  }
+}

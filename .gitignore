@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+*.log
+.turbo/
+dist/
+.bin/
+.pnpm-store/
+*.tsbuildinfo
+.cache/

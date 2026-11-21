@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://era-widgets.dev/schema/era.schema.json",
+  "title": "Era Widgets Era Pack Spec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "identity",
+    "axes",
+    "fonts",
+    "fidelity",
+    "modes",
+    "neverDo",
+    "tokenFiles",
+    "card"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "oneLiner",
+        "summary",
+        "bestFit"
+      ],
+      "properties": {
+        "oneLiner": {
+          "type": "string",
+          "maxLength": 160
+        },
+        "summary": {
+          "type": "string"
+        },
+        "bestFit": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "authenticityNotes": {
+          "type": "string"
+        }
+      }
+    },
+    "axes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shape",
+        "edge",
+        "surface",
+        "elevation",
+        "ornament",
+        "typeVoice",
+        "motion",
+        "density",
+        "iconography"
+      ],
+      "properties": {
+        "shape": {
+          "type": "string"
+        },
+        "edge": {
+          "type": "string"
+        },
+        "surface": {
+          "type": "string"
+        },
+        "elevation": {
+          "type": "string"
+        },
+        "ornament": {
+          "type": "string"
+        },
+        "typeVoice": {
+          "type": "string"
+        },
+        "motion": {
+          "type": "string"
+        },
+        "density": {
+          "type": "string"
+        },
+        "iconography": {
+          "type": "string"
+        }
+      }
+    },
+    "fonts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "display",
+        "body",
+        "mono",
+        "license"
+      ],
+      "properties": {
+        "display": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "mono": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string",
+          "description": "Must be open (OFL, Apache, SIL, etc.)."
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "fidelity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recommended",
+        "bands"
+      ],
+      "properties": {
+        "recommended": {
+          "type": "object",
+          "required": [
+            "min",
+            "max",
+            "default"
+          ],
+          "properties": {
+            "min": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "max": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "default": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        },
+        "bands": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "min",
+              "max",
+              "description"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "min": {
+                "type": "integer"
+              },
+              "max": {
+                "type": "integer"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "dialects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "modes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "light",
+          "dark"
+        ]
+      },
+      "minItems": 2
+    },
+    "neverDo": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3
+    },
+    "tokenFiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lines"
+      ],
+      "properties": {
+        "lines": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 20,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

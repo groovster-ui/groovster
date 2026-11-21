@@ -1,0 +1,143 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "switch",
+  "name": "Switch",
+  "summary": "Binary on/off control. Prefer checkbox with switch role styling, or input type=checkbox with appearance skinning.",
+  "className": "ew-switch",
+  "nativeElement": "input[type=checkbox]",
+  "behavior": "native",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-switch",
+      "description": "Label wrapping the control."
+    },
+    {
+      "part": "control",
+      "required": true,
+      "selector": ".ew-switch__control",
+      "description": "The checkbox input."
+    },
+    {
+      "part": "track",
+      "required": true,
+      "selector": ".ew-switch__track",
+      "description": "Visual track."
+    },
+    {
+      "part": "thumb",
+      "required": true,
+      "selector": ".ew-switch__thumb",
+      "description": "Visual thumb."
+    },
+    {
+      "part": "label",
+      "required": true,
+      "selector": ".ew-switch__label",
+      "description": "Visible text."
+    },
+    {
+      "part": "indicator",
+      "required": false,
+      "selector": "[data-slot=indicator]",
+      "description": "On-state ornament."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default",
+        "success"
+      ],
+      "default": "default",
+      "description": "On-state color emphasis."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "checked",
+      "selector": ":checked, [aria-checked=true]",
+      "description": "On."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled",
+      "description": "Non-interactive."
+    },
+    {
+      "name": "focus",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    }
+  ],
+  "aria": {
+    "role": "switch (via role=switch on checkbox) or checkbox",
+    "requiredAttributes": [
+      "aria-checked (when role=switch)"
+    ],
+    "optionalAttributes": [
+      "aria-labelledby"
+    ],
+    "notes": [
+      "If using role=switch, keep aria-checked in sync with checked.",
+      "Visible label required.",
+      "Space toggles; do not require Enter-only activation."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "Space",
+      "action": "Toggle"
+    },
+    {
+      "keys": "Tab",
+      "action": "Move focus"
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "kind": "content",
+      "description": "Visible label."
+    },
+    {
+      "name": "indicator",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "On-state indicator ornament."
+    }
+  ],
+  "canonicalHtml": "<label class=\"ew-switch\">\n  <input class=\"ew-switch__control\" type=\"checkbox\" role=\"switch\" aria-checked=\"false\" />\n  <span class=\"ew-switch__track\" aria-hidden=\"true\"><span class=\"ew-switch__thumb\"></span></span>\n  <span class=\"ew-switch__label\">Notifications</span>\n</label>",
+  "imports": [
+    "@era-widgets/css/switch.css",
+    "@era-widgets/css/eras/<era>.css"
+  ],
+  "do": [
+    "Keep a visible text label.",
+    "Sync aria-checked when role=switch is used.",
+    "Make hit target at least 24\u00d724px."
+  ],
+  "dont": [
+    "Don't animate the thumb in a way that ignores prefers-reduced-motion.",
+    "Don't use a switch for ternary or multi-select states.",
+    "Don't rely on track color alone without a clear thumb position."
+  ],
+  "tokenDeps": [
+    "color.action.*",
+    "color.track.*",
+    "space.switch.*",
+    "radius.pill",
+    "motion.switch"
+  ]
+}

@@ -1,0 +1,5 @@
+<!-- Button -->
+<button type="button" class="ew-button">Save</button>
+
+import "@era-widgets/css/button.css";
+a11y: Prefer native <button type="button|submit|reset"> over div[role=button].

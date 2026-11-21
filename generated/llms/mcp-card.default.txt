@@ -1,0 +1,9 @@
+<!-- Card -->
+<article class="ew-card">
+  <header class="ew-card__header"><h3>Plan</h3></header>
+  <div class="ew-card__body"><p>Everything you need to ship.</p></div>
+  <footer class="ew-card__footer"><button type="button" class="ew-button">Choose</button></footer>
+</article>
+
+import "@era-widgets/css/card.css";
+a11y: If the card is a single link/button, put the interactive element on the root or use a stretched link — do not nest buttons/links.

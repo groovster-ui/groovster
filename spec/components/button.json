@@ -1,0 +1,169 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "button",
+  "name": "Button",
+  "summary": "Pressable control for primary actions. Zero attributes = medium primary button.",
+  "className": "ew-button",
+  "nativeElement": "button",
+  "behavior": "native",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-button",
+      "description": "The <button> or role=button element."
+    },
+    {
+      "part": "label",
+      "required": true,
+      "selector": ".ew-button__label",
+      "description": "Visible text label (or text node)."
+    },
+    {
+      "part": "icon",
+      "required": false,
+      "selector": ".ew-button__icon",
+      "description": "Optional leading/trailing icon."
+    },
+    {
+      "part": "ornament-before",
+      "required": false,
+      "selector": "[data-slot=ornament-before]",
+      "description": "Era decorator before content."
+    },
+    {
+      "part": "ornament-after",
+      "required": false,
+      "selector": "[data-slot=ornament-after]",
+      "description": "Era decorator after content."
+    },
+    {
+      "part": "frame",
+      "required": false,
+      "selector": "[data-slot=frame]",
+      "description": "Structural chrome frame (Deco steps, neon bezel)."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "primary",
+        "secondary",
+        "ghost",
+        "danger"
+      ],
+      "default": "primary",
+      "description": "Visual emphasis."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "hover",
+      "selector": ":hover",
+      "description": "Pointer hover."
+    },
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus ring."
+    },
+    {
+      "name": "active",
+      "selector": ":active",
+      "description": "Pressed."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    },
+    {
+      "name": "loading",
+      "selector": "[data-loading=true]",
+      "description": "Busy; keep width, announce busy."
+    }
+  ],
+  "aria": {
+    "role": "button (native <button> preferred)",
+    "requiredAttributes": [],
+    "optionalAttributes": [
+      "aria-busy",
+      "aria-pressed",
+      "aria-expanded",
+      "aria-controls"
+    ],
+    "notes": [
+      "Prefer native <button type=\"button|submit|reset\"> over div[role=button].",
+      "When loading, set aria-busy=true and keep the accessible name.",
+      "Disabled: use disabled attribute on <button>, not only aria-disabled."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "Enter / Space",
+      "action": "Activate"
+    },
+    {
+      "keys": "Tab",
+      "action": "Move focus"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Label text or label+icon."
+    },
+    {
+      "name": "ornament-before",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Era ornament before label."
+    },
+    {
+      "name": "ornament-after",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Era ornament after label."
+    },
+    {
+      "name": "frame",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Structural frame chrome."
+    }
+  ],
+  "canonicalHtml": "<button type=\"button\" class=\"ew-button\">Save</button>",
+  "imports": [
+    "@era-widgets/css/button.css",
+    "@era-widgets/css/eras/<era>.css"
+  ],
+  "do": [
+    "Use a real <button> with an accessible name.",
+    "Change era with data-era on an ancestor; keep button markup neutral.",
+    "Use data-variant only when not primary."
+  ],
+  "dont": [
+    "Don't put warped display fonts on the control label.",
+    "Don't rely on glow for contrast.",
+    "Don't nest interactive elements inside the button."
+  ],
+  "tokenDeps": [
+    "color.action.*",
+    "color.fg.*",
+    "space.control.*",
+    "radius.control",
+    "type.control",
+    "motion.press"
+  ]
+}

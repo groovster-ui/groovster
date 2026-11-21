@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "units": "chars",
+  "budgets": {
+    "mcp.defaultReply": {
+      "maxChars": 1200,
+      "description": "MCP default (detail omitted) reply: one HTML snippet + one import + short a11y note."
+    },
+    "mcp.eraCard": {
+      "maxChars": 900,
+      "description": "Compressed era card (10\u201320 lines)."
+    },
+    "llms.section": {
+      "maxChars": 1800,
+      "description": "Per-component llms.txt section."
+    },
+    "llms.index": {
+      "maxChars": 2500,
+      "description": "Top-level llms.txt index."
+    },
+    "canonicalHtml": {
+      "maxChars": 600,
+      "description": "Canonical HTML example in component specs."
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "neon",
+  "name": "Neon",
+  "aliases": [
+    "synthwave",
+    "outrun",
+    "retrowave"
+  ],
+  "identity": {
+    "oneLiner": "Synthwave nights: magenta\u2013cyan chrome on deep violet, grid horizon optional.",
+    "summary": "Neon/Synthwave is high-contrast dark-first romance: chrome bezels, scanline/grid backdrops at high fidelity, and magenta/cyan accents. Glow is decoration only \u2014 contrast must pass without it. Light mode is a washed Miami daytime dialect of the same geometry.",
+    "bestFit": [
+      "Gaming / music marketing",
+      "Night-mode demos",
+      "Devtool flair pages",
+      "Event / festival microsites"
+    ],
+    "authenticityNotes": "Chrome + grid + dual accent beats rainbow. Prefer one horizon/grid plane, not every panel glowing."
+  },
+  "axes": {
+    "shape": "Slightly squared with chrome bevel; perspective grid only in backdrop slots",
+    "edge": "Beveled chrome / dual-tone borders",
+    "surface": "Deep violet/navy lacquer; subtle scanline noise",
+    "elevation": "Hard neon rim + dark drop; bloom is cosmetic",
+    "ornament": "Grid horizon, sun disc, scanlines via backdrop/ornament",
+    "typeVoice": "Tech display for titles; readable sans for UI; mono accents",
+    "motion": "Pulse/glow optional; must respect reduced motion (static rim remains)",
+    "density": "Showy marketing density; tighten for app chrome",
+    "iconography": "Angular / chrome stroke"
+  },
+  "fonts": {
+    "display": "Orbitron",
+    "body": "Exo 2",
+    "mono": "Share Tech Mono",
+    "license": "OFL-1.1",
+    "sources": [
+      "https://fonts.google.com/specimen/Orbitron",
+      "https://fonts.google.com/specimen/Exo+2",
+      "https://fonts.google.com/specimen/Share+Tech+Mono"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 35,
+      "max": 75,
+      "default": 55
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Structure hints only: radius, type voice, subtle edge. No ornaments."
+      },
+      {
+        "id": "signature",
+        "min": 26,
+        "max": 66,
+        "description": "Clear era geometry and materials; sparse ornaments on surfaces."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full decorative program. Demo/showcase territory; neverDo still binds."
+      }
+    ]
+  },
+  "dialects": [
+    {
+      "id": "synthwave",
+      "label": "Synthwave",
+      "description": "Dark violet nights, magenta/cyan, grid sun."
+    },
+    {
+      "id": "miami",
+      "label": "Miami",
+      "description": "Daytime pastel aqua/pink, palm-adjacent, softer bloom."
+    }
+  ],
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "Glow never counts toward WCAG contrast \u2014 text/icons must pass on flat fills.",
+    "Never put Orbitron on Button/TextField/Switch labels.",
+    "Never stack multiple full-bleed grids; one backdrop plane per view.",
+    "Never use pure #ff00ff on pure #00ffff for small text.",
+    "Honor prefers-reduced-transparency: drop scanlines/bloom cleanly."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/neon.light.tokens.json",
+    "spec/tokens/tier1/neon.dark.tokens.json",
+    "spec/tokens/tier2/neon.shared.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: neon (Synthwave)",
+      "voice: chrome nights, magenta/cyan",
+      "shape: squared chrome bevel",
+      "edge: dual-tone chrome",
+      "surface: violet lacquer + scanline",
+      "elevation: hard rim (glow cosmetic)",
+      "ornament: grid / sun in backdrop",
+      "type: Orbitron + Exo 2",
+      "fidelity: default 55 (35\u201375)",
+      "modes: light, dark",
+      "dialects: synthwave | miami",
+      "use: gaming, night demos, festivals",
+      "never: glow-as-contrast, display on controls"
+    ]
+  }
+}

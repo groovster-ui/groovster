@@ -1,0 +1,8 @@
+{
+  "name": "@era-widgets/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Token package stub — values live in spec/tokens and are emitted by gen.",
+  "type": "module",
+  "license": "MIT"
+}

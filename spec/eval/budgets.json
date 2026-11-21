@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "releaseGates": {
+    "maxMedianTokenCostIncreasePct": 10,
+    "maxMedianTurnIncreasePct": 10,
+    "minSuccessRateImprovementToAllowCostRise": 0.05
+  },
+  "notes": "Exact margins for agent efficiency release gates. Populated early; harness lands after Phase 0."
+}

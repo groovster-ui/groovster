@@ -1,0 +1,149 @@
+{
+  "generatedAt": "deterministic-build",
+  "components": [
+    "button",
+    "card",
+    "dialog",
+    "switch",
+    "tabs",
+    "text-field"
+  ],
+  "eras": [
+    "deco",
+    "mcm-atomic",
+    "neon",
+    "neutral"
+  ],
+  "outputs": [
+    "generated/docs/button.md",
+    "generated/docs/card.md",
+    "generated/docs/dialog.md",
+    "generated/docs/switch.md",
+    "generated/docs/tabs.md",
+    "generated/docs/text-field.md",
+    "generated/llms/button.md",
+    "generated/llms/card.md",
+    "generated/llms/dialog.md",
+    "generated/llms/era-deco.card.txt",
+    "generated/llms/era-mcm-atomic.card.txt",
+    "generated/llms/era-neon.card.txt",
+    "generated/llms/era-neutral.card.txt",
+    "generated/llms/llms.txt",
+    "generated/llms/mcp-button.default.txt",
+    "generated/llms/mcp-card.default.txt",
+    "generated/llms/mcp-dialog.default.txt",
+    "generated/llms/mcp-switch.default.txt",
+    "generated/llms/mcp-tabs.default.txt",
+    "generated/llms/mcp-text-field.default.txt",
+    "generated/llms/switch.md",
+    "generated/llms/tabs.md",
+    "generated/llms/text-field.md",
+    "packages/css/dist/base.css",
+    "packages/css/dist/button.css",
+    "packages/css/dist/card.css",
+    "packages/css/dist/dialog.css",
+    "packages/css/dist/era-widgets.css",
+    "packages/css/dist/eras/deco.css",
+    "packages/css/dist/eras/mcm-atomic.css",
+    "packages/css/dist/eras/neon.css",
+    "packages/css/dist/eras/neutral.css",
+    "packages/css/dist/switch.css",
+    "packages/css/dist/tabs.css",
+    "packages/css/dist/text-field.css",
+    "packages/css/dist/tokens-components.css"
+  ],
+  "budgetReport": {
+    "budgets": {
+      "mcp.defaultReply": {
+        "maxChars": 1200,
+        "description": "MCP default (detail omitted) reply: one HTML snippet + one import + short a11y note."
+      },
+      "mcp.eraCard": {
+        "maxChars": 900,
+        "description": "Compressed era card (10–20 lines)."
+      },
+      "llms.section": {
+        "maxChars": 1800,
+        "description": "Per-component llms.txt section."
+      },
+      "llms.index": {
+        "maxChars": 2500,
+        "description": "Top-level llms.txt index."
+      },
+      "canonicalHtml": {
+        "maxChars": 600,
+        "description": "Canonical HTML example in component specs."
+      }
+    },
+    "measured": {
+      "llms.section:button": {
+        "chars": 491,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:button": {
+        "chars": 187,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:card": {
+        "chars": 756,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:card": {
+        "chars": 450,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:dialog": {
+        "chars": 839,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:dialog": {
+        "chars": 544,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:switch": {
+        "chars": 746,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:switch": {
+        "chars": 399,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:tabs": {
+        "chars": 993,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:tabs": {
+        "chars": 558,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:text-field": {
+        "chars": 612,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:text-field": {
+        "chars": 277,
+        "budget": "mcp.defaultReply"
+      },
+      "mcp.eraCard:deco": {
+        "chars": 380,
+        "budget": "mcp.eraCard"
+      },
+      "mcp.eraCard:mcm-atomic": {
+        "chars": 409,
+        "budget": "mcp.eraCard"
+      },
+      "mcp.eraCard:neon": {
+        "chars": 392,
+        "budget": "mcp.eraCard"
+      },
+      "mcp.eraCard:neutral": {
+        "chars": 292,
+        "budget": "mcp.eraCard"
+      },
+      "llms.index": {
+        "chars": 956,
+        "budget": "llms.index"
+      }
+    }
+  }
+}

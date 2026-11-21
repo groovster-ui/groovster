@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://era-widgets.dev/schema/tokens.schema.json",
+  "title": "Era Widgets DTCG Token File",
+  "type": "object",
+  "required": [
+    "$schema",
+    "meta"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tier",
+        "era",
+        "mode"
+      ],
+      "properties": {
+        "tier": {
+          "type": "integer",
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "era": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "light",
+            "dark",
+            "shared"
+          ]
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": {
+    "oneOf": [
+      {
+        "$ref": "#/$defs/token"
+      },
+      {
+        "$ref": "#/$defs/group"
+      }
+    ]
+  },
+  "$defs": {
+    "token": {
+      "type": "object",
+      "required": [
+        "$type",
+        "$value"
+      ],
+      "properties": {
+        "$type": {
+          "type": "string",
+          "enum": [
+            "color",
+            "dimension",
+            "fontFamily",
+            "fontWeight",
+            "duration",
+            "cubicBezier",
+            "number",
+            "shadow",
+            "strokeStyle",
+            "border",
+            "typography"
+          ]
+        },
+        "$value": {},
+        "$description": {
+          "type": "string"
+        },
+        "$extensions": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "group": {
+      "type": "object",
+      "properties": {
+        "$description": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/token"
+          },
+          {
+            "$ref": "#/$defs/group"
+          }
+        ]
+      }
+    }
+  }
+}

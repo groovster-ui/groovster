@@ -1,0 +1,13 @@
+era: deco (Art Deco)
+voice: lacquer + brass, ceremonial
+shape: stepped / chamfered
+edge: double-line brass rules
+surface: lacquer panels
+elevation: terraced steps
+ornament: chevron / fan rules
+type: Cinzel + Libre Baskerville
+fidelity: default 35 (20–55)
+modes: light, dark
+use: luxury, editorial, pricing
+never: neon glow, display type on controls
+dialect: streamline (optional)

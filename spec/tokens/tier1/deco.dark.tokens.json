@@ -1,0 +1,120 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 1,
+    "era": "deco",
+    "mode": "dark",
+    "description": "Tier 1 raw values for deco dark"
+  },
+  "color": {
+    "ink": {
+      "$type": "color",
+      "$value": "oklch(92% 0.02 90)"
+    },
+    "paper": {
+      "$type": "color",
+      "$value": "oklch(14% 0.02 70)",
+      "$description": "black lacquer"
+    },
+    "panel": {
+      "$type": "color",
+      "$value": "oklch(20% 0.025 70)"
+    },
+    "brass": {
+      "$type": "color",
+      "$value": "oklch(78% 0.1 85)"
+    },
+    "brassDeep": {
+      "$type": "color",
+      "$value": "oklch(58% 0.09 80)"
+    },
+    "burgundy": {
+      "$type": "color",
+      "$value": "oklch(42% 0.1 20)"
+    },
+    "accent": {
+      "solid": {
+        "$type": "color",
+        "$value": "oklch(72% 0.1 85)"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "oklch(14% 0.02 70)"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$type": "color",
+        "$value": "oklch(62% 0.14 25)"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "oklch(14% 0.02 70)"
+      }
+    }
+  },
+  "space": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "64px"
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "2px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "step": {
+      "$type": "dimension",
+      "$value": "8px"
+    }
+  }
+}

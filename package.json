@@ -1,0 +1,19 @@
+{
+  "name": "era-widgets",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Era Widgets — CSS-first, spec-first UI skins for agents (working title; never Forma UI).",
+  "type": "module",
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "gen": "pnpm --filter @era-widgets/gen gen",
+    "gen:check": "pnpm --filter @era-widgets/gen check",
+    "validate": "pnpm --filter @era-widgets/gen validate",
+    "smoke": "pnpm gen && echo 'Open demos/smoke/index.html (or serve demos/smoke)'",
+    "check": "pnpm validate && pnpm gen:check"
+  },
+  "license": "MIT"
+}

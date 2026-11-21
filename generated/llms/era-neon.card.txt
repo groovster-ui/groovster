@@ -1,0 +1,13 @@
+era: neon (Synthwave)
+voice: chrome nights, magenta/cyan
+shape: squared chrome bevel
+edge: dual-tone chrome
+surface: violet lacquer + scanline
+elevation: hard rim (glow cosmetic)
+ornament: grid / sun in backdrop
+type: Orbitron + Exo 2
+fidelity: default 55 (35–75)
+modes: light, dark
+dialects: synthwave | miami
+use: gaming, night demos, festivals
+never: glow-as-contrast, display on controls
