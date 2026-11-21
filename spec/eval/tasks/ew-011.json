@@ -1,0 +1,30 @@
+{
+  "id": "ew-011",
+  "title": "neverDo: no display type on Deco button",
+  "prompt": "Deco card with CTA \u2014 keep Cinzel for titles only; button label must use body/control voice (ew-button defaults).",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 35,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "deco",
+    "minCards": 1,
+    "minButtons": 1,
+    "forbid": [
+      "ew-button\" style=\"font-family: Cinzel",
+      "class=\"ew-button cinzel",
+      "font-family:Cinzel"
+    ]
+  },
+  "rubric": [
+    "neverDo display-on-control"
+  ]
+}

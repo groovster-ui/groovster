@@ -112,5 +112,32 @@
       "use: gaming, night demos, festivals",
       "never: glow-as-contrast, display on controls"
     ]
+  },
+  "structure": {
+    "controlRadius": "2px",
+    "surfaceRadius": "4px",
+    "button": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.08em",
+      "textTransform": "uppercase",
+      "fontWeight": "700",
+      "shadow": "0 0 0 1px color-mix(in oklch, var(--ew-color-border-subtle) 80%, transparent), 0 0 12px color-mix(in oklch, var(--ew-color-action-bg) 35%, transparent)",
+      "clipPath": "none",
+      "paddingX": "18px",
+      "paddingY": "9px",
+      "bevel": "inset 0 1px 0 color-mix(in oklch, white 35%, transparent), inset 0 -1px 0 color-mix(in oklch, black 35%, transparent)"
+    },
+    "card": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "shadow": "0 0 0 1px var(--ew-color-border-subtle), 0 0 18px color-mix(in oklch, var(--ew-color-action-bg) 25%, transparent)",
+      "raisedShadow": "0 0 0 1px var(--ew-color-border-strong), 0 0 28px color-mix(in oklch, var(--ew-color-action-bg) 40%, transparent), 0 16px 40px color-mix(in oklch, black 55%, transparent)",
+      "clipPath": "none",
+      "padding": "20px",
+      "headerRule": true,
+      "titleTracking": "0.1em",
+      "ornament": "scanline"
+    }
   }
 }

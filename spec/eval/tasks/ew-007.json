@@ -1,0 +1,31 @@
+{
+  "id": "ew-007",
+  "title": "Atomic high-fidelity raised card",
+  "prompt": "Atomic era at fidelity 80: raised card with organic feel and a pill primary button.",
+  "eras": [
+    "mcm-atomic"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 80,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "mcm-atomic",
+    "dataFidelityBand": "costume",
+    "minCards": 1,
+    "minButtons": 1,
+    "requireVariants": [
+      "raised"
+    ],
+    "forbid": []
+  },
+  "rubric": [
+    "raised card",
+    "costume band or fidelity>=67"
+  ]
+}

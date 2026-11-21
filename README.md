@@ -57,3 +57,15 @@ Or open `demos/smoke/index.html` after `pnpm gen` (CSS path is relative to the r
 ## License
 
 MIT (core). Default era fonts are open-licensed only (OFL).
+
+## Eval (Button + Card starter)
+
+```bash
+pnpm eval              # score golden fixtures for cursor-agent + claude-code setups
+pnpm eval:baseline     # persist baseline under generated/eval/ and spec/eval/
+```
+
+Tasks live in `spec/eval/tasks/` (≥10). Scoring covers validate / structure / tokens / turns.
+Live agent automation is not required yet — fixtures establish the harness + baseline placeholder.
+See `generated/eval/REPORT.md` after a run.
+

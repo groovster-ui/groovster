@@ -1,0 +1,30 @@
+{
+  "id": "ew-005",
+  "title": "Flip Neutral markup to Deco via data-era",
+  "prompt": "Given neutral HTML for a raised card with a button, switch personality to Deco by changing only data-era (do not rewrite classes).",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 35,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "deco",
+    "minButtons": 1,
+    "minCards": 1,
+    "forbid": [
+      "ew-deco-card",
+      "class=\"deco"
+    ]
+  },
+  "rubric": [
+    "same ew- classes",
+    "era via data-era only"
+  ]
+}

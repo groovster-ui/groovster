@@ -1,0 +1,34 @@
+{
+  "id": "ew-010",
+  "title": "Neon outline card + ghost button",
+  "prompt": "Neon light mode: outline card with a ghost button labeled Learn more.",
+  "eras": [
+    "neon"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 45,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "neon",
+    "dataMode": "light",
+    "minCards": 1,
+    "minButtons": 1,
+    "requireVariants": [
+      "outline",
+      "ghost"
+    ],
+    "forbid": [
+      "font-family: Orbitron"
+    ]
+  },
+  "rubric": [
+    "outline+ghost",
+    "no Orbitron on controls"
+  ]
+}

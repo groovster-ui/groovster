@@ -1,0 +1,31 @@
+{
+  "id": "ew-009",
+  "title": "Whisper fidelity Deco",
+  "prompt": "Deco card+button at fidelity 15 (whisper): keep structure hints, avoid heavy ornaments in markup.",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 15,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "deco",
+    "dataFidelityBand": "whisper",
+    "minCards": 1,
+    "minButtons": 1,
+    "forbid": [
+      "sunburst.svg",
+      "ornament-sticker"
+    ]
+  },
+  "rubric": [
+    "whisper band",
+    "no sticker ornaments in HTML"
+  ]
+}

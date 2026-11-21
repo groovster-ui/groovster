@@ -12,6 +12,8 @@ importers:
 
   packages/tokens: {}
 
+  tools/eval: {}
+
   tools/gen:
     dependencies:
       ajv:

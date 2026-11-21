@@ -3,27 +3,76 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Era Widgets — smoke</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Exo+2:wght@500;700&family=IBM+Plex+Mono&family=Josefin+Sans:wght@500;600&family=Libre+Baskerville:wght@400;700&family=Nunito+Sans:wght@500;700&family=Orbitron:wght@600;700&family=Share+Tech+Mono&family=Source+Code+Pro&family=Source+Sans+3:wght@500;600&family=Source+Serif+4:wght@600&family=Space+Mono&display=swap" rel="stylesheet" />
+  <title>Era Widgets — Button + Card smoke</title>
   <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css" />
   <style>
-    body { margin: 0; }
+    body { margin: 0; min-height: 100vh; }
     .toolbar {
-      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
-      padding: 12px 16px; border-bottom: 1px solid color-mix(in oklch, currentColor 20%, transparent);
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid color-mix(in oklch, currentColor 18%, transparent);
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in oklch, var(--ew-color-bg-page, #fff) 92%, transparent);
+      backdrop-filter: blur(8px);
+    }
+    .toolbar label { display: inline-flex; gap: 6px; align-items: center; }
+    .toolbar select, .toolbar input[type="range"] { accent-color: var(--ew-color-action-bg, #334); }
+    .note { opacity: 0.7; font-size: 12px; }
+    main {
+      padding: 28px 20px 48px;
+      display: grid;
+      gap: 28px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .section-title {
+      margin: 0;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.65;
       font-family: system-ui, sans-serif;
     }
-    .toolbar label { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; }
-    main { padding: 24px; display: grid; gap: 24px; max-width: 720px; }
-    .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .card-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .compare {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .compare-frame {
+      padding: 12px;
+      border: 1px dashed color-mix(in oklch, currentColor 25%, transparent);
+    }
+    .compare-frame h3 {
+      margin: 0 0 12px;
+      font-size: 12px;
+      font-family: system-ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+    .price { font-size: 1.75rem; font-weight: 700; margin: 0; }
+    .muted { opacity: 0.75; margin: 0; }
   </style>
 </head>
-<body class="ew-root" data-era="neutral" data-mode="light" data-fidelity="40">
+<body class="ew-root" data-era="deco" data-mode="light" data-fidelity="40" data-fidelity-band="signature">
   <div class="toolbar">
-    <strong>Era Widgets smoke</strong>
+    <strong>Button + Card</strong>
     <label>era
       <select id="era">
         <option value="neutral">neutral</option>
-        <option value="deco">deco</option>
+        <option value="deco" selected>deco</option>
         <option value="mcm-atomic">mcm-atomic</option>
         <option value="neon">neon</option>
       </select>
@@ -37,55 +86,59 @@
     <label>fidelity
       <input id="fidelity" type="range" min="0" max="100" value="40" />
       <span id="fid-val">40</span>
+      <span class="note" id="fid-band">signature</span>
     </label>
+    <span class="note">Markup stays neutral — only <code>data-era</code> changes.</span>
   </div>
+
   <main>
-    <article class="ew-card" data-variant="raised">
-      <header class="ew-card__header"><h2>Hero widgets</h2></header>
-      <div class="ew-card__body">
-        <p>Flip <code>data-era</code> — markup stays neutral. Styling is Phase 0 generated CSS (partial OK).</p>
-        <div class="row">
-          <button type="button" class="ew-button">Primary</button>
-          <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-          <button type="button" class="ew-button" data-variant="ghost">Ghost</button>
-          <button type="button" class="ew-button" data-variant="danger">Danger</button>
+    <p class="section-title">Buttons</p>
+    <div class="button-row">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+      <button type="button" class="ew-button" data-variant="ghost">Ghost</button>
+      <button type="button" class="ew-button" data-variant="danger">Danger</button>
+      <button type="button" class="ew-button" data-size="sm">Small</button>
+      <button type="button" class="ew-button" data-size="lg">Large</button>
+    </div>
+
+    <p class="section-title">Cards — pricing strip</p>
+    <div class="card-grid">
+      <article class="ew-card" data-variant="outline">
+        <header class="ew-card__header"><h2>Basic</h2></header>
+        <div class="ew-card__body">
+          <p class="price">$12</p>
+          <p class="muted">For trying the waters.</p>
         </div>
-      </div>
-      <footer class="ew-card__footer">
-        <button type="button" class="ew-button" id="open-dialog">Open dialog</button>
-      </footer>
-    </article>
-
-    <div class="ew-text-field">
-      <label class="ew-text-field__label" for="email">Email</label>
-      <input id="email" class="ew-text-field__control" type="email" autocomplete="email" placeholder="you@example.com" />
-      <p class="ew-text-field__description">Native input; eras skin chrome only.</p>
+        <footer class="ew-card__footer">
+          <button type="button" class="ew-button" data-variant="secondary">Choose</button>
+        </footer>
+      </article>
+      <article class="ew-card" data-variant="raised">
+        <header class="ew-card__header"><h2>Pro</h2></header>
+        <div class="ew-card__body">
+          <p class="price">$48</p>
+          <p class="muted">The plan agents recommend.</p>
+        </div>
+        <footer class="ew-card__footer">
+          <button type="button" class="ew-button">Choose</button>
+        </footer>
+      </article>
+      <article class="ew-card" data-variant="inset">
+        <header class="ew-card__header"><h2>Studio</h2></header>
+        <div class="ew-card__body">
+          <p class="price">$120</p>
+          <p class="muted">Brand skins + Theme Studio later.</p>
+        </div>
+        <footer class="ew-card__footer">
+          <button type="button" class="ew-button" data-variant="ghost">Talk to us</button>
+        </footer>
+      </article>
     </div>
 
-    <label class="ew-switch">
-      <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" id="sw" />
-      <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-      <span class="ew-switch__label">Notifications</span>
-    </label>
-
-    <div class="ew-tabs">
-      <div role="tablist" aria-label="Plans">
-        <button type="button" role="tab" id="t-basic" aria-selected="true" aria-controls="p-basic">Basic</button>
-        <button type="button" role="tab" id="t-pro" aria-selected="false" aria-controls="p-pro" tabindex="-1">Pro</button>
-      </div>
-      <div role="tabpanel" id="p-basic" aria-labelledby="t-basic">Basic plan body</div>
-      <div role="tabpanel" id="p-pro" aria-labelledby="t-pro" hidden>Pro plan body</div>
-    </div>
+    <p class="section-title">Structure check — same markup, frozen eras</p>
+    <div class="compare" id="compare"></div>
   </main>
-
-  <dialog class="ew-dialog" id="dlg" aria-labelledby="dlg-title">
-    <header class="ew-dialog__header"><h2 id="dlg-title">Sign up</h2></header>
-    <div class="ew-dialog__body"><p>Native <code>&lt;dialog&gt;</code> — showModal().</p></div>
-    <footer class="ew-dialog__footer">
-      <button type="button" class="ew-button" data-variant="ghost" id="close-dialog">Cancel</button>
-      <button type="button" class="ew-button">Continue</button>
-    </footer>
-  </dialog>
 
   <script>
     const root = document.body;
@@ -93,26 +146,48 @@
     const mode = document.getElementById('mode');
     const fidelity = document.getElementById('fidelity');
     const fidVal = document.getElementById('fid-val');
-    era.addEventListener('change', () => root.dataset.era = era.value);
-    mode.addEventListener('change', () => root.dataset.mode = mode.value);
-    fidelity.addEventListener('input', () => {
-      root.dataset.fidelity = fidelity.value;
-      fidVal.textContent = fidelity.value;
-    });
-    const sw = document.getElementById('sw');
-    sw.addEventListener('change', () => sw.setAttribute('aria-checked', String(sw.checked)));
-    document.getElementById('open-dialog').addEventListener('click', () => document.getElementById('dlg').showModal());
-    document.getElementById('close-dialog').addEventListener('click', () => document.getElementById('dlg').close());
-    // Minimal tabs keyboard stub for smoke (full WC in Phase 1)
-    const tabs = [...document.querySelectorAll('[role=tab]')];
-    tabs.forEach((tab) => tab.addEventListener('click', () => {
-      tabs.forEach((t) => {
-        const on = t === tab;
-        t.setAttribute('aria-selected', String(on));
-        t.tabIndex = on ? 0 : -1;
-        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
-      });
-    }));
+    const fidBand = document.getElementById('fid-band');
+
+    function bandFor(n) {
+      if (n <= 25) return 'whisper';
+      if (n <= 66) return 'signature';
+      return 'costume';
+    }
+    function syncFidelity() {
+      const n = Number(fidelity.value);
+      root.dataset.fidelity = String(n);
+      const band = bandFor(n);
+      root.dataset.fidelityBand = band;
+      fidVal.textContent = String(n);
+      fidBand.textContent = band;
+    }
+    era.addEventListener('change', () => { root.dataset.era = era.value; });
+    mode.addEventListener('change', () => { root.dataset.mode = mode.value; });
+    fidelity.addEventListener('input', syncFidelity);
+    syncFidelity();
+
+    // Side-by-side frozen era samples (structure, not just hue)
+    const compare = document.getElementById('compare');
+    const eras = ['neutral', 'deco', 'mcm-atomic', 'neon'];
+    for (const id of eras) {
+      const frame = document.createElement('div');
+      frame.className = 'compare-frame ew-root';
+      frame.dataset.era = id;
+      frame.dataset.mode = 'light';
+      frame.dataset.fidelity = '55';
+      frame.dataset.fidelityBand = 'signature';
+      frame.innerHTML = `
+        <h3>${id}</h3>
+        <article class="ew-card" data-variant="raised">
+          <header class="ew-card__header"><h2>Signal</h2></header>
+          <div class="ew-card__body"><p class="muted">Corners · elevation · chrome</p></div>
+          <footer class="ew-card__footer">
+            <button type="button" class="ew-button">Action</button>
+            <button type="button" class="ew-button" data-variant="secondary">Alt</button>
+          </footer>
+        </article>`;
+      compare.appendChild(frame);
+    }
   </script>
 </body>
 </html>

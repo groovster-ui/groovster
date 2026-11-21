@@ -114,5 +114,58 @@
   }
   [data-era="deco"] {
     --ew-fidelity-default: 35;
+    --ew-structure-control-radius: 0px;
+    --ew-structure-surface-radius: 0px;
+    --ew-structure-button-border-width: 2px;
+    --ew-structure-button-border-style: double;
+    --ew-structure-button-letter-spacing: 0.16em;
+    --ew-structure-button-text-transform: uppercase;
+    --ew-structure-button-font-weight: 600;
+    --ew-structure-button-shadow: 0 3px 0 0 var(--ew-color-border-strong);
+    --ew-structure-button-clip: polygon(0 6px, 6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px));
+    --ew-structure-button-padding-x: 22px;
+    --ew-structure-button-padding-y: 10px;
+    --ew-structure-button-bevel: none;
+    --ew-structure-card-border-width: 3px;
+    --ew-structure-card-border-style: double;
+    --ew-structure-card-shadow: 0 4px 0 0 var(--ew-color-border-strong), 0 8px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 25%, transparent);
+    --ew-structure-card-raised-shadow: 0 4px 0 0 var(--ew-color-border-strong), 0 10px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 28%, transparent);
+    --ew-structure-card-clip: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+    --ew-structure-card-padding: 28px;
+    --ew-structure-card-title-tracking: 0.12em;
+    --ew-structure-card-header-rule-display: block;
+    --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
+    --ew-structure-card-ornament-content: "";
+    --ew-structure-card-ornament-opacity: 0.35;
+    --ew-structure-card-ornament-bg: linear-gradient(135deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top left / 28px 14px no-repeat,
+      linear-gradient(225deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top right / 28px 14px no-repeat;
+    --ew-structure-card-ornament-size: auto;
+    --ew-structure-card-ornament-blend: normal;
+  }
+  [data-era="deco"][data-fidelity-band="whisper"] {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+}
+@layer decorators {
+  [data-era="deco"] .ew-card__header::after {
+    content: "";
+    display: block;
+    height: 3px;
+    margin-top: 8px;
+    background:
+      linear-gradient(90deg, transparent 0, var(--ew-color-border-strong) 8%, var(--ew-color-border-strong) 92%, transparent 100%),
+      repeating-linear-gradient(90deg, var(--ew-color-border-strong) 0 6px, transparent 6px 10px);
+    background-size: 100% 1px, 100% 3px;
+    background-position: center, center;
+    background-repeat: no-repeat;
+  }
+  [data-era="deco"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
+  [data-era="deco"] .ew-button[data-variant="secondary"] {
+    border-style: double;
+    border-width: 3px;
   }
 }

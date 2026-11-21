@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "name": "era-widgets-button-card-v0",
+  "description": "Starter eval: Button + Card across Neutral and hero trio. Primary metric scaffolding for agent success, tokens, turns.",
+  "componentsInScope": [
+    "button",
+    "card"
+  ],
+  "erasInScope": [
+    "neutral",
+    "deco",
+    "mcm-atomic",
+    "neon"
+  ],
+  "setups": [
+    {
+      "id": "cursor-agent",
+      "label": "Cursor agent",
+      "mcp": false,
+      "notes": "Docs/llms.txt only; no MCP."
+    },
+    {
+      "id": "claude-code",
+      "label": "Claude Code",
+      "mcp": false,
+      "notes": "Second setup for baseline comparison. MCP variants added in Phase 2."
+    }
+  ],
+  "scoring": {
+    "dimensions": [
+      {
+        "id": "validate",
+        "weight": 0.5,
+        "description": "Spec/heuristic validate pass"
+      },
+      {
+        "id": "structure",
+        "weight": 0.2,
+        "description": "Required classes/eras/variants present"
+      },
+      {
+        "id": "tokens",
+        "weight": 0.15,
+        "description": "Estimated prompt+completion tokens (lower better)"
+      },
+      {
+        "id": "turns",
+        "weight": 0.15,
+        "description": "Agent turns until success (lower better)"
+      }
+    ],
+    "passThreshold": 0.7
+  },
+  "tasks": [
+    "ew-001",
+    "ew-002",
+    "ew-003",
+    "ew-004",
+    "ew-005",
+    "ew-006",
+    "ew-007",
+    "ew-008",
+    "ew-009",
+    "ew-010",
+    "ew-011",
+    "ew-012"
+  ]
+}

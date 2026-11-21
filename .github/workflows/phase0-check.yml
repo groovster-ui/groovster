@@ -1,4 +1,4 @@
-name: phase0-check
+name: era-widgets-check
 on:
   push:
   pull_request:
@@ -16,3 +16,4 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
+      - run: pnpm eval

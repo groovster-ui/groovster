@@ -1,0 +1,11 @@
+{
+  "name": "@era-widgets/eval",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "eval": "node src/cli.js",
+    "baseline": "node src/cli.js --write-baseline"
+  },
+  "license": "MIT"
+}

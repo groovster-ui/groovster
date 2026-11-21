@@ -1,0 +1,31 @@
+{
+  "id": "ew-003",
+  "title": "Atomic product card",
+  "prompt": "Make a mid-century Atomic product card titled 'Boomerang Lamp' with an Add to bag button at fidelity ~40.",
+  "eras": [
+    "mcm-atomic"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 40,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "mcm-atomic",
+    "minButtons": 1,
+    "minCards": 1,
+    "forbid": [
+      "neon",
+      "synthwave",
+      "data-era=\"deco\""
+    ]
+  },
+  "rubric": [
+    "mcm-atomic era",
+    "card+button"
+  ]
+}

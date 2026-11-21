@@ -1,0 +1,30 @@
+{
+  "id": "ew-008",
+  "title": "Three-tier Deco pricing",
+  "prompt": "Art Deco pricing page section: 3 cards (Basic/Pro/Studio) each with a Choose button.",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 35,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "deco",
+    "minCards": 3,
+    "minButtons": 3,
+    "forbid": [
+      "React",
+      "radix"
+    ]
+  },
+  "rubric": [
+    "3 cards",
+    "3 buttons"
+  ]
+}

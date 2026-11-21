@@ -1,0 +1,33 @@
+{
+  "id": "ew-002",
+  "title": "Neutral settings card + Save",
+  "prompt": "Create a quiet Neutral settings card with a Save primary button and Cancel secondary button.",
+  "eras": [
+    "neutral"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 0,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "neutral",
+    "minButtons": 2,
+    "minCards": 1,
+    "requireVariants": [
+      "secondary"
+    ],
+    "forbid": [
+      "clip-path",
+      "sunburst"
+    ]
+  },
+  "rubric": [
+    "neutral era",
+    "primary+secondary buttons"
+  ]
+}

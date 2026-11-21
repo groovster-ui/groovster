@@ -112,5 +112,31 @@
       "use: lifestyle, playful marketing",
       "never: motif wallpaper, neon grids on forms"
     ]
+  },
+  "structure": {
+    "controlRadius": "999px",
+    "surfaceRadius": "24px",
+    "button": {
+      "borderWidth": "0px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.04em",
+      "textTransform": "none",
+      "fontWeight": "700",
+      "shadow": "4px 4px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent)",
+      "clipPath": "none",
+      "paddingX": "20px",
+      "paddingY": "10px"
+    },
+    "card": {
+      "borderWidth": "0px",
+      "borderStyle": "solid",
+      "shadow": "0 2px 6px color-mix(in oklch, var(--ew-color-fg-default) 10%, transparent)",
+      "raisedShadow": "8px 8px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 16%, transparent)",
+      "clipPath": "none",
+      "padding": "24px",
+      "headerRule": false,
+      "titleTracking": "0.06em",
+      "ornament": "starburst"
+    }
   }
 }

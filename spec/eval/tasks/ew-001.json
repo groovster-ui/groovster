@@ -1,0 +1,33 @@
+{
+  "id": "ew-001",
+  "title": "Deco pricing card with primary CTA",
+  "prompt": "Build an Art Deco pricing card for a 'Pro' plan at $48 with a primary Choose button. Use Era Widgets HTML+CSS only.",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 35,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "deco",
+    "minButtons": 1,
+    "minCards": 1,
+    "forbid": [
+      "Orbitron",
+      "style=\"color:",
+      "react",
+      "Base UI"
+    ]
+  },
+  "rubric": [
+    "uses ew-card + ew-button",
+    "data-era=deco on ancestor",
+    "no React"
+  ]
+}

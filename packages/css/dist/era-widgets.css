@@ -159,6 +159,59 @@
   }
   [data-era="deco"] {
     --ew-fidelity-default: 35;
+    --ew-structure-control-radius: 0px;
+    --ew-structure-surface-radius: 0px;
+    --ew-structure-button-border-width: 2px;
+    --ew-structure-button-border-style: double;
+    --ew-structure-button-letter-spacing: 0.16em;
+    --ew-structure-button-text-transform: uppercase;
+    --ew-structure-button-font-weight: 600;
+    --ew-structure-button-shadow: 0 3px 0 0 var(--ew-color-border-strong);
+    --ew-structure-button-clip: polygon(0 6px, 6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px));
+    --ew-structure-button-padding-x: 22px;
+    --ew-structure-button-padding-y: 10px;
+    --ew-structure-button-bevel: none;
+    --ew-structure-card-border-width: 3px;
+    --ew-structure-card-border-style: double;
+    --ew-structure-card-shadow: 0 4px 0 0 var(--ew-color-border-strong), 0 8px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 25%, transparent);
+    --ew-structure-card-raised-shadow: 0 4px 0 0 var(--ew-color-border-strong), 0 10px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 28%, transparent);
+    --ew-structure-card-clip: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+    --ew-structure-card-padding: 28px;
+    --ew-structure-card-title-tracking: 0.12em;
+    --ew-structure-card-header-rule-display: block;
+    --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
+    --ew-structure-card-ornament-content: "";
+    --ew-structure-card-ornament-opacity: 0.35;
+    --ew-structure-card-ornament-bg: linear-gradient(135deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top left / 28px 14px no-repeat,
+      linear-gradient(225deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top right / 28px 14px no-repeat;
+    --ew-structure-card-ornament-size: auto;
+    --ew-structure-card-ornament-blend: normal;
+  }
+  [data-era="deco"][data-fidelity-band="whisper"] {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+}
+@layer decorators {
+  [data-era="deco"] .ew-card__header::after {
+    content: "";
+    display: block;
+    height: 3px;
+    margin-top: 8px;
+    background:
+      linear-gradient(90deg, transparent 0, var(--ew-color-border-strong) 8%, var(--ew-color-border-strong) 92%, transparent 100%),
+      repeating-linear-gradient(90deg, var(--ew-color-border-strong) 0 6px, transparent 6px 10px);
+    background-size: 100% 1px, 100% 3px;
+    background-position: center, center;
+    background-repeat: no-repeat;
+  }
+  [data-era="deco"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
+  [data-era="deco"] .ew-button[data-variant="secondary"] {
+    border-style: double;
+    border-width: 3px;
   }
 }
 
@@ -278,6 +331,56 @@
   }
   [data-era="mcm-atomic"] {
     --ew-fidelity-default: 40;
+    --ew-structure-control-radius: 999px;
+    --ew-structure-surface-radius: 24px;
+    --ew-structure-button-border-width: 0px;
+    --ew-structure-button-border-style: solid;
+    --ew-structure-button-letter-spacing: 0.04em;
+    --ew-structure-button-text-transform: none;
+    --ew-structure-button-font-weight: 700;
+    --ew-structure-button-shadow: 4px 4px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent);
+    --ew-structure-button-clip: none;
+    --ew-structure-button-padding-x: 20px;
+    --ew-structure-button-padding-y: 10px;
+    --ew-structure-button-bevel: none;
+    --ew-structure-card-border-width: 0px;
+    --ew-structure-card-border-style: solid;
+    --ew-structure-card-shadow: 0 2px 6px color-mix(in oklch, var(--ew-color-fg-default) 10%, transparent);
+    --ew-structure-card-raised-shadow: 8px 8px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 16%, transparent);
+    --ew-structure-card-clip: none;
+    --ew-structure-card-padding: 24px;
+    --ew-structure-card-title-tracking: 0.06em;
+    --ew-structure-card-header-rule-display: none;
+    --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
+    --ew-structure-card-ornament-content: "";
+    --ew-structure-card-ornament-opacity: 0.22;
+    --ew-structure-card-ornament-bg: radial-gradient(circle at 92% 12%, var(--ew-color-action-bg) 0 2px, transparent 3px),
+      conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg);
+    --ew-structure-card-ornament-size: 120px 120px;
+    --ew-structure-card-ornament-blend: multiply;
+  }
+  [data-era="mcm-atomic"][data-fidelity-band="whisper"] {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+}
+@layer decorators {
+  [data-era="mcm-atomic"] .ew-card {
+    border-radius: var(--ew-structure-surface-radius, 24px);
+  }
+  [data-era="mcm-atomic"][data-fidelity-band="costume"] .ew-card[data-variant="raised"] {
+    border-radius: 28px 28px 36px 20px / 24px 32px 22px 30px;
+  }
+  [data-era="mcm-atomic"] .ew-button {
+    border-radius: var(--ew-structure-control-radius, 999px);
+  }
+  [data-era="mcm-atomic"] .ew-card__header h2,
+  [data-era="mcm-atomic"] .ew-card__header h3 {
+    text-transform: lowercase;
+    font-weight: 600;
   }
 }
 
@@ -395,6 +498,68 @@
   }
   [data-era="neon"] {
     --ew-fidelity-default: 55;
+    --ew-structure-control-radius: 2px;
+    --ew-structure-surface-radius: 4px;
+    --ew-structure-button-border-width: 2px;
+    --ew-structure-button-border-style: solid;
+    --ew-structure-button-letter-spacing: 0.08em;
+    --ew-structure-button-text-transform: uppercase;
+    --ew-structure-button-font-weight: 700;
+    --ew-structure-button-shadow: 0 0 0 1px color-mix(in oklch, var(--ew-color-border-subtle) 80%, transparent), 0 0 12px color-mix(in oklch, var(--ew-color-action-bg) 35%, transparent);
+    --ew-structure-button-clip: none;
+    --ew-structure-button-padding-x: 18px;
+    --ew-structure-button-padding-y: 9px;
+    --ew-structure-button-bevel: inset 0 1px 0 color-mix(in oklch, white 35%, transparent), inset 0 -1px 0 color-mix(in oklch, black 35%, transparent);
+    --ew-structure-card-border-width: 2px;
+    --ew-structure-card-border-style: solid;
+    --ew-structure-card-shadow: 0 0 0 1px var(--ew-color-border-subtle), 0 0 18px color-mix(in oklch, var(--ew-color-action-bg) 25%, transparent);
+    --ew-structure-card-raised-shadow: 0 0 0 1px var(--ew-color-border-strong), 0 0 28px color-mix(in oklch, var(--ew-color-action-bg) 40%, transparent), 0 16px 40px color-mix(in oklch, black 55%, transparent);
+    --ew-structure-card-clip: none;
+    --ew-structure-card-padding: 20px;
+    --ew-structure-card-title-tracking: 0.1em;
+    --ew-structure-card-header-rule-display: block;
+    --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
+    --ew-structure-card-ornament-content: "";
+    --ew-structure-card-ornament-opacity: 0.18;
+    --ew-structure-card-ornament-bg: repeating-linear-gradient(
+        to bottom,
+        transparent 0 2px,
+        color-mix(in oklch, var(--ew-color-fg-default) 35%, transparent) 2px 3px
+      ),
+      linear-gradient(120deg, transparent 40%, color-mix(in oklch, var(--ew-color-action-bg) 18%, transparent) 50%, transparent 60%);
+    --ew-structure-card-ornament-size: auto;
+    --ew-structure-card-ornament-blend: screen;
+  }
+  [data-era="neon"][data-fidelity-band="whisper"] {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+}
+@layer decorators {
+  [data-era="neon"] .ew-button {
+    border-image: linear-gradient(120deg, var(--ew-color-border-strong), var(--ew-color-border-subtle), var(--ew-color-border-strong)) 1;
+  }
+  [data-era="neon"] .ew-button[data-variant="ghost"] { border-image: none; }
+  [data-era="neon"] .ew-card {
+    border-color: var(--ew-color-border-strong);
+    background-image:
+      linear-gradient(180deg, color-mix(in oklch, var(--ew-color-bg-elevated) 92%, white) 0%, var(--ew-color-bg-surface) 100%);
+  }
+  [data-era="neon"] .ew-card__header::after {
+    content: "";
+    display: block;
+    height: 2px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, var(--ew-color-action-bg), var(--ew-color-border-subtle), transparent);
+  }
+  [data-era="neon"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
+  [data-era="neon"] .ew-card__header h2,
+  [data-era="neon"] .ew-card__header h3 {
+    text-transform: uppercase;
+    font-family: var(--ew-font-display, inherit);
   }
 }
 
@@ -520,6 +685,47 @@
   }
   [data-era="neutral"] {
     --ew-fidelity-default: 0;
+    --ew-structure-control-radius: 8px;
+    --ew-structure-surface-radius: 12px;
+    --ew-structure-button-border-width: 1px;
+    --ew-structure-button-border-style: solid;
+    --ew-structure-button-letter-spacing: 0;
+    --ew-structure-button-text-transform: none;
+    --ew-structure-button-font-weight: 600;
+    --ew-structure-button-shadow: 0 1px 2px color-mix(in oklch, var(--ew-color-fg-default) 12%, transparent);
+    --ew-structure-button-clip: none;
+    --ew-structure-button-padding-x: 16px;
+    --ew-structure-button-padding-y: 8px;
+    --ew-structure-button-bevel: none;
+    --ew-structure-card-border-width: 1px;
+    --ew-structure-card-border-style: solid;
+    --ew-structure-card-shadow: 0 1px 2px color-mix(in oklch, var(--ew-color-fg-default) 8%, transparent);
+    --ew-structure-card-raised-shadow: 0 4px 12px color-mix(in oklch, var(--ew-color-fg-default) 12%, transparent);
+    --ew-structure-card-clip: none;
+    --ew-structure-card-padding: 16px;
+    --ew-structure-card-title-tracking: 0;
+    --ew-structure-card-header-rule-display: none;
+    --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
+    --ew-structure-card-ornament-content: none;
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-card-ornament-bg: none;
+    --ew-structure-card-ornament-size: auto;
+    --ew-structure-card-ornament-blend: normal;
+  }
+  [data-era="neutral"][data-fidelity-band="whisper"] {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+}
+@layer decorators {
+  [data-era="neutral"] .ew-button {
+    border-radius: var(--ew-structure-control-radius, 8px);
+  }
+  [data-era="neutral"] .ew-card {
+    border-radius: var(--ew-structure-surface-radius, 12px);
   }
 }
 
@@ -531,37 +737,56 @@
     font: inherit;
   }
   .ew-button {
+    --_btn-radius: var(--ew-structure-control-radius, var(--ew-button-radius, 8px));
+    --_btn-border-w: var(--ew-structure-button-border-width, 1px);
+    --_btn-border-style: var(--ew-structure-button-border-style, solid);
+    --_btn-shadow: var(--ew-structure-button-shadow, none);
+    --_btn-clip: var(--ew-structure-button-clip, none);
+    --_btn-bevel: var(--ew-structure-button-bevel, none);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--ew-button-gap, 8px);
-    padding: var(--ew-button-padding-y, 8px) var(--ew-button-padding-x, 16px);
-    border: 1px solid var(--ew-color-border-strong, currentColor);
-    border-radius: var(--ew-button-radius, var(--ew-radius-md, 8px));
+    padding: var(--ew-structure-button-padding-y, var(--ew-button-padding-y, 8px)) var(--ew-structure-button-padding-x, var(--ew-button-padding-x, 16px));
+    border: var(--_btn-border-w) var(--_btn-border-style) var(--ew-color-border-strong, currentColor);
+    border-radius: var(--_btn-radius);
+    clip-path: var(--_btn-clip);
     background: var(--ew-color-action-bg, #334);
     color: var(--ew-color-action-fg, #fff);
     font-size: var(--ew-button-font-size, 14px);
     font-family: var(--ew-font-body, system-ui, sans-serif);
+    font-weight: var(--ew-structure-button-font-weight, 600);
+    letter-spacing: var(--ew-structure-button-letter-spacing, 0);
+    text-transform: var(--ew-structure-button-text-transform, none);
+    box-shadow: var(--_btn-bevel), var(--_btn-shadow);
     cursor: pointer;
+    transition: background 120ms ease, box-shadow 120ms ease, transform 120ms ease;
   }
   .ew-button:hover { background: var(--ew-color-action-hover, #223); }
+  .ew-button:active { transform: translateY(1px); }
   .ew-button:focus-visible { outline: 2px solid var(--ew-color-field-focus, Highlight); outline-offset: 2px; }
-  .ew-button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .ew-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
   .ew-button[data-variant="secondary"] {
     background: transparent;
     color: var(--ew-color-fg-default, inherit);
+    border-color: var(--ew-color-border-strong, currentColor);
   }
   .ew-button[data-variant="ghost"] {
     background: transparent;
     border-color: transparent;
+    box-shadow: none;
     color: var(--ew-color-fg-default, inherit);
   }
   .ew-button[data-variant="danger"] {
     background: var(--ew-color-danger-bg, #a33);
     color: var(--ew-color-danger-fg, #fff);
+    border-color: var(--ew-color-danger-bg, #a33);
   }
-  .ew-button[data-size="sm"] { padding: 4px 10px; font-size: 12px; }
-  .ew-button[data-size="lg"] { padding: 12px 20px; font-size: 16px; }
+  .ew-button[data-size="sm"] { padding: 4px 10px; font-size: 12px; letter-spacing: calc(var(--ew-structure-button-letter-spacing, 0) * 0.7); }
+  .ew-button[data-size="lg"] { padding: 12px 22px; font-size: 16px; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-button { transition: none; }
+  }
 }
 
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
@@ -572,23 +797,62 @@
     font: inherit;
   }
   .ew-card {
+    --_card-radius: var(--ew-structure-surface-radius, var(--ew-card-radius, 12px));
+    --_card-border-w: var(--ew-structure-card-border-width, 1px);
+    --_card-border-style: var(--ew-structure-card-border-style, solid);
+    --_card-shadow: var(--ew-structure-card-shadow, var(--ew-elevation-1, none));
+    --_card-clip: var(--ew-structure-card-clip, none);
+    position: relative;
     display: grid;
     gap: var(--ew-card-gap, 12px);
-    padding: var(--ew-card-padding, 16px);
-    border: 1px solid var(--ew-color-border-subtle, #ccc);
-    border-radius: var(--ew-card-radius, var(--ew-radius-lg, 12px));
+    padding: var(--ew-structure-card-padding, var(--ew-card-padding, 16px));
+    border: var(--_card-border-w) var(--_card-border-style) var(--ew-color-border-subtle, #ccc);
+    border-radius: var(--_card-radius);
+    clip-path: var(--_card-clip);
     background: var(--ew-color-bg-surface, #f6f6f6);
     color: var(--ew-color-fg-default, inherit);
-    box-shadow: var(--ew-elevation-1, none);
+    box-shadow: var(--_card-shadow);
     font-family: var(--ew-font-body, system-ui, sans-serif);
+    overflow: clip;
   }
-  .ew-card[data-variant="raised"] { box-shadow: var(--ew-elevation-2, none); background: var(--ew-color-bg-elevated, #fff); }
+  .ew-card[data-variant="raised"] {
+    box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2, none));
+    background: var(--ew-color-bg-elevated, #fff);
+  }
   .ew-card[data-variant="outline"] { box-shadow: none; }
   .ew-card[data-variant="flat"] { border-color: transparent; box-shadow: none; }
   .ew-card[data-variant="inset"] { box-shadow: inset 0 1px 2px color-mix(in oklch, black 12%, transparent); }
-  .ew-card__header h3, .ew-card__header h2 { margin: 0; font-family: var(--ew-font-display, inherit); }
+  .ew-card__header {
+    display: grid;
+    gap: 8px;
+  }
+  .ew-card__header h3, .ew-card__header h2 {
+    margin: 0;
+    font-family: var(--ew-font-display, inherit);
+    letter-spacing: var(--ew-structure-card-title-tracking, 0);
+  }
+  .ew-card__header[data-rule]::after,
+  .ew-card[data-header-rule="true"] .ew-card__header::after {
+    content: "";
+    display: var(--ew-structure-card-header-rule-display, none);
+    height: 2px;
+    width: 100%;
+    background: var(--ew-structure-card-header-rule, var(--ew-color-border-strong));
+  }
   .ew-card__body { margin: 0; }
   .ew-card__footer { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ew-card::before {
+    content: var(--ew-structure-card-ornament-content, none);
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: var(--ew-structure-card-ornament-opacity, 0);
+    background: var(--ew-structure-card-ornament-bg, none);
+    background-size: var(--ew-structure-card-ornament-size, auto);
+    mix-blend-mode: var(--ew-structure-card-ornament-blend, normal);
+  }
+  .ew-card > * { position: relative; z-index: 1; }
 }
 
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */

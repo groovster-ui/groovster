@@ -1,0 +1,29 @@
+{
+  "id": "ew-006",
+  "title": "Deco secondary vs primary pair",
+  "prompt": "In Deco, show a card footer with Cancel (secondary) and Confirm (primary) buttons.",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 40,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "deco",
+    "minButtons": 2,
+    "minCards": 1,
+    "requireVariants": [
+      "secondary"
+    ],
+    "forbid": []
+  },
+  "rubric": [
+    "secondary variant present"
+  ]
+}

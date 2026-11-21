@@ -1,0 +1,534 @@
+{
+  "suite": "era-widgets-button-card-v0",
+  "version": 1,
+  "generatedAt": "2026-11-21T23:54:30.383Z",
+  "mode": "fixture-baseline",
+  "note": "Live agent runners not automated yet. This records validate/tokens/turns scaffolding against golden fixtures for each setup.",
+  "setups": {
+    "cursor-agent": {
+      "successRate": 1,
+      "meanScore": 1,
+      "meanTokens": 134.83333333333334,
+      "meanTurns": 1,
+      "passed": 12,
+      "total": 12
+    },
+    "claude-code": {
+      "successRate": 1,
+      "meanScore": 1,
+      "meanTokens": 134.83333333333334,
+      "meanTurns": 1,
+      "passed": 12,
+      "total": 12
+    }
+  },
+  "results": [
+    {
+      "taskId": "ew-001",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 29,
+        "completionTokens": 92,
+        "totalTokens": 121,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-002",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 23,
+        "completionTokens": 111,
+        "totalTokens": 134,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-003",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 27,
+        "completionTokens": 98,
+        "totalTokens": 125,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-004",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 22,
+        "completionTokens": 98,
+        "totalTokens": 120,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-005",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 33,
+        "completionTokens": 80,
+        "totalTokens": 113,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-006",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 21,
+        "completionTokens": 97,
+        "totalTokens": 118,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-007",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 21,
+        "completionTokens": 93,
+        "totalTokens": 114,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-008",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 21,
+        "completionTokens": 184,
+        "totalTokens": 205,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-009",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 25,
+        "completionTokens": 79,
+        "totalTokens": 104,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-010",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 18,
+        "completionTokens": 96,
+        "totalTokens": 114,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-011",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 28,
+        "completionTokens": 80,
+        "totalTokens": 108,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-012",
+      "setupId": "cursor-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 32,
+        "completionTokens": 210,
+        "totalTokens": 242,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-001",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 29,
+        "completionTokens": 92,
+        "totalTokens": 121,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-002",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 23,
+        "completionTokens": 111,
+        "totalTokens": 134,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-003",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 27,
+        "completionTokens": 98,
+        "totalTokens": 125,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-004",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 22,
+        "completionTokens": 98,
+        "totalTokens": 120,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-005",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 33,
+        "completionTokens": 80,
+        "totalTokens": 113,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-006",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 21,
+        "completionTokens": 97,
+        "totalTokens": 118,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-007",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 21,
+        "completionTokens": 93,
+        "totalTokens": 114,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-008",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 21,
+        "completionTokens": 184,
+        "totalTokens": 205,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-009",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 25,
+        "completionTokens": 79,
+        "totalTokens": 104,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-010",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 18,
+        "completionTokens": 96,
+        "totalTokens": 114,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-011",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 28,
+        "completionTokens": 80,
+        "totalTokens": 108,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    },
+    {
+      "taskId": "ew-012",
+      "setupId": "claude-code",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 1,
+        "turns": 1,
+        "total": 1
+      },
+      "metrics": {
+        "promptTokens": 32,
+        "completionTokens": 210,
+        "totalTokens": 242,
+        "turns": 1
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "fixture"
+    }
+  ],
+  "baseline": true,
+  "label": "fixture-golden-v0",
+  "recordedNote": "Placeholder baseline until live Cursor/Claude agent loops land. Do not treat as agent success rate."
+}

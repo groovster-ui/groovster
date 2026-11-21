@@ -1,0 +1,31 @@
+{
+  "id": "ew-004",
+  "title": "Neon night CTA card",
+  "prompt": "Build a Synthwave/Neon dark-mode CTA card: 'Enter the grid' with a primary Start button.",
+  "eras": [
+    "neon"
+  ],
+  "components": [
+    "card",
+    "button"
+  ],
+  "fidelity": 55,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-button"
+    ],
+    "dataEra": "neon",
+    "dataMode": "dark",
+    "minButtons": 1,
+    "minCards": 1,
+    "forbid": [
+      "Cinzel on button",
+      "font-family: Orbitron"
+    ]
+  },
+  "rubric": [
+    "neon+dark",
+    "no display face on button"
+  ]
+}

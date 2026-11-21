@@ -14,7 +14,8 @@
     "modes",
     "neverDo",
     "tokenFiles",
-    "card"
+    "card",
+    "structure"
   ],
   "properties": {
     "$schema": {
@@ -260,6 +261,120 @@
           "maxItems": 20,
           "items": {
             "type": "string"
+          }
+        }
+      }
+    },
+    "structure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "controlRadius",
+        "surfaceRadius",
+        "button",
+        "card"
+      ],
+      "properties": {
+        "controlRadius": {
+          "type": "string"
+        },
+        "surfaceRadius": {
+          "type": "string"
+        },
+        "button": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "borderWidth",
+            "borderStyle",
+            "letterSpacing",
+            "textTransform",
+            "fontWeight",
+            "shadow",
+            "clipPath"
+          ],
+          "properties": {
+            "borderWidth": {
+              "type": "string"
+            },
+            "borderStyle": {
+              "type": "string"
+            },
+            "letterSpacing": {
+              "type": "string"
+            },
+            "textTransform": {
+              "type": "string"
+            },
+            "fontWeight": {
+              "type": "string"
+            },
+            "shadow": {
+              "type": "string"
+            },
+            "clipPath": {
+              "type": "string"
+            },
+            "paddingX": {
+              "type": "string"
+            },
+            "paddingY": {
+              "type": "string"
+            },
+            "titleCase": {
+              "type": "boolean"
+            },
+            "bevel": {
+              "type": "string",
+              "description": "Optional inset highlight for chrome bevels"
+            }
+          }
+        },
+        "card": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "borderWidth",
+            "borderStyle",
+            "shadow",
+            "clipPath",
+            "padding",
+            "headerRule"
+          ],
+          "properties": {
+            "borderWidth": {
+              "type": "string"
+            },
+            "borderStyle": {
+              "type": "string"
+            },
+            "shadow": {
+              "type": "string"
+            },
+            "clipPath": {
+              "type": "string"
+            },
+            "padding": {
+              "type": "string"
+            },
+            "headerRule": {
+              "type": "boolean"
+            },
+            "titleTracking": {
+              "type": "string"
+            },
+            "ornament": {
+              "type": "string",
+              "enum": [
+                "none",
+                "chevron",
+                "starburst",
+                "scanline"
+              ]
+            },
+            "raisedShadow": {
+              "type": "string"
+            }
           }
         }
       }
