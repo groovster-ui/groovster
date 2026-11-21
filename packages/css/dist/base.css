@@ -1,0 +1,13 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+@layer reset, tokens, era, components, decorators, overrides;
+
+@layer reset {
+  .ew-root, .ew-root * { box-sizing: border-box; }
+  .ew-root { margin: 0; }
+}
+
+@layer tokens {
+  :root, .ew-root, [data-era] {
+    color-scheme: light dark;
+  }
+}

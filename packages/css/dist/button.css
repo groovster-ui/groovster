@@ -1,0 +1,40 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-button {
+    /* anatomy: root, label, icon, ornament-before, ornament-after, frame */
+    font: inherit;
+  }
+  .ew-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ew-button-gap, 8px);
+    padding: var(--ew-button-padding-y, 8px) var(--ew-button-padding-x, 16px);
+    border: 1px solid var(--ew-color-border-strong, currentColor);
+    border-radius: var(--ew-button-radius, var(--ew-radius-md, 8px));
+    background: var(--ew-color-action-bg, #334);
+    color: var(--ew-color-action-fg, #fff);
+    font-size: var(--ew-button-font-size, 14px);
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+    cursor: pointer;
+  }
+  .ew-button:hover { background: var(--ew-color-action-hover, #223); }
+  .ew-button:focus-visible { outline: 2px solid var(--ew-color-field-focus, Highlight); outline-offset: 2px; }
+  .ew-button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .ew-button[data-variant="secondary"] {
+    background: transparent;
+    color: var(--ew-color-fg-default, inherit);
+  }
+  .ew-button[data-variant="ghost"] {
+    background: transparent;
+    border-color: transparent;
+    color: var(--ew-color-fg-default, inherit);
+  }
+  .ew-button[data-variant="danger"] {
+    background: var(--ew-color-danger-bg, #a33);
+    color: var(--ew-color-danger-fg, #fff);
+  }
+  .ew-button[data-size="sm"] { padding: 4px 10px; font-size: 12px; }
+  .ew-button[data-size="lg"] { padding: 12px 20px; font-size: 16px; }
+}

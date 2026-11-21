@@ -2,8 +2,11 @@ node_modules/
 .DS_Store
 *.log
 .turbo/
-dist/
 .bin/
 .pnpm-store/
 *.tsbuildinfo
 .cache/
+# Ignore package build outs except the committed generated CSS tree
+packages/*/dist/
+!packages/css/dist/
+!packages/css/dist/**

@@ -1,0 +1,46 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-switch {
+    /* anatomy: root, control, track, thumb, label, indicator */
+    font: inherit;
+  }
+  .ew-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+    cursor: pointer;
+  }
+  .ew-switch__control {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+  .ew-switch__track {
+    width: var(--ew-switch-track-width, 44px);
+    height: var(--ew-switch-track-height, 24px);
+    border-radius: var(--ew-radius-pill, 999px);
+    background: var(--ew-color-track-off, #ccc);
+    display: inline-flex;
+    align-items: center;
+    padding: 3px;
+    transition: background var(--ew-motion-switch, 160ms) ease;
+  }
+  .ew-switch__thumb {
+    width: var(--ew-switch-thumb-size, 18px);
+    height: var(--ew-switch-thumb-size, 18px);
+    border-radius: 50%;
+    background: var(--ew-color-fg-inverse, #fff);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
+    transition: transform var(--ew-motion-switch, 160ms) ease;
+  }
+  .ew-switch__control:checked + .ew-switch__track { background: var(--ew-color-track-on, #334); }
+  .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb { transform: translateX(20px); }
+  .ew-switch__control:focus-visible + .ew-switch__track { outline: 2px solid var(--ew-color-field-focus, Highlight); outline-offset: 2px; }
+  .ew-switch__label { color: var(--ew-color-fg-default, inherit); }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-switch__track, .ew-switch__thumb { transition: none; }
+  }
+}

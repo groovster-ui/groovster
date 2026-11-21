@@ -1,0 +1,21 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-dialog {
+    /* anatomy: root, backdrop, frame, header, body, footer, close */
+    font: inherit;
+  }
+  .ew-dialog {
+    border: 1px solid var(--ew-color-border-strong, #888);
+    border-radius: var(--ew-dialog-radius, var(--ew-radius-lg, 12px));
+    padding: var(--ew-dialog-padding, 24px);
+    max-width: var(--ew-dialog-max-width, 420px);
+    background: var(--ew-color-bg-elevated, #fff);
+    color: var(--ew-color-fg-default, inherit);
+    box-shadow: var(--ew-elevation-dialog, none);
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  .ew-dialog::backdrop { background: var(--ew-color-overlay, rgb(0 0 0 / 0.45)); }
+  .ew-dialog__header h2 { margin: 0 0 12px; font-family: var(--ew-font-display, inherit); }
+  .ew-dialog__footer { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+}

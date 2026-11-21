@@ -1,0 +1,26 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-card {
+    /* anatomy: root, header, body, footer, media, frame, backdrop, ornament-before */
+    font: inherit;
+  }
+  .ew-card {
+    display: grid;
+    gap: var(--ew-card-gap, 12px);
+    padding: var(--ew-card-padding, 16px);
+    border: 1px solid var(--ew-color-border-subtle, #ccc);
+    border-radius: var(--ew-card-radius, var(--ew-radius-lg, 12px));
+    background: var(--ew-color-bg-surface, #f6f6f6);
+    color: var(--ew-color-fg-default, inherit);
+    box-shadow: var(--ew-elevation-1, none);
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  .ew-card[data-variant="raised"] { box-shadow: var(--ew-elevation-2, none); background: var(--ew-color-bg-elevated, #fff); }
+  .ew-card[data-variant="outline"] { box-shadow: none; }
+  .ew-card[data-variant="flat"] { border-color: transparent; box-shadow: none; }
+  .ew-card[data-variant="inset"] { box-shadow: inset 0 1px 2px color-mix(in oklch, black 12%, transparent); }
+  .ew-card__header h3, .ew-card__header h2 { margin: 0; font-family: var(--ew-font-display, inherit); }
+  .ew-card__body { margin: 0; }
+  .ew-card__footer { display: flex; gap: 8px; flex-wrap: wrap; }
+}
