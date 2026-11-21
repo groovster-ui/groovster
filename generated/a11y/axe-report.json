@@ -1,0 +1,45 @@
+{
+  "pass": true,
+  "cases": [
+    {
+      "id": "case-neutral-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neutral-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-deco-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-deco-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-mcm-atomic-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-mcm-atomic-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neon-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neon-dark",
+      "pass": true,
+      "violations": []
+    }
+  ]
+}

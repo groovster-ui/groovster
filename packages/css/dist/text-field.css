@@ -3,19 +3,35 @@
 @layer components {
   .ew-text-field {
     /* anatomy: root, label, control, description, error, ornament-before, indicator */
-    font: inherit;
   }
-  .ew-text-field { display: grid; gap: 6px; font-family: var(--ew-font-body, system-ui, sans-serif); }
-  .ew-text-field__label { color: var(--ew-color-fg-default, inherit); font-size: 14px; }
+  .ew-text-field {
+    display: grid;
+    gap: 6px;
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  .ew-text-field__label { color: var(--ew-color-fg-default, inherit); font-size: 14px; font-weight: 600; }
   .ew-text-field__control {
     padding: var(--ew-field-padding-y, 8px) var(--ew-field-padding-x, 12px);
-    border: 1px solid var(--ew-color-field-border, #888);
-    border-radius: var(--ew-field-radius, var(--ew-radius-md, 8px));
+    border: var(--ew-structure-field-border-width, 1px) var(--ew-structure-field-border-style, solid) var(--ew-color-field-border, #888);
+    border-radius: var(--ew-structure-field-radius, var(--ew-radius-md, 8px));
     background: var(--ew-color-field-bg, #fff);
     color: var(--ew-color-fg-default, inherit);
     font: inherit;
+    box-shadow: var(--ew-structure-field-shadow, none);
+  }
+  .ew-text-field[data-variant="filled"] .ew-text-field__control {
+    background: color-mix(in oklch, var(--ew-color-bg-surface) 80%, var(--ew-color-fg-default));
+    border-color: transparent;
+  }
+  .ew-text-field[data-variant="underline"] .ew-text-field__control,
+  .ew-text-field:where([data-underline="true"]) .ew-text-field__control {
+    border-radius: 0;
+    border-width: 0 0 var(--ew-structure-field-border-width, 2px) 0;
+    background: transparent;
   }
   .ew-text-field__control:focus-visible { outline: 2px solid var(--ew-color-field-focus, Highlight); outline-offset: 1px; }
   .ew-text-field__description, .ew-text-field__error { font-size: 12px; color: var(--ew-color-fg-muted, #666); }
   .ew-text-field[data-invalid="true"] .ew-text-field__error, .ew-text-field__error { color: var(--ew-color-danger-bg, #a33); }
+  .ew-text-field[data-size="sm"] .ew-text-field__control { padding: 4px 8px; font-size: 12px; }
+  .ew-text-field[data-size="lg"] .ew-text-field__control { padding: 12px 14px; font-size: 16px; }
 }

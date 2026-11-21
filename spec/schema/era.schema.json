@@ -272,7 +272,11 @@
         "controlRadius",
         "surfaceRadius",
         "button",
-        "card"
+        "card",
+        "field",
+        "dialog",
+        "tabs",
+        "switch"
       ],
       "properties": {
         "controlRadius": {
@@ -373,6 +377,99 @@
               ]
             },
             "raisedShadow": {
+              "type": "string"
+            }
+          }
+        },
+        "field": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "borderWidth",
+            "borderStyle",
+            "radius"
+          ],
+          "properties": {
+            "borderWidth": {
+              "type": "string"
+            },
+            "borderStyle": {
+              "type": "string"
+            },
+            "radius": {
+              "type": "string"
+            },
+            "underline": {
+              "type": "boolean"
+            }
+          }
+        },
+        "dialog": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "borderWidth",
+            "borderStyle",
+            "radius",
+            "shadow"
+          ],
+          "properties": {
+            "borderWidth": {
+              "type": "string"
+            },
+            "borderStyle": {
+              "type": "string"
+            },
+            "radius": {
+              "type": "string"
+            },
+            "shadow": {
+              "type": "string"
+            },
+            "clipPath": {
+              "type": "string"
+            }
+          }
+        },
+        "tabs": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "indicatorHeight",
+            "indicatorStyle",
+            "radius"
+          ],
+          "properties": {
+            "indicatorHeight": {
+              "type": "string"
+            },
+            "indicatorStyle": {
+              "type": "string"
+            },
+            "radius": {
+              "type": "string"
+            },
+            "enclosed": {
+              "type": "boolean"
+            }
+          }
+        },
+        "switch": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "trackRadius",
+            "thumbRadius",
+            "shadow"
+          ],
+          "properties": {
+            "trackRadius": {
+              "type": "string"
+            },
+            "thumbRadius": {
+              "type": "string"
+            },
+            "shadow": {
               "type": "string"
             }
           }

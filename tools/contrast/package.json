@@ -1,0 +1,10 @@
+{
+  "name": "@era-widgets/contrast",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "contrast": "node src/cli.js"
+  },
+  "license": "MIT"
+}

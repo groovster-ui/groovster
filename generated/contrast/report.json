@@ -1,0 +1,22 @@
+{
+  "eras": {
+    "neutral": {
+      "pass": true,
+      "issues": []
+    },
+    "deco": {
+      "pass": true,
+      "issues": []
+    },
+    "mcm-atomic": {
+      "pass": true,
+      "issues": []
+    },
+    "neon": {
+      "pass": true,
+      "issues": []
+    }
+  },
+  "pass": true,
+  "note": "Glow ignored; flat OKLCH fills only."
+}

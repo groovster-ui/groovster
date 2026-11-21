@@ -63,7 +63,7 @@
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(50% 0.18 25)"
+        "$value": "oklch(42% 0.18 25)"
       },
       "fg": {
         "$type": "color",

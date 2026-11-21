@@ -54,6 +54,26 @@ Or open `demos/smoke/index.html` after `pnpm gen` (CSS path is relative to the r
 2. Run `pnpm gen`.
 3. Commit the spec **and** generated outputs together.
 
+
+
+## Phase 1 — CSS core + Tabs element
+
+```bash
+pnpm gen
+pnpm check          # validate + drift/budgets + no-imports + contrast
+pnpm no-imports     # published CSS/JS must not @import / import modules
+pnpm contrast       # AA contrast on 4 packs (glow ignored)
+pnpm test:a11y      # Playwright axe + Tabs keyboard APG
+```
+
+Smoke (era **look** flips with zero JS via `:has()` radios):
+
+```bash
+python3 -m http.server 4173 --directory demos/smoke
+```
+
+Tabs behavior: `<script src="packages/elements/dist/ew-tabs.js">` — dependency-free, **no imports** in the published file. Zag.js not used.
+
 ## License
 
 MIT (core). Default era fonts are open-licensed only (OFL).

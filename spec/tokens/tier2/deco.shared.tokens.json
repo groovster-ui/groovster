@@ -90,11 +90,11 @@
     "danger": {
       "bg": {
         "$type": "color",
-        "$value": "oklch(45% 0.14 25)"
+        "$value": "oklch(40% 0.14 25)"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(96% 0.02 95)"
+        "$value": "oklch(97% 0.02 95)"
       }
     }
   },

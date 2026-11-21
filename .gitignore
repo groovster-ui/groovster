@@ -6,7 +6,11 @@ node_modules/
 .pnpm-store/
 *.tsbuildinfo
 .cache/
-# Ignore package build outs except the committed generated CSS tree
+test-results/
+playwright-report/
+# Ignore package build outs except committed published trees
 packages/*/dist/
 !packages/css/dist/
 !packages/css/dist/**
+!packages/elements/dist/
+!packages/elements/dist/**

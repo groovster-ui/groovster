@@ -3,19 +3,35 @@
 @layer components {
   .ew-dialog {
     /* anatomy: root, backdrop, frame, header, body, footer, close */
-    font: inherit;
   }
   .ew-dialog {
-    border: 1px solid var(--ew-color-border-strong, #888);
-    border-radius: var(--ew-dialog-radius, var(--ew-radius-lg, 12px));
+    border: var(--ew-structure-dialog-border-width, 1px) var(--ew-structure-dialog-border-style, solid) var(--ew-color-border-strong, #888);
+    border-radius: var(--ew-structure-dialog-radius, var(--ew-dialog-radius, 12px));
+    clip-path: var(--ew-structure-dialog-clip, none);
     padding: var(--ew-dialog-padding, 24px);
     max-width: var(--ew-dialog-max-width, 420px);
+    width: calc(100% - 32px);
     background: var(--ew-color-bg-elevated, #fff);
     color: var(--ew-color-fg-default, inherit);
-    box-shadow: var(--ew-elevation-dialog, none);
+    box-shadow: var(--ew-structure-dialog-shadow, var(--ew-elevation-dialog, none));
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   .ew-dialog::backdrop { background: var(--ew-color-overlay, rgb(0 0 0 / 0.45)); }
-  .ew-dialog__header h2 { margin: 0 0 12px; font-family: var(--ew-font-display, inherit); }
-  .ew-dialog__footer { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+  .ew-dialog__header h2 {
+    margin: 0 0 12px;
+    font-family: var(--ew-font-display, inherit);
+    letter-spacing: var(--ew-structure-card-title-tracking, 0);
+  }
+  .ew-dialog__body { margin: 0; }
+  .ew-dialog__footer { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; flex-wrap: wrap; }
+  .ew-dialog__close {
+    position: absolute;
+    top: 12px;
+    inset-inline-end: 12px;
+  }
+  .ew-dialog[data-size="sm"] { max-width: 320px; }
+  .ew-dialog[data-size="lg"] { max-width: 560px; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-dialog, .ew-dialog::backdrop { transition: none; }
+  }
 }

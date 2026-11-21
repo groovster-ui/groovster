@@ -3,7 +3,6 @@
 @layer components {
   .ew-button {
     /* anatomy: root, label, icon, ornament-before, ornament-after, frame */
-    font: inherit;
   }
   .ew-button {
     --_btn-radius: var(--ew-structure-control-radius, var(--ew-button-radius, 8px));
@@ -51,9 +50,7 @@
     color: var(--ew-color-danger-fg, #fff);
     border-color: var(--ew-color-danger-bg, #a33);
   }
-  .ew-button[data-size="sm"] { padding: 4px 10px; font-size: 12px; letter-spacing: calc(var(--ew-structure-button-letter-spacing, 0) * 0.7); }
+  .ew-button[data-size="sm"] { padding: 4px 10px; font-size: 12px; }
   .ew-button[data-size="lg"] { padding: 12px 22px; font-size: 16px; }
-  @media (prefers-reduced-motion: reduce) {
-    .ew-button { transition: none; }
-  }
+  @media (prefers-reduced-motion: reduce) { .ew-button { transition: none; } }
 }

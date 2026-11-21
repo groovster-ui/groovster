@@ -143,6 +143,20 @@
       linear-gradient(120deg, transparent 40%, color-mix(in oklch, var(--ew-color-action-bg) 18%, transparent) 50%, transparent 60%);
     --ew-structure-card-ornament-size: auto;
     --ew-structure-card-ornament-blend: screen;
+    --ew-structure-field-border-width: 2px;
+    --ew-structure-field-border-style: solid;
+    --ew-structure-field-radius: 2px;
+    --ew-structure-dialog-border-width: 2px;
+    --ew-structure-dialog-border-style: solid;
+    --ew-structure-dialog-radius: 4px;
+    --ew-structure-dialog-shadow: 0 0 24px color-mix(in oklch, var(--ew-color-action-bg) 35%, transparent);
+    --ew-structure-dialog-clip: none;
+    --ew-structure-tabs-indicator-height: 2px;
+    --ew-structure-tabs-indicator-style: solid;
+    --ew-structure-tabs-radius: 2px;
+    --ew-structure-switch-track-radius: 2px;
+    --ew-structure-switch-thumb-radius: 2px;
+    --ew-structure-switch-shadow: 0 0 8px color-mix(in oklch, var(--ew-color-action-bg) 40%, transparent);
   }
   [data-era="neon"][data-fidelity-band="whisper"] {
     --ew-structure-card-ornament-opacity: 0;
@@ -175,4 +189,21 @@
     text-transform: uppercase;
     font-family: var(--ew-font-display, inherit);
   }
+  [data-era="neon"] .ew-text-field__control {
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px color-mix(in oklch, var(--ew-color-border-subtle) 50%, transparent);
+  }
+  [data-era="neon"] .ew-dialog {
+    border-color: var(--ew-color-border-strong);
+    box-shadow: var(--ew-structure-dialog-shadow);
+  }
+  [data-era="neon"] .ew-switch__track {
+    border-radius: 2px;
+  }
+  [data-era="neon"] .ew-switch__thumb { border-radius: 2px; }
+  [data-era="neon"] .ew-tabs [role="tab"][aria-selected="true"],
+  [data-era="neon"] ew-tabs [role="tab"][aria-selected="true"] {
+    text-shadow: 0 0 8px color-mix(in oklch, var(--ew-color-action-bg) 45%, transparent);
+  }
+
 }

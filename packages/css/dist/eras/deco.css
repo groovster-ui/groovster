@@ -12,7 +12,7 @@
   --ew-color-burgundy: oklch(38% 0.1 20);
   --ew-color-accent-solid: oklch(42% 0.08 75);
   --ew-color-accent-fg: oklch(96% 0.02 95);
-  --ew-color-danger-solid: oklch(45% 0.14 25);
+  --ew-color-danger-solid: oklch(40% 0.14 25);
   --ew-color-danger-fg: oklch(96% 0.02 95);
   --ew-space-0: 0px;
   --ew-space-1: 4px;
@@ -49,8 +49,8 @@
   --ew-color-overlay: oklch(14% 0.02 70 / 0.55);
   --ew-color-track-off: oklch(88% 0.02 90);
   --ew-color-track-on: oklch(42% 0.08 75);
-  --ew-color-danger-bg: oklch(45% 0.14 25);
-  --ew-color-danger-fg: oklch(96% 0.02 95);
+  --ew-color-danger-bg: oklch(40% 0.14 25);
+  --ew-color-danger-fg: oklch(97% 0.02 95);
   --ew-elevation-1: 0px 2px 0px 0px oklch(48% 0.08 75 / 0.35);
   --ew-elevation-2: 0px 4px 0px 0px oklch(18% 0.02 80 / 0.25), 0px 8px 0px 0px oklch(48% 0.08 75 / 0.2);
   --ew-elevation-dialog: 0px 12px 0px 0px oklch(18% 0.02 80 / 0.35);
@@ -103,8 +103,8 @@
   --ew-color-overlay: oklch(14% 0.02 70 / 0.55);
   --ew-color-track-off: oklch(88% 0.02 90);
   --ew-color-track-on: oklch(42% 0.08 75);
-  --ew-color-danger-bg: oklch(45% 0.14 25);
-  --ew-color-danger-fg: oklch(96% 0.02 95);
+  --ew-color-danger-bg: oklch(40% 0.14 25);
+  --ew-color-danger-fg: oklch(97% 0.02 95);
   --ew-elevation-1: 0px 2px 0px 0px oklch(48% 0.08 75 / 0.35);
   --ew-elevation-2: 0px 4px 0px 0px oklch(18% 0.02 80 / 0.25), 0px 8px 0px 0px oklch(48% 0.08 75 / 0.2);
   --ew-elevation-dialog: 0px 12px 0px 0px oklch(18% 0.02 80 / 0.35);
@@ -141,6 +141,20 @@
       linear-gradient(225deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top right / 28px 14px no-repeat;
     --ew-structure-card-ornament-size: auto;
     --ew-structure-card-ornament-blend: normal;
+    --ew-structure-field-border-width: 2px;
+    --ew-structure-field-border-style: double;
+    --ew-structure-field-radius: 0px;
+    --ew-structure-dialog-border-width: 3px;
+    --ew-structure-dialog-border-style: double;
+    --ew-structure-dialog-radius: 0px;
+    --ew-structure-dialog-shadow: 0 8px 0 0 var(--ew-color-border-strong);
+    --ew-structure-dialog-clip: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+    --ew-structure-tabs-indicator-height: 3px;
+    --ew-structure-tabs-indicator-style: double;
+    --ew-structure-tabs-radius: 0px;
+    --ew-structure-switch-track-radius: 0px;
+    --ew-structure-switch-thumb-radius: 0px;
+    --ew-structure-switch-shadow: 0 2px 0 0 var(--ew-color-border-strong);
   }
   [data-era="deco"][data-fidelity-band="whisper"] {
     --ew-structure-card-ornament-opacity: 0;
@@ -168,4 +182,20 @@
     border-style: double;
     border-width: 3px;
   }
+  [data-era="deco"] .ew-text-field__control {
+    border-style: double;
+    border-radius: 0;
+  }
+  [data-era="deco"] .ew-dialog {
+    border-style: double;
+    border-radius: 0;
+  }
+  [data-era="deco"] .ew-switch__track,
+  [data-era="deco"] .ew-switch__thumb { border-radius: 0; }
+  [data-era="deco"] .ew-tabs [role="tablist"],
+  [data-era="deco"] ew-tabs [role="tablist"] {
+    border-bottom-style: double;
+    border-bottom-width: 3px;
+  }
+
 }

@@ -138,6 +138,30 @@
       "headerRule": true,
       "titleTracking": "0.1em",
       "ornament": "scanline"
+    },
+    "field": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "2px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "4px",
+      "shadow": "0 0 24px color-mix(in oklch, var(--ew-color-action-bg) 35%, transparent)",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "2px",
+      "indicatorStyle": "solid",
+      "radius": "2px",
+      "enclosed": false
+    },
+    "switch": {
+      "trackRadius": "2px",
+      "thumbRadius": "2px",
+      "shadow": "0 0 8px color-mix(in oklch, var(--ew-color-action-bg) 40%, transparent)"
     }
   }
 }

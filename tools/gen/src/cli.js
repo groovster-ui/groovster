@@ -3,6 +3,7 @@ import { validateAll } from './validate.js';
 import { generateAll } from './generate.js';
 import { checkBudgets } from './budgets.js';
 import { checkDriftAndBudgets } from './check.js';
+import { checkNoImports } from './no-imports.js';
 
 const cmd = process.argv[2] || 'gen';
 
@@ -36,7 +37,16 @@ if (cmd === 'check') {
   if (result.validationErrors.length) fail('Spec validation failed', result.validationErrors);
   if (result.drift.length) fail('Generated files drifted (hand-edits or stale). Re-run pnpm gen and commit.', result.drift);
   if (result.budgetFailures.length) fail('Output exceeded size budgets', result.budgetFailures);
-  console.log('OK: validation, budgets, and drift checks passed.');
+  const imports = checkNoImports();
+  if (imports.length) fail('Published outputs must import nothing (@import / ESM import / require forbidden)', imports);
+  console.log('OK: validation, budgets, drift, and no-import checks passed.');
+  process.exit(0);
+}
+
+if (cmd === 'no-imports') {
+  const imports = checkNoImports();
+  if (imports.length) fail('Published outputs must import nothing', imports);
+  console.log('OK: no @import / module imports in published CSS/JS.');
   process.exit(0);
 }
 

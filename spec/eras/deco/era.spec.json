@@ -131,6 +131,30 @@
       "headerRule": true,
       "titleTracking": "0.12em",
       "ornament": "chevron"
+    },
+    "field": {
+      "borderWidth": "2px",
+      "borderStyle": "double",
+      "radius": "0px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "3px",
+      "borderStyle": "double",
+      "radius": "0px",
+      "shadow": "0 8px 0 0 var(--ew-color-border-strong)",
+      "clipPath": "polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px))"
+    },
+    "tabs": {
+      "indicatorHeight": "3px",
+      "indicatorStyle": "double",
+      "radius": "0px",
+      "enclosed": true
+    },
+    "switch": {
+      "trackRadius": "0px",
+      "thumbRadius": "0px",
+      "shadow": "0 2px 0 0 var(--ew-color-border-strong)"
     }
   }
 }

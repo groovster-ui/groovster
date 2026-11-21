@@ -13,9 +13,14 @@
     "gen:check": "pnpm --filter @era-widgets/gen check",
     "validate": "pnpm --filter @era-widgets/gen validate",
     "smoke": "pnpm gen && echo 'Open demos/smoke/index.html (or serve demos/smoke)'",
-    "check": "pnpm validate && pnpm gen:check",
+    "check": "pnpm validate && pnpm gen:check && pnpm contrast",
     "eval": "pnpm --filter @era-widgets/eval eval",
-    "eval:baseline": "pnpm --filter @era-widgets/eval baseline"
+    "eval:baseline": "pnpm --filter @era-widgets/eval baseline",
+    "no-imports": "pnpm --filter @era-widgets/gen exec node src/cli.js no-imports",
+    "contrast": "pnpm --filter @era-widgets/contrast contrast",
+    "a11y": "pnpm --filter @era-widgets/a11y test",
+    "a11y:keyboard": "pnpm --filter @era-widgets/a11y test:keyboard",
+    "test:a11y": "pnpm a11y && pnpm a11y:keyboard"
   },
   "license": "MIT"
 }

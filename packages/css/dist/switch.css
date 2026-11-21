@@ -3,7 +3,6 @@
 @layer components {
   .ew-switch {
     /* anatomy: root, control, track, thumb, label, indicator */
-    font: inherit;
   }
   .ew-switch {
     display: inline-flex;
@@ -11,6 +10,7 @@
     gap: 10px;
     font-family: var(--ew-font-body, system-ui, sans-serif);
     cursor: pointer;
+    position: relative;
   }
   .ew-switch__control {
     position: absolute;
@@ -21,25 +21,31 @@
   .ew-switch__track {
     width: var(--ew-switch-track-width, 44px);
     height: var(--ew-switch-track-height, 24px);
-    border-radius: var(--ew-radius-pill, 999px);
+    border-radius: var(--ew-structure-switch-track-radius, var(--ew-radius-pill, 999px));
     background: var(--ew-color-track-off, #ccc);
     display: inline-flex;
     align-items: center;
     padding: 3px;
+    box-shadow: var(--ew-structure-switch-shadow, none);
+    border: var(--ew-structure-button-border-width, 0) solid var(--ew-color-border-subtle);
     transition: background var(--ew-motion-switch, 160ms) ease;
   }
   .ew-switch__thumb {
     width: var(--ew-switch-thumb-size, 18px);
     height: var(--ew-switch-thumb-size, 18px);
-    border-radius: 50%;
-    background: var(--ew-color-fg-inverse, #fff);
+    border-radius: var(--ew-structure-switch-thumb-radius, 50%);
+    background: var(--ew-color-bg-elevated, #fff);
     box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
     transition: transform var(--ew-motion-switch, 160ms) ease;
   }
   .ew-switch__control:checked + .ew-switch__track { background: var(--ew-color-track-on, #334); }
   .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb { transform: translateX(20px); }
   .ew-switch__control:focus-visible + .ew-switch__track { outline: 2px solid var(--ew-color-field-focus, Highlight); outline-offset: 2px; }
+  .ew-switch__control:disabled + .ew-switch__track { opacity: 0.5; }
   .ew-switch__label { color: var(--ew-color-fg-default, inherit); }
+  .ew-switch[data-size="sm"] .ew-switch__track { width: 36px; height: 20px; }
+  .ew-switch[data-size="sm"] .ew-switch__thumb { width: 14px; height: 14px; }
+  .ew-switch[data-size="sm"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb { transform: translateX(16px); }
   @media (prefers-reduced-motion: reduce) {
     .ew-switch__track, .ew-switch__thumb { transition: none; }
   }

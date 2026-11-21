@@ -48,7 +48,7 @@
     "action": {
       "bg": {
         "$type": "color",
-        "$value": "oklch(50% 0.1 200)"
+        "$value": "oklch(42% 0.1 200)"
       },
       "fg": {
         "$type": "color",
@@ -56,7 +56,7 @@
       },
       "hover": {
         "$type": "color",
-        "$value": "oklch(45% 0.1 200)"
+        "$value": "oklch(38% 0.1 200)"
       }
     },
     "field": {
@@ -84,13 +84,13 @@
       },
       "on": {
         "$type": "color",
-        "$value": "oklch(55% 0.1 200)"
+        "$value": "oklch(42% 0.1 200)"
       }
     },
     "danger": {
       "bg": {
         "$type": "color",
-        "$value": "oklch(55% 0.16 30)"
+        "$value": "oklch(42% 0.16 30)"
       },
       "fg": {
         "$type": "color",

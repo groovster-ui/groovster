@@ -3,7 +3,6 @@
 @layer components {
   .ew-card {
     /* anatomy: root, header, body, footer, media, frame, backdrop, ornament-before */
-    font: inherit;
   }
   .ew-card {
     --_card-radius: var(--ew-structure-surface-radius, var(--ew-card-radius, 12px));
@@ -31,16 +30,12 @@
   .ew-card[data-variant="outline"] { box-shadow: none; }
   .ew-card[data-variant="flat"] { border-color: transparent; box-shadow: none; }
   .ew-card[data-variant="inset"] { box-shadow: inset 0 1px 2px color-mix(in oklch, black 12%, transparent); }
-  .ew-card__header {
-    display: grid;
-    gap: 8px;
-  }
+  .ew-card__header { display: grid; gap: 8px; }
   .ew-card__header h3, .ew-card__header h2 {
     margin: 0;
     font-family: var(--ew-font-display, inherit);
     letter-spacing: var(--ew-structure-card-title-tracking, 0);
   }
-  .ew-card__header[data-rule]::after,
   .ew-card[data-header-rule="true"] .ew-card__header::after {
     content: "";
     display: var(--ew-structure-card-header-rule-display, none);

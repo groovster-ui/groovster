@@ -1,7 +1,7 @@
 {
   "suite": "era-widgets-button-card-v0",
   "version": 1,
-  "generatedAt": "2026-11-21T23:54:30.383Z",
+  "generatedAt": "2026-11-21T23:59:25.324Z",
   "mode": "fixture-baseline",
   "note": "Live agent runners not automated yet. This records validate/tokens/turns scaffolding against golden fixtures for each setup.",
   "setups": {

@@ -34,7 +34,7 @@
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(50% 0.1 200)"
+        "$value": "oklch(42% 0.1 200)"
       },
       "fg": {
         "$type": "color",
@@ -44,7 +44,7 @@
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(55% 0.16 30)"
+        "$value": "oklch(42% 0.16 30)"
       },
       "fg": {
         "$type": "color",
