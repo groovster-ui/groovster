@@ -56,9 +56,12 @@
       const trigger = this.#trigger;
       if (!tip || !trigger) return;
       if (!tip.id) tip.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
+      const anchorName = `--ew-tooltip-${tip.id}`;
       tip.setAttribute('role', 'tooltip');
       tip.setAttribute('popover', 'manual');
       tip.dataset.ewOpen = 'false';
+      trigger.style.setProperty('anchor-name', anchorName);
+      tip.style.setProperty('position-anchor', anchorName);
       if (!trigger.getAttribute('aria-describedby')?.includes(tip.id)) {
         const prev = trigger.getAttribute('aria-describedby') || '';
         trigger.setAttribute('aria-describedby', `${prev} ${tip.id}`.trim());

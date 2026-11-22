@@ -53,16 +53,16 @@
         "description": "Structure hints only: radius, type voice, subtle edge. No ornaments."
       },
       {
-        "id": "signature",
+        "id": "default",
         "min": 26,
         "max": 66,
-        "description": "Clear era geometry and materials; sparse ornaments on surfaces."
+        "description": "Clear era geometry and materials; sparse ornaments on surfaces. Alias: signature."
       },
       {
         "id": "costume",
         "min": 67,
         "max": 100,
-        "description": "Full decorative program. Demo/showcase territory; neverDo still binds."
+        "description": "Full decorative program. Demo/showcase territory; neverDo still binds. Applied when data-fidelity-band is absent."
       }
     ]
   },

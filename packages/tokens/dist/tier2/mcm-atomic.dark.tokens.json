@@ -62,11 +62,12 @@
     "field": {
       "bg": {
         "$type": "color",
-        "$value": "{color.sand}"
+        "$value": "color-mix(in oklch, {color.sand} 70%, {color.ink})",
+        "$description": "Distinct from card/surface so unselected radios and inputs remain visible"
       },
       "border": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.ink} 30%, {color.cream})"
+        "$value": "color-mix(in oklch, {color.ink} 55%, {color.teal})"
       },
       "focus": {
         "$type": "color",

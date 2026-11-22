@@ -456,23 +456,32 @@ function selectCss(cls) {
     border: var(--ew-structure-field-border-width, 1px) var(--ew-structure-field-border-style, solid) var(--ew-color-field-border);
     border-radius: var(--ew-structure-field-radius, 8px);
     background: var(--ew-color-field-bg); color: var(--ew-color-fg-default);
+    anchor-name: --ew-select-trigger;
   }
   .${cls}__trigger:focus-visible, .${cls}__control:focus-visible {
     outline: 2px solid var(--ew-color-field-focus); outline-offset: 1px;
   }
   .${cls}__list {
     list-style: none; margin: 0; padding: 6px;
+    box-sizing: border-box;
+    position: fixed;
     inset: unset;
     position-anchor: --ew-select-trigger;
-    position-area: block-end;
+    position-area: block-end span-inline-end;
+    position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
     min-width: anchor-size(width);
+    width: max(anchor-size(width), 12rem);
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);
     background: var(--ew-color-bg-elevated); color: var(--ew-color-fg-default);
     box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2));
-    max-height: 220px; overflow: auto;
+    max-height: min(220px, 50vh); overflow: auto;
+    margin: 0;
   }
-  .${cls}__trigger { anchor-name: --ew-select-trigger; }
+  .${cls}__list:popover-open,
+  .${cls}__list:not([hidden]) {
+    display: block;
+  }
   .${cls}__option {
     padding: 8px 10px; border-radius: 6px; cursor: pointer;
   }
@@ -531,15 +540,32 @@ function popoverCss(cls) {
 
 function tooltipCss(cls) {
   return `  .${cls} { position: relative; display: inline-flex; }
+  .${cls}__trigger, .${cls} > :is(button, a, [tabindex], .ew-button, .ew-icon-button) {
+    anchor-name: --ew-tooltip-trigger;
+  }
   .${cls}__tip {
-    position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%);
+    inset: unset;
+    position: fixed;
+    position-anchor: --ew-tooltip-trigger;
+    position-area: block-start;
+    position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+    margin: 0;
     background: var(--ew-color-fg-default); color: var(--ew-color-fg-inverse, #fff);
     font-size: 12px; padding: var(--ew-structure-tooltip-padding, 6px 8px);
     border-radius: var(--ew-structure-tooltip-radius, 4px); white-space: nowrap;
     box-shadow: var(--ew-structure-tooltip-shadow, none);
     opacity: 0; pointer-events: none; transition: opacity 120ms ease;
   }
-  .${cls}:hover .${cls}__tip, .${cls}:focus-within .${cls}__tip { opacity: 1; }`;
+  .${cls}__tip:popover-open,
+  .${cls}__tip[data-ew-open="true"] { opacity: 1; }
+  @supports not (anchor-name: --x) {
+    .${cls}__tip {
+      position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .${cls}__tip { transition: none; }
+  }`;
 }
 
 function toastCss(cls) {

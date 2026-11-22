@@ -8,8 +8,8 @@
     "retrowave"
   ],
   "identity": {
-    "oneLiner": "Synthwave nights: magenta–cyan chrome on deep violet, grid horizon optional.",
-    "summary": "Neon/Synthwave is high-contrast dark-first romance: chrome bezels, scanline/grid backdrops at high fidelity, and magenta/cyan accents. Glow is decoration only — contrast must pass without it. Light mode is a washed Miami daytime dialect of the same geometry.",
+    "oneLiner": "Synthwave nights: magenta\u2013cyan chrome on deep violet, grid horizon optional.",
+    "summary": "Neon/Synthwave is high-contrast dark-first romance: chrome bezels, scanline/grid backdrops at high fidelity, and magenta/cyan accents. Glow is decoration only \u2014 contrast must pass without it. Light mode is a washed Miami daytime dialect of the same geometry.",
     "bestFit": [
       "Gaming / music marketing",
       "Night-mode demos",
@@ -54,16 +54,16 @@
         "description": "Structure hints only: radius, type voice, subtle edge. No ornaments."
       },
       {
-        "id": "signature",
+        "id": "default",
         "min": 26,
         "max": 66,
-        "description": "Clear era geometry and materials; sparse ornaments on surfaces."
+        "description": "Clear era geometry and materials; sparse ornaments on surfaces. Alias: signature."
       },
       {
         "id": "costume",
         "min": 67,
         "max": 100,
-        "description": "Full decorative program. Demo/showcase territory; neverDo still binds."
+        "description": "Full decorative program. Demo/showcase territory; neverDo still binds. Applied when data-fidelity-band is absent."
       }
     ]
   },
@@ -84,7 +84,7 @@
     "dark"
   ],
   "neverDo": [
-    "Glow never counts toward WCAG contrast — text/icons must pass on flat fills.",
+    "Glow never counts toward WCAG contrast \u2014 text/icons must pass on flat fills.",
     "Never put Orbitron on Button/TextField/Switch labels.",
     "Never stack multiple full-bleed grids; one backdrop plane per view.",
     "Never use pure #ff00ff on pure #00ffff for small text.",
@@ -107,7 +107,7 @@
       "elevation: hard rim (glow cosmetic)",
       "ornament: grid / sun in backdrop",
       "type: Orbitron + Exo 2",
-      "fidelity: default 55 (35–75)",
+      "fidelity: default 55 (35\u201375)",
       "modes: light, dark",
       "dialects: synthwave | miami",
       "use: gaming, night demos, festivals",

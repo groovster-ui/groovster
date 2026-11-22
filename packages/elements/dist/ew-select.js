@@ -72,6 +72,7 @@
       native.hidden = true;
       native.tabIndex = -1;
       if (!native.id) native.id = `${TAG}-${++uid}`;
+      const anchorName = `--ew-select-${native.id}`;
 
       let trigger = this.#trigger;
       if (!trigger) {
@@ -85,6 +86,7 @@
       trigger.setAttribute('aria-expanded', 'false');
       trigger.setAttribute('aria-autocomplete', 'none');
       if (!trigger.id) trigger.id = `${native.id}-trigger`;
+      trigger.style.setProperty('anchor-name', anchorName);
 
       const label = this.querySelector('label.ew-select__label, label');
       if (label) {
@@ -105,10 +107,12 @@
       if (!list) {
         list = document.createElement('ul');
         list.className = 'ew-select__list';
-        list.hidden = true;
         trigger.insertAdjacentElement('afterend', list);
       }
       list.setAttribute('role', 'listbox');
+      list.setAttribute('popover', 'manual');
+      list.style.setProperty('position-anchor', anchorName);
+      list.hidden = true;
       list.id = list.id || `${native.id}-list`;
       trigger.setAttribute('aria-controls', list.id);
 
@@ -241,14 +245,19 @@
       const trigger = this.#trigger;
       if (!list || !trigger) return;
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      list.hidden = !open;
       if (open) {
+        list.hidden = false;
+        if (typeof list.showPopover === 'function') list.showPopover();
         document.addEventListener('pointerdown', this.#onDocPointer, true);
         const selected =
           this.#options.find((o) => o.getAttribute('aria-selected') === 'true') || this.#options[0];
         this.#setActive(selected);
         trigger.focus();
       } else {
+        if (typeof list.hidePopover === 'function' && list.matches?.(':popover-open')) {
+          list.hidePopover();
+        }
+        list.hidden = true;
         document.removeEventListener('pointerdown', this.#onDocPointer, true);
         trigger.removeAttribute('aria-activedescendant');
         this.#activeId = null;

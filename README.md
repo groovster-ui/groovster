@@ -10,14 +10,15 @@ Authority: project roadmap v2 (Agent Store `docs/era-widgets-roadmap-v2.md`).
 
 1. **Spec-first** — components, eras, and tokens live under `spec/`; code/docs/`llms.txt` are **generated**. Hand drift fails CI.
 2. **HTML + CSS is the public API** — e.g. `<button class="ew-button" data-variant="primary">`.
-3. **Zero JS for the look** — `data-era` × `data-mode` × `data-fidelity` / `data-fidelity-band`.
+3. **Zero JS for the look** — `data-era` × `data-mode` × `data-fidelity-band`.
 
 ### Look settings (fidelity)
 
-- **`data-fidelity="0"…"100"`** sets `--ew-fidelity` (via `@property`) and continuously scales ornament/drama. Values ≤25 mute structure like the whisper band when `data-fidelity-band` is absent.
-- **`data-fidelity-band="whisper|signature|costume"`** is the discrete band API (still supported; overrides continuous muting when present).
-- Prefer both together in demos: `data-fidelity="40" data-fidelity-band="signature"`.
+- **`data-fidelity-band="whisper|default|costume"`** is the only fidelity API. (`signature` aliases `default`.)
+- **Costume is the default** when the attribute is absent — set `whisper` or `default` to opt down.
+- The band may live on the era element or an ancestor (`html` / `body` / `.ew-root`).
 - Also honors `prefers-reduced-motion`, `prefers-reduced-transparency`, and `forced-colors`.
+- See `FIDELITY.md` for details.
 4. **Native first** for behavior; small owned web components later for hard widgets.
 5. **Agent efficiency** — size budgets on MCP defaults, era cards, and llms sections.
 

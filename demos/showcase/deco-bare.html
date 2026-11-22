@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-era="deco" data-mode="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deco bare — costume default smoke</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Jost:wght@400;500&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css">
+  <script src="../../packages/elements/dist/era-elements.js"></script>
+  <style>
+    body { margin: 0; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 48px 24px; }
+  </style>
+</head>
+<body>
+  <!-- Intentionally no data-fidelity-band: costume must apply by default -->
+  <section class="ew-hero">
+    <div class="ew-hero__backdrop" aria-hidden="true"></div>
+    <div class="ew-hero__panel">
+      <div class="ew-hero__rays" aria-hidden="true"></div>
+      <div class="ew-hero__content">
+        <div class="ew-hero__fan" aria-hidden="true"></div>
+        <h1 class="ew-hero__title">Bare Deco</h1>
+        <p class="ew-hero__subtitle">Costume without a band attribute</p>
+        <div class="ew-hero__cta">
+          <button type="button" class="ew-button">Primary</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="wrap">
+    <h2 class="ew-section-heading">Surfaces</h2>
+    <div class="ew-card">
+      <div class="ew-card__header"><h3>Framed card</h3></div>
+      <div class="ew-card__body">
+        <p>Sunburst stays in the hero. Fans, chevrons, and stepped frames appear from costume defaults.</p>
+        <label class="ew-text-field">
+          <span class="ew-text-field__label">Name</span>
+          <input class="ew-text-field__control" type="text" value="Ava">
+        </label>
+      </div>
+    </div>
+    <hr class="ew-ornament-divider" data-variant="ornament" aria-hidden="true">
+    <div class="ew-tier-card">
+      <div class="ew-tier-card__price">$75</div>
+      <p>Tier card from the library</p>
+    </div>
+  </div>
+</body>
+</html>

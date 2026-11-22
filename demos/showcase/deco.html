@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-era="deco" data-mode="dark" data-fidelity-band="costume">
+<html lang="en" data-era="deco" data-mode="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,124 +12,9 @@
   <link rel="stylesheet" href="../../packages/css/dist/eras/deco.css">
   <script type="module" src="../../packages/elements/dist/era-elements.js"></script>
   <style>
-    /* Showcase layout only — component ornament comes from the era pack */
+    /* Showcase layout only — ornament comes from the Deco library classes */
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      --ew-font-display: 'Limelight', serif;
-      --ew-font-body: 'Jost', sans-serif;
-      --ew-font-mono: 'IBM Plex Mono', monospace;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero {
-      position: relative;
-      z-index: 1;
-      min-height: 88vh;
-      display: grid;
-      place-items: center;
-      padding: 64px 24px 80px;
-      overflow: hidden;
-    }
-
-    /* Framed hero panel — gold double-rule + stepped corners */
-    .hero__panel {
-      position: relative;
-      z-index: 2;
-      width: min(920px, 100%);
-      padding: 64px 48px 56px;
-      text-align: center;
-      border: 4px double var(--ew-color-gold);
-      background: color-mix(in oklch, var(--ew-color-panel) 88%, transparent);
-      clip-path: polygon(
-        0 28px, 10px 28px, 10px 16px, 16px 16px, 16px 0,
-        calc(100% - 16px) 0, calc(100% - 16px) 16px, calc(100% - 10px) 16px, calc(100% - 10px) 28px, 100% 28px,
-        100% calc(100% - 28px), calc(100% - 10px) calc(100% - 28px), calc(100% - 10px) calc(100% - 16px), calc(100% - 16px) calc(100% - 16px), calc(100% - 16px) 100%,
-        16px 100%, 16px calc(100% - 16px), 10px calc(100% - 16px), 10px calc(100% - 28px), 0 calc(100% - 28px)
-      );
-      box-shadow:
-        0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 65%, transparent),
-        0 10px 0 0 var(--ew-color-gold);
-    }
-
-    .hero__panel::before {
-      content: "" / "";
-      position: absolute;
-      inset: 12px;
-      border: 2px double color-mix(in oklch, var(--ew-color-gold) 75%, transparent);
-      clip-path: polygon(
-        0 18px, 8px 18px, 8px 10px, 10px 10px, 10px 0,
-        calc(100% - 10px) 0, calc(100% - 10px) 10px, calc(100% - 8px) 10px, calc(100% - 8px) 18px, 100% 18px,
-        100% calc(100% - 18px), calc(100% - 8px) calc(100% - 18px), calc(100% - 8px) calc(100% - 10px), calc(100% - 10px) calc(100% - 10px), calc(100% - 10px) 100%,
-        10px 100%, 10px calc(100% - 10px), 8px calc(100% - 10px), 8px calc(100% - 18px), 0 calc(100% - 18px)
-      );
-      pointer-events: none;
-    }
-
-    /* Cassandre-style speed lines behind title */
-    .hero__rays {
-      position: absolute;
-      inset: 6% 4% 24%;
-      background: repeating-linear-gradient(
-        90deg,
-        transparent 0 10px,
-        color-mix(in oklch, var(--ew-color-gold) 42%, transparent) 10px 12px
-      );
-      mask-image: linear-gradient(180deg, transparent, black 18%, black 75%, transparent);
-      -webkit-mask-image: linear-gradient(180deg, transparent, black 18%, black 75%, transparent);
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.9;
-      animation: deco-rays 14s linear infinite;
-    }
-
-    @keyframes deco-rays {
-      from { transform: translateX(0); }
-      to { transform: translateX(-15px); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero__rays { animation: none; }
-    }
-
-    .hero__content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero__fan {
-      width: 148px;
-      height: 68px;
-      margin: 0 auto 28px;
-      background-color: var(--ew-color-gold);
-      -webkit-mask: var(--ew-ornament-fan) center / contain no-repeat;
-      mask: var(--ew-ornament-fan) center / contain no-repeat;
-    }
-
-    .hero h1 {
-      font-family: var(--ew-font-display);
-      font-size: clamp(52px, 9vw, 104px);
-      line-height: 1.05;
-      margin: 0 0 20px;
-      font-weight: 400;
-    }
-
-    .hero__subtitle {
-      font-size: 18px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      margin: 0 0 40px;
-      font-weight: 600;
-      color: var(--ew-color-fg-muted);
-    }
-
-    .hero__cta {
-      display: inline-flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    body { margin: 0; position: relative; z-index: 1; }
 
     .section {
       position: relative;
@@ -137,51 +22,6 @@
       max-width: 1180px;
       margin: 0 auto;
       padding: 56px 24px 72px;
-    }
-
-    .section__title {
-      font-family: var(--ew-font-display);
-      font-size: clamp(28px, 4.5vw, 48px);
-      text-align: center;
-      margin: 0 0 48px;
-      font-weight: 400;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    /* Symmetric ornaments flanking section headings */
-    .section__title::before,
-    .section__title::after {
-      content: "" / "";
-      width: 72px;
-      height: 18px;
-      background:
-        repeating-linear-gradient(-45deg, var(--ew-color-gold) 0 6px, transparent 6px 12px),
-        repeating-linear-gradient(45deg, var(--ew-color-gold) 0 6px, transparent 6px 12px);
-      background-size: 100% 50%;
-      background-position: 0 0, 0 100%;
-      background-repeat: repeat-x;
-      flex: none;
-      opacity: 0.9;
-    }
-
-    [data-fidelity-band="whisper"] .section__title::before,
-    [data-fidelity-band="whisper"] .section__title::after,
-    [data-fidelity-band="whisper"] .hero__fan,
-    [data-fidelity-band="whisper"] .hero__rays,
-    [data-fidelity-band="whisper"] .hero__panel::before {
-      display: none;
-    }
-
-    [data-fidelity-band="whisper"] .hero__panel {
-      border-width: 1px;
-      border-style: solid;
-      clip-path: none;
-      box-shadow: none;
-      background: transparent;
-      padding: 48px 24px;
     }
 
     .card-grid {
@@ -222,13 +62,6 @@
       align-self: center;
     }
 
-    .consent-row .ew-checkbox__label,
-    .consent-row .ew-switch__label {
-      display: inline-flex;
-      align-items: center;
-      min-height: 24px;
-    }
-
     .pricing {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -237,95 +70,30 @@
       padding: 24px 0 8px;
     }
 
-    /* Tier cards — stepped tops + gold-gradient numerals */
-    .pricing__item {
-      position: relative;
-      padding: 40px 24px 32px;
-      border: 4px double var(--ew-color-gold);
-      background: var(--ew-color-panel);
-      clip-path: polygon(
-        0 24px, 12px 24px, 12px 12px, 24px 12px, 24px 0,
-        calc(100% - 24px) 0, calc(100% - 24px) 12px, calc(100% - 12px) 12px, calc(100% - 12px) 24px, 100% 24px,
-        100% 100%, 0 100%
-      );
-      box-shadow: 0 6px 0 0 var(--ew-color-gold);
-    }
+    .divider { margin: 48px auto; max-width: 680px; }
+    .actions-center { text-align: center; }
 
-    .pricing__item::before {
-      content: "" / "";
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 64px;
-      height: 12px;
-      background: repeating-linear-gradient(90deg, var(--ew-color-gold) 0 4px, transparent 4px 8px);
-      opacity: 0.85;
-    }
-
-    .pricing__value {
-      font-family: var(--ew-font-display);
-      font-size: clamp(40px, 5vw, 56px);
-      margin: 12px 0 10px;
-      letter-spacing: 0.04em;
-      background: var(--ew-gradient-metal);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    @supports not (background-clip: text) {
-      .pricing__value { color: var(--ew-color-gold); -webkit-text-fill-color: unset; }
-    }
-
-    .pricing__label {
+    .tier-label {
       text-transform: uppercase;
       letter-spacing: 0.18em;
       font-size: 13px;
       font-weight: 700;
       color: var(--ew-color-fg-muted);
     }
-
-    [data-fidelity-band="whisper"] .pricing__item {
-      clip-path: none;
-      box-shadow: none;
-      border-width: 1px;
-      border-style: solid;
-    }
-    [data-fidelity-band="whisper"] .pricing__item::before { display: none; }
-    [data-fidelity-band="whisper"] .pricing__value {
-      background: none;
-      -webkit-text-fill-color: unset;
-      color: var(--ew-color-gold);
-    }
-
-    .divider {
-      margin: 48px auto;
-      max-width: 680px;
-    }
-
-    .actions-center { text-align: center; }
-
-    @media (max-width: 640px) {
-      .hero__panel { padding: 48px 20px 40px; }
-      .section__title { flex-wrap: wrap; gap: 12px; }
-      .section__title::before,
-      .section__title::after { width: 40px; }
-    }
   </style>
 </head>
 <body>
   <ew-toast-region aria-live="polite" aria-atomic="false"></ew-toast-region>
 
-  <!-- Hero: framed panel + sunburst (era ::before) + speed lines -->
-  <section class="hero">
-    <div class="hero__panel">
-      <div class="hero__rays" aria-hidden="true"></div>
-      <div class="hero__content">
-        <div class="hero__fan" aria-hidden="true"></div>
-        <h1>The Gatsby</h1>
-        <p class="hero__subtitle">An Evening of Elegance</p>
-        <div class="hero__cta">
+  <section class="ew-hero">
+    <div class="ew-hero__backdrop" aria-hidden="true"></div>
+    <div class="ew-hero__panel">
+      <div class="ew-hero__rays" aria-hidden="true"></div>
+      <div class="ew-hero__content">
+        <div class="ew-hero__fan" aria-hidden="true"></div>
+        <h1 class="ew-hero__title">The Gatsby</h1>
+        <p class="ew-hero__subtitle">An Evening of Elegance</p>
+        <div class="ew-hero__cta">
           <button class="ew-button">Reserve Your Table</button>
           <button class="ew-button" data-variant="secondary">View Gallery</button>
         </div>
@@ -334,7 +102,7 @@
   </section>
 
   <div class="section">
-    <h2 class="section__title">Featured Experiences</h2>
+    <h2 class="ew-section-heading">Featured Experiences</h2>
 
     <div class="card-grid">
       <div class="ew-card">
@@ -376,7 +144,7 @@
 
     <hr class="ew-ornament-divider divider" data-variant="ornament" aria-hidden="true">
 
-    <h2 class="section__title">Reserve Your Experience</h2>
+    <h2 class="ew-section-heading">Reserve Your Experience</h2>
 
     <div class="form-grid">
       <div class="ew-text-field">
@@ -428,7 +196,7 @@
 
     <hr class="ew-ornament-divider divider" data-variant="ornament" aria-hidden="true">
 
-    <h2 class="section__title">Membership Tiers</h2>
+    <h2 class="ew-section-heading">Membership Tiers</h2>
 
     <ew-tabs style="max-width: 800px; margin: 0 auto 48px;">
       <div role="tablist">
@@ -448,17 +216,17 @@
     </ew-tabs>
 
     <div class="pricing">
-      <div class="pricing__item">
-        <div class="pricing__value">$500</div>
-        <div class="pricing__label">Bronze Tier</div>
+      <div class="ew-tier-card">
+        <div class="ew-tier-card__price">$500</div>
+        <div class="tier-label">Bronze Tier</div>
       </div>
-      <div class="pricing__item">
-        <div class="pricing__value">$2,000</div>
-        <div class="pricing__label">Silver Tier</div>
+      <div class="ew-tier-card">
+        <div class="ew-tier-card__price">$2,000</div>
+        <div class="tier-label">Silver Tier</div>
       </div>
-      <div class="pricing__item">
-        <div class="pricing__value">$5,000</div>
-        <div class="pricing__label">Gold Tier</div>
+      <div class="ew-tier-card">
+        <div class="ew-tier-card__price">$5,000</div>
+        <div class="tier-label">Gold Tier</div>
       </div>
     </div>
 

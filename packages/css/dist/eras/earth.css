@@ -1,5 +1,26 @@
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
 
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Fraunces");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Source Sans 3");
+}
+@font-face {
+  font-family: "Source Code Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Source Code Pro");
+}
 @layer tokens {
   [data-era="earth"], [data-era="earth"][data-mode="light"] {
     --ew-era: earth;
@@ -102,6 +123,9 @@
     --ew-elevation-1: 0px 2px 6px 0px color-mix(in oklch, var(--ew-color-sand) 45%, transparent);
     --ew-elevation-2: 0px 6px 18px 0px color-mix(in oklch, var(--ew-color-sand) 55%, transparent);
     --ew-elevation-dialog: 0px 16px 36px 0px color-mix(in oklch, var(--ew-color-sand) 65%, transparent);
+    --ew-font-display: Fraunces, "Bodoni Moda", serif;
+    --ew-font-body: "Source Sans 3", Futura, system-ui, sans-serif;
+    --ew-font-mono: "Source Code Pro", ui-monospace, monospace;
     color: var(--ew-color-fg-default);
     background: var(--ew-color-bg-page);
     font-family: var(--ew-font-body, system-ui, sans-serif);
@@ -157,7 +181,12 @@
     --ew-structure-slider-thumb-size: 14px;
     --ew-structure-slider-track-radius: 2px;
   }
-  [data-era="earth"][data-fidelity-band="whisper"] {
+  [data-era="earth"][data-fidelity-band="whisper"],
+  [data-fidelity-band="whisper"] [data-era="earth"],
+  [data-era="earth"][data-fidelity-band="default"],
+  [data-fidelity-band="default"] [data-era="earth"],
+  [data-era="earth"][data-fidelity-band="signature"],
+  [data-fidelity-band="signature"] [data-era="earth"] {
     --ew-structure-card-ornament-opacity: 0;
     --ew-structure-button-clip: none;
     --ew-structure-card-clip: none;
@@ -188,11 +217,22 @@
     background: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
     opacity: 0.65;
   }
-  [data-era="earth"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
-  [data-era="earth"] .ew-text-field__control {
+  [data-era="earth"][data-fidelity-band="whisper"] .ew-card__header::after,
+  [data-fidelity-band="whisper"] [data-era="earth"] .ew-card__header::after,
+  [data-era="earth"][data-fidelity-band="default"] .ew-card__header::after,
+  [data-fidelity-band="default"] [data-era="earth"] .ew-card__header::after,
+  [data-era="earth"][data-fidelity-band="signature"] .ew-card__header::after,
+  [data-fidelity-band="signature"] [data-era="earth"] .ew-card__header::after { display: none; }
+  [data-era="earth"] .ew-text-field__control,
+  [data-era="earth"] .ew-select__control,
+  [data-era="earth"] .ew-select__trigger,
+  [data-era="earth"] .ew-textarea__control {
     border-radius: 6px;
-    border-width: 0 0 2px 0;
-    background: transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--ew-color-field-border);
+    border-bottom-width: 2px;
+    background: var(--ew-color-field-bg);
   }
   [data-era="earth"] .ew-dialog {
     border-radius: 12px;

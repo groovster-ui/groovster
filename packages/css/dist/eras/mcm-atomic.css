@@ -1,5 +1,26 @@
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
 
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Josefin Sans");
+}
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Nunito Sans");
+}
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Space Mono");
+}
 @layer tokens {
   [data-era="mcm-atomic"], [data-era="mcm-atomic"][data-mode="light"] {
     --ew-era: mcm-atomic;
@@ -97,8 +118,8 @@
     --ew-color-action-bg: var(--ew-color-accent-solid);
     --ew-color-action-fg: var(--ew-color-accent-fg);
     --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 88%, var(--ew-color-ink));
-    --ew-color-field-bg: var(--ew-color-sand);
-    --ew-color-field-border: color-mix(in oklch, var(--ew-color-ink) 30%, var(--ew-color-cream));
+    --ew-color-field-bg: color-mix(in oklch, var(--ew-color-sand) 70%, var(--ew-color-ink));
+    --ew-color-field-border: color-mix(in oklch, var(--ew-color-ink) 55%, var(--ew-color-teal));
     --ew-color-field-focus: var(--ew-color-teal);
     --ew-color-overlay: color-mix(in oklch, var(--ew-color-cream) 70%, transparent);
     --ew-color-track-off: var(--ew-color-sand);
@@ -108,6 +129,9 @@
     --ew-elevation-1: 0px 2px 8px 0px color-mix(in oklch, var(--ew-color-cream) 45%, transparent);
     --ew-elevation-2: 0px 8px 24px 0px color-mix(in oklch, var(--ew-color-cream) 55%, transparent);
     --ew-elevation-dialog: 0px 20px 48px 0px color-mix(in oklch, var(--ew-color-cream) 65%, transparent);
+    --ew-font-display: "Josefin Sans", "Bodoni Moda", serif;
+    --ew-font-body: "Nunito Sans", Futura, system-ui, sans-serif;
+    --ew-font-mono: "Space Mono", ui-monospace, monospace;
     color: var(--ew-color-fg-default);
     background: var(--ew-color-bg-page);
     font-family: var(--ew-font-body, system-ui, sans-serif);
@@ -143,7 +167,7 @@
       conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat;
     --ew-structure-card-ornament-size: 120px 120px;
     --ew-structure-card-ornament-blend: multiply;
-    --ew-structure-field-border-width: 0px;
+    --ew-structure-field-border-width: 2px;
     --ew-structure-field-border-style: solid;
     --ew-structure-field-radius: 16px;
     --ew-structure-dialog-border-width: 0px;
@@ -164,7 +188,12 @@
     --ew-structure-slider-thumb-size: 16px;
     --ew-structure-slider-track-radius: 999px;
   }
-  [data-era="mcm-atomic"][data-fidelity-band="whisper"] {
+  [data-era="mcm-atomic"][data-fidelity-band="whisper"],
+  [data-fidelity-band="whisper"] [data-era="mcm-atomic"],
+  [data-era="mcm-atomic"][data-fidelity-band="default"],
+  [data-fidelity-band="default"] [data-era="mcm-atomic"],
+  [data-era="mcm-atomic"][data-fidelity-band="signature"],
+  [data-fidelity-band="signature"] [data-era="mcm-atomic"] {
     --ew-structure-card-ornament-opacity: 0;
     --ew-structure-button-clip: none;
     --ew-structure-card-clip: none;
@@ -176,8 +205,16 @@
   [data-era="mcm-atomic"] .ew-card {
     border-radius: var(--ew-structure-surface-radius, 24px);
   }
-  [data-era="mcm-atomic"][data-fidelity-band="costume"] .ew-card[data-variant="raised"] {
+  [data-era="mcm-atomic"] .ew-card[data-variant="raised"] {
     border-radius: 28px 28px 36px 20px / 24px 32px 22px 30px;
+  }
+  [data-era="mcm-atomic"][data-fidelity-band="whisper"] .ew-card[data-variant="raised"],
+  [data-fidelity-band="whisper"] [data-era="mcm-atomic"] .ew-card[data-variant="raised"],
+  [data-era="mcm-atomic"][data-fidelity-band="default"] .ew-card[data-variant="raised"],
+  [data-fidelity-band="default"] [data-era="mcm-atomic"] .ew-card[data-variant="raised"],
+  [data-era="mcm-atomic"][data-fidelity-band="signature"] .ew-card[data-variant="raised"],
+  [data-fidelity-band="signature"] [data-era="mcm-atomic"] .ew-card[data-variant="raised"] {
+    border-radius: var(--ew-structure-surface-radius, 24px);
   }
   [data-era="mcm-atomic"] .ew-button {
     border-radius: var(--ew-structure-control-radius, 999px);
@@ -187,11 +224,30 @@
     text-transform: lowercase;
     font-weight: 600;
   }
-  [data-era="mcm-atomic"] .ew-text-field__control {
+  [data-era="mcm-atomic"] .ew-text-field__control,
+  [data-era="mcm-atomic"] .ew-select__control,
+  [data-era="mcm-atomic"] .ew-select__trigger,
+  [data-era="mcm-atomic"] .ew-textarea__control {
     border-radius: var(--ew-structure-field-radius, 16px);
-    border-width: 0;
-    background: var(--ew-color-bg-surface);
-    box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--ew-color-fg-default) 12%, transparent);
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--ew-color-field-border);
+    background: var(--ew-color-field-bg);
+    box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent);
+  }
+  [data-era="mcm-atomic"] .ew-radio__disc,
+  [data-era="mcm-atomic"] .ew-checkbox__box {
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--ew-color-border-strong);
+    background: var(--ew-color-field-bg);
+  }
+  [data-era="mcm-atomic"] .ew-switch__thumb {
+    background: var(--ew-color-fg-default);
+  }
+  [data-era="mcm-atomic"] .ew-switch__track {
+    border: 2px solid var(--ew-color-border-strong);
+    background: var(--ew-color-field-bg);
   }
   [data-era="mcm-atomic"] .ew-dialog {
     border-radius: var(--ew-structure-dialog-radius, 28px);

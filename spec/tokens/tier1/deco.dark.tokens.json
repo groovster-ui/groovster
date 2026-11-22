@@ -167,5 +167,32 @@
       "$value": "8px",
       "$description": "stepped frame increment"
     }
+  },
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": [
+        "Limelight",
+        "Bodoni Moda",
+        "serif"
+      ]
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "Jost",
+        "Futura",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "IBM Plex Mono",
+        "ui-monospace",
+        "monospace"
+      ]
+    }
   }
 }

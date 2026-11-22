@@ -5,8 +5,8 @@ edge: double-line brass rules
 surface: lacquer panels
 elevation: terraced steps
 ornament: chevron / fan rules
-type: Cinzel + Libre Baskerville
-fidelity: default 35 (20–55)
+type: Limelight + Jost
+fidelity: costume default; bands whisper|default|costume
 modes: light, dark
 use: luxury, editorial, pricing
 never: neon glow, display type on controls

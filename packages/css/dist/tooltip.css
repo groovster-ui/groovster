@@ -5,15 +5,32 @@
     /* anatomy: root, tip */
   }
   .ew-tooltip { position: relative; display: inline-flex; }
+  .ew-tooltip__trigger, .ew-tooltip > :is(button, a, [tabindex], .ew-button, .ew-icon-button) {
+    anchor-name: --ew-tooltip-trigger;
+  }
   .ew-tooltip__tip {
-    position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%);
+    inset: unset;
+    position: fixed;
+    position-anchor: --ew-tooltip-trigger;
+    position-area: block-start;
+    position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+    margin: 0;
     background: var(--ew-color-fg-default); color: var(--ew-color-fg-inverse, #fff);
     font-size: 12px; padding: var(--ew-structure-tooltip-padding, 6px 8px);
     border-radius: var(--ew-structure-tooltip-radius, 4px); white-space: nowrap;
     box-shadow: var(--ew-structure-tooltip-shadow, none);
     opacity: 0; pointer-events: none; transition: opacity 120ms ease;
   }
-  .ew-tooltip:hover .ew-tooltip__tip, .ew-tooltip:focus-within .ew-tooltip__tip { opacity: 1; }
+  .ew-tooltip__tip:popover-open,
+  .ew-tooltip__tip[data-ew-open="true"] { opacity: 1; }
+  @supports not (anchor-name: --x) {
+    .ew-tooltip__tip {
+      position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-tooltip__tip { transition: none; }
+  }
   /* spec variant variant=default */
   .ew-tooltip[data-variant="default"] { --ew-spec-variant-variant: default; }
   .ew-tooltip:not([data-variant]) { --ew-spec-variant-variant: default; }
