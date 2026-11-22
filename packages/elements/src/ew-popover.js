@@ -1,10 +1,12 @@
 /**
  * <ew-popover> — light-DOM non-modal popover (APG Disclosure / Popover pattern).
  * Uses Popover API when available; falls back to hidden toggle. No imports. Zag.js: not used.
+ * Listens for the native `toggle` event so aria-expanded never goes stale.
  */
 (() => {
   const TAG = 'ew-popover';
   if (customElements.get(TAG)) return;
+  let uid = 0;
 
   class EwPopover extends HTMLElement {
     #ready = false;
@@ -13,12 +15,14 @@
       if (!this.#isOpen()) return;
       if (!this.contains(e.target)) this.#close();
     };
+    #onToggle = () => {
+      this.#syncAria();
+    };
 
     connectedCallback() {
       this.classList.add('ew-popover');
       this.addEventListener('click', this.#onClick);
       this.addEventListener('keydown', this.#onKey);
-      this.addEventListener('toggle', this.#onToggle);
       this.#upgrade();
       if (!this.#ready) {
         this.#mo = new MutationObserver(() => this.#upgrade());
@@ -29,7 +33,7 @@
       this.#mo?.disconnect();
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKey);
-      this.removeEventListener('toggle', this.#onToggle);
+      this.#panel?.removeEventListener('toggle', this.#onToggle);
       document.removeEventListener('pointerdown', this.#onDoc, true);
     }
 
@@ -52,12 +56,14 @@
       const trigger = this.#trigger;
       const panel = this.#panel;
       if (!trigger || !panel) return;
-      if (!panel.id) panel.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
+      if (!panel.id) panel.id = `${TAG}-${++uid}`;
       trigger.setAttribute('aria-controls', panel.id);
       trigger.setAttribute('aria-expanded', 'false');
       if (!panel.hasAttribute('popover')) {
         panel.hidden = true;
       }
+      panel.removeEventListener('toggle', this.#onToggle);
+      panel.addEventListener('toggle', this.#onToggle);
     }
 
     #isOpen() {
@@ -100,14 +106,13 @@
       } else {
         panel.hidden = false;
       }
-      trigger.setAttribute('aria-expanded', 'true');
+      this.#syncAria();
       document.addEventListener('pointerdown', this.#onDoc, true);
       this.dispatchEvent(new CustomEvent('ew-popover-open', { bubbles: true }));
     }
 
     #close() {
       const panel = this.#panel;
-      const trigger = this.#trigger;
       if (!panel) return;
       if (typeof panel.hidePopover === 'function' && panel.hasAttribute('popover')) {
         try {
@@ -118,7 +123,7 @@
       } else {
         panel.hidden = true;
       }
-      trigger?.setAttribute('aria-expanded', 'false');
+      this.#syncAria();
       document.removeEventListener('pointerdown', this.#onDoc, true);
       this.dispatchEvent(new CustomEvent('ew-popover-close', { bubbles: true }));
     }

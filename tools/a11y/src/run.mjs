@@ -50,6 +50,11 @@ for (const loc of cases) {
     impact: v.impact,
     help: v.help,
     nodes: v.nodes.length,
+    nodeDetails: v.nodes.map(n => ({
+      html: n.html,
+      failureSummary: n.failureSummary,
+      target: n.target,
+    })),
   }));
   const ok = violations.length === 0;
   if (!ok) report.pass = false;

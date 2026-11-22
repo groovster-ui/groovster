@@ -13,8 +13,7 @@
 (() => {
   const TAG = 'ew-tabs';
   if (customElements.get(TAG)) return;
-  
-  let idCounter = 0;
+  let uid = 0;
 
   class EwTabs extends HTMLElement {
     #mo = null;
@@ -139,9 +138,8 @@
     }
 
     #ensureIds() {
-      let n = 0;
       for (const tab of this.#tabs) {
-        if (!tab.id) tab.id = `${TAG}-tab-${++n}`;
+        if (!tab.id) tab.id = `${TAG}-tab-${++uid}`;
         const panelId = tab.getAttribute('aria-controls');
         let panel = panelId ? this.querySelector(`#${CSS.escape(panelId)}`) : null;
         if (!panel) {
@@ -190,21 +188,29 @@
 
 /* ---- ew-select.js ---- */
 /**
- * <ew-select> — light-DOM Select (APG Select-Only Combobox / listbox).
+ * <ew-select> — light-DOM Select-Only Combobox (WAI-ARIA APG).
  * Progressive enhancement. Public classes: ew-select*. No dependencies. No imports.
  * Zag.js: not used.
+ *
+ * Focus stays on the combobox; options use aria-activedescendant.
+ * Outside click closes without restoring focus. Escape/selection restore focus.
+ * Tab closes and commits the active option.
  */
 (() => {
   const TAG = 'ew-select';
   if (customElements.get(TAG)) return;
+  let uid = 0;
 
   class EwSelect extends HTMLElement {
     #open = false;
     #ready = false;
     #mo = null;
+    #activeId = null;
+    #typeahead = '';
+    #typeaheadTimer = null;
     #onDocPointer = (e) => {
       if (!this.#open) return;
-      if (!this.contains(e.target)) this.#setOpen(false);
+      if (!this.contains(e.target)) this.#setOpen(false, { restoreFocus: false });
     };
 
     connectedCallback() {
@@ -221,6 +227,7 @@
       this.#mo = null;
       this.#unbind();
       document.removeEventListener('pointerdown', this.#onDocPointer, true);
+      clearTimeout(this.#typeaheadTimer);
     }
 
     get #native() {
@@ -252,7 +259,7 @@
       if (!native) return;
       native.hidden = true;
       native.tabIndex = -1;
-      if (!native.id) native.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
+      if (!native.id) native.id = `${TAG}-${++uid}`;
 
       let trigger = this.#trigger;
       if (!trigger) {
@@ -261,8 +268,10 @@
         trigger.className = 'ew-select__trigger';
         native.insertAdjacentElement('afterend', trigger);
       }
+      trigger.setAttribute('role', 'combobox');
       trigger.setAttribute('aria-haspopup', 'listbox');
       trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute('aria-autocomplete', 'none');
       if (!trigger.id) trigger.id = `${native.id}-trigger`;
 
       const label = this.querySelector('label.ew-select__label, label');
@@ -270,7 +279,6 @@
         if (!label.id) label.id = `${native.id}-label`;
         if (label.htmlFor === native.id) label.removeAttribute('for');
       }
-      // Value span so aria-labelledby name includes visible trigger text (axe label-content-name).
       let valueSpan = trigger.querySelector('.ew-select__value');
       if (!valueSpan) {
         valueSpan = document.createElement('span');
@@ -285,13 +293,12 @@
       if (!list) {
         list = document.createElement('ul');
         list.className = 'ew-select__list';
-        list.setAttribute('popover', 'manual');
+        list.hidden = true;
         trigger.insertAdjacentElement('afterend', list);
       }
       list.setAttribute('role', 'listbox');
       list.id = list.id || `${native.id}-list`;
       trigger.setAttribute('aria-controls', list.id);
-      trigger.setAttribute('popovertarget', list.id);
 
       list.replaceChildren();
       [...native.options].forEach((opt, i) => {
@@ -301,6 +308,7 @@
         li.id = `${list.id}-opt-${i}`;
         li.dataset.value = opt.value;
         li.textContent = opt.textContent;
+        li.tabIndex = -1;
         if (opt.disabled) li.setAttribute('aria-disabled', 'true');
         li.setAttribute('aria-selected', opt.selected ? 'true' : 'false');
         list.appendChild(li);
@@ -321,11 +329,11 @@
       const opt = e.target.closest('[role="option"]');
       if (opt && this.contains(opt)) {
         if (opt.getAttribute('aria-disabled') === 'true') return;
-        this.#choose(opt);
+        this.#choose(opt, { restoreFocus: true });
         return;
       }
       if (e.target.closest('.ew-select__trigger')) {
-        this.#setOpen(!this.#open);
+        this.#setOpen(!this.#open, { restoreFocus: true });
       }
     };
 
@@ -333,90 +341,121 @@
       const trigger = this.#trigger;
       const options = this.#options.filter((o) => o.getAttribute('aria-disabled') !== 'true');
       if (!trigger) return;
+      const onTrigger = e.target === trigger || trigger.contains(e.target);
 
-      if (e.target === trigger) {
-        if (['ArrowDown', 'ArrowUp', 'Enter', ' '].includes(e.key)) {
-          e.preventDefault();
-          if (!this.#open) this.#setOpen(true);
-          else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-            const sel = options.find((o) => o.getAttribute('aria-selected') === 'true') || options[0];
-            const i = options.indexOf(sel);
-            const next =
-              e.key === 'ArrowDown'
-                ? options[Math.min(i + 1, options.length - 1)]
-                : options[Math.max(i - 1, 0)];
-            next?.focus();
+      if (onTrigger || this.#open) {
+        if (e.key === 'Tab') {
+          if (this.#open) {
+            const active = this.#activeOption() || options[0];
+            if (active) this.#choose(active, { restoreFocus: false, keepOpen: false });
+            else this.#setOpen(false, { restoreFocus: false });
           }
+          return;
+        }
+        if (['ArrowDown', 'ArrowUp'].includes(e.key)) {
+          e.preventDefault();
+          if (!this.#open) {
+            this.#setOpen(true, { restoreFocus: true });
+            return;
+          }
+          const cur = this.#activeOption() || options.find((o) => o.getAttribute('aria-selected') === 'true') || options[0];
+          const i = options.indexOf(cur);
+          const next =
+            e.key === 'ArrowDown'
+              ? options[Math.min(Math.max(i, 0) + 1, options.length - 1)]
+              : options[Math.max(i <= 0 ? 0 : i - 1, 0)];
+          this.#setActive(next);
+          return;
+        }
+        if (e.key === 'Home' && this.#open) {
+          e.preventDefault();
+          this.#setActive(options[0]);
+          return;
+        }
+        if (e.key === 'End' && this.#open) {
+          e.preventDefault();
+          this.#setActive(options[options.length - 1]);
+          return;
+        }
+        if ((e.key === 'Enter' || e.key === ' ') && onTrigger) {
+          e.preventDefault();
+          if (!this.#open) this.#setOpen(true, { restoreFocus: true });
+          else {
+            const active = this.#activeOption();
+            if (active) this.#choose(active, { restoreFocus: true });
+          }
+          return;
         }
         if (e.key === 'Escape' && this.#open) {
           e.preventDefault();
-          this.#setOpen(false);
+          this.#setOpen(false, { restoreFocus: true });
+          return;
         }
-        return;
-      }
-
-      const opt = e.target.closest('[role="option"]');
-      if (!opt) return;
-      const i = options.indexOf(opt);
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        options[Math.min(i + 1, options.length - 1)]?.focus();
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        options[Math.max(i - 1, 0)]?.focus();
-      } else if (e.key === 'Home') {
-        e.preventDefault();
-        options[0]?.focus();
-      } else if (e.key === 'End') {
-        e.preventDefault();
-        options[options.length - 1]?.focus();
-      } else if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        this.#choose(opt);
-      } else if (e.key === 'Escape') {
-        e.preventDefault();
-        this.#setOpen(false);
-        trigger.focus();
+        // Typeahead
+        if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+          e.preventDefault();
+          if (!this.#open) this.#setOpen(true, { restoreFocus: true });
+          this.#typeahead += e.key.toLowerCase();
+          clearTimeout(this.#typeaheadTimer);
+          this.#typeaheadTimer = setTimeout(() => {
+            this.#typeahead = '';
+          }, 500);
+          const match = options.find((o) =>
+            (o.textContent || '').trim().toLowerCase().startsWith(this.#typeahead)
+          );
+          if (match) this.#setActive(match);
+        }
       }
     };
 
-    #setOpen(open) {
+    #activeOption() {
+      return this.#activeId ? this.#options.find((o) => o.id === this.#activeId) : null;
+    }
+
+    #setActive(opt) {
+      if (!opt) return;
+      this.#activeId = opt.id;
+      const trigger = this.#trigger;
+      trigger?.setAttribute('aria-activedescendant', opt.id);
+      this.#options.forEach((o) => {
+        o.classList.toggle('is-active', o === opt);
+      });
+      opt.scrollIntoView?.({ block: 'nearest' });
+    }
+
+    #setOpen(open, { restoreFocus = false } = {}) {
       this.#open = open;
       const list = this.#list;
       const trigger = this.#trigger;
       if (!list || !trigger) return;
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      list.hidden = !open;
       if (open) {
-        list.showPopover();
         document.addEventListener('pointerdown', this.#onDocPointer, true);
         const selected =
           this.#options.find((o) => o.getAttribute('aria-selected') === 'true') || this.#options[0];
-        this.#options.forEach((o) => {
-          o.tabIndex = o === selected ? 0 : -1;
-        });
-        selected?.focus();
+        this.#setActive(selected);
+        trigger.focus();
       } else {
-        if (list.matches(':popover-open')) list.hidePopover();
         document.removeEventListener('pointerdown', this.#onDocPointer, true);
-        if (document.activeElement && list.contains(document.activeElement)) {
-          trigger.focus();
-        }
+        trigger.removeAttribute('aria-activedescendant');
+        this.#activeId = null;
+        this.#options.forEach((o) => o.classList.remove('is-active'));
+        if (restoreFocus) trigger.focus();
       }
     }
 
-    #choose(opt) {
+    #choose(opt, { restoreFocus = true } = {}) {
       const native = this.#native;
       this.#options.forEach((o) => {
-        const on = o === opt;
-        o.setAttribute('aria-selected', on ? 'true' : 'false');
-        o.tabIndex = on ? 0 : -1;
+        o.setAttribute('aria-selected', o === opt ? 'true' : 'false');
       });
       if (native) {
         native.value = opt.dataset.value;
         native.dispatchEvent(new Event('change', { bubbles: true }));
       }
       this.#updateTriggerLabel();
-      this.#setOpen(false);
+      this.#setOpen(false, { restoreFocus });
       this.dispatchEvent(
         new CustomEvent('ew-select-change', { bubbles: true, detail: { value: opt.dataset.value } })
       );
@@ -452,18 +491,23 @@
 /**
  * <ew-menu> — light-DOM Menu Button (WAI-ARIA APG).
  * Public classes: ew-menu*. No dependencies. No imports. Zag.js: not used.
+ * Outside click closes without restoring focus. Escape/selection restore focus.
+ * Typeahead jumps to matching menuitems.
  */
 (() => {
   const TAG = 'ew-menu';
   if (customElements.get(TAG)) return;
+  let uid = 0;
 
   class EwMenu extends HTMLElement {
     #open = false;
     #ready = false;
     #mo = null;
+    #typeahead = '';
+    #typeaheadTimer = null;
     #onDoc = (e) => {
       if (!this.#open) return;
-      if (!this.contains(e.target)) this.#setOpen(false);
+      if (!this.contains(e.target)) this.#setOpen(false, { restoreFocus: false });
     };
 
     connectedCallback() {
@@ -481,6 +525,7 @@
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKey);
       document.removeEventListener('pointerdown', this.#onDoc, true);
+      clearTimeout(this.#typeaheadTimer);
     }
 
     get #trigger() {
@@ -507,13 +552,12 @@
       const trigger = this.#trigger;
       const panel = this.#panel;
       if (!trigger || !panel) return;
-      if (!panel.id) panel.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
+      if (!panel.id) panel.id = `${TAG}-${++uid}`;
       trigger.setAttribute('aria-haspopup', 'menu');
       trigger.setAttribute('aria-controls', panel.id);
       trigger.setAttribute('aria-expanded', 'false');
-      trigger.setAttribute('popovertarget', panel.id);
       panel.setAttribute('role', 'menu');
-      panel.setAttribute('popover', 'manual');
+      panel.hidden = true;
       this.#items.forEach((item, i) => {
         item.tabIndex = -1;
         if (!item.id) item.id = `${panel.id}-item-${i}`;
@@ -528,7 +572,7 @@
       }
       if (e.target.closest('.ew-menu__trigger, [aria-haspopup="menu"]')) {
         e.preventDefault();
-        this.#setOpen(!this.#open);
+        this.#setOpen(!this.#open, { restoreFocus: true });
       }
     };
 
@@ -538,15 +582,15 @@
       if (e.target === trigger || trigger?.contains(e.target)) {
         if (['ArrowDown', 'Enter', ' '].includes(e.key)) {
           e.preventDefault();
-          this.#setOpen(true);
+          this.#setOpen(true, { restoreFocus: true });
           items[0]?.focus();
         } else if (e.key === 'ArrowUp') {
           e.preventDefault();
-          this.#setOpen(true);
+          this.#setOpen(true, { restoreFocus: true });
           items[items.length - 1]?.focus();
         } else if (e.key === 'Escape' && this.#open) {
           e.preventDefault();
-          this.#setOpen(false);
+          this.#setOpen(false, { restoreFocus: true });
         }
         return;
       }
@@ -570,28 +614,34 @@
         this.#activate(item);
       } else if (e.key === 'Escape') {
         e.preventDefault();
-        this.#setOpen(false);
-        trigger?.focus();
+        this.#setOpen(false, { restoreFocus: true });
       } else if (e.key === 'Tab') {
-        this.#setOpen(false);
+        this.#setOpen(false, { restoreFocus: false });
+      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        e.preventDefault();
+        this.#typeahead += e.key.toLowerCase();
+        clearTimeout(this.#typeaheadTimer);
+        this.#typeaheadTimer = setTimeout(() => {
+          this.#typeahead = '';
+        }, 500);
+        const match = items.find((it) =>
+          (it.textContent || '').trim().toLowerCase().startsWith(this.#typeahead)
+        );
+        match?.focus();
       }
     };
 
-    #setOpen(open) {
+    #setOpen(open, { restoreFocus = false } = {}) {
       this.#open = open;
       const trigger = this.#trigger;
       const panel = this.#panel;
       if (!trigger || !panel) return;
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (open) {
-        panel.showPopover();
-        document.addEventListener('pointerdown', this.#onDoc, true);
-      } else {
-        if (panel.matches(':popover-open')) panel.hidePopover();
+      panel.hidden = !open;
+      if (open) document.addEventListener('pointerdown', this.#onDoc, true);
+      else {
         document.removeEventListener('pointerdown', this.#onDoc, true);
-        if (document.activeElement && panel.contains(document.activeElement)) {
-          trigger.focus();
-        }
+        if (restoreFocus) trigger.focus();
       }
     }
 
@@ -602,7 +652,7 @@
           detail: { id: item.id, label: item.textContent?.trim() },
         })
       );
-      this.#setOpen(false);
+      this.#setOpen(false, { restoreFocus: true });
     }
   }
 
@@ -614,10 +664,12 @@
 /**
  * <ew-popover> — light-DOM non-modal popover (APG Disclosure / Popover pattern).
  * Uses Popover API when available; falls back to hidden toggle. No imports. Zag.js: not used.
+ * Listens for the native `toggle` event so aria-expanded never goes stale.
  */
 (() => {
   const TAG = 'ew-popover';
   if (customElements.get(TAG)) return;
+  let uid = 0;
 
   class EwPopover extends HTMLElement {
     #ready = false;
@@ -626,12 +678,14 @@
       if (!this.#isOpen()) return;
       if (!this.contains(e.target)) this.#close();
     };
+    #onToggle = () => {
+      this.#syncAria();
+    };
 
     connectedCallback() {
       this.classList.add('ew-popover');
       this.addEventListener('click', this.#onClick);
       this.addEventListener('keydown', this.#onKey);
-      this.addEventListener('toggle', this.#onToggle);
       this.#upgrade();
       if (!this.#ready) {
         this.#mo = new MutationObserver(() => this.#upgrade());
@@ -642,7 +696,7 @@
       this.#mo?.disconnect();
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKey);
-      this.removeEventListener('toggle', this.#onToggle);
+      this.#panel?.removeEventListener('toggle', this.#onToggle);
       document.removeEventListener('pointerdown', this.#onDoc, true);
     }
 
@@ -665,12 +719,14 @@
       const trigger = this.#trigger;
       const panel = this.#panel;
       if (!trigger || !panel) return;
-      if (!panel.id) panel.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
+      if (!panel.id) panel.id = `${TAG}-${++uid}`;
       trigger.setAttribute('aria-controls', panel.id);
       trigger.setAttribute('aria-expanded', 'false');
       if (!panel.hasAttribute('popover')) {
         panel.hidden = true;
       }
+      panel.removeEventListener('toggle', this.#onToggle);
+      panel.addEventListener('toggle', this.#onToggle);
     }
 
     #isOpen() {
@@ -713,14 +769,13 @@
       } else {
         panel.hidden = false;
       }
-      trigger.setAttribute('aria-expanded', 'true');
+      this.#syncAria();
       document.addEventListener('pointerdown', this.#onDoc, true);
       this.dispatchEvent(new CustomEvent('ew-popover-open', { bubbles: true }));
     }
 
     #close() {
       const panel = this.#panel;
-      const trigger = this.#trigger;
       if (!panel) return;
       if (typeof panel.hidePopover === 'function' && panel.hasAttribute('popover')) {
         try {
@@ -731,7 +786,7 @@
       } else {
         panel.hidden = true;
       }
-      trigger?.setAttribute('aria-expanded', 'false');
+      this.#syncAria();
       document.removeEventListener('pointerdown', this.#onDoc, true);
       this.dispatchEvent(new CustomEvent('ew-popover-close', { bubbles: true }));
     }
@@ -852,6 +907,7 @@
 /**
  * <ew-toast-region> — light-DOM toast host with polite live region (APG live regions).
  * Method: region.show({ title, body, variant, timeout }). No imports. Zag.js: not used.
+ * Timer pauses on hover/focus. Uses role=status only (region is already live — no nested alert).
  */
 (() => {
   const TAG = 'ew-toast-region';
@@ -870,7 +926,8 @@
       const toast = document.createElement('div');
       toast.className = 'ew-toast';
       toast.dataset.variant = opts.variant || 'info';
-      toast.setAttribute('role', opts.variant === 'danger' ? 'alert' : 'status');
+      // Region already has aria-live; keep a single status role (never nest role=alert).
+      toast.setAttribute('role', 'status');
       if (opts.title) {
         const t = document.createElement('strong');
         t.className = 'ew-toast__title';
@@ -891,19 +948,40 @@
       close.addEventListener('click', () => this.#dismiss(toast));
       toast.appendChild(close);
 
-      this.appendChild(toast);
       const timeout = opts.timeout ?? 5000;
-      if (timeout > 0) {
-        const id = window.setTimeout(() => this.#dismiss(toast), timeout);
-        toast.dataset.timeoutId = String(id);
-      }
+      toast._ewRemaining = timeout;
+      toast._ewDeadline = 0;
+      toast._ewTimer = 0;
+
+      const pause = () => this.#pause(toast);
+      const resume = () => this.#resume(toast);
+      toast.addEventListener('pointerenter', pause);
+      toast.addEventListener('pointerleave', resume);
+      toast.addEventListener('focusin', pause);
+      toast.addEventListener('focusout', resume);
+
+      this.appendChild(toast);
+      if (timeout > 0) this.#resume(toast);
       this.dispatchEvent(new CustomEvent('ew-toast-show', { bubbles: true, detail: opts }));
       return toast;
     }
 
+    #pause(toast) {
+      if (!toast._ewTimer) return;
+      clearTimeout(toast._ewTimer);
+      toast._ewTimer = 0;
+      toast._ewRemaining = Math.max(0, toast._ewDeadline - Date.now());
+    }
+
+    #resume(toast) {
+      if (toast._ewRemaining <= 0 || toast._ewTimer) return;
+      toast._ewDeadline = Date.now() + toast._ewRemaining;
+      toast._ewTimer = window.setTimeout(() => this.#dismiss(toast), toast._ewRemaining);
+    }
+
     #dismiss(toast) {
       if (!toast.isConnected) return;
-      if (toast.dataset.timeoutId) clearTimeout(Number(toast.dataset.timeoutId));
+      if (toast._ewTimer) clearTimeout(toast._ewTimer);
       toast.remove();
       this.dispatchEvent(new CustomEvent('ew-toast-dismiss', { bubbles: true }));
     }

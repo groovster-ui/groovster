@@ -22,7 +22,7 @@
     },
     "cyan": {
       "$type": "color",
-      "$value": "oklch(60% 0.14 210)"
+      "$value": "oklch(45% 0.14 210)"
     },
     "violet": {
       "$type": "color",

@@ -1,5 +1,5 @@
 {
-  "pass": false,
+  "pass": true,
   "cases": [
     {
       "id": "case-neutral-light",
@@ -13,15 +13,8 @@
     },
     {
       "id": "case-deco-light",
-      "pass": false,
-      "violations": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "help": "Elements must meet minimum color contrast ratio thresholds",
-          "nodes": 1
-        }
-      ]
+      "pass": true,
+      "violations": []
     },
     {
       "id": "case-deco-dark",
@@ -30,15 +23,8 @@
     },
     {
       "id": "case-mcm-atomic-light",
-      "pass": false,
-      "violations": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "help": "Elements must meet minimum color contrast ratio thresholds",
-          "nodes": 1
-        }
-      ]
+      "pass": true,
+      "violations": []
     },
     {
       "id": "case-mcm-atomic-dark",
@@ -47,15 +33,8 @@
     },
     {
       "id": "case-neon-light",
-      "pass": false,
-      "violations": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "help": "Elements must meet minimum color contrast ratio thresholds",
-          "nodes": 1
-        }
-      ]
+      "pass": true,
+      "violations": []
     },
     {
       "id": "case-neon-dark",

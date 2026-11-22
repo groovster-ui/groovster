@@ -10,8 +10,7 @@
 (() => {
   const TAG = 'ew-tabs';
   if (customElements.get(TAG)) return;
-  
-  let idCounter = 0;
+  let uid = 0;
 
   class EwTabs extends HTMLElement {
     #mo = null;
@@ -136,9 +135,8 @@
     }
 
     #ensureIds() {
-      let n = 0;
       for (const tab of this.#tabs) {
-        if (!tab.id) tab.id = `${TAG}-tab-${++n}`;
+        if (!tab.id) tab.id = `${TAG}-tab-${++uid}`;
         const panelId = tab.getAttribute('aria-controls');
         let panel = panelId ? this.querySelector(`#${CSS.escape(panelId)}`) : null;
         if (!panel) {

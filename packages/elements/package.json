@@ -5,7 +5,10 @@
   "description": "Dependency-free light-DOM web components (APG). Published JS imports nothing.",
   "type": "module",
   "license": "MIT",
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "exports": {
     ".": "./dist/era-elements.js",
     "./era-elements.js": "./dist/era-elements.js",
@@ -23,5 +26,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["era-widgets", "web-components", "a11y", "apg"]
+  "keywords": [
+    "era-widgets",
+    "web-components",
+    "a11y",
+    "apg"
+  ]
 }

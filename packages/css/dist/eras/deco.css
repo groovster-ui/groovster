@@ -477,8 +477,9 @@
   [data-era="deco"] .ew-tabs [role="tab"][aria-selected="true"],
   [data-era="deco"] ew-tabs [role="tab"][aria-selected="true"] {
     clip-path: polygon(0 8px, 8px 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
-    background: var(--ew-color-gold);
-    color: var(--ew-color-paper);
+    /* action pair stays AA in both modes (gold/lacquer dark; black/gold light) */
+    background: var(--ew-color-action-bg);
+    color: var(--ew-color-action-fg);
     border-color: var(--ew-color-gold);
   }
   
