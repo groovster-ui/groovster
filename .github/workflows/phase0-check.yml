@@ -47,21 +47,6 @@ jobs:
       - name: Build and typecheck React
         run: pnpm react:build && pnpm react:typecheck
 
-      - name: Unit tests
-        run: pnpm test:unit
-
-      - name: Package size check
-        run: pnpm sizes:check
-      
-      - name: Fail on generated drift after gen
-        run: pnpm gen && git diff --exit-code && test -z "$(git status --porcelain)"
-      
-      - name: Typecheck React package
-        run: pnpm react:typecheck
-      
-      - name: Run MCP smoke tests
-        run: pnpm mcp:smoke
-
       - name: Resolve Playwright version
         id: playwright-version
         run: |
@@ -92,7 +77,22 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: pnpm exec playwright install-deps chromium
         working-directory: tools/a11y
-      
+
+      - name: Unit tests
+        run: pnpm test:unit
+
+      - name: Package size check
+        run: pnpm sizes:check
+
+      - name: Fail on generated drift after gen
+        run: pnpm gen && git diff --exit-code && test -z "$(git status --porcelain)"
+
+      - name: Typecheck React package
+        run: pnpm react:typecheck
+
+      - name: Run MCP smoke tests
+        run: pnpm mcp:smoke
+
       - name: Run eval harness self-tests
         run: pnpm eval
       
