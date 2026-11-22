@@ -3,7 +3,7 @@ GENERATED FILE — do not edit. Source: spec/recipes/. Run: pnpm gen
 # Operational dashboard (dashboard)
 A compact board for status, filters, and tables. Clarity outranks ornament. Figures are fictional.
 Category: Dense operational board, queue, or internal tool
-Eras: neutral. Also: earth, deco, groovy, memphis, mcm-atomic, neon. Avoid: none.
+Eras: neutral, swiss. Also: earth, deco, groovy, memphis, mcm-atomic, neon, bauhaus. Avoid: none.
 Fidelity: page whisper; forms whisper; data whisper. Whisper is the default so tables and filters stay quiet. Costume may be switched on; it must not hide rows or labels.
 Sections: masthead, metrics, filters, queues. Optional: notes.
 Components: button, card, tabs, select, text-field, switch, alert, link. Optional: menu.

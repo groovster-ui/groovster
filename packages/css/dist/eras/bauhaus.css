@@ -1,0 +1,261 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@font-face {
+  font-family: "League Spartan";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/LeagueSpartan-Regular.woff2") format("woff2"), local("League Spartan");
+}
+@font-face {
+  font-family: "League Spartan";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/LeagueSpartan-Bold.woff2") format("woff2"), local("League Spartan");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/SourceSans3-Regular.woff2") format("woff2"), local("Source Sans 3");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/SourceSans3-Bold.woff2") format("woff2"), local("Source Sans 3");
+}
+@font-face {
+  font-family: "Source Code Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/SourceCodePro-Regular.woff2") format("woff2"), local("Source Code Pro");
+}
+@font-face {
+  font-family: "Source Code Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/SourceCodePro-Bold.woff2") format("woff2"), local("Source Code Pro");
+}
+@layer tokens {
+  [data-era="bauhaus"], [data-era="bauhaus"][data-mode="light"] {
+    --ew-era: bauhaus;
+    --ew-mode: light;
+    --ew-color-gray-0: #FFF9F0;
+    --ew-color-gray-1: #F2EBDE;
+    --ew-color-gray-2: #E7DFD0;
+    --ew-color-gray-3: #D5CBBB;
+    --ew-color-gray-4: #B5A99B;
+    --ew-color-gray-5: #81786F;
+    --ew-color-gray-6: #5F5751;
+    --ew-color-gray-7: #403B37;
+    --ew-color-gray-8: #282522;
+    --ew-color-gray-9: #171615;
+    --ew-color-accent-solid: #A52E26;
+    --ew-color-accent-fg: #FFFFFF;
+    --ew-color-danger-solid: #AB302E;
+    --ew-color-danger-fg: #FFFFFF;
+    --ew-color-primary-red: #B92F26;
+    --ew-color-primary-yellow: #F1CA49;
+    --ew-color-primary-blue: #2656A0;
+    --ew-space-0: 0px;
+    --ew-space-1: 4px;
+    --ew-space-2: 8px;
+    --ew-space-3: 12px;
+    --ew-space-4: 16px;
+    --ew-space-5: 24px;
+    --ew-space-6: 32px;
+    --ew-space-7: 48px;
+    --ew-space-8: 64px;
+    --ew-radius-none: 0px;
+    --ew-radius-sm: 0px;
+    --ew-radius-md: 0px;
+    --ew-radius-lg: 0px;
+    --ew-radius-pill: 999px;
+    --ew-font-display: "League Spartan", Arial, sans-serif;
+    --ew-font-body: "Source Sans 3", Arial, sans-serif;
+    --ew-font-mono: "Source Code Pro", monospace;
+    --ew-color-fg-default: var(--ew-color-gray-8);
+    --ew-color-fg-muted: var(--ew-color-gray-6);
+    --ew-color-fg-inverse: var(--ew-color-gray-0);
+    --ew-color-bg-page: var(--ew-color-gray-0);
+    --ew-color-bg-surface: var(--ew-color-gray-1);
+    --ew-color-bg-elevated: var(--ew-color-gray-0);
+    --ew-color-border-subtle: var(--ew-color-gray-3);
+    --ew-color-border-strong: var(--ew-color-gray-6);
+    --ew-color-action-bg: var(--ew-color-accent-solid);
+    --ew-color-action-fg: var(--ew-color-accent-fg);
+    --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 88%, var(--ew-color-gray-9));
+    --ew-color-field-bg: var(--ew-color-gray-0);
+    --ew-color-field-border: var(--ew-color-gray-6);
+    --ew-color-field-focus: var(--ew-color-accent-solid);
+    --ew-color-overlay: color-mix(in oklch, var(--ew-color-gray-8) 45%, transparent);
+    --ew-color-track-off: var(--ew-color-gray-3);
+    --ew-color-track-on: var(--ew-color-accent-solid);
+    --ew-color-danger-bg: var(--ew-color-danger-solid);
+    --ew-color-danger-fg: var(--ew-color-danger-fg);
+    --ew-elevation-1: 0px 1px 2px 0px color-mix(in oklch, var(--ew-color-gray-8) 8%, transparent);
+    --ew-elevation-2: 0px 4px 12px 0px color-mix(in oklch, var(--ew-color-gray-8) 12%, transparent);
+    --ew-elevation-dialog: 0px 16px 40px 0px color-mix(in oklch, var(--ew-color-gray-8) 20%, transparent);
+    color: var(--ew-color-fg-default);
+    background: var(--ew-color-bg-page);
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="bauhaus"][data-mode="dark"] {
+    --ew-era: bauhaus;
+    --ew-mode: dark;
+    --ew-color-gray-0: #181919;
+    --ew-color-gray-1: #25292A;
+    --ew-color-gray-2: #313737;
+    --ew-color-gray-3: #485152;
+    --ew-color-gray-4: #687477;
+    --ew-color-gray-5: #98A2A1;
+    --ew-color-gray-6: #BFC9C6;
+    --ew-color-gray-7: #DDE4DD;
+    --ew-color-gray-8: #F2F0E6;
+    --ew-color-gray-9: #FFF8EA;
+    --ew-color-accent-solid: #F2C84B;
+    --ew-color-accent-fg: #121414;
+    --ew-color-danger-solid: #FF7C71;
+    --ew-color-danger-fg: #101414;
+    --ew-color-primary-red: #F26B5A;
+    --ew-color-primary-yellow: #F2C84B;
+    --ew-color-primary-blue: #7EA7E4;
+    --ew-space-0: 0px;
+    --ew-space-1: 4px;
+    --ew-space-2: 8px;
+    --ew-space-3: 12px;
+    --ew-space-4: 16px;
+    --ew-space-5: 24px;
+    --ew-space-6: 32px;
+    --ew-space-7: 48px;
+    --ew-space-8: 64px;
+    --ew-radius-none: 0px;
+    --ew-radius-sm: 0px;
+    --ew-radius-md: 0px;
+    --ew-radius-lg: 0px;
+    --ew-radius-pill: 999px;
+    --ew-font-display: "League Spartan", Arial, sans-serif;
+    --ew-font-body: "Source Sans 3", Arial, sans-serif;
+    --ew-font-mono: "Source Code Pro", monospace;
+    --ew-color-fg-default: var(--ew-color-gray-8);
+    --ew-color-fg-muted: var(--ew-color-gray-6);
+    --ew-color-fg-inverse: var(--ew-color-gray-0);
+    --ew-color-bg-page: var(--ew-color-gray-0);
+    --ew-color-bg-surface: var(--ew-color-gray-1);
+    --ew-color-bg-elevated: var(--ew-color-gray-2);
+    --ew-color-border-subtle: var(--ew-color-gray-3);
+    --ew-color-border-strong: var(--ew-color-gray-5);
+    --ew-color-action-bg: var(--ew-color-accent-solid);
+    --ew-color-action-fg: var(--ew-color-accent-fg);
+    --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 88%, var(--ew-color-gray-9));
+    --ew-color-field-bg: var(--ew-color-gray-1);
+    --ew-color-field-border: var(--ew-color-gray-5);
+    --ew-color-field-focus: var(--ew-color-accent-solid);
+    --ew-color-overlay: color-mix(in oklch, var(--ew-color-gray-0) 70%, transparent);
+    --ew-color-track-off: var(--ew-color-gray-3);
+    --ew-color-track-on: var(--ew-color-accent-solid);
+    --ew-color-danger-bg: var(--ew-color-danger-solid);
+    --ew-color-danger-fg: var(--ew-color-danger-fg);
+    --ew-elevation-1: 0px 1px 2px 0px color-mix(in oklch, var(--ew-color-gray-0) 45%, transparent);
+    --ew-elevation-2: 0px 4px 12px 0px color-mix(in oklch, var(--ew-color-gray-0) 55%, transparent);
+    --ew-elevation-dialog: 0px 16px 40px 0px color-mix(in oklch, var(--ew-color-gray-0) 70%, transparent);
+    color: var(--ew-color-fg-default);
+    background: var(--ew-color-bg-page);
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+}
+@layer era {
+  [data-era="bauhaus"] {
+    --ew-fidelity-default: 75;
+    --ew-structure-control-radius: 0px;
+    --ew-structure-surface-radius: 0px;
+    --ew-structure-button-border-width: 2px;
+    --ew-structure-button-border-style: solid;
+    --ew-structure-button-letter-spacing: 0.04em;
+    --ew-structure-button-text-transform: uppercase;
+    --ew-structure-button-font-weight: 700;
+    --ew-structure-button-shadow: none;
+    --ew-structure-button-clip: none;
+    --ew-structure-button-padding-x: 16px;
+    --ew-structure-button-padding-y: 10px;
+    --ew-structure-button-bevel: none;
+    --ew-structure-card-border-width: 2px;
+    --ew-structure-card-border-style: solid;
+    --ew-structure-card-shadow: none;
+    --ew-structure-card-raised-shadow: 5px 5px 0 var(--ew-color-fg-default);
+    --ew-structure-card-clip: none;
+    --ew-structure-card-padding: 20px;
+    --ew-structure-card-title-tracking: 0;
+    --ew-structure-card-header-rule-display: block;
+    --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
+    --ew-structure-card-ornament-content: none;
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-card-ornament-bg: none;
+    --ew-structure-card-ornament-size: auto;
+    --ew-structure-card-ornament-blend: normal;
+    --ew-structure-field-border-width: 2px;
+    --ew-structure-field-border-style: solid;
+    --ew-structure-field-radius: 0px;
+    --ew-structure-dialog-border-width: 2px;
+    --ew-structure-dialog-border-style: solid;
+    --ew-structure-dialog-radius: 0px;
+    --ew-structure-dialog-shadow: none;
+    --ew-structure-dialog-clip: none;
+    --ew-structure-tabs-indicator-height: 4px;
+    --ew-structure-tabs-indicator-style: solid;
+    --ew-structure-tabs-radius: 0px;
+    --ew-structure-switch-track-radius: 0px;
+    --ew-structure-switch-thumb-radius: 0px;
+    --ew-structure-switch-shadow: none;
+    --ew-structure-tooltip-radius: 0px;
+    --ew-structure-tooltip-shadow: none;
+    --ew-structure-tooltip-padding: 6px 8px;
+    --ew-structure-slider-track-height: 5px;
+    --ew-structure-slider-thumb-size: 18px;
+    --ew-structure-slider-track-radius: 0px;
+  }
+  [data-era="bauhaus"][data-fidelity-band="whisper"],
+  [data-fidelity-band="whisper"] [data-era="bauhaus"],
+  [data-era="bauhaus"][data-fidelity-band="standard"],
+  [data-fidelity-band="standard"] [data-era="bauhaus"],
+  [data-era="bauhaus"][data-fidelity-band="default"],
+  [data-fidelity-band="default"] [data-era="bauhaus"],
+  [data-era="bauhaus"][data-fidelity-band="signature"],
+  [data-fidelity-band="signature"] [data-era="bauhaus"] {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+}
+@layer decorators {
+
+  [data-era="bauhaus"] .ew-hero{display:grid;align-items:center;min-height:clamp(360px,56vw,710px);position:relative;isolation:isolate;overflow:hidden;padding:clamp(2rem,5vw,5rem)}
+  [data-era="bauhaus"] .ew-hero__panel{position:relative;z-index:1;width:min(100%,1100px);margin-inline:auto;display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr)}
+  [data-era="bauhaus"] .ew-hero__content{grid-column:1;min-width:0;position:relative;z-index:2}
+  [data-era="bauhaus"] .ew-hero__title{font:700 clamp(3.8rem,10vw,10rem)/.86 var(--ew-font-display);text-transform:lowercase;letter-spacing:-.07em;max-width:9ch;overflow-wrap:anywhere;margin:.15em 0 .25em}
+  [data-era="bauhaus"] .ew-hero__subtitle{font-size:clamp(1rem,1.8vw,1.45rem);line-height:1.45;max-width:35ch}
+  [data-era="bauhaus"] .ew-script{font:700 .8rem/1.4 var(--ew-font-body);text-transform:uppercase;letter-spacing:.14em}
+  [data-era="bauhaus"] .ew-hero__stage{position:absolute;inset:0;pointer-events:none;overflow:hidden;background:linear-gradient(90deg,transparent 0 77%,var(--ew-color-primary-yellow) 77% 84%,transparent 84%)}
+  [data-era="bauhaus"] .ew-hero__stage::before{content:"";position:absolute;right:-7%;top:-17%;width:min(54vw,510px);aspect-ratio:1;border-radius:50%;background:var(--ew-color-primary-red)}
+  [data-era="bauhaus"] .ew-hero__stage::after{content:"";position:absolute;right:8%;bottom:-10%;width:min(26vw,290px);height:min(36vw,370px);transform:rotate(34deg);background:var(--ew-color-primary-blue)}
+  [data-era="bauhaus"] .ew-card{border:2px solid var(--ew-color-fg-default);border-radius:0;background-image:none;box-shadow:none}
+  [data-era="bauhaus"] .ew-card[data-variant="raised"]{box-shadow:5px 5px 0 var(--ew-color-fg-default)}
+  [data-era="bauhaus"] .ew-card__header{border-bottom:2px solid var(--ew-color-fg-default)}
+  [data-era="bauhaus"] .ew-button{border:2px solid var(--ew-color-fg-default);border-radius:0;box-shadow:none}
+  [data-era="bauhaus"] .ew-button[data-variant="secondary"]{background:var(--ew-color-primary-yellow);color:var(--ew-color-gray-9)}
+  [data-era="bauhaus"] .ew-text-field__control,[data-era="bauhaus"] .ew-select__trigger,[data-era="bauhaus"] .ew-textarea__control{border-radius:0}
+  [data-era="bauhaus"] .ew-tabs [role="tab"][aria-selected="true"]{border-bottom:4px solid var(--ew-color-action-bg)}
+  :is([data-era="bauhaus"][data-fidelity-band="whisper"],[data-fidelity-band="whisper"] [data-era="bauhaus"]) .ew-hero{min-height:260px;padding-block:2rem}
+  :is([data-era="bauhaus"][data-fidelity-band="whisper"],[data-fidelity-band="whisper"] [data-era="bauhaus"]) .ew-hero__stage{display:none}
+  :is([data-era="bauhaus"][data-fidelity-band="standard"],[data-fidelity-band="standard"] [data-era="bauhaus"],[data-era="bauhaus"][data-fidelity-band="default"],[data-fidelity-band="default"] [data-era="bauhaus"],[data-era="bauhaus"][data-fidelity-band="signature"],[data-fidelity-band="signature"] [data-era="bauhaus"]) .ew-hero__stage::after{display:none}
+  @media(max-width:700px){[data-era="bauhaus"] .ew-hero{padding:1.5rem;min-height:320px}[data-era="bauhaus"] .ew-hero__panel{grid-template-columns:minmax(0,1fr)}[data-era="bauhaus"] .ew-hero__title{font-size:clamp(3.5rem,12vw,6rem)}[data-era="bauhaus"] .ew-hero__stage::before{right:-28%;top:7%;width:66vw;opacity:.24}[data-era="bauhaus"] .ew-hero__stage::after{right:-30%;bottom:-10%;opacity:.18}}
+
+}

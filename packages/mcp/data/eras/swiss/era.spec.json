@@ -1,0 +1,157 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "swiss",
+  "name": "Swiss International",
+  "aliases": [
+    "international-typographic",
+    "swiss-grid"
+  ],
+  "identity": {
+    "oneLiner": "Swiss: asymmetric typographic grids, objective clarity, measured red accents.",
+    "summary": "Swiss International Typographic Style, c. 1950–70: proportion, alignment, sans-serif typography, objective communication and deliberate asymmetric spacing.",
+    "bestFit": [
+      "Editorial and architecture",
+      "Professional systems",
+      "Museums and data-rich applications"
+    ],
+    "authenticityNotes": "Type and grid create structure. Avoid decorative red squares."
+  },
+  "axes": {
+    "shape": "Exact rectangles and modular typographic grid",
+    "edge": "Hairlines and alignment rules",
+    "surface": "Flat paper and ink",
+    "elevation": "No ornamental shadows",
+    "ornament": "A single structural red rule",
+    "typeVoice": "Sans-serif editorial scale and asymmetric baselines",
+    "motion": "Brief functional state changes only",
+    "density": "Scannable, compact",
+    "iconography": "Sparse functional icons"
+  },
+  "fonts": {
+    "display": "Source Sans 3",
+    "body": "Source Sans 3",
+    "mono": "Source Code Pro",
+    "license": "OFL-1.1 (already bundled locally)",
+    "sources": [
+      "https://fonts.google.com/specimen/Source+Sans+3"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 67,
+      "max": 100,
+      "default": 75
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Functional typography, reduced ornament and compact composition."
+      },
+      {
+        "id": "standard",
+        "min": 26,
+        "max": 66,
+        "description": "Distinctive era structure with limited graphic emphasis."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full expressive yet accessible visual composition."
+      }
+    ]
+  },
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "No floating rounded SaaS cards or glass effects.",
+    "Do not decorate with random red blocks.",
+    "No illegible micro-type or rotated form labels.",
+    "No external fonts, images or browser dependencies."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/swiss.light.tokens.json",
+    "spec/tokens/tier1/swiss.dark.tokens.json",
+    "spec/tokens/tier2/swiss.light.tokens.json",
+    "spec/tokens/tier2/swiss.dark.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: swiss",
+      "movement: International Typographic Style",
+      "voice: objective grid and typographic precision",
+      "geometry: asymmetric 12-column modules, thin rules",
+      "type: bundled Source Sans 3 + Source Code Pro",
+      "color: paper, ink, restrained signal red",
+      "whisper: hierarchy; standard: visible rule; costume: editorial scale",
+      "modes: light, dark; costume default",
+      "use: editorial, architecture, data-rich systems",
+      "never: generic SaaS cards or arbitrary ornaments"
+    ]
+  },
+  "structure": {
+    "controlRadius": "0px",
+    "surfaceRadius": "0px",
+    "button": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.02em",
+      "textTransform": "none",
+      "fontWeight": "700",
+      "shadow": "none",
+      "clipPath": "none",
+      "paddingX": "16px",
+      "paddingY": "10px"
+    },
+    "card": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "shadow": "none",
+      "raisedShadow": "none",
+      "clipPath": "none",
+      "padding": "20px",
+      "headerRule": true,
+      "titleTracking": "0",
+      "ornament": "none"
+    },
+    "field": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "radius": "0px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "0px",
+      "shadow": "none",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "2px",
+      "indicatorStyle": "solid",
+      "radius": "0px",
+      "enclosed": false
+    },
+    "switch": {
+      "trackRadius": "0px",
+      "thumbRadius": "0px",
+      "shadow": "none"
+    },
+    "tooltip": {
+      "radius": "0px",
+      "shadow": "none",
+      "padding": "6px 8px"
+    },
+    "slider": {
+      "trackHeight": "5px",
+      "thumbSize": "18px",
+      "trackRadius": "0px"
+    }
+  }
+}

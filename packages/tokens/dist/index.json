@@ -1,13 +1,15 @@
 {
   "version": "0.1.0-alpha.0",
   "eras": [
+    "bauhaus",
     "deco",
     "earth",
     "groovy",
     "mcm-atomic",
     "memphis",
     "neon",
-    "neutral"
+    "neutral",
+    "swiss"
   ],
   "tiers": [
     1,
