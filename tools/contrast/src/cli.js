@@ -2,22 +2,62 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  collectTokenValues,
+  resolveValueAgainst,
+} from '../../gen/src/tokens-to-css.js';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const ERAS = ['neutral', 'deco', 'mcm-atomic', 'neon', 'memphis', 'groovy', 'earth'];
+const MODES = ['light', 'dark'];
 
-function lightness(str) {
-  const m = String(str).match(/oklch\(\s*([\d.]+)\s*%/i);
+/** Parse `oklch(L% C H[/A])` → { L 0–1, C, H, A }. */
+function parseOklch(str) {
+  const m = String(str).match(
+    /oklch\(\s*([\d.]+)\s*%?\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+%?))?\s*\)/i
+  );
   if (!m) return null;
-  return Number(m[1]) / 100;
+  let L = Number(m[1]);
+  if (L > 1) L = L / 100; // percent form
+  const C = Number(m[2]);
+  const H = Number(m[3]);
+  let A = 1;
+  if (m[4] != null) {
+    A = String(m[4]).endsWith('%') ? Number(m[4]) / 100 : Number(m[4]);
+  }
+  return { L, C, H, A };
+}
+
+function oklchToLinearSrgb({ L, C, H }) {
+  const hRad = (H * Math.PI) / 180;
+  const a = C * Math.cos(hRad);
+  const b = C * Math.sin(hRad);
+  const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
+  const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
+  const s_ = L - 0.0894841775 * a - 1.291485548 * b;
+  const l = l_ * l_ * l_;
+  const m = m_ * m_ * m_;
+  const s = s_ * s_ * s_;
+  return {
+    r: +4.0767416621 * l - 3.3077126679 * m + 0.2309699292 * s,
+    g: -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+    b: -0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s,
+  };
+}
+
+/** WCAG relative luminance from an OKLCH color string. */
+function relativeLuminance(oklchStr) {
+  const parsed = parseOklch(oklchStr);
+  if (!parsed) return null;
+  // OKLab matrix yields linear sRGB; clamp and apply WCAG Y coefficients.
+  const { r, g, b } = oklchToLinearSrgb(parsed);
+  const clamp = (v) => Math.max(0, Math.min(1, v));
+  return 0.2126 * clamp(r) + 0.7152 * clamp(g) + 0.0722 * clamp(b);
 }
 
 function contrastRatio(l1, l2) {
-  const toY = (l) => Math.pow(Math.max(0, Math.min(1, l)), 2.2);
-  const a = toY(l1);
-  const b = toY(l2);
-  const lighter = Math.max(a, b);
-  const darker = Math.min(a, b);
+  const lighter = Math.max(l1, l2);
+  const darker = Math.min(l1, l2);
   return (lighter + 0.05) / (darker + 0.05);
 }
 
@@ -25,10 +65,46 @@ function colorValue(node) {
   return node?.$value ?? null;
 }
 
-function checkEra(era) {
-  const t2 = JSON.parse(
-    fs.readFileSync(path.join(REPO, 'spec/tokens/tier2', `${era}.shared.tokens.json`), 'utf8')
+/** Resolve a semantic color that may be a `{ref}` or color-mix of refs. */
+function resolveSemanticColor(map, raw) {
+  if (raw == null) return null;
+  const resolved = resolveValueAgainst(map, raw);
+  if (typeof resolved !== 'string') return null;
+  // Pure OKLCH after alias resolve
+  if (/^oklch\(/i.test(resolved.trim())) return resolved.trim();
+  // color-mix(in oklch, COLOR p%, transparent|COLOR)
+  const mix = resolved.match(
+    /color-mix\(\s*in\s+oklch\s*,\s*(oklch\([^)]+\))\s+([\d.]+)%\s*,\s*(transparent|oklch\([^)]+\))\s*\)/i
   );
+  if (mix) {
+    const base = parseOklch(mix[1]);
+    const pct = Number(mix[2]) / 100;
+    if (!base) return null;
+    if (mix[3] === 'transparent') {
+      // Treat as same hue at reduced alpha — for contrast use the solid base
+      // (overlay pairs aren't in the AA matrix). Fallback: darkened L.
+      return `oklch(${(base.L * 100).toFixed(4)}% ${base.C} ${base.H})`;
+    }
+    const other = parseOklch(mix[3]);
+    if (!other) return null;
+    const L = base.L * pct + other.L * (1 - pct);
+    const C = base.C * pct + other.C * (1 - pct);
+    const H = base.H; // keep primary hue
+    return `oklch(${(L * 100).toFixed(4)}% ${C.toFixed(4)} ${H.toFixed(4)})`;
+  }
+  return null;
+}
+
+function checkEraMode(era, mode) {
+  const t1 = JSON.parse(
+    fs.readFileSync(path.join(REPO, 'spec/tokens/tier1', `${era}.${mode}.tokens.json`), 'utf8')
+  );
+  const t2 = JSON.parse(
+    fs.readFileSync(path.join(REPO, 'spec/tokens/tier2', `${era}.${mode}.tokens.json`), 'utf8')
+  );
+  // Resolve semantic refs against tier-1 primitives only (tier-2 must not overwrite).
+  const map = collectTokenValues(t1);
+
   const c = t2.color;
   const pairs = [
     ['fg/default on bg/page', colorValue(c.fg.default), colorValue(c.bg.page), 4.5],
@@ -39,9 +115,15 @@ function checkEra(era) {
     ['fg/muted on bg/page', colorValue(c.fg.muted), colorValue(c.bg.page), 3],
   ];
   const issues = [];
-  for (const [label, fg, bg, need] of pairs) {
-    const lf = lightness(fg);
-    const lb = lightness(bg);
+  for (const [label, fgRaw, bgRaw, need] of pairs) {
+    const fg = resolveSemanticColor(map, fgRaw);
+    const bg = resolveSemanticColor(map, bgRaw);
+    if (!fg || !bg) {
+      issues.push({ label, error: `unresolvable fg=${fgRaw} bg=${bgRaw} → ${fg}/${bg}` });
+      continue;
+    }
+    const lf = relativeLuminance(fg);
+    const lb = relativeLuminance(bg);
     if (lf == null || lb == null) {
       issues.push({ label, error: `unparseable fg=${fg} bg=${bg}` });
       continue;
@@ -54,11 +136,21 @@ function checkEra(era) {
   return issues;
 }
 
-const report = { eras: {}, pass: true, note: 'Glow ignored; flat OKLCH fills only.' };
+const report = {
+  eras: {},
+  pass: true,
+  note: 'Glow ignored; flat OKLCH fills only. OKLCH→sRGB + WCAG relative luminance. Both modes.',
+};
 for (const era of ERAS) {
-  const issues = checkEra(era);
-  report.eras[era] = { pass: issues.length === 0, issues };
-  if (issues.length) report.pass = false;
+  report.eras[era] = { modes: {}, pass: true };
+  for (const mode of MODES) {
+    const issues = checkEraMode(era, mode);
+    report.eras[era].modes[mode] = { pass: issues.length === 0, issues };
+    if (issues.length) {
+      report.eras[era].pass = false;
+      report.pass = false;
+    }
+  }
 }
 const outDir = path.join(REPO, 'generated/contrast');
 fs.mkdirSync(outDir, { recursive: true });
@@ -68,9 +160,15 @@ if (!report.pass) {
   for (const [era, r] of Object.entries(report.eras)) {
     if (!r.pass) {
       console.error(`  ${era}:`);
-      for (const i of r.issues) console.error(`    - ${i.label}: ${i.ratio ?? i.error} (need ${i.need})`);
+      for (const [mode, m] of Object.entries(r.modes)) {
+        if (!m.pass) {
+          for (const i of m.issues) {
+            console.error(`    [${mode}] ${i.label}: ${i.ratio ?? i.error} (need ${i.need})`);
+          }
+        }
+      }
     }
   }
   process.exit(1);
 }
-console.log(`Contrast CI OK for ${ERAS.join(', ')} (AA, glow ignored).`);
+console.log(`Contrast CI OK for ${ERAS.join(', ')} × ${MODES.join('/')} (AA, glow ignored).`);

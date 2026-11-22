@@ -132,13 +132,21 @@ function structureVars(structure) {
   return lines;
 }
 
+function tokenFileFor(era, tierDir, mode) {
+  const match = era.tokenFiles.find(
+    (f) => f.includes(`/${tierDir}/`) && f.includes(`.${mode}.`)
+  );
+  if (!match) {
+    throw new Error(`Missing ${tierDir} ${mode} token file for era ${era.id}`);
+  }
+  return path.join(REPO_ROOT, ...match.split('/'));
+}
+
 function genEraCss(era) {
-  const blocks = [HEADER, `@layer era {`];
+  const blocks = [HEADER, `@layer tokens {`];
   for (const mode of era.modes) {
-    const tier1Path = path.join(REPO_ROOT, ...era.tokenFiles.find((f) => f.includes(`.${mode}.`)).split('/'));
-    const tier2Path = path.join(REPO_ROOT, ...era.tokenFiles.find((f) => f.includes('.shared.tokens') && f.includes('tier2')).split('/'));
-    const t1 = readJson(tier1Path);
-    const t2 = readJson(tier2Path);
+    const t1 = readJson(tokenFileFor(era, 'tier1', mode));
+    const t2 = readJson(tokenFileFor(era, 'tier2', mode));
     const vars = [...flattenTokens(t1), ...flattenTokens(t2)];
     const selector =
       mode === 'light'
@@ -153,7 +161,9 @@ function genEraCss(era) {
     blocks.push(`    font-family: var(--ew-font-body, system-ui, sans-serif);`);
     blocks.push(`  }`);
   }
+  blocks.push(`}`);
 
+  blocks.push(`@layer era {`);
   blocks.push(`  [data-era="${era.id}"] {`);
   blocks.push(`    --ew-fidelity-default: ${era.fidelity.recommended.default};`);
   if (era.structure) {
@@ -170,7 +180,6 @@ function genEraCss(era) {
   blocks.push(`    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);`);
   blocks.push(`  }`);
   blocks.push(`}`);
-
   // Decorators layer: era-specific chrome that changes structure beyond variables
   blocks.push(`@layer decorators {`);
   if (era.id === 'deco') {
