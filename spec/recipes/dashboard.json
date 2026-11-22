@@ -15,7 +15,8 @@
   ],
   "eras": {
     "recommended": [
-      "neutral"
+      "neutral",
+      "swiss"
     ],
     "alsoFits": [
       "earth",
@@ -23,7 +24,8 @@
       "groovy",
       "memphis",
       "mcm-atomic",
-      "neon"
+      "neon",
+      "bauhaus"
     ],
     "avoid": []
   },

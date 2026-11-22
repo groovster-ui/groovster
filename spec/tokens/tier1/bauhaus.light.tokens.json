@@ -1,0 +1,172 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 1,
+    "era": "bauhaus",
+    "mode": "light",
+    "description": "bauhaus light: original local palette"
+  },
+  "color": {
+    "gray": {
+      "0": {
+        "$type": "color",
+        "$value": "#FFF9F0"
+      },
+      "1": {
+        "$type": "color",
+        "$value": "#F2EBDE"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "#E7DFD0"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "#D5CBBB"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "#B5A99B"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "#81786F"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "#5F5751"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "#403B37"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "#282522"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "#171615"
+      }
+    },
+    "accent": {
+      "solid": {
+        "$type": "color",
+        "$value": "#A52E26"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$type": "color",
+        "$value": "#AB302E"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      }
+    },
+    "primary": {
+      "red": {
+        "$type": "color",
+        "$value": "#B92F26"
+      },
+      "yellow": {
+        "$type": "color",
+        "$value": "#F1CA49"
+      },
+      "blue": {
+        "$type": "color",
+        "$value": "#2656A0"
+      }
+    }
+  },
+  "space": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "64px"
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "999px"
+    }
+  },
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": [
+        "League Spartan",
+        "Arial",
+        "sans-serif"
+      ]
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "Source Sans 3",
+        "Arial",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "Source Code Pro",
+        "monospace"
+      ]
+    }
+  }
+}

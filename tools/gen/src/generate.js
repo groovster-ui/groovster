@@ -19,6 +19,7 @@ import { bandTokenCss, muteBandSel } from './band.js';
 import { decoDecoratorCss } from './deco-decorators.js';
 import { atomicDecoratorCss } from './atomic-decorators.js';
 import { neonDecoratorCss } from './neon-decorators.js';
+import { modernistDecoratorCss } from './modernist-decorators.js';
 import { loadRecipes, recipeIndexLines, writeRecipeDocs } from './recipes.js';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
@@ -363,6 +364,8 @@ function genEraCss(era) {
     blocks.push(atomicDecoratorCss());
   } else if (era.id === 'neon') {
     blocks.push(neonDecoratorCss());
+  } else if (era.id === 'swiss' || era.id === 'bauhaus') {
+    blocks.push(modernistDecoratorCss(era.id));
   } else if (era.id === 'neutral') {
     blocks.push(`  [data-era="neutral"] .ew-button {
     border-radius: var(--ew-structure-control-radius, 8px);
@@ -647,7 +650,7 @@ function genLlmsIndex(components, eras, recipes = []) {
     '',
     'CSS-first, spec-first UI skins for agents. Canonical API is HTML + ew- classes + data-* attrs.',
     'Set personality with data-era on a root. Do not rewrite markup per era.',
-    'Load ONLY the sections you need — do not ingest the whole library.',
+    'Load only needed sections; avoid full-library context.',
     '',
     '## Quick start',
     '- CSS: @groovster/css/era-widgets.css',
@@ -659,8 +662,8 @@ function genLlmsIndex(components, eras, recipes = []) {
     '',
     '## Fidelity & ornament',
     '- Bands: `whisper|standard|costume` (costume default; `default`/`signature` → standard).',
-    '- Neon/Atomic costume heroes **require** `.ew-hero__stage` (Neon: sun/mountains/grid; Atomic: starbursts/orbit/arch/twotone).',
-    '- Deco: `.ew-hero__panel` / rays / fan; stepped frames. Docs: NEON.md, ATOMIC.md, FIDELITY.md. Fonts: OFL WOFF2.',
+    '- Neon and Atomic costume use `.ew-hero__stage`; see era cards.',
+    '- Deco uses `.ew-hero__panel`; FIDELITY.md defines bands.',
     '',
     '## Components (one file each)',
     ...components.map((c) => `- ${c.id}: generated/llms/${c.id}.md`),
