@@ -5,7 +5,7 @@ Set personality with data-era on a root. Do not rewrite markup per era.
 Load ONLY the sections you need — do not ingest the whole library.
 
 ## Quick start
-- CSS: @era-widgets/css/era-widgets.css
+- CSS: @groovster/css/era-widgets.css
 - MCP: list_eras | get_component | validate | recommend
 - Rules: generated/rules/era-widgets.mdc
 

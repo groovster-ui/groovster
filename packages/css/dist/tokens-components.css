@@ -1,30 +1,30 @@
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
 @layer tokens {
   :root, .ew-root {
-  --ew-button-padding-x: 16px;
-  --ew-button-padding-y: 8px;
-  --ew-button-radius: var(--ew-radius-control, 8px);
-  --ew-button-font-size: 14px;
-  --ew-button-gap: 8px;
-  --ew-field-padding-x: 12px;
-  --ew-field-padding-y: 8px;
-  --ew-field-radius: var(--ew-radius-field, 8px);
-  --ew-field-font-size: 14px;
-  --ew-card-padding: 16px;
-  --ew-card-radius: var(--ew-radius-surface, 12px);
-  --ew-card-gap: 12px;
-  --ew-dialog-padding: 24px;
-  --ew-dialog-radius: var(--ew-radius-surface, 12px);
-  --ew-dialog-max-width: 420px;
-  --ew-tabs-gap: 8px;
-  --ew-tabs-indicator-size: 2px;
-  --ew-switch-track-width: 44px;
-  --ew-switch-track-height: 24px;
-  --ew-switch-thumb-size: 18px;
-  --ew-motion-press: 120ms;
-  --ew-motion-focus: 150ms;
-  --ew-motion-dialog: 200ms;
-  --ew-motion-switch: 160ms;
-  --ew-motion-indicator: 200ms;
+    --ew-button-padding-x: 16px;
+    --ew-button-padding-y: 8px;
+    --ew-button-radius: var(--ew-radius-control, 8px);
+    --ew-button-font-size: 14px;
+    --ew-button-gap: 8px;
+    --ew-field-padding-x: 12px;
+    --ew-field-padding-y: 8px;
+    --ew-field-radius: var(--ew-radius-field, 8px);
+    --ew-field-font-size: 14px;
+    --ew-card-padding: 16px;
+    --ew-card-radius: var(--ew-radius-surface, 12px);
+    --ew-card-gap: 12px;
+    --ew-dialog-padding: 24px;
+    --ew-dialog-radius: var(--ew-radius-surface, 12px);
+    --ew-dialog-max-width: 420px;
+    --ew-tabs-gap: 8px;
+    --ew-tabs-indicator-size: 2px;
+    --ew-switch-track-width: 44px;
+    --ew-switch-track-height: 24px;
+    --ew-switch-thumb-size: 18px;
+    --ew-motion-press: 120ms;
+    --ew-motion-focus: 150ms;
+    --ew-motion-dialog: 200ms;
+    --ew-motion-switch: 160ms;
+    --ew-motion-indicator: 200ms;
   }
 }

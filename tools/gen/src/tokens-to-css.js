@@ -4,58 +4,74 @@ function isToken(node) {
   return node && typeof node === 'object' && '$type' in node && '$value' in node;
 }
 
-function resolveTokenValue(value, type, resolvedTokens) {
+/** Resolve DTCG `{color.ink}` / `{color.gray.8}` aliases to `var(--ew-…)` refs. */
+export function resolveTokenRefs(value) {
   if (typeof value !== 'string') return value;
-  
-  const refRegex = /\{([^}]+)\}/g;
-  let resolved = value;
-  let match;
-  
-  while ((match = refRegex.exec(value)) !== null) {
-    const refPath = match[1];
-    const varName = '--ew-' + refPath.replace(/\./g, '-');
-    
-    if (resolvedTokens.has(varName)) {
-      resolved = resolved.replace(match[0], `var(${varName})`);
-    } else {
-      resolved = resolved.replace(match[0], `var(${varName})`);
-    }
-  }
-  
-  return resolved;
+  return value.replace(/\{([a-z0-9.-]+)\}/gi, (_, path) => {
+    const name = ['ew', ...path.split('.')].join('-');
+    return `var(--${name})`;
+  });
 }
 
-function cssValue(type, value, resolvedTokens = new Set()) {
-  const resolved = resolveTokenValue(value, type, resolvedTokens);
-  
-  if (type === 'fontFamily' && Array.isArray(resolved)) {
-    return resolved.map((v) => (String(v).includes(' ') ? `"${v}"` : v)).join(', ');
+function cssValue(type, value) {
+  if (type === 'fontFamily' && Array.isArray(value)) {
+    return value.map((v) => (String(v).includes(' ') ? `"${v}"` : v)).join(', ');
   }
-  if (type === 'shadow' && Array.isArray(resolved)) {
-    return resolved
+  if (type === 'shadow' && Array.isArray(value)) {
+    return value
       .map((s) => {
-        const color = resolveTokenValue(s.color, 'color', resolvedTokens);
+        const color = resolveTokenRefs(s.color);
         return `${s.offsetX} ${s.offsetY} ${s.blur} ${s.spread || '0px'} ${color}`;
       })
       .join(', ');
   }
-  if (typeof resolved === 'number') return String(resolved);
-  return String(resolved);
+  if (typeof value === 'number') return String(value);
+  return resolveTokenRefs(String(value));
 }
 
-export function flattenTokens(obj, prefix = [], resolvedTokens = new Set()) {
+export function flattenTokens(obj, prefix = []) {
   const out = [];
   if (!obj || typeof obj !== 'object') return out;
   for (const [key, value] of Object.entries(obj)) {
     if (key === '$schema' || key === 'meta' || key.startsWith('$')) continue;
     if (isToken(value)) {
       const name = ['ew', ...prefix, key].join('-');
-      const varName = `--${name}`;
-      out.push(`  ${varName}: ${cssValue(value.$type, value.$value, resolvedTokens)};`);
-      resolvedTokens.add(varName);
+      out.push(`    --${name}: ${cssValue(value.$type, value.$value)};`);
     } else if (value && typeof value === 'object') {
-      out.push(...flattenTokens(value, [...prefix, key], resolvedTokens));
+      out.push(...flattenTokens(value, [...prefix, key]));
     }
   }
   return out;
+}
+
+/** Walk a token tree and collect path → raw $value (unresolved). */
+export function collectTokenValues(obj, prefix = [], out = new Map()) {
+  if (!obj || typeof obj !== 'object') return out;
+  for (const [key, value] of Object.entries(obj)) {
+    if (key === '$schema' || key === 'meta' || key.startsWith('$')) continue;
+    if (isToken(value)) {
+      out.set([...prefix, key].join('.'), value.$value);
+    } else if (value && typeof value === 'object') {
+      collectTokenValues(value, [...prefix, key], out);
+    }
+  }
+  return out;
+}
+
+/** Resolve `{refs}` against a path→value map (tier1 literals). Max depth 8. */
+export function resolveValueAgainst(map, value, depth = 0) {
+  if (depth > 8) return value;
+  if (typeof value !== 'string') return value;
+  if (/^\{[a-z0-9.-]+\}$/i.test(value.trim())) {
+    const path = value.trim().slice(1, -1);
+    const next = map.get(path);
+    if (next == null) return value;
+    return resolveValueAgainst(map, next, depth + 1);
+  }
+  return value.replace(/\{([a-z0-9.-]+)\}/gi, (_, path) => {
+    const next = map.get(path);
+    if (next == null) return `{${path}}`;
+    const resolved = resolveValueAgainst(map, next, depth + 1);
+    return typeof resolved === 'string' ? resolved : String(resolved);
+  });
 }

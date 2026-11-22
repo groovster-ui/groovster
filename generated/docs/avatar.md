@@ -14,8 +14,8 @@ User/image avatar with initials fallback.
 
 ## Imports
 
-- `@era-widgets/css/avatar.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/avatar.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

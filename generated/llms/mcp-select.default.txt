@@ -1,11 +1,1 @@
-<!-- Select -->
-<ew-select class="ew-select">
-  <label class="ew-select__label" for="country">Country</label>
-  <select id="country" class="ew-select__control">
-    <option value="us">United States</option>
-    <option value="ca">Canada</option>
-  </select>
-</ew-select>
-
-import "@era-widgets/css/select.css";
-a11y: Use <ew-select> to enhance a native <select> into an APG listbox pattern.
+{"version":"0.1.0-alpha.0","name":"select","html":"<ew-select class=\"ew-select\">\n  <label class=\"ew-select__label\" for=\"country\">Country</label>\n  <select id=\"country\" class=\"ew-select__control\">\n    <option value=\"us\">United States</option>\n    <option value=\"ca\">Canada</option>\n  </select>\n</ew-select>","css":"import \"@groovster/css/select.css\";","a11y":"Use <ew-select> to enhance a native <select> into an APG listbox pattern."}

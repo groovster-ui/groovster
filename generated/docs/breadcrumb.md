@@ -18,8 +18,8 @@ Navigation breadcrumb trail.
 
 ## Imports
 
-- `@era-widgets/css/breadcrumb.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/breadcrumb.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

@@ -12,8 +12,8 @@ Pressable control for primary actions. Zero attributes = medium primary button.
 
 ## Imports
 
-- `@era-widgets/css/button.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/button.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

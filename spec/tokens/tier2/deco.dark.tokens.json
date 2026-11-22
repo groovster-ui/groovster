@@ -2,8 +2,9 @@
   "$schema": "../../../schema/tokens.schema.json",
   "meta": {
     "tier": 2,
-    "era": "earth",
-    "mode": "shared"
+    "era": "deco",
+    "mode": "dark",
+    "description": "Tier 2 semantic roles for deco dark (references tier 1)"
   },
   "color": {
     "fg": {
@@ -13,35 +14,36 @@
       },
       "muted": {
         "$type": "color",
-        "$value": "{color.moss}"
+        "$value": "{color.cream}"
       },
       "inverse": {
         "$type": "color",
-        "$value": "{color.sand}"
+        "$value": "{color.paper}"
       }
     },
     "bg": {
       "page": {
         "$type": "color",
-        "$value": "{color.sand}"
+        "$value": "{color.paper}"
       },
       "surface": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 95%, {color.clay} 5%)"
+        "$value": "{color.panel}"
       },
       "elevated": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 98%, white 2%)"
+        "$value": "{color.sky}",
+        "$description": "Bible elevated surface (dark lacquer step / light white)"
       }
     },
     "border": {
       "subtle": {
         "$type": "color",
-        "$value": "{color.clay}"
+        "$value": "{color.goldSubtle}"
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.moss}"
+        "$value": "{color.gold}"
       }
     },
     "action": {
@@ -55,31 +57,31 @@
       },
       "hover": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.accent.solid} 90%, black 10%)"
+        "$value": "color-mix(in oklch, {color.accent.solid} 88%, {color.ink})"
       }
     },
     "field": {
       "bg": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 98%, white 2%)"
+        "$value": "{color.panel}"
       },
       "border": {
         "$type": "color",
-        "$value": "{color.clay}"
+        "$value": "{color.goldBorder}"
       },
       "focus": {
         "$type": "color",
-        "$value": "{color.moss}"
+        "$value": "{color.goldFocus}"
       }
     },
     "overlay": {
       "$type": "color",
-      "$value": "color-mix(in oklch, {color.ink} 100%, transparent 60%)"
+      "$value": "color-mix(in oklch, {color.paper} 70%, transparent)"
     },
     "track": {
       "off": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 90%, {color.clay} 10%)"
+        "$value": "color-mix(in oklch, {color.panel} 90%, {color.brass} 10%)"
       },
       "on": {
         "$type": "color",
@@ -104,9 +106,9 @@
         {
           "offsetX": "0px",
           "offsetY": "2px",
-          "blur": "6px",
+          "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.ink} 100%, transparent 90%)"
+          "color": "color-mix(in oklch, {color.brass} 40%, transparent)"
         }
       ]
     },
@@ -115,10 +117,17 @@
       "$value": [
         {
           "offsetX": "0px",
-          "offsetY": "8px",
-          "blur": "20px",
+          "offsetY": "4px",
+          "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.ink} 100%, transparent 86%)"
+          "color": "color-mix(in oklch, {color.paper} 55%, transparent)"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.brassDeep} 30%, transparent)"
         }
       ]
     },
@@ -127,10 +136,10 @@
       "$value": [
         {
           "offsetX": "0px",
-          "offsetY": "16px",
-          "blur": "36px",
+          "offsetY": "12px",
+          "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.ink} 100%, transparent 82%)"
+          "color": "color-mix(in oklch, {color.paper} 65%, transparent)"
         }
       ]
     }

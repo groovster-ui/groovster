@@ -10,7 +10,7 @@ HTML:
 </div>
 ```
 
-CSS: @era-widgets/css/textarea.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/textarea.css + @groovster/css/eras/<era>.css
 Variants: variant=outline|filled(default:outline)
 Sizes: sm|md|lg (default md)
 ARIA: textbox (native textarea)

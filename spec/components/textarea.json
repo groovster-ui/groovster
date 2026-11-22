@@ -41,8 +41,8 @@
     }
   ],
   "imports": [
-    "@era-widgets/css/textarea.css",
-    "@era-widgets/css/eras/<era>.css"
+    "@groovster/css/textarea.css",
+    "@groovster/css/eras/<era>.css"
   ],
   "tokenDeps": [
     "color.fg.*",

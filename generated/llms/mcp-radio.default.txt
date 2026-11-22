@@ -1,9 +1,1 @@
-<!-- Radio -->
-<fieldset class="ew-radio-group">
-  <legend>Plan</legend>
-  <label class="ew-radio"><input class="ew-radio__control" type="radio" name="plan" value="basic" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Basic</span></label>
-  <label class="ew-radio"><input class="ew-radio__control" type="radio" name="plan" value="pro" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Pro</span></label>
-</fieldset>
-
-import "@era-widgets/css/radio.css";
-a11y: Same name groups options.
+{"version":"0.1.0-alpha.0","name":"radio","html":"<fieldset class=\"ew-radio-group\">\n  <legend>Plan</legend>\n  <label class=\"ew-radio\"><input class=\"ew-radio__control\" type=\"radio\" name=\"plan\" value=\"basic\" /><span class=\"ew-radio__disc\" aria-hidden=\"true\"></span><span class=\"ew-radio__label\">Basic</span></label>\n  <label class=\"ew-radio\"><input class=\"ew-radio__control\" type=\"radio\" name=\"plan\" value=\"pro\" /><span class=\"ew-radio__disc\" aria-hidden=\"true\"></span><span class=\"ew-radio__label\">Pro</span></label>\n</fieldset>","css":"import \"@groovster/css/radio.css\";","a11y":"Same name groups options."}

@@ -1,8 +1,1 @@
-<!-- Alert -->
-<div class="ew-alert" data-variant="warning" role="status">
-  <strong class="ew-alert__title">Check your email</strong>
-  <p class="ew-alert__body">We sent a confirmation link.</p>
-</div>
-
-import "@era-widgets/css/alert.css";
-a11y: Use role=alert for time-sensitive danger.
+{"version":"0.1.0-alpha.0","name":"alert","html":"<div class=\"ew-alert\" data-variant=\"warning\" role=\"status\">\n  <strong class=\"ew-alert__title\">Check your email</strong>\n  <p class=\"ew-alert__body\">We sent a confirmation link.</p>\n</div>","css":"import \"@groovster/css/alert.css\";","a11y":"Use role=alert for time-sensitive danger."}

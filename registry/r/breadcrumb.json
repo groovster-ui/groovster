@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "era-widgets/breadcrumb.css",
-      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-breadcrumb {\n    /* anatomy: root, list, item, separator */\n  }\n  .ew-breadcrumb { font-family: var(--ew-font-body, system-ui, sans-serif); }\n  .ew-breadcrumb__list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; align-items: center; }\n  .ew-breadcrumb__item { display: inline-flex; align-items: center; gap: 8px; color: var(--ew-color-fg-muted); }\n  .ew-breadcrumb__item:not(:last-child)::after {\n    content: \"/\"; color: var(--ew-color-fg-muted); opacity: 0.7;\n  }\n  .ew-breadcrumb__item[aria-current=\"page\"] { color: var(--ew-color-fg-default); font-weight: 600; }\n}\n",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-breadcrumb {\n    /* anatomy: root, list, item, separator */\n  }\n  .ew-breadcrumb { font-family: var(--ew-font-body, system-ui, sans-serif); }\n  .ew-breadcrumb__list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; align-items: center; }\n  .ew-breadcrumb__item { display: inline-flex; align-items: center; gap: 8px; color: var(--ew-color-fg-muted); }\n  .ew-breadcrumb__item:not(:last-child)::after {\n    content: \"/\"; color: var(--ew-color-fg-muted); opacity: 0.7;\n  }\n  .ew-breadcrumb__item[aria-current=\"page\"] { color: var(--ew-color-fg-default); font-weight: 600; }\n  /* spec variant variant=default */\n  .ew-breadcrumb[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-breadcrumb:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-breadcrumb[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-breadcrumb[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-breadcrumb[data-size=\"lg\"] { --ew-spec-size: lg; }\n  .ew-breadcrumb:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-breadcrumb, .ew-breadcrumb *, .ew-breadcrumb *::before, .ew-breadcrumb *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
       "type": "registry:file",
       "target": "styles/era-widgets/breadcrumb.css"
     },
@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-breadcrumb",
     "canonicalHtml": "<nav class=\"ew-breadcrumb\" aria-label=\"Breadcrumb\">\n  <ol class=\"ew-breadcrumb__list\">\n    <li class=\"ew-breadcrumb__item\"><a class=\"ew-link\" href=\"/\">Home</a></li>\n    <li class=\"ew-breadcrumb__item\"><a class=\"ew-link\" href=\"/docs\">Docs</a></li>\n    <li class=\"ew-breadcrumb__item\" aria-current=\"page\">Button</li>\n  </ol>\n</nav>",
-    "cssPackage": "@era-widgets/css/breadcrumb.css"
+    "cssPackage": "@groovster/css/breadcrumb.css"
   }
 }

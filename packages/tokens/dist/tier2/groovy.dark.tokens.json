@@ -1,0 +1,139 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 2,
+    "era": "groovy",
+    "mode": "dark",
+    "description": "Tier 2 semantic roles for groovy dark (references tier 1)"
+  },
+  "color": {
+    "fg": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.ink}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.ink} 65%, {color.sand})"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.sand}"
+      }
+    },
+    "bg": {
+      "page": {
+        "$type": "color",
+        "$value": "{color.sand}"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.sand} 80%, {color.avocado})"
+      },
+      "elevated": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.sand} 70%, {color.harvest})"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.avocado}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.harvest}"
+      }
+    },
+    "action": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "{color.accent.fg}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.accent.solid} 88%, {color.ink})"
+      }
+    },
+    "field": {
+      "bg": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.sand} 90%, {color.ink})"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.avocado}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.harvest}"
+      }
+    },
+    "overlay": {
+      "$type": "color",
+      "$value": "color-mix(in oklch, {color.sand} 70%, transparent)"
+    },
+    "track": {
+      "off": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.sand} 65%, {color.avocado})"
+      },
+      "on": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      }
+    },
+    "danger": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.danger.solid}"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "{color.danger.fg}"
+      }
+    }
+  },
+  "elevation": {
+    "1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "3px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.harvest} 40%, transparent)"
+        }
+      ]
+    },
+    "2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.sand} 55%, transparent)"
+        }
+      ]
+    },
+    "dialog": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "14px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.sand} 65%, transparent)"
+        }
+      ]
+    }
+  }
+}

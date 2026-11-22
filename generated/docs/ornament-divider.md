@@ -12,8 +12,8 @@ Structural divider; eras supply ornament via decorators.
 
 ## Imports
 
-- `@era-widgets/css/ornament-divider.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/ornament-divider.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

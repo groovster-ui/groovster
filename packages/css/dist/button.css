@@ -54,4 +54,23 @@
   .ew-button[data-size="sm"] { padding: 4px 10px; font-size: 12px; }
   .ew-button[data-size="lg"] { padding: 12px 22px; font-size: 16px; }
   @media (prefers-reduced-motion: reduce) { .ew-button { transition: none; } }
+  /* spec variant variant=primary */
+  .ew-button[data-variant="primary"] { --ew-spec-variant-variant: primary; }
+  /* spec variant variant=secondary */
+  .ew-button[data-variant="secondary"] { --ew-spec-variant-variant: secondary; }
+  /* spec variant variant=ghost */
+  .ew-button[data-variant="ghost"] { --ew-spec-variant-variant: ghost; }
+  /* spec variant variant=danger */
+  .ew-button[data-variant="danger"] { --ew-spec-variant-variant: danger; }
+  .ew-button:not([data-variant]) { --ew-spec-variant-variant: primary; }
+  .ew-button[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-button[data-size="md"] { --ew-spec-size: md; }
+  .ew-button[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-button:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-button, .ew-button *, .ew-button *::before, .ew-button *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

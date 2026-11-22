@@ -18,8 +18,8 @@ Action menu using Popover API + menu roles. Full APG WC may deepen later.
 
 ## Imports
 
-- `@era-widgets/css/menu.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/menu.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

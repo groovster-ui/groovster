@@ -16,8 +16,8 @@ Modal dialog using native <dialog>. Open with showModal(); eras skin backdrop an
 
 ## Imports
 
-- `@era-widgets/css/dialog.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/dialog.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

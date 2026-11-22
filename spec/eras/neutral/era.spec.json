@@ -79,7 +79,8 @@
   "tokenFiles": [
     "spec/tokens/tier1/neutral.light.tokens.json",
     "spec/tokens/tier1/neutral.dark.tokens.json",
-    "spec/tokens/tier2/neutral.shared.tokens.json",
+    "spec/tokens/tier2/neutral.light.tokens.json",
+    "spec/tokens/tier2/neutral.dark.tokens.json",
     "spec/tokens/tier3/components.shared.tokens.json"
   ],
   "card": {
@@ -146,6 +147,16 @@
       "trackRadius": "999px",
       "thumbRadius": "999px",
       "shadow": "0 1px 2px rgb(0 0 0 / 0.2)"
+    },
+    "tooltip": {
+      "radius": "4px",
+      "shadow": "none",
+      "padding": "6px 8px"
+    },
+    "slider": {
+      "trackHeight": "6px",
+      "thumbSize": "16px",
+      "trackRadius": "999px"
     }
   }
 }

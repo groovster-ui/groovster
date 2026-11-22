@@ -13,4 +13,19 @@
     box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2));
     padding: 12px 14px; max-width: 280px;
   }
+  /* spec variant variant=default */
+  .ew-popover[data-variant="default"] { --ew-spec-variant-variant: default; }
+  /* spec variant variant=rich */
+  .ew-popover[data-variant="rich"] { --ew-spec-variant-variant: rich; }
+  .ew-popover:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-popover[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-popover[data-size="md"] { --ew-spec-size: md; }
+  .ew-popover[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-popover:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-popover, .ew-popover *, .ew-popover *::before, .ew-popover *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

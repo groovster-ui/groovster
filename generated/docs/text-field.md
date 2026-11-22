@@ -15,8 +15,8 @@ Labeled single-line text input. Native <input>; eras skin the chrome only.
 
 ## Imports
 
-- `@era-widgets/css/text-field.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/text-field.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

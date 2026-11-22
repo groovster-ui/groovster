@@ -34,4 +34,21 @@
   .ew-text-field[data-invalid="true"] .ew-text-field__error, .ew-text-field__error { color: var(--ew-color-danger-bg, #a33); }
   .ew-text-field[data-size="sm"] .ew-text-field__control { padding: 4px 8px; font-size: 12px; }
   .ew-text-field[data-size="lg"] .ew-text-field__control { padding: 12px 14px; font-size: 16px; }
+  /* spec variant variant=outline */
+  .ew-text-field[data-variant="outline"] { --ew-spec-variant-variant: outline; }
+  /* spec variant variant=filled */
+  .ew-text-field[data-variant="filled"] { --ew-spec-variant-variant: filled; }
+  /* spec variant variant=underline */
+  .ew-text-field[data-variant="underline"] { --ew-spec-variant-variant: underline; }
+  .ew-text-field:not([data-variant]) { --ew-spec-variant-variant: outline; }
+  .ew-text-field[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-text-field[data-size="md"] { --ew-spec-size: md; }
+  .ew-text-field[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-text-field:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-text-field, .ew-text-field *, .ew-text-field *::before, .ew-text-field *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

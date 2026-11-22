@@ -2,115 +2,85 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  collectTokenValues,
+  resolveValueAgainst,
+} from '../../gen/src/tokens-to-css.js';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const ERAS = ['neutral', 'deco', 'mcm-atomic', 'neon', 'memphis', 'groovy', 'earth'];
+const MODES = ['light', 'dark'];
+
+/** Parse `oklch(L% C H[/A])` → { L 0–1, C, H, A }. */
+function parseOklch(str) {
+  const m = String(str).match(
+    /oklch\(\s*([\d.]+)\s*%?\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+%?))?\s*\)/i
+  );
+  if (!m) return null;
+  let L = Number(m[1]);
+  if (L > 1) L = L / 100; // percent form
+  const C = Number(m[2]);
+  const H = Number(m[3]);
+  let A = 1;
+  if (m[4] != null) {
+    A = String(m[4]).endsWith('%') ? Number(m[4]) / 100 : Number(m[4]);
+  }
+  return { L, C, H, A };
+}
+
+function oklchToLinearSrgb({ L, C, H }) {
+  const hRad = (H * Math.PI) / 180;
+  const a = C * Math.cos(hRad);
+  const b = C * Math.sin(hRad);
+  const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
+  const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
+  const s_ = L - 0.0894841775 * a - 1.291485548 * b;
+  const l = l_ * l_ * l_;
+  const m = m_ * m_ * m_;
+  const s = s_ * s_ * s_;
+  return {
+    r: +4.0767416621 * l - 3.3077126679 * m + 0.2309699292 * s,
+    g: -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+    b: -0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s,
+  };
+}
 
 function parseHex(str) {
   const m = String(str).trim().match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
   if (!m) return null;
-  let hex = m[1];
-  if (hex.length === 3) hex = hex.split('').map((c) => c + c).join('');
+  let h = m[1];
+  if (h.length === 3) h = h.split('').map((c) => c + c).join('');
   return {
-    kind: 'srgb',
-    r: parseInt(hex.slice(0, 2), 16) / 255,
-    g: parseInt(hex.slice(2, 4), 16) / 255,
-    b: parseInt(hex.slice(4, 6), 16) / 255,
+    r: parseInt(h.slice(0, 2), 16) / 255,
+    g: parseInt(h.slice(2, 4), 16) / 255,
+    b: parseInt(h.slice(4, 6), 16) / 255,
   };
 }
 
-function parseOklch(str) {
-  const m = String(str).match(/oklch\(\s*([\d.]+)%?\s+([\d.]+)\s+([\d.]+)\s*(?:\/\s*[\d.]+)?\)/i);
-  if (!m) return null;
-  const rawL = Number(m[1]);
-  return {
-    kind: 'oklch',
-    l: String(m[0]).includes('%') || rawL > 1 ? rawL / 100 : rawL,
-    c: Number(m[2]),
-    h: Number(m[3]),
-  };
+function srgbChannelToLinear(c) {
+  return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
 }
 
-function parseColor(str) {
-  if (str == null) return null;
-  return parseHex(str) || parseOklch(str);
-}
-
-function toHexChannel(v) {
-  const n = Math.round(Math.max(0, Math.min(1, v)) * 255);
-  return n.toString(16).padStart(2, '0');
-}
-
-function mixSrgbHex(color1, color2, p1) {
-  const a = parseHex(color1);
-  const b = parseHex(color2);
-  if (!a || !b) return null;
-  const p = p1 / 100;
-  const q = 1 - p;
-  return `#${toHexChannel(a.r * p + b.r * q)}${toHexChannel(a.g * p + b.g * q)}${toHexChannel(a.b * p + b.b * q)}`;
-}
-
-function luminanceOf(parsed) {
+/** WCAG relative luminance from an OKLCH or hex color string. */
+function relativeLuminance(colorStr) {
+  const hex = parseHex(colorStr);
+  if (hex) {
+    const r = srgbChannelToLinear(hex.r);
+    const g = srgbChannelToLinear(hex.g);
+    const b = srgbChannelToLinear(hex.b);
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  }
+  const parsed = parseOklch(colorStr);
   if (!parsed) return null;
-  if (parsed.kind === 'srgb') {
-    return srgbToRelativeLuminance(parsed.r, parsed.g, parsed.b);
-  }
-  return oklchToLuminance(parsed.l, parsed.c, parsed.h);
+  // OKLab matrix yields linear sRGB; clamp and apply WCAG Y coefficients.
+  const { r, g, b } = oklchToLinearSrgb(parsed);
+  const clamp = (v) => Math.max(0, Math.min(1, v));
+  return 0.2126 * clamp(r) + 0.7152 * clamp(g) + 0.0722 * clamp(b);
 }
 
-function oklchToLinearRgb(l, c, h) {
-  const hRad = (h * Math.PI) / 180;
-  const a = c * Math.cos(hRad);
-  const b = c * Math.sin(hRad);
-  
-  const l_ = l + 0.3963377774 * a + 0.2158037573 * b;
-  const m_ = l - 0.1055613458 * a - 0.0638541728 * b;
-  const s_ = l - 0.0894841775 * a - 1.2914855480 * b;
-  
-  const l3 = l_ * l_ * l_;
-  const m3 = m_ * m_ * m_;
-  const s3 = s_ * s_ * s_;
-  
-  const r = +4.0767416621 * l3 - 3.3077115913 * m3 + 0.2309699292 * s3;
-  const g = -1.2684380046 * l3 + 2.6097574011 * m3 - 0.3413193965 * s3;
-  const b_ = -0.0041960863 * l3 - 0.7034186147 * m3 + 1.7076147010 * s3;
-  
-  return { r, g, b: b_ };
-}
-
-function linearToSrgb(val) {
-  if (val <= 0.0031308) {
-    return 12.92 * val;
-  }
-  return 1.055 * Math.pow(val, 1 / 2.4) - 0.055;
-}
-
-function srgbToRelativeLuminance(r, g, b) {
-  const toLinear = (val) => {
-    if (val <= 0.04045) {
-      return val / 12.92;
-    }
-    return Math.pow((val + 0.055) / 1.055, 2.4);
-  };
-  
-  const rLin = toLinear(r);
-  const gLin = toLinear(g);
-  const bLin = toLinear(b);
-  
-  return 0.2126 * rLin + 0.7152 * gLin + 0.0722 * bLin;
-}
-
-function oklchToLuminance(l, c, h) {
-  const { r, g, b } = oklchToLinearRgb(l, c, h);
-  const sR = Math.max(0, Math.min(1, linearToSrgb(r)));
-  const sG = Math.max(0, Math.min(1, linearToSrgb(g)));
-  const sB = Math.max(0, Math.min(1, linearToSrgb(b)));
-  return srgbToRelativeLuminance(sR, sG, sB);
-}
-
-function contrastRatio(lum1, lum2) {
-  const lighter = Math.max(lum1, lum2);
-  const darker = Math.min(lum1, lum2);
+function contrastRatio(l1, l2) {
+  const lighter = Math.max(l1, l2);
+  const darker = Math.min(l1, l2);
   return (lighter + 0.05) / (darker + 0.05);
 }
 
@@ -118,136 +88,109 @@ function colorValue(node) {
   return node?.$value ?? null;
 }
 
-function resolveTokens(obj, resolved = {}, prefix = '') {
-  for (const [key, value] of Object.entries(obj)) {
-    if (key === '$schema' || key === 'meta' || key.startsWith('$')) continue;
-    const path = prefix ? `${prefix}.${key}` : key;
-    if (value && typeof value === 'object' && '$value' in value) {
-      resolved[path] = value.$value;
-    } else if (value && typeof value === 'object') {
-      resolveTokens(value, resolved, path);
+const COLOR_TOKEN = String.raw`(?:oklch\([^)]+\)|#[0-9a-fA-F]{3,8})`;
+
+/** Resolve a semantic color that may be a `{ref}` or color-mix of refs. */
+function resolveSemanticColor(map, raw) {
+  if (raw == null) return null;
+  const resolved = resolveValueAgainst(map, raw);
+  if (typeof resolved !== 'string') return null;
+  const trimmed = resolved.trim();
+  // Pure OKLCH or hex after alias resolve
+  if (/^oklch\(/i.test(trimmed) || parseHex(trimmed)) return trimmed;
+  // color-mix(in oklch, COLOR p%, transparent|COLOR) — COLOR may be oklch or hex
+  const mix = trimmed.match(
+    new RegExp(
+      String.raw`color-mix\(\s*in\s+oklch\s*,\s*(${COLOR_TOKEN})\s+([\d.]+)%\s*,\s*(transparent|${COLOR_TOKEN})\s*\)`,
+      'i'
+    )
+  );
+  if (mix) {
+    // Prefer returning a luminance-friendly solid: if both sides are hex, lerp sRGB and emit hex.
+    const baseHex = parseHex(mix[1]);
+    const pct = Number(mix[2]) / 100;
+    if (baseHex && mix[3] === 'transparent') {
+      return mix[1];
+    }
+    const otherHex = mix[3] === 'transparent' ? null : parseHex(mix[3]);
+    if (baseHex && otherHex) {
+      const lerp = (a, b) => Math.round((a * pct + b * (1 - pct)) * 255);
+      const toHex = (n) => n.toString(16).padStart(2, '0');
+      return `#${toHex(lerp(baseHex.r, otherHex.r))}${toHex(lerp(baseHex.g, otherHex.g))}${toHex(lerp(baseHex.b, otherHex.b))}`;
+    }
+    const base = parseOklch(mix[1]);
+    if (!base) return null;
+    if (mix[3] === 'transparent') {
+      // Treat as same hue at reduced alpha — for contrast use the solid base
+      // (overlay pairs aren't in the AA matrix). Fallback: darkened L.
+      return `oklch(${(base.L * 100).toFixed(4)}% ${base.C} ${base.H})`;
+    }
+    const other = parseOklch(mix[3]);
+    if (!other) return null;
+    const L = base.L * pct + other.L * (1 - pct);
+    const C = base.C * pct + other.C * (1 - pct);
+    const H = base.H; // keep primary hue
+    return `oklch(${(L * 100).toFixed(4)}% ${C.toFixed(4)} ${H.toFixed(4)})`;
+  }
+  return null;
+}
+
+function checkEraMode(era, mode) {
+  const t1 = JSON.parse(
+    fs.readFileSync(path.join(REPO, 'spec/tokens/tier1', `${era}.${mode}.tokens.json`), 'utf8')
+  );
+  const t2 = JSON.parse(
+    fs.readFileSync(path.join(REPO, 'spec/tokens/tier2', `${era}.${mode}.tokens.json`), 'utf8')
+  );
+  // Resolve semantic refs against tier-1 primitives only (tier-2 must not overwrite).
+  const map = collectTokenValues(t1);
+
+  const c = t2.color;
+  const pairs = [
+    ['fg/default on bg/page', colorValue(c.fg.default), colorValue(c.bg.page), 4.5],
+    ['fg/default on bg/surface', colorValue(c.fg.default), colorValue(c.bg.surface), 4.5],
+    ['fg/default on bg/elevated', colorValue(c.fg.default), colorValue(c.bg.elevated), 4.5],
+    ['action/fg on action/bg', colorValue(c.action.fg), colorValue(c.action.bg), 4.5],
+    ['danger/fg on danger/bg', colorValue(c.danger.fg), colorValue(c.danger.bg), 4.5],
+    ['fg/muted on bg/page', colorValue(c.fg.muted), colorValue(c.bg.page), 3],
+  ];
+  const issues = [];
+  for (const [label, fgRaw, bgRaw, need] of pairs) {
+    const fg = resolveSemanticColor(map, fgRaw);
+    const bg = resolveSemanticColor(map, bgRaw);
+    if (!fg || !bg) {
+      issues.push({ label, error: `unresolvable fg=${fgRaw} bg=${bgRaw} → ${fg}/${bg}` });
+      continue;
+    }
+    const lf = relativeLuminance(fg);
+    const lb = relativeLuminance(bg);
+    if (lf == null || lb == null) {
+      issues.push({ label, error: `unparseable fg=${fg} bg=${bg}` });
+      continue;
+    }
+    const ratio = contrastRatio(lf, lb);
+    if (ratio < need) {
+      issues.push({ label, ratio: Number(ratio.toFixed(2)), need, fg, bg });
     }
   }
-  return resolved;
+  return issues;
 }
 
-function resolveReferences(value, tokens) {
-  if (typeof value !== 'string') return value;
-  
-  const refMatch = value.match(/^\{([^}]+)\}$/);
-  if (refMatch) {
-    const refPath = refMatch[1];
-    return tokens[refPath] || value;
-  }
-  
-  let resolved = value;
-  const refRegex = /\{([^}]+)\}/g;
-  resolved = resolved.replace(refRegex, (match, refPath) => {
-    return tokens[refPath] || match;
-  });
-  
-  return resolved;
-}
-
-function mixOklch(color1, color2, percentage) {
-  const c1 = parseOklch(color1);
-  const c2 = parseOklch(color2);
-  if (!c1 || !c2) return null;
-  
-  const p = percentage / 100;
-  return {
-    l: c1.l * p + c2.l * (1 - p),
-    c: c1.c * p + c2.c * (1 - p),
-    h: c1.h * p + c2.h * (1 - p)
-  };
-}
-
-function evaluateColorMix(value, tokens) {
-  if (typeof value !== 'string') return value;
-  
-  const colorMixMatch = value.match(/color-mix\s*\(\s*in\s+oklch\s*,\s*(.+?)\s+([\d.]+)%\s*,\s*(.+?)\s+([\d.]+)%\s*\)/);
-  if (!colorMixMatch) {
-    return value;
-  }
-  
-  const color1 = resolveReferences(colorMixMatch[1].trim(), tokens);
-  const p1 = Number(colorMixMatch[2]);
-  const color2 = resolveReferences(colorMixMatch[3].trim(), tokens);
-
-  // Hex palettes (e.g. deco): approximate the mix in sRGB for contrast checks
-  const hexMix = mixSrgbHex(color1, color2, p1);
-  if (hexMix) return hexMix;
-  
-  const mixed = mixOklch(color1, color2, p1);
-  if (!mixed) return value;
-  
-  return `oklch(${(mixed.l * 100).toFixed(1)}% ${mixed.c.toFixed(3)} ${mixed.h.toFixed(1)})`;
-}
-
-function checkEra(era) {
-  const modes = ['light', 'dark'];
-  const allIssues = { light: [], dark: [] };
-  
-  for (const mode of modes) {
-    const t1 = JSON.parse(
-      fs.readFileSync(path.join(REPO, 'spec/tokens/tier1', `${era}.${mode}.tokens.json`), 'utf8')
-    );
-    const t2 = JSON.parse(
-      fs.readFileSync(path.join(REPO, 'spec/tokens/tier2', `${era}.shared.tokens.json`), 'utf8')
-    );
-    
-    const tier1Tokens = resolveTokens(t1);
-    const tier2Tokens = resolveTokens(t2);
-    
-    const resolvedT2 = {};
-    for (const [key, val] of Object.entries(tier2Tokens)) {
-      let resolved = resolveReferences(val, tier1Tokens);
-      const allTokens = { ...tier1Tokens, ...resolvedT2 };
-      resolved = evaluateColorMix(resolved, allTokens);
-      resolvedT2[key] = resolved;
-    }
-    
-    const c = t2.color;
-    const pairs = [
-      ['fg/default on bg/page', resolvedT2['color.fg.default'], resolvedT2['color.bg.page'], 4.5],
-      ['fg/default on bg/surface', resolvedT2['color.fg.default'], resolvedT2['color.bg.surface'], 4.5],
-      ['fg/default on bg/elevated', resolvedT2['color.fg.default'], resolvedT2['color.bg.elevated'], 4.5],
-      ['action/fg on action/bg', resolvedT2['color.action.fg'], resolvedT2['color.action.bg'], 4.5],
-      ['danger/fg on danger/bg', resolvedT2['color.danger.fg'], resolvedT2['color.danger.bg'], 4.5],
-      ['fg/muted on bg/page', resolvedT2['color.fg.muted'], resolvedT2['color.bg.page'], 3],
-    ];
-    
-    for (const [label, fg, bg, need] of pairs) {
-      const fgParsed = parseColor(fg);
-      const bgParsed = parseColor(bg);
-      const lumFg = luminanceOf(fgParsed);
-      const lumBg = luminanceOf(bgParsed);
-      if (lumFg == null || lumBg == null) {
-        allIssues[mode].push({ label, error: `unparseable fg=${fg} bg=${bg}` });
-        continue;
-      }
-      const ratio = contrastRatio(lumFg, lumBg);
-      if (ratio < need) {
-        allIssues[mode].push({ label, ratio: Number(ratio.toFixed(2)), need, fg, bg });
-      }
-    }
-  }
-  
-  return allIssues;
-}
-
-const report = { eras: {}, pass: true, note: 'Glow ignored; flat OKLCH fills only. Proper OKLCH→sRGB→WCAG luminance.' };
+const report = {
+  eras: {},
+  pass: true,
+  note: 'Glow ignored; flat OKLCH fills only. OKLCH→sRGB + WCAG relative luminance. Both modes.',
+};
 for (const era of ERAS) {
-  const issuesByMode = checkEra(era);
-  const lightIssues = issuesByMode.light;
-  const darkIssues = issuesByMode.dark;
-  const hasIssues = lightIssues.length > 0 || darkIssues.length > 0;
-  report.eras[era] = { 
-    pass: !hasIssues, 
-    light: { pass: lightIssues.length === 0, issues: lightIssues },
-    dark: { pass: darkIssues.length === 0, issues: darkIssues }
-  };
-  if (hasIssues) report.pass = false;
+  report.eras[era] = { modes: {}, pass: true };
+  for (const mode of MODES) {
+    const issues = checkEraMode(era, mode);
+    report.eras[era].modes[mode] = { pass: issues.length === 0, issues };
+    if (issues.length) {
+      report.eras[era].pass = false;
+      report.pass = false;
+    }
+  }
 }
 const outDir = path.join(REPO, 'generated/contrast');
 fs.mkdirSync(outDir, { recursive: true });
@@ -257,16 +200,15 @@ if (!report.pass) {
   for (const [era, r] of Object.entries(report.eras)) {
     if (!r.pass) {
       console.error(`  ${era}:`);
-      if (!r.light.pass) {
-        console.error(`    light mode:`);
-        for (const i of r.light.issues) console.error(`      - ${i.label}: ${i.ratio ?? i.error} (need ${i.need})`);
-      }
-      if (!r.dark.pass) {
-        console.error(`    dark mode:`);
-        for (const i of r.dark.issues) console.error(`      - ${i.label}: ${i.ratio ?? i.error} (need ${i.need})`);
+      for (const [mode, m] of Object.entries(r.modes)) {
+        if (!m.pass) {
+          for (const i of m.issues) {
+            console.error(`    [${mode}] ${i.label}: ${i.ratio ?? i.error} (need ${i.need})`);
+          }
+        }
       }
     }
   }
   process.exit(1);
 }
-console.log(`Contrast CI OK for ${ERAS.join(', ')} in light and dark modes (AA, glow ignored).`);
+console.log(`Contrast CI OK for ${ERAS.join(', ')} × ${MODES.join('/')} (AA, glow ignored).`);

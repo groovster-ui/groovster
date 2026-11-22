@@ -11,7 +11,7 @@ HTML:
 </fieldset>
 ```
 
-CSS: @era-widgets/css/radio.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/radio.css + @groovster/css/eras/<era>.css
 Variants: variant=default|card(default:default)
 Sizes: sm|md|lg (default md)
 ARIA: radio (native)

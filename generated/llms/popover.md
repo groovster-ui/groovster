@@ -12,7 +12,7 @@ HTML:
 </ew-popover>
 ```
 
-CSS: @era-widgets/css/popover.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/popover.css + @groovster/css/eras/<era>.css
 Variants: variant=default|rich(default:default)
 Sizes: sm|md|lg (default md)
 ARIA: dialog or group

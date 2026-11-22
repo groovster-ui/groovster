@@ -15,3 +15,14 @@ packages/*/dist/
 !packages/elements/dist/**
 !packages/tokens/dist/
 !packages/tokens/dist/**
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+*.pem
+*.key
+*.secret

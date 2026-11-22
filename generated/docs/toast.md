@@ -13,8 +13,8 @@ Transient notification region. CSS chrome; live region polite by default.
 
 ## Imports
 
-- `@era-widgets/css/toast.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/toast.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

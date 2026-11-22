@@ -12,10 +12,10 @@
         "$type": "color",
         "$value": "{color.ink}"
       },
-    "muted": {
-      "$type": "color",
-      "$value": "{color.cream}"
-    },
+      "muted": {
+        "$type": "color",
+        "$value": "{color.brassDeep}"
+      },
       "inverse": {
         "$type": "color",
         "$value": "{color.paper}"
@@ -32,19 +32,18 @@
       },
       "elevated": {
         "$type": "color",
-        "$value": "{color.sky}",
-        "$description": "Bible elevated: dark #1E1A14 lacquer step / light #FFFFFF"
+        "$value": "color-mix(in oklch, {color.panel} 85%, {color.brass} 15%)"
       }
     },
     "border": {
-    "subtle": {
-      "$type": "color",
-      "$value": "{color.goldSubtle}"
-    },
-    "strong": {
-      "$type": "color",
-      "$value": "{color.gold}"
-    }
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.brass}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.brassDeep}"
+      }
     },
     "action": {
       "bg": {
@@ -65,14 +64,14 @@
         "$type": "color",
         "$value": "color-mix(in oklch, {color.paper} 95%, {color.panel} 5%)"
       },
-    "border": {
-      "$type": "color",
-      "$value": "{color.goldBorder}"
-    },
-    "focus": {
-      "$type": "color",
-      "$value": "{color.goldFocus}"
-    }
+      "border": {
+        "$type": "color",
+        "$value": "{color.brassDeep}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.brass}"
+      }
     },
     "overlay": {
       "$type": "color",

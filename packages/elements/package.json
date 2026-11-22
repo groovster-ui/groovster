@@ -1,7 +1,6 @@
 {
-  "name": "@era-widgets/elements",
+  "name": "@groovster/elements",
   "version": "0.1.0-alpha.0",
-  "private": true,
   "description": "Dependency-free light-DOM web components (APG). Published JS imports nothing.",
   "type": "module",
   "license": "MIT",

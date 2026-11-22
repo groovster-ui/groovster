@@ -1,57 +1,57 @@
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
 
-@layer era {
+@layer tokens {
   [data-era="groovy"], [data-era="groovy"][data-mode="light"] {
     --ew-era: groovy;
     --ew-mode: light;
-  --ew-color-sand: oklch(94% 0.03 85);
-  --ew-color-avocado: oklch(55% 0.08 130);
-  --ew-color-harvest: oklch(72% 0.12 75);
-  --ew-color-rust: oklch(50% 0.12 40);
-  --ew-color-ink: oklch(28% 0.03 60);
-  --ew-color-accent-solid: oklch(45% 0.1 130);
-  --ew-color-accent-fg: oklch(97% 0.02 95);
-  --ew-color-danger-solid: oklch(48% 0.14 35);
-  --ew-color-danger-fg: oklch(97% 0.02 95);
-  --ew-space-0: 0px;
-  --ew-space-1: 4px;
-  --ew-space-2: 8px;
-  --ew-space-3: 12px;
-  --ew-space-4: 16px;
-  --ew-space-5: 24px;
-  --ew-space-6: 32px;
-  --ew-space-7: 48px;
-  --ew-space-8: 64px;
-  --ew-radius-none: 0px;
-  --ew-radius-sm: 12px;
-  --ew-radius-md: 20px;
-  --ew-radius-lg: 28px;
-  --ew-radius-pill: 999px;
-  --ew-font-display: Comfortaa, system-ui, sans-serif;
-  --ew-font-body: Mulish, system-ui, sans-serif;
-  --ew-font-mono: "IBM Plex Mono", monospace;
-  --ew-color-fg-default: var(--ew-color-ink);
-  --ew-color-fg-muted: var(--ew-color-avocado);
-  --ew-color-fg-inverse: var(--ew-color-sand);
-  --ew-color-bg-page: var(--ew-color-sand);
-  --ew-color-bg-surface: color-mix(in oklch, var(--ew-color-sand) 95%, var(--ew-color-harvest) 5%);
-  --ew-color-bg-elevated: color-mix(in oklch, var(--ew-color-sand) 98%, white 2%);
-  --ew-color-border-subtle: var(--ew-color-harvest);
-  --ew-color-border-strong: var(--ew-color-avocado);
-  --ew-color-action-bg: var(--ew-color-accent-solid);
-  --ew-color-action-fg: var(--ew-color-accent-fg);
-  --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 90%, black 10%);
-  --ew-color-field-bg: color-mix(in oklch, var(--ew-color-sand) 98%, white 2%);
-  --ew-color-field-border: var(--ew-color-harvest);
-  --ew-color-field-focus: var(--ew-color-avocado);
-  --ew-color-overlay: color-mix(in oklch, var(--ew-color-ink) 100%, transparent 60%);
-  --ew-color-track-off: color-mix(in oklch, var(--ew-color-sand) 90%, var(--ew-color-harvest) 10%);
-  --ew-color-track-on: var(--ew-color-accent-solid);
-  --ew-color-danger-bg: var(--ew-color-danger-solid);
-  --ew-color-danger-fg: var(--ew-color-danger-fg);
-  --ew-elevation-1: 0px 4px 10px 0px color-mix(in oklch, var(--ew-color-ink) 100%, transparent 88%);
-  --ew-elevation-2: 0px 10px 24px 0px color-mix(in oklch, var(--ew-color-ink) 100%, transparent 84%);
-  --ew-elevation-dialog: 0px 16px 40px 0px color-mix(in oklch, var(--ew-color-ink) 100%, transparent 80%);
+    --ew-color-sand: oklch(94% 0.03 85);
+    --ew-color-avocado: oklch(55% 0.08 130);
+    --ew-color-harvest: oklch(72% 0.12 75);
+    --ew-color-rust: oklch(50% 0.12 40);
+    --ew-color-ink: oklch(20% 0.03 60);
+    --ew-color-accent-solid: oklch(45% 0.1 130);
+    --ew-color-accent-fg: oklch(97% 0.02 95);
+    --ew-color-danger-solid: oklch(48% 0.14 35);
+    --ew-color-danger-fg: oklch(97% 0.02 95);
+    --ew-space-0: 0px;
+    --ew-space-1: 4px;
+    --ew-space-2: 8px;
+    --ew-space-3: 12px;
+    --ew-space-4: 16px;
+    --ew-space-5: 24px;
+    --ew-space-6: 32px;
+    --ew-space-7: 48px;
+    --ew-space-8: 64px;
+    --ew-radius-none: 0px;
+    --ew-radius-sm: 12px;
+    --ew-radius-md: 20px;
+    --ew-radius-lg: 28px;
+    --ew-radius-pill: 999px;
+    --ew-font-display: Comfortaa, system-ui, sans-serif;
+    --ew-font-body: Mulish, system-ui, sans-serif;
+    --ew-font-mono: "IBM Plex Mono", monospace;
+    --ew-color-fg-default: var(--ew-color-ink);
+    --ew-color-fg-muted: color-mix(in oklch, var(--ew-color-ink) 72%, var(--ew-color-sand));
+    --ew-color-fg-inverse: var(--ew-color-sand);
+    --ew-color-bg-page: var(--ew-color-sand);
+    --ew-color-bg-surface: color-mix(in oklch, var(--ew-color-sand) 88%, var(--ew-color-harvest));
+    --ew-color-bg-elevated: var(--ew-color-sand);
+    --ew-color-border-subtle: var(--ew-color-avocado);
+    --ew-color-border-strong: var(--ew-color-rust);
+    --ew-color-action-bg: var(--ew-color-accent-solid);
+    --ew-color-action-fg: var(--ew-color-accent-fg);
+    --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 85%, var(--ew-color-ink));
+    --ew-color-field-bg: var(--ew-color-sand);
+    --ew-color-field-border: var(--ew-color-avocado);
+    --ew-color-field-focus: var(--ew-color-harvest);
+    --ew-color-overlay: color-mix(in oklch, var(--ew-color-ink) 45%, transparent);
+    --ew-color-track-off: color-mix(in oklch, var(--ew-color-sand) 75%, var(--ew-color-avocado));
+    --ew-color-track-on: var(--ew-color-accent-solid);
+    --ew-color-danger-bg: var(--ew-color-danger-solid);
+    --ew-color-danger-fg: var(--ew-color-danger-fg);
+    --ew-elevation-1: 0px 3px 0px 0px color-mix(in oklch, var(--ew-color-rust) 35%, transparent);
+    --ew-elevation-2: 0px 8px 0px 0px color-mix(in oklch, var(--ew-color-ink) 20%, transparent);
+    --ew-elevation-dialog: 0px 14px 0px 0px color-mix(in oklch, var(--ew-color-ink) 28%, transparent);
     color: var(--ew-color-fg-default);
     background: var(--ew-color-bg-page);
     font-family: var(--ew-font-body, system-ui, sans-serif);
@@ -59,55 +59,57 @@
   [data-era="groovy"][data-mode="dark"] {
     --ew-era: groovy;
     --ew-mode: dark;
-  --ew-color-sand: oklch(20% 0.03 70);
-  --ew-color-avocado: oklch(68% 0.08 130);
-  --ew-color-harvest: oklch(78% 0.1 75);
-  --ew-color-rust: oklch(62% 0.1 40);
-  --ew-color-ink: oklch(92% 0.02 85);
-  --ew-color-accent-solid: oklch(68% 0.1 130);
-  --ew-color-accent-fg: oklch(18% 0.03 70);
-  --ew-color-danger-solid: oklch(62% 0.12 35);
-  --ew-color-danger-fg: oklch(18% 0.02 35);
-  --ew-space-0: 0px;
-  --ew-space-1: 4px;
-  --ew-space-2: 8px;
-  --ew-space-3: 12px;
-  --ew-space-4: 16px;
-  --ew-space-5: 24px;
-  --ew-space-6: 32px;
-  --ew-space-7: 48px;
-  --ew-space-8: 64px;
-  --ew-radius-none: 0px;
-  --ew-radius-sm: 12px;
-  --ew-radius-md: 20px;
-  --ew-radius-lg: 28px;
-  --ew-radius-pill: 999px;
-  --ew-color-fg-default: var(--ew-color-ink);
-  --ew-color-fg-muted: var(--ew-color-avocado);
-  --ew-color-fg-inverse: var(--ew-color-sand);
-  --ew-color-bg-page: var(--ew-color-sand);
-  --ew-color-bg-surface: color-mix(in oklch, var(--ew-color-sand) 95%, var(--ew-color-harvest) 5%);
-  --ew-color-bg-elevated: color-mix(in oklch, var(--ew-color-sand) 98%, white 2%);
-  --ew-color-border-subtle: var(--ew-color-harvest);
-  --ew-color-border-strong: var(--ew-color-avocado);
-  --ew-color-action-bg: var(--ew-color-accent-solid);
-  --ew-color-action-fg: var(--ew-color-accent-fg);
-  --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 90%, black 10%);
-  --ew-color-field-bg: color-mix(in oklch, var(--ew-color-sand) 98%, white 2%);
-  --ew-color-field-border: var(--ew-color-harvest);
-  --ew-color-field-focus: var(--ew-color-avocado);
-  --ew-color-overlay: color-mix(in oklch, var(--ew-color-ink) 100%, transparent 60%);
-  --ew-color-track-off: color-mix(in oklch, var(--ew-color-sand) 90%, var(--ew-color-harvest) 10%);
-  --ew-color-track-on: var(--ew-color-accent-solid);
-  --ew-color-danger-bg: var(--ew-color-danger-solid);
-  --ew-color-danger-fg: var(--ew-color-danger-fg);
-  --ew-elevation-1: 0px 4px 10px 0px color-mix(in oklch, var(--ew-color-ink) 100%, transparent 88%);
-  --ew-elevation-2: 0px 10px 24px 0px color-mix(in oklch, var(--ew-color-ink) 100%, transparent 84%);
-  --ew-elevation-dialog: 0px 16px 40px 0px color-mix(in oklch, var(--ew-color-ink) 100%, transparent 80%);
+    --ew-color-sand: oklch(20% 0.03 70);
+    --ew-color-avocado: oklch(68% 0.08 130);
+    --ew-color-harvest: oklch(78% 0.1 75);
+    --ew-color-rust: oklch(62% 0.1 40);
+    --ew-color-ink: oklch(92% 0.02 85);
+    --ew-color-accent-solid: oklch(68% 0.1 130);
+    --ew-color-accent-fg: oklch(18% 0.03 70);
+    --ew-color-danger-solid: oklch(62% 0.12 35);
+    --ew-color-danger-fg: oklch(18% 0.02 35);
+    --ew-space-0: 0px;
+    --ew-space-1: 4px;
+    --ew-space-2: 8px;
+    --ew-space-3: 12px;
+    --ew-space-4: 16px;
+    --ew-space-5: 24px;
+    --ew-space-6: 32px;
+    --ew-space-7: 48px;
+    --ew-space-8: 64px;
+    --ew-radius-none: 0px;
+    --ew-radius-sm: 12px;
+    --ew-radius-md: 20px;
+    --ew-radius-lg: 28px;
+    --ew-radius-pill: 999px;
+    --ew-color-fg-default: var(--ew-color-ink);
+    --ew-color-fg-muted: color-mix(in oklch, var(--ew-color-ink) 65%, var(--ew-color-sand));
+    --ew-color-fg-inverse: var(--ew-color-sand);
+    --ew-color-bg-page: var(--ew-color-sand);
+    --ew-color-bg-surface: color-mix(in oklch, var(--ew-color-sand) 80%, var(--ew-color-avocado));
+    --ew-color-bg-elevated: color-mix(in oklch, var(--ew-color-sand) 70%, var(--ew-color-harvest));
+    --ew-color-border-subtle: var(--ew-color-avocado);
+    --ew-color-border-strong: var(--ew-color-harvest);
+    --ew-color-action-bg: var(--ew-color-accent-solid);
+    --ew-color-action-fg: var(--ew-color-accent-fg);
+    --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 88%, var(--ew-color-ink));
+    --ew-color-field-bg: color-mix(in oklch, var(--ew-color-sand) 90%, var(--ew-color-ink));
+    --ew-color-field-border: var(--ew-color-avocado);
+    --ew-color-field-focus: var(--ew-color-harvest);
+    --ew-color-overlay: color-mix(in oklch, var(--ew-color-sand) 70%, transparent);
+    --ew-color-track-off: color-mix(in oklch, var(--ew-color-sand) 65%, var(--ew-color-avocado));
+    --ew-color-track-on: var(--ew-color-accent-solid);
+    --ew-color-danger-bg: var(--ew-color-danger-solid);
+    --ew-color-danger-fg: var(--ew-color-danger-fg);
+    --ew-elevation-1: 0px 3px 0px 0px color-mix(in oklch, var(--ew-color-harvest) 40%, transparent);
+    --ew-elevation-2: 0px 8px 0px 0px color-mix(in oklch, var(--ew-color-sand) 55%, transparent);
+    --ew-elevation-dialog: 0px 14px 0px 0px color-mix(in oklch, var(--ew-color-sand) 65%, transparent);
     color: var(--ew-color-fg-default);
     background: var(--ew-color-bg-page);
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
+}
+@layer era {
   [data-era="groovy"] {
     --ew-fidelity-default: 75;
     --ew-structure-control-radius: 999px;
@@ -131,11 +133,12 @@
     --ew-structure-card-title-tracking: 0.04em;
     --ew-structure-card-header-rule-display: none;
     --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
-    --ew-structure-card-ornament-content: none;
-    --ew-structure-card-ornament-opacity: 0;
-    --ew-structure-card-ornament-bg: none;
-    --ew-structure-card-ornament-size: auto;
-    --ew-structure-card-ornament-blend: normal;
+    --ew-structure-card-ornament-content: "";
+    --ew-structure-card-ornament-opacity: 0.22;
+    --ew-structure-card-ornament-bg: radial-gradient(circle at 92% 12%, var(--ew-color-action-bg) 0 2px, transparent 3px) no-repeat,
+      conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat;
+    --ew-structure-card-ornament-size: 120px 120px;
+    --ew-structure-card-ornament-blend: multiply;
     --ew-structure-field-border-width: 1px;
     --ew-structure-field-border-style: solid;
     --ew-structure-field-radius: 999px;
@@ -150,6 +153,12 @@
     --ew-structure-switch-track-radius: 999px;
     --ew-structure-switch-thumb-radius: 999px;
     --ew-structure-switch-shadow: none;
+    --ew-structure-tooltip-radius: 999px;
+    --ew-structure-tooltip-shadow: 0 4px 0 color-mix(in oklch, var(--ew-color-fg-default) 20%, transparent);
+    --ew-structure-tooltip-padding: 8px 12px;
+    --ew-structure-slider-track-height: 10px;
+    --ew-structure-slider-thumb-size: 18px;
+    --ew-structure-slider-track-radius: 999px;
   }
   [data-era="groovy"][data-fidelity-band="whisper"] {
     --ew-structure-card-ornament-opacity: 0;
@@ -160,4 +169,64 @@
   }
 }
 @layer decorators {
+  [data-era="groovy"] .ew-button {
+    border-radius: 999px;
+    box-shadow: 0 4px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent);
+  }
+  [data-era="groovy"] .ew-card {
+    border-radius: 28px 36px 24px 40px / 32px 24px 36px 28px;
+    border-width: 0;
+    background-image:
+      radial-gradient(circle at 12% 18%, color-mix(in oklch, var(--ew-color-action-bg) 22%, transparent) 0 18%, transparent 19%),
+      radial-gradient(circle at 88% 12%, color-mix(in oklch, var(--ew-color-border-strong) 18%, transparent) 0 14%, transparent 15%);
+  }
+  [data-era="groovy"] .ew-card__header::after {
+    content: "";
+    display: block;
+    height: 10px;
+    margin-top: 10px;
+    background:
+      radial-gradient(circle at 10px 5px, var(--ew-color-action-bg) 0 3px, transparent 4px),
+      radial-gradient(circle at 28px 5px, var(--ew-color-border-strong) 0 3px, transparent 4px),
+      radial-gradient(circle at 46px 5px, var(--ew-color-action-bg) 0 3px, transparent 4px);
+    opacity: 0.7;
+  }
+  [data-era="groovy"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
+  [data-era="groovy"] .ew-text-field__control {
+    border-radius: 999px;
+    border-width: 2px;
+  }
+  [data-era="groovy"] .ew-dialog {
+    border-radius: 36px 28px 40px 32px / 28px 36px 30px 34px;
+  }
+  [data-era="groovy"] .ew-tabs [role="tablist"],
+  [data-era="groovy"] ew-tabs [role="tablist"] {
+    border-bottom: 0;
+    gap: 10px;
+  }
+  [data-era="groovy"] .ew-tabs [role="tab"],
+  [data-era="groovy"] ew-tabs [role="tab"] {
+    border-radius: 999px;
+    border-bottom: 0;
+    padding-inline: 14px;
+  }
+  [data-era="groovy"] .ew-tabs [role="tab"][aria-selected="true"],
+  [data-era="groovy"] ew-tabs [role="tab"][aria-selected="true"] {
+    background: var(--ew-color-action-bg);
+    color: var(--ew-color-action-fg);
+  }
+  [data-era="groovy"] .ew-tooltip__tip {
+    border-radius: 999px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 0 color-mix(in oklch, var(--ew-color-fg-default) 20%, transparent);
+  }
+  [data-era="groovy"] .ew-slider__control {
+    height: var(--ew-structure-slider-track-height, 10px);
+    border-radius: 999px;
+  }
+  [data-era="groovy"] .ew-switch__track {
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 2px color-mix(in oklch, var(--ew-color-fg-default) 12%, transparent);
+  }
+
 }

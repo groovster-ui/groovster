@@ -1,11 +1,13 @@
 {
-  "name": "@era-widgets/css",
+  "name": "@groovster/css",
   "version": "0.1.0-alpha.0",
-  "private": true,
-  "description": "Generated CSS packs for Era Widgets. Self-contained — no @import inside published CSS.",
+  "description": "Generated CSS packs for Era Widgets. Self-contained \u2014 no @import inside published CSS.",
   "type": "module",
   "license": "MIT",
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "exports": {
     ".": "./dist/era-widgets.css",
     "./era-widgets.css": "./dist/era-widgets.css",
@@ -24,8 +26,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/example/groovster.git",
+    "url": "https://github.com/groovster-ui/groovster.git",
     "directory": "packages/css"
   },
-  "keywords": ["era-widgets", "css", "design-systems", "art-deco", "synthwave"]
+  "keywords": [
+    "era-widgets",
+    "css",
+    "design-systems",
+    "art-deco",
+    "synthwave"
+  ]
 }

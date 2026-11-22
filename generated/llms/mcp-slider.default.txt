@@ -1,9 +1,1 @@
-<!-- Slider -->
-<ew-slider class="ew-slider">
-  <label class="ew-slider__label" for="vol">Volume</label>
-  <input id="vol" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-  <output class="ew-slider__value">40</output>
-</ew-slider>
-
-import "@era-widgets/css/slider.css";
-a11y: <ew-slider> syncs ARIA value attrs with the native range.
+{"version":"0.1.0-alpha.0","name":"slider","html":"<ew-slider class=\"ew-slider\">\n  <label class=\"ew-slider__label\" for=\"vol\">Volume</label>\n  <input id=\"vol\" class=\"ew-slider__control\" type=\"range\" min=\"0\" max=\"100\" value=\"40\" />\n  <output class=\"ew-slider__value\">40</output>\n</ew-slider>","css":"import \"@groovster/css/slider.css\";","a11y":"<ew-slider> syncs ARIA value attrs with the native range."}

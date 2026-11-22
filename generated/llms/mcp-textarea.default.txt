@@ -1,8 +1,1 @@
-<!-- Textarea -->
-<div class="ew-textarea">
-  <label class="ew-textarea__label" for="bio">Bio</label>
-  <textarea id="bio" class="ew-textarea__control" rows="4"></textarea>
-</div>
-
-import "@era-widgets/css/textarea.css";
-a11y: Wire label via for/id.
+{"version":"0.1.0-alpha.0","name":"textarea","html":"<div class=\"ew-textarea\">\n  <label class=\"ew-textarea__label\" for=\"bio\">Bio</label>\n  <textarea id=\"bio\" class=\"ew-textarea__control\" rows=\"4\"></textarea>\n</div>","css":"import \"@groovster/css/textarea.css\";","a11y":"Wire label via for/id."}

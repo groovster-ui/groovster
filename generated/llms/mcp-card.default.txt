@@ -1,9 +1,1 @@
-<!-- Card -->
-<article class="ew-card">
-  <header class="ew-card__header"><h3>Plan</h3></header>
-  <div class="ew-card__body"><p>Everything you need to ship.</p></div>
-  <footer class="ew-card__footer"><button type="button" class="ew-button">Choose</button></footer>
-</article>
-
-import "@era-widgets/css/card.css";
-a11y: If the card is a single link/button, put the interactive element on the root or use a stretched link — do not nest buttons/links.
+{"version":"0.1.0-alpha.0","name":"card","html":"<article class=\"ew-card\">\n  <header class=\"ew-card__header\"><h3>Plan</h3></header>\n  <div class=\"ew-card__body\"><p>Everything you need to ship.</p></div>\n  <footer class=\"ew-card__footer\"><button type=\"button\" class=\"ew-button\">Choose</button></footer>\n</article>","css":"import \"@groovster/css/card.css\";","a11y":"If the card is a single link/button, put the interactive element on the root or use a stretched link — do not nest buttons/links."}

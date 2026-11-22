@@ -40,6 +40,36 @@
       "id": "case-neon-dark",
       "pass": true,
       "violations": []
+    },
+    {
+      "id": "case-memphis-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-memphis-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-groovy-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-groovy-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-earth-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-earth-dark",
+      "pass": true,
+      "violations": []
     }
   ]
 }

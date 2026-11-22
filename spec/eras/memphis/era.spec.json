@@ -78,7 +78,8 @@
   "tokenFiles": [
     "spec/tokens/tier1/memphis.light.tokens.json",
     "spec/tokens/tier1/memphis.dark.tokens.json",
-    "spec/tokens/tier2/memphis.shared.tokens.json",
+    "spec/tokens/tier2/memphis.light.tokens.json",
+    "spec/tokens/tier2/memphis.dark.tokens.json",
     "spec/tokens/tier3/components.shared.tokens.json"
   ],
   "card": {
@@ -145,6 +146,16 @@
       "trackRadius": "999px",
       "thumbRadius": "999px",
       "shadow": "none"
+    },
+    "tooltip": {
+      "radius": "2px",
+      "shadow": "3px 3px 0 0 var(--ew-color-action-bg)",
+      "padding": "6px 8px"
+    },
+    "slider": {
+      "trackHeight": "8px",
+      "thumbSize": "18px",
+      "trackRadius": "2px"
     }
   }
 }
