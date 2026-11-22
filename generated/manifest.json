@@ -126,25 +126,39 @@
     "packages/css/dist/eras/neon.css",
     "packages/css/dist/eras/neutral.css",
     "packages/css/dist/fonts/ArchivoBlack-Regular.woff2",
+    "packages/css/dist/fonts/Comfortaa-Bold.woff2",
     "packages/css/dist/fonts/Comfortaa-Regular.woff2",
+    "packages/css/dist/fonts/Exo2-Bold.woff2",
     "packages/css/dist/fonts/Exo2-Regular.woff2",
+    "packages/css/dist/fonts/Fraunces-Bold.woff2",
     "packages/css/dist/fonts/Fraunces-Regular.woff2",
+    "packages/css/dist/fonts/IBMPlexMono-Bold.woff2",
     "packages/css/dist/fonts/IBMPlexMono-Regular.woff2",
+    "packages/css/dist/fonts/JosefinSans-Bold.woff2",
     "packages/css/dist/fonts/JosefinSans-Regular.woff2",
+    "packages/css/dist/fonts/Jost-Bold.woff2",
     "packages/css/dist/fonts/Jost-Regular.woff2",
     "packages/css/dist/fonts/Limelight-Regular.woff2",
     "packages/css/dist/fonts/Monoton-Regular.woff2",
     "packages/css/dist/fonts/MrDafoe-Regular.woff2",
+    "packages/css/dist/fonts/Mulish-Bold.woff2",
     "packages/css/dist/fonts/Mulish-Regular.woff2",
     "packages/css/dist/fonts/NOTICE.md",
+    "packages/css/dist/fonts/Nunito-Bold.woff2",
     "packages/css/dist/fonts/Nunito-Regular.woff2",
+    "packages/css/dist/fonts/NunitoSans-Bold.woff2",
     "packages/css/dist/fonts/NunitoSans-Regular.woff2",
     "packages/css/dist/fonts/OFL.txt",
+    "packages/css/dist/fonts/Orbitron-Bold.woff2",
     "packages/css/dist/fonts/Orbitron-Regular.woff2",
     "packages/css/dist/fonts/ShareTechMono-Regular.woff2",
+    "packages/css/dist/fonts/SourceCodePro-Bold.woff2",
     "packages/css/dist/fonts/SourceCodePro-Regular.woff2",
+    "packages/css/dist/fonts/SourceSans3-Bold.woff2",
     "packages/css/dist/fonts/SourceSans3-Regular.woff2",
+    "packages/css/dist/fonts/SourceSerif4-Bold.woff2",
     "packages/css/dist/fonts/SourceSerif4-Regular.woff2",
+    "packages/css/dist/fonts/SpaceMono-Bold.woff2",
     "packages/css/dist/fonts/SpaceMono-Regular.woff2",
     "packages/css/dist/icon-button.css",
     "packages/css/dist/link.css",
@@ -453,7 +467,7 @@
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:neon": {
-        "chars": 509,
+        "chars": 532,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:neutral": {
@@ -461,7 +475,7 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 2296,
+        "chars": 2367,
         "budget": "llms.index"
       }
     }

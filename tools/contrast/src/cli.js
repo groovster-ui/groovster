@@ -159,7 +159,20 @@ function checkEraMode(era, mode) {
     ['field/border on field/bg', colorValue(c.field.border), colorValue(c.field.bg), 3],
     ['fg/default (thumb) on track/off', colorValue(c.fg.default), colorValue(c.track.off), 3],
     ['action/fg (thumb) on track/on', colorValue(c.action.fg), colorValue(c.track.on), 3],
+    // Off-state switch against the card (knob + track edge), not only token thumb/track pairs
+    ['off-knob (fg/default) on card (bg/surface)', colorValue(c.fg.default), colorValue(c.bg.surface), 3],
+    ['off-track-edge (border/strong) on card (bg/surface)', colorValue(c.border.strong), colorValue(c.bg.surface), 3],
   ];
+  // Deco light paints the off knob/track edge with goldBorder (≥3:1); gold alone fails on ivory.
+  if (era === 'deco' && mode === 'light') {
+    const goldBorder = map.get('color.goldBorder');
+    if (goldBorder) {
+      pairs.push(
+        ['deco off-knob (goldBorder) on card (bg/surface)', goldBorder, colorValue(c.bg.surface), 3],
+        ['deco off-track-edge (goldBorder) on card (bg/surface)', goldBorder, colorValue(c.bg.surface), 3]
+      );
+    }
+  }
   const issues = [];
   for (const [label, fgRaw, bgRaw, need] of pairs) {
     const fg = resolveSemanticColor(map, fgRaw);

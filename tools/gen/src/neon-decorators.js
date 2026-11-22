@@ -27,18 +27,18 @@ const MOUNTAINS_SVG = encodeURIComponent(
   </svg>`
 );
 
-/** Small sun mark for logo / empty states. */
+/** Small sun mark for logo / empty states. Pass raw #hex — encodeURIComponent once. */
 const SUN_MARK_SVG = encodeURIComponent(
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40" fill="none">
     <defs>
       <linearGradient id="s" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="%23FFC857"/>
-        <stop offset="55%" stop-color="%23FF6B35"/>
-        <stop offset="100%" stop-color="%23FF2A6D"/>
+        <stop offset="0%" stop-color="#FFC857"/>
+        <stop offset="55%" stop-color="#FF6B35"/>
+        <stop offset="100%" stop-color="#FF2A6D"/>
       </linearGradient>
     </defs>
-    <path d="M4 36 A28 28 0 0 1 60 36 Z" fill="url(%23s)"/>
-    <path d="M8 28 H56 M10 32 H54 M14 36 H50" stroke="%230D0221" stroke-width="2.2"/>
+    <path d="M4 36 A28 28 0 0 1 60 36 Z" fill="url(#s)"/>
+    <path d="M8 28 H56 M10 32 H54 M14 36 H50" stroke="#0D0221" stroke-width="2.2"/>
   </svg>`
 );
 
@@ -119,9 +119,14 @@ export function neonDecoratorCss() {
     background: var(--ew-gradient-hero-light);
   }
 
-  /* Horizon stage in flow — sun + mountains + grid all INSIDE (no upward overflow into content) */
+  /* Horizon stage in flow — sun + mountains + grid all INSIDE (no upward overflow into content).
+     Required for costume neon heroes (see llms.txt). Sun height also set on .ew-hero so missing
+     stage degrades instead of collapsing the sun to 0px. */
+  [data-era="neon"] .ew-hero,
   [data-era="neon"] .ew-hero__stage {
     --ew-hero-sun-h: min(140px, 21vw);
+  }
+  [data-era="neon"] .ew-hero__stage {
     position: relative;
     grid-row: 2;
     height: calc(var(--ew-hero-sun-h) + min(38vh, 360px));
@@ -146,16 +151,16 @@ export function neonDecoratorCss() {
     justify-content: center;
   }
 
-  /* Perspective grid — from horizon (below sun) to stage bottom; no gap */
+  /* Perspective floor grid — origin at horizon so the far edge meets the mountain line (no gap). */
   [data-era="neon"] .ew-hero__grid {
     position: absolute;
     left: 50%;
-    top: calc(var(--ew-hero-sun-h) - 6px);
+    top: var(--ew-hero-sun-h);
     bottom: 0;
     width: 160%;
     height: auto;
-    transform: translateX(-50%) perspective(640px) rotateX(52deg);
-    transform-origin: 50% 100%;
+    transform: translateX(-50%) perspective(640px) rotateX(56deg);
+    transform-origin: 50% 0%;
     background:
       repeating-linear-gradient(
         90deg,
@@ -178,6 +183,7 @@ export function neonDecoratorCss() {
     top: auto;
     bottom: 0;
     height: min(38vh, 360px);
+    transform-origin: 50% 0%;
   }
 
   /* Striped sunset sun — top of stage, half-set onto the grid horizon */
@@ -226,11 +232,11 @@ export function neonDecoratorCss() {
     bottom: min(38vh, 360px);
   }
 
-  /* Wireframe mountains on the horizon (sun/grid join) */
+  /* Wireframe mountains on the horizon (sun/grid join) — baseline at sun-h */
   [data-era="neon"] .ew-hero__mountains {
     position: absolute;
     left: 50%;
-    top: calc(var(--ew-hero-sun-h) - 48px);
+    top: calc(var(--ew-hero-sun-h) - 80px);
     bottom: auto;
     width: min(1100px, 120%);
     height: 88px;
@@ -245,7 +251,7 @@ export function neonDecoratorCss() {
   }
   [data-era="neon"] .ew-hero > .ew-hero__mountains {
     top: auto;
-    bottom: calc(min(38vh, 360px) - 36px);
+    bottom: calc(min(38vh, 360px) - 8px);
   }
 
   /* Scanline overlay (hero) */

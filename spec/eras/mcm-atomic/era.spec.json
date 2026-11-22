@@ -8,7 +8,7 @@
     "mid-century"
   ],
   "identity": {
-    "oneLiner": "Mid-century atomic optimism: kidney shapes, starbursts, teal–coral–mustard.",
+    "oneLiner": "Mid-century atomic optimism: kidney shapes, starbursts, teal\u2013coral\u2013mustard.",
     "summary": "Atomic / MCM blends boomerang curves with compact geometric type. Warm wood-adjacent neutrals, saturated accent triads, and playful but sparse starburst ornaments. Dialect switches MCM softness vs sharper Atomic.",
     "bestFit": [
       "Consumer lifestyle",
@@ -25,7 +25,7 @@
     "elevation": "Soft lifted cards; occasional hard offset shadow (print-like)",
     "ornament": "Starburst / atom rings in ornament slots; sparse",
     "typeVoice": "Geometric sans; friendly titles; slightly wide tracking",
-    "motion": "Breezy ease; gentle float — never violent bounce",
+    "motion": "Breezy ease; gentle float \u2014 never violent bounce",
     "density": "Relaxed marketing density",
     "iconography": "Rounded geometric; period-simple"
   },
@@ -76,7 +76,7 @@
     {
       "id": "atomic",
       "label": "Atomic",
-      "description": "Sharper geometry, punchier teal–coral."
+      "description": "Sharper geometry, punchier teal\u2013coral."
     }
   ],
   "modes": [
@@ -137,7 +137,7 @@
       "padding": "24px",
       "headerRule": false,
       "titleTracking": "0.06em",
-      "ornament": "starburst"
+      "ornament": "none"
     },
     "field": {
       "borderWidth": "2px",

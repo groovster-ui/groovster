@@ -8,6 +8,13 @@
   src: url("../fonts/JosefinSans-Regular.woff2") format("woff2"), local("Josefin Sans");
 }
 @font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/JosefinSans-Bold.woff2") format("woff2"), local("Josefin Sans");
+}
+@font-face {
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 400;
@@ -15,11 +22,25 @@
   src: url("../fonts/NunitoSans-Regular.woff2") format("woff2"), local("Nunito Sans");
 }
 @font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/NunitoSans-Bold.woff2") format("woff2"), local("Nunito Sans");
+}
+@font-face {
   font-family: "Space Mono";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url("../fonts/SpaceMono-Regular.woff2") format("woff2"), local("Space Mono");
+}
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/SpaceMono-Bold.woff2") format("woff2"), local("Space Mono");
 }
 @layer tokens {
   [data-era="mcm-atomic"], [data-era="mcm-atomic"][data-mode="light"] {
@@ -161,11 +182,11 @@
     --ew-structure-card-title-tracking: 0.06em;
     --ew-structure-card-header-rule-display: none;
     --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
-    --ew-structure-card-ornament-content: "";
-    --ew-structure-card-ornament-opacity: 0.22;
-    --ew-structure-card-ornament-bg: conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat;
-    --ew-structure-card-ornament-size: 120px 120px;
-    --ew-structure-card-ornament-blend: multiply;
+    --ew-structure-card-ornament-content: none;
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-card-ornament-bg: none;
+    --ew-structure-card-ornament-size: auto;
+    --ew-structure-card-ornament-blend: normal;
     --ew-structure-field-border-width: 2px;
     --ew-structure-field-border-style: solid;
     --ew-structure-field-radius: 16px;

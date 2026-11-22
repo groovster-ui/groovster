@@ -20,7 +20,7 @@ Load ONLY the sections you need — do not ingest the whole library.
 
 ## Fidelity & ornament
 - Bands: `whisper|standard|costume` (costume default; `default`/`signature` → standard).
-- Neon: `.ew-hero*` grid/sun/mountains, `.ew-chrome`, `.ew-script`, `.ew-sun-mark`.
+- Neon costume heroes **require** `.ew-hero__stage` wrapping `.ew-hero__sun` / `__mountains` / `__grid` (also `.ew-chrome`, `.ew-script`, `.ew-sun-mark`).
 - Deco: `.ew-hero__panel` / backdrop / rays / fan; stepped frames; `.ew-ornament-divider`.
 - Docs: `demos/showcase/NEON.md`, `FIDELITY.md`. Fonts: OFL WOFF2 in `packages/css/fonts`.
 
