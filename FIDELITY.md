@@ -7,10 +7,10 @@ Groovster uses `data-fidelity-band` as the **only** supported fidelity API.
 ### Valid Values
 
 - `costume` — Full structural ornament. **This is the default** when `data-fidelity-band` is absent.
-- `default` — Clear era geometry with quieter ornament (alias: `signature`).
+- `standard` — Clear era geometry with quieter ornament (deprecated aliases: `default`, `signature`).
 - `whisper` — Minimal ornament, muted shadows, reduced drama.
 
-The band may be set on the era element **or any ancestor** (e.g. `html` / `body` / `.ew-root`). Costume ornament applies unless a mute band (`whisper` | `default` | `signature`) is present on self or an ancestor.
+The band may be set on the era element **or any ancestor** (e.g. `html` / `body` / `.ew-root`). Costume ornament applies unless a mute band (`whisper` | `standard` | `default` | `signature`) is present on self or an ancestor.
 
 ### Usage
 
@@ -22,6 +22,9 @@ The band may be set on the era element **or any ancestor** (e.g. `html` / `body`
 <div data-era="deco" data-fidelity-band="costume">...</div>
 
 <!-- Quieter geometry -->
+<div data-era="deco" data-fidelity-band="standard">...</div>
+
+<!-- Deprecated alias of standard (still works) -->
 <div data-era="deco" data-fidelity-band="default">...</div>
 
 <!-- Muted, minimal ornament -->

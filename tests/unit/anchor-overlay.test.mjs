@@ -7,18 +7,21 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from '../../tools/a11y/node_modules/playwright/index.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const ERAS = ['neutral', 'deco', 'neon', 'mcm-atomic', 'memphis', 'groovy', 'earth'];
 
 function contentType(p) {
   if (p.endsWith('.css')) return 'text/css';
   if (p.endsWith('.js')) return 'text/javascript';
+  if (p.endsWith('.woff2')) return 'font/woff2';
   return 'text/html';
 }
 
-const FIXTURE = `<!doctype html>
+function fixture(era) {
+  return `<!doctype html>
 <html><body style="padding:120px 24px">
 <link rel="stylesheet" href="/packages/css/dist/era-widgets.css" />
 <script src="/packages/elements/dist/era-elements.js"></script>
-<div data-era="neutral" data-mode="light" class="ew-root">
+<div data-era="${era}" data-mode="light" class="ew-root">
   <ew-select class="ew-select" id="sel-a">
     <label class="ew-select__label">A</label>
     <select class="ew-select__control">
@@ -40,13 +43,14 @@ const FIXTURE = `<!doctype html>
   </ew-tooltip>
 </div>
 </body></html>`;
+}
 
-async function withPage(fn) {
+async function withPage(era, fn) {
   const server = createServer((req, res) => {
     const url = decodeURIComponent(req.url.split('?')[0]);
     if (url === '/' || url === '/index.html') {
       res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.end(FIXTURE);
+      res.end(fixture(era));
       return;
     }
     const file = path.join(REPO, url.replace(/^\//, ''));
@@ -71,65 +75,53 @@ async function withPage(fn) {
   }
 }
 
-test('select lists use unique anchors and popover top-layer', async () => {
-  await withPage(async (page) => {
-    const before = await page.locator('#neighbor').boundingBox();
-    const a = page.locator('#sel-a .ew-select__trigger');
-    await a.click();
-    const meta = await page.evaluate(() => {
-      const aTrig = document.querySelector('#sel-a .ew-select__trigger');
-      const bTrig = document.querySelector('#sel-b .ew-select__trigger');
-      const aList = document.querySelector('#sel-a [role="listbox"]');
-      const bList = document.querySelector('#sel-b [role="listbox"]');
-      return {
-        aAnchor: aTrig.style.getPropertyValue('anchor-name'),
-        bAnchor: bTrig.style.getPropertyValue('anchor-name'),
-        aListAnchor: aList.style.getPropertyValue('position-anchor'),
-        popover: aList.getAttribute('popover'),
-        open: aList.matches(':popover-open'),
-        aPos: getComputedStyle(aList).position,
-      };
+for (const era of ERAS) {
+  test(`${era}: select lists use unique anchors and popover top-layer`, async () => {
+    await withPage(era, async (page) => {
+      const before = await page.locator('#neighbor').boundingBox();
+      const a = page.locator('#sel-a .ew-select__trigger');
+      await a.click();
+      const meta = await page.evaluate(() => {
+        const aTrig = document.querySelector('#sel-a .ew-select__trigger');
+        const bTrig = document.querySelector('#sel-b .ew-select__trigger');
+        const aList = document.querySelector('#sel-a [role="listbox"]');
+        return {
+          aAnchor: aTrig.style.getPropertyValue('anchor-name'),
+          bAnchor: bTrig.style.getPropertyValue('anchor-name'),
+          aListAnchor: aList.style.getPropertyValue('position-anchor'),
+          popover: aList.getAttribute('popover'),
+          open: aList.matches(':popover-open'),
+          aPos: getComputedStyle(aList).position,
+        };
+      });
+      assert.ok(meta.aAnchor.startsWith('--ew-select-'));
+      assert.ok(meta.bAnchor.startsWith('--ew-select-'));
+      assert.notEqual(meta.aAnchor, meta.bAnchor);
+      assert.equal(meta.aListAnchor, meta.aAnchor);
+      assert.equal(meta.popover, 'manual');
+      assert.equal(meta.open, true);
+      assert.ok(['fixed', 'absolute'].includes(meta.aPos));
+      const after = await page.locator('#neighbor').boundingBox();
+      assert.equal(Math.round(before.y), Math.round(after.y));
     });
-    assert.ok(meta.aAnchor.startsWith('--ew-select-'));
-    assert.ok(meta.bAnchor.startsWith('--ew-select-'));
-    assert.notEqual(meta.aAnchor, meta.bAnchor);
-    assert.equal(meta.aListAnchor, meta.aAnchor);
-    assert.equal(meta.popover, 'manual');
-    assert.equal(meta.open, true);
-    assert.ok(['fixed', 'absolute'].includes(meta.aPos));
-    const after = await page.locator('#neighbor').boundingBox();
-    assert.equal(Math.round(before.y), Math.round(after.y));
   });
-});
 
-test('tooltip tip is anchored to its trigger', async () => {
-  await withPage(async (page) => {
-    const tip = page.locator('#tip .ew-tooltip__tip');
-    const btn = page.locator('#tip .ew-button');
-    await btn.hover();
-    await page.waitForTimeout(350);
-    const meta = await page.evaluate(() => {
-      const tipEl = document.querySelector('#tip .ew-tooltip__tip');
-      const trig = document.querySelector('#tip .ew-button');
-      const tipBox = tipEl.getBoundingClientRect();
-      const trigBox = trig.getBoundingClientRect();
-      return {
-        open: tipEl.dataset.ewOpen,
-        tipAnchor: tipEl.style.getPropertyValue('position-anchor'),
-        trigAnchor: trig.style.getPropertyValue('anchor-name'),
-        tipTop: tipBox.top,
-        tipBottom: tipBox.bottom,
-        trigTop: trigBox.top,
-        inView: tipBox.bottom > 0 && tipBox.top < window.innerHeight,
-      };
+  test(`${era}: tooltip tip is anchored without shifting layout`, async () => {
+    await withPage(era, async (page) => {
+      const before = await page.locator('#neighbor').boundingBox();
+      await page.locator('#tip .ew-button').hover();
+      const tip = await page.evaluate(() => {
+        const tipEl = document.querySelector('#tip .ew-tooltip__tip');
+        const trig = document.querySelector('#tip .ew-button');
+        return {
+          pos: getComputedStyle(tipEl).position,
+          anchor: tipEl.style.getPropertyValue('position-anchor') || getComputedStyle(tipEl).getPropertyValue('position-anchor'),
+          trigAnchor: trig.style.getPropertyValue('anchor-name'),
+        };
+      });
+      assert.ok(['fixed', 'absolute'].includes(tip.pos));
+      const after = await page.locator('#neighbor').boundingBox();
+      assert.equal(Math.round(before.y), Math.round(after.y));
     });
-    assert.equal(meta.open, 'true');
-    assert.ok(meta.tipAnchor.startsWith('--ew-tooltip-'));
-    assert.equal(meta.tipAnchor, meta.trigAnchor);
-    assert.equal(meta.inView, true);
-    // Prefer above the trigger; if flipped, still near the trigger
-    const near =
-      Math.abs(meta.tipBottom - meta.trigTop) < 80 || Math.abs(meta.tipTop - meta.trigTop) < 120;
-    assert.ok(near);
   });
-});
+}

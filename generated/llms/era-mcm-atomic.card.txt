@@ -6,7 +6,7 @@ surface: warm matte pigments
 elevation: soft lift + print offset
 ornament: sparse starburst / atom
 type: Josefin Sans + Nunito Sans
-fidelity: default 40 (25–60)
+fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)
 modes: light, dark
 dialects: mcm | atomic
 use: lifestyle, playful marketing

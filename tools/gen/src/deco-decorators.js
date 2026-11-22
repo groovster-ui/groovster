@@ -1,14 +1,39 @@
 import { muteBandSel } from './band.js';
 
-/** Stepped-frame SVG (stroke follows ziggurat outline — not clip-path). */
-const STEP_FRAME_SVG = encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none" preserveAspectRatio="none">
-    <path d="M8 28 H16 V16 H28 V8 H172 V16 H184 V28 H192 V92 H184 V104 H172 V112 H28 V104 H16 V92 H8 Z"
-      stroke="black" stroke-width="3" stroke-linejoin="miter"/>
-    <path d="M14 34 H22 V22 H34 V14 H166 V22 H178 V34 H186 V86 H178 V98 H166 V106 H34 V98 H22 V86 H14 Z"
-      stroke="black" stroke-width="1.5" stroke-linejoin="miter"/>
-  </svg>`
-);
+/**
+ * Stepped-frame SVG for border-image (100×100, 28px corners).
+ * Gold is baked into the SVG (border-image cannot use CSS color); light/dark variants.
+ * Corners stay fixed size; mid edges stretch as straight rules — content stays in padding box.
+ */
+/** Stepped corner tiles (28×28) — TL/TR/BL/BR; edges use solid double border. */
+function stepCornerSvg(stroke, corner = 'tl') {
+  const transforms = {
+    tl: '',
+    tr: 'transform="translate(28 0) scale(-1 1)"',
+    bl: 'transform="translate(0 28) scale(1 -1)"',
+    br: 'transform="translate(28 28) scale(-1 -1)"',
+  };
+  return encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+      <g ${transforms[corner]}>
+        <path fill="none" stroke="${stroke}" stroke-width="2.5" stroke-linejoin="miter"
+          d="M2 28 V16 H8 V8 H16 V2 H28"/>
+        <path fill="none" stroke="${stroke}" stroke-width="1.25" stroke-linejoin="miter" opacity="0.85"
+          d="M6 28 V18 H12 V12 H18 V6 H28"/>
+      </g>
+    </svg>`
+  );
+}
+function stepCorners(stroke) {
+  return {
+    tl: `url("data:image/svg+xml,${stepCornerSvg(stroke, 'tl')}")`,
+    tr: `url("data:image/svg+xml,${stepCornerSvg(stroke, 'tr')}")`,
+    bl: `url("data:image/svg+xml,${stepCornerSvg(stroke, 'bl')}")`,
+    br: `url("data:image/svg+xml,${stepCornerSvg(stroke, 'br')}")`,
+  };
+}
+const STEP_LIGHT = stepCorners('%23B08D2C');
+const STEP_DARK = stepCorners('%23D4AF37');
 
 /**
  * Full Deco decorator layer CSS.
@@ -27,12 +52,20 @@ export function decoDecoratorCss() {
     --ew-gradient-metal-dark: linear-gradient(180deg, #F6E27A 0%, #D4AF37 38%, #9C7A22 62%, #E9CD6B 100%);
     --ew-gradient-metal: var(--ew-gradient-metal-light);
     --ew-ornament-fan: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 56'%3E%3Cpath d='M8 52 L60 4 L112 52 M18 52 L60 14 L102 52 M28 52 L60 22 L92 52 M38 52 L60 30 L82 52 M48 52 L60 38 L72 52' stroke='%23000' stroke-width='2.4' fill='none'/%3E%3Ccircle cx='60' cy='52' r='4' fill='%23000'/%3E%3C/svg%3E");
-    --ew-deco-step-frame: url("data:image/svg+xml,${STEP_FRAME_SVG}");
+    --ew-deco-step-tl: ${STEP_LIGHT.tl};
+    --ew-deco-step-tr: ${STEP_LIGHT.tr};
+    --ew-deco-step-bl: ${STEP_LIGHT.bl};
+    --ew-deco-step-br: ${STEP_LIGHT.br};
+    --ew-deco-step-width: 3px;
     --ew-deco-step-clip: none;
     --ew-deco-step-clip-sm: none;
   }
   [data-era="deco"][data-mode="dark"] {
     --ew-gradient-metal: var(--ew-gradient-metal-dark);
+    --ew-deco-step-tl: ${STEP_DARK.tl};
+    --ew-deco-step-tr: ${STEP_DARK.tr};
+    --ew-deco-step-bl: ${STEP_DARK.bl};
+    --ew-deco-step-br: ${STEP_DARK.br};
   }
 
   /* --- Library: hero panel (sunburst is hero-only, not fixed page layer) --- */
@@ -68,30 +101,31 @@ export function decoDecoratorCss() {
     position: relative;
     z-index: 2;
     width: min(920px, 100%);
-    padding: 64px 48px 56px;
+    padding: 56px 48px 48px;
     text-align: center;
     border: 4px double var(--ew-color-gold);
-    background: color-mix(in oklch, var(--ew-color-panel) 92%, transparent);
+    /* Fixed-size stepped corners + straight gold edges (constant line width) */
+    background-color: color-mix(in srgb, var(--ew-color-panel) 92%, transparent);
+    background-image:
+      var(--ew-deco-step-tl),
+      var(--ew-deco-step-tr),
+      var(--ew-deco-step-bl),
+      var(--ew-deco-step-br);
+    background-size: 28px 28px;
+    background-position: left 6px top 6px, right 6px top 6px, left 6px bottom 6px, right 6px bottom 6px;
+    background-repeat: no-repeat;
     box-shadow:
-      0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 65%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--ew-color-gold) 65%, transparent),
       0 10px 0 0 var(--ew-color-gold);
   }
   [data-era="deco"] .ew-hero__panel::before {
-    content: "" / "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    opacity: 0.95;
+    content: none;
   }
   [data-era="deco"] .ew-hero__panel::after {
     content: "" / "";
     position: absolute;
     inset: 14px;
-    border: 2px double color-mix(in oklch, var(--ew-color-gold) 75%, transparent);
+    border: 2px double color-mix(in srgb, var(--ew-color-gold) 75%, transparent);
     pointer-events: none;
     z-index: 1;
   }
@@ -199,19 +233,20 @@ export function decoDecoratorCss() {
   [data-era="deco"] .ew-tier-card {
     position: relative;
     text-align: center;
-    padding: 40px 24px 28px;
+    padding: 36px 24px 28px;
     border: 3px double var(--ew-color-gold);
-    background: var(--ew-color-bg-surface);
+    background-color: var(--ew-color-bg-surface);
+    background-image:
+      var(--ew-deco-step-tl),
+      var(--ew-deco-step-tr),
+      var(--ew-deco-step-bl),
+      var(--ew-deco-step-br);
+    background-size: 24px 24px;
+    background-position: left 4px top 4px, right 4px top 4px, left 4px bottom 4px, right 4px bottom 4px;
+    background-repeat: no-repeat;
   }
   [data-era="deco"] .ew-tier-card::after {
-    content: "" / "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    opacity: 0.9;
+    content: none;
   }
   [data-era="deco"] .ew-tier-card::before {
     content: "" / "";
@@ -239,28 +274,34 @@ export function decoDecoratorCss() {
     color: var(--ew-color-gold);
   }
 
-  /* --- Cards: gold stepped frame via SVG mask (no clip-path border cutting) --- */
+  /* --- Cards: straight gold edges + fixed-size stepped corner tiles --- */
   [data-era="deco"] .ew-card {
     position: relative;
-    border-style: double;
-    border-width: 4px;
-    border-color: var(--ew-color-gold);
     clip-path: none;
-    background: var(--ew-color-bg-surface);
+    background-color: var(--ew-color-bg-surface);
+    border: 4px double var(--ew-color-gold);
+    background-image:
+      var(--ew-deco-step-tl),
+      var(--ew-deco-step-tr),
+      var(--ew-deco-step-bl),
+      var(--ew-deco-step-br);
+    background-size: 28px 28px;
+    background-position: left 6px top 6px, right 6px top 6px, left 6px bottom 6px, right 6px bottom 6px;
+    background-repeat: no-repeat;
     box-shadow:
-      0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 70%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--ew-color-gold) 70%, transparent),
       0 6px 0 0 var(--ew-color-border-strong),
-      0 12px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 22%, transparent);
+      0 12px 0 0 color-mix(in srgb, var(--ew-color-fg-default) 22%, transparent);
     overflow: visible;
-    padding-top: 8px;
+    padding: 16px 20px 20px;
   }
   [data-era="deco"] .ew-card[data-variant="raised"] {
-    background: var(--ew-color-bg-elevated);
+    background-color: var(--ew-color-bg-elevated);
   }
   [data-era="deco"] .ew-card::before {
     content: "" / "";
     position: absolute;
-    top: 18px;
+    top: 14px;
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
@@ -272,20 +313,17 @@ export function decoDecoratorCss() {
     z-index: 2;
     pointer-events: none;
   }
-  /* Stepped gold stroke follows ziggurat path (mask), plus inner double rule */
   [data-era="deco"] .ew-card::after {
-    content: "" / "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    opacity: 0.95;
+    content: none;
   }
   [data-era="deco"] .ew-card__header {
-    padding-top: 64px;
+    padding-top: 56px;
+  }
+  [data-era="deco"] .ew-card__header,
+  [data-era="deco"] .ew-card__body,
+  [data-era="deco"] .ew-card__footer {
+    position: relative;
+    z-index: 2;
   }
   [data-era="deco"] .ew-card__header h2,
   [data-era="deco"] .ew-card__header h3 {
@@ -424,23 +462,40 @@ export function decoDecoratorCss() {
   [data-era="deco"] .ew-switch__track,
   [data-era="deco"] .ew-switch__thumb { border-radius: 0; }
   [data-era="deco"] .ew-switch__track { border: 2px solid var(--ew-color-gold); }
-  [data-era="deco"] .ew-switch__thumb { background: var(--ew-color-gold); }
-
-  /* Dialog — crest reserved space */
-  [data-era="deco"] .ew-dialog {
-    border-style: double;
-    border-width: 4px;
+  [data-era="deco"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
+    background: var(--ew-color-gold);
+  }
+  [data-era="deco"] .ew-switch__control:checked + .ew-switch__track {
+    background: var(--ew-color-track-on, var(--ew-color-action-bg));
     border-color: var(--ew-color-gold);
+  }
+  [data-era="deco"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
+    /* Dark lacquer knob on gold track (≥3:1; white fails on #D4AF37) */
+    background: var(--ew-color-action-fg, #0b0b0c);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--ew-color-fg-default) 25%, transparent);
+  }
+
+  /* Dialog — crest reserved space + stepped corner tiles */
+  [data-era="deco"] .ew-dialog {
     clip-path: none;
-    background: var(--ew-color-bg-elevated);
+    background-color: var(--ew-color-bg-elevated);
+    background-image:
+      var(--ew-deco-step-tl),
+      var(--ew-deco-step-tr),
+      var(--ew-deco-step-bl),
+      var(--ew-deco-step-br);
+    background-size: 28px 28px;
+    background-position: left 6px top 6px, right 6px top 6px, left 6px bottom 6px, right 6px bottom 6px;
+    background-repeat: no-repeat;
     box-shadow: 0 10px 0 0 var(--ew-color-border-strong);
     position: relative;
-    padding-top: 56px;
+    border: 4px double var(--ew-color-gold);
+    padding: 56px 24px 24px;
   }
   [data-era="deco"] .ew-dialog::before {
     content: "" / "";
     position: absolute;
-    top: 12px;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -452,20 +507,18 @@ export function decoDecoratorCss() {
     z-index: 2;
   }
   [data-era="deco"] .ew-dialog::after {
-    content: "" / "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    opacity: 0.9;
+    content: none;
   }
   [data-era="deco"] .ew-dialog h2 {
     text-transform: uppercase;
     letter-spacing: 0.16em;
     margin-top: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  [data-era="deco"] .ew-dialog__footer {
+    position: relative;
+    z-index: 2;
   }
 
   /* Tabs */

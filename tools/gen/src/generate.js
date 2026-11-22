@@ -39,24 +39,75 @@ ${decls}
   }`;
 }
 
-/** @font-face stubs so consumers get font-display: swap when faces resolve via local/host. */
-function fontFaceBlock(era) {
+/** Map CSS family name → packaged WOFF2 basename (latin 400, OFL). */
+const FONT_FILES = {
+  Limelight: 'Limelight-Regular.woff2',
+  Jost: 'Jost-Regular.woff2',
+  'IBM Plex Mono': 'IBMPlexMono-Regular.woff2',
+  Orbitron: 'Orbitron-Regular.woff2',
+  'Exo 2': 'Exo2-Regular.woff2',
+  'Share Tech Mono': 'ShareTechMono-Regular.woff2',
+  Monoton: 'Monoton-Regular.woff2',
+  'Mr Dafoe': 'MrDafoe-Regular.woff2',
+  'Josefin Sans': 'JosefinSans-Regular.woff2',
+  'Nunito Sans': 'NunitoSans-Regular.woff2',
+  'Space Mono': 'SpaceMono-Regular.woff2',
+  Comfortaa: 'Comfortaa-Regular.woff2',
+  Mulish: 'Mulish-Regular.woff2',
+  'Archivo Black': 'ArchivoBlack-Regular.woff2',
+  Nunito: 'Nunito-Regular.woff2',
+  Fraunces: 'Fraunces-Regular.woff2',
+  'Source Sans 3': 'SourceSans3-Regular.woff2',
+  'Source Code Pro': 'SourceCodePro-Regular.woff2',
+  'Source Serif 4': 'SourceSerif4-Regular.woff2',
+};
+
+/**
+ * @font-face with shipped WOFF2 (font-display: swap).
+ * Paths are relative to dist/eras/*.css; the era-widgets bundle rewrites them.
+ */
+function fontFaceBlock(era, { forBundle = false } = {}) {
   if (!era.fonts) return '';
   const families = [era.fonts.display, era.fonts.body, era.fonts.mono].filter(Boolean);
-  // Neon chrome + script faces (not on control labels).
   if (era.id === 'neon') families.push('Monoton', 'Mr Dafoe');
   const unique = [...new Set(families)];
+  const prefix = forBundle ? './fonts/' : '../fonts/';
   return unique
-    .map(
-      (family) => `@font-face {
+    .map((family) => {
+      const file = FONT_FILES[family];
+      if (!file) {
+        return `@font-face {
   font-family: "${family}";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: local("${family}");
-}`
-    )
+}`;
+      }
+      return `@font-face {
+  font-family: "${family}";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("${prefix}${file}") format("woff2"), local("${family}");
+}`;
+    })
     .join('\n');
+}
+
+function copyPackagedFonts(outputs) {
+  const srcDir = path.join(REPO_ROOT, 'packages/css/fonts');
+  const destDir = path.join(GEN_CSS, 'fonts');
+  fs.mkdirSync(destDir, { recursive: true });
+  if (!fs.existsSync(srcDir)) return;
+  for (const name of fs.readdirSync(srcDir)) {
+    const from = path.join(srcDir, name);
+    const to = path.join(destDir, name);
+    if (fs.statSync(from).isFile()) {
+      fs.copyFileSync(from, to);
+      outputs.push(rel(REPO_ROOT, to));
+    }
+  }
 }
 
 function genBaseCss() {
@@ -150,8 +201,8 @@ function ornamentVars(kind) {
       return {
         content: '""',
         opacity: '0.22',
-        bg: `radial-gradient(circle at 92% 12%, var(--ew-color-action-bg) 0 2px, transparent 3px) no-repeat,
-      conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat`,
+        // Conic rays only — no stray radial dot at 92%/12%.
+        bg: `conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat`,
         size: '120px 120px',
         blend: 'multiply',
       };
@@ -247,10 +298,12 @@ function genEraCss(era) {
     const t1 = readJson(tokenFileFor(era, 'tier1', mode));
     const t2 = readJson(tokenFileFor(era, 'tier2', mode));
     const vars = [...flattenTokens(t1), ...flattenTokens(t2)];
+    // Neon defaults to dark (synthwave night) when data-mode is absent; other eras default to light.
+    const defaultMode = era.id === 'neon' ? 'dark' : 'light';
     const selector =
-      mode === 'light'
-        ? `[data-era="${era.id}"], [data-era="${era.id}"][data-mode="light"]`
-        : `[data-era="${era.id}"][data-mode="dark"]`;
+      mode === defaultMode
+        ? `[data-era="${era.id}"], [data-era="${era.id}"][data-mode="${mode}"]`
+        : `[data-era="${era.id}"][data-mode="${mode}"]`;
     blocks.push(`  ${selector} {`);
     blocks.push(`    --ew-era: ${era.id};`);
     blocks.push(`    --ew-mode: ${mode};`);
@@ -325,19 +378,34 @@ function genEraCss(era) {
     background: var(--ew-color-field-bg);
     box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent);
   }
-  [data-era="mcm-atomic"] .ew-radio__disc,
-  [data-era="mcm-atomic"] .ew-checkbox__box {
+  [data-era="mcm-atomic"] .ew-radio__control:not(:checked) + .ew-radio__disc,
+  [data-era="mcm-atomic"] .ew-checkbox__control:not(:checked) + .ew-checkbox__box {
     border-width: 2px;
     border-style: solid;
     border-color: var(--ew-color-border-strong);
     background: var(--ew-color-field-bg);
   }
-  [data-era="mcm-atomic"] .ew-switch__thumb {
+  [data-era="mcm-atomic"] .ew-checkbox__control:checked + .ew-checkbox__box {
+    background: var(--ew-color-action-bg);
+    border-color: var(--ew-color-action-bg);
+  }
+  [data-era="mcm-atomic"] .ew-radio__control:checked + .ew-radio__disc {
+    background: var(--ew-color-field-bg);
+    border-color: var(--ew-color-border-strong);
+  }
+  [data-era="mcm-atomic"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
     background: var(--ew-color-fg-default);
   }
-  [data-era="mcm-atomic"] .ew-switch__track {
+  [data-era="mcm-atomic"] .ew-switch__control:not(:checked) + .ew-switch__track {
     border: 2px solid var(--ew-color-border-strong);
     background: var(--ew-color-field-bg);
+  }
+  [data-era="mcm-atomic"] .ew-switch__control:checked + .ew-switch__track {
+    background: var(--ew-color-track-on, var(--ew-color-action-bg));
+    border-color: var(--ew-color-border-strong);
+  }
+  [data-era="mcm-atomic"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
+    background: var(--ew-color-bg-elevated, #fff);
   }
   [data-era="mcm-atomic"] .ew-dialog {
     border-radius: var(--ew-structure-dialog-radius, 28px);
@@ -631,16 +699,19 @@ function genLlmsIndex(components, eras) {
     '- Rules: generated/rules/era-widgets.mdc',
     '',
     '## Eras (cards: generated/llms/era-<id>.card.txt)',
-    ...eras.map((e) => `- ${e.id}: ${e.identity.oneLiner} (fidelity ~${e.fidelity.recommended.default})`),
+    ...eras.map((e) => `- ${e.id}: ${e.identity.oneLiner}`),
+    '',
+    '## Fidelity & ornament',
+    '- Bands: `whisper|standard|costume` (costume default; `default`/`signature` → standard).',
+    '- Neon: `.ew-hero*` grid/sun/mountains, `.ew-chrome`, `.ew-script`, `.ew-sun-mark`.',
+    '- Deco: `.ew-hero__panel` / backdrop / rays / fan; stepped frames; `.ew-ornament-divider`.',
+    '- Docs: `demos/showcase/NEON.md`, `FIDELITY.md`. Fonts: OFL WOFF2 in `packages/css/fonts`.',
     '',
     '## Components (one file each)',
     ...components.map((c) => `- ${c.id}: generated/llms/${c.id}.md`),
     '',
     '## Rules',
-    '- Prefer native elements.',
-    '- Zero attrs = defaults.',
-    '- Glow never counts as contrast.',
-    '- Open-license fonts only in default packs.',
+    '- Prefer native elements. Zero attrs = defaults. Glow ≠ contrast.',
     '- Published CSS/JS must import nothing.',
     '',
   ];
@@ -669,6 +740,8 @@ export function generateAll() {
   const eras = loadEras();
   const budgets = readJson(BUDGETS_PATH);
   const outputs = [];
+
+  copyPackagedFonts(outputs);
 
   const base = path.join(GEN_CSS, 'base.css');
   writeText(base, genBaseCss());
@@ -724,7 +797,9 @@ export function generateAll() {
     bundleParts.push(fs.readFileSync(path.join(GEN_CSS, `${comp.id}.css`), 'utf8'));
   }
   const bundlePath = path.join(GEN_CSS, 'era-widgets.css');
-  writeText(bundlePath, bundleParts.join('\n'));
+  // Era CSS uses ../fonts/ (from dist/eras/); rewrite for dist/era-widgets.css.
+  const bundleCss = bundleParts.join('\n').replaceAll('url("../fonts/', 'url("./fonts/');
+  writeText(bundlePath, bundleCss);
   outputs.push(rel(REPO_ROOT, bundlePath));
 
   // Budget snapshots for CI

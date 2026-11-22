@@ -195,7 +195,8 @@ export function validateTool({ markup, era, detail } = {}) {
 export const TOOL_DEFS = [
   {
     name: 'list_eras',
-    description: 'List Groovster era packs with one-line identity and recommended fidelity.',
+    description:
+      'List Groovster era packs. Fidelity bands: whisper|standard|costume (costume default; default/signature deprecated aliases of standard). Neon/Deco expose .ew-hero*, .ew-chrome, .ew-script ornament classes.',
     inputSchema: {
       type: 'object',
       properties: {

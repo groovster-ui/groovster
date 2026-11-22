@@ -3,8 +3,8 @@
  * Band may be set on the era element or any ancestor (html/body/.ew-root).
  */
 
-/** Opt-out bands that mute costume ornament (default = former signature). */
-export const MUTE_BANDS = ['whisper', 'default', 'signature'];
+/** Opt-out bands that mute costume ornament. `default`/`signature` are deprecated aliases of `standard`. */
+export const MUTE_BANDS = ['whisper', 'standard', 'default', 'signature'];
 
 /**
  * Selectors matching an era when a mute band is active on self or an ancestor.
@@ -37,13 +37,15 @@ export function costumeSel(era, rest = '') {
 
 /** CSS that resolves --ew-band from data-fidelity-band (inherits from ancestors). */
 export function bandTokenCss() {
-  return `  /* Bands only: whisper | default | costume (signature aliases default). Costume is the default. */
-  :root, .ew-root, [data-era] {
+  return `  /* Bands: whisper | standard | costume. default/signature alias standard. Costume when absent.
+     Do not set --ew-band on bare [data-era] — that would block ancestor-band inheritance. */
+  :root {
     --ew-band: costume;
   }
   [data-fidelity-band="whisper"] { --ew-band: whisper; }
+  [data-fidelity-band="standard"],
   [data-fidelity-band="default"],
-  [data-fidelity-band="signature"] { --ew-band: default; }
+  [data-fidelity-band="signature"] { --ew-band: standard; }
   [data-fidelity-band="costume"] { --ew-band: costume; }
 `;
 }

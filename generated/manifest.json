@@ -125,6 +125,27 @@
     "packages/css/dist/eras/memphis.css",
     "packages/css/dist/eras/neon.css",
     "packages/css/dist/eras/neutral.css",
+    "packages/css/dist/fonts/ArchivoBlack-Regular.woff2",
+    "packages/css/dist/fonts/Comfortaa-Regular.woff2",
+    "packages/css/dist/fonts/Exo2-Regular.woff2",
+    "packages/css/dist/fonts/Fraunces-Regular.woff2",
+    "packages/css/dist/fonts/IBMPlexMono-Regular.woff2",
+    "packages/css/dist/fonts/JosefinSans-Regular.woff2",
+    "packages/css/dist/fonts/Jost-Regular.woff2",
+    "packages/css/dist/fonts/Limelight-Regular.woff2",
+    "packages/css/dist/fonts/Monoton-Regular.woff2",
+    "packages/css/dist/fonts/MrDafoe-Regular.woff2",
+    "packages/css/dist/fonts/Mulish-Regular.woff2",
+    "packages/css/dist/fonts/NOTICE.md",
+    "packages/css/dist/fonts/Nunito-Regular.woff2",
+    "packages/css/dist/fonts/NunitoSans-Regular.woff2",
+    "packages/css/dist/fonts/OFL.txt",
+    "packages/css/dist/fonts/Orbitron-Regular.woff2",
+    "packages/css/dist/fonts/ShareTechMono-Regular.woff2",
+    "packages/css/dist/fonts/SourceCodePro-Regular.woff2",
+    "packages/css/dist/fonts/SourceSans3-Regular.woff2",
+    "packages/css/dist/fonts/SourceSerif4-Regular.woff2",
+    "packages/css/dist/fonts/SpaceMono-Regular.woff2",
     "packages/css/dist/icon-button.css",
     "packages/css/dist/link.css",
     "packages/css/dist/menu.css",
@@ -412,35 +433,35 @@
         "budget": "mcp.defaultReply"
       },
       "mcp.eraCard:deco": {
-        "chars": 398,
+        "chars": 438,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:earth": {
-        "chars": 309,
+        "chars": 348,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:groovy": {
-        "chars": 282,
+        "chars": 350,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:mcm-atomic": {
-        "chars": 409,
+        "chars": 477,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:memphis": {
-        "chars": 308,
+        "chars": 347,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:neon": {
-        "chars": 469,
+        "chars": 509,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:neutral": {
-        "chars": 292,
+        "chars": 331,
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 2083,
+        "chars": 2296,
         "budget": "llms.index"
       }
     }

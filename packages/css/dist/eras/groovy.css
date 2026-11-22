@@ -5,21 +5,21 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Comfortaa");
+  src: url("../fonts/Comfortaa-Regular.woff2") format("woff2"), local("Comfortaa");
 }
 @font-face {
   font-family: "Mulish";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Mulish");
+  src: url("../fonts/Mulish-Regular.woff2") format("woff2"), local("Mulish");
 }
 @font-face {
   font-family: "IBM Plex Mono";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("IBM Plex Mono");
+  src: url("../fonts/IBMPlexMono-Regular.woff2") format("woff2"), local("IBM Plex Mono");
 }
 @layer tokens {
   [data-era="groovy"], [data-era="groovy"][data-mode="light"] {
@@ -159,8 +159,7 @@
     --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
     --ew-structure-card-ornament-content: "";
     --ew-structure-card-ornament-opacity: 0.22;
-    --ew-structure-card-ornament-bg: radial-gradient(circle at 92% 12%, var(--ew-color-action-bg) 0 2px, transparent 3px) no-repeat,
-      conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat;
+    --ew-structure-card-ornament-bg: conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat;
     --ew-structure-card-ornament-size: 120px 120px;
     --ew-structure-card-ornament-blend: multiply;
     --ew-structure-field-border-width: 1px;
@@ -186,6 +185,8 @@
   }
   [data-era="groovy"][data-fidelity-band="whisper"],
   [data-fidelity-band="whisper"] [data-era="groovy"],
+  [data-era="groovy"][data-fidelity-band="standard"],
+  [data-fidelity-band="standard"] [data-era="groovy"],
   [data-era="groovy"][data-fidelity-band="default"],
   [data-fidelity-band="default"] [data-era="groovy"],
   [data-era="groovy"][data-fidelity-band="signature"],
@@ -222,6 +223,8 @@
   }
   [data-era="groovy"][data-fidelity-band="whisper"] .ew-card__header::after,
   [data-fidelity-band="whisper"] [data-era="groovy"] .ew-card__header::after,
+  [data-era="groovy"][data-fidelity-band="standard"] .ew-card__header::after,
+  [data-fidelity-band="standard"] [data-era="groovy"] .ew-card__header::after,
   [data-era="groovy"][data-fidelity-band="default"] .ew-card__header::after,
   [data-fidelity-band="default"] [data-era="groovy"] .ew-card__header::after,
   [data-era="groovy"][data-fidelity-band="signature"] .ew-card__header::after,
