@@ -10,7 +10,7 @@ Hero mode is **light** (Formica day, cream `#F3E9D2`). Dark is **Googie night** 
 | --- | --- |
 | `.ew-hero` | Hero shell |
 | `.ew-hero__stage` | **Required** costume backdrop host |
-| `.ew-hero__twotone` | Diagonal two-tone split ('57 Chevy) |
+| `.ew-hero__twotone` | Two-tone split on the object side only; text stays on the cream side (stacks under 880px) |
 | `.ew-hero__starbursts` | 5–9 varied 8-point starbursts |
 | `.ew-hero__arch` | Parabolic LAX Theme Building arch |
 | `.ew-orbit` | Atom orbit centerpiece (3 ellipses + nucleus) |
@@ -26,11 +26,11 @@ Hero mode is **light** (Formica day, cream `#F3E9D2`). Dark is **Googie night** 
 | --- | --- |
 | `.ew-orbit--logo` | Compact atom for logo slots |
 | `.ew-orbit--empty` | Empty-state atom |
-| `.ew-orbit--spin` | Spinner (off under `prefers-reduced-motion`) |
+| `.ew-orbit--spin` | Spinner (gentle opacity pulse under `prefers-reduced-motion`) |
 | `.ew-hairpin` | ●────● divider |
 | `.ew-dots` | Graduated 3-dot row |
 | `.ew-section--roofline` | Canted motel-roofline section top |
-| `.ew-backdrop` | Faint boomerang Formica page scatter (~8%) |
+| `.ew-backdrop` | Optional hook. The boomerang scatter is a repeating background on `[data-era="mcm-atomic"]` so it covers the page without `body { position: relative }` |
 | `.ew-cutout` | Optional Saul Bass cut-paper shape |
 | `.ew-wordmark` | Optional Blue Note oversized cropped word (Oswald) |
 | `.ew-section-heading` | Section title with leading starburst |

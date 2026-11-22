@@ -5,7 +5,7 @@ import { muteBandSel } from './band.js';
  * @param {string} fill
  * @param {number} [scale] pointy-ness tweak via viewBox inset
  */
-function starburstSvg(fill, scale = 1) {
+function starburstSvg(fill, scale = 1, stroke = '') {
   const s = 32;
   // Classic 8-point burst: long / short alternating rays
   const pts = [];
@@ -14,9 +14,12 @@ function starburstSvg(fill, scale = 1) {
     const r = (i % 2 === 0 ? 30 : 12 * scale) * scale;
     pts.push(`${(s + Math.cos(a) * r).toFixed(2)},${(s + Math.sin(a) * r).toFixed(2)}`);
   }
+  const strokeAttr = stroke
+    ? ` stroke="${stroke}" stroke-width="5" stroke-linejoin="round" paint-order="stroke fill"`
+    : '';
   return encodeURIComponent(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="${fill}">
-      <polygon points="${pts.join(' ')}"/>
+      <polygon points="${pts.join(' ')}"${strokeAttr}/>
     </svg>`
   );
 }
@@ -54,12 +57,14 @@ function kidneySvg(fill) {
   );
 }
 
-/** Boomerang / Formica scatter tile. */
-function boomerangSvg(stroke) {
+/** Boomerang / Formica scatter tile. Opacity is baked in so it can tile the root background. */
+function boomerangSvg(stroke, opacity = 0.08) {
   return encodeURIComponent(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-      <path d="M8 40 C18 18 34 10 52 12 C40 22 34 34 36 52 C28 42 18 40 8 40 Z" stroke="${stroke}" stroke-width="2.4" fill="none"/>
-      <path d="M44 8 C52 22 54 36 48 52 C46 40 40 32 28 28 C36 20 42 12 44 8 Z" stroke="${stroke}" stroke-width="1.6" opacity="0.7" fill="none"/>
+      <g opacity="${opacity}">
+        <path d="M8 40 C18 18 34 10 52 12 C40 22 34 34 36 52 C28 42 18 40 8 40 Z" stroke="${stroke}" stroke-width="2.4" fill="none"/>
+        <path d="M44 8 C52 22 54 36 48 52 C46 40 40 32 28 28 C36 20 42 12 44 8 Z" stroke="${stroke}" stroke-width="1.6" opacity="0.7" fill="none"/>
+      </g>
     </svg>`
   );
 }
@@ -115,13 +120,22 @@ const STAR_CORAL_SM = starburstSvg('#B23A2A', 0.78);
 const STAR_TEAL_LG = starburstSvg('#0F6E6B', 1.12);
 const STAR_MUSTARD_SM = starburstSvg('#C4922A', 0.7);
 const STAR_CORAL_LG = starburstSvg('#B23A2A', 1.18);
+const STAR_CORAL_RING = starburstSvg('#B23A2A', 1.05, '#F3E9D2');
+const STAR_CREAM = starburstSvg('#F3E9D2', 1);
+const STAR_CREAM_SM = starburstSvg('#FFFBF3', 0.82);
+const STAR_GOLD = starburstSvg('#E0B84A', 0.92);
 const STAR_BADGE = starburstBadgeSvg('#B23A2A', '#FFFBF3');
 const ATOM_TEAL = atomOrbitSvg('#0F6E6B', '#B23A2A');
 const ATOM_INK = atomOrbitSvg('#2A2522', '#C4922A');
+/* Cream orbits stay ≥3:1 on the teal object panel and on Googie night. */
+const ATOM_PANEL = atomOrbitSvg('#F3E9D2', '#E0B84A');
+const ATOM_ON_DARK = atomOrbitSvg('#F3E9D2', '#E0B84A');
 const KIDNEY_TEAL = kidneySvg('#0F6E6B');
 const KIDNEY_CORAL = kidneySvg('#B23A2A');
-const BOOMERANG = boomerangSvg('#2A2522');
+const BOOMERANG = boomerangSvg('#2A2522', 0.08);
+const BOOMERANG_NIGHT = boomerangSvg('#F3E9D2', 0.16);
 const HAIRPIN = hairpinSvg('#2A2522');
+const HAIRPIN_LIGHT = hairpinSvg('#F3E9D2');
 const DOTS = dotsSvg('#0F6E6B');
 const CUTOUT = cutoutSvg('#2A2522');
 const ARCH = archSvg('#2A2522');
@@ -140,7 +154,7 @@ export function atomicDecoratorCss() {
     --ew-font-body: "Work Sans", system-ui, sans-serif;
     --ew-font-script: "Yellowtail", cursive;
     --ew-font-display-alt: "Oswald", "League Spartan", sans-serif;
-    --ew-font-mono: "Space Mono", ui-monospace, monospace;
+    --ew-font-mono: "Courier Prime", ui-monospace, monospace;
     --ew-ornament-star-1: url("data:image/svg+xml,${STAR_CORAL}");
     --ew-ornament-star-2: url("data:image/svg+xml,${STAR_TEAL}");
     --ew-ornament-star-3: url("data:image/svg+xml,${STAR_MUSTARD}");
@@ -149,13 +163,21 @@ export function atomicDecoratorCss() {
     --ew-ornament-star-6: url("data:image/svg+xml,${STAR_TEAL_LG}");
     --ew-ornament-star-7: url("data:image/svg+xml,${STAR_MUSTARD_SM}");
     --ew-ornament-star-8: url("data:image/svg+xml,${STAR_CORAL_LG}");
+    --ew-ornament-star-coral-ring: url("data:image/svg+xml,${STAR_CORAL_RING}");
+    --ew-ornament-star-cream: url("data:image/svg+xml,${STAR_CREAM}");
+    --ew-ornament-star-cream-sm: url("data:image/svg+xml,${STAR_CREAM_SM}");
+    --ew-ornament-star-gold: url("data:image/svg+xml,${STAR_GOLD}");
     --ew-ornament-star-badge: url("data:image/svg+xml,${STAR_BADGE}");
     --ew-ornament-atom: url("data:image/svg+xml,${ATOM_TEAL}");
     --ew-ornament-atom-ink: url("data:image/svg+xml,${ATOM_INK}");
+    --ew-ornament-atom-panel: url("data:image/svg+xml,${ATOM_PANEL}");
+    --ew-ornament-atom-on-dark: url("data:image/svg+xml,${ATOM_ON_DARK}");
     --ew-ornament-kidney-teal: url("data:image/svg+xml,${KIDNEY_TEAL}");
     --ew-ornament-kidney-coral: url("data:image/svg+xml,${KIDNEY_CORAL}");
     --ew-ornament-boomerang: url("data:image/svg+xml,${BOOMERANG}");
+    --ew-ornament-boomerang-night: url("data:image/svg+xml,${BOOMERANG_NIGHT}");
     --ew-ornament-hairpin: url("data:image/svg+xml,${HAIRPIN}");
+    --ew-ornament-hairpin-light: url("data:image/svg+xml,${HAIRPIN_LIGHT}");
     --ew-ornament-dots: url("data:image/svg+xml,${DOTS}");
     --ew-ornament-cutout: url("data:image/svg+xml,${CUTOUT}");
     --ew-ornament-arch: url("data:image/svg+xml,${ARCH}");
@@ -163,70 +185,74 @@ export function atomicDecoratorCss() {
     --ew-atomic-offset: 4px 4px 0 0 color-mix(in oklch, var(--ew-color-ink) 22%, transparent);
   }
 
-  /* --- Formica boomerang page scatter (~8% opacity) --- */
+  /* --- Formica boomerang page scatter (~8% baked into the tile) ---
+     Painted on the era root so the canvas background covers the whole document.
+     An absolute .ew-backdrop only fills the viewport unless some ancestor is
+     position:relative; the root background does not need that. */
+  [data-era="mcm-atomic"] {
+    position: relative;
+    background-image: var(--ew-ornament-boomerang);
+    background-repeat: repeat;
+    background-size: 112px 112px;
+    background-attachment: scroll;
+  }
+  [data-era="mcm-atomic"][data-mode="dark"] {
+    background-image: var(--ew-ornament-boomerang-night);
+  }
   [data-era="mcm-atomic"] .ew-backdrop,
   [data-era="mcm-atomic"].ew-backdrop {
     position: absolute;
     inset: 0;
+    width: 100%;
+    min-height: 100%;
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
+    background: none;
   }
   [data-era="mcm-atomic"] .ew-backdrop::before,
   [data-era="mcm-atomic"].ew-backdrop::before {
-    content: "" / "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.08;
-    background-image: var(--ew-ornament-boomerang);
-    background-size: 96px 96px;
-    background-repeat: repeat;
+    content: none;
   }
 
-  /* --- Hero --- */
+  /* --- Hero: text block on the cream side, orbit/stars on the teal side.
+     Columns from 881px up; stacked rows below so type never crosses the split. --- */
   [data-era="mcm-atomic"] .ew-hero {
     position: relative;
+    z-index: 1;
     isolation: isolate;
     overflow: hidden;
-    min-height: min(88vh, 920px);
+    min-height: min(82vh, 780px);
     display: grid;
-    place-items: center;
-    padding: 56px 24px 72px;
+    grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+    align-items: stretch;
+    padding: 0;
     background: var(--ew-color-bg-page);
     color: var(--ew-color-fg-default);
   }
   [data-era="mcm-atomic"] .ew-hero__stage {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    grid-column: 2;
+    grid-row: 1;
     z-index: 0;
+    min-height: 100%;
     pointer-events: none;
     overflow: hidden;
   }
 
-  /* Diagonal two-tone split ('57 Chevy) */
+  /* Diagonal two-tone lives only in the object column (cream shows through the cut). */
   [data-era="mcm-atomic"] .ew-hero__twotone {
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(
-        118deg,
-        var(--ew-color-teal) 0 46%,
-        var(--ew-color-cream, var(--ew-color-bg-page)) 46.2% 100%
-      );
-    opacity: 0.92;
+    background: var(--ew-color-teal);
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
   }
   [data-era="mcm-atomic"][data-mode="dark"] .ew-hero__twotone {
-    background:
-      linear-gradient(
-        118deg,
-        color-mix(in oklch, var(--ew-color-teal) 70%, var(--ew-color-bg-page)) 0 46%,
-        var(--ew-color-bg-page) 46.2% 100%
-      );
+    background: color-mix(in oklch, var(--ew-color-teal) 58%, var(--ew-color-bg-page));
   }
 
-  /* 5–9 varied starbursts in stage */
+  /* 5–9 starbursts, all inside the object stage (cream/gold read on teal; coral has a cream ring) */
   [data-era="mcm-atomic"] .ew-hero__starbursts {
     position: absolute;
     inset: 0;
@@ -240,47 +266,49 @@ export function atomicDecoratorCss() {
   }
   [data-era="mcm-atomic"] .ew-hero__starbursts::before {
     background:
-      var(--ew-ornament-star-1) 8% 18% / 56px 56px no-repeat,
-      var(--ew-ornament-star-2) 78% 12% / 40px 40px no-repeat,
-      var(--ew-ornament-star-3) 92% 42% / 48px 48px no-repeat,
-      var(--ew-ornament-star-4) 14% 72% / 36px 36px no-repeat,
-      var(--ew-ornament-star-5) 62% 78% / 28px 28px no-repeat;
-    opacity: 0.85;
+      var(--ew-ornament-star-coral-ring) 72% 14% / 84px 84px no-repeat,
+      var(--ew-ornament-star-cream) 32% 20% / 52px 52px no-repeat,
+      var(--ew-ornament-star-gold) 84% 50% / 58px 58px no-repeat,
+      var(--ew-ornament-star-cream-sm) 28% 72% / 40px 40px no-repeat,
+      var(--ew-ornament-star-gold) 54% 82% / 34px 34px no-repeat;
+    opacity: 1;
   }
   [data-era="mcm-atomic"] .ew-hero__starbursts::after {
     background:
-      var(--ew-ornament-star-6) 42% 8% / 64px 64px no-repeat,
-      var(--ew-ornament-star-7) 88% 78% / 32px 32px no-repeat,
-      var(--ew-ornament-star-8) 28% 48% / 44px 44px no-repeat,
-      var(--ew-ornament-star-2) 4% 48% / 24px 24px no-repeat;
-    opacity: 0.7;
+      var(--ew-ornament-star-cream) 50% 10% / 30px 30px no-repeat,
+      var(--ew-ornament-star-coral-ring) 22% 46% / 46px 46px no-repeat,
+      var(--ew-ornament-star-cream-sm) 78% 78% / 38px 38px no-repeat;
+    opacity: 0.95;
   }
 
-  /* Parabolic arch frame */
+  /* Parabolic arch frame — cream so it reads on the teal panel */
   [data-era="mcm-atomic"] .ew-hero__arch {
     position: absolute;
     left: 50%;
-    bottom: 4%;
-    width: min(920px, 96%);
-    height: min(220px, 36%);
+    bottom: 2%;
+    width: min(520px, 108%);
+    height: min(180px, 42%);
     transform: translateX(-50%);
-    background-color: var(--ew-color-ink);
+    background-color: #F3E9D2;
     -webkit-mask: var(--ew-ornament-arch) center / 100% 100% no-repeat;
     mask: var(--ew-ornament-arch) center / 100% 100% no-repeat;
-    opacity: 0.55;
+    opacity: 0.9;
   }
 
-  /* Atom orbit centerpiece */
+  /* Atom orbit — logo/spinner keep the teal mark; the hero orbit sits on the panel */
   [data-era="mcm-atomic"] .ew-orbit {
     position: absolute;
-    left: 50%;
-    top: 42%;
-    width: min(220px, 38vw);
-    height: min(220px, 38vw);
+    left: 58%;
+    top: 46%;
+    width: min(240px, 70%);
+    height: min(240px, 70%);
     transform: translate(-50%, -50%);
     background: var(--ew-ornament-atom) center / contain no-repeat;
     z-index: 1;
-    opacity: 0.9;
+    opacity: 0.95;
+  }
+  [data-era="mcm-atomic"] .ew-hero__stage .ew-orbit {
+    background-image: var(--ew-ornament-atom-panel);
   }
   [data-era="mcm-atomic"] .ew-orbit--logo {
     position: relative;
@@ -301,8 +329,12 @@ export function atomicDecoratorCss() {
     margin: 24px auto;
     width: 96px;
     height: 96px;
-    opacity: 0.55;
+    opacity: 0.9;
     background: var(--ew-ornament-atom-ink) center / contain no-repeat;
+  }
+  [data-era="mcm-atomic"][data-mode="dark"] .ew-orbit--empty {
+    background-image: var(--ew-ornament-atom-on-dark);
+    opacity: 1;
   }
   [data-era="mcm-atomic"] .ew-orbit--spin {
     position: relative;
@@ -325,13 +357,38 @@ export function atomicDecoratorCss() {
   [data-era="mcm-atomic"] .ew-hero__content {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 880px;
-    width: 100%;
-    margin: 0 auto;
+    grid-column: 1;
+    grid-row: 1;
+    text-align: start;
+    max-width: none;
+    width: auto;
+    margin: 0;
+    padding: clamp(36px, 5vw, 72px) clamp(28px, 4vw, 64px);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
+    background: var(--ew-color-bg-page);
+  }
+  @media (max-width: 880px) {
+    [data-era="mcm-atomic"] .ew-hero {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      min-height: 0;
+    }
+    [data-era="mcm-atomic"] .ew-hero__content {
+      grid-column: 1;
+      grid-row: 1;
+      padding: 40px 24px 28px;
+    }
+    [data-era="mcm-atomic"] .ew-hero__stage {
+      grid-column: 1;
+      grid-row: 2;
+      min-height: 240px;
+    }
+    [data-era="mcm-atomic"] .ew-hero__twotone {
+      clip-path: polygon(0 16%, 100% 0, 100% 100%, 0 100%);
+    }
   }
 
   /* Googie script + geometric caps */
@@ -351,12 +408,13 @@ export function atomicDecoratorCss() {
   [data-era="mcm-atomic"] .ew-hero h1 {
     font-family: var(--ew-font-display);
     font-weight: 700;
-    font-size: clamp(40px, 8vw, 88px);
+    font-size: clamp(40px, 5vw, 84px);
     line-height: 1.02;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     margin: 0 0 16px;
     color: var(--ew-color-ink);
+    max-width: 12ch;
   }
   [data-era="mcm-atomic"] .ew-hero__subtitle {
     font-family: var(--ew-font-body);
@@ -370,7 +428,7 @@ export function atomicDecoratorCss() {
     display: inline-flex;
     gap: 14px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   /* Section heading + starburst ornament */
@@ -440,6 +498,9 @@ export function atomicDecoratorCss() {
     margin: 20px auto;
     background: var(--ew-ornament-hairpin) center / contain no-repeat;
   }
+  [data-era="mcm-atomic"][data-mode="dark"] .ew-hairpin {
+    background-image: var(--ew-ornament-hairpin-light);
+  }
   [data-era="mcm-atomic"] .ew-dots {
     display: block;
     width: 64px;
@@ -487,21 +548,27 @@ export function atomicDecoratorCss() {
   [data-era="mcm-atomic"] .ew-card::after {
     content: "" / "";
     position: absolute;
-    width: 56px;
-    height: 40px;
+    width: 132px;
+    height: 92px;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.85;
+    opacity: 1;
   }
   [data-era="mcm-atomic"] .ew-card::before {
-    top: -10px;
-    left: -14px;
-    background: var(--ew-ornament-kidney-teal) center / contain no-repeat;
+    top: -16px;
+    left: -16px;
+    background: var(--ew-color-teal);
+    border-radius: 62% 38% 28% 72% / 48% 62% 38% 52%;
+    transform: rotate(-22deg);
   }
   [data-era="mcm-atomic"] .ew-card::after {
-    bottom: -12px;
-    right: -16px;
-    background: var(--ew-ornament-kidney-coral) center / contain no-repeat;
+    bottom: -14px;
+    right: -14px;
+    width: 118px;
+    height: 84px;
+    background: var(--ew-color-coral);
+    border-radius: 38% 62% 70% 30% / 58% 42% 60% 40%;
+    transform: rotate(16deg);
   }
   [data-era="mcm-atomic"] .ew-card__header {
     position: relative;
@@ -581,7 +648,7 @@ export function atomicDecoratorCss() {
   [data-era="mcm-atomic"] .ew-select__label,
   [data-era="mcm-atomic"] .ew-textarea__label {
     font-family: var(--ew-font-display);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -604,17 +671,34 @@ export function atomicDecoratorCss() {
     border-color: var(--ew-color-mustard);
   }
 
-  /* Checkbox / radio */
+  /* Checkbox is a rounded square (control radius is a pill, which made this a radio).
+     No offset shadow — that read as a second ring. */
+  [data-era="mcm-atomic"] .ew-checkbox__box {
+    border-radius: 4px;
+    box-shadow: none;
+    width: 20px;
+    height: 20px;
+  }
+  [data-era="mcm-atomic"] .ew-checkbox__box::after {
+    width: 10px;
+    height: 6px;
+    border-width: 0 0 2.5px 2.5px;
+  }
   [data-era="mcm-atomic"] .ew-radio__control:not(:checked) + .ew-radio__disc,
   [data-era="mcm-atomic"] .ew-checkbox__control:not(:checked) + .ew-checkbox__box {
     border-width: 2px;
     border-style: solid;
     border-color: var(--ew-color-border-strong, var(--ew-color-ink));
     background: var(--ew-color-field-bg, #fff);
+    box-shadow: none;
   }
   [data-era="mcm-atomic"] .ew-checkbox__control:checked + .ew-checkbox__box {
     background: var(--ew-color-coral, var(--ew-color-action-bg));
     border-color: var(--ew-color-border-strong, var(--ew-color-ink));
+    box-shadow: none;
+  }
+  [data-era="mcm-atomic"] .ew-checkbox__control:checked + .ew-checkbox__box::after {
+    border-color: var(--ew-color-action-fg, #fff);
   }
   [data-era="mcm-atomic"] .ew-radio__control:checked + .ew-radio__disc {
     background: var(--ew-color-field-bg, #fff);
@@ -648,15 +732,33 @@ export function atomicDecoratorCss() {
     background: var(--ew-color-bg-elevated, #fff);
   }
 
-  /* --- Tabs: pills on hairpin rail --- */
+  /* --- Tabs: pills on a hairpin rail that spans the tab row (not a detached ●──●) --- */
   [data-era="mcm-atomic"] .ew-tabs [role="tablist"],
   [data-era="mcm-atomic"] ew-tabs [role="tablist"] {
     position: relative;
     display: flex;
+    justify-self: start;
+    width: max-content;
+    max-width: 100%;
     gap: 8px;
-    padding: 10px 0 14px;
+    padding: 6px 16px 18px;
     border-bottom: none;
-    background: var(--ew-ornament-hairpin) center bottom 4px / min(100%, 320px) 12px no-repeat;
+    background: none;
+  }
+  [data-era="mcm-atomic"] .ew-tabs [role="tablist"]::after,
+  [data-era="mcm-atomic"] ew-tabs [role="tablist"]::after {
+    content: "" / "";
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(circle at 5px 50%, var(--ew-color-ink) 4.5px, transparent 5px),
+      radial-gradient(circle at calc(100% - 5px) 50%, var(--ew-color-ink) 4.5px, transparent 5px),
+      linear-gradient(var(--ew-color-ink), var(--ew-color-ink)) center / calc(100% - 18px) 2px no-repeat;
   }
   [data-era="mcm-atomic"] .ew-tabs [role="tab"],
   [data-era="mcm-atomic"] ew-tabs [role="tab"],
@@ -670,6 +772,8 @@ export function atomicDecoratorCss() {
     text-transform: uppercase;
     border: 2px solid transparent;
     padding: 8px 16px;
+    position: relative;
+    z-index: 1;
   }
   [data-era="mcm-atomic"] .ew-tabs [role="tab"][aria-selected="true"],
   [data-era="mcm-atomic"] ew-tabs [role="tab"][aria-selected="true"] {
@@ -803,6 +907,8 @@ export function atomicDecoratorCss() {
   ${mute(' .ew-section--roofline::before')},
   ${mute(' .ew-badge-new')},
   ${mute(' .ew-hairpin')},
+  ${mute(' .ew-tabs [role="tablist"]::after')},
+  ${mute(' ew-tabs [role="tablist"]::after')},
   ${mute(' .ew-dots')},
   ${mute(' .ew-cutout')},
   ${mute(' .ew-wordmark')},
@@ -836,13 +942,24 @@ export function atomicDecoratorCss() {
     border-radius: var(--ew-structure-dialog-radius, 28px);
   }
 
+  ${mute(' .ew-hero__content')} {
+    grid-column: 1 / -1;
+  }
+  ${mute('')} {
+    background-image: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     [data-era="mcm-atomic"] .ew-orbit--spin {
-      animation: none !important;
+      animation: ew-atomic-pulse 2.6s ease-in-out infinite !important;
     }
     [data-era="mcm-atomic"] .ew-button:hover {
       transform: none;
     }
+  }
+  @keyframes ew-atomic-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
   }
 
   @media (forced-colors: active) {

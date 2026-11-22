@@ -32,7 +32,7 @@
   "fonts": {
     "display": "League Spartan",
     "body": "Work Sans",
-    "mono": "Space Mono",
+    "mono": "Courier Prime",
     "script": "Yellowtail",
     "displayAlt": "Oswald",
     "license": "OFL-1.1",
@@ -41,7 +41,7 @@
       "https://fonts.google.com/specimen/League+Spartan",
       "https://fonts.google.com/specimen/Work+Sans",
       "https://fonts.google.com/specimen/Oswald",
-      "https://fonts.google.com/specimen/Space+Mono"
+      "https://fonts.google.com/specimen/Courier+Prime"
     ]
   },
   "fidelity": {
