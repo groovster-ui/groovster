@@ -422,14 +422,18 @@ function selectCss(cls) {
     outline: 2px solid var(--ew-color-field-focus); outline-offset: 1px;
   }
   .${cls}__list {
-    list-style: none; margin: 4px 0 0; padding: 6px;
-    position: absolute; z-index: 20; inset-inline: 0; top: 100%;
+    list-style: none; margin: 0; padding: 6px;
+    inset: unset;
+    position-anchor: --ew-select-trigger;
+    position-area: block-end;
+    min-width: anchor-size(width);
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);
     background: var(--ew-color-bg-elevated); color: var(--ew-color-fg-default);
     box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2));
     max-height: 220px; overflow: auto;
   }
+  .${cls}__trigger { anchor-name: --ew-select-trigger; }
   .${cls}__option {
     padding: 8px 10px; border-radius: 6px; cursor: pointer;
   }
@@ -446,7 +450,12 @@ function sliderCss(cls) {
 
 function menuCss(cls) {
   return `  .${cls}, ew-menu.${cls}, ew-menu { display: inline-block; position: relative; }
+  .${cls}__trigger { anchor-name: --ew-menu-trigger; }
   .${cls}__panel {
+    inset: unset;
+    position-anchor: --ew-menu-trigger;
+    position-area: block-end;
+    min-width: anchor-size(width);
     border: var(--ew-structure-card-border-width, 1px) var(--ew-structure-card-border-style, solid) var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);
     background: var(--ew-color-bg-elevated);

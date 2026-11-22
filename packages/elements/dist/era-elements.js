@@ -283,12 +283,13 @@
       if (!list) {
         list = document.createElement('ul');
         list.className = 'ew-select__list';
-        list.hidden = true;
+        list.setAttribute('popover', 'manual');
         trigger.insertAdjacentElement('afterend', list);
       }
       list.setAttribute('role', 'listbox');
       list.id = list.id || `${native.id}-list`;
       trigger.setAttribute('aria-controls', list.id);
+      trigger.setAttribute('popovertarget', list.id);
 
       list.replaceChildren();
       [...native.options].forEach((opt, i) => {
@@ -383,8 +384,8 @@
       const trigger = this.#trigger;
       if (!list || !trigger) return;
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      list.hidden = !open;
       if (open) {
+        list.showPopover();
         document.addEventListener('pointerdown', this.#onDocPointer, true);
         const selected =
           this.#options.find((o) => o.getAttribute('aria-selected') === 'true') || this.#options[0];
@@ -393,8 +394,11 @@
         });
         selected?.focus();
       } else {
+        if (list.matches(':popover-open')) list.hidePopover();
         document.removeEventListener('pointerdown', this.#onDocPointer, true);
-        trigger.focus();
+        if (document.activeElement && list.contains(document.activeElement)) {
+          trigger.focus();
+        }
       }
     }
 
@@ -505,8 +509,9 @@
       trigger.setAttribute('aria-haspopup', 'menu');
       trigger.setAttribute('aria-controls', panel.id);
       trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute('popovertarget', panel.id);
       panel.setAttribute('role', 'menu');
-      panel.hidden = true;
+      panel.setAttribute('popover', 'manual');
       this.#items.forEach((item, i) => {
         item.tabIndex = -1;
         if (!item.id) item.id = `${panel.id}-item-${i}`;
@@ -576,11 +581,15 @@
       const panel = this.#panel;
       if (!trigger || !panel) return;
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      panel.hidden = !open;
-      if (open) document.addEventListener('pointerdown', this.#onDoc, true);
-      else {
+      if (open) {
+        panel.showPopover();
+        document.addEventListener('pointerdown', this.#onDoc, true);
+      } else {
+        if (panel.matches(':popover-open')) panel.hidePopover();
         document.removeEventListener('pointerdown', this.#onDoc, true);
-        trigger.focus();
+        if (document.activeElement && panel.contains(document.activeElement)) {
+          trigger.focus();
+        }
       }
     }
 

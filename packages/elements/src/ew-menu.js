@@ -60,8 +60,9 @@
       trigger.setAttribute('aria-haspopup', 'menu');
       trigger.setAttribute('aria-controls', panel.id);
       trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute('popovertarget', panel.id);
       panel.setAttribute('role', 'menu');
-      panel.hidden = true;
+      panel.setAttribute('popover', 'manual');
       this.#items.forEach((item, i) => {
         item.tabIndex = -1;
         if (!item.id) item.id = `${panel.id}-item-${i}`;
@@ -131,11 +132,15 @@
       const panel = this.#panel;
       if (!trigger || !panel) return;
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      panel.hidden = !open;
-      if (open) document.addEventListener('pointerdown', this.#onDoc, true);
-      else {
+      if (open) {
+        panel.showPopover();
+        document.addEventListener('pointerdown', this.#onDoc, true);
+      } else {
+        if (panel.matches(':popover-open')) panel.hidePopover();
         document.removeEventListener('pointerdown', this.#onDoc, true);
-        trigger.focus();
+        if (document.activeElement && panel.contains(document.activeElement)) {
+          trigger.focus();
+        }
       }
     }
 

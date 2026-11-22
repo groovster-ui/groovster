@@ -94,12 +94,13 @@
       if (!list) {
         list = document.createElement('ul');
         list.className = 'ew-select__list';
-        list.hidden = true;
+        list.setAttribute('popover', 'manual');
         trigger.insertAdjacentElement('afterend', list);
       }
       list.setAttribute('role', 'listbox');
       list.id = list.id || `${native.id}-list`;
       trigger.setAttribute('aria-controls', list.id);
+      trigger.setAttribute('popovertarget', list.id);
 
       list.replaceChildren();
       [...native.options].forEach((opt, i) => {
@@ -194,8 +195,8 @@
       const trigger = this.#trigger;
       if (!list || !trigger) return;
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      list.hidden = !open;
       if (open) {
+        list.showPopover();
         document.addEventListener('pointerdown', this.#onDocPointer, true);
         const selected =
           this.#options.find((o) => o.getAttribute('aria-selected') === 'true') || this.#options[0];
@@ -204,8 +205,11 @@
         });
         selected?.focus();
       } else {
+        if (list.matches(':popover-open')) list.hidePopover();
         document.removeEventListener('pointerdown', this.#onDocPointer, true);
-        trigger.focus();
+        if (document.activeElement && list.contains(document.activeElement)) {
+          trigger.focus();
+        }
       }
     }
 
