@@ -1,6 +1,12 @@
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
 @layer reset, tokens, era, components, decorators, overrides;
 
+@property --ew-fidelity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 50;
+}
+
 @layer reset {
   .ew-root, .ew-root * { box-sizing: border-box; }
   .ew-root { margin: 0; }
@@ -9,5 +15,357 @@
 @layer tokens {
   :root, .ew-root, [data-era] {
     color-scheme: light dark;
+    --ew-fidelity: var(--ew-fidelity-default, 50);
+    --ew-fidelity-ornament: clamp(0, (var(--ew-fidelity) - 20) / 50, 1);
+    --ew-fidelity-drama: clamp(0, (var(--ew-fidelity) - 40) / 40, 1);
+  }
+  [data-fidelity="0"] { --ew-fidelity: 0; }
+  [data-fidelity="1"] { --ew-fidelity: 1; }
+  [data-fidelity="2"] { --ew-fidelity: 2; }
+  [data-fidelity="3"] { --ew-fidelity: 3; }
+  [data-fidelity="4"] { --ew-fidelity: 4; }
+  [data-fidelity="5"] { --ew-fidelity: 5; }
+  [data-fidelity="6"] { --ew-fidelity: 6; }
+  [data-fidelity="7"] { --ew-fidelity: 7; }
+  [data-fidelity="8"] { --ew-fidelity: 8; }
+  [data-fidelity="9"] { --ew-fidelity: 9; }
+  [data-fidelity="10"] { --ew-fidelity: 10; }
+  [data-fidelity="11"] { --ew-fidelity: 11; }
+  [data-fidelity="12"] { --ew-fidelity: 12; }
+  [data-fidelity="13"] { --ew-fidelity: 13; }
+  [data-fidelity="14"] { --ew-fidelity: 14; }
+  [data-fidelity="15"] { --ew-fidelity: 15; }
+  [data-fidelity="16"] { --ew-fidelity: 16; }
+  [data-fidelity="17"] { --ew-fidelity: 17; }
+  [data-fidelity="18"] { --ew-fidelity: 18; }
+  [data-fidelity="19"] { --ew-fidelity: 19; }
+  [data-fidelity="20"] { --ew-fidelity: 20; }
+  [data-fidelity="21"] { --ew-fidelity: 21; }
+  [data-fidelity="22"] { --ew-fidelity: 22; }
+  [data-fidelity="23"] { --ew-fidelity: 23; }
+  [data-fidelity="24"] { --ew-fidelity: 24; }
+  [data-fidelity="25"] { --ew-fidelity: 25; }
+  [data-fidelity="26"] { --ew-fidelity: 26; }
+  [data-fidelity="27"] { --ew-fidelity: 27; }
+  [data-fidelity="28"] { --ew-fidelity: 28; }
+  [data-fidelity="29"] { --ew-fidelity: 29; }
+  [data-fidelity="30"] { --ew-fidelity: 30; }
+  [data-fidelity="31"] { --ew-fidelity: 31; }
+  [data-fidelity="32"] { --ew-fidelity: 32; }
+  [data-fidelity="33"] { --ew-fidelity: 33; }
+  [data-fidelity="34"] { --ew-fidelity: 34; }
+  [data-fidelity="35"] { --ew-fidelity: 35; }
+  [data-fidelity="36"] { --ew-fidelity: 36; }
+  [data-fidelity="37"] { --ew-fidelity: 37; }
+  [data-fidelity="38"] { --ew-fidelity: 38; }
+  [data-fidelity="39"] { --ew-fidelity: 39; }
+  [data-fidelity="40"] { --ew-fidelity: 40; }
+  [data-fidelity="41"] { --ew-fidelity: 41; }
+  [data-fidelity="42"] { --ew-fidelity: 42; }
+  [data-fidelity="43"] { --ew-fidelity: 43; }
+  [data-fidelity="44"] { --ew-fidelity: 44; }
+  [data-fidelity="45"] { --ew-fidelity: 45; }
+  [data-fidelity="46"] { --ew-fidelity: 46; }
+  [data-fidelity="47"] { --ew-fidelity: 47; }
+  [data-fidelity="48"] { --ew-fidelity: 48; }
+  [data-fidelity="49"] { --ew-fidelity: 49; }
+  [data-fidelity="50"] { --ew-fidelity: 50; }
+  [data-fidelity="51"] { --ew-fidelity: 51; }
+  [data-fidelity="52"] { --ew-fidelity: 52; }
+  [data-fidelity="53"] { --ew-fidelity: 53; }
+  [data-fidelity="54"] { --ew-fidelity: 54; }
+  [data-fidelity="55"] { --ew-fidelity: 55; }
+  [data-fidelity="56"] { --ew-fidelity: 56; }
+  [data-fidelity="57"] { --ew-fidelity: 57; }
+  [data-fidelity="58"] { --ew-fidelity: 58; }
+  [data-fidelity="59"] { --ew-fidelity: 59; }
+  [data-fidelity="60"] { --ew-fidelity: 60; }
+  [data-fidelity="61"] { --ew-fidelity: 61; }
+  [data-fidelity="62"] { --ew-fidelity: 62; }
+  [data-fidelity="63"] { --ew-fidelity: 63; }
+  [data-fidelity="64"] { --ew-fidelity: 64; }
+  [data-fidelity="65"] { --ew-fidelity: 65; }
+  [data-fidelity="66"] { --ew-fidelity: 66; }
+  [data-fidelity="67"] { --ew-fidelity: 67; }
+  [data-fidelity="68"] { --ew-fidelity: 68; }
+  [data-fidelity="69"] { --ew-fidelity: 69; }
+  [data-fidelity="70"] { --ew-fidelity: 70; }
+  [data-fidelity="71"] { --ew-fidelity: 71; }
+  [data-fidelity="72"] { --ew-fidelity: 72; }
+  [data-fidelity="73"] { --ew-fidelity: 73; }
+  [data-fidelity="74"] { --ew-fidelity: 74; }
+  [data-fidelity="75"] { --ew-fidelity: 75; }
+  [data-fidelity="76"] { --ew-fidelity: 76; }
+  [data-fidelity="77"] { --ew-fidelity: 77; }
+  [data-fidelity="78"] { --ew-fidelity: 78; }
+  [data-fidelity="79"] { --ew-fidelity: 79; }
+  [data-fidelity="80"] { --ew-fidelity: 80; }
+  [data-fidelity="81"] { --ew-fidelity: 81; }
+  [data-fidelity="82"] { --ew-fidelity: 82; }
+  [data-fidelity="83"] { --ew-fidelity: 83; }
+  [data-fidelity="84"] { --ew-fidelity: 84; }
+  [data-fidelity="85"] { --ew-fidelity: 85; }
+  [data-fidelity="86"] { --ew-fidelity: 86; }
+  [data-fidelity="87"] { --ew-fidelity: 87; }
+  [data-fidelity="88"] { --ew-fidelity: 88; }
+  [data-fidelity="89"] { --ew-fidelity: 89; }
+  [data-fidelity="90"] { --ew-fidelity: 90; }
+  [data-fidelity="91"] { --ew-fidelity: 91; }
+  [data-fidelity="92"] { --ew-fidelity: 92; }
+  [data-fidelity="93"] { --ew-fidelity: 93; }
+  [data-fidelity="94"] { --ew-fidelity: 94; }
+  [data-fidelity="95"] { --ew-fidelity: 95; }
+  [data-fidelity="96"] { --ew-fidelity: 96; }
+  [data-fidelity="97"] { --ew-fidelity: 97; }
+  [data-fidelity="98"] { --ew-fidelity: 98; }
+  [data-fidelity="99"] { --ew-fidelity: 99; }
+  [data-fidelity="100"] { --ew-fidelity: 100; }
+  /* Continuous fidelity drives ornament/drama when band is absent */
+  [data-era][data-fidelity]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: calc(var(--ew-fidelity-ornament) * 0.35);
+  }
+  [data-era][data-fidelity="0"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="1"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="2"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="3"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="4"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="5"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="6"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="7"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="8"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="9"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="10"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="11"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="12"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="13"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="14"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="15"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="16"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="17"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="18"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="19"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="20"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="21"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="22"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="23"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="24"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+  [data-era][data-fidelity="25"]:not([data-fidelity-band]) {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+}
+
+@layer overrides {
+  @media (prefers-reduced-transparency: reduce) {
+    [data-era] {
+      --ew-color-overlay: var(--ew-color-bg-elevated);
+      --ew-structure-card-ornament-opacity: 0;
+      --ew-structure-button-bevel: none;
+    }
+    [data-era] .ew-card::before,
+    [data-era] .ew-dialog::backdrop {
+      opacity: 1;
+      background: var(--ew-color-bg-elevated);
+      backdrop-filter: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    [data-era] {
+      --ew-color-fg-default: CanvasText;
+      --ew-color-fg-muted: GrayText;
+      --ew-color-fg-inverse: Canvas;
+      --ew-color-bg-page: Canvas;
+      --ew-color-bg-surface: Canvas;
+      --ew-color-bg-elevated: Canvas;
+      --ew-color-border-subtle: ButtonBorder;
+      --ew-color-border-strong: ButtonText;
+      --ew-color-action-bg: Highlight;
+      --ew-color-action-fg: HighlightText;
+      --ew-color-field-bg: Field;
+      --ew-color-field-border: ButtonBorder;
+      --ew-color-field-focus: Highlight;
+      --ew-structure-card-ornament-opacity: 0;
+      --ew-structure-button-shadow: none;
+      --ew-structure-card-shadow: none;
+      --ew-structure-card-raised-shadow: none;
+      --ew-structure-button-clip: none;
+      --ew-structure-card-clip: none;
+    }
+    .ew-button, .ew-icon-button, .ew-card, .ew-dialog, .ew-text-field__control,
+    .ew-select__trigger, .ew-select__control, .ew-menu__panel, .ew-popover__panel,
+    .ew-toast, .ew-alert, .ew-tooltip__tip {
+      border: 1px solid ButtonBorder !important;
+      forced-color-adjust: none;
+    }
+    .ew-button:focus-visible, .ew-icon-button:focus-visible,
+    .ew-text-field__control:focus-visible, .ew-select__trigger:focus-visible,
+    [role="tab"]:focus-visible, .ew-menu__item:focus-visible,
+    .ew-link:focus-visible, .ew-slider__control:focus-visible {
+      outline: 3px solid Highlight !important;
+      outline-offset: 2px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ew-root *, .ew-root *::before, .ew-root *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

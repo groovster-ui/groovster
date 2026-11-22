@@ -1,5 +1,40 @@
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
 
+/** Emit variant/size hooks from the component spec so CSS stays spec-driven. */
+function specDrivenHooks(comp) {
+  const cls = comp.className;
+  const lines = [];
+  for (const [key, def] of Object.entries(comp.variants || {})) {
+    const attr = def.attribute || `data-${key}`;
+    for (const value of def.values || []) {
+      lines.push(`  /* spec variant ${key}=${value} */`);
+      lines.push(`  .${cls}[${attr}="${value}"] { --ew-spec-variant-${key}: ${value}; }`);
+    }
+    if (def.default) {
+      lines.push(`  .${cls}:not([${attr}]) { --ew-spec-variant-${key}: ${def.default}; }`);
+    }
+  }
+  if (comp.sizes?.values) {
+    const attr = comp.sizes.attribute || 'data-size';
+    for (const value of comp.sizes.values) {
+      lines.push(`  .${cls}[${attr}="${value}"] { --ew-spec-size: ${value}; }`);
+    }
+    if (comp.sizes.default) {
+      lines.push(`  .${cls}:not([${attr}]) { --ew-spec-size: ${comp.sizes.default}; }`);
+    }
+  }
+  return lines.join('\n');
+}
+
+function reducedMotionBlock(cls) {
+  return `  @media (prefers-reduced-motion: reduce) {
+    .${cls}, .${cls} *, .${cls} *::before, .${cls} *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }`;
+}
+
 export function genComponentCss(comp) {
   const cls = comp.className;
   const lines = [
@@ -36,6 +71,10 @@ export function genComponentCss(comp) {
 
   if (body) lines.push(body(cls));
   else lines.push(`  /* stub styles for ${comp.id} */`);
+
+  const hooks = specDrivenHooks(comp);
+  if (hooks) lines.push(hooks);
+  lines.push(reducedMotionBlock(cls));
 
   lines.push(`}`);
   return lines.join('\n') + '\n';
@@ -444,8 +483,14 @@ function selectCss(cls) {
 function sliderCss(cls) {
   return `  .${cls}, ew-slider.${cls}, ew-slider { display: grid; gap: 8px; font-family: var(--ew-font-body, system-ui, sans-serif); }
   .${cls}__label { font-size: 14px; font-weight: 600; color: var(--ew-color-fg-default); }
-  .${cls}__control { width: 100%; accent-color: var(--ew-color-action-bg); }
-  .${cls}__control:focus-visible { outline: 2px solid var(--ew-color-field-focus); outline-offset: 2px; }`;
+  .${cls}__control {
+    width: 100%;
+    accent-color: var(--ew-color-action-bg);
+    height: var(--ew-structure-slider-track-height, 6px);
+    border-radius: var(--ew-structure-slider-track-radius, 999px);
+  }
+  .${cls}__control:focus-visible { outline: 2px solid var(--ew-color-field-focus); outline-offset: 2px; }
+  .${cls}__value { font-size: 12px; color: var(--ew-color-fg-muted); }`;
 }
 
 function menuCss(cls) {
@@ -489,11 +534,12 @@ function tooltipCss(cls) {
   .${cls}__tip {
     position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%);
     background: var(--ew-color-fg-default); color: var(--ew-color-fg-inverse, #fff);
-    font-size: 12px; padding: 6px 8px; border-radius: 4px; white-space: nowrap;
+    font-size: 12px; padding: var(--ew-structure-tooltip-padding, 6px 8px);
+    border-radius: var(--ew-structure-tooltip-radius, 4px); white-space: nowrap;
+    box-shadow: var(--ew-structure-tooltip-shadow, none);
     opacity: 0; pointer-events: none; transition: opacity 120ms ease;
   }
-  .${cls}:hover .${cls}__tip, .${cls}:focus-within .${cls}__tip { opacity: 1; }
-  @media (prefers-reduced-motion: reduce) { .${cls}__tip { transition: none; } }`;
+  .${cls}:hover .${cls}__tip, .${cls}:focus-within .${cls}__tip { opacity: 1; }`;
 }
 
 function toastCss(cls) {

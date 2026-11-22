@@ -136,8 +136,8 @@
   ],
   "canonicalHtml": "<dialog class=\"ew-dialog\" aria-labelledby=\"dlg-title\">\n  <header class=\"ew-dialog__header\"><h2 id=\"dlg-title\">Sign up</h2></header>\n  <div class=\"ew-dialog__body\"><!-- fields --></div>\n  <footer class=\"ew-dialog__footer\"><button type=\"button\" class=\"ew-button\" data-variant=\"ghost\" onclick=\"this.closest('dialog').close()\">Cancel</button><button type=\"submit\" class=\"ew-button\">Continue</button></footer>\n</dialog>",
   "imports": [
-    "@era-widgets/css/dialog.css",
-    "@era-widgets/css/eras/<era>.css"
+    "@groovster/css/dialog.css",
+    "@groovster/css/eras/<era>.css"
   ],
   "do": [
     "Call showModal() for modal dialogs.",

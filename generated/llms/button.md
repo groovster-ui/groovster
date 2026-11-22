@@ -7,7 +7,7 @@ HTML:
 <button type="button" class="ew-button">Save</button>
 ```
 
-CSS: @era-widgets/css/button.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/button.css + @groovster/css/eras/<era>.css
 Variants: variant=primary|secondary|ghost|danger(default:primary)
 Sizes: sm|md|lg (default md)
 ARIA: button (native <button> preferred)

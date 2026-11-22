@@ -15,8 +15,8 @@ CSS tooltip for non-essential hints. Never the only accessible name.
 
 ## Imports
 
-- `@era-widgets/css/tooltip.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/tooltip.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

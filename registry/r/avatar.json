@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "era-widgets/avatar.css",
-      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-avatar {\n    /* anatomy: root, image, fallback */\n  }\n  .ew-avatar {\n    display: inline-grid; place-items: center; overflow: hidden;\n    width: 40px; height: 40px;\n    border-radius: var(--ew-structure-control-radius, 999px);\n    background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default);\n    border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);\n    font-family: var(--ew-font-body, system-ui, sans-serif); font-weight: 700; font-size: 12px;\n  }\n  .ew-avatar[data-variant=\"square\"] { border-radius: var(--ew-structure-surface-radius, 8px); }\n  .ew-avatar[data-size=\"sm\"] { width: 28px; height: 28px; font-size: 10px; }\n  .ew-avatar[data-size=\"lg\"] { width: 56px; height: 56px; font-size: 16px; }\n  .ew-avatar__image { width: 100%; height: 100%; object-fit: cover; }\n  .ew-avatar__fallback { line-height: 1; }\n}\n",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-avatar {\n    /* anatomy: root, image, fallback */\n  }\n  .ew-avatar {\n    display: inline-grid; place-items: center; overflow: hidden;\n    width: 40px; height: 40px;\n    border-radius: var(--ew-structure-control-radius, 999px);\n    background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default);\n    border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);\n    font-family: var(--ew-font-body, system-ui, sans-serif); font-weight: 700; font-size: 12px;\n  }\n  .ew-avatar[data-variant=\"square\"] { border-radius: var(--ew-structure-surface-radius, 8px); }\n  .ew-avatar[data-size=\"sm\"] { width: 28px; height: 28px; font-size: 10px; }\n  .ew-avatar[data-size=\"lg\"] { width: 56px; height: 56px; font-size: 16px; }\n  .ew-avatar__image { width: 100%; height: 100%; object-fit: cover; }\n  .ew-avatar__fallback { line-height: 1; }\n  /* spec variant variant=circle */\n  .ew-avatar[data-variant=\"circle\"] { --ew-spec-variant-variant: circle; }\n  /* spec variant variant=square */\n  .ew-avatar[data-variant=\"square\"] { --ew-spec-variant-variant: square; }\n  .ew-avatar:not([data-variant]) { --ew-spec-variant-variant: circle; }\n  .ew-avatar[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-avatar[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-avatar[data-size=\"lg\"] { --ew-spec-size: lg; }\n  .ew-avatar:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-avatar, .ew-avatar *, .ew-avatar *::before, .ew-avatar *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
       "type": "registry:file",
       "target": "styles/era-widgets/avatar.css"
     },
@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-avatar",
     "canonicalHtml": "<span class=\"ew-avatar\" data-variant=\"circle\" aria-label=\"Ada Lovelace\">\n  <span class=\"ew-avatar__fallback\">AL</span>\n</span>",
-    "cssPackage": "@era-widgets/css/avatar.css"
+    "cssPackage": "@groovster/css/avatar.css"
   }
 }

@@ -34,4 +34,19 @@
   @media (prefers-reduced-motion: reduce) {
     .ew-dialog, .ew-dialog::backdrop { transition: none; }
   }
+  /* spec variant variant=modal */
+  .ew-dialog[data-variant="modal"] { --ew-spec-variant-variant: modal; }
+  /* spec variant variant=sheet */
+  .ew-dialog[data-variant="sheet"] { --ew-spec-variant-variant: sheet; }
+  .ew-dialog:not([data-variant]) { --ew-spec-variant-variant: modal; }
+  .ew-dialog[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-dialog[data-size="md"] { --ew-spec-size: md; }
+  .ew-dialog[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-dialog:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-dialog, .ew-dialog *, .ew-dialog *::before, .ew-dialog *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

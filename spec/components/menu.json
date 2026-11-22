@@ -50,8 +50,8 @@
     }
   ],
   "imports": [
-    "@era-widgets/css/menu.css",
-    "@era-widgets/css/eras/<era>.css"
+    "@groovster/css/menu.css",
+    "@groovster/css/eras/<era>.css"
   ],
   "tokenDeps": [
     "color.fg.*",

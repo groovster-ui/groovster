@@ -21,4 +21,19 @@
   .ew-radio__control:checked + .ew-radio__disc::after { transform: scale(1); }
   .ew-radio__control:focus-visible + .ew-radio__disc { outline: 2px solid var(--ew-color-field-focus); outline-offset: 2px; }
   .ew-radio__label { color: var(--ew-color-fg-default); }
+  /* spec variant variant=default */
+  .ew-radio[data-variant="default"] { --ew-spec-variant-variant: default; }
+  /* spec variant variant=card */
+  .ew-radio[data-variant="card"] { --ew-spec-variant-variant: card; }
+  .ew-radio:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-radio[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-radio[data-size="md"] { --ew-spec-size: md; }
+  .ew-radio[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-radio:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-radio, .ew-radio *, .ew-radio *::before, .ew-radio *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

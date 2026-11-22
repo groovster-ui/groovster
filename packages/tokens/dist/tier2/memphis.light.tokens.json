@@ -2,8 +2,9 @@
   "$schema": "../../../schema/tokens.schema.json",
   "meta": {
     "tier": 2,
-    "era": "earth",
-    "mode": "shared"
+    "era": "memphis",
+    "mode": "light",
+    "description": "Tier 2 semantic roles for memphis light (references tier 1)"
   },
   "color": {
     "fg": {
@@ -13,35 +14,35 @@
       },
       "muted": {
         "$type": "color",
-        "$value": "{color.moss}"
+        "$value": "color-mix(in oklch, {color.ink} 55%, {color.cream})"
       },
       "inverse": {
         "$type": "color",
-        "$value": "{color.sand}"
+        "$value": "{color.cream}"
       }
     },
     "bg": {
       "page": {
         "$type": "color",
-        "$value": "{color.sand}"
+        "$value": "{color.cream}"
       },
       "surface": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 95%, {color.clay} 5%)"
+        "$value": "color-mix(in oklch, {color.cream} 92%, {color.yellow})"
       },
       "elevated": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 98%, white 2%)"
+        "$value": "{color.cream}"
       }
     },
     "border": {
       "subtle": {
         "$type": "color",
-        "$value": "{color.clay}"
+        "$value": "{color.ink}"
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.moss}"
+        "$value": "{color.ink}"
       }
     },
     "action": {
@@ -55,31 +56,31 @@
       },
       "hover": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.accent.solid} 90%, black 10%)"
+        "$value": "color-mix(in oklch, {color.accent.solid} 85%, {color.ink})"
       }
     },
     "field": {
       "bg": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 98%, white 2%)"
+        "$value": "{color.cream}"
       },
       "border": {
         "$type": "color",
-        "$value": "{color.clay}"
+        "$value": "{color.ink}"
       },
       "focus": {
         "$type": "color",
-        "$value": "{color.moss}"
+        "$value": "{color.blue}"
       }
     },
     "overlay": {
       "$type": "color",
-      "$value": "color-mix(in oklch, {color.ink} 100%, transparent 60%)"
+      "$value": "color-mix(in oklch, {color.ink} 40%, transparent)"
     },
     "track": {
       "off": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 90%, {color.clay} 10%)"
+        "$value": "color-mix(in oklch, {color.cream} 80%, {color.ink})"
       },
       "on": {
         "$type": "color",
@@ -102,11 +103,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "2px",
-          "blur": "6px",
+          "offsetX": "4px",
+          "offsetY": "4px",
+          "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.ink} 100%, transparent 90%)"
+          "color": "{color.ink}"
         }
       ]
     },
@@ -114,11 +115,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "8px",
-          "blur": "20px",
+          "offsetX": "6px",
+          "offsetY": "6px",
+          "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.ink} 100%, transparent 86%)"
+          "color": "{color.ink}"
         }
       ]
     },
@@ -126,11 +127,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "16px",
-          "blur": "36px",
+          "offsetX": "10px",
+          "offsetY": "10px",
+          "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.ink} 100%, transparent 82%)"
+          "color": "{color.ink}"
         }
       ]
     }

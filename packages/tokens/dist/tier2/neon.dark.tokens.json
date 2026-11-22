@@ -1,0 +1,153 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 2,
+    "era": "neon",
+    "mode": "dark",
+    "description": "Tier 2 semantic roles for neon dark (references tier 1)"
+  },
+  "color": {
+    "fg": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.ink}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.ink} 70%, {color.sky})"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.sky}"
+      }
+    },
+    "bg": {
+      "page": {
+        "$type": "color",
+        "$value": "{color.sky}"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.panel}"
+      },
+      "elevated": {
+        "$type": "color",
+        "$value": "{color.violet}"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.violet}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.magenta}"
+      }
+    },
+    "action": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "{color.accent.fg}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.accent.solid} 88%, {color.ink})"
+      }
+    },
+    "field": {
+      "bg": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.panel} 90%, {color.sky})"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.cyan}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.cyan}"
+      }
+    },
+    "overlay": {
+      "$type": "color",
+      "$value": "color-mix(in oklch, {color.sky} 70%, transparent)"
+    },
+    "track": {
+      "off": {
+        "$type": "color",
+        "$value": "{color.violet}"
+      },
+      "on": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      }
+    },
+    "danger": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.danger.solid}"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "{color.danger.fg}"
+      }
+    }
+  },
+  "elevation": {
+    "1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "0px",
+          "spread": "1px",
+          "color": "color-mix(in oklch, {color.magenta} 55%, transparent)"
+        }
+      ]
+    },
+    "2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "12px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.magenta} 35%, transparent)"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "24px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.sky} 60%, transparent)"
+        }
+      ]
+    },
+    "dialog": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "24px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.cyan} 35%, transparent)"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "20px",
+          "blur": "48px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.sky} 70%, transparent)"
+        }
+      ]
+    }
+  }
+}

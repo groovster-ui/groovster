@@ -8,7 +8,7 @@ HTML:
 <!-- region.show({ title, body, variant }) -->
 ```
 
-CSS: @era-widgets/css/toast.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/toast.css + @groovster/css/eras/<era>.css
 Variants: variant=info|success|warning|danger(default:info)
 Sizes: sm|md|lg (default md)
 ARIA: status / alert

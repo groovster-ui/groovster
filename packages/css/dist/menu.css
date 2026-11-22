@@ -25,4 +25,17 @@
     cursor: pointer;
   }
   .ew-menu__item:hover, .ew-menu__item:focus-visible { background: color-mix(in oklch, var(--ew-color-action-bg) 16%, transparent); outline: none; }
+  /* spec variant variant=default */
+  .ew-menu[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-menu:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-menu[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-menu[data-size="md"] { --ew-spec-size: md; }
+  .ew-menu[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-menu:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-menu, .ew-menu *, .ew-menu *::before, .ew-menu *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

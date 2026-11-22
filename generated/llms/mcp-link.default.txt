@@ -1,5 +1,1 @@
-<!-- Link -->
-<a class="ew-link" href="/pricing">View pricing</a>
-
-import "@era-widgets/css/link.css";
-a11y: Use real <a href>.
+{"version":"0.1.0-alpha.0","name":"link","html":"<a class=\"ew-link\" href=\"/pricing\">View pricing</a>","css":"import \"@groovster/css/link.css\";","a11y":"Use real <a href>."}

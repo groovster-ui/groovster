@@ -1,10 +1,1 @@
-<!-- Popover -->
-<ew-popover class="ew-popover">
-  <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-1">Details</button>
-  <div id="pop-1" class="ew-popover__panel" popover>
-    <p>Popover content</p>
-  </div>
-</ew-popover>
-
-import "@era-widgets/css/popover.css";
-a11y: <ew-popover> syncs aria and Escape/outside dismiss.
+{"version":"0.1.0-alpha.0","name":"popover","html":"<ew-popover class=\"ew-popover\">\n  <button type=\"button\" class=\"ew-button ew-popover__trigger\" popovertarget=\"pop-1\">Details</button>\n  <div id=\"pop-1\" class=\"ew-popover__panel\" popover>\n    <p>Popover content</p>\n  </div>\n</ew-popover>","css":"import \"@groovster/css/popover.css\";","a11y":"<ew-popover> syncs aria and Escape/outside dismiss."}

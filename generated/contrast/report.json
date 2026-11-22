@@ -1,83 +1,97 @@
 {
   "eras": {
     "neutral": {
-      "pass": true,
-      "light": {
-        "pass": true,
-        "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
       },
-      "dark": {
-        "pass": true,
-        "issues": []
-      }
+      "pass": true
     },
     "deco": {
-      "pass": true,
-      "light": {
-        "pass": true,
-        "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
       },
-      "dark": {
-        "pass": true,
-        "issues": []
-      }
+      "pass": true
     },
     "mcm-atomic": {
-      "pass": true,
-      "light": {
-        "pass": true,
-        "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
       },
-      "dark": {
-        "pass": true,
-        "issues": []
-      }
+      "pass": true
     },
     "neon": {
-      "pass": true,
-      "light": {
-        "pass": true,
-        "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
       },
-      "dark": {
-        "pass": true,
-        "issues": []
-      }
+      "pass": true
     },
     "memphis": {
-      "pass": true,
-      "light": {
-        "pass": true,
-        "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
       },
-      "dark": {
-        "pass": true,
-        "issues": []
-      }
+      "pass": true
     },
     "groovy": {
-      "pass": true,
-      "light": {
-        "pass": true,
-        "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
       },
-      "dark": {
-        "pass": true,
-        "issues": []
-      }
+      "pass": true
     },
     "earth": {
-      "pass": true,
-      "light": {
-        "pass": true,
-        "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
       },
-      "dark": {
-        "pass": true,
-        "issues": []
-      }
+      "pass": true
     }
   },
   "pass": true,
-  "note": "Glow ignored; flat OKLCH fills only. Proper OKLCH→sRGB→WCAG luminance."
+  "note": "Glow ignored; flat OKLCH fills only. OKLCH→sRGB + WCAG relative luminance. Both modes."
 }

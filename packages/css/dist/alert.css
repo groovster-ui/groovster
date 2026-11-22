@@ -17,4 +17,23 @@
   .ew-alert[data-variant="danger"] { border-inline-start-color: var(--ew-color-danger-bg); }
   .ew-alert__title { font-weight: 700; }
   .ew-alert__body { margin: 0; }
+  /* spec variant variant=info */
+  .ew-alert[data-variant="info"] { --ew-spec-variant-variant: info; }
+  /* spec variant variant=success */
+  .ew-alert[data-variant="success"] { --ew-spec-variant-variant: success; }
+  /* spec variant variant=warning */
+  .ew-alert[data-variant="warning"] { --ew-spec-variant-variant: warning; }
+  /* spec variant variant=danger */
+  .ew-alert[data-variant="danger"] { --ew-spec-variant-variant: danger; }
+  .ew-alert:not([data-variant]) { --ew-spec-variant-variant: info; }
+  .ew-alert[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-alert[data-size="md"] { --ew-spec-size: md; }
+  .ew-alert[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-alert:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-alert, .ew-alert *, .ew-alert *::before, .ew-alert *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

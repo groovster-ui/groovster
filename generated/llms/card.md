@@ -11,7 +11,7 @@ HTML:
 </article>
 ```
 
-CSS: @era-widgets/css/card.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/card.css + @groovster/css/eras/<era>.css
 Variants: variant=raised|inset|outline|flat(default:raised)
 Sizes: sm|md|lg (default md)
 ARIA: group / region / article (context-dependent)

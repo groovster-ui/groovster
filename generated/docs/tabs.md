@@ -19,8 +19,8 @@ Tablist + tabpanels. Phase 0 specifies the contract; Phase 1 ships a light-DOM w
 
 ## Imports
 
-- `@era-widgets/css/tabs.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/tabs.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

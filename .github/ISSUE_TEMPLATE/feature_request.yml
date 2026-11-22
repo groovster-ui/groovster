@@ -1,0 +1,95 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for Era Widgets
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Please describe it below.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Is your feature request related to a problem? Please describe.
+      placeholder: I'm frustrated when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like to see
+      placeholder: I'd like to have...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Feature Type
+      description: What type of feature is this?
+      options:
+        - New component
+        - New era/theme
+        - Component enhancement
+        - Developer experience
+        - Documentation
+        - Build/tooling
+        - Accessibility improvement
+        - Performance improvement
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or features you've considered
+      placeholder: I considered...
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
+      description: Provide examples, mockups, or references to similar implementations
+      placeholder: Links, code samples, screenshots...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: principles
+    attributes:
+      label: Alignment with Project Principles
+      description: Does this feature align with Era Widgets principles?
+      options:
+        - label: Spec-first (can be defined in JSON specs)
+          required: false
+        - label: HTML + CSS first (minimal or zero JS)
+          required: false
+        - label: Accessibility focused (APG compliance)
+          required: false
+        - label: Agent-friendly (respects size budgets)
+          required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context or information
+      placeholder: Additional notes...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contributing
+    attributes:
+      label: Contribution
+      options:
+        - label: I would be willing to contribute this feature via a PR
+          required: false

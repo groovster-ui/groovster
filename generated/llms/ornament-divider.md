@@ -7,7 +7,7 @@ HTML:
 <hr class="ew-ornament-divider" data-variant="ornament" />
 ```
 
-CSS: @era-widgets/css/ornament-divider.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/ornament-divider.css + @groovster/css/eras/<era>.css
 Variants: variant=line|ornament(default:line)
 Sizes: sm|md|lg (default md)
 ARIA: separator

@@ -1,0 +1,26 @@
+{
+  "name": "@groovster/react",
+  "version": "0.1.0-alpha.0",
+  "description": "Thin React wrappers over Groovster ew-* HTML/CSS (generated from specs).",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "groovster",
+    "react",
+    "design-systems"
+  ]
+}

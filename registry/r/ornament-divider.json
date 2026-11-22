@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "era-widgets/ornament-divider.css",
-      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-ornament-divider {\n    /* anatomy: root, ornament */\n  }\n  .ew-ornament-divider {\n    border: 0; height: 1px; margin: 24px 0; position: relative;\n    background: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);\n  }\n  .ew-ornament-divider[data-variant=\"ornament\"]::before {\n    content: \"\"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);\n    width: 12px; height: 12px; background: var(--ew-color-action-bg);\n    clip-path: var(--ew-structure-button-clip, none);\n    border-radius: var(--ew-structure-control-radius, 2px);\n    box-shadow: 0 0 0 4px var(--ew-color-bg-page, #fff);\n  }\n}\n",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-ornament-divider {\n    /* anatomy: root, ornament */\n  }\n  .ew-ornament-divider {\n    border: 0; height: 1px; margin: 24px 0; position: relative;\n    background: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);\n  }\n  .ew-ornament-divider[data-variant=\"ornament\"]::before {\n    content: \"\"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);\n    width: 12px; height: 12px; background: var(--ew-color-action-bg);\n    clip-path: var(--ew-structure-button-clip, none);\n    border-radius: var(--ew-structure-control-radius, 2px);\n    box-shadow: 0 0 0 4px var(--ew-color-bg-page, #fff);\n  }\n  /* spec variant variant=line */\n  .ew-ornament-divider[data-variant=\"line\"] { --ew-spec-variant-variant: line; }\n  /* spec variant variant=ornament */\n  .ew-ornament-divider[data-variant=\"ornament\"] { --ew-spec-variant-variant: ornament; }\n  .ew-ornament-divider:not([data-variant]) { --ew-spec-variant-variant: line; }\n  .ew-ornament-divider[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-ornament-divider[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-ornament-divider[data-size=\"lg\"] { --ew-spec-size: lg; }\n  .ew-ornament-divider:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-ornament-divider, .ew-ornament-divider *, .ew-ornament-divider *::before, .ew-ornament-divider *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
       "type": "registry:file",
       "target": "styles/era-widgets/ornament-divider.css"
     },
@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-ornament-divider",
     "canonicalHtml": "<hr class=\"ew-ornament-divider\" data-variant=\"ornament\" />",
-    "cssPackage": "@era-widgets/css/ornament-divider.css"
+    "cssPackage": "@groovster/css/ornament-divider.css"
   }
 }

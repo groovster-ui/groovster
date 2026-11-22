@@ -29,7 +29,7 @@
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(53% 0.2 250)"
+        "$value": "oklch(47% 0.2 250)"
       },
       "fg": {
         "$type": "color",

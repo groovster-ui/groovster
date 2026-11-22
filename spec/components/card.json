@@ -155,8 +155,8 @@
   ],
   "canonicalHtml": "<article class=\"ew-card\">\n  <header class=\"ew-card__header\"><h3>Plan</h3></header>\n  <div class=\"ew-card__body\"><p>Everything you need to ship.</p></div>\n  <footer class=\"ew-card__footer\"><button type=\"button\" class=\"ew-button\">Choose</button></footer>\n</article>",
   "imports": [
-    "@era-widgets/css/card.css",
-    "@era-widgets/css/eras/<era>.css"
+    "@groovster/css/card.css",
+    "@groovster/css/eras/<era>.css"
   ],
   "do": [
     "Use semantic root (article/section) when content warrants it.",

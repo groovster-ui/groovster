@@ -16,8 +16,8 @@ Radio option in a named group. Native radios; eras skin the disc.
 
 ## Imports
 
-- `@era-widgets/css/radio.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/radio.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

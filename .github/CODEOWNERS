@@ -1,0 +1,40 @@
+# Code Owners for Era Widgets
+#
+# These owners will be automatically requested for review when a PR touches
+# files in the specified paths.
+#
+# More info: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything in the repo
+# Update this with actual maintainer GitHub usernames
+* @MAINTAINER_USERNAME
+
+# Component specifications
+/spec/components/ @MAINTAINER_USERNAME
+
+# Era specifications
+/spec/eras/ @MAINTAINER_USERNAME
+
+# Design tokens
+/spec/tokens/ @MAINTAINER_USERNAME
+
+# JSON Schemas - require careful review
+/spec/schema/ @MAINTAINER_USERNAME
+
+# Build and generation tools
+/tools/gen/ @MAINTAINER_USERNAME
+/scripts/ @MAINTAINER_USERNAME
+
+# Web Components
+/packages/elements/ @MAINTAINER_USERNAME
+
+# MCP Server
+/packages/mcp/ @MAINTAINER_USERNAME
+
+# CI/CD workflows
+/.github/workflows/ @MAINTAINER_USERNAME
+
+# Documentation
+/README.md @MAINTAINER_USERNAME
+/CONTRIBUTING.md @MAINTAINER_USERNAME
+/SECURITY.md @MAINTAINER_USERNAME

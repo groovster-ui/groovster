@@ -11,4 +11,17 @@
     content: "/"; color: var(--ew-color-fg-muted); opacity: 0.7;
   }
   .ew-breadcrumb__item[aria-current="page"] { color: var(--ew-color-fg-default); font-weight: 600; }
+  /* spec variant variant=default */
+  .ew-breadcrumb[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-breadcrumb:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-breadcrumb[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-breadcrumb[data-size="md"] { --ew-spec-size: md; }
+  .ew-breadcrumb[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-breadcrumb:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-breadcrumb, .ew-breadcrumb *, .ew-breadcrumb *::before, .ew-breadcrumb *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

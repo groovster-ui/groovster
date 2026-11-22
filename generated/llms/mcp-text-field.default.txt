@@ -1,8 +1,1 @@
-<!-- TextField -->
-<div class="ew-text-field">
-  <label class="ew-text-field__label" for="email">Email</label>
-  <input id="email" class="ew-text-field__control" type="email" autocomplete="email" />
-</div>
-
-import "@era-widgets/css/text-field.css";
-a11y: Wire label via for/id.
+{"version":"0.1.0-alpha.0","name":"text-field","html":"<div class=\"ew-text-field\">\n  <label class=\"ew-text-field__label\" for=\"email\">Email</label>\n  <input id=\"email\" class=\"ew-text-field__control\" type=\"email\" autocomplete=\"email\" />\n</div>","css":"import \"@groovster/css/text-field.css\";","a11y":"Wire label via for/id."}

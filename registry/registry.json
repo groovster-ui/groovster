@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "era-widgets",
-  "homepage": "https://github.com/example/groovster",
+  "homepage": "https://groovsterui.com",
   "items": [
     {
       "name": "ew-alert",

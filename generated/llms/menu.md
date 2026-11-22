@@ -13,7 +13,7 @@ HTML:
 </ew-menu>
 ```
 
-CSS: @era-widgets/css/menu.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/menu.css + @groovster/css/eras/<era>.css
 Variants: variant=default(default:default)
 Sizes: sm|md|lg (default md)
 ARIA: menu / menuitem

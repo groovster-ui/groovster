@@ -11,7 +11,7 @@ HTML:
 </ew-slider>
 ```
 
-CSS: @era-widgets/css/slider.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/slider.css + @groovster/css/eras/<era>.css
 Variants: variant=default(default:default)
 Sizes: sm|md|lg (default md)
 ARIA: slider

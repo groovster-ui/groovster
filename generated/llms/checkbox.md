@@ -11,7 +11,7 @@ HTML:
 </label>
 ```
 
-CSS: @era-widgets/css/checkbox.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/checkbox.css + @groovster/css/eras/<era>.css
 Variants: variant=default|card(default:default)
 Sizes: sm|md|lg (default md)
 ARIA: checkbox (native)

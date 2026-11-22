@@ -10,7 +10,14 @@ Authority: project roadmap v2 (Agent Store `docs/era-widgets-roadmap-v2.md`).
 
 1. **Spec-first** — components, eras, and tokens live under `spec/`; code/docs/`llms.txt` are **generated**. Hand drift fails CI.
 2. **HTML + CSS is the public API** — e.g. `<button class="ew-button" data-variant="primary">`.
-3. **Zero JS for the look** — `data-era` × `data-mode` × `data-fidelity`.
+3. **Zero JS for the look** — `data-era` × `data-mode` × `data-fidelity` / `data-fidelity-band`.
+
+### Look settings (fidelity)
+
+- **`data-fidelity="0"…"100"`** sets `--ew-fidelity` (via `@property`) and continuously scales ornament/drama. Values ≤25 mute structure like the whisper band when `data-fidelity-band` is absent.
+- **`data-fidelity-band="whisper|signature|costume"`** is the discrete band API (still supported; overrides continuous muting when present).
+- Prefer both together in demos: `data-fidelity="40" data-fidelity-band="signature"`.
+- Also honors `prefers-reduced-motion`, `prefers-reduced-transparency`, and `forced-colors`.
 4. **Native first** for behavior; small owned web components later for hard widgets.
 5. **Agent efficiency** — size budgets on MCP defaults, era cards, and llms sections.
 
@@ -79,14 +86,14 @@ Tabs behavior: `<script src="packages/elements/dist/ew-tabs.js">` — dependency
 ## MCP + registry (Phase 2)
 
 ```bash
-pnpm --filter @era-widgets/mcp smoke   # tool smoke (compact replies + exact-fix validate)
+pnpm --filter @groovster/mcp smoke   # tool smoke (compact replies + exact-fix validate)
 pnpm mcp                               # stdio MCP server
 pnpm gen                               # also writes registry/ + generated/rules/ + llms.txt
 python3 -m http.server 4174 --directory registry
 # npx shadcn@latest add http://127.0.0.1:4174/r/button.json
 ```
 
-Packages (local, publish-ready manifests; not published yet): `@era-widgets/css`, `@era-widgets/elements`, `@era-widgets/tokens`, `@era-widgets/mcp`.
+Packages (local, publish-ready manifests; not published yet): `@groovster/css`, `@groovster/elements`, `@groovster/tokens`, `@groovster/mcp`.
 
 
 

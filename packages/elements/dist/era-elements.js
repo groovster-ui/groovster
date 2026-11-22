@@ -614,10 +614,12 @@
 /**
  * <ew-popover> — light-DOM non-modal popover (APG Disclosure / Popover pattern).
  * Uses Popover API when available; falls back to hidden toggle. No imports. Zag.js: not used.
+ * Listens for the native `toggle` event so aria-expanded never goes stale.
  */
 (() => {
   const TAG = 'ew-popover';
   if (customElements.get(TAG)) return;
+  let uid = 0;
 
   class EwPopover extends HTMLElement {
     #ready = false;
@@ -625,6 +627,9 @@
     #onDoc = (e) => {
       if (!this.#isOpen()) return;
       if (!this.contains(e.target)) this.#close();
+    };
+    #onToggle = () => {
+      this.#syncAria();
     };
 
     connectedCallback() {
@@ -641,6 +646,7 @@
       this.#mo?.disconnect();
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKey);
+      this.#panel?.removeEventListener('toggle', this.#onToggle);
       document.removeEventListener('pointerdown', this.#onDoc, true);
     }
 
@@ -663,12 +669,14 @@
       const trigger = this.#trigger;
       const panel = this.#panel;
       if (!trigger || !panel) return;
-      if (!panel.id) panel.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
+      if (!panel.id) panel.id = `${TAG}-${++uid}`;
       trigger.setAttribute('aria-controls', panel.id);
       trigger.setAttribute('aria-expanded', 'false');
       if (!panel.hasAttribute('popover')) {
         panel.hidden = true;
       }
+      panel.removeEventListener('toggle', this.#onToggle);
+      panel.addEventListener('toggle', this.#onToggle);
     }
 
     #isOpen() {
@@ -711,14 +719,13 @@
       } else {
         panel.hidden = false;
       }
-      trigger.setAttribute('aria-expanded', 'true');
+      this.#syncAria();
       document.addEventListener('pointerdown', this.#onDoc, true);
       this.dispatchEvent(new CustomEvent('ew-popover-open', { bubbles: true }));
     }
 
     #close() {
       const panel = this.#panel;
-      const trigger = this.#trigger;
       if (!panel) return;
       if (typeof panel.hidePopover === 'function' && panel.hasAttribute('popover')) {
         try {
@@ -729,7 +736,7 @@
       } else {
         panel.hidden = true;
       }
-      trigger?.setAttribute('aria-expanded', 'false');
+      this.#syncAria();
       document.removeEventListener('pointerdown', this.#onDoc, true);
       this.dispatchEvent(new CustomEvent('ew-popover-close', { bubbles: true }));
     }
@@ -850,6 +857,7 @@
 /**
  * <ew-toast-region> — light-DOM toast host with polite live region (APG live regions).
  * Method: region.show({ title, body, variant, timeout }). No imports. Zag.js: not used.
+ * Timer pauses on hover/focus. Uses role=status only (region is already live — no nested alert).
  */
 (() => {
   const TAG = 'ew-toast-region';
@@ -868,7 +876,8 @@
       const toast = document.createElement('div');
       toast.className = 'ew-toast';
       toast.dataset.variant = opts.variant || 'info';
-      toast.setAttribute('role', opts.variant === 'danger' ? 'alert' : 'status');
+      // Region already has aria-live; keep a single status role (never nest role=alert).
+      toast.setAttribute('role', 'status');
       if (opts.title) {
         const t = document.createElement('strong');
         t.className = 'ew-toast__title';
@@ -889,19 +898,40 @@
       close.addEventListener('click', () => this.#dismiss(toast));
       toast.appendChild(close);
 
-      this.appendChild(toast);
       const timeout = opts.timeout ?? 5000;
-      if (timeout > 0) {
-        const id = window.setTimeout(() => this.#dismiss(toast), timeout);
-        toast.dataset.timeoutId = String(id);
-      }
+      toast._ewRemaining = timeout;
+      toast._ewDeadline = 0;
+      toast._ewTimer = 0;
+
+      const pause = () => this.#pause(toast);
+      const resume = () => this.#resume(toast);
+      toast.addEventListener('pointerenter', pause);
+      toast.addEventListener('pointerleave', resume);
+      toast.addEventListener('focusin', pause);
+      toast.addEventListener('focusout', resume);
+
+      this.appendChild(toast);
+      if (timeout > 0) this.#resume(toast);
       this.dispatchEvent(new CustomEvent('ew-toast-show', { bubbles: true, detail: opts }));
       return toast;
     }
 
+    #pause(toast) {
+      if (!toast._ewTimer) return;
+      clearTimeout(toast._ewTimer);
+      toast._ewTimer = 0;
+      toast._ewRemaining = Math.max(0, toast._ewDeadline - Date.now());
+    }
+
+    #resume(toast) {
+      if (toast._ewRemaining <= 0 || toast._ewTimer) return;
+      toast._ewDeadline = Date.now() + toast._ewRemaining;
+      toast._ewTimer = window.setTimeout(() => this.#dismiss(toast), toast._ewRemaining);
+    }
+
     #dismiss(toast) {
       if (!toast.isConnected) return;
-      if (toast.dataset.timeoutId) clearTimeout(Number(toast.dataset.timeoutId));
+      if (toast._ewTimer) clearTimeout(toast._ewTimer);
       toast.remove();
       this.dispatchEvent(new CustomEvent('ew-toast-dismiss', { bubbles: true }));
     }

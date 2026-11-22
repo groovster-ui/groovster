@@ -23,4 +23,19 @@
   .ew-checkbox__control:focus-visible + .ew-checkbox__box { outline: 2px solid var(--ew-color-field-focus); outline-offset: 2px; }
   .ew-checkbox__label { color: var(--ew-color-fg-default); }
   @media (prefers-reduced-motion: reduce) { .ew-checkbox__box::after { transition: none; } }
+  /* spec variant variant=default */
+  .ew-checkbox[data-variant="default"] { --ew-spec-variant-variant: default; }
+  /* spec variant variant=card */
+  .ew-checkbox[data-variant="card"] { --ew-spec-variant-variant: card; }
+  .ew-checkbox:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-checkbox[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-checkbox[data-size="md"] { --ew-spec-size: md; }
+  .ew-checkbox[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-checkbox:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-checkbox, .ew-checkbox *, .ew-checkbox *::before, .ew-checkbox *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

@@ -276,7 +276,9 @@
         "field",
         "dialog",
         "tabs",
-        "switch"
+        "switch",
+        "tooltip",
+        "slider"
       ],
       "properties": {
         "controlRadius": {
@@ -470,6 +472,46 @@
               "type": "string"
             },
             "shadow": {
+              "type": "string"
+            }
+          }
+        },
+        "tooltip": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "radius",
+            "shadow",
+            "padding"
+          ],
+          "properties": {
+            "radius": {
+              "type": "string"
+            },
+            "shadow": {
+              "type": "string"
+            },
+            "padding": {
+              "type": "string"
+            }
+          }
+        },
+        "slider": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "trackHeight",
+            "thumbSize",
+            "trackRadius"
+          ],
+          "properties": {
+            "trackHeight": {
+              "type": "string"
+            },
+            "thumbSize": {
+              "type": "string"
+            },
+            "trackRadius": {
               "type": "string"
             }
           }

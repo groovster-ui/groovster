@@ -3,7 +3,7 @@
 Use **HTML** with `ew-*` classes. Flip eras with `data-era` (deco|earth|groovy|mcm-atomic|memphis|neon|neutral).
 
 ```html
-<link rel="stylesheet" href="node_modules/@era-widgets/css/era-widgets.css" />
+<link rel="stylesheet" href="node_modules/@groovster/css/era-widgets.css" />
 <div data-era="deco" data-mode="light">
   <button type="button" class="ew-button">Save</button>
 </div>

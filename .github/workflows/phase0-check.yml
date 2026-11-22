@@ -1,22 +1,54 @@
 name: era-widgets-check
+
 on:
   push:
+    branches:
+      - main
   pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
   check:
+    name: Lint, Test & Build
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm check
-      - run: pnpm no-imports
-      - run: pnpm mcp:smoke
-      - run: pnpm eval
-      - run: pnpm exec playwright install --with-deps chromium
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Run validation checks
+        run: pnpm check
+      
+      - name: Verify no imports in published files
+        run: pnpm no-imports
+      
+      - name: Run MCP smoke tests
+        run: pnpm mcp:smoke
+      
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
         working-directory: tools/a11y
-      - run: pnpm test:a11y
+      
+      - name: Run eval tests
+        run: pnpm eval
+      
+      - name: Run accessibility tests
+        run: pnpm test:a11y

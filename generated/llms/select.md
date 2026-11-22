@@ -13,7 +13,7 @@ HTML:
 </ew-select>
 ```
 
-CSS: @era-widgets/css/select.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/select.css + @groovster/css/eras/<era>.css
 Variants: variant=outline|filled(default:outline)
 Sizes: sm|md|lg (default md)
 ARIA: button + listbox (ew-select)

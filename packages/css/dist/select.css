@@ -44,4 +44,19 @@
   }
   .ew-select__option[aria-selected="true"] { background: color-mix(in oklch, var(--ew-color-action-bg) 18%, transparent); }
   .ew-select__option:focus { outline: 2px solid var(--ew-color-field-focus); outline-offset: -2px; }
+  /* spec variant variant=outline */
+  .ew-select[data-variant="outline"] { --ew-spec-variant-variant: outline; }
+  /* spec variant variant=filled */
+  .ew-select[data-variant="filled"] { --ew-spec-variant-variant: filled; }
+  .ew-select:not([data-variant]) { --ew-spec-variant-variant: outline; }
+  .ew-select[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-select[data-size="md"] { --ew-spec-size: md; }
+  .ew-select[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-select:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-select, .ew-select *, .ew-select *::before, .ew-select *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }
