@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Groovster — one website, seven eras</title>
+  <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css" />
+  <style>
+    body { margin: 0; }
+    .launch { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding-bottom: 48px; }
+    .launch h1 { font-family: var(--ew-font-display, inherit); font-weight: 400; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 0.95; margin: 0 0 12px; }
+    .launch-lead { max-width: 62ch; font-size: 1.15rem; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0 16px; }
+    .controls p { flex-basis: 100%; margin: 12px 0 0; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .preview-frame { width: 100%; height: min(78vh, 860px); border: 1px solid var(--ew-color-border-strong); background: var(--ew-color-bg-page); }
+    .launch-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+    @media (max-width: 800px) { .launch-grid { grid-template-columns: 1fr; } .preview-frame { height: 70vh; } }
+  </style>
+</head>
+<body>
+  <div class="ew-root" data-era="neutral" data-mode="light" data-fidelity-band="whisper">
+    <main class="launch">
+      <p style="letter-spacing:0.14em;text-transform:uppercase;font-size:0.75rem">Groovster</p>
+      <h1>One website. Seven eras.</h1>
+      <p class="launch-lead">The preview is a real page. Switching the era changes geometry, type, surfaces, and ornament. The HTML inside does not get rewritten.</p>
+      <div class="controls" role="group" aria-label="Website type">
+        <p>Website</p>
+        <button type="button" class="ew-button" data-size="sm" data-pick-recipe="event" aria-pressed="true">Festival</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-recipe="hospitality">Hotel</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-recipe="editorial">Journal</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-recipe="commerce">Shop</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-recipe="dashboard">Ops</button>
+      </div>
+      <div class="controls" role="group" aria-label="Visual era">
+        <p>Era</p>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="neutral">Neutral</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="deco">Deco</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="earth">Earth</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="groovy">Groovy</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="mcm-atomic">Atomic</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="memphis">Memphis</button>
+        <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-pick-era="neon" aria-pressed="true">Neon</button>
+      </div>
+      <div class="controls" role="group" aria-label="Fidelity and color mode">
+        <p>Fidelity and mode</p>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-band="whisper">Whisper</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-band="standard">Standard</button>
+        <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-pick-band="costume" aria-pressed="true">Costume</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-mode="light">Light</button>
+        <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-pick-mode="dark" aria-pressed="true">Dark</button>
+        <a class="ew-link" id="open-site" href="../recipes/event/index.html">Open this site</a>
+      </div>
+      <iframe class="preview-frame" id="preview" title="Groovster website preview" src="../recipes/event/index.html?embed=1&amp;era=neon&amp;mode=dark&amp;band=costume"></iframe>
+      <div class="launch-grid">
+        <article class="ew-card"><header class="ew-card__header"><h2>What it does</h2></header><div class="ew-card__body"><p>Groovster is a CSS-first skin system. Eras are not recolors. Agents keep one HTML tree and set <code>data-era</code>.</p></div></article>
+        <article class="ew-card"><header class="ew-card__header"><h2>How agents use it</h2></header><div class="ew-card__body"><p>A skill picks a recipe, then writes Groovster markup. No account and no hosted service.</p></div></article>
+        <article class="ew-card"><header class="ew-card__header"><h2>Install</h2></header><div class="ew-card__body"><p>Copy <code>skills/groovster</code> for Cursor, Claude Code, or Codex. MCP is optional.</p><p><a class="ew-link" href="../../docs/agents.md">Installation notes</a></p></div></article>
+      </div>
+    </main>
+  </div>
+  <script>
+    const recipes = {
+      editorial: { era: 'earth', mode: 'light', band: 'costume' },
+      event: { era: 'neon', mode: 'dark', band: 'costume' },
+      commerce: { era: 'groovy', mode: 'light', band: 'standard' },
+      hospitality: { era: 'deco', mode: 'light', band: 'costume' },
+      dashboard: { era: 'neutral', mode: 'light', band: 'whisper' },
+    };
+    const frame = document.getElementById('preview');
+    const openLink = document.getElementById('open-site');
+    const state = { recipe: 'event', era: 'neon', mode: 'dark', band: 'costume' };
+    function src(embed) {
+      const base = `../recipes/${state.recipe}/index.html`;
+      const query = `era=${state.era}&mode=${state.mode}&band=${state.band}`;
+      return embed ? `${base}?embed=1&${query}` : `${base}?${query}`;
+    }
+    function paint() {
+      for (const button of document.querySelectorAll('button[data-pick-recipe]')) {
+        const on = button.dataset.pickRecipe === state.recipe;
+        button.setAttribute('aria-pressed', on ? 'true' : 'false');
+        button.dataset.variant = on ? 'primary' : 'ghost';
+      }
+      for (const button of document.querySelectorAll('button[data-pick-era]')) {
+        const on = button.dataset.pickEra === state.era;
+        button.setAttribute('aria-pressed', on ? 'true' : 'false');
+        button.dataset.variant = on ? 'secondary' : 'ghost';
+      }
+      for (const button of document.querySelectorAll('button[data-pick-band]')) {
+        const on = button.dataset.pickBand === state.band;
+        button.setAttribute('aria-pressed', on ? 'true' : 'false');
+        button.dataset.variant = on ? 'secondary' : 'ghost';
+      }
+      for (const button of document.querySelectorAll('button[data-pick-mode]')) {
+        const on = button.dataset.pickMode === state.mode;
+        button.setAttribute('aria-pressed', on ? 'true' : 'false');
+        button.dataset.variant = on ? 'secondary' : 'ghost';
+      }
+    }
+    function send() {
+      frame.contentWindow?.postMessage({ type: 'groovster-skin', era: state.era, mode: state.mode, band: state.band }, '*');
+    }
+    document.addEventListener('click', (event) => {
+      const button = event.target.closest('button');
+      if (!button) return;
+      if (button.dataset.pickRecipe) {
+        state.recipe = button.dataset.pickRecipe;
+        Object.assign(state, recipes[state.recipe]);
+        frame.src = src(true);
+        openLink.href = src(false);
+        paint();
+        return;
+      }
+      if (button.dataset.pickEra) state.era = button.dataset.pickEra;
+      if (button.dataset.pickMode) state.mode = button.dataset.pickMode;
+      if (button.dataset.pickBand) state.band = button.dataset.pickBand;
+      paint();
+      openLink.href = src(false);
+      send();
+    });
+    frame.addEventListener('load', send);
+    paint();
+  </script>
+</body>
+</html>

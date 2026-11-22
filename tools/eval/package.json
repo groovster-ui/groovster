@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "eval": "node src/cli.js",
-    "baseline": "node src/cli.js --write-baseline"
+    "baseline": "node src/cli.js --write-baseline",
+    "websites": "node src/websites.js"
   },
   "license": "MIT"
 }

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kindling — sample shop</title>
+<link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+<link rel="stylesheet" href="../shared/shell.css" />
+<script src="../../../packages/elements/dist/era-elements.js" defer></script>
+<script src="../shared/shell.js" defer></script>
+</head><body>
+
+<div class="ew-root recipe-commerce" data-groovster-root data-recipe="commerce" data-era="groovy" data-mode="light" data-fidelity-band="standard">
+<a class="ew-link site-skip" href="#content">Skip to content</a>
+<div class="site-wrap">
+  <div data-skin-mount data-skin-open="true"></div>
+  <nav class="site-nav" aria-label="Primary">
+    <a class="ew-link site-brand" href="#masthead">Kindling</a>
+    <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-open-dialog="cart-dialog">Cart <span data-cart-count aria-live="polite">0</span></button>
+  </nav>
+</div>
+<section class="ew-hero site-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true"><div class="ew-hero__sun"></div><div class="ew-hero__mountains"></div><div class="ew-hero__grid"></div><div class="ew-hero__scanlines"></div><div class="ew-hero__twotone"></div><div class="ew-hero__starbursts"></div><div class="ew-hero__arch"></div><div class="ew-orbit"></div></div>
+      <div class="ew-hero__panel"><div class="ew-hero__rays" aria-hidden="true"></div>
+        <div class="ew-hero__content"><div class="ew-hero__fan" aria-hidden="true"></div>
+          <p class="ew-script">Home goods</p><h1 class="ew-hero__title">Kindling</h1><p class="ew-hero__subtitle">A small fictional shop. The cart never checks out for real.</p>
+        </div>
+      </div>
+    </section>
+<main id="content" class="site-wrap">
+  <section class="site-section" id="filters"><h2>Filter the shelf</h2>
+    <div class="site-filters">
+      <ew-select class="ew-select"><label class="ew-select__label" for="category">Category</label>
+        <select id="category" class="ew-select__control" data-item-filter>
+          <option value="all">All goods</option><option value="ceramics">Ceramics</option><option value="textile">Textile</option><option value="home">Home</option><option value="print">Print</option>
+        </select>
+      </ew-select>
+      <label class="ew-checkbox"><input class="ew-checkbox__control" type="checkbox" data-stock-filter /><span class="ew-checkbox__box" aria-hidden="true"></span><span class="ew-checkbox__label">In stock only</span></label>
+    </div>
+  </section>
+  <section class="site-section" id="catalog"><h2>Goods</h2><div class="site-grid site-grid--3"><article class="ew-card" data-variant="raised" data-item data-category="ceramics" data-stock="in">
+      <div class="site-art" data-art="1" aria-hidden="true"></div>
+      <header class="ew-card__header"><h3>Clay lamp</h3></header>
+      <div class="ew-card__body"><p class="site-price">$128</p><p>In stock. Sample price.</p></div>
+      <footer class="ew-card__footer"><button type="button" class="ew-button" data-cart-add data-sku="lamp" data-name="Clay lamp" data-price="128">Add</button></footer>
+    </article><article class="ew-card" data-variant="raised" data-item data-category="textile" data-stock="in">
+      <div class="site-art" data-art="2" aria-hidden="true"></div>
+      <header class="ew-card__header"><h3>Wool throw</h3></header>
+      <div class="ew-card__body"><p class="site-price">$96</p><p>In stock. Sample price.</p></div>
+      <footer class="ew-card__footer"><button type="button" class="ew-button" data-cart-add data-sku="throw" data-name="Wool throw" data-price="96">Add</button></footer>
+    </article><article class="ew-card" data-variant="raised" data-item data-category="home" data-stock="in">
+      <div class="site-art" data-art="3" aria-hidden="true"></div>
+      <header class="ew-card__header"><h3>Oak tray</h3></header>
+      <div class="ew-card__body"><p class="site-price">$72</p><p>In stock. Sample price.</p></div>
+      <footer class="ew-card__footer"><button type="button" class="ew-button" data-cart-add data-sku="tray" data-name="Oak tray" data-price="72">Add</button></footer>
+    </article><article class="ew-card" data-variant="raised" data-item data-category="print" data-stock="out">
+      <div class="site-art" data-art="4" aria-hidden="true"></div>
+      <header class="ew-card__header"><h3>Ink poster</h3></header>
+      <div class="ew-card__body"><p class="site-price">$36</p><p>Out of stock in this sample.</p></div>
+      <footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="secondary" disabled>Out of stock</button></footer>
+    </article><article class="ew-card" data-variant="raised" data-item data-category="home" data-stock="in">
+      <div class="site-art" data-art="1" aria-hidden="true"></div>
+      <header class="ew-card__header"><h3>Glass pourer</h3></header>
+      <div class="ew-card__body"><p class="site-price">$54</p><p>In stock. Sample price.</p></div>
+      <footer class="ew-card__footer"><button type="button" class="ew-button" data-cart-add data-sku="pourer" data-name="Glass pourer" data-price="54">Add</button></footer>
+    </article><article class="ew-card" data-variant="raised" data-item data-category="textile" data-stock="out">
+      <div class="site-art" data-art="2" aria-hidden="true"></div>
+      <header class="ew-card__header"><h3>Linen apron</h3></header>
+      <div class="ew-card__body"><p class="site-price">$64</p><p>Out of stock in this sample.</p></div>
+      <footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="secondary" disabled>Out of stock</button></footer>
+    </article></div></section>
+  <section id="cart">
+    <dialog class="ew-dialog" id="cart-dialog" aria-labelledby="cart-title">
+      <header class="ew-dialog__header"><h2 id="cart-title">Fictional cart</h2></header>
+      <div class="ew-dialog__body">
+        <ul data-cart-lines></ul><p data-cart-total></p>
+        <form data-demo-form="checkout">
+          <div class="ew-text-field"><label class="ew-text-field__label" for="buyer">Name</label><input id="buyer" class="ew-text-field__control" type="text" autocomplete="name" required /></div>
+          <div class="ew-text-field"><label class="ew-text-field__label" for="buyer-email">Email</label><input id="buyer-email" class="ew-text-field__control" type="email" autocomplete="email" required /></div>
+          <div class="ew-alert" data-variant="warning" role="status"><strong class="ew-alert__title">Sample checkout</strong><p class="ew-alert__body">Nothing is charged.</p></div>
+          <div class="ew-alert" data-variant="success" role="status" data-demo-status hidden><strong class="ew-alert__title">Recorded</strong><p class="ew-alert__body">Order recorded locally.</p></div>
+          <footer class="ew-dialog__footer"><button type="button" class="ew-button" data-variant="ghost" data-close-dialog>Close</button><button type="submit" class="ew-button">Place fictional order</button></footer>
+        </form>
+      </div>
+    </dialog>
+  </section>
+</main>
+<footer class="site-wrap site-foot"><p class="site-fiction">Fictional shop. No payment is taken and no order is sent.</p></footer>
+
+<ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+</div></body></html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voltage Park 87</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../shared/shell.css" />
+  <script src="../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../shared/shell.js" defer></script>
+</head>
+<body>
+
+  <div class="ew-root recipe-event" data-groovster-root data-recipe="event" data-era="neon" data-mode="dark" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#content">Skip to content</a>
+    <div class="site-wrap">
+      <div data-skin-mount data-skin-open="true"></div>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="ew-link site-brand" href="#masthead">Voltage Park</a>
+        <div class="site-nav__links">
+          <a class="ew-link" data-variant="nav" href="#lineup">Lineup</a>
+          <a class="ew-link" data-variant="nav" href="#schedule">Schedule</a>
+          <a class="ew-link" data-variant="nav" href="#tickets">Tickets</a>
+        </div>
+      </nav>
+    </div>
+<section class="ew-hero site-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true">
+        <div class="ew-hero__sun"></div><div class="ew-hero__mountains"></div><div class="ew-hero__grid"></div>
+        <div class="ew-hero__scanlines"></div><div class="ew-hero__twotone"></div><div class="ew-hero__starbursts"></div>
+        <div class="ew-hero__arch"></div><div class="ew-orbit"></div>
+      </div>
+      <div class="ew-hero__panel">
+        <div class="ew-hero__rays" aria-hidden="true"></div>
+        <div class="ew-hero__content site-poster">
+          <div class="ew-hero__fan" aria-hidden="true"></div>
+          <p class="ew-script">Three nights</p>
+          <h1 class="ew-hero__title">Voltage Park '87</h1>
+          <p class="ew-hero__subtitle">A fictional harbor festival. The grid stays on the poster, not on the ticket form.</p>
+        </div>
+      </div>
+    </section>
+    <main id="content" class="site-wrap">
+      <section class="site-section" id="lineup"><h2>Lineup</h2>
+        <div class="site-grid site-grid--3">
+          <article class="ew-card"><div class="site-art" data-art="1" aria-hidden="true"></div><header class="ew-card__header"><h3>Glass Cathedral</h3></header><div class="ew-card__body"><p>Friday close.</p></div></article>
+          <article class="ew-card"><div class="site-art" data-art="2" aria-hidden="true"></div><header class="ew-card__header"><h3>Night Market Brass</h3></header><div class="ew-card__body"><p>Saturday dusk.</p></div></article>
+          <article class="ew-card"><div class="site-art" data-art="3" aria-hidden="true"></div><header class="ew-card__header"><h3>House of Wires</h3></header><div class="ew-card__body"><p>Sunday close. Fictional headliner.</p></div></article>
+        </div>
+      </section>
+      <section class="site-section" id="schedule"><h2>Schedule</h2>
+        <ew-tabs class="ew-tabs">
+          <div role="tablist" aria-label="Festival days">
+            <button type="button" role="tab" id="day-fri" aria-selected="true" aria-controls="panel-fri">Friday</button>
+            <button type="button" role="tab" id="day-sat" aria-selected="false" aria-controls="panel-sat" tabindex="-1">Saturday</button>
+          </div>
+          <div role="tabpanel" id="panel-fri" aria-labelledby="day-fri"><div class="site-table-wrap"><table class="site-table"><caption>Friday sets</caption><thead><tr><th scope="col">Time</th><th scope="col">Act</th></tr></thead><tbody><tr><td>20:30</td><td>Glass Cathedral</td></tr></tbody></table></div></div>
+          <div role="tabpanel" id="panel-sat" aria-labelledby="day-sat" hidden><div class="site-table-wrap"><table class="site-table"><caption>Saturday sets</caption><thead><tr><th scope="col">Time</th><th scope="col">Act</th></tr></thead><tbody><tr><td>21:00</td><td>The Low Orbiters</td></tr></tbody></table></div></div>
+        </ew-tabs>
+      </section>
+      <hr class="ew-ornament-divider" data-variant="ornament" />
+      <section class="site-section" id="tickets"><h2>Tickets</h2>
+        <p class="site-fiction">Sample prices. Review does not charge a card.</p>
+        <fieldset class="ew-radio-group"><legend>Tier</legend>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="tier" value="ga" checked /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Ground — $85</span></label>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="tier" value="weekend" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Weekend — $160</span></label>
+        </fieldset>
+        <ew-select class="ew-select"><label class="ew-select__label" for="ticket-qty">Quantity</label><select id="ticket-qty" class="ew-select__control"><option>1</option><option>2</option></select></ew-select>
+        <div class="site-actions"><button type="button" class="ew-button" data-open-dialog="ticket-dialog" data-summarize="tickets">Review hold</button></div>
+        <dialog class="ew-dialog" id="ticket-dialog" aria-labelledby="ticket-dialog-title">
+          <header class="ew-dialog__header"><h2 id="ticket-dialog-title">Fictional hold</h2></header>
+          <div class="ew-dialog__body"><p data-summary>Choose a tier.</p><div class="ew-alert" data-variant="info" role="status"><strong class="ew-alert__title">No payment</strong><p class="ew-alert__body">This dialog does not connect to a box office.</p></div></div>
+          <footer class="ew-dialog__footer"><button type="button" class="ew-button" data-variant="ghost" data-close-dialog>Close</button></footer>
+        </dialog>
+      </section>
+    </main>
+    <footer class="site-wrap site-foot"><p class="site-fiction">Fictional event. No ticket is issued and no payment is taken.</p></footer>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>

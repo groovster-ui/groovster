@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Northline Dispatch</title>
+<link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+<link rel="stylesheet" href="../shared/shell.css" />
+<script src="../../../packages/elements/dist/era-elements.js" defer></script>
+<script src="../shared/shell.js" defer></script>
+</head><body>
+
+<div class="ew-root recipe-dashboard" data-groovster-root data-recipe="dashboard" data-era="neutral" data-mode="light" data-fidelity-band="whisper">
+<a class="ew-link site-skip" href="#content">Skip to content</a>
+<div class="site-wrap">
+<div data-skin-mount data-skin-open="false"></div>
+<header class="site-bar" id="masthead"><div><p class="site-kicker">Northline Dispatch</p><h1>Floor board</h1></div>
+<nav class="site-nav__links" aria-label="Primary"><a class="ew-link" data-variant="nav" href="#metrics">Figures</a><a class="ew-link" data-variant="nav" href="#queues">Queues</a><button type="button" class="ew-button" data-size="sm" data-sample-export>Export sample</button></nav>
+</header>
+<main id="content">
+<div class="ew-alert" data-variant="warning" role="status"><strong class="ew-alert__title">Fictional operations data</strong><p class="ew-alert__body">These lanes are not live.</p></div>
+<section class="site-section" id="metrics"><h2>Figures</h2>
+<div class="site-grid site-grid--metrics">
+<article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>On time</h3></header><div class="ew-card__body"><p class="site-metric">96%</p></div></article>
+<article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Open exceptions</h3></header><div class="ew-card__body"><p class="site-metric">7</p></div></article>
+<article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Trucks out</h3></header><div class="ew-card__body"><p class="site-metric">42</p></div></article>
+<article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Median dwell</h3></header><div class="ew-card__body"><p class="site-metric">38 min</p></div></article>
+</div></section>
+<section class="site-section" id="filters"><h2>Filters</h2>
+<div class="site-filters">
+<div class="ew-text-field"><label class="ew-text-field__label" for="lane-search">Search ref or lane</label><input id="lane-search" class="ew-text-field__control" type="search" data-row-filter /></div>
+<ew-select class="ew-select"><label class="ew-select__label" for="status-filter">Status</label><select id="status-filter" class="ew-select__control" data-status-filter><option value="all">All statuses</option><option value="inbound">Inbound</option><option value="exception">Exception</option><option value="done">Done</option></select></ew-select>
+<label class="ew-switch"><input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" data-freeze /><span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span><span class="ew-switch__label">Freeze sample</span></label>
+</div>
+<p data-freeze-note hidden>Sample clock stopped. The rows stay on this page.</p>
+<p data-row-count aria-live="polite">8 matching rows</p>
+</section>
+<section class="site-section" id="queues"><h2>Queues</h2>
+<ew-tabs class="ew-tabs">
+<div role="tablist" aria-label="Queues">
+<button type="button" role="tab" id="q-all" aria-selected="true" aria-controls="panel-all">All</button>
+<button type="button" role="tab" id="q-ex" aria-selected="false" aria-controls="panel-ex" tabindex="-1">Exceptions</button>
+</div>
+<div role="tabpanel" id="panel-all" aria-labelledby="q-all"><div class="site-table-wrap"><table class="site-table"><caption>Sample lanes</caption><thead><tr><th scope="col">Ref</th><th scope="col">Lane</th><th scope="col">Window</th><th scope="col">Status</th></tr></thead><tbody><tr data-row data-status="inbound"><td>NL-1044</td><td>Cedar yard</td><td>06:10</td><td>Inbound</td></tr><tr data-row data-status="exception"><td>NL-1048</td><td>West gate</td><td>06:40</td><td>Exception</td></tr><tr data-row data-status="done"><td>NL-0981</td><td>River dock</td><td>05:20</td><td>Done</td></tr><tr data-row data-status="inbound"><td>NL-1102</td><td>Cedar yard</td><td>07:05</td><td>Inbound</td></tr><tr data-row data-status="exception"><td>NL-1110</td><td>North ramp</td><td>07:30</td><td>Exception</td></tr><tr data-row data-status="done"><td>NL-0990</td><td>River dock</td><td>04:50</td><td>Done</td></tr><tr data-row data-status="inbound"><td>NL-1126</td><td>West gate</td><td>08:15</td><td>Inbound</td></tr><tr data-row data-status="done"><td>NL-0877</td><td>North ramp</td><td>03:40</td><td>Done</td></tr></tbody></table></div></div>
+<div role="tabpanel" id="panel-ex" aria-labelledby="q-ex" hidden><div class="site-table-wrap"><table class="site-table"><caption>Exceptions only</caption><thead><tr><th scope="col">Ref</th><th scope="col">Note</th></tr></thead><tbody><tr><td>NL-1048</td><td>Seal mismatch. Sample note.</td></tr><tr><td>NL-1110</td><td>Late window. Sample note.</td></tr></tbody></table></div></div>
+</ew-tabs>
+</section>
+</main>
+<footer class="site-foot"><p class="site-fiction">Fictional board. No carrier or live feed is connected.</p></footer>
+</div>
+
+<ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+</div></body></html>

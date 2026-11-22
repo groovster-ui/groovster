@@ -21,6 +21,22 @@ export function muteBandSel(era, rest = '') {
 }
 
 /**
+ * Selectors for one or more exact bands on the era root or an ancestor.
+ * @param {string} era
+ * @param {string|string[]} bands
+ * @param {string} [rest]
+ */
+export function bandSel(era, bands, rest = '') {
+  const list = Array.isArray(bands) ? bands : [bands];
+  const parts = [];
+  for (const band of list) {
+    parts.push(`[data-era="${era}"][data-fidelity-band="${band}"]${rest}`);
+    parts.push(`[data-fidelity-band="${band}"] [data-era="${era}"]${rest}`);
+  }
+  return parts.join(',\n  ');
+}
+
+/**
  * Costume / full-look selectors: era with no mute band on self, and not under a mute ancestor.
  * Prefer using muteBandSel to hide ornament (costume-on-by-default) rather than this for ::before rules.
  * @param {string} era

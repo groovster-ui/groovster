@@ -12,7 +12,7 @@ Costume ornament is the default when `data-fidelity-band` is absent. Opt down wi
 | `.ew-hero__rays` | Speed lines behind the title |
 | `.ew-hero__fan` | Fan crest above the title |
 | `.ew-hero__content` | Title / subtitle / CTA stack |
-| `.ew-hero__title` | Display title with solid title plate for AA over rays |
+| `.ew-hero__title` | Limelight display title; rays stay above the type so the plate is unnecessary |
 | `.ew-hero__subtitle` | Tracking subtitle |
 | `.ew-hero__cta` | CTA row |
 

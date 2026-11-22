@@ -63,7 +63,7 @@
     "field": {
       "bg": {
         "$type": "color",
-        "$value": "{color.panel}"
+        "$value": "{color.fieldBg}"
       },
       "border": {
         "$type": "color",

@@ -4,33 +4,33 @@
     "tier": 1,
     "era": "deco",
     "mode": "light",
-    "description": "Tier 1 raw values for deco light (ivory and onyx: black-structured)"
+    "description": "Tier 1 raw values for deco light (ivory, parchment, architectural brass)"
   },
   "color": {
     "ink": {
       "$type": "color",
-      "$value": "#111111",
-      "$description": "black, 16.3:1 on paper"
+      "$value": "#171410",
+      "$description": "warm charcoal, high contrast on ivory"
     },
     "paper": {
       "$type": "color",
-      "$value": "#F4EEDF",
+      "$value": "#F3EEE4",
       "$description": "ivory page"
     },
     "panel": {
       "$type": "color",
-      "$value": "#FBF7EC",
-      "$description": "surface layer"
+      "$value": "#F8F4EB",
+      "$description": "parchment surface"
     },
     "sky": {
       "$type": "color",
-      "$value": "#FFFFFF",
-      "$description": "elevated surfaces"
+      "$value": "#FBF8F3",
+      "$description": "elevated ivory, not pure white"
     },
     "cream": {
       "$type": "color",
-      "$value": "#4A4236",
-      "$description": "muted text, 9.2:1 on panel"
+      "$value": "#4C453C",
+      "$description": "muted text on ivory"
     },
     "gold": {
       "$type": "color",
@@ -44,8 +44,13 @@
     },
     "brassDeep": {
       "$type": "color",
-      "$value": "#6B5010",
-      "$description": "deep brass for terraced elevation shadows on ivory"
+      "$value": "#5C4510",
+      "$description": "deep brass for terraced elevation on ivory"
+    },
+    "champagne": {
+      "$type": "color",
+      "$value": "#C4A35A",
+      "$description": "soft metallic accent, not used for small text"
     },
     "goldText": {
       "$type": "color",
@@ -55,7 +60,7 @@
     "goldBorder": {
       "$type": "color",
       "$value": "#9A7820",
-      "$description": "field border — darker brass for AA on ivory"
+      "$description": "field border \u2014 darker brass for AA on ivory"
     },
     "goldSubtle": {
       "$type": "color",

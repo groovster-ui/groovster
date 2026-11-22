@@ -17,6 +17,8 @@ export const OWNED_PREFIXES = [
   'generated/docs/',
   'generated/llms/',
   'generated/rules/',
+  'generated/recipes/',
+  'skills/groovster/references/',
 ];
 
 export const OWNED_FILES = new Set([

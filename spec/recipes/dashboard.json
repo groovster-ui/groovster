@@ -1,0 +1,148 @@
+{
+  "$schema": "../schema/recipe.schema.json",
+  "id": "dashboard",
+  "name": "Operational dashboard",
+  "category": "Dense operational board, queue, or internal tool",
+  "summary": "A compact board for status, filters, and tables. Clarity outranks ornament. Figures are fictional.",
+  "priority": 50,
+  "keywords": [
+    "dashboard",
+    "admin",
+    "analytics",
+    "metrics",
+    "operational",
+    "kpi"
+  ],
+  "eras": {
+    "recommended": [
+      "neutral"
+    ],
+    "alsoFits": [
+      "earth",
+      "deco",
+      "groovy",
+      "memphis",
+      "mcm-atomic",
+      "neon"
+    ],
+    "avoid": []
+  },
+  "fidelity": {
+    "page": "whisper",
+    "forms": "whisper",
+    "data": "whisper",
+    "notes": "Whisper is the default so tables and filters stay quiet. Costume may be switched on; it must not hide rows or labels."
+  },
+  "sections": {
+    "required": [
+      {
+        "id": "masthead",
+        "purpose": "Product name and board title"
+      },
+      {
+        "id": "metrics",
+        "purpose": "A few comparable figures"
+      },
+      {
+        "id": "filters",
+        "purpose": "Search, status, and a binary control"
+      },
+      {
+        "id": "queues",
+        "purpose": "Tabbed tables"
+      }
+    ],
+    "optional": [
+      {
+        "id": "notes",
+        "purpose": "Operator note"
+      }
+    ]
+  },
+  "hierarchy": [
+    "h1 board name",
+    "h2 section labels",
+    "h3 metric names"
+  ],
+  "layouts": [
+    "One compact bar, a metric row, filters, then tabbed tables.",
+    "Do not use a full-viewport .ew-hero. There is no table component; use a native table."
+  ],
+  "responsive": {
+    "breakpoint": "800px",
+    "behavior": "Metrics wrap. Filters wrap. Tables scroll inside a region instead of widening the page."
+  },
+  "components": {
+    "required": [
+      "button",
+      "card",
+      "tabs",
+      "select",
+      "text-field",
+      "switch",
+      "alert",
+      "link"
+    ],
+    "optional": [
+      "menu"
+    ]
+  },
+  "typography": {
+    "priorities": [
+      "Body or mono for figures.",
+      "Short labels.",
+      "Display faces stay off controls and table cells."
+    ]
+  },
+  "spacing": {
+    "priority": "8 to 12 pixel gaps. Row padding stays compact in page CSS, not a new global density token."
+  },
+  "interactions": [
+    "Search and status filter the rows.",
+    "Tabs switch queues.",
+    "The switch explains that the sample clock is frozen."
+  ],
+  "accessibility": [
+    "Tables have captions and column headers.",
+    "Search has a visible label.",
+    "Filter changes update a live count.",
+    "Tabs are ew-tabs.",
+    "Do not rely on color for status; include a text status."
+  ],
+  "ornament": {
+    "use": [
+      "Era chrome on cards, tabs, and controls.",
+      "A single warning alert for the fictional data."
+    ],
+    "avoid": [
+      "Full-bleed costume hero.",
+      "Sparkline libraries.",
+      "Status shown only by color."
+    ]
+  },
+  "density": "compact",
+  "eraDeviations": [
+    {
+      "eras": [
+        "neon",
+        "deco",
+        "mcm-atomic",
+        "memphis",
+        "groovy",
+        "earth"
+      ],
+      "note": "Switching era changes control geometry and type. Do not add .ew-hero. If costume ornament competes with the table, drop the page to standard or whisper."
+    }
+  ],
+  "customization": [
+    "Metric labels, columns, and sample rows.",
+    "Era switch stays on the root.",
+    "Page CSS may tighten row padding; do not invent a global density attribute unless measurement shows ornament hiding data."
+  ],
+  "demo": {
+    "path": "demos/recipes/dashboard/index.html",
+    "era": "neutral",
+    "mode": "light",
+    "fidelity": "whisper"
+  }
+}

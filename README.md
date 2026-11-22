@@ -10,7 +10,7 @@ Requires Node `>=20` and pnpm `9.15.9` (`packageManager` in the root `package.js
 
 | Path | Role |
 |---|---|
-| `spec/` | Authoritative components, eras, tokens, and budgets |
+| `spec/` | Authoritative components, eras, tokens, budgets, and website recipes |
 | `tools/gen/` | Deterministic generator |
 | `packages/css/` | Dependency-free era and component CSS |
 | `packages/elements/` | Light-DOM custom elements for behavior CSS cannot own |
@@ -20,6 +20,15 @@ Requires Node `>=20` and pnpm `9.15.9` (`packageManager` in the root `package.js
 | `generated/` | Generated docs and agent instructions |
 
 Do not hand-edit generator output. Change `spec/` or `tools/gen/`, then run `pnpm gen`.
+
+## Websites
+
+Five reference sites and a seven-era preview:
+
+- `demos/recipes/editorial/`, `event/`, `commerce/`, `hospitality/`, `dashboard/`
+- `demos/launch/` — one page, seven eras
+- Agent skill: `skills/groovster/SKILL.md`
+- Install notes: `docs/agents.md`
 
 ## Install and check
 
@@ -113,10 +122,14 @@ pnpm test:packages      # install packed React and CSS outside the workspace
 pnpm mcp:smoke
 pnpm eval               # deterministic docs / MCP / hybrid harness
 pnpm eval -- --live     # optional real-model run; skipped without an API key
+pnpm eval:sites         # recipe instruction weight and reference-site checks
+pnpm test:sites         # browser checks for the five reference sites
 pnpm sizes              # uncompressed, gzip, and brotli sizes
 ```
 
 `pnpm eval` is a deterministic harness. Its token counts are heuristics. Live model results are recorded only when `GROOVSTER_EVAL_PROVIDER` and a provider key are set. The report keeps those sections separate and does not invent scores.
+
+`pnpm eval:sites` measures instruction weight and whether the reference sites satisfy their recipes. It does not score visual quality and it does not call a model.
 
 ## Known limits
 

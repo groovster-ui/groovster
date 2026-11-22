@@ -9,4 +9,4 @@ Live model evaluation: not-run — Pass --live with GROOVSTER_EVAL_PROVIDER and 
 ## Setups
 - **docs-agent**: success 100% (36/36; 3 negative), mean score 0.939, mean tokens 783, mean turns 3.53
 - **mcp-agent**: success 100% (36/36; 3 negative), mean score 0.864, mean tokens 1805, mean turns 5.53
-- **hybrid-agent**: success 100% (36/36; 3 negative), mean score 0.913, mean tokens 1449, mean turns 3.53
+- **hybrid-agent**: success 100% (36/36; 3 negative), mean score 0.912, mean tokens 1501, mean turns 3.53

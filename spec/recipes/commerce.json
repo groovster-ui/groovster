@@ -1,0 +1,146 @@
+{
+  "$schema": "../schema/recipe.schema.json",
+  "id": "commerce",
+  "name": "Boutique ecommerce",
+  "category": "Small catalog, filters, and a fictional cart",
+  "summary": "A scannable product grid with filters and a cart. Checkout collects a fictional order and charges nothing.",
+  "priority": 20,
+  "keywords": [
+    "shop",
+    "store",
+    "cart",
+    "checkout",
+    "ecommerce",
+    "e-commerce",
+    "merchandise",
+    "boutique",
+    "catalog"
+  ],
+  "eras": {
+    "recommended": [
+      "groovy",
+      "earth",
+      "deco",
+      "memphis"
+    ],
+    "alsoFits": [
+      "neutral",
+      "mcm-atomic",
+      "neon"
+    ],
+    "avoid": []
+  },
+  "fidelity": {
+    "page": "standard",
+    "forms": "standard",
+    "data": "whisper",
+    "notes": "Standard keeps product prices and filters clearer than full costume. Costume remains available from the switcher."
+  },
+  "sections": {
+    "required": [
+      {
+        "id": "masthead",
+        "purpose": "Shop name and cart entry"
+      },
+      {
+        "id": "filters",
+        "purpose": "Category and stock filters"
+      },
+      {
+        "id": "catalog",
+        "purpose": "Product cards"
+      },
+      {
+        "id": "cart",
+        "purpose": "Fictional cart and checkout dialog"
+      }
+    ],
+    "optional": [
+      {
+        "id": "note",
+        "purpose": "Shipping or materials note"
+      }
+    ]
+  },
+  "hierarchy": [
+    "h1 shop name",
+    "h2 catalog",
+    "h3 product name"
+  ],
+  "layouts": [
+    "Filter bar above a wrapping product grid.",
+    "Prices and names stay in the same card anatomy in every era."
+  ],
+  "responsive": {
+    "breakpoint": "800px",
+    "behavior": "One column of products below 800px. Two columns from 800px. Three when the row fits."
+  },
+  "components": {
+    "required": [
+      "button",
+      "card",
+      "select",
+      "checkbox",
+      "dialog",
+      "text-field",
+      "alert",
+      "link"
+    ],
+    "optional": [
+      "toast"
+    ]
+  },
+  "typography": {
+    "priorities": [
+      "Product name and price are the scan line.",
+      "Body face for materials.",
+      "Display face only in the masthead."
+    ]
+  },
+  "spacing": {
+    "priority": "Even card gaps. Do not let ornament consume the price."
+  },
+  "interactions": [
+    "Category select and in-stock checkbox filter the grid.",
+    "Add updates a cart count.",
+    "Checkout dialog confirms a fictional order."
+  ],
+  "accessibility": [
+    "Each product has a heading.",
+    "Filter select and checkbox have visible labels.",
+    "Cart count is a live region.",
+    "Dialog names the fictional checkout."
+  ],
+  "ornament": {
+    "use": [
+      "Era chrome on cards and buttons.",
+      "Hero hooks so a costume switch still has a stage or panel."
+    ],
+    "avoid": [
+      "Decorative type on prices.",
+      "Filters built from unstyled divs."
+    ]
+  },
+  "density": "comfortable",
+  "eraDeviations": [
+    {
+      "eras": [
+        "neon",
+        "mcm-atomic",
+        "deco"
+      ],
+      "note": "Masthead includes stage and panel hooks. Page CSS may shorten the hero so the first products stay visible."
+    }
+  ],
+  "customization": [
+    "Catalog, prices, and categories.",
+    "Era and band switch on the root.",
+    "No payment provider."
+  ],
+  "demo": {
+    "path": "demos/recipes/commerce/index.html",
+    "era": "groovy",
+    "mode": "light",
+    "fidelity": "standard"
+  }
+}

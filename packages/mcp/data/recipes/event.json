@@ -1,0 +1,145 @@
+{
+  "$schema": "../schema/recipe.schema.json",
+  "id": "event",
+  "name": "Event or festival",
+  "category": "Ticketed event, festival, or performance series",
+  "summary": "A poster-like event page with a lineup, a schedule, and ticket choice. The hold is fictional and takes no payment.",
+  "priority": 30,
+  "keywords": [
+    "festival",
+    "concert",
+    "lineup",
+    "rave"
+  ],
+  "eras": {
+    "recommended": [
+      "neon",
+      "memphis",
+      "groovy",
+      "mcm-atomic"
+    ],
+    "alsoFits": [
+      "deco",
+      "earth",
+      "neutral"
+    ],
+    "avoid": []
+  },
+  "fidelity": {
+    "page": "costume",
+    "forms": "standard",
+    "data": "standard",
+    "notes": "Costume on the poster hero. Ticket choices stay a labeled radio group."
+  },
+  "sections": {
+    "required": [
+      {
+        "id": "masthead",
+        "purpose": "Event identity, dates, and city"
+      },
+      {
+        "id": "lineup",
+        "purpose": "Featured acts"
+      },
+      {
+        "id": "schedule",
+        "purpose": "Day-by-day set times"
+      },
+      {
+        "id": "tickets",
+        "purpose": "Tier choice and a fictional hold"
+      }
+    ],
+    "optional": [
+      {
+        "id": "visit",
+        "purpose": "Place, hours, and access notes"
+      }
+    ]
+  },
+  "hierarchy": [
+    "h1 event name",
+    "h2 lineup, schedule, tickets",
+    "h3 act or tier name"
+  ],
+  "layouts": [
+    "Poster hero, then act cards, then day tabs with a schedule table, then ticket radios.",
+    "The same section order is used in every era."
+  ],
+  "responsive": {
+    "breakpoint": "800px",
+    "behavior": "Stack act cards and ticket options. Wrap the schedule table in a horizontal scroller."
+  },
+  "components": {
+    "required": [
+      "button",
+      "link",
+      "card",
+      "tabs",
+      "radio",
+      "dialog",
+      "alert",
+      "ornament-divider"
+    ],
+    "optional": [
+      "toast",
+      "select"
+    ]
+  },
+  "typography": {
+    "priorities": [
+      "Oversized event name.",
+      "Readable table and radio labels.",
+      "No display face on the ticket controls."
+    ]
+  },
+  "spacing": {
+    "priority": "Tight poster type, then clear gaps between lineup, schedule, and tickets."
+  },
+  "interactions": [
+    "Day tabs change the schedule.",
+    "Review opens a native dialog that states the hold is fictional."
+  ],
+  "accessibility": [
+    "Ticket tiers are radios in a fieldset.",
+    "Dialog is a native dialog with a name.",
+    "Schedule tables use column headers.",
+    "Day tabs are ew-tabs."
+  ],
+  "ornament": {
+    "use": [
+      "Full costume hero, including neon stage or deco panel when that era is active.",
+      "One divider before tickets."
+    ],
+    "avoid": [
+      "Ornament inside table cells.",
+      "Glow as the only way to see the selected tier."
+    ]
+  },
+  "density": "comfortable",
+  "eraDeviations": [
+    {
+      "eras": [
+        "neon",
+        "mcm-atomic"
+      ],
+      "note": "Hero includes .ew-hero__stage with sun, mountains, and grid plus atomic twotone, starbursts, arch, and orbit."
+    },
+    {
+      "eras": [
+        "deco"
+      ],
+      "note": "Hero copy sits in .ew-hero__panel. Lineup and schedule markup stay the same."
+    }
+  ],
+  "customization": [
+    "Event name, dates, acts, tiers, and default era.",
+    "Quantity is a native select, not a second theme."
+  ],
+  "demo": {
+    "path": "demos/recipes/event/index.html",
+    "era": "neon",
+    "mode": "dark",
+    "fidelity": "costume"
+  }
+}

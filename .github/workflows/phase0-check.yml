@@ -105,6 +105,12 @@ jobs:
       - name: Run accessibility tests
         run: pnpm test:a11y
 
+      - name: Run recipe site checks
+        run: pnpm test:sites
+
+      - name: Run website instruction harness
+        run: pnpm eval:sites
+
       - name: Install packed packages outside the workspace
         run: pnpm test:packages
 

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="ew-root" data-era="deco" data-dialect="streamline" data-mode="dark" data-fidelity-band="costume">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Metropolitan — A house of light</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css">
+  <script type="module" src="../../../packages/elements/dist/era-elements.js"></script>
+  <style>
+    body { margin: 0; }
+    .bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px 24px;
+      flex-wrap: wrap;
+      padding: 16px 24px;
+      border-bottom: 1px solid color-mix(in srgb, var(--ew-color-gold) 42%, transparent);
+      position: sticky;
+      top: 0;
+      z-index: 6;
+      background: color-mix(in srgb, var(--ew-color-bg-page) 94%, transparent);
+    }
+    .wordmark {
+      font-family: var(--ew-font-body);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ew-color-fg-default);
+    }
+    .bar__links, .bar__tools { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 72px 24px; }
+    .kicker {
+      margin: 0 0 14px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ew-color-goldText, var(--ew-color-gold));
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+    table { margin-top: 12px; }
+    .seats { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+    .seats .ew-button[aria-pressed="true"] { outline: 2px solid var(--ew-color-gold); outline-offset: 2px; }
+    .summary {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border: 1px solid color-mix(in srgb, var(--ew-color-gold) 45%, transparent);
+      border-radius: 16px;
+    }
+    .foot {
+      padding: 36px 24px 56px;
+      text-align: center;
+      border-top: 1px solid color-mix(in srgb, var(--ew-color-gold) 40%, transparent);
+    }
+    .foot p { margin: 6px 0; color: var(--ew-color-fg-muted); }
+    @media (max-width: 800px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .wrap { padding: 48px 16px; }
+      table { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <ew-toast-region aria-live="polite"></ew-toast-region>
+  <header class="bar">
+    <a class="wordmark" href="#stage">The Metropolitan</a>
+    <nav class="bar__links" aria-label="Theater">
+      <a class="ew-link" data-variant="nav" href="#bill" aria-current="page">Bill</a>
+      <a class="ew-link" data-variant="nav" href="#program">Program</a>
+      <a class="ew-link" data-variant="nav" href="#tickets">Tickets</a>
+    </nav>
+    <div class="bar__tools">
+      <button class="ew-button" data-size="sm" data-variant="secondary" type="button" id="mode">Light</button>
+      <button class="ew-button" data-size="sm" data-variant="secondary" type="button" id="dialect" aria-pressed="true">Streamline</button>
+      <button class="ew-button" data-size="sm" data-variant="ghost" type="button" data-band="whisper">Whisper</button>
+      <button class="ew-button" data-size="sm" data-variant="ghost" type="button" data-band="standard">Standard</button>
+      <button class="ew-button" data-size="sm" type="button" data-band="costume" aria-pressed="true">Costume</button>
+    </div>
+  </header>
+
+  <section class="ew-hero" id="stage">
+    <div class="ew-hero__backdrop" aria-hidden="true"></div>
+    <div class="ew-hero__panel">
+      <div class="ew-hero__rays" aria-hidden="true"></div>
+      <div class="ew-hero__content">
+        <div class="ew-hero__fan" aria-hidden="true"></div>
+        <p class="kicker">Season of 1934</p>
+        <h1 class="ew-hero__title">The Metropolitan</h1>
+        <p class="ew-hero__subtitle">A house of light and motion</p>
+        <div class="ew-hero__cta">
+          <a class="ew-button" href="#tickets">Choose seats</a>
+          <a class="ew-button" data-variant="secondary" href="#bill">This week</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="bill">
+    <h2 class="ew-section-heading">Upcoming</h2>
+    <table>
+      <caption class="kicker">The week of March 12</caption>
+      <thead>
+        <tr><th scope="col">Evening</th><th scope="col">Work</th><th scope="col">Company</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tuesday</td><td>The Silver Train</td><td>Civic Ballet</td></tr>
+        <tr><td>Thursday</td><td>Harbor Lights</td><td>Metropolitan Orchestra</td></tr>
+        <tr><td>Saturday</td><td>Speed</td><td>Workshop Players</td></tr>
+        <tr><td>Sunday</td><td>Matinee: The Liner</td><td>Children’s Chorus</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="wrap" id="program">
+    <h2 class="ew-section-heading">On the program</h2>
+    <div class="grid-2">
+      <article class="ew-card">
+        <div class="ew-card__header"><h3>Harbor Lights</h3></div>
+        <div class="ew-card__body">
+          <p>A tone poem in three movements. The score follows a night boat from the battery to the narrows, and the lighting plot does the same: a line of lamps, then open water.</p>
+        </div>
+      </article>
+      <article class="ew-card" data-variant="raised">
+        <div class="ew-card__header"><h3>Speed</h3></div>
+        <div class="ew-card__body">
+          <p>A one-act for six voices and a filmed horizon. No scenery beyond a chrome rail and the cyclorama. Fifty-five minutes, without an interval.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" id="tickets">
+    <h2 class="ew-section-heading">Tickets</h2>
+    <p class="kicker">Thursday · Harbor Lights · 8:30</p>
+    <div class="seats" role="group" aria-label="Seat location">
+      <button class="ew-button" type="button" data-seat="Orchestra" data-price="48" aria-pressed="true">Orchestra · $48</button>
+      <button class="ew-button" data-variant="secondary" type="button" data-seat="Mezzanine" data-price="36" aria-pressed="false">Mezzanine · $36</button>
+      <button class="ew-button" data-variant="secondary" type="button" data-seat="Balcony" data-price="22" aria-pressed="false">Balcony · $22</button>
+    </div>
+    <div class="ew-text-field" style="max-width: 220px;">
+      <label class="ew-text-field__label" for="qty">Number of seats</label>
+      <input class="ew-text-field__control" id="qty" type="number" min="1" max="6" value="2">
+    </div>
+    <div class="summary" aria-live="polite" id="summary">2 seats in the Orchestra · $96. Held for this visit only.</div>
+    <p style="margin-top: 18px;">
+      <button class="ew-button" type="button" id="hold">Hold these seats</button>
+    </p>
+  </section>
+
+  <section class="wrap" id="house">
+    <h2 class="ew-section-heading">The house</h2>
+    <div class="grid-2">
+      <article class="ew-card">
+        <div class="ew-card__header"><h3>Arrival</h3></div>
+        <div class="ew-card__body">
+          <p>The doors on 40th Street open one hour before curtain. Cloakroom to the left, bronze stairs to the mezzanine, elevator to the balcony.</p>
+          <p>Late seating is at a suitable pause. The lobby bar pours until the last call of the second intermission.</p>
+        </div>
+      </article>
+      <article class="ew-card">
+        <div class="ew-card__header"><h3>Address</h3></div>
+        <div class="ew-card__body">
+          <p>220 West 40th Street<br>New York</p>
+          <p>Box office noon to six, and through the first interval on performance nights.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="wordmark">The Metropolitan</p>
+    <p>A fictional theater. Seats are not sold.</p>
+  </footer>
+
+  <dialog class="ew-dialog" id="hold-dialog">
+    <form method="dialog">
+      <div class="ew-dialog__header"><h2>Seats held</h2></div>
+      <div class="ew-dialog__body"><p id="hold-copy"></p></div>
+      <div class="ew-dialog__footer">
+        <button class="ew-button" type="submit">Done</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    const root = document.documentElement;
+    const modeBtn = document.getElementById('mode');
+    modeBtn.addEventListener('click', () => {
+      const dark = root.getAttribute('data-mode') !== 'dark';
+      root.setAttribute('data-mode', dark ? 'dark' : 'light');
+      modeBtn.textContent = dark ? 'Light' : 'Dark';
+    });
+    const dialectBtn = document.getElementById('dialect');
+    dialectBtn.addEventListener('click', () => {
+      const on = root.getAttribute('data-dialect') !== 'streamline';
+      if (on) root.setAttribute('data-dialect', 'streamline');
+      else root.removeAttribute('data-dialect');
+      dialectBtn.textContent = on ? 'Streamline' : 'Classic';
+      dialectBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    for (const btn of document.querySelectorAll('[data-band]')) {
+      btn.addEventListener('click', () => {
+        root.setAttribute('data-fidelity-band', btn.dataset.band);
+        for (const other of document.querySelectorAll('[data-band]')) {
+          other.setAttribute('aria-pressed', other === btn ? 'true' : 'false');
+        }
+      });
+    }
+    const summary = document.getElementById('summary');
+    const qty = document.getElementById('qty');
+    let seat = 'Orchestra';
+    let price = 48;
+    function paint() {
+      const n = Math.min(6, Math.max(1, Number(qty.value) || 1));
+      qty.value = String(n);
+      summary.textContent = n + (n === 1 ? ' seat' : ' seats') + ' in the ' + seat + ' · $' + (n * price) + '. Held for this visit only.';
+    }
+    for (const btn of document.querySelectorAll('[data-seat]')) {
+      btn.addEventListener('click', () => {
+        seat = btn.dataset.seat;
+        price = Number(btn.dataset.price);
+        for (const other of document.querySelectorAll('[data-seat]')) {
+          const on = other === btn;
+          other.setAttribute('aria-pressed', on ? 'true' : 'false');
+          other.dataset.variant = on ? '' : 'secondary';
+          if (on) other.removeAttribute('data-variant');
+          else other.setAttribute('data-variant', 'secondary');
+        }
+        paint();
+      });
+    }
+    qty.addEventListener('input', paint);
+    document.getElementById('hold').addEventListener('click', () => {
+      paint();
+      document.getElementById('hold-copy').textContent = summary.textContent + ' No payment is taken.';
+      document.getElementById('hold-dialog').showModal();
+      document.querySelector('ew-toast-region').show({
+        title: 'Seats held',
+        body: summary.textContent,
+        variant: 'info',
+        timeout: 4000
+      });
+    });
+  </script>
+</body>
+</html>

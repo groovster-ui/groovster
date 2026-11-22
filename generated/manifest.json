@@ -32,6 +32,13 @@
     "neon",
     "neutral"
   ],
+  "recipes": [
+    "commerce",
+    "dashboard",
+    "editorial",
+    "event",
+    "hospitality"
+  ],
   "outputs": [
     "generated/docs/alert.md",
     "generated/docs/avatar.md",
@@ -96,6 +103,11 @@
     "generated/llms/ornament-divider.md",
     "generated/llms/popover.md",
     "generated/llms/radio.md",
+    "generated/llms/recipe-commerce.card.txt",
+    "generated/llms/recipe-dashboard.card.txt",
+    "generated/llms/recipe-editorial.card.txt",
+    "generated/llms/recipe-event.card.txt",
+    "generated/llms/recipe-hospitality.card.txt",
     "generated/llms/select.md",
     "generated/llms/slider.md",
     "generated/llms/switch.md",
@@ -105,6 +117,11 @@
     "generated/llms/toast.md",
     "generated/llms/tooltip.md",
     "generated/manifest.json",
+    "generated/recipes/commerce.md",
+    "generated/recipes/dashboard.md",
+    "generated/recipes/editorial.md",
+    "generated/recipes/event.md",
+    "generated/recipes/hospitality.md",
     "generated/rules/AGENTS.md",
     "generated/rules/era-widgets.mdc",
     "llms.txt",
@@ -219,6 +236,11 @@
     "packages/mcp/data/eras/memphis/era.spec.json",
     "packages/mcp/data/eras/neon/era.spec.json",
     "packages/mcp/data/eras/neutral/era.spec.json",
+    "packages/mcp/data/recipes/commerce.json",
+    "packages/mcp/data/recipes/dashboard.json",
+    "packages/mcp/data/recipes/editorial.json",
+    "packages/mcp/data/recipes/event.json",
+    "packages/mcp/data/recipes/hospitality.json",
     "packages/mcp/data/tokens/tier1/deco.dark.tokens.json",
     "packages/mcp/data/tokens/tier1/deco.light.tokens.json",
     "packages/mcp/data/tokens/tier1/earth.dark.tokens.json",
@@ -325,7 +347,13 @@
     "registry/r/textarea.json",
     "registry/r/toast.json",
     "registry/r/tooltip.json",
-    "registry/registry.json"
+    "registry/registry.json",
+    "skills/groovster/references/anatomy.md",
+    "skills/groovster/references/commerce.md",
+    "skills/groovster/references/dashboard.md",
+    "skills/groovster/references/editorial.md",
+    "skills/groovster/references/event.md",
+    "skills/groovster/references/hospitality.md"
   ],
   "budgetReport": {
     "budgets": {
@@ -344,6 +372,10 @@
       "llms.index": {
         "maxChars": 2500,
         "description": "Top-level llms.txt index."
+      },
+      "llms.recipeCard": {
+        "maxChars": 2200,
+        "description": "One website recipe card for agents."
       },
       "canonicalHtml": {
         "maxChars": 600,
@@ -548,8 +580,28 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 2275,
+        "chars": 2412,
         "budget": "llms.index"
+      },
+      "llms.recipeCard:commerce": {
+        "chars": 1905,
+        "budget": "llms.recipeCard"
+      },
+      "llms.recipeCard:dashboard": {
+        "chars": 2067,
+        "budget": "llms.recipeCard"
+      },
+      "llms.recipeCard:editorial": {
+        "chars": 2125,
+        "budget": "llms.recipeCard"
+      },
+      "llms.recipeCard:event": {
+        "chars": 1990,
+        "budget": "llms.recipeCard"
+      },
+      "llms.recipeCard:hospitality": {
+        "chars": 1996,
+        "budget": "llms.recipeCard"
       }
     }
   }

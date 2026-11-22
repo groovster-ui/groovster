@@ -18,6 +18,10 @@
       "maxChars": 2500,
       "description": "Top-level llms.txt index."
     },
+    "llms.recipeCard": {
+      "maxChars": 2200,
+      "description": "One website recipe card for agents."
+    },
     "canonicalHtml": {
       "maxChars": 600,
       "description": "Canonical HTML example in component specs."

@@ -13,6 +13,7 @@ function publishMcpData(outputs) {
     ['components', (file) => file.endsWith('.json')],
     ['eras', (file) => file.endsWith('.json')],
     ['tokens', (file) => file.endsWith('.tokens.json')],
+    ['recipes', (file) => file.endsWith('.json')],
   ];
   for (const [folder, predicate] of groups) {
     for (const file of listFiles(path.join(SPEC_ROOT, folder), predicate)) {
@@ -74,6 +75,8 @@ globs:
 - Glow never counts as contrast; no display faces on controls.
 - MCP \`validate\` returns exact "change X to Y" fixes.
 - Heroes: ${componentList}. Eras: ${eraList}.
+- Website recipes live in \`spec/recipes/\`. Read one card at \`generated/llms/recipe-<id>.card.txt\`.
+- Agent skill: \`skills/groovster/SKILL.md\`.
 `
   );
   outputs.push(rel(getOutRoot(), path.join(rulesDir, 'era-widgets.mdc')));
@@ -98,7 +101,9 @@ The band may be on the era element or an ancestor.
 Ornament: Neon \`.ew-hero\` with required \`.ew-hero__stage\` (sun/mountains/grid) plus \`.ew-chrome\` / \`.ew-script\`; Deco \`.ew-hero__panel\` / stepped frames — documented in \`llms.txt\` and era cards.
 
 MCP tools: list_eras, get_era_spec, get_component, install, recommend, validate.
+\`recommend\` names a recipe when the description is a website. Load only that card.
 Load only the llms section you need from \`generated/llms/\`.
+Portable skill: \`skills/groovster/SKILL.md\`.
 `
   );
   outputs.push(rel(getOutRoot(), path.join(rulesDir, 'AGENTS.md')));

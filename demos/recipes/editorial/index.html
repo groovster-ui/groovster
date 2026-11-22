@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Lantern — Issue 48</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../shared/shell.css" />
+  <script src="../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../shared/shell.js" defer></script>
+</head>
+<body>
+
+  <div class="ew-root recipe-editorial" data-groovster-root data-recipe="editorial" data-era="earth" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#content">Skip to content</a>
+    <div class="site-wrap">
+      <div data-skin-mount data-skin-open="true"></div>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="ew-link site-brand" href="#masthead">The Lantern</a>
+        <div class="site-nav__links">
+          <a class="ew-link" data-variant="nav" href="#story">Essay</a>
+          <a class="ew-link" data-variant="nav" href="#departments">Departments</a>
+          <a class="ew-link" data-variant="nav" href="#newsletter">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+<section class="ew-hero site-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true">
+        <div class="ew-hero__sun"></div><div class="ew-hero__mountains"></div><div class="ew-hero__grid"></div>
+        <div class="ew-hero__scanlines"></div><div class="ew-hero__twotone"></div><div class="ew-hero__starbursts"></div>
+        <div class="ew-hero__arch"></div><div class="ew-orbit"></div>
+      </div>
+      <div class="ew-hero__panel">
+        <div class="ew-hero__rays" aria-hidden="true"></div>
+        <div class="ew-hero__content ">
+          <div class="ew-hero__fan" aria-hidden="true"></div>
+          <p class="ew-script">Issue 48</p>
+          <h1 class="ew-hero__title">The Lantern</h1>
+          <p class="ew-hero__subtitle">A quarterly on rooms, roads, and the objects people keep.</p>
+        </div>
+      </div>
+    </section>
+    <main id="content" class="site-wrap">
+      <article class="site-section" id="story">
+        <nav class="ew-breadcrumb" aria-label="Breadcrumb">
+          <ol class="ew-breadcrumb__list">
+            <li class="ew-breadcrumb__item"><a class="ew-link" href="#masthead">The Lantern</a></li>
+            <li class="ew-breadcrumb__item" aria-current="page">Salt on the sill</li>
+          </ol>
+        </nav>
+        <p class="site-kicker">Cover essay</p>
+        <h2>Salt on the sill</h2>
+        <div class="site-byline">
+          <span class="ew-avatar" aria-label="I. Voss"><span class="ew-avatar__fallback">IV</span></span>
+          <p class="site-muted">I. Voss · Fictional essay</p>
+        </div>
+        <div class="site-essay site-measure">
+          <p>The boarding house kept a china bowl of salt on every sill, not for luck but for the damp. By October the crystals crusted and the panes drew small maps of the harbor.</p>
+          <p>A place becomes memorable when its maintenance is visible. The bowl, the stair rod, the ledger taped at the corner: these are the sentences.</p>
+        </div>
+      </article>
+      <hr class="ew-ornament-divider" data-variant="ornament" />
+      <section class="site-section" id="departments">
+        <h2 id="departments-title">Departments</h2>
+        <ew-tabs class="ew-tabs">
+          <div role="tablist" aria-label="Departments">
+            <button type="button" role="tab" id="tab-criticism" aria-selected="true" aria-controls="panel-criticism">Criticism</button>
+            <button type="button" role="tab" id="tab-dispatch" aria-selected="false" aria-controls="panel-dispatch" tabindex="-1">Dispatches</button>
+          </div>
+          <div role="tabpanel" id="panel-criticism" aria-labelledby="tab-criticism">
+            <div class="site-grid site-grid--3">
+              <article class="ew-card"><header class="ew-card__header"><h3>Against the souvenir</h3></header><div class="ew-card__body"><p>Three museums that mistook a gift shop for a thesis.</p></div></article>
+              <article class="ew-card"><header class="ew-card__header"><h3>Margins</h3></header><div class="ew-card__body"><p>A printer in Lyons still sets captions by hand.</p></div></article>
+              <article class="ew-card"><header class="ew-card__header"><h3>Late light</h3></header><div class="ew-card__body"><p>A film that treats a hotel corridor as the whole plot.</p></div></article>
+            </div>
+          </div>
+          <div role="tabpanel" id="panel-dispatch" aria-labelledby="tab-dispatch" hidden>
+            <article class="ew-card"><header class="ew-card__header"><h3>Platform 4</h3></header><div class="ew-card__body"><p>A night train and a timetable that was already wrong.</p></div></article>
+          </div>
+        </ew-tabs>
+      </section>
+      <section class="site-section" id="newsletter">
+        <h2>The next issue</h2>
+        <form data-demo-form="newsletter" style="max-width:36rem">
+          <div class="ew-text-field"><label class="ew-text-field__label" for="reader-email">Email</label><input id="reader-email" class="ew-text-field__control" type="email" autocomplete="email" required /></div>
+          <label class="ew-checkbox"><input class="ew-checkbox__control" type="checkbox" required /><span class="ew-checkbox__box" aria-hidden="true"></span><span class="ew-checkbox__label">I understand this subscription is a demo and contacts nobody.</span></label>
+          <div class="site-actions"><button type="submit" class="ew-button">Request the list</button></div>
+          <div class="ew-alert" data-variant="success" role="status" data-demo-status hidden><strong class="ew-alert__title">Noted</strong><p class="ew-alert__body">Saved on this page only.</p></div>
+        </form>
+      </section>
+    </main>
+    <footer class="site-wrap site-foot"><p class="site-fiction">Fictional publication. No payment, booking, or mailing list is created.</p></footer>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>
