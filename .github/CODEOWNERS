@@ -6,35 +6,34 @@
 # More info: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
 # Default owner for everything in the repo
-# Update this with actual maintainer GitHub usernames
-* @MAINTAINER_USERNAME
+* @james-sirota
 
 # Component specifications
-/spec/components/ @MAINTAINER_USERNAME
+/spec/components/ @james-sirota
 
 # Era specifications
-/spec/eras/ @MAINTAINER_USERNAME
+/spec/eras/ @james-sirota
 
 # Design tokens
-/spec/tokens/ @MAINTAINER_USERNAME
+/spec/tokens/ @james-sirota
 
 # JSON Schemas - require careful review
-/spec/schema/ @MAINTAINER_USERNAME
+/spec/schema/ @james-sirota
 
 # Build and generation tools
-/tools/gen/ @MAINTAINER_USERNAME
-/scripts/ @MAINTAINER_USERNAME
+/tools/gen/ @james-sirota
+/scripts/ @james-sirota
 
 # Web Components
-/packages/elements/ @MAINTAINER_USERNAME
+/packages/elements/ @james-sirota
 
 # MCP Server
-/packages/mcp/ @MAINTAINER_USERNAME
+/packages/mcp/ @james-sirota
 
 # CI/CD workflows
-/.github/workflows/ @MAINTAINER_USERNAME
+/.github/workflows/ @james-sirota
 
 # Documentation
-/README.md @MAINTAINER_USERNAME
-/CONTRIBUTING.md @MAINTAINER_USERNAME
-/SECURITY.md @MAINTAINER_USERNAME
+/README.md @james-sirota
+/CONTRIBUTING.md @james-sirota
+/SECURITY.md @james-sirota
