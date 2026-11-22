@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateMarkup } from './validate-markup.js';
 import { validateMarkup as mcpValidate } from '../../../packages/mcp/src/validate.js';
-import { runDocsAgent, runMcpAgent, countTokens } from './agents.js';
+import { runDocsAgent, runMcpAgent, runHybridAgent, countTokens } from './agents.js';
 import { renderCheck } from './render-check.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -17,6 +17,7 @@ const setupFilter = (() => {
   return i >= 0 ? process.argv[i + 1] : null;
 })();
 const skipRender = process.argv.includes('--skip-render');
+const runLive = process.argv.includes('--live');
 
 function readJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -24,9 +25,11 @@ function readJson(p) {
 
 async function runTask(task, setup) {
   const agent =
-    setup.mcp
-      ? runMcpAgent(task)
-      : runDocsAgent(task, { repoRoot: REPO });
+    setup.mcp === 'hybrid'
+      ? runHybridAgent(task, { repoRoot: REPO })
+      : setup.mcp
+        ? runMcpAgent(task)
+        : runDocsAgent(task, { repoRoot: REPO });
 
   const struct = validateMarkup(agent.html, task.expect || {});
   const era = task.eras?.[0];
@@ -68,10 +71,12 @@ async function runTask(task, setup) {
       totalTokens: agent.totalTokens,
       turns: agent.turns,
       tokenizer: 'wordpiece-heuristic',
+      tokenSource: 'heuristic',
     },
     issues: [...struct.issues, ...(mcp.issues || []).map((i) => i.problem || i), ...render.issues],
     fixes: [...struct.fixes, ...(mcp.fixes || [])],
-    source: setup.mcp ? 'mcp-agent' : 'docs-agent',
+    source: setup.id,
+    harness: 'deterministic',
     renderPass: render.pass,
   };
 }
@@ -83,6 +88,14 @@ async function main() {
   const setups = (preferred.length >= 2 ? preferred : suite.setups).filter(
     (s) => !setupFilter || s.id === setupFilter
   );
+  if (!setupFilter || setupFilter === 'hybrid-agent') {
+    setups.push({
+      id: 'hybrid-agent',
+      label: 'Compact docs plus MCP',
+      mcp: 'hybrid',
+      notes: 'Deterministic harness. Reads llms.txt and calls get_component only.',
+    });
+  }
   const results = [];
 
   for (const setup of setups) {
@@ -103,12 +116,24 @@ async function main() {
     b.scoreSum += r.scores?.total || 0;
   }
 
+  let live = {
+    status: 'not-run',
+    reason: 'Pass --live with GROOVSTER_EVAL_PROVIDER and an API key. Ordinary CI does not call a model.',
+  };
+  if (runLive) {
+    const { runLiveEvaluation } = await import('./live.js');
+    live = await runLiveEvaluation({
+      tasks: suite.tasks.map((taskId) => readJson(path.join(SPEC_EVAL, 'tasks', `${taskId}.json`))),
+    });
+  }
+
   const summary = {
     suite: suite.name,
     version: suite.version,
     generatedAt: new Date().toISOString(),
-    mode: 'live-agent-harness',
-    note: 'Docs-agent vs MCP-agent: real tool/doc I/O token counts, turn counts, validate + Playwright render check.',
+    mode: 'deterministic-harness',
+    note: 'Deterministic docs, MCP, and hybrid runners. Token counts are wordpiece heuristics, not provider usage. This is not a live LLM benchmark.',
+    live,
     setups: Object.fromEntries(
       Object.entries(bySetup).map(([id, b]) => [
         id,
@@ -139,6 +164,8 @@ async function main() {
     '',
     summary.note,
     '',
+    `Live model evaluation: ${summary.live.status}${summary.live.reason ? ` — ${summary.live.reason}` : ''}`,
+    '',
     '## Setups',
     ...Object.entries(summary.setups).map(
       ([id, s]) =>
@@ -163,6 +190,11 @@ async function main() {
     for (const f of failed.slice(0, 20)) {
       console.error(`  ${f.setupId}/${f.taskId}: ${f.issues.slice(0, 3).join('; ')}`);
     }
+    process.exit(1);
+  }
+  console.log(`Live model evaluation: ${summary.live.status}${summary.live.reason ? ` (${summary.live.reason})` : ''}`);
+  if (summary.live.status === 'completed' && summary.live.failed) {
+    console.error(`Live evaluation recorded ${summary.live.failed} failed runs.`);
     process.exit(1);
   }
 }

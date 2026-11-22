@@ -1,0 +1,123 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 3,
+    "era": "shared",
+    "mode": "shared",
+    "description": "Component tokens; eras override via CSS vars"
+  },
+  "button": {
+    "padding-x": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "padding-y": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "var(--ew-radius-control, 8px)"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "14px"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "8px"
+    }
+  },
+  "field": {
+    "padding-x": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "padding-y": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "var(--ew-radius-field, 8px)"
+    },
+    "font-size": {
+      "$type": "dimension",
+      "$value": "14px"
+    }
+  },
+  "card": {
+    "padding": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "var(--ew-radius-surface, 12px)"
+    },
+    "gap": {
+      "$type": "dimension",
+      "$value": "12px"
+    }
+  },
+  "dialog": {
+    "padding": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "radius": {
+      "$type": "dimension",
+      "$value": "var(--ew-radius-surface, 12px)"
+    },
+    "max-width": {
+      "$type": "dimension",
+      "$value": "420px"
+    }
+  },
+  "tabs": {
+    "gap": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "indicator-size": {
+      "$type": "dimension",
+      "$value": "2px"
+    }
+  },
+  "switch": {
+    "track-width": {
+      "$type": "dimension",
+      "$value": "44px"
+    },
+    "track-height": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "thumb-size": {
+      "$type": "dimension",
+      "$value": "18px"
+    }
+  },
+  "motion": {
+    "press": {
+      "$type": "duration",
+      "$value": "120ms"
+    },
+    "focus": {
+      "$type": "duration",
+      "$value": "150ms"
+    },
+    "dialog": {
+      "$type": "duration",
+      "$value": "200ms"
+    },
+    "switch": {
+      "$type": "duration",
+      "$value": "160ms"
+    },
+    "indicator": {
+      "$type": "duration",
+      "$value": "200ms"
+    }
+  }
+}

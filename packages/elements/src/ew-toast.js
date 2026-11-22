@@ -13,6 +13,11 @@
       if (!this.hasAttribute('aria-live')) this.setAttribute('aria-live', 'polite');
       if (!this.hasAttribute('aria-relevant')) this.setAttribute('aria-relevant', 'additions');
       this.setAttribute('aria-atomic', 'false');
+      for (const toast of this.querySelectorAll('.ew-toast')) this.#resume(toast);
+    }
+
+    disconnectedCallback() {
+      for (const toast of this.querySelectorAll('.ew-toast')) this.#pause(toast);
     }
 
     /** @param {{title?: string, body: string, variant?: string, timeout?: number}} opts */

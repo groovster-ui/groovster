@@ -1,0 +1,119 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "native",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "checked",
+      "selector": ":checked",
+      "description": "Selected."
+    },
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled",
+      "description": "Disabled."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Arrow keys",
+      "action": "Move within group"
+    },
+    {
+      "keys": "Space",
+      "action": "Select focused"
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "kind": "content",
+      "description": "Label text."
+    }
+  ],
+  "imports": [
+    "@groovster/css/radio.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "radio",
+  "name": "Radio",
+  "className": "ew-radio",
+  "nativeElement": "input[type=radio]",
+  "summary": "Radio option in a named group. Native radios; eras skin the disc.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-radio",
+      "description": "Label wrapper."
+    },
+    {
+      "part": "control",
+      "required": true,
+      "selector": ".ew-radio__control",
+      "description": "Native radio."
+    },
+    {
+      "part": "disc",
+      "required": true,
+      "selector": ".ew-radio__disc",
+      "description": "Visual disc."
+    },
+    {
+      "part": "label",
+      "required": true,
+      "selector": ".ew-radio__label",
+      "description": "Label."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default",
+        "card"
+      ],
+      "default": "default",
+      "description": "Layout."
+    }
+  },
+  "aria": {
+    "role": "radio (native)",
+    "requiredAttributes": [
+      "name (group)"
+    ],
+    "optionalAttributes": [],
+    "notes": [
+      "Same name groups options.",
+      "Provide a fieldset/legend for the group when practical."
+    ]
+  },
+  "canonicalHtml": "<fieldset class=\"ew-radio-group\">\n  <legend>Plan</legend>\n  <label class=\"ew-radio\"><input class=\"ew-radio__control\" type=\"radio\" name=\"plan\" value=\"basic\" /><span class=\"ew-radio__disc\" aria-hidden=\"true\"></span><span class=\"ew-radio__label\">Basic</span></label>\n  <label class=\"ew-radio\"><input class=\"ew-radio__control\" type=\"radio\" name=\"plan\" value=\"pro\" /><span class=\"ew-radio__disc\" aria-hidden=\"true\"></span><span class=\"ew-radio__label\">Pro</span></label>\n</fieldset>",
+  "do": [
+    "Group with name + fieldset.",
+    "Keep labels visible."
+  ],
+  "dont": [
+    "Don't use radios for multi-select.",
+    "Don't omit a group name."
+  ]
+}

@@ -22,20 +22,25 @@
 
     connectedCallback() {
       this.classList.add('ew-menu');
+      this.removeEventListener('click', this.#onClick);
+      this.removeEventListener('keydown', this.#onKey);
       this.addEventListener('click', this.#onClick);
       this.addEventListener('keydown', this.#onKey);
       this.#upgrade();
-      if (!this.#ready) {
-        this.#mo = new MutationObserver(() => this.#upgrade());
-        this.#mo.observe(this, { childList: true, subtree: true });
-      }
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => this.#upgrade());
+      this.#mo.observe(this, { childList: true, subtree: true, characterData: true });
     }
     disconnectedCallback() {
+      if (this.#open) this.#setOpen(false, { restoreFocus: false });
       this.#mo?.disconnect();
+      this.#mo = null;
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKey);
       document.removeEventListener('pointerdown', this.#onDoc, true);
       clearTimeout(this.#typeaheadTimer);
+      this.#ready = false;
+      this.#open = false;
     }
 
     get #trigger() {
@@ -51,11 +56,9 @@
     }
 
     #upgrade() {
-      if (this.#ready || !this.#trigger || !this.#panel) return;
-      this.#ready = true;
-      this.#mo?.disconnect();
-      this.#mo = null;
+      if (!this.#trigger || !this.#panel) return;
       this.#ensure();
+      this.#ready = true;
     }
 
     #ensure() {
@@ -65,9 +68,9 @@
       if (!panel.id) panel.id = `${TAG}-${++uid}`;
       trigger.setAttribute('aria-haspopup', 'menu');
       trigger.setAttribute('aria-controls', panel.id);
-      trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute('aria-expanded', this.#open ? 'true' : 'false');
       panel.setAttribute('role', 'menu');
-      panel.hidden = true;
+      panel.hidden = !this.#open;
       this.#items.forEach((item, i) => {
         item.tabIndex = -1;
         if (!item.id) item.id = `${panel.id}-item-${i}`;

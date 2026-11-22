@@ -475,7 +475,7 @@ export function neonDecoratorCss() {
   [data-era="neon"] .ew-textarea__label {
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
   }
   [data-era="neon"] .ew-text-field__control,
@@ -632,7 +632,7 @@ export function neonDecoratorCss() {
     background: var(--ew-color-bg-elevated);
     color: var(--ew-color-fg-default);
     box-shadow: var(--ew-glow-cyan);
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }

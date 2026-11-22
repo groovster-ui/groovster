@@ -1,0 +1,117 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "css-only",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Move focus"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Items."
+    },
+    {
+      "name": "ornament-before",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Optional rule."
+    }
+  ],
+  "imports": [
+    "@groovster/css/breadcrumb.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "breadcrumb",
+  "name": "Breadcrumb",
+  "className": "ew-breadcrumb",
+  "nativeElement": "nav",
+  "summary": "Navigation breadcrumb trail.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": "nav.ew-breadcrumb",
+      "description": "Nav."
+    },
+    {
+      "part": "list",
+      "required": true,
+      "selector": ".ew-breadcrumb__list",
+      "description": "Ordered list."
+    },
+    {
+      "part": "item",
+      "required": true,
+      "selector": ".ew-breadcrumb__item",
+      "description": "Item."
+    },
+    {
+      "part": "separator",
+      "required": false,
+      "selector": ".ew-breadcrumb__separator",
+      "description": "Separator."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default"
+      ],
+      "default": "default",
+      "description": "Separator style."
+    }
+  },
+  "aria": {
+    "role": "navigation",
+    "requiredAttributes": [
+      "aria-label"
+    ],
+    "optionalAttributes": [
+      "aria-current=page"
+    ],
+    "notes": [
+      "aria-label=Breadcrumb on nav.",
+      "Mark current page with aria-current=page."
+    ]
+  },
+  "canonicalHtml": "<nav class=\"ew-breadcrumb\" aria-label=\"Breadcrumb\">\n  <ol class=\"ew-breadcrumb__list\">\n    <li class=\"ew-breadcrumb__item\"><a class=\"ew-link\" href=\"/\">Home</a></li>\n    <li class=\"ew-breadcrumb__item\"><a class=\"ew-link\" href=\"/docs\">Docs</a></li>\n    <li class=\"ew-breadcrumb__item\" aria-current=\"page\">Button</li>\n  </ol>\n</nav>",
+  "do": [
+    "Use nav + ol.",
+    "Mark the current page."
+  ],
+  "dont": [
+    "Don't use breadcrumbs as the only nav for complex apps.",
+    "Don't skip landmark labeling."
+  ]
+}

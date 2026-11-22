@@ -49,3 +49,6 @@ if (failed) {
   process.exit(1);
 }
 console.log('\nMCP tool smoke OK');
+
+const { smokeStandalone } = await import('./smoke-standalone.js');
+await smokeStandalone();

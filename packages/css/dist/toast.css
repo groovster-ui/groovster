@@ -9,6 +9,9 @@
     display: grid; gap: 10px; pointer-events: none;
   }
   .ew-toast-region > * { pointer-events: auto; }
+  @media (max-width: 480px) {
+    .ew-toast-region, ew-toast-region { left: 12px; right: 12px; bottom: 12px; max-width: calc(100vw - 24px); }
+  }
   .ew-toast {
     position: relative;
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);

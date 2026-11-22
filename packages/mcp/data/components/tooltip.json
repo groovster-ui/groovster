@@ -1,0 +1,108 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "web-component",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Focus",
+      "action": "Show tip"
+    },
+    {
+      "keys": "Escape",
+      "action": "Hide tip (if JS enhanced)"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Trigger."
+    },
+    {
+      "name": "ornament-after",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Tip arrow."
+    }
+  ],
+  "imports": [
+    "@groovster/css/tooltip.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "tooltip",
+  "name": "Tooltip",
+  "className": "ew-tooltip",
+  "nativeElement": "ew-tooltip",
+  "summary": "CSS tooltip for non-essential hints. Never the only accessible name.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-tooltip",
+      "description": "Wrapper around trigger."
+    },
+    {
+      "part": "tip",
+      "required": true,
+      "selector": ".ew-tooltip__tip",
+      "description": "Tip bubble."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default"
+      ],
+      "default": "default",
+      "description": "Placement chrome."
+    }
+  },
+  "aria": {
+    "role": "tooltip",
+    "requiredAttributes": [
+      "aria-describedby on trigger"
+    ],
+    "optionalAttributes": [],
+    "notes": [
+      "<ew-tooltip> shows on focus/hover; Escape hides.",
+      "Never the only accessible name.",
+      "Zag.js not used."
+    ]
+  },
+  "canonicalHtml": "<ew-tooltip class=\"ew-tooltip\">\n  <button type=\"button\" class=\"ew-button\" aria-describedby=\"tip-1\">Info</button>\n  <span id=\"tip-1\" class=\"ew-tooltip__tip\" role=\"tooltip\">More detail</span>\n</ew-tooltip>",
+  "do": [
+    "Duplicate essential info in accessible text.",
+    "Support keyboard focus."
+  ],
+  "dont": [
+    "Don't put critical instructions only in a tooltip.",
+    "Don't use tooltip for error messages."
+  ]
+}

@@ -430,7 +430,7 @@ export function decoDecoratorCss() {
   [data-era="deco"] .ew-select__label {
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     font-variant-caps: all-small-caps;
   }
@@ -585,7 +585,7 @@ export function decoDecoratorCss() {
     color: var(--ew-color-fg-default);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-size: 11px;
+    font-size: 13px;
   }
 
   /* Breadcrumb */

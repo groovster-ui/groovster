@@ -1,23 +1,35 @@
 {
   "suite": "groovster-agent-harness-v1",
   "version": 1,
-  "generatedAt": "2026-11-22T04:24:17.932Z",
-  "mode": "live-agent-harness",
-  "note": "Docs-agent vs MCP-agent: real tool/doc I/O token counts, turn counts, validate + Playwright render check.",
+  "generatedAt": "2026-11-22T07:05:41.124Z",
+  "mode": "deterministic-harness",
+  "note": "Deterministic docs, MCP, and hybrid runners. Token counts are wordpiece heuristics, not provider usage. This is not a live LLM benchmark.",
+  "live": {
+    "status": "not-run",
+    "reason": "Pass --live with GROOVSTER_EVAL_PROVIDER and an API key. Ordinary CI does not call a model."
+  },
   "setups": {
     "docs-agent": {
       "successRate": 1,
-      "meanScore": 0.9552121212121212,
-      "meanTokens": 774.060606060606,
+      "meanScore": 0.9538484848484847,
+      "meanTokens": 786.7575757575758,
       "meanTurns": 3.5454545454545454,
       "passed": 33,
       "total": 33
     },
     "mcp-agent": {
       "successRate": 1,
-      "meanScore": 0.8824545454545455,
-      "meanTokens": 1790.4545454545455,
+      "meanScore": 0.8813030303030304,
+      "meanTokens": 1808.5757575757575,
       "meanTurns": 5.545454545454546,
+      "passed": 33,
+      "total": 33
+    },
+    "hybrid-agent": {
+      "successRate": 1,
+      "meanScore": 0.928787878787878,
+      "meanTokens": 1488.090909090909,
+      "meanTurns": 3.5454545454545454,
       "passed": 33,
       "total": 33
     }
@@ -35,15 +47,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 641,
-        "completionTokens": 167,
-        "totalTokens": 808,
+        "promptTokens": 657,
+        "completionTokens": 158,
+        "totalTokens": 815,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -58,15 +72,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 603,
-        "completionTokens": 203,
-        "totalTokens": 806,
+        "promptTokens": 615,
+        "completionTokens": 195,
+        "totalTokens": 810,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -81,15 +97,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 646,
-        "completionTokens": 170,
-        "totalTokens": 816,
+        "promptTokens": 665,
+        "completionTokens": 161,
+        "totalTokens": 826,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -104,15 +122,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 640,
-        "completionTokens": 166,
-        "totalTokens": 806,
+        "promptTokens": 676,
+        "completionTokens": 157,
+        "totalTokens": 833,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -127,15 +147,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 644,
-        "completionTokens": 167,
-        "totalTokens": 811,
+        "promptTokens": 660,
+        "completionTokens": 158,
+        "totalTokens": 818,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -150,15 +172,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 632,
-        "completionTokens": 203,
-        "totalTokens": 835,
+        "promptTokens": 648,
+        "completionTokens": 194,
+        "totalTokens": 842,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -173,15 +197,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 637,
-        "completionTokens": 169,
-        "totalTokens": 806,
+        "promptTokens": 656,
+        "completionTokens": 161,
+        "totalTokens": 817,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -196,15 +222,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 634,
-        "completionTokens": 416,
-        "totalTokens": 1050,
+        "promptTokens": 650,
+        "completionTokens": 407,
+        "totalTokens": 1057,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -219,15 +247,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 638,
-        "completionTokens": 166,
-        "totalTokens": 804,
+        "promptTokens": 654,
+        "completionTokens": 158,
+        "totalTokens": 812,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -242,15 +272,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 631,
-        "completionTokens": 237,
-        "totalTokens": 868,
+        "promptTokens": 667,
+        "completionTokens": 228,
+        "totalTokens": 895,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -265,15 +297,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 640,
-        "completionTokens": 167,
-        "totalTokens": 807,
+        "promptTokens": 656,
+        "completionTokens": 158,
+        "totalTokens": 814,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -288,15 +322,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 643,
-        "completionTokens": 504,
-        "totalTokens": 1147,
+        "promptTokens": 659,
+        "completionTokens": 477,
+        "totalTokens": 1136,
         "turns": 4,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -311,15 +347,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 335,
-        "completionTokens": 67,
-        "totalTokens": 402,
+        "promptTokens": 351,
+        "completionTokens": 58,
+        "totalTokens": 409,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -334,15 +372,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 443,
-        "completionTokens": 163,
-        "totalTokens": 606,
+        "promptTokens": 459,
+        "completionTokens": 154,
+        "totalTokens": 613,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -357,15 +397,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 504,
-        "completionTokens": 237,
-        "totalTokens": 741,
+        "promptTokens": 520,
+        "completionTokens": 228,
+        "totalTokens": 748,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -380,15 +422,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 394,
-        "completionTokens": 127,
-        "totalTokens": 521,
+        "promptTokens": 410,
+        "completionTokens": 118,
+        "totalTokens": 528,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -403,15 +447,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 436,
-        "completionTokens": 163,
-        "totalTokens": 599,
+        "promptTokens": 452,
+        "completionTokens": 154,
+        "totalTokens": 606,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -421,20 +467,22 @@
       "scores": {
         "validate": 1,
         "structure": 1,
-        "tokens": 1,
+        "tokens": 0.7,
         "turns": 1,
-        "total": 1
+        "total": 0.955
       },
       "metrics": {
-        "promptTokens": 547,
-        "completionTokens": 253,
-        "totalTokens": 800,
+        "promptTokens": 563,
+        "completionTokens": 244,
+        "totalTokens": 807,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -449,15 +497,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 346,
-        "completionTokens": 70,
-        "totalTokens": 416,
+        "promptTokens": 365,
+        "completionTokens": 61,
+        "totalTokens": 426,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -472,15 +522,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 454,
-        "completionTokens": 166,
-        "totalTokens": 620,
+        "promptTokens": 473,
+        "completionTokens": 157,
+        "totalTokens": 630,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -495,15 +547,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 515,
-        "completionTokens": 240,
-        "totalTokens": 755,
+        "promptTokens": 534,
+        "completionTokens": 231,
+        "totalTokens": 765,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -518,15 +572,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 405,
-        "completionTokens": 130,
-        "totalTokens": 535,
+        "promptTokens": 424,
+        "completionTokens": 121,
+        "totalTokens": 545,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -541,15 +597,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 447,
-        "completionTokens": 166,
-        "totalTokens": 613,
+        "promptTokens": 466,
+        "completionTokens": 157,
+        "totalTokens": 623,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -564,15 +622,17 @@
         "total": 0.955
       },
       "metrics": {
-        "promptTokens": 558,
-        "completionTokens": 256,
-        "totalTokens": 814,
+        "promptTokens": 577,
+        "completionTokens": 247,
+        "totalTokens": 824,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -587,15 +647,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 340,
-        "completionTokens": 67,
-        "totalTokens": 407,
+        "promptTokens": 376,
+        "completionTokens": 58,
+        "totalTokens": 434,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -610,15 +672,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 448,
-        "completionTokens": 163,
-        "totalTokens": 611,
+        "promptTokens": 484,
+        "completionTokens": 154,
+        "totalTokens": 638,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -633,15 +697,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 509,
-        "completionTokens": 237,
-        "totalTokens": 746,
+        "promptTokens": 545,
+        "completionTokens": 228,
+        "totalTokens": 773,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -656,15 +722,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 399,
-        "completionTokens": 127,
-        "totalTokens": 526,
+        "promptTokens": 435,
+        "completionTokens": 118,
+        "totalTokens": 553,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -679,15 +747,17 @@
         "total": 1
       },
       "metrics": {
-        "promptTokens": 441,
-        "completionTokens": 163,
-        "totalTokens": 604,
+        "promptTokens": 477,
+        "completionTokens": 154,
+        "totalTokens": 631,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -702,15 +772,17 @@
         "total": 0.955
       },
       "metrics": {
-        "promptTokens": 552,
-        "completionTokens": 253,
-        "totalTokens": 805,
+        "promptTokens": 588,
+        "completionTokens": 244,
+        "totalTokens": 832,
         "turns": 3,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -725,15 +797,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 936,
-        "completionTokens": 347,
-        "totalTokens": 1283,
+        "promptTokens": 952,
+        "completionTokens": 338,
+        "totalTokens": 1290,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -748,15 +822,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 1130,
-        "completionTokens": 494,
-        "totalTokens": 1624,
+        "promptTokens": 1166,
+        "completionTokens": 485,
+        "totalTokens": 1651,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -771,15 +847,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 876,
-        "completionTokens": 276,
-        "totalTokens": 1152,
+        "promptTokens": 895,
+        "completionTokens": 267,
+        "totalTokens": 1162,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "docs-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -794,15 +872,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 299,
-        "completionTokens": 1472,
-        "totalTokens": 1771,
+        "promptTokens": 288,
+        "completionTokens": 1496,
+        "totalTokens": 1784,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -817,15 +897,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 342,
-        "completionTokens": 1456,
-        "totalTokens": 1798,
+        "promptTokens": 332,
+        "completionTokens": 1477,
+        "totalTokens": 1809,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -840,15 +922,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 311,
-        "completionTokens": 1483,
-        "totalTokens": 1794,
+        "promptTokens": 300,
+        "completionTokens": 1510,
+        "totalTokens": 1810,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -863,15 +947,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 292,
-        "completionTokens": 1469,
-        "totalTokens": 1761,
+        "promptTokens": 281,
+        "completionTokens": 1513,
+        "totalTokens": 1794,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -886,15 +972,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 302,
-        "completionTokens": 1472,
-        "totalTokens": 1774,
+        "promptTokens": 291,
+        "completionTokens": 1496,
+        "totalTokens": 1787,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -909,15 +997,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 338,
-        "completionTokens": 1508,
-        "totalTokens": 1846,
+        "promptTokens": 327,
+        "completionTokens": 1532,
+        "totalTokens": 1859,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -932,15 +1022,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 301,
-        "completionTokens": 1482,
-        "totalTokens": 1783,
+        "promptTokens": 291,
+        "completionTokens": 1510,
+        "totalTokens": 1801,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -955,15 +1047,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 589,
-        "completionTokens": 1721,
-        "totalTokens": 2310,
+        "promptTokens": 578,
+        "completionTokens": 1745,
+        "totalTokens": 2323,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -978,15 +1072,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 295,
-        "completionTokens": 1471,
-        "totalTokens": 1766,
+        "promptTokens": 285,
+        "completionTokens": 1496,
+        "totalTokens": 1781,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1001,15 +1097,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 370,
-        "completionTokens": 1540,
-        "totalTokens": 1910,
+        "promptTokens": 359,
+        "completionTokens": 1584,
+        "totalTokens": 1943,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1024,15 +1122,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 298,
-        "completionTokens": 1472,
-        "totalTokens": 1770,
+        "promptTokens": 287,
+        "completionTokens": 1496,
+        "totalTokens": 1783,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1047,15 +1147,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 710,
-        "completionTokens": 1809,
-        "totalTokens": 2519,
+        "promptTokens": 677,
+        "completionTokens": 1815,
+        "totalTokens": 2492,
         "turns": 6,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1070,15 +1172,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 154,
-        "completionTokens": 1088,
-        "totalTokens": 1242,
+        "promptTokens": 143,
+        "completionTokens": 1112,
+        "totalTokens": 1255,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1093,15 +1197,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 264,
-        "completionTokens": 1302,
-        "totalTokens": 1566,
+        "promptTokens": 253,
+        "completionTokens": 1326,
+        "totalTokens": 1579,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1116,15 +1222,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 352,
-        "completionTokens": 1446,
-        "totalTokens": 1798,
+        "promptTokens": 341,
+        "completionTokens": 1470,
+        "totalTokens": 1811,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1139,15 +1247,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 233,
-        "completionTokens": 1205,
-        "totalTokens": 1438,
+        "promptTokens": 222,
+        "completionTokens": 1229,
+        "totalTokens": 1451,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1162,15 +1272,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 272,
-        "completionTokens": 1290,
-        "totalTokens": 1562,
+        "promptTokens": 261,
+        "completionTokens": 1314,
+        "totalTokens": 1575,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1185,15 +1297,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 388,
-        "completionTokens": 1487,
-        "totalTokens": 1875,
+        "promptTokens": 377,
+        "completionTokens": 1511,
+        "totalTokens": 1888,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1208,15 +1322,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 169,
-        "completionTokens": 1093,
-        "totalTokens": 1262,
+        "promptTokens": 158,
+        "completionTokens": 1120,
+        "totalTokens": 1278,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1226,20 +1342,22 @@
       "scores": {
         "validate": 1,
         "structure": 1,
-        "tokens": 0.7,
+        "tokens": 0.45,
         "turns": 0.7,
-        "total": 0.91
+        "total": 0.872
       },
       "metrics": {
-        "promptTokens": 279,
-        "completionTokens": 1307,
-        "totalTokens": 1586,
+        "promptTokens": 268,
+        "completionTokens": 1334,
+        "totalTokens": 1602,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1254,15 +1372,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 367,
-        "completionTokens": 1451,
-        "totalTokens": 1818,
+        "promptTokens": 356,
+        "completionTokens": 1478,
+        "totalTokens": 1834,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1277,15 +1397,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 248,
-        "completionTokens": 1210,
-        "totalTokens": 1458,
+        "promptTokens": 237,
+        "completionTokens": 1237,
+        "totalTokens": 1474,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1300,15 +1422,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 287,
-        "completionTokens": 1295,
-        "totalTokens": 1582,
+        "promptTokens": 276,
+        "completionTokens": 1322,
+        "totalTokens": 1598,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1323,15 +1447,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 403,
-        "completionTokens": 1492,
-        "totalTokens": 1895,
+        "promptTokens": 392,
+        "completionTokens": 1519,
+        "totalTokens": 1911,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1346,15 +1472,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 154,
-        "completionTokens": 1086,
-        "totalTokens": 1240,
+        "promptTokens": 143,
+        "completionTokens": 1130,
+        "totalTokens": 1273,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1369,15 +1497,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 264,
-        "completionTokens": 1300,
-        "totalTokens": 1564,
+        "promptTokens": 253,
+        "completionTokens": 1344,
+        "totalTokens": 1597,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1392,15 +1522,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 352,
-        "completionTokens": 1444,
-        "totalTokens": 1796,
+        "promptTokens": 341,
+        "completionTokens": 1488,
+        "totalTokens": 1829,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1415,15 +1547,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 233,
-        "completionTokens": 1203,
-        "totalTokens": 1436,
+        "promptTokens": 222,
+        "completionTokens": 1247,
+        "totalTokens": 1469,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1438,15 +1572,17 @@
         "total": 0.91
       },
       "metrics": {
-        "promptTokens": 272,
-        "completionTokens": 1288,
-        "totalTokens": 1560,
+        "promptTokens": 261,
+        "completionTokens": 1332,
+        "totalTokens": 1593,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1461,15 +1597,17 @@
         "total": 0.872
       },
       "metrics": {
-        "promptTokens": 388,
-        "completionTokens": 1485,
-        "totalTokens": 1873,
+        "promptTokens": 377,
+        "completionTokens": 1529,
+        "totalTokens": 1906,
         "turns": 5,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1484,15 +1622,17 @@
         "total": 0.835
       },
       "metrics": {
-        "promptTokens": 528,
-        "completionTokens": 1945,
-        "totalTokens": 2473,
+        "promptTokens": 517,
+        "completionTokens": 1969,
+        "totalTokens": 2486,
         "turns": 7,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1507,15 +1647,17 @@
         "total": 0.835
       },
       "metrics": {
-        "promptTokens": 708,
-        "completionTokens": 2282,
-        "totalTokens": 2990,
+        "promptTokens": 697,
+        "completionTokens": 2326,
+        "totalTokens": 3023,
         "turns": 7,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
       "renderPass": true
     },
     {
@@ -1530,15 +1672,842 @@
         "total": 0.835
       },
       "metrics": {
-        "promptTokens": 451,
-        "completionTokens": 1818,
-        "totalTokens": 2269,
+        "promptTokens": 440,
+        "completionTokens": 1845,
+        "totalTokens": 2285,
         "turns": 7,
-        "tokenizer": "wordpiece-heuristic"
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
       },
       "issues": [],
       "fixes": [],
       "source": "mcp-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-001",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 0.7,
+        "total": 0.91
+      },
+      "metrics": {
+        "promptTokens": 913,
+        "completionTokens": 608,
+        "totalTokens": 1521,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-002",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 0.7,
+        "total": 0.91
+      },
+      "metrics": {
+        "promptTokens": 906,
+        "completionTokens": 649,
+        "totalTokens": 1555,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-003",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 0.7,
+        "total": 0.91
+      },
+      "metrics": {
+        "promptTokens": 916,
+        "completionTokens": 623,
+        "totalTokens": 1539,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-004",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 0.7,
+        "total": 0.91
+      },
+      "metrics": {
+        "promptTokens": 907,
+        "completionTokens": 607,
+        "totalTokens": 1514,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-005",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 0.7,
+        "total": 0.91
+      },
+      "metrics": {
+        "promptTokens": 916,
+        "completionTokens": 608,
+        "totalTokens": 1524,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-006",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 0.7,
+        "total": 0.91
+      },
+      "metrics": {
+        "promptTokens": 904,
+        "completionTokens": 644,
+        "totalTokens": 1548,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-007",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 0.7,
+        "total": 0.91
+      },
+      "metrics": {
+        "promptTokens": 907,
+        "completionTokens": 623,
+        "totalTokens": 1530,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-008",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.45,
+        "turns": 0.7,
+        "total": 0.872
+      },
+      "metrics": {
+        "promptTokens": 906,
+        "completionTokens": 857,
+        "totalTokens": 1763,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-009",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 0.7,
+        "total": 0.91
+      },
+      "metrics": {
+        "promptTokens": 910,
+        "completionTokens": 608,
+        "totalTokens": 1518,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-010",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 0.7,
+        "total": 0.91
+      },
+      "metrics": {
+        "promptTokens": 898,
+        "completionTokens": 678,
+        "totalTokens": 1576,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-011",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 0.7,
+        "total": 0.91
+      },
+      "metrics": {
+        "promptTokens": 912,
+        "completionTokens": 608,
+        "totalTokens": 1520,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-012",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.45,
+        "turns": 0.7,
+        "total": 0.872
+      },
+      "metrics": {
+        "promptTokens": 915,
+        "completionTokens": 927,
+        "totalTokens": 1842,
+        "turns": 4,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-013",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 886,
+        "completionTokens": 224,
+        "totalTokens": 1110,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-014",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 884,
+        "completionTokens": 438,
+        "totalTokens": 1322,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-015",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 886,
+        "completionTokens": 582,
+        "totalTokens": 1468,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-016",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 889,
+        "completionTokens": 341,
+        "totalTokens": 1230,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-017",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 886,
+        "completionTokens": 426,
+        "totalTokens": 1312,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-018",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 884,
+        "completionTokens": 623,
+        "totalTokens": 1507,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-019",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 892,
+        "completionTokens": 233,
+        "totalTokens": 1125,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-020",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 890,
+        "completionTokens": 447,
+        "totalTokens": 1337,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-021",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 892,
+        "completionTokens": 591,
+        "totalTokens": 1483,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-022",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 895,
+        "completionTokens": 350,
+        "totalTokens": 1245,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-023",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 892,
+        "completionTokens": 435,
+        "totalTokens": 1327,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-024",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 890,
+        "completionTokens": 632,
+        "totalTokens": 1522,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-025",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 886,
+        "completionTokens": 224,
+        "totalTokens": 1110,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-026",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 884,
+        "completionTokens": 438,
+        "totalTokens": 1322,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-027",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 886,
+        "completionTokens": 582,
+        "totalTokens": 1468,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-028",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 889,
+        "completionTokens": 341,
+        "totalTokens": 1230,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-029",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 886,
+        "completionTokens": 426,
+        "totalTokens": 1312,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-030",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.7,
+        "turns": 1,
+        "total": 0.955
+      },
+      "metrics": {
+        "promptTokens": 884,
+        "completionTokens": 623,
+        "totalTokens": 1507,
+        "turns": 3,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-031",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.45,
+        "turns": 0.7,
+        "total": 0.872
+      },
+      "metrics": {
+        "promptTokens": 924,
+        "completionTokens": 1081,
+        "totalTokens": 2005,
+        "turns": 5,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-032",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.45,
+        "turns": 0.7,
+        "total": 0.872
+      },
+      "metrics": {
+        "promptTokens": 913,
+        "completionTokens": 1420,
+        "totalTokens": 2333,
+        "turns": 5,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
+      "renderPass": true
+    },
+    {
+      "taskId": "ew-033",
+      "setupId": "hybrid-agent",
+      "pass": true,
+      "scores": {
+        "validate": 1,
+        "structure": 1,
+        "tokens": 0.45,
+        "turns": 0.7,
+        "total": 0.872
+      },
+      "metrics": {
+        "promptTokens": 924,
+        "completionTokens": 958,
+        "totalTokens": 1882,
+        "turns": 5,
+        "tokenizer": "wordpiece-heuristic",
+        "tokenSource": "heuristic"
+      },
+      "issues": [],
+      "fixes": [],
+      "source": "hybrid-agent",
+      "harness": "deterministic",
       "renderPass": true
     }
   ]

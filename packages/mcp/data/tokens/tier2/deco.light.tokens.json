@@ -3,8 +3,8 @@
   "meta": {
     "tier": 2,
     "era": "deco",
-    "mode": "shared",
-    "description": "Tier 2 semantic roles for deco"
+    "mode": "light",
+    "description": "Tier 2 semantic roles for deco light (references tier 1)"
   },
   "color": {
     "fg": {
@@ -14,7 +14,7 @@
       },
       "muted": {
         "$type": "color",
-        "$value": "{color.brassDeep}"
+        "$value": "{color.cream}"
       },
       "inverse": {
         "$type": "color",
@@ -32,17 +32,19 @@
       },
       "elevated": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.panel} 85%, {color.brass} 15%)"
+        "$value": "{color.sky}",
+        "$description": "Bible elevated surface (dark lacquer step / light white)"
       }
     },
     "border": {
       "subtle": {
         "$type": "color",
-        "$value": "{color.brass}"
+        "$value": "{color.goldSubtle}"
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.brassDeep}"
+        "$value": "{color.goldBorder}",
+        "$description": "≥3:1 against surface for non-text UI"
       }
     },
     "action": {
@@ -56,26 +58,26 @@
       },
       "hover": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.accent.solid} 85%, black 15%)"
+        "$value": "color-mix(in oklch, {color.accent.solid} 85%, {color.ink})"
       }
     },
     "field": {
       "bg": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.paper} 95%, {color.panel} 5%)"
+        "$value": "{color.paper}"
       },
       "border": {
         "$type": "color",
-        "$value": "{color.brassDeep}"
+        "$value": "{color.goldBorder}"
       },
       "focus": {
         "$type": "color",
-        "$value": "{color.brass}"
+        "$value": "{color.goldFocus}"
       }
     },
     "overlay": {
       "$type": "color",
-      "$value": "color-mix(in oklch, {color.ink} 100%, transparent 45%)"
+      "$value": "color-mix(in oklch, {color.ink} 55%, transparent)"
     },
     "track": {
       "off": {
@@ -107,7 +109,7 @@
           "offsetY": "2px",
           "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.brassDeep} 100%, transparent 65%)"
+          "color": "color-mix(in oklch, {color.brassDeep} 35%, transparent)"
         }
       ]
     },
@@ -119,14 +121,14 @@
           "offsetY": "4px",
           "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.ink} 100%, transparent 75%)"
+          "color": "color-mix(in oklch, {color.ink} 25%, transparent)"
         },
         {
           "offsetX": "0px",
           "offsetY": "8px",
           "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.brassDeep} 100%, transparent 80%)"
+          "color": "color-mix(in oklch, {color.brassDeep} 20%, transparent)"
         }
       ]
     },
@@ -138,7 +140,7 @@
           "offsetY": "12px",
           "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.ink} 100%, transparent 65%)"
+          "color": "color-mix(in oklch, {color.ink} 35%, transparent)"
         }
       ]
     }

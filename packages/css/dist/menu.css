@@ -24,7 +24,12 @@
     padding: 8px 10px; border-radius: calc(var(--ew-structure-control-radius, 6px) * 0.75);
     cursor: pointer;
   }
-  .ew-menu__item:hover, .ew-menu__item:focus-visible { background: color-mix(in oklch, var(--ew-color-action-bg) 16%, transparent); outline: none; }
+  .ew-menu__item:hover { background: color-mix(in oklch, var(--ew-color-action-bg) 16%, transparent); }
+  .ew-menu__item:focus-visible {
+    background: color-mix(in oklch, var(--ew-color-action-bg) 16%, transparent);
+    outline: 2px solid var(--ew-color-field-focus, Highlight);
+    outline-offset: 2px;
+  }
   /* spec variant variant=default */
   .ew-menu[data-variant="default"] { --ew-spec-variant-variant: default; }
   .ew-menu:not([data-variant]) { --ew-spec-variant-variant: default; }

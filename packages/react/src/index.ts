@@ -43,4 +43,4 @@ export type { ToastProps } from './Toast.js';
 export { Tooltip } from './Tooltip.js';
 export type { TooltipProps } from './Tooltip.js';
 export { EraRoot } from './EraRoot.js';
-export type { EraRootProps } from './EraRoot.js';
+export type { EraRootProps, FidelityBand } from './EraRoot.js';

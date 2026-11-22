@@ -1,0 +1,177 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "mcm-atomic",
+  "name": "Atomic",
+  "aliases": [
+    "atomic",
+    "mcm",
+    "mid-century"
+  ],
+  "identity": {
+    "oneLiner": "Mid-century atomic optimism: kidney shapes, starbursts, teal–coral–mustard.",
+    "summary": "Atomic / MCM blends boomerang curves with compact geometric type. Warm wood-adjacent neutrals, saturated accent triads, and playful but sparse starburst ornaments. Dialect switches MCM softness vs sharper Atomic.",
+    "bestFit": [
+      "Consumer lifestyle",
+      "Cafe / product stories",
+      "Playful SaaS marketing",
+      "Retro-modern portfolios"
+    ],
+    "authenticityNotes": "Motifs are few and large. Avoid 1950s clip-art overload; color triad and soft organic radius do most of the work."
+  },
+  "axes": {
+    "shape": "Organic radii + boomerang-friendly asymmetry; kidney cards at high fidelity",
+    "edge": "Soft borders or borderless tonal separation",
+    "surface": "Warm matte pigments; light paper/wood grain only at high fidelity",
+    "elevation": "Soft lifted cards; occasional hard offset shadow (print-like)",
+    "ornament": "Starburst / atom rings in ornament slots; sparse",
+    "typeVoice": "Geometric sans; friendly titles; slightly wide tracking",
+    "motion": "Breezy ease; gentle float — never violent bounce",
+    "density": "Relaxed marketing density",
+    "iconography": "Rounded geometric; period-simple"
+  },
+  "fonts": {
+    "display": "Josefin Sans",
+    "body": "Nunito Sans",
+    "mono": "Space Mono",
+    "license": "OFL-1.1",
+    "sources": [
+      "https://fonts.google.com/specimen/Josefin+Sans",
+      "https://fonts.google.com/specimen/Nunito+Sans",
+      "https://fonts.google.com/specimen/Space+Mono"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 67,
+      "max": 100,
+      "default": 75
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Structure hints only: radius, type voice, subtle edge. No ornaments."
+      },
+      {
+        "id": "standard",
+        "min": 26,
+        "max": 66,
+        "description": "Clear era geometry and materials; sparse ornaments on surfaces. Alias: signature."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full decorative program. Demo/showcase territory; neverDo still binds. Applied when data-fidelity-band is absent."
+      }
+    ]
+  },
+  "dialects": [
+    {
+      "id": "mcm",
+      "label": "MCM",
+      "description": "Softer organic radii, warmer wood neutrals."
+    },
+    {
+      "id": "atomic",
+      "label": "Atomic",
+      "description": "Sharper geometry, punchier teal–coral."
+    }
+  ],
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "Never wallpaper every surface with starbursts.",
+    "Never use distressed Western wood type or comic balloons.",
+    "Never let coral/teal accents carry contrast alone on small text.",
+    "Never apply kidney clip-paths to dense form controls (inputs stay rectangular enough to use).",
+    "Do not mix synthwave neon grids into Atomic."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/mcm-atomic.light.tokens.json",
+    "spec/tokens/tier1/mcm-atomic.dark.tokens.json",
+    "spec/tokens/tier2/mcm-atomic.light.tokens.json",
+    "spec/tokens/tier2/mcm-atomic.dark.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: mcm-atomic (Atomic / MCM)",
+      "voice: optimistic mid-century",
+      "shape: organic radii / kidney at high fidelity",
+      "edge: soft or tonal",
+      "surface: warm matte pigments",
+      "elevation: soft lift + print offset",
+      "ornament: sparse starburst / atom",
+      "type: Josefin Sans + Nunito Sans",
+      "fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)",
+      "modes: light, dark",
+      "dialects: mcm | atomic",
+      "use: lifestyle, playful marketing",
+      "never: motif wallpaper, neon grids on forms"
+    ]
+  },
+  "structure": {
+    "controlRadius": "999px",
+    "surfaceRadius": "24px",
+    "button": {
+      "borderWidth": "0px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.04em",
+      "textTransform": "none",
+      "fontWeight": "700",
+      "shadow": "4px 4px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent)",
+      "clipPath": "none",
+      "paddingX": "20px",
+      "paddingY": "10px"
+    },
+    "card": {
+      "borderWidth": "0px",
+      "borderStyle": "solid",
+      "shadow": "0 2px 6px color-mix(in oklch, var(--ew-color-fg-default) 10%, transparent)",
+      "raisedShadow": "8px 8px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 16%, transparent)",
+      "clipPath": "none",
+      "padding": "24px",
+      "headerRule": false,
+      "titleTracking": "0.06em",
+      "ornament": "starburst"
+    },
+    "field": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "16px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "0px",
+      "borderStyle": "solid",
+      "radius": "28px",
+      "shadow": "8px 8px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 16%, transparent)",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "4px",
+      "indicatorStyle": "solid",
+      "radius": "999px",
+      "enclosed": false
+    },
+    "switch": {
+      "trackRadius": "999px",
+      "thumbRadius": "999px",
+      "shadow": "3px 3px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent)"
+    },
+    "tooltip": {
+      "radius": "4px",
+      "shadow": "none",
+      "padding": "6px 8px"
+    },
+    "slider": {
+      "trackHeight": "6px",
+      "thumbSize": "16px",
+      "trackRadius": "999px"
+    }
+  }
+}

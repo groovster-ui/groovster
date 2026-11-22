@@ -1,0 +1,119 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "native",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Move focus"
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "kind": "content",
+      "description": "Label."
+    },
+    {
+      "name": "description",
+      "kind": "content",
+      "description": "Helper."
+    }
+  ],
+  "imports": [
+    "@groovster/css/textarea.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "textarea",
+  "name": "Textarea",
+  "className": "ew-textarea",
+  "nativeElement": "textarea",
+  "summary": "Multi-line text field with label. Native textarea.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-textarea",
+      "description": "Wrapper."
+    },
+    {
+      "part": "label",
+      "required": true,
+      "selector": ".ew-textarea__label",
+      "description": "Label."
+    },
+    {
+      "part": "control",
+      "required": true,
+      "selector": ".ew-textarea__control",
+      "description": "Textarea."
+    },
+    {
+      "part": "description",
+      "required": false,
+      "selector": ".ew-textarea__description",
+      "description": "Helper."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "outline",
+        "filled"
+      ],
+      "default": "outline",
+      "description": "Chrome."
+    }
+  },
+  "aria": {
+    "role": "textbox (native textarea)",
+    "requiredAttributes": [
+      "id",
+      "for"
+    ],
+    "optionalAttributes": [
+      "aria-describedby",
+      "aria-invalid"
+    ],
+    "notes": [
+      "Wire label via for/id.",
+      "Respect resize preferences; eras may constrain resize."
+    ]
+  },
+  "canonicalHtml": "<div class=\"ew-textarea\">\n  <label class=\"ew-textarea__label\" for=\"bio\">Bio</label>\n  <textarea id=\"bio\" class=\"ew-textarea__control\" rows=\"4\"></textarea>\n</div>",
+  "do": [
+    "Always label.",
+    "Use rows for initial height."
+  ],
+  "dont": [
+    "Don't use placeholder as the only label.",
+    "Don't disable resize without a reason."
+  ]
+}

@@ -35,6 +35,7 @@ if (cmd === 'gen') {
 if (cmd === 'check') {
   const result = checkDriftAndBudgets();
   if (result.validationErrors.length) fail('Spec validation failed', result.validationErrors);
+  if (result.buildErrors?.length) fail('Generator build failed', result.buildErrors);
   if (result.drift.length) fail('Generated files drifted (hand-edits or stale). Re-run pnpm gen and commit.', result.drift);
   if (result.budgetFailures.length) fail('Output exceeded size budgets', result.budgetFailures);
   const imports = checkNoImports();

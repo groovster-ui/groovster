@@ -16,7 +16,7 @@
     position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
     margin: 0;
     background: var(--ew-color-fg-default); color: var(--ew-color-fg-inverse, #fff);
-    font-size: 12px; padding: var(--ew-structure-tooltip-padding, 6px 8px);
+    font-size: 14px; padding: var(--ew-structure-tooltip-padding, 6px 8px);
     border-radius: var(--ew-structure-tooltip-radius, 4px); white-space: nowrap;
     box-shadow: var(--ew-structure-tooltip-shadow, none);
     opacity: 0; pointer-events: none; transition: opacity 120ms ease;

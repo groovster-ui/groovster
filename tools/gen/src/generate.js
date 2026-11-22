@@ -115,7 +115,11 @@ function genBaseCss() {
 
 @layer reset {
   .ew-root, .ew-root * { box-sizing: border-box; }
-  .ew-root { margin: 0; }
+  .ew-root { margin: 0; overflow-x: clip; }
+  .ew-button, .ew-icon-button, .ew-checkbox, .ew-radio, .ew-switch, .ew-select__trigger {
+    min-height: 24px;
+  }
+  .ew-icon-button { min-width: 24px; }
 }
 
 @layer tokens {
@@ -824,11 +828,19 @@ export function generateAll() {
 
   generateExtras({ components, eras, outputs });
 
+  const elementsDist = path.join(REPO_ROOT, 'packages/elements/dist');
+  if (fs.existsSync(elementsDist)) {
+    for (const name of fs.readdirSync(elementsDist)) {
+      const full = path.join(elementsDist, name);
+      if (fs.statSync(full).isFile()) outputs.push(rel(REPO_ROOT, full));
+    }
+  }
+
   const manifest = {
     generatedAt: 'deterministic-build',
     components: components.map((c) => c.id),
     eras: eras.map((e) => e.id),
-    outputs: outputs.sort(),
+    outputs: [...new Set([...outputs, 'generated/manifest.json'])].sort(),
     budgetReport,
   };
   writeText(GEN_MANIFEST, JSON.stringify(manifest, null, 2));

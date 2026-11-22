@@ -34,7 +34,8 @@ export function listEras({ detail } = {}) {
         id: e.id,
         name: e.name,
         oneLiner: e.identity.oneLiner,
-        fidelity: e.fidelity.recommended,
+        fidelityBand: 'costume',
+        bands: ['whisper', 'standard', 'costume'],
         bestFit: e.identity.bestFit,
         neverDo: e.neverDo,
       })),
@@ -44,7 +45,7 @@ export function listEras({ detail } = {}) {
     eras: eras.map((e) => ({
       id: e.id,
       oneLiner: e.identity.oneLiner,
-      fidelity: e.fidelity.recommended.default,
+      fidelityBand: 'costume',
       bestFit: (e.identity.bestFit || []).slice(0, 2),
     })),
   });
@@ -65,7 +66,8 @@ export function getEraSpec({ era, detail } = {}) {
       card,
       axes: e.axes,
       fonts: e.fonts,
-      fidelity: e.fidelity,
+      fidelityBand: 'costume',
+      bands: (e.fidelity?.bands || []).map((band) => band.id),
       neverDo: e.neverDo,
       dialects: e.dialects || [],
     });
@@ -74,7 +76,7 @@ export function getEraSpec({ era, detail } = {}) {
     id: e.id,
     card,
     neverDo: e.neverDo.slice(0, 3),
-    fidelity: e.fidelity.recommended,
+    fidelityBand: 'costume',
   });
 }
 
@@ -162,26 +164,26 @@ export function installTool({ name, target } = {}) {
 export function recommendTool({ description } = {}) {
   const text = String(description || '').toLowerCase();
   const rules = [
-    { test: /(law|legal|luxury|hotel|editorial|finance|brass|jazz)/, era: 'deco', fidelity: 25, dialect: null },
-    { test: /(synth|neon|game|night|festival|retro.?wave|outrun|cyber)/, era: 'neon', fidelity: 55, dialect: 'synthwave' },
-    { test: /(miami|pastel|day.?glow|vice)/, era: 'neon', fidelity: 45, dialect: 'miami' },
-    { test: /(memphis|confetti|postmodern|squiggle)/, era: 'memphis', fidelity: 50, dialect: null },
-    { test: /(groovy|70s|avocado|disco|funk)/, era: 'groovy', fidelity: 40, dialect: null },
-    { test: /(earth|organic|wellness|craft|linen|moss)/, era: 'earth', fidelity: 30, dialect: null },
-    { test: /(cafe|lifestyle|mid.?century|atomic|playful|product.?stor)/, era: 'mcm-atomic', fidelity: 40, dialect: 'atomic' },
-    { test: /(admin|settings|saas|dashboard|serious|enterprise|default)/, era: 'neutral', fidelity: 0, dialect: null },
+    { test: /(law|legal|luxury|hotel|editorial|finance|brass|jazz)/, era: 'deco', fidelityBand: 'whisper', dialect: null },
+    { test: /(synth|neon|game|night|festival|retro.?wave|outrun|cyber)/, era: 'neon', fidelityBand: 'standard', dialect: 'synthwave' },
+    { test: /(miami|pastel|day.?glow|vice)/, era: 'neon', fidelityBand: 'standard', dialect: 'miami' },
+    { test: /(memphis|confetti|postmodern|squiggle)/, era: 'memphis', fidelityBand: 'standard', dialect: null },
+    { test: /(groovy|70s|avocado|disco|funk)/, era: 'groovy', fidelityBand: 'standard', dialect: null },
+    { test: /(earth|organic|wellness|craft|linen|moss)/, era: 'earth', fidelityBand: 'standard', dialect: null },
+    { test: /(cafe|lifestyle|mid.?century|atomic|playful|product.?stor)/, era: 'mcm-atomic', fidelityBand: 'standard', dialect: 'atomic' },
+    { test: /(admin|settings|saas|dashboard|serious|enterprise|default)/, era: 'neutral', fidelityBand: 'whisper', dialect: null },
   ];
-  let pick = { era: 'neutral', fidelity: 10, dialect: null, reason: 'default quiet system skin' };
+  let pick = { era: 'neutral', fidelityBand: 'whisper', dialect: null, reason: 'default quiet system skin' };
   for (const r of rules) {
     if (r.test.test(text)) {
-      pick = { era: r.era, fidelity: r.fidelity, dialect: r.dialect, reason: `matched /${r.test.source}/` };
+      pick = { era: r.era, fidelityBand: r.fidelityBand, dialect: r.dialect, reason: `matched /${r.test.source}/` };
       break;
     }
   }
   const era = getEra(pick.era);
   return pin({
     era: pick.era,
-    fidelity: pick.fidelity,
+    fidelityBand: pick.fidelityBand,
     dialect: pick.dialect,
     oneLiner: era?.identity?.oneLiner,
     reason: pick.reason,
@@ -189,6 +191,8 @@ export function recommendTool({ description } = {}) {
 }
 
 export function validateTool({ markup, era, detail } = {}) {
+  if (typeof markup !== 'string') return pin({ error: 'markup must be a string' });
+  if (markup.length > 200000) return pin({ error: 'markup exceeds 200000 characters' });
   return validateMarkup(markup, era, { detail });
 }
 
@@ -266,20 +270,27 @@ export const TOOL_DEFS = [
 ];
 
 export function dispatch(name, args = {}) {
-  switch (name) {
-    case 'list_eras':
-      return listEras(args);
-    case 'get_era_spec':
-      return getEraSpec(args);
-    case 'get_component':
-      return getComponentTool(args);
-    case 'install':
-      return installTool(args);
-    case 'recommend':
-      return recommendTool(args);
-    case 'validate':
-      return validateTool(args);
-    default:
-      return pin({ error: `Unknown tool ${name}` });
+  try {
+    switch (name) {
+      case 'list_eras':
+        return listEras(args);
+      case 'get_era_spec':
+        return getEraSpec(args);
+      case 'get_component':
+        return getComponentTool(args);
+      case 'install':
+        return installTool(args);
+      case 'recommend':
+        return recommendTool(args);
+      case 'validate':
+        return validateTool(args);
+      default:
+        return pin({
+          error: `Unknown tool "${name}"`,
+          change: 'change tool to list_eras|get_era_spec|get_component|install|recommend|validate',
+        });
+    }
+  } catch (error) {
+    return pin({ error: error instanceof Error ? error.message : String(error) });
   }
 }
