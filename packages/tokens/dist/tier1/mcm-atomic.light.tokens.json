@@ -17,7 +17,7 @@
     },
     "teal": {
       "$type": "color",
-      "$value": "oklch(55% 0.1 200)"
+      "$value": "oklch(50% 0.1 200)"
     },
     "coral": {
       "$type": "color",

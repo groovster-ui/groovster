@@ -117,10 +117,19 @@ for (const era of eras) {
   const tip = tooltip.locator('[role="tooltip"]');
   await tipBtn.focus();
   await page.waitForTimeout(350);
-  const tipVisible = await tip.evaluate((el) => !el.hasAttribute('hidden'));
+  const tipVisible = await tip.evaluate((el) => {
+    if (typeof el.matches === 'function' && el.matches(':popover-open')) return true;
+    return !el.hasAttribute('hidden');
+  });
   if (!tipVisible) failures.push(`${era}: tooltip did not show on focus`);
   await page.keyboard.press('Escape');
-  const tipHidden = await tip.evaluate((el) => el.hasAttribute('hidden'));
+  await page.waitForTimeout(50);
+  const tipHidden = await tip.evaluate((el) => {
+    if (typeof el.matches === 'function' && el.hasAttribute('popover')) {
+      return !el.matches(':popover-open');
+    }
+    return el.hasAttribute('hidden');
+  });
   if (!tipHidden) failures.push(`${era}: tooltip Escape did not hide`);
 
   // --- Slider ---
