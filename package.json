@@ -27,7 +27,7 @@
     "contrast": "pnpm --filter @groovster/contrast contrast",
     "a11y": "pnpm --filter @groovster/a11y test",
     "a11y:keyboard": "pnpm --filter @groovster/a11y test:keyboard",
-    "test:a11y": "pnpm a11y && pnpm a11y:keyboard && pnpm a11y:responsive && pnpm test:unit",
+    "test:a11y": "pnpm a11y && pnpm a11y:keyboard && pnpm a11y:responsive",
     "a11y:responsive": "pnpm --filter @groovster/a11y test:responsive",
     "react:build": "pnpm --filter @groovster/react build",
     "react:typecheck": "pnpm --filter @groovster/react typecheck",
