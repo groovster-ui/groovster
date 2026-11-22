@@ -1448,6 +1448,7 @@
     font-weight: var(--ew-structure-button-font-weight, 600);
     letter-spacing: var(--ew-structure-button-letter-spacing, 0);
     text-transform: var(--ew-structure-button-text-transform, none);
+    text-decoration: none;
     box-shadow: var(--_btn-bevel), var(--_btn-shadow);
     cursor: pointer;
     transition: background 120ms ease, box-shadow 120ms ease, transform 120ms ease;
