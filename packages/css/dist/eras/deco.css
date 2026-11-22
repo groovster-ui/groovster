@@ -173,37 +173,218 @@
   }
 }
 @layer decorators {
-  [data-era="deco"] .ew-card__header::after {
+  /* === DECO: ART DECO (1920s-30s) === */
+  
+  /* Metallic gold gradient */
+  [data-era="deco"] {
+    --ew-gradient-metal-light: linear-gradient(180deg, #E5C166 0%, #B08D2C 38%, #7A5C12 62%, #D4AE2E 100%);
+    --ew-gradient-metal-dark: linear-gradient(180deg, #F6E27A 0%, #D4AF37 38%, #9C7A22 62%, #E9CD6B 100%);
+    --ew-gradient-metal: var(--ew-gradient-metal-light);
+    --ew-ornament-fan: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" aria-hidden="true" focusable="false"><path d="M5 28 L30 2 L55 28 M10 28 L30 8 L50 28 M15 28 L30 13 L45 28 M20 28 L30 18 L40 28 M25 28 L30 23 L35 28" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="30" cy="28" r="2.5" fill="currentColor"/></svg>');
+  }
+  [data-era="deco"][data-mode="dark"] {
+    --ew-gradient-metal: var(--ew-gradient-metal-dark);
+  }
+  
+  /* Page sunburst backdrop (costume) */
+  [data-era="deco"][data-fidelity-band="costume"]::before {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140%;
+    height: 60vh;
+    background: repeating-conic-gradient(from -90deg at 50% 100%, 
+      color-mix(in oklch, var(--ew-color-gold) 15%, transparent) 0deg 2deg,
+      transparent 2deg 10deg);
+    mask-image: radial-gradient(ellipse 100% 100% at 50% 100%, black 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+  
+  /* Vertical pinstripe */
+  [data-era="deco"][data-fidelity-band="costume"]::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(90deg, transparent 0 5px, color-mix(in oklch, var(--ew-color-gold) 3%, transparent) 5px 6px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  /* === CARDS === */
+  [data-era="deco"] .ew-card {
+    border-style: double;
+    border-width: 3px;
+    clip-path: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+    box-shadow: 0 4px 0 0 var(--ew-color-border-strong), 0 8px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 25%, transparent);
+  }
+  
+  /* Fan crest */
+  [data-era="deco"][data-fidelity-band="costume"] .ew-card::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+    background: var(--ew-ornament-fan);
+    color: var(--ew-color-gold);
+    opacity: 0.6;
+  }
+  
+  /* Inner frame */
+  [data-era="deco"][data-fidelity-band="costume"] .ew-card::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--ew-color-gold);
+    clip-path: polygon(0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px));
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  
+  [data-era="deco"] .ew-card__header h2,
+  [data-era="deco"] .ew-card__header h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /* Chevron divider */
+  [data-era="deco"][data-fidelity-band="costume"] .ew-card__header::after {
     content: "";
     display: block;
-    height: 3px;
-    margin-top: 8px;
-    background:
-      linear-gradient(90deg, transparent 0, var(--ew-color-border-strong) 8%, var(--ew-color-border-strong) 92%, transparent 100%),
-      repeating-linear-gradient(90deg, var(--ew-color-border-strong) 0 6px, transparent 6px 10px);
-    background-size: 100% 1px, 100% 3px;
-    background-position: center, center;
-    background-repeat: no-repeat;
+    height: 8px;
+    margin: 12px auto 0;
+    width: 120px;
+    background: conic-gradient(from 135deg at top, var(--ew-color-gold) 90deg, transparent 0) 0 0/16px 8px repeat-x;
+    opacity: 0.6;
   }
+  
   [data-era="deco"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
+  
+  /* === BUTTONS === */
+  [data-era="deco"] .ew-button {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    clip-path: polygon(0 6px, 6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px));
+    box-shadow: 0 3px 0 0 var(--ew-color-border-strong);
+  }
+  
+  [data-era="deco"] .ew-button:active {
+    box-shadow: 0 1px 0 0 var(--ew-color-border-strong);
+  }
+  
   [data-era="deco"] .ew-button[data-variant="secondary"] {
     border-style: double;
     border-width: 3px;
   }
-  [data-era="deco"] .ew-text-field__control {
-    border-style: double;
-    border-radius: 0;
+  
+  /* === INPUTS === */
+  [data-era="deco"] .ew-text-field__label,
+  [data-era="deco"] .ew-select__label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    font-weight: 600;
   }
+  
+  [data-era="deco"] .ew-text-field__control,
+  [data-era="deco"] .ew-select__trigger {
+    border-radius: 0;
+    border-top: 1px solid color-mix(in oklch, var(--ew-color-gold) 40%, transparent);
+    border-left: 1px solid color-mix(in oklch, var(--ew-color-gold) 40%, transparent);
+    border-right: 1px solid color-mix(in oklch, var(--ew-color-gold) 40%, transparent);
+    border-bottom: 2px solid var(--ew-color-gold);
+  }
+  
+  /* === DIALOG === */
   [data-era="deco"] .ew-dialog {
     border-style: double;
-    border-radius: 0;
+    border-width: 3px;
+    clip-path: polygon(0 16px, 16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px));
+    box-shadow: 0 8px 0 0 var(--ew-color-border-strong);
   }
-  [data-era="deco"] .ew-switch__track,
-  [data-era="deco"] .ew-switch__thumb { border-radius: 0; }
+  
+  [data-era="deco"][data-fidelity-band="costume"] .ew-dialog::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 40px;
+    background: var(--ew-ornament-fan);
+    color: var(--ew-color-gold);
+    opacity: 0.7;
+  }
+  
+  [data-era="deco"] .ew-dialog h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-align: center;
+    margin-top: 32px;
+  }
+  
+  /* === TABS === */
   [data-era="deco"] .ew-tabs [role="tablist"],
   [data-era="deco"] ew-tabs [role="tablist"] {
     border-bottom-style: double;
     border-bottom-width: 3px;
+  }
+  
+  [data-era="deco"] .ew-tabs [role="tab"],
+  [data-era="deco"] ew-tabs [role="tab"] {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  [data-era="deco"] .ew-tabs [role="tab"][aria-selected="true"],
+  [data-era="deco"] ew-tabs [role="tab"][aria-selected="true"] {
+    clip-path: polygon(0 6px, 6px 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+    background: var(--ew-color-gold);
+    color: var(--ew-color-paper);
+  }
+  
+  /* === SWITCH === */
+  [data-era="deco"] .ew-switch__track,
+  [data-era="deco"] .ew-switch__thumb { 
+    border-radius: 0; 
+  }
+  
+  /* === HEADINGS === */
+  [data-era="deco"] h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-align: center;
+  }
+  
+  [data-era="deco"][data-fidelity-band="costume"] h1 {
+    background: var(--ew-gradient-metal);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  @supports not (background-clip: text) {
+    [data-era="deco"][data-fidelity-band="costume"] h1 {
+      color: var(--ew-color-gold);
+      -webkit-text-fill-color: unset;
+    }
+  }
+  
+  [data-era="deco"] h2, [data-era="deco"] h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-align: center;
   }
 
 }
