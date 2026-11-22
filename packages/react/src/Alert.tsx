@@ -5,7 +5,6 @@ export type AlertProps = {
   children?: React.ReactNode;
   variant?: "info" | "success" | "warning" | "danger";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Inline alert for page-level feedback. */

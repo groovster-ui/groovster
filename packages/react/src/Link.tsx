@@ -5,7 +5,6 @@ export type LinkProps = {
   children?: React.ReactNode;
   variant?: "default" | "subtle" | "nav";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Text link with era underline/voice. */

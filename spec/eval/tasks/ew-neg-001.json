@@ -1,0 +1,19 @@
+{
+  "id": "ew-neg-001",
+  "kind": "negative",
+  "expectPass": false,
+  "title": "Missing data-era (must fail validate)",
+  "prompt": "NEGATIVE: emit a deco button without data-era so validators reject it.",
+  "eras": ["deco"],
+  "components": ["button"],
+  "fidelity": 35,
+  "brokenMarkup": "<div data-mode=\"light\" data-fidelity=\"35\" data-fidelity-band=\"signature\">\n  <button type=\"button\" class=\"ew-button\">Choose</button>\n</div>\n",
+  "expect": {
+    "classes": ["ew-button"],
+    "dataEra": "deco",
+    "minButtons": 1
+  },
+  "rubric": [
+    "validators must fail: missing data-era=deco"
+  ]
+}

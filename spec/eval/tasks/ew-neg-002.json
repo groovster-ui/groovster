@@ -1,0 +1,18 @@
+{
+  "id": "ew-neg-002",
+  "kind": "negative",
+  "expectPass": false,
+  "title": "div role=button (must fail validate)",
+  "prompt": "NEGATIVE: emit a non-native div with role=button so validators reject it.",
+  "eras": ["neutral"],
+  "components": ["button"],
+  "fidelity": 40,
+  "brokenMarkup": "<div data-era=\"neutral\" data-mode=\"light\" data-fidelity=\"40\" data-fidelity-band=\"signature\">\n  <div role=\"button\" class=\"ew-button\" tabindex=\"0\">Click me</div>\n</div>\n",
+  "expect": {
+    "classes": ["ew-button"],
+    "dataEra": "neutral"
+  },
+  "rubric": [
+    "validators must fail: div/span used as button"
+  ]
+}

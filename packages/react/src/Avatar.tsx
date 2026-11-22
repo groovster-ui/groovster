@@ -5,7 +5,6 @@ export type AvatarProps = {
   children?: React.ReactNode;
   variant?: "circle" | "square";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: User/image avatar with initials fallback. */

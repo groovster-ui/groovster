@@ -5,7 +5,6 @@ export type ButtonProps = {
   children?: React.ReactNode;
   variant?: "primary" | "secondary" | "ghost" | "danger";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Pressable control for primary actions. Zero attributes = medium primary button. */

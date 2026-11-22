@@ -5,7 +5,6 @@ export type PopoverProps = {
   children?: React.ReactNode;
   variant?: "default" | "rich";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Non-modal popover surface via Popover API. */
@@ -19,7 +18,7 @@ export const Popover = React.forwardRef<HTMLElement, PopoverProps>(function Popo
   const cls = ['ew-popover', className].filter(Boolean).join(' ');
   return React.createElement(
     'ew-popover',
-    { ref, className: cls, ...dataProps, ...rest },
+    { ref, class: cls, ...dataProps, ...rest },
     children
   );
 });

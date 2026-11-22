@@ -5,7 +5,6 @@ export type SliderProps = {
   children?: React.ReactNode;
   variant?: "default";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Native range input with era track/thumb chrome. */
@@ -19,7 +18,7 @@ export const Slider = React.forwardRef<HTMLElement, SliderProps>(function Slider
   const cls = ['ew-slider', className].filter(Boolean).join(' ');
   return React.createElement(
     'ew-slider',
-    { ref, className: cls, ...dataProps, ...rest },
+    { ref, class: cls, ...dataProps, ...rest },
     children
   );
 });

@@ -5,7 +5,6 @@ export type OrnamentDividerProps = {
   children?: React.ReactNode;
   variant?: "line" | "ornament";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Structural divider; eras supply ornament via decorators. */
@@ -18,7 +17,7 @@ export const OrnamentDivider = React.forwardRef<HTMLElement, OrnamentDividerProp
     if (size != null) dataProps["data-size"] = size;
   const cls = ['ew-ornament-divider', className].filter(Boolean).join(' ');
   return React.createElement(
-    'hr|div',
+    'hr',
     { ref, className: cls, ...dataProps, ...rest },
     children
   );

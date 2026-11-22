@@ -5,7 +5,6 @@ export type TextareaProps = {
   children?: React.ReactNode;
   variant?: "outline" | "filled";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Multi-line text field with label. Native textarea. */
@@ -18,7 +17,7 @@ export const Textarea = React.forwardRef<HTMLElement, TextareaProps>(function Te
     if (size != null) dataProps["data-size"] = size;
   const cls = ['ew-textarea', className].filter(Boolean).join(' ');
   return React.createElement(
-    'textarea',
+    'div',
     { ref, className: cls, ...dataProps, ...rest },
     children
   );

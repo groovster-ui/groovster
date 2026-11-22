@@ -1,7 +1,9 @@
-# Eval report — groovster-agent-harness-v1
+# Eval report — groovster-harness-self-test-v1
 
-Docs-agent vs MCP-agent: real tool/doc I/O token counts, turn counts, validate + Playwright render check.
+Mode: **harness-self-test**
+
+Harness self-test (not a live LLM): docs vs MCP I/O + validate/render. Positive tasks must pass validators; negative tasks must fail validators.
 
 ## Setups
-- **docs-agent**: success 100% (33/33), mean score 0.955, mean tokens 774, mean turns 3.55
-- **mcp-agent**: success 100% (33/33), mean score 0.882, mean tokens 1790, mean turns 5.55
+- **docs-agent**: success 100% (36/36; 3 negative), mean score 0.940, mean tokens 779, mean turns 3.53
+- **mcp-agent**: success 100% (36/36; 3 negative), mean score 0.865, mean tokens 1798, mean turns 5.53

@@ -136,19 +136,37 @@ export function installTool({ name, target } = {}) {
     lines.push(`npx shadcn@latest add ${REGISTRY_BASE}/${id}.json`);
     lines.push(`Registry base: ${REGISTRY_BASE} (override with GROOVSTER_REGISTRY_URL).`);
   } else if (tgt === 'copy' || tgt === 'copy-in') {
-    lines.push('Copy packages/css/dist/era-widgets.css (or @groovster/css) into your project.');
+    lines.push('Copy packages/css/dist/era-widgets.css into your project.');
     if (script) {
-      lines.push(`Copy packages/elements/dist/${script} and load via <script src="…/dist/${script}">.`);
+      lines.push(
+        'Copy packages/elements/dist/era-elements.js (required bundle for hard widgets) and load via <script src="…/era-elements.js">.'
+      );
+      lines.push(`Optional per-widget file: packages/elements/dist/${script}`);
     } else if (!comp) {
       lines.push('For hard widgets copy packages/elements/dist/era-elements.js.');
     }
     lines.push('Use canonical HTML from get_component; set data-era on a root.');
   } else {
-    lines.push('pnpm add @groovster/css @groovster/elements @groovster/tokens');
-    lines.push('Link CSS: <link rel="stylesheet" href="node_modules/@groovster/css/era-widgets.css" />');
+    // Default/npm: packages are unpublished alpha — copy or link from the repo (no pnpm add).
+    lines.push(
+      'Packages are unpublished alpha — copy or link from the Groovster repo (no published registry package yet).'
+    );
+    lines.push(
+      'Link or copy packages/css/dist/era-widgets.css → node_modules/@groovster/css/dist/era-widgets.css'
+    );
+    lines.push(
+      'Link CSS: <link rel="stylesheet" href="node_modules/@groovster/css/dist/era-widgets.css" />'
+    );
     if (script) {
-      lines.push(`<script src="node_modules/@groovster/elements/dist/${script}"></script>`);
+      lines.push(
+        'Link or copy packages/elements/dist/era-elements.js → node_modules/@groovster/elements/dist/era-elements.js (required bundle for hard widgets).'
+      );
+      lines.push('<script src="node_modules/@groovster/elements/dist/era-elements.js"></script>');
+      lines.push(`Optional per-widget file: packages/elements/dist/${script}`);
     } else if (!comp) {
+      lines.push(
+        'For hard widgets, also link/copy packages/elements/dist/era-elements.js → node_modules/@groovster/elements/dist/era-elements.js'
+      );
       lines.push('<script src="node_modules/@groovster/elements/dist/era-elements.js"></script>');
     }
   }
@@ -280,6 +298,6 @@ export function dispatch(name, args = {}) {
     case 'validate':
       return validateTool(args);
     default:
-      return pin({ error: `Unknown tool ${name}` });
+      return pin({ error: `Unknown tool ${name}`, isError: true });
   }
 }

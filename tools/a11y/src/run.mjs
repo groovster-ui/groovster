@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
+import { safePath } from '../../../tests/helpers/safe-path.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const FIXTURE = path.join(REPO, 'tests/a11y/fixtures/matrix.html');
@@ -17,9 +18,11 @@ function contentType(p) {
 
 const server = createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
-  let file = path.join(REPO, url.replace(/^\//, ''));
-  if (url === '/' || url === '/matrix.html') file = FIXTURE;
-  if (!file.startsWith(REPO) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
+  let file =
+    url === '/' || url === '/matrix.html'
+      ? FIXTURE
+      : safePath(REPO, url.replace(/^\//, ''));
+  if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     res.writeHead(404);
     res.end('not found');
     return;

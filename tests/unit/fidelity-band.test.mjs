@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '../../tools/a11y/node_modules/playwright/index.mjs';
+import { safePath } from '../helpers/safe-path.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const ERAS = ['deco', 'neon', 'mcm-atomic', 'memphis', 'groovy', 'earth', 'neutral'];
@@ -53,8 +54,8 @@ async function withPage(era, fn) {
       res.end(fixtureFor(era));
       return;
     }
-    const file = path.join(REPO, url.replace(/^\//, ''));
-    if (!fs.existsSync(file)) {
+    const file = safePath(REPO, url.replace(/^\//, ''));
+    if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
       res.writeHead(404);
       res.end('missing');
       return;

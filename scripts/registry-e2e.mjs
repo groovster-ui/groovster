@@ -8,6 +8,7 @@ import { createServer } from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { safePath } from '../tests/helpers/safe-path.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const REG = path.join(REPO, 'registry');
@@ -30,8 +31,8 @@ if (BASE) {
 
 const server = createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
-  const file = path.join(REG, url.replace(/^\//, ''));
-  if (!file.startsWith(REG) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
+  const file = safePath(REG, url.replace(/^\//, ''));
+  if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     res.writeHead(404);
     res.end('missing');
     return;
