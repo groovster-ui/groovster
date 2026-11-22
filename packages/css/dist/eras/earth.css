@@ -107,7 +107,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="earth"] {
-    --ew-fidelity-default: 30;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 10px;
     --ew-structure-surface-radius: 16px;
     --ew-structure-button-border-width: 1px;

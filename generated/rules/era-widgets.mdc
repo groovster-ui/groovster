@@ -13,4 +13,4 @@ globs:
 - CSS: link `@era-widgets/css/era-widgets.css` (published CSS must not use at-import).
 - Glow never counts as contrast; no display faces on controls.
 - MCP `validate` returns exact "change X to Y" fixes.
-- Heroes: alert, avatar, breadcrumb, button, card, checkbox, dialog, icon-button, link, menu, ornament-divider, popover, radio, select, slider, switch, tabs, text-field, textarea, toast, tooltip. Eras: deco (~35), earth (~30), groovy (~40), mcm-atomic (~40), memphis (~50), neon (~55), neutral (~0).
+- Heroes: alert, avatar, breadcrumb, button, card, checkbox, dialog, icon-button, link, menu, ornament-divider, popover, radio, select, slider, switch, tabs, text-field, textarea, toast, tooltip. Eras: deco (~75), earth (~75), groovy (~75), mcm-atomic (~75), memphis (~75), neon (~75), neutral (~0).

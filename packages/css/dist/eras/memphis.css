@@ -109,7 +109,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="memphis"] {
-    --ew-fidelity-default: 50;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 14px;
     --ew-structure-surface-radius: 20px;
     --ew-structure-button-border-width: 3px;

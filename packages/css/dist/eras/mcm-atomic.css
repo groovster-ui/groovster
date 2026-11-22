@@ -113,7 +113,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="mcm-atomic"] {
-    --ew-fidelity-default: 40;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 999px;
     --ew-structure-surface-radius: 24px;
     --ew-structure-button-border-width: 0px;

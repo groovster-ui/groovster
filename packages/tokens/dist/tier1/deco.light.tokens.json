@@ -4,53 +4,79 @@
     "tier": 1,
     "era": "deco",
     "mode": "light",
-    "description": "Tier 1 raw values for deco light"
+    "description": "Tier 1 raw values for deco light (ivory and onyx: black-structured)"
   },
   "color": {
     "ink": {
       "$type": "color",
-      "$value": "oklch(18% 0.02 80)",
-      "$description": "lacquer ink"
+      "$value": "#111111",
+      "$description": "black, 16.3:1 on paper"
     },
     "paper": {
       "$type": "color",
-      "$value": "oklch(96% 0.02 95)",
-      "$description": "ivory"
+      "$value": "#F4EEDF",
+      "$description": "ivory page"
     },
     "panel": {
       "$type": "color",
-      "$value": "oklch(92% 0.025 90)"
+      "$value": "#FBF7EC",
+      "$description": "surface layer"
     },
-    "brass": {
+    "sky": {
       "$type": "color",
-      "$value": "oklch(72% 0.1 85)"
+      "$value": "#FFFFFF",
+      "$description": "elevated surfaces"
     },
-    "brassDeep": {
+    "cream": {
       "$type": "color",
-      "$value": "oklch(48% 0.08 75)"
+      "$value": "#4A4236",
+      "$description": "muted text, 9.2:1 on panel"
     },
-    "burgundy": {
+    "gold": {
       "$type": "color",
-      "$value": "oklch(38% 0.1 20)"
+      "$value": "#B08D2C",
+      "$description": "gold borders and accents"
+    },
+    "goldText": {
+      "$type": "color",
+      "$value": "#7A5C12",
+      "$description": "gold text on ivory, 5.4:1"
+    },
+    "goldSubtle": {
+      "$type": "color",
+      "$value": "#B08D2C",
+      "$description": "subtle border"
+    },
+    "goldFocus": {
+      "$type": "color",
+      "$value": "#B08D2C",
+      "$description": "focus ring"
+    },
+    "jade": {
+      "$type": "color",
+      "$value": "#0F5C4D",
+      "$description": "ornament secondary"
     },
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(42% 0.08 75)"
+        "$value": "#111111",
+        "$description": "black button"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(96% 0.02 95)"
+        "$value": "#F2D98A",
+        "$description": "gold text on black, 13.5:1"
       }
     },
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(40% 0.14 25)"
+        "$value": "#8E1B1B"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(96% 0.02 95)"
+        "$value": "#FFFFFF"
       }
     }
   },
@@ -103,11 +129,11 @@
     },
     "md": {
       "$type": "dimension",
-      "$value": "2px"
+      "$value": "0px"
     },
     "lg": {
       "$type": "dimension",
-      "$value": "4px"
+      "$value": "0px"
     },
     "pill": {
       "$type": "dimension",
@@ -116,32 +142,6 @@
     "step": {
       "$type": "dimension",
       "$value": "8px"
-    }
-  },
-  "font": {
-    "display": {
-      "$type": "fontFamily",
-      "$value": [
-        "Cinzel",
-        "Times New Roman",
-        "serif"
-      ]
-    },
-    "body": {
-      "$type": "fontFamily",
-      "$value": [
-        "Libre Baskerville",
-        "Georgia",
-        "serif"
-      ]
-    },
-    "mono": {
-      "$type": "fontFamily",
-      "$value": [
-        "IBM Plex Mono",
-        "ui-monospace",
-        "monospace"
-      ]
     }
   }
 }

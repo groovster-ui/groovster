@@ -109,7 +109,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="groovy"] {
-    --ew-fidelity-default: 40;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 999px;
     --ew-structure-surface-radius: 28px;
     --ew-structure-button-border-width: 0px;

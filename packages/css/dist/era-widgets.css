@@ -49,16 +49,20 @@
   [data-era="deco"], [data-era="deco"][data-mode="light"] {
     --ew-era: deco;
     --ew-mode: light;
-  --ew-color-ink: oklch(18% 0.02 80);
-  --ew-color-paper: oklch(96% 0.02 95);
-  --ew-color-panel: oklch(92% 0.025 90);
-  --ew-color-brass: oklch(72% 0.1 85);
-  --ew-color-brassDeep: oklch(48% 0.08 75);
-  --ew-color-burgundy: oklch(38% 0.1 20);
-  --ew-color-accent-solid: oklch(42% 0.08 75);
-  --ew-color-accent-fg: oklch(96% 0.02 95);
-  --ew-color-danger-solid: oklch(40% 0.14 25);
-  --ew-color-danger-fg: oklch(96% 0.02 95);
+  --ew-color-ink: #111111;
+  --ew-color-paper: #F4EEDF;
+  --ew-color-panel: #FBF7EC;
+  --ew-color-sky: #FFFFFF;
+  --ew-color-cream: #4A4236;
+  --ew-color-gold: #B08D2C;
+  --ew-color-goldText: #7A5C12;
+  --ew-color-goldSubtle: #B08D2C;
+  --ew-color-goldFocus: #B08D2C;
+  --ew-color-jade: #0F5C4D;
+  --ew-color-accent-solid: #111111;
+  --ew-color-accent-fg: #F2D98A;
+  --ew-color-danger-solid: #8E1B1B;
+  --ew-color-danger-fg: #FFFFFF;
   --ew-space-0: 0px;
   --ew-space-1: 4px;
   --ew-space-2: 8px;
@@ -70,13 +74,10 @@
   --ew-space-8: 64px;
   --ew-radius-none: 0px;
   --ew-radius-sm: 0px;
-  --ew-radius-md: 2px;
-  --ew-radius-lg: 4px;
+  --ew-radius-md: 0px;
+  --ew-radius-lg: 0px;
   --ew-radius-pill: 0px;
   --ew-radius-step: 8px;
-  --ew-font-display: Cinzel, "Times New Roman", serif;
-  --ew-font-body: "Libre Baskerville", Georgia, serif;
-  --ew-font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --ew-color-fg-default: var(--ew-color-ink);
   --ew-color-fg-muted: var(--ew-color-brassDeep);
   --ew-color-fg-inverse: var(--ew-color-paper);
@@ -106,16 +107,23 @@
   [data-era="deco"][data-mode="dark"] {
     --ew-era: deco;
     --ew-mode: dark;
-  --ew-color-ink: oklch(92% 0.02 90);
-  --ew-color-paper: oklch(14% 0.02 70);
-  --ew-color-panel: oklch(20% 0.025 70);
-  --ew-color-brass: oklch(78% 0.1 85);
-  --ew-color-brassDeep: oklch(58% 0.09 80);
-  --ew-color-burgundy: oklch(42% 0.1 20);
-  --ew-color-accent-solid: oklch(72% 0.1 85);
-  --ew-color-accent-fg: oklch(14% 0.02 70);
-  --ew-color-danger-solid: oklch(62% 0.14 25);
-  --ew-color-danger-fg: oklch(14% 0.02 70);
+  --ew-color-ink: #F3E7C9;
+  --ew-color-paper: #0B0B0C;
+  --ew-color-panel: #15130F;
+  --ew-color-sky: #1E1A14;
+  --ew-color-cream: #C9B68A;
+  --ew-color-gold: #D4AF37;
+  --ew-color-goldBright: #E8C766;
+  --ew-color-goldBorder: #B8952F;
+  --ew-color-goldSubtle: #8A6F2E;
+  --ew-color-goldFocus: #F1D27A;
+  --ew-color-fieldBg: #100F0C;
+  --ew-color-jade: #1F6F5C;
+  --ew-color-oxblood: #7A1E1E;
+  --ew-color-accent-solid: #D4AF37;
+  --ew-color-accent-fg: #0B0B0C;
+  --ew-color-danger-solid: #7A1E1E;
+  --ew-color-danger-fg: #F3E7C9;
   --ew-space-0: 0px;
   --ew-space-1: 4px;
   --ew-space-2: 8px;
@@ -127,8 +135,8 @@
   --ew-space-8: 64px;
   --ew-radius-none: 0px;
   --ew-radius-sm: 0px;
-  --ew-radius-md: 2px;
-  --ew-radius-lg: 4px;
+  --ew-radius-md: 0px;
+  --ew-radius-lg: 0px;
   --ew-radius-pill: 0px;
   --ew-radius-step: 8px;
   --ew-color-fg-default: var(--ew-color-ink);
@@ -158,7 +166,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="deco"] {
-    --ew-fidelity-default: 35;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 0px;
     --ew-structure-surface-radius: 0px;
     --ew-structure-button-border-width: 2px;
@@ -354,7 +362,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="earth"] {
-    --ew-fidelity-default: 30;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 10px;
     --ew-structure-surface-radius: 16px;
     --ew-structure-button-border-width: 1px;
@@ -518,7 +526,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="groovy"] {
-    --ew-fidelity-default: 40;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 999px;
     --ew-structure-surface-radius: 28px;
     --ew-structure-button-border-width: 0px;
@@ -686,7 +694,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="mcm-atomic"] {
-    --ew-fidelity-default: 40;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 999px;
     --ew-structure-surface-radius: 24px;
     --ew-structure-button-border-width: 0px;
@@ -880,7 +888,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="memphis"] {
-    --ew-fidelity-default: 50;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 14px;
     --ew-structure-surface-radius: 20px;
     --ew-structure-button-border-width: 3px;
@@ -1047,7 +1055,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="neon"] {
-    --ew-fidelity-default: 55;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 2px;
     --ew-structure-surface-radius: 4px;
     --ew-structure-button-border-width: 2px;

@@ -111,7 +111,7 @@
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="neon"] {
-    --ew-fidelity-default: 55;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 2px;
     --ew-structure-surface-radius: 4px;
     --ew-structure-button-border-width: 2px;
