@@ -2,7 +2,7 @@
   "name": "era-widgets",
   "private": true,
   "version": "0.0.0",
-  "description": "Era Widgets \u2014 CSS-first, spec-first UI skins for agents (working title; never Forma UI).",
+  "description": "Era Widgets — CSS-first, spec-first UI skins for agents (working title; never Forma UI).",
   "type": "module",
   "packageManager": "pnpm@9.15.9",
   "engines": {
@@ -26,5 +26,8 @@
     "mcp:smoke": "pnpm --filter @era-widgets/mcp smoke",
     "registry:serve": "python3 -m http.server 4174 --directory registry"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
 }
