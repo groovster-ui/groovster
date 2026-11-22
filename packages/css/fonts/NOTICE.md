@@ -11,7 +11,7 @@ See `OFL.txt` for the full license text and per-family copyright notices.
 | --- | --- |
 | Deco | Limelight (400), Jost (400/700), IBM Plex Mono (400/700) |
 | Neon | Orbitron (400/700), Exo 2 (400/700), Share Tech Mono (400), Monoton (400), Mr Dafoe (400) |
-| MCM Atomic | Josefin Sans (400/700), Nunito Sans (400/700), Space Mono (400/700) |
+| MCM Atomic | Yellowtail (400), League Spartan (400/700), Work Sans (400/700), Oswald (400/700), Space Mono (400/700) |
 | Groovy | Comfortaa (400/700), Mulish (400/700), IBM Plex Mono (400/700) |
 | Memphis | Archivo Black (400), Nunito (400/700), Space Mono (400/700) |
 | Earth | Fraunces (400/700), Source Sans 3 (400/700), Source Code Pro (400/700) |

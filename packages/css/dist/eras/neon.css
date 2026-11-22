@@ -350,39 +350,57 @@
     justify-content: center;
   }
 
-  /* Perspective floor grid — origin at horizon so the far edge meets the mountain line (no gap). */
+  /*
+   * Perspective floor — NO rotateX (that opened a post-project gap under the mountains).
+   * Trapezoid clip + converging line gradients keep the top edge glued to the horizon.
+   */
   [data-era="neon"] .ew-hero__grid {
     position: absolute;
     left: 50%;
-    top: var(--ew-hero-sun-h);
+    /* Meet the visible mountain valley baseline (drawn strokes sit above the SVG box bottom) */
+    top: calc(var(--ew-hero-sun-h) - 22px);
     bottom: 0;
-    width: 160%;
-    height: auto;
-    transform: translateX(-50%) perspective(640px) rotateX(56deg);
-    transform-origin: 50% 0%;
-    background:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 46px,
-        color-mix(in srgb, var(--ew-color-magenta) 75%, transparent) 46px 48px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 28px,
-        color-mix(in srgb, var(--ew-color-cyan) 65%, transparent) 28px 30px
-      );
+    width: 140%;
+    transform: translateX(-50%);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.9;
+    opacity: 0.95;
+    /* Wide at the horizon so the floor meets the full mountain baseline (narrow tops look like a gap) */
+    clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%);
+    background:
+      /* Horizon seam — cyan to match mountain stroke, then magenta accent */
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--ew-color-cyan) 95%, transparent) 0 2px,
+        color-mix(in srgb, var(--ew-color-magenta) 90%, transparent) 2px 4px,
+        transparent 4px
+      ),
+      /* Depth lines (parallel to horizon) — denser near top */
+      repeating-linear-gradient(
+        180deg,
+        transparent 0 10px,
+        color-mix(in srgb, var(--ew-color-cyan) 80%, transparent) 10px 12px,
+        transparent 12px 28px,
+        color-mix(in srgb, var(--ew-color-cyan) 70%, transparent) 28px 30px,
+        transparent 30px 56px,
+        color-mix(in srgb, var(--ew-color-cyan) 65%, transparent) 56px 58px,
+        transparent 58px 100px,
+        color-mix(in srgb, var(--ew-color-cyan) 55%, transparent) 100px 102px
+      ),
+      /* Vanishing (vertical) lines */
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 44px,
+        color-mix(in srgb, var(--ew-color-magenta) 85%, transparent) 44px 46px
+      );
   }
   [data-era="neon"][data-mode="light"] .ew-hero__grid {
-    opacity: 0.55;
+    opacity: 0.6;
   }
   [data-era="neon"] .ew-hero > .ew-hero__grid {
     top: auto;
     bottom: 0;
-    height: min(38vh, 360px);
-    transform-origin: 50% 0%;
+    height: min(42vh, 400px);
   }
 
   /* Striped sunset sun — top of stage, half-set onto the grid horizon */
@@ -431,11 +449,11 @@
     bottom: min(38vh, 360px);
   }
 
-  /* Wireframe mountains on the horizon (sun/grid join) — baseline at sun-h */
+  /* Wireframe mountains — SVG ground line sits on the same horizon as the grid top */
   [data-era="neon"] .ew-hero__mountains {
     position: absolute;
     left: 50%;
-    top: calc(var(--ew-hero-sun-h) - 80px);
+    top: calc(var(--ew-hero-sun-h) - 76px);
     bottom: auto;
     width: min(1100px, 120%);
     height: 88px;
@@ -450,7 +468,7 @@
   }
   [data-era="neon"] .ew-hero > .ew-hero__mountains {
     top: auto;
-    bottom: calc(min(38vh, 360px) - 8px);
+    bottom: calc(min(38vh, 360px) - 4px);
   }
 
   /* Scanline overlay (hero) */

@@ -125,6 +125,14 @@
         "mono": {
           "type": "string"
         },
+        "script": {
+          "type": "string",
+          "description": "Optional script accent face (e.g. Yellowtail for Atomic)."
+        },
+        "displayAlt": {
+          "type": "string",
+          "description": "Optional alternate display face (e.g. Oswald for Blue Note wordmarks)."
+        },
         "license": {
           "type": "string",
           "description": "Must be open (OFL, Apache, SIL, etc.)."

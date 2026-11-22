@@ -138,6 +138,8 @@
     "packages/css/dist/fonts/JosefinSans-Regular.woff2",
     "packages/css/dist/fonts/Jost-Bold.woff2",
     "packages/css/dist/fonts/Jost-Regular.woff2",
+    "packages/css/dist/fonts/LeagueSpartan-Bold.woff2",
+    "packages/css/dist/fonts/LeagueSpartan-Regular.woff2",
     "packages/css/dist/fonts/Limelight-Regular.woff2",
     "packages/css/dist/fonts/Monoton-Regular.woff2",
     "packages/css/dist/fonts/MrDafoe-Regular.woff2",
@@ -151,6 +153,8 @@
     "packages/css/dist/fonts/OFL.txt",
     "packages/css/dist/fonts/Orbitron-Bold.woff2",
     "packages/css/dist/fonts/Orbitron-Regular.woff2",
+    "packages/css/dist/fonts/Oswald-Bold.woff2",
+    "packages/css/dist/fonts/Oswald-Regular.woff2",
     "packages/css/dist/fonts/ShareTechMono-Regular.woff2",
     "packages/css/dist/fonts/SourceCodePro-Bold.woff2",
     "packages/css/dist/fonts/SourceCodePro-Regular.woff2",
@@ -160,6 +164,9 @@
     "packages/css/dist/fonts/SourceSerif4-Regular.woff2",
     "packages/css/dist/fonts/SpaceMono-Bold.woff2",
     "packages/css/dist/fonts/SpaceMono-Regular.woff2",
+    "packages/css/dist/fonts/WorkSans-Bold.woff2",
+    "packages/css/dist/fonts/WorkSans-Regular.woff2",
+    "packages/css/dist/fonts/Yellowtail-Regular.woff2",
     "packages/css/dist/icon-button.css",
     "packages/css/dist/link.css",
     "packages/css/dist/menu.css",
@@ -459,7 +466,7 @@
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:mcm-atomic": {
-        "chars": 477,
+        "chars": 572,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:memphis": {
@@ -475,7 +482,7 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 2367,
+        "chars": 2275,
         "budget": "llms.index"
       }
     }

@@ -1,13 +1,13 @@
-era: mcm-atomic (Atomic / MCM)
-voice: optimistic mid-century
-shape: organic radii / kidney at high fidelity
-edge: soft or tonal
-surface: warm matte pigments
-elevation: soft lift + print offset
-ornament: sparse starburst / atom
-type: Josefin Sans + Nunito Sans
+era: mcm-atomic (Atomic / Googie)
+voice: mid-century atomic optimism
+shape: TV radius 18/12, pills, LAX arch
+edge: 2px charcoal
+surface: Formica cream / Googie night
+elevation: crisp offset shadow
+ornament: .ew-hero__stage required; starburst/orbit/kidney/hairpin
+type: Yellowtail + League Spartan + Work Sans
 fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)
-modes: light, dark
+modes: light (Formica day), dark (Googie night)
 dialects: mcm | atomic
-use: lifestyle, playful marketing
+use: lifestyle, diner, realtor, playful marketing
 never: motif wallpaper, neon grids on forms
