@@ -40,9 +40,9 @@
   },
   "fidelity": {
     "recommended": {
-      "min": 25,
-      "max": 60,
-      "default": 40
+      "min": 67,
+      "max": 100,
+      "default": 75
     },
     "bands": [
       {
@@ -91,7 +91,7 @@
       "elevation: soft lift",
       "ornament: sun/petal sparse",
       "type: Comfortaa + Mulish",
-      "fidelity: default 40 (25\u201360)",
+      "fidelity: default 40 (25–60)",
       "modes: light, dark",
       "use: music, food, lifestyle",
       "never: neon grids, display on controls"

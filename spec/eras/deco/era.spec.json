@@ -29,21 +29,23 @@
     "iconography": "Geometric line icons; mirrored where possible"
   },
   "fonts": {
-    "display": "Cinzel",
-    "body": "Libre Baskerville",
+    "display": "Limelight",
+    "body": "Jost",
+    "heading": "Josefin Sans",
     "mono": "IBM Plex Mono",
     "license": "OFL-1.1",
     "sources": [
-      "https://fonts.google.com/specimen/Cinzel",
-      "https://fonts.google.com/specimen/Libre+Baskerville",
+      "https://fonts.google.com/specimen/Limelight",
+      "https://fonts.google.com/specimen/Josefin+Sans",
+      "https://fonts.google.com/specimen/Jost",
       "https://fonts.google.com/specimen/IBM+Plex+Mono"
     ]
   },
   "fidelity": {
     "recommended": {
-      "min": 20,
-      "max": 55,
-      "default": 35
+      "min": 67,
+      "max": 100,
+      "default": 75
     },
     "bands": [
       {
