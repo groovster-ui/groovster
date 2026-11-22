@@ -2,7 +2,10 @@
   "version": "0.1.0-alpha.0",
   "eras": [
     "deco",
+    "earth",
+    "groovy",
     "mcm-atomic",
+    "memphis",
     "neon",
     "neutral"
   ],

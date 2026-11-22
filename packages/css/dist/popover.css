@@ -1,0 +1,15 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-popover {
+    /* anatomy: trigger, panel */
+  }
+  .ew-popover__panel, .ew-popover__panel {
+    border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
+    border-radius: var(--ew-structure-surface-radius, 8px);
+    background: var(--ew-color-bg-elevated);
+    color: var(--ew-color-fg-default);
+    box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2));
+    padding: 12px 14px; max-width: 280px;
+  }
+}

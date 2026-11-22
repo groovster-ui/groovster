@@ -18,7 +18,7 @@ export function validateMarkup(markup, eraName, opts = {}) {
   const push = (problem, change) => issues.push({ problem, change });
 
   if (eraName && !era) {
-    push(`Unknown era "${eraName}"`, `change era to one of: neutral, deco, mcm-atomic, neon`);
+    push(`Unknown era "${eraName}"`, `change era to one of: neutral, deco, mcm-atomic, neon, memphis, groovy, earth`);
   }
 
   if (era) {

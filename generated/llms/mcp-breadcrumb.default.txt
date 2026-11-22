@@ -1,0 +1,11 @@
+<!-- Breadcrumb -->
+<nav class="ew-breadcrumb" aria-label="Breadcrumb">
+  <ol class="ew-breadcrumb__list">
+    <li class="ew-breadcrumb__item"><a class="ew-link" href="/">Home</a></li>
+    <li class="ew-breadcrumb__item"><a class="ew-link" href="/docs">Docs</a></li>
+    <li class="ew-breadcrumb__item" aria-current="page">Button</li>
+  </ol>
+</nav>
+
+import "@era-widgets/css/breadcrumb.css";
+a11y: aria-label=Breadcrumb on nav.

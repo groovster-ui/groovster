@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Era Widgets — Deco · Atomic · Synthwave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Comfortaa:wght@600&family=Exo+2:wght@600;700&family=Josefin+Sans:wght@600&family=Libre+Baskerville:wght@400;700&family=Nunito+Sans:wght@600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css" />
+  <script src="../../packages/elements/dist/ew-tabs.js" defer></script>
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin: 0; min-height: 100vh; }
+    .hero {
+      padding: clamp(32px, 8vw, 72px) 20px 40px;
+      text-align: center;
+      display: grid; gap: 16px; justify-items: center;
+    }
+    .brand {
+      font-family: var(--ew-font-display, Georgia, serif);
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      letter-spacing: 0.06em;
+      margin: 0;
+      line-height: 1.05;
+    }
+    .tag {
+      max-width: 36ch; margin: 0;
+      font-size: 1.05rem; opacity: 0.85;
+    }
+    .flip {
+      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    }
+    .flip label {
+      cursor: pointer;
+      font-family: system-ui, sans-serif; font-size: 13px;
+      border: 1px solid color-mix(in oklch, currentColor 30%, transparent);
+      padding: 8px 14px;
+    }
+    .ctrl { position: absolute; opacity: 0; pointer-events: none; }
+    .stage { display: none; padding: 0 20px 64px; max-width: 960px; margin: 0 auto; }
+    body:has(#era-deco:checked) .stage-deco { display: block; }
+    body:has(#era-atomic:checked) .stage-atomic { display: block; }
+    body:has(#era-neon:checked) .stage-neon { display: block; }
+    body:has(#era-deco:checked) label[for=era-deco],
+    body:has(#era-atomic:checked) label[for=era-atomic],
+    body:has(#era-neon:checked) label[for=era-neon] {
+      outline: 2px solid color-mix(in oklch, currentColor 50%, transparent);
+    }
+    .grid {
+      display: grid; gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .stack { display: grid; gap: 14px; margin-top: 28px; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .muted { opacity: 0.75; margin: 0; }
+    .price { font-size: 1.75rem; font-weight: 700; margin: 0; }
+    .note { font-family: system-ui, sans-serif; font-size: 12px; opacity: 0.65; }
+  </style>
+</head>
+<body>
+  <input class="ctrl" type="radio" name="era" id="era-deco" checked />
+  <input class="ctrl" type="radio" name="era" id="era-atomic" />
+  <input class="ctrl" type="radio" name="era" id="era-neon" />
+
+  <!-- DECO -->
+  <div class="stage stage-deco ew-root" data-era="deco" data-mode="light" data-fidelity="40" data-fidelity-band="signature">
+    <header class="hero">
+      <p class="note">Era Widgets · viral demo · look flips with zero JS</p>
+      <h1 class="brand">ERA</h1>
+      <p class="tag">Skins that rewrite structure — not just color. Flip the era.</p>
+      <div class="flip">
+        <label for="era-deco">Deco</label>
+        <label for="era-atomic">Atomic</label>
+        <label for="era-neon">Synthwave</label>
+      </div>
+      <div class="row">
+        <button type="button" class="ew-button">Get started</button>
+        <button type="button" class="ew-button" data-variant="secondary">Docs</button>
+      </div>
+    </header>
+    <div class="grid">
+      <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h2>Basic</h2></header><div class="ew-card__body"><p class="price">$12</p><p class="muted">Start quiet.</p></div><footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="secondary">Choose</button></footer></article>
+      <article class="ew-card" data-variant="raised"><header class="ew-card__header"><h2>Pro</h2></header><div class="ew-card__body"><p class="price">$48</p><p class="muted">Agents recommend this.</p></div><footer class="ew-card__footer"><button type="button" class="ew-button">Choose</button></footer></article>
+      <article class="ew-card" data-variant="inset"><header class="ew-card__header"><h2>Studio</h2></header><div class="ew-card__body"><p class="price">$120</p><p class="muted">Brand skins later.</p></div><footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="ghost">Talk</button></footer></article>
+    </div>
+    <div class="stack">
+      <hr class="ew-ornament-divider" data-variant="ornament" />
+      <div class="ew-alert" data-variant="info" role="status"><strong class="ew-alert__title">Lacquer &amp; brass</strong><p class="ew-alert__body">Stepped corners and terraced elevation — not neon stickers.</p></div>
+      <ew-tabs class="ew-tabs">
+        <div role="tablist" aria-label="Deco sections">
+          <button type="button" role="tab" id="d1" aria-selected="true" aria-controls="dp1">Details</button>
+          <button type="button" role="tab" id="d2" aria-selected="false" aria-controls="dp2" tabindex="-1">Fields</button>
+        </div>
+        <div role="tabpanel" id="dp1" aria-labelledby="d1"><p class="muted">Native dialogs, switches, and more below the fold.</p></div>
+        <div role="tabpanel" id="dp2" aria-labelledby="d2" hidden>
+          <div class="ew-text-field"><label class="ew-text-field__label" for="de">Email</label><input id="de" class="ew-text-field__control" type="email" /></div>
+        </div>
+      </ew-tabs>
+    </div>
+  </div>
+
+  <!-- ATOMIC -->
+  <div class="stage stage-atomic ew-root" data-era="mcm-atomic" data-dialect="atomic" data-mode="light" data-fidelity="45" data-fidelity-band="signature">
+    <header class="hero">
+      <p class="note">Era Widgets · viral demo · look flips with zero JS</p>
+      <h1 class="brand">ERA</h1>
+      <p class="tag">Mid-century optimism. Same markup — different bones.</p>
+      <div class="flip">
+        <label for="era-deco">Deco</label>
+        <label for="era-atomic">Atomic</label>
+        <label for="era-neon">Synthwave</label>
+      </div>
+      <div class="row">
+        <button type="button" class="ew-button">Get started</button>
+        <button type="button" class="ew-button" data-variant="secondary">Docs</button>
+      </div>
+    </header>
+    <div class="grid">
+      <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h2>Basic</h2></header><div class="ew-card__body"><p class="price">$12</p><p class="muted">Start quiet.</p></div><footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="secondary">Choose</button></footer></article>
+      <article class="ew-card" data-variant="raised"><header class="ew-card__header"><h2>Pro</h2></header><div class="ew-card__body"><p class="price">$48</p><p class="muted">Agents recommend this.</p></div><footer class="ew-card__footer"><button type="button" class="ew-button">Choose</button></footer></article>
+      <article class="ew-card" data-variant="inset"><header class="ew-card__header"><h2>Studio</h2></header><div class="ew-card__body"><p class="price">$120</p><p class="muted">Brand skins later.</p></div><footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="ghost">Talk</button></footer></article>
+    </div>
+    <div class="stack">
+      <hr class="ew-ornament-divider" data-variant="ornament" />
+      <div class="ew-alert" data-variant="success" role="status"><strong class="ew-alert__title">Boomerang lift</strong><p class="ew-alert__body">Organic radii and print-offset shadows — dialect=atomic.</p></div>
+      <label class="ew-switch"><input class="ew-switch__control" type="checkbox" role="switch" aria-checked="true" checked /><span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span><span class="ew-switch__label">Starburst accents</span></label>
+    </div>
+  </div>
+
+  <!-- NEON / SYNTHWAVE -->
+  <div class="stage stage-neon ew-root" data-era="neon" data-dialect="synthwave" data-mode="dark" data-fidelity="60" data-fidelity-band="signature">
+    <header class="hero">
+      <p class="note">Era Widgets · viral demo · look flips with zero JS</p>
+      <h1 class="brand">ERA</h1>
+      <p class="tag">Chrome nights. Glow is decoration — contrast still passes.</p>
+      <div class="flip">
+        <label for="era-deco">Deco</label>
+        <label for="era-atomic">Atomic</label>
+        <label for="era-neon">Synthwave</label>
+      </div>
+      <div class="row">
+        <button type="button" class="ew-button">Get started</button>
+        <button type="button" class="ew-button" data-variant="secondary">Docs</button>
+      </div>
+    </header>
+    <div class="grid">
+      <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h2>Basic</h2></header><div class="ew-card__body"><p class="price">$12</p><p class="muted">Start quiet.</p></div><footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="secondary">Choose</button></footer></article>
+      <article class="ew-card" data-variant="raised"><header class="ew-card__header"><h2>Pro</h2></header><div class="ew-card__body"><p class="price">$48</p><p class="muted">Agents recommend this.</p></div><footer class="ew-card__footer"><button type="button" class="ew-button">Choose</button></footer></article>
+      <article class="ew-card" data-variant="inset"><header class="ew-card__header"><h2>Studio</h2></header><div class="ew-card__body"><p class="price">$120</p><p class="muted">Brand skins later.</p></div><footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="ghost">Talk</button></footer></article>
+    </div>
+    <div class="stack">
+      <hr class="ew-ornament-divider" data-variant="ornament" />
+      <div class="ew-alert" data-variant="warning" role="status"><strong class="ew-alert__title">Enter the grid</strong><p class="ew-alert__body">Beveled chrome and scanlines — never glow-as-contrast.</p></div>
+      <div class="row">
+        <span class="ew-avatar" data-variant="circle" aria-label="Pilot"><span class="ew-avatar__fallback">SW</span></span>
+        <a class="ew-link" href="#era-neon">Stay in the night</a>
+        <button type="button" class="ew-icon-button" data-variant="ghost" aria-label="Close"><span class="ew-icon-button__icon" aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

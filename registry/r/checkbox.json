@@ -1,0 +1,27 @@
+{
+  "name": "ew-checkbox",
+  "type": "registry:ui",
+  "title": "Era Widgets — Checkbox",
+  "description": "Labeled checkbox. Native input; eras skin the box.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/checkbox.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-checkbox {\n    /* anatomy: root, control, box, label */\n  }\n  .ew-checkbox { display: inline-flex; align-items: center; gap: 10px; font-family: var(--ew-font-body, system-ui, sans-serif); cursor: pointer; position: relative; }\n  .ew-checkbox__control { position: absolute; opacity: 0; width: 1px; height: 1px; }\n  .ew-checkbox__box {\n    width: 18px; height: 18px; flex: none;\n    border: var(--ew-structure-field-border-width, 1px) var(--ew-structure-field-border-style, solid) var(--ew-color-border-strong);\n    border-radius: var(--ew-structure-control-radius, 4px);\n    background: var(--ew-color-field-bg, #fff);\n    display: inline-grid; place-items: center;\n    box-shadow: var(--ew-structure-button-shadow, none);\n  }\n  .ew-checkbox__box::after {\n    content: \"\"; width: 10px; height: 6px; border: solid var(--ew-color-action-fg, #fff);\n    border-width: 0 0 2px 2px; transform: rotate(-45deg) scale(0); transition: transform 120ms ease;\n  }\n  .ew-checkbox__control:checked + .ew-checkbox__box { background: var(--ew-color-action-bg); border-color: var(--ew-color-action-bg); }\n  .ew-checkbox__control:checked + .ew-checkbox__box::after { transform: rotate(-45deg) scale(1); }\n  .ew-checkbox__control:focus-visible + .ew-checkbox__box { outline: 2px solid var(--ew-color-field-focus); outline-offset: 2px; }\n  .ew-checkbox__label { color: var(--ew-color-fg-default); }\n  @media (prefers-reduced-motion: reduce) { .ew-checkbox__box::after { transition: none; } }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/checkbox.css"
+    },
+    {
+      "path": "era-widgets/checkbox.example.html",
+      "content": "<!-- Era Widgets Checkbox — set data-era on an ancestor -->\n<label class=\"ew-checkbox\">\n  <input class=\"ew-checkbox__control\" type=\"checkbox\" />\n  <span class=\"ew-checkbox__box\" aria-hidden=\"true\"></span>\n  <span class=\"ew-checkbox__label\">Accept terms</span>\n</label>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/checkbox.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-checkbox",
+    "canonicalHtml": "<label class=\"ew-checkbox\">\n  <input class=\"ew-checkbox__control\" type=\"checkbox\" />\n  <span class=\"ew-checkbox__box\" aria-hidden=\"true\"></span>\n  <span class=\"ew-checkbox__label\">Accept terms</span>\n</label>",
+    "cssPackage": "@era-widgets/css/checkbox.css"
+  }
+}

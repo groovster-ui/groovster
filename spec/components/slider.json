@@ -1,0 +1,119 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "native",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Arrow keys / Home / End / PageUp / PageDown",
+      "action": "Adjust value"
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "kind": "content",
+      "description": "Label."
+    },
+    {
+      "name": "indicator",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Track fill."
+    }
+  ],
+  "imports": [
+    "@era-widgets/css/slider.css",
+    "@era-widgets/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "slider",
+  "name": "Slider",
+  "className": "ew-slider",
+  "nativeElement": "input[type=range]",
+  "summary": "Native range input with era track/thumb chrome.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-slider",
+      "description": "Wrapper."
+    },
+    {
+      "part": "label",
+      "required": true,
+      "selector": ".ew-slider__label",
+      "description": "Label."
+    },
+    {
+      "part": "control",
+      "required": true,
+      "selector": ".ew-slider__control",
+      "description": "Range input."
+    },
+    {
+      "part": "value",
+      "required": false,
+      "selector": ".ew-slider__value",
+      "description": "Value readout."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default"
+      ],
+      "default": "default",
+      "description": "Track style."
+    }
+  },
+  "aria": {
+    "role": "slider (native range)",
+    "requiredAttributes": [
+      "min",
+      "max",
+      "value"
+    ],
+    "optionalAttributes": [
+      "aria-valuetext"
+    ],
+    "notes": [
+      "Native range provides keyboard.",
+      "Expose visible value when helpful."
+    ]
+  },
+  "canonicalHtml": "<div class=\"ew-slider\">\n  <label class=\"ew-slider__label\" for=\"vol\">Volume</label>\n  <input id=\"vol\" class=\"ew-slider__control\" type=\"range\" min=\"0\" max=\"100\" value=\"40\" />\n</div>",
+  "do": [
+    "Provide min/max/value.",
+    "Keep thumb large enough to grab."
+  ],
+  "dont": [
+    "Don't rely on track color alone for value.",
+    "Don't ignore prefers-reduced-motion on decorative fills."
+  ]
+}

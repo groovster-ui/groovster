@@ -1,6 +1,6 @@
 # Era Widgets — agent notes (generated)
 
-Use **HTML** with `ew-*` classes. Flip eras with `data-era` (deco|mcm-atomic|neon|neutral).
+Use **HTML** with `ew-*` classes. Flip eras with `data-era` (deco|earth|groovy|mcm-atomic|memphis|neon|neutral).
 
 ```html
 <link rel="stylesheet" href="node_modules/@era-widgets/css/era-widgets.css" />

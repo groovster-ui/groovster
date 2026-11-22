@@ -1,0 +1,27 @@
+{
+  "name": "ew-popover",
+  "type": "registry:ui",
+  "title": "Era Widgets — Popover",
+  "description": "Non-modal popover surface via Popover API.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/popover.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-popover {\n    /* anatomy: trigger, panel */\n  }\n  .ew-popover__panel, .ew-popover__panel {\n    border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);\n    border-radius: var(--ew-structure-surface-radius, 8px);\n    background: var(--ew-color-bg-elevated);\n    color: var(--ew-color-fg-default);\n    box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2));\n    padding: 12px 14px; max-width: 280px;\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/popover.css"
+    },
+    {
+      "path": "era-widgets/popover.example.html",
+      "content": "<!-- Era Widgets Popover — set data-era on an ancestor -->\n<button type=\"button\" class=\"ew-button ew-popover__trigger\" popovertarget=\"pop-1\">Details</button>\n<div id=\"pop-1\" class=\"ew-popover__panel\" popover>\n  <p>Popover content</p>\n</div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/popover.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-popover",
+    "canonicalHtml": "<button type=\"button\" class=\"ew-button ew-popover__trigger\" popovertarget=\"pop-1\">Details</button>\n<div id=\"pop-1\" class=\"ew-popover__panel\" popover>\n  <p>Popover content</p>\n</div>",
+    "cssPackage": "@era-widgets/css/popover.css"
+  }
+}

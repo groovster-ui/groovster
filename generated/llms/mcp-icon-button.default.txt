@@ -1,0 +1,7 @@
+<!-- IconButton -->
+<button type="button" class="ew-icon-button" data-variant="ghost" aria-label="Close">
+  <span class="ew-icon-button__icon" aria-hidden="true">×</span>
+</button>
+
+import "@era-widgets/css/icon-button.css";
+a11y: Must have accessible name (aria-label).

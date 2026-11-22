@@ -1,0 +1,12 @@
+era: memphis
+voice: playful postmodern
+shape: asymmetric radii
+edge: thick graphic borders
+surface: cream + confetti
+elevation: hard offset
+ornament: squiggle / terrazzo
+type: Archivo Black + Nunito
+fidelity: default 50 (30–70)
+modes: light, dark
+use: youth, events, creative
+never: display type on controls

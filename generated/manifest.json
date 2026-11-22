@@ -1,80 +1,190 @@
 {
   "generatedAt": "deterministic-build",
   "components": [
+    "alert",
+    "avatar",
+    "breadcrumb",
     "button",
     "card",
+    "checkbox",
     "dialog",
+    "icon-button",
+    "link",
+    "menu",
+    "ornament-divider",
+    "popover",
+    "radio",
+    "select",
+    "slider",
     "switch",
     "tabs",
-    "text-field"
+    "text-field",
+    "textarea",
+    "toast",
+    "tooltip"
   ],
   "eras": [
     "deco",
+    "earth",
+    "groovy",
     "mcm-atomic",
+    "memphis",
     "neon",
     "neutral"
   ],
   "outputs": [
+    "generated/docs/alert.md",
+    "generated/docs/avatar.md",
+    "generated/docs/breadcrumb.md",
     "generated/docs/button.md",
     "generated/docs/card.md",
+    "generated/docs/checkbox.md",
     "generated/docs/dialog.md",
+    "generated/docs/icon-button.md",
+    "generated/docs/link.md",
+    "generated/docs/menu.md",
+    "generated/docs/ornament-divider.md",
+    "generated/docs/popover.md",
+    "generated/docs/radio.md",
+    "generated/docs/select.md",
+    "generated/docs/slider.md",
     "generated/docs/switch.md",
     "generated/docs/tabs.md",
     "generated/docs/text-field.md",
+    "generated/docs/textarea.md",
+    "generated/docs/toast.md",
+    "generated/docs/tooltip.md",
+    "generated/llms/alert.md",
+    "generated/llms/avatar.md",
+    "generated/llms/breadcrumb.md",
     "generated/llms/button.md",
     "generated/llms/card.md",
+    "generated/llms/checkbox.md",
     "generated/llms/dialog.md",
     "generated/llms/era-deco.card.txt",
+    "generated/llms/era-earth.card.txt",
+    "generated/llms/era-groovy.card.txt",
     "generated/llms/era-mcm-atomic.card.txt",
+    "generated/llms/era-memphis.card.txt",
     "generated/llms/era-neon.card.txt",
     "generated/llms/era-neutral.card.txt",
+    "generated/llms/icon-button.md",
+    "generated/llms/link.md",
     "generated/llms/llms.txt",
+    "generated/llms/mcp-alert.default.txt",
+    "generated/llms/mcp-avatar.default.txt",
+    "generated/llms/mcp-breadcrumb.default.txt",
     "generated/llms/mcp-button.default.txt",
     "generated/llms/mcp-card.default.txt",
+    "generated/llms/mcp-checkbox.default.txt",
     "generated/llms/mcp-dialog.default.txt",
+    "generated/llms/mcp-icon-button.default.txt",
+    "generated/llms/mcp-link.default.txt",
+    "generated/llms/mcp-menu.default.txt",
+    "generated/llms/mcp-ornament-divider.default.txt",
+    "generated/llms/mcp-popover.default.txt",
+    "generated/llms/mcp-radio.default.txt",
+    "generated/llms/mcp-select.default.txt",
+    "generated/llms/mcp-slider.default.txt",
     "generated/llms/mcp-switch.default.txt",
     "generated/llms/mcp-tabs.default.txt",
     "generated/llms/mcp-text-field.default.txt",
+    "generated/llms/mcp-textarea.default.txt",
+    "generated/llms/mcp-toast.default.txt",
+    "generated/llms/mcp-tooltip.default.txt",
+    "generated/llms/menu.md",
+    "generated/llms/ornament-divider.md",
+    "generated/llms/popover.md",
+    "generated/llms/radio.md",
+    "generated/llms/select.md",
+    "generated/llms/slider.md",
     "generated/llms/switch.md",
     "generated/llms/tabs.md",
     "generated/llms/text-field.md",
+    "generated/llms/textarea.md",
+    "generated/llms/toast.md",
+    "generated/llms/tooltip.md",
     "generated/rules/AGENTS.md",
     "generated/rules/era-widgets.mdc",
     "llms.txt",
+    "packages/css/dist/alert.css",
+    "packages/css/dist/avatar.css",
     "packages/css/dist/base.css",
+    "packages/css/dist/breadcrumb.css",
     "packages/css/dist/button.css",
     "packages/css/dist/card.css",
+    "packages/css/dist/checkbox.css",
+    "packages/css/dist/dialects.css",
+    "packages/css/dist/dialects.css",
     "packages/css/dist/dialog.css",
     "packages/css/dist/era-widgets.css",
     "packages/css/dist/eras/deco.css",
+    "packages/css/dist/eras/earth.css",
+    "packages/css/dist/eras/groovy.css",
     "packages/css/dist/eras/mcm-atomic.css",
+    "packages/css/dist/eras/memphis.css",
     "packages/css/dist/eras/neon.css",
     "packages/css/dist/eras/neutral.css",
+    "packages/css/dist/icon-button.css",
+    "packages/css/dist/link.css",
+    "packages/css/dist/menu.css",
+    "packages/css/dist/ornament-divider.css",
+    "packages/css/dist/popover.css",
+    "packages/css/dist/radio.css",
+    "packages/css/dist/select.css",
+    "packages/css/dist/slider.css",
     "packages/css/dist/switch.css",
     "packages/css/dist/tabs.css",
     "packages/css/dist/text-field.css",
+    "packages/css/dist/textarea.css",
+    "packages/css/dist/toast.css",
     "packages/css/dist/tokens-components.css",
+    "packages/css/dist/tooltip.css",
     "packages/tokens/dist/index.json",
     "packages/tokens/dist/tier1/deco.dark.tokens.json",
     "packages/tokens/dist/tier1/deco.light.tokens.json",
+    "packages/tokens/dist/tier1/earth.dark.tokens.json",
+    "packages/tokens/dist/tier1/earth.light.tokens.json",
+    "packages/tokens/dist/tier1/groovy.dark.tokens.json",
+    "packages/tokens/dist/tier1/groovy.light.tokens.json",
     "packages/tokens/dist/tier1/mcm-atomic.dark.tokens.json",
     "packages/tokens/dist/tier1/mcm-atomic.light.tokens.json",
+    "packages/tokens/dist/tier1/memphis.dark.tokens.json",
+    "packages/tokens/dist/tier1/memphis.light.tokens.json",
     "packages/tokens/dist/tier1/neon.dark.tokens.json",
     "packages/tokens/dist/tier1/neon.light.tokens.json",
     "packages/tokens/dist/tier1/neutral.dark.tokens.json",
     "packages/tokens/dist/tier1/neutral.light.tokens.json",
     "packages/tokens/dist/tier2/deco.shared.tokens.json",
+    "packages/tokens/dist/tier2/earth.shared.tokens.json",
+    "packages/tokens/dist/tier2/groovy.shared.tokens.json",
     "packages/tokens/dist/tier2/mcm-atomic.shared.tokens.json",
+    "packages/tokens/dist/tier2/memphis.shared.tokens.json",
     "packages/tokens/dist/tier2/neon.shared.tokens.json",
     "packages/tokens/dist/tier2/neutral.shared.tokens.json",
     "packages/tokens/dist/tier3/components.shared.tokens.json",
     "registry/README.md",
+    "registry/r/alert.json",
+    "registry/r/avatar.json",
+    "registry/r/breadcrumb.json",
     "registry/r/button.json",
     "registry/r/card.json",
+    "registry/r/checkbox.json",
     "registry/r/dialog.json",
+    "registry/r/icon-button.json",
+    "registry/r/link.json",
+    "registry/r/menu.json",
+    "registry/r/ornament-divider.json",
+    "registry/r/popover.json",
+    "registry/r/radio.json",
+    "registry/r/select.json",
+    "registry/r/slider.json",
     "registry/r/switch.json",
     "registry/r/tabs.json",
     "registry/r/text-field.json",
+    "registry/r/textarea.json",
+    "registry/r/toast.json",
+    "registry/r/tooltip.json",
     "registry/registry.json"
   ],
   "budgetReport": {
@@ -101,6 +211,30 @@
       }
     },
     "measured": {
+      "llms.section:alert": {
+        "chars": 521,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:alert": {
+        "chars": 288,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:avatar": {
+        "chars": 473,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:avatar": {
+        "chars": 226,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:breadcrumb": {
+        "chars": 653,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:breadcrumb": {
+        "chars": 428,
+        "budget": "mcp.defaultReply"
+      },
       "llms.section:button": {
         "chars": 491,
         "budget": "llms.section"
@@ -117,12 +251,84 @@
         "chars": 450,
         "budget": "mcp.defaultReply"
       },
+      "llms.section:checkbox": {
+        "chars": 551,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:checkbox": {
+        "chars": 312,
+        "budget": "mcp.defaultReply"
+      },
       "llms.section:dialog": {
         "chars": 839,
         "budget": "llms.section"
       },
       "mcp.defaultReply:dialog": {
         "chars": 544,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:icon-button": {
+        "chars": 509,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:icon-button": {
+        "chars": 270,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:link": {
+        "chars": 370,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:link": {
+        "chars": 127,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:menu": {
+        "chars": 718,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:menu": {
+        "chars": 479,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:ornament-divider": {
+        "chars": 471,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:ornament-divider": {
+        "chars": 169,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:popover": {
+        "chars": 537,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:popover": {
+        "chars": 280,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:radio": {
+        "chars": 825,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:radio": {
+        "chars": 562,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:select": {
+        "chars": 610,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:select": {
+        "chars": 332,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:slider": {
+        "chars": 517,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:slider": {
+        "chars": 272,
         "budget": "mcp.defaultReply"
       },
       "llms.section:switch": {
@@ -149,12 +355,48 @@
         "chars": 277,
         "budget": "mcp.defaultReply"
       },
+      "llms.section:textarea": {
+        "chars": 508,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:textarea": {
+        "chars": 249,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:toast": {
+        "chars": 624,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:toast": {
+        "chars": 341,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:tooltip": {
+        "chars": 569,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:tooltip": {
+        "chars": 304,
+        "budget": "mcp.defaultReply"
+      },
       "mcp.eraCard:deco": {
         "chars": 380,
         "budget": "mcp.eraCard"
       },
+      "mcp.eraCard:earth": {
+        "chars": 309,
+        "budget": "mcp.eraCard"
+      },
+      "mcp.eraCard:groovy": {
+        "chars": 282,
+        "budget": "mcp.eraCard"
+      },
       "mcp.eraCard:mcm-atomic": {
         "chars": 409,
+        "budget": "mcp.eraCard"
+      },
+      "mcp.eraCard:memphis": {
+        "chars": 308,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:neon": {
@@ -166,7 +408,7 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 1255,
+        "chars": 2084,
         "budget": "llms.index"
       }
     }

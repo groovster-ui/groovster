@@ -1,0 +1,130 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "native",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "checked",
+      "selector": ":checked",
+      "description": "Checked."
+    },
+    {
+      "name": "indeterminate",
+      "selector": ":indeterminate",
+      "description": "Mixed."
+    },
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled",
+      "description": "Disabled."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Space",
+      "action": "Toggle"
+    },
+    {
+      "keys": "Tab",
+      "action": "Move focus"
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "kind": "content",
+      "description": "Label text."
+    },
+    {
+      "name": "indicator",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Check mark chrome."
+    }
+  ],
+  "imports": [
+    "@era-widgets/css/checkbox.css",
+    "@era-widgets/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "checkbox",
+  "name": "Checkbox",
+  "className": "ew-checkbox",
+  "nativeElement": "input[type=checkbox]",
+  "summary": "Labeled checkbox. Native input; eras skin the box.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-checkbox",
+      "description": "Label wrapper."
+    },
+    {
+      "part": "control",
+      "required": true,
+      "selector": ".ew-checkbox__control",
+      "description": "Native checkbox."
+    },
+    {
+      "part": "box",
+      "required": true,
+      "selector": ".ew-checkbox__box",
+      "description": "Visual box."
+    },
+    {
+      "part": "label",
+      "required": true,
+      "selector": ".ew-checkbox__label",
+      "description": "Visible label."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default",
+        "card"
+      ],
+      "default": "default",
+      "description": "Layout."
+    }
+  },
+  "aria": {
+    "role": "checkbox (native)",
+    "requiredAttributes": [],
+    "optionalAttributes": [
+      "aria-checked"
+    ],
+    "notes": [
+      "Prefer native checkbox inside a label.",
+      "Indeterminate via property, expose carefully."
+    ]
+  },
+  "canonicalHtml": "<label class=\"ew-checkbox\">\n  <input class=\"ew-checkbox__control\" type=\"checkbox\" />\n  <span class=\"ew-checkbox__box\" aria-hidden=\"true\"></span>\n  <span class=\"ew-checkbox__label\">Accept terms</span>\n</label>",
+  "do": [
+    "Use a visible label.",
+    "Keep hit target \u226524px."
+  ],
+  "dont": [
+    "Don't use only color for checked state.",
+    "Don't nest interactive controls in the label besides the checkbox."
+  ]
+}

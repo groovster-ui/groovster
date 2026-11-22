@@ -1,0 +1,8 @@
+<!-- Alert -->
+<div class="ew-alert" data-variant="warning" role="status">
+  <strong class="ew-alert__title">Check your email</strong>
+  <p class="ew-alert__body">We sent a confirmation link.</p>
+</div>
+
+import "@era-widgets/css/alert.css";
+a11y: Use role=alert for time-sensitive danger.

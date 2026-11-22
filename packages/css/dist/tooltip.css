@@ -1,0 +1,16 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-tooltip {
+    /* anatomy: root, tip */
+  }
+  .ew-tooltip { position: relative; display: inline-flex; }
+  .ew-tooltip__tip {
+    position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%);
+    background: var(--ew-color-fg-default); color: var(--ew-color-fg-inverse, #fff);
+    font-size: 12px; padding: 6px 8px; border-radius: 4px; white-space: nowrap;
+    opacity: 0; pointer-events: none; transition: opacity 120ms ease;
+  }
+  .ew-tooltip:hover .ew-tooltip__tip, .ew-tooltip:focus-within .ew-tooltip__tip { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .ew-tooltip__tip { transition: none; } }
+}

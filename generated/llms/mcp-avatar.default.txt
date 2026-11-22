@@ -1,0 +1,7 @@
+<!-- Avatar -->
+<span class="ew-avatar" data-variant="circle" aria-label="Ada Lovelace">
+  <span class="ew-avatar__fallback">AL</span>
+</span>
+
+import "@era-widgets/css/avatar.css";
+a11y: Decorative avatars can be aria-hidden.

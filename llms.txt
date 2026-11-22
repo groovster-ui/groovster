@@ -11,17 +11,35 @@ Load ONLY the sections you need — do not ingest the whole library.
 
 ## Eras (cards: generated/llms/era-<id>.card.txt)
 - deco: Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer. (fidelity ~35)
+- earth: Crafted earth tones: clay, moss, sand — quiet organic UI. (fidelity ~30)
+- groovy: 70s groove: avocado & harvest gold, soft flares, lazy curves. (fidelity ~40)
 - mcm-atomic: Mid-century atomic optimism: kidney shapes, starbursts, teal–coral–mustard. (fidelity ~40)
+- memphis: Playful postmodern: squiggles, confetti shapes, loud primaries on cream. (fidelity ~50)
 - neon: Synthwave nights: magenta–cyan chrome on deep violet, grid horizon optional. (fidelity ~55)
 - neutral: Quiet modern system skin — the default before personality. (fidelity ~0)
 
 ## Components (one file each)
+- alert: generated/llms/alert.md
+- avatar: generated/llms/avatar.md
+- breadcrumb: generated/llms/breadcrumb.md
 - button: generated/llms/button.md
 - card: generated/llms/card.md
+- checkbox: generated/llms/checkbox.md
 - dialog: generated/llms/dialog.md
+- icon-button: generated/llms/icon-button.md
+- link: generated/llms/link.md
+- menu: generated/llms/menu.md
+- ornament-divider: generated/llms/ornament-divider.md
+- popover: generated/llms/popover.md
+- radio: generated/llms/radio.md
+- select: generated/llms/select.md
+- slider: generated/llms/slider.md
 - switch: generated/llms/switch.md
 - tabs: generated/llms/tabs.md
 - text-field: generated/llms/text-field.md
+- textarea: generated/llms/textarea.md
+- toast: generated/llms/toast.md
+- tooltip: generated/llms/tooltip.md
 
 ## Rules
 - Prefer native elements.

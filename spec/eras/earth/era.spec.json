@@ -1,0 +1,151 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "earth",
+  "name": "Earth",
+  "aliases": [
+    "organic",
+    "craft"
+  ],
+  "identity": {
+    "oneLiner": "Crafted earth tones: clay, moss, sand \u2014 quiet organic UI.",
+    "summary": "Natural materials palette with soft stone radii and linen surfaces. Ornament is subtle grain/leaf, never costume tribal pastiche.",
+    "bestFit": [
+      "Wellness",
+      "Outdoor / craft",
+      "Sustainable brands",
+      "Editorial calm"
+    ],
+    "authenticityNotes": "Texture last; typography and palette do the work at low fidelity."
+  },
+  "axes": {
+    "shape": "Soft stone radii",
+    "edge": "Hairline clay borders",
+    "surface": "Linen / paper grain at high fidelity",
+    "elevation": "Soft natural shadow",
+    "ornament": "Leaf/grain sparse",
+    "typeVoice": "Humanist serif titles; calm sans body",
+    "motion": "Slow fade only",
+    "density": "Breathable",
+    "iconography": "Thin organic stroke"
+  },
+  "fonts": {
+    "display": "Fraunces",
+    "body": "Source Sans 3",
+    "mono": "Source Code Pro",
+    "license": "OFL-1.1",
+    "sources": [
+      "https://fonts.google.com/specimen/Fraunces",
+      "https://fonts.google.com/specimen/Source+Sans+3",
+      "https://fonts.google.com/specimen/Source+Code+Pro"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 15,
+      "max": 50,
+      "default": 30
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Structure hints only."
+      },
+      {
+        "id": "signature",
+        "min": 26,
+        "max": 66,
+        "description": "Clear era geometry."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full decorative program."
+      }
+    ]
+  },
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "Never use stereotyped 'tribal' motifs.",
+    "Never put Fraunces on Button labels.",
+    "Never fake wood textures on inputs.",
+    "Grain/texture must not reduce text contrast."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/earth.light.tokens.json",
+    "spec/tokens/tier1/earth.dark.tokens.json",
+    "spec/tokens/tier2/earth.shared.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: earth",
+      "voice: craft / organic calm",
+      "shape: soft stone radii",
+      "edge: hairline clay",
+      "surface: linen paper",
+      "elevation: soft natural",
+      "ornament: leaf/grain sparse",
+      "type: Fraunces + Source Sans 3",
+      "fidelity: default 30 (15\u201350)",
+      "modes: light, dark",
+      "use: wellness, outdoor, craft",
+      "never: tribal pastiche, display on controls"
+    ]
+  },
+  "structure": {
+    "controlRadius": "10px",
+    "surfaceRadius": "16px",
+    "button": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.02em",
+      "textTransform": "none",
+      "fontWeight": "600",
+      "shadow": "0 1px 2px color-mix(in oklch, var(--ew-color-fg-default) 10%, transparent)",
+      "clipPath": "none",
+      "paddingX": "16px",
+      "paddingY": "8px"
+    },
+    "card": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "shadow": "0 2px 8px color-mix(in oklch, var(--ew-color-fg-default) 10%, transparent)",
+      "raisedShadow": "0 8px 20px color-mix(in oklch, var(--ew-color-fg-default) 14%, transparent)",
+      "clipPath": "none",
+      "padding": "20px",
+      "headerRule": true,
+      "titleTracking": "0.02em",
+      "ornament": "none"
+    },
+    "field": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "radius": "10px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "radius": "16px",
+      "shadow": "var(--ew-elevation-dialog)",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "2px",
+      "indicatorStyle": "solid",
+      "radius": "0px",
+      "enclosed": false
+    },
+    "switch": {
+      "trackRadius": "999px",
+      "thumbRadius": "999px",
+      "shadow": "none"
+    }
+  }
+}

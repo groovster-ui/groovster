@@ -1,0 +1,118 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "css-only",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Reach action buttons if present"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Message."
+    },
+    {
+      "name": "frame",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Frame."
+    }
+  ],
+  "imports": [
+    "@era-widgets/css/toast.css",
+    "@era-widgets/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "toast",
+  "name": "Toast",
+  "className": "ew-toast",
+  "nativeElement": "div",
+  "summary": "Transient notification region. CSS chrome; live region polite by default.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-toast",
+      "description": "Toast item."
+    },
+    {
+      "part": "title",
+      "required": false,
+      "selector": ".ew-toast__title",
+      "description": "Title."
+    },
+    {
+      "part": "body",
+      "required": true,
+      "selector": ".ew-toast__body",
+      "description": "Message."
+    },
+    {
+      "part": "region",
+      "required": true,
+      "selector": ".ew-toast-region",
+      "description": "Live region container."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "default": "info",
+      "description": "Tone."
+    }
+  },
+  "aria": {
+    "role": "status (polite) or alert",
+    "requiredAttributes": [
+      "aria-live on region"
+    ],
+    "optionalAttributes": [],
+    "notes": [
+      "Wrap toasts in an aria-live region.",
+      "Danger may use role=alert sparingly."
+    ]
+  },
+  "canonicalHtml": "<div class=\"ew-toast-region\" aria-live=\"polite\" aria-relevant=\"additions\">\n  <div class=\"ew-toast\" data-variant=\"success\">\n    <strong class=\"ew-toast__title\">Saved</strong>\n    <p class=\"ew-toast__body\">Your changes are live.</p>\n  </div>\n</div>",
+  "do": [
+    "Use a live region.",
+    "Keep messages short."
+  ],
+  "dont": [
+    "Don't stack critical errors only as toasts.",
+    "Don't auto-dismiss faster than readable."
+  ]
+}

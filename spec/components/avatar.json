@@ -1,0 +1,110 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "css-only",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Move focus"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Image or initials."
+    },
+    {
+      "name": "frame",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Era frame."
+    }
+  ],
+  "imports": [
+    "@era-widgets/css/avatar.css",
+    "@era-widgets/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "avatar",
+  "name": "Avatar",
+  "className": "ew-avatar",
+  "nativeElement": "span",
+  "summary": "User/image avatar with initials fallback.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-avatar",
+      "description": "Root."
+    },
+    {
+      "part": "image",
+      "required": false,
+      "selector": ".ew-avatar__image",
+      "description": "Img."
+    },
+    {
+      "part": "fallback",
+      "required": false,
+      "selector": ".ew-avatar__fallback",
+      "description": "Initials."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "circle",
+        "square"
+      ],
+      "default": "circle",
+      "description": "Shape."
+    }
+  },
+  "aria": {
+    "role": "img when meaningful",
+    "requiredAttributes": [],
+    "optionalAttributes": [
+      "aria-label"
+    ],
+    "notes": [
+      "Decorative avatars can be aria-hidden.",
+      "Meaningful avatars need a name."
+    ]
+  },
+  "canonicalHtml": "<span class=\"ew-avatar\" data-variant=\"circle\" aria-label=\"Ada Lovelace\">\n  <span class=\"ew-avatar__fallback\">AL</span>\n</span>",
+  "do": [
+    "Provide alt/name when meaningful.",
+    "Use initials fallback."
+  ],
+  "dont": [
+    "Don't rely on image alone without fallback.",
+    "Don't make tiny avatars the only identity cue in dense UI without text."
+  ]
+}

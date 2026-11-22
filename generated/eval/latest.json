@@ -1,7 +1,7 @@
 {
   "suite": "era-widgets-phase2-v0",
   "version": 1,
-  "generatedAt": "2026-11-22T00:03:46.605Z",
+  "generatedAt": "2026-11-22T00:08:16.750Z",
   "mode": "fixture-baseline",
   "note": "Live agent runners not automated yet. This records validate/tokens/turns scaffolding against golden fixtures for each setup.",
   "setups": {

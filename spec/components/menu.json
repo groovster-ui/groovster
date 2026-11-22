@@ -1,0 +1,121 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "web-component",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Enter / Space",
+      "action": "Open / activate"
+    },
+    {
+      "keys": "Escape",
+      "action": "Close"
+    },
+    {
+      "keys": "Arrow keys",
+      "action": "Move among items (enhance with WC)"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Items."
+    },
+    {
+      "name": "frame",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Panel frame."
+    }
+  ],
+  "imports": [
+    "@era-widgets/css/menu.css",
+    "@era-widgets/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "menu",
+  "name": "Menu",
+  "className": "ew-menu",
+  "nativeElement": "div (popover)",
+  "summary": "Action menu using Popover API + menu roles. Full APG WC may deepen later.",
+  "anatomy": [
+    {
+      "part": "trigger",
+      "required": true,
+      "selector": ".ew-menu__trigger",
+      "description": "Opener button."
+    },
+    {
+      "part": "panel",
+      "required": true,
+      "selector": ".ew-menu__panel",
+      "description": "Popover panel."
+    },
+    {
+      "part": "item",
+      "required": true,
+      "selector": ".ew-menu__item",
+      "description": "Menu item."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default"
+      ],
+      "default": "default",
+      "description": "Panel chrome."
+    }
+  },
+  "aria": {
+    "role": "menu / menuitem",
+    "requiredAttributes": [
+      "aria-haspopup",
+      "aria-expanded",
+      "role"
+    ],
+    "optionalAttributes": [
+      "aria-controls"
+    ],
+    "notes": [
+      "Use button trigger with aria-haspopup=menu.",
+      "Phase 3 ships CSS + popover markup pattern; dedicated WC optional later."
+    ]
+  },
+  "canonicalHtml": "<div class=\"ew-menu\">\n  <button type=\"button\" class=\"ew-button ew-menu__trigger\" popovertarget=\"menu-1\" aria-haspopup=\"menu\">Actions</button>\n  <div id=\"menu-1\" class=\"ew-menu__panel\" popover role=\"menu\">\n    <button type=\"button\" class=\"ew-menu__item\" role=\"menuitem\">Edit</button>\n    <button type=\"button\" class=\"ew-menu__item\" role=\"menuitem\">Delete</button>\n  </div>\n</div>",
+  "do": [
+    "Use a button trigger.",
+    "Mark items as menuitem."
+  ],
+  "dont": [
+    "Don't open menus on hover-only.",
+    "Don't trap focus incorrectly."
+  ]
+}

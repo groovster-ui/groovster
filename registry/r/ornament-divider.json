@@ -1,0 +1,27 @@
+{
+  "name": "ew-ornament-divider",
+  "type": "registry:ui",
+  "title": "Era Widgets — OrnamentDivider",
+  "description": "Structural divider; eras supply ornament via decorators.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/ornament-divider.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-ornament-divider {\n    /* anatomy: root, ornament */\n  }\n  .ew-ornament-divider {\n    border: 0; height: 1px; margin: 24px 0; position: relative;\n    background: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);\n  }\n  .ew-ornament-divider[data-variant=\"ornament\"]::before {\n    content: \"\"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);\n    width: 12px; height: 12px; background: var(--ew-color-action-bg);\n    clip-path: var(--ew-structure-button-clip, none);\n    border-radius: var(--ew-structure-control-radius, 2px);\n    box-shadow: 0 0 0 4px var(--ew-color-bg-page, #fff);\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/ornament-divider.css"
+    },
+    {
+      "path": "era-widgets/ornament-divider.example.html",
+      "content": "<!-- Era Widgets OrnamentDivider — set data-era on an ancestor -->\n<hr class=\"ew-ornament-divider\" data-variant=\"ornament\" />\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/ornament-divider.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-ornament-divider",
+    "canonicalHtml": "<hr class=\"ew-ornament-divider\" data-variant=\"ornament\" />",
+    "cssPackage": "@era-widgets/css/ornament-divider.css"
+  }
+}

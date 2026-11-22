@@ -1,0 +1,14 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-breadcrumb {
+    /* anatomy: root, list, item, separator */
+  }
+  .ew-breadcrumb { font-family: var(--ew-font-body, system-ui, sans-serif); }
+  .ew-breadcrumb__list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; align-items: center; }
+  .ew-breadcrumb__item { display: inline-flex; align-items: center; gap: 8px; color: var(--ew-color-fg-muted); }
+  .ew-breadcrumb__item:not(:last-child)::after {
+    content: "/"; color: var(--ew-color-fg-muted); opacity: 0.7;
+  }
+  .ew-breadcrumb__item[aria-current="page"] { color: var(--ew-color-fg-default); font-weight: 600; }
+}

@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
-const ERAS = ['neutral', 'deco', 'mcm-atomic', 'neon'];
+const ERAS = ['neutral', 'deco', 'mcm-atomic', 'neon', 'memphis', 'groovy', 'earth'];
 
 function lightness(str) {
   const m = String(str).match(/oklch\(\s*([\d.]+)\s*%/i);

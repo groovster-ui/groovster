@@ -4,6 +4,63 @@
   "homepage": "https://github.com/example/groovster",
   "items": [
     {
+      "name": "ew-alert",
+      "type": "registry:ui",
+      "title": "Era Widgets — Alert",
+      "description": "Inline alert for page-level feedback.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/alert.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/alert.css"
+        },
+        {
+          "path": "era-widgets/alert.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/alert.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-avatar",
+      "type": "registry:ui",
+      "title": "Era Widgets — Avatar",
+      "description": "User/image avatar with initials fallback.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/avatar.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/avatar.css"
+        },
+        {
+          "path": "era-widgets/avatar.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/avatar.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-breadcrumb",
+      "type": "registry:ui",
+      "title": "Era Widgets — Breadcrumb",
+      "description": "Navigation breadcrumb trail.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/breadcrumb.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/breadcrumb.css"
+        },
+        {
+          "path": "era-widgets/breadcrumb.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/breadcrumb.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-button",
       "type": "registry:ui",
       "title": "Era Widgets — Button",
@@ -42,6 +99,25 @@
       ]
     },
     {
+      "name": "ew-checkbox",
+      "type": "registry:ui",
+      "title": "Era Widgets — Checkbox",
+      "description": "Labeled checkbox. Native input; eras skin the box.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/checkbox.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/checkbox.css"
+        },
+        {
+          "path": "era-widgets/checkbox.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/checkbox.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-dialog",
       "type": "registry:ui",
       "title": "Era Widgets — Dialog",
@@ -57,6 +133,158 @@
           "path": "era-widgets/dialog.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/dialog.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-icon-button",
+      "type": "registry:ui",
+      "title": "Era Widgets — IconButton",
+      "description": "Icon-only button with required accessible name.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/icon-button.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/icon-button.css"
+        },
+        {
+          "path": "era-widgets/icon-button.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/icon-button.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-link",
+      "type": "registry:ui",
+      "title": "Era Widgets — Link",
+      "description": "Text link with era underline/voice.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/link.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/link.css"
+        },
+        {
+          "path": "era-widgets/link.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/link.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-menu",
+      "type": "registry:ui",
+      "title": "Era Widgets — Menu",
+      "description": "Action menu using Popover API + menu roles. Full APG WC may deepen later.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/menu.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/menu.css"
+        },
+        {
+          "path": "era-widgets/menu.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/menu.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-ornament-divider",
+      "type": "registry:ui",
+      "title": "Era Widgets — OrnamentDivider",
+      "description": "Structural divider; eras supply ornament via decorators.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/ornament-divider.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/ornament-divider.css"
+        },
+        {
+          "path": "era-widgets/ornament-divider.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/ornament-divider.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-popover",
+      "type": "registry:ui",
+      "title": "Era Widgets — Popover",
+      "description": "Non-modal popover surface via Popover API.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/popover.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/popover.css"
+        },
+        {
+          "path": "era-widgets/popover.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/popover.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-radio",
+      "type": "registry:ui",
+      "title": "Era Widgets — Radio",
+      "description": "Radio option in a named group. Native radios; eras skin the disc.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/radio.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/radio.css"
+        },
+        {
+          "path": "era-widgets/radio.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/radio.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-select",
+      "type": "registry:ui",
+      "title": "Era Widgets — Select",
+      "description": "Native select with era chrome. Rich combobox WC deferred.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/select.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/select.css"
+        },
+        {
+          "path": "era-widgets/select.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/select.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-slider",
+      "type": "registry:ui",
+      "title": "Era Widgets — Slider",
+      "description": "Native range input with era track/thumb chrome.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/slider.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/slider.css"
+        },
+        {
+          "path": "era-widgets/slider.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/slider.example.html"
         }
       ]
     },
@@ -119,6 +347,63 @@
           "path": "era-widgets/text-field.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/text-field.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-textarea",
+      "type": "registry:ui",
+      "title": "Era Widgets — Textarea",
+      "description": "Multi-line text field with label. Native textarea.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/textarea.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/textarea.css"
+        },
+        {
+          "path": "era-widgets/textarea.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/textarea.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-toast",
+      "type": "registry:ui",
+      "title": "Era Widgets — Toast",
+      "description": "Transient notification region. CSS chrome; live region polite by default.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/toast.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/toast.css"
+        },
+        {
+          "path": "era-widgets/toast.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/toast.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-tooltip",
+      "type": "registry:ui",
+      "title": "Era Widgets — Tooltip",
+      "description": "CSS tooltip for non-essential hints. Never the only accessible name.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/tooltip.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/tooltip.css"
+        },
+        {
+          "path": "era-widgets/tooltip.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/tooltip.example.html"
         }
       ]
     }

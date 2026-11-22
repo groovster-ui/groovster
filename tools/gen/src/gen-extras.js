@@ -3,6 +3,7 @@ import path from 'node:path';
 import { REPO_ROOT, SPEC_ROOT } from './paths.js';
 import { listFiles, writeText, rel } from './io.js';
 import { generateRegistry } from './registry.js';
+import { generateDialectCss } from './dialects.js';
 
 export function generateExtras({ components, eras, outputs }) {
   // Tokens package dist
@@ -24,6 +25,7 @@ export function generateExtras({ components, eras, outputs }) {
   outputs.push(rel(REPO_ROOT, path.join(tokensDist, 'index.json')));
 
   outputs.push(...generateRegistry(components));
+  generateDialectCss(outputs);
 
   const rulesDir = path.join(REPO_ROOT, 'generated/rules');
   const componentList = components.map((c) => c.id).join(', ');

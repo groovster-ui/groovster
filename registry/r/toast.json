@@ -1,0 +1,27 @@
+{
+  "name": "ew-toast",
+  "type": "registry:ui",
+  "title": "Era Widgets — Toast",
+  "description": "Transient notification region. CSS chrome; live region polite by default.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/toast.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-toast {\n    /* anatomy: root, title, body, region */\n  }\n  .ew-toast-region { display: grid; gap: 8px; }\n  .ew-toast {\n    border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);\n    border-radius: var(--ew-structure-surface-radius, 8px);\n    background: var(--ew-color-bg-elevated); color: var(--ew-color-fg-default);\n    box-shadow: var(--ew-structure-card-shadow); padding: 12px 14px;\n  }\n  .ew-toast[data-variant=\"success\"] { border-color: var(--ew-color-action-bg); }\n  .ew-toast[data-variant=\"warning\"] { border-color: color-mix(in oklch, oklch(70% 0.15 85) 80%, var(--ew-color-border-strong)); }\n  .ew-toast[data-variant=\"danger\"] { border-color: var(--ew-color-danger-bg); }\n  .ew-toast__title { display: block; margin-bottom: 4px; }\n  .ew-toast__body { margin: 0; }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/toast.css"
+    },
+    {
+      "path": "era-widgets/toast.example.html",
+      "content": "<!-- Era Widgets Toast — set data-era on an ancestor -->\n<div class=\"ew-toast-region\" aria-live=\"polite\" aria-relevant=\"additions\">\n  <div class=\"ew-toast\" data-variant=\"success\">\n    <strong class=\"ew-toast__title\">Saved</strong>\n    <p class=\"ew-toast__body\">Your changes are live.</p>\n  </div>\n</div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/toast.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-toast",
+    "canonicalHtml": "<div class=\"ew-toast-region\" aria-live=\"polite\" aria-relevant=\"additions\">\n  <div class=\"ew-toast\" data-variant=\"success\">\n    <strong class=\"ew-toast__title\">Saved</strong>\n    <p class=\"ew-toast__body\">Your changes are live.</p>\n  </div>\n</div>",
+    "cssPackage": "@era-widgets/css/toast.css"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "native",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Escape",
+      "action": "Dismiss"
+    },
+    {
+      "keys": "Tab",
+      "action": "Move into panel when open"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Panel body."
+    },
+    {
+      "name": "backdrop",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Optional backdrop."
+    }
+  ],
+  "imports": [
+    "@era-widgets/css/popover.css",
+    "@era-widgets/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "popover",
+  "name": "Popover",
+  "className": "ew-popover",
+  "nativeElement": "div (popover)",
+  "summary": "Non-modal popover surface via Popover API.",
+  "anatomy": [
+    {
+      "part": "trigger",
+      "required": true,
+      "selector": ".ew-popover__trigger",
+      "description": "Opener."
+    },
+    {
+      "part": "panel",
+      "required": true,
+      "selector": ".ew-popover__panel",
+      "description": "Panel."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default",
+        "rich"
+      ],
+      "default": "default",
+      "description": "Density."
+    }
+  },
+  "aria": {
+    "role": "dialog or group (context)",
+    "requiredAttributes": [],
+    "optionalAttributes": [
+      "aria-labelledby"
+    ],
+    "notes": [
+      "Native popover attribute preferred.",
+      "Name the panel when it contains interactive content."
+    ]
+  },
+  "canonicalHtml": "<button type=\"button\" class=\"ew-button ew-popover__trigger\" popovertarget=\"pop-1\">Details</button>\n<div id=\"pop-1\" class=\"ew-popover__panel\" popover>\n  <p>Popover content</p>\n</div>",
+  "do": [
+    "Prefer popover attribute.",
+    "Keep content short."
+  ],
+  "dont": [
+    "Don't use as the only way to show critical errors.",
+    "Don't autoplay motion in the panel."
+  ]
+}

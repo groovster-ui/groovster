@@ -1,0 +1,26 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-checkbox {
+    /* anatomy: root, control, box, label */
+  }
+  .ew-checkbox { display: inline-flex; align-items: center; gap: 10px; font-family: var(--ew-font-body, system-ui, sans-serif); cursor: pointer; position: relative; }
+  .ew-checkbox__control { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .ew-checkbox__box {
+    width: 18px; height: 18px; flex: none;
+    border: var(--ew-structure-field-border-width, 1px) var(--ew-structure-field-border-style, solid) var(--ew-color-border-strong);
+    border-radius: var(--ew-structure-control-radius, 4px);
+    background: var(--ew-color-field-bg, #fff);
+    display: inline-grid; place-items: center;
+    box-shadow: var(--ew-structure-button-shadow, none);
+  }
+  .ew-checkbox__box::after {
+    content: ""; width: 10px; height: 6px; border: solid var(--ew-color-action-fg, #fff);
+    border-width: 0 0 2px 2px; transform: rotate(-45deg) scale(0); transition: transform 120ms ease;
+  }
+  .ew-checkbox__control:checked + .ew-checkbox__box { background: var(--ew-color-action-bg); border-color: var(--ew-color-action-bg); }
+  .ew-checkbox__control:checked + .ew-checkbox__box::after { transform: rotate(-45deg) scale(1); }
+  .ew-checkbox__control:focus-visible + .ew-checkbox__box { outline: 2px solid var(--ew-color-field-focus); outline-offset: 2px; }
+  .ew-checkbox__label { color: var(--ew-color-fg-default); }
+  @media (prefers-reduced-motion: reduce) { .ew-checkbox__box::after { transition: none; } }
+}

@@ -15,6 +15,18 @@
     "neon": {
       "pass": true,
       "issues": []
+    },
+    "memphis": {
+      "pass": true,
+      "issues": []
+    },
+    "groovy": {
+      "pass": true,
+      "issues": []
+    },
+    "earth": {
+      "pass": true,
+      "issues": []
     }
   },
   "pass": true,

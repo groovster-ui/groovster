@@ -1,0 +1,164 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer era {
+  [data-era="memphis"], [data-era="memphis"][data-mode="light"] {
+    --ew-era: memphis;
+    --ew-mode: light;
+  --ew-color-cream: oklch(97% 0.02 95);
+  --ew-color-ink: oklch(20% 0.02 280);
+  --ew-color-pink: oklch(70% 0.18 10);
+  --ew-color-blue: oklch(60% 0.16 250);
+  --ew-color-yellow: oklch(85% 0.16 95);
+  --ew-color-accent-solid: oklch(55% 0.2 250);
+  --ew-color-accent-fg: oklch(98% 0.01 250);
+  --ew-color-danger-solid: oklch(50% 0.2 25);
+  --ew-color-danger-fg: oklch(98% 0.01 25);
+  --ew-space-0: 0px;
+  --ew-space-1: 4px;
+  --ew-space-2: 8px;
+  --ew-space-3: 12px;
+  --ew-space-4: 16px;
+  --ew-space-5: 24px;
+  --ew-space-6: 32px;
+  --ew-space-7: 48px;
+  --ew-space-8: 64px;
+  --ew-radius-none: 0px;
+  --ew-radius-sm: 8px;
+  --ew-radius-md: 14px;
+  --ew-radius-lg: 20px;
+  --ew-radius-pill: 999px;
+  --ew-font-display: "Archivo Black", Impact, sans-serif;
+  --ew-font-body: Nunito, system-ui, sans-serif;
+  --ew-font-mono: "Space Mono", monospace;
+  --ew-color-fg-default: oklch(20% 0.02 280);
+  --ew-color-fg-muted: oklch(45% 0.03 280);
+  --ew-color-fg-inverse: oklch(97% 0.02 95);
+  --ew-color-bg-page: oklch(97% 0.02 95);
+  --ew-color-bg-surface: oklch(94% 0.03 95);
+  --ew-color-bg-elevated: oklch(99% 0.01 95);
+  --ew-color-border-subtle: oklch(20% 0.02 280);
+  --ew-color-border-strong: oklch(20% 0.02 280);
+  --ew-color-action-bg: oklch(45% 0.18 250);
+  --ew-color-action-fg: oklch(98% 0.01 250);
+  --ew-color-action-hover: oklch(40% 0.18 250);
+  --ew-color-field-bg: oklch(99% 0.01 95);
+  --ew-color-field-border: oklch(20% 0.02 280);
+  --ew-color-field-focus: oklch(55% 0.2 250);
+  --ew-color-overlay: oklch(20% 0.02 280 / 0.4);
+  --ew-color-track-off: oklch(88% 0.02 95);
+  --ew-color-track-on: oklch(45% 0.18 250);
+  --ew-color-danger-bg: oklch(42% 0.2 25);
+  --ew-color-danger-fg: oklch(98% 0.01 25);
+  --ew-elevation-1: 3px 3px 0px 0px oklch(20% 0.02 280 / 0.9);
+  --ew-elevation-2: 6px 6px 0px 0px oklch(20% 0.02 280 / 0.9);
+  --ew-elevation-dialog: 8px 8px 0px 0px oklch(20% 0.02 280 / 0.9);
+    color: var(--ew-color-fg-default);
+    background: var(--ew-color-bg-page);
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="memphis"][data-mode="dark"] {
+    --ew-era: memphis;
+    --ew-mode: dark;
+  --ew-color-cream: oklch(18% 0.03 280);
+  --ew-color-ink: oklch(95% 0.02 95);
+  --ew-color-pink: oklch(75% 0.16 10);
+  --ew-color-blue: oklch(70% 0.14 250);
+  --ew-color-yellow: oklch(85% 0.14 95);
+  --ew-color-accent-solid: oklch(72% 0.16 250);
+  --ew-color-accent-fg: oklch(16% 0.03 250);
+  --ew-color-danger-solid: oklch(65% 0.18 25);
+  --ew-color-danger-fg: oklch(16% 0.02 25);
+  --ew-space-0: 0px;
+  --ew-space-1: 4px;
+  --ew-space-2: 8px;
+  --ew-space-3: 12px;
+  --ew-space-4: 16px;
+  --ew-space-5: 24px;
+  --ew-space-6: 32px;
+  --ew-space-7: 48px;
+  --ew-space-8: 64px;
+  --ew-radius-none: 0px;
+  --ew-radius-sm: 8px;
+  --ew-radius-md: 14px;
+  --ew-radius-lg: 20px;
+  --ew-radius-pill: 999px;
+  --ew-color-fg-default: oklch(20% 0.02 280);
+  --ew-color-fg-muted: oklch(45% 0.03 280);
+  --ew-color-fg-inverse: oklch(97% 0.02 95);
+  --ew-color-bg-page: oklch(97% 0.02 95);
+  --ew-color-bg-surface: oklch(94% 0.03 95);
+  --ew-color-bg-elevated: oklch(99% 0.01 95);
+  --ew-color-border-subtle: oklch(20% 0.02 280);
+  --ew-color-border-strong: oklch(20% 0.02 280);
+  --ew-color-action-bg: oklch(45% 0.18 250);
+  --ew-color-action-fg: oklch(98% 0.01 250);
+  --ew-color-action-hover: oklch(40% 0.18 250);
+  --ew-color-field-bg: oklch(99% 0.01 95);
+  --ew-color-field-border: oklch(20% 0.02 280);
+  --ew-color-field-focus: oklch(55% 0.2 250);
+  --ew-color-overlay: oklch(20% 0.02 280 / 0.4);
+  --ew-color-track-off: oklch(88% 0.02 95);
+  --ew-color-track-on: oklch(45% 0.18 250);
+  --ew-color-danger-bg: oklch(42% 0.2 25);
+  --ew-color-danger-fg: oklch(98% 0.01 25);
+  --ew-elevation-1: 3px 3px 0px 0px oklch(20% 0.02 280 / 0.9);
+  --ew-elevation-2: 6px 6px 0px 0px oklch(20% 0.02 280 / 0.9);
+  --ew-elevation-dialog: 8px 8px 0px 0px oklch(20% 0.02 280 / 0.9);
+    color: var(--ew-color-fg-default);
+    background: var(--ew-color-bg-page);
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="memphis"] {
+    --ew-fidelity-default: 50;
+    --ew-structure-control-radius: 14px;
+    --ew-structure-surface-radius: 20px;
+    --ew-structure-button-border-width: 3px;
+    --ew-structure-button-border-style: solid;
+    --ew-structure-button-letter-spacing: 0.02em;
+    --ew-structure-button-text-transform: none;
+    --ew-structure-button-font-weight: 800;
+    --ew-structure-button-shadow: 4px 4px 0 0 var(--ew-color-fg-default);
+    --ew-structure-button-clip: none;
+    --ew-structure-button-padding-x: 18px;
+    --ew-structure-button-padding-y: 10px;
+    --ew-structure-button-bevel: none;
+    --ew-structure-card-border-width: 3px;
+    --ew-structure-card-border-style: solid;
+    --ew-structure-card-shadow: 6px 6px 0 0 var(--ew-color-fg-default);
+    --ew-structure-card-raised-shadow: 8px 8px 0 0 var(--ew-color-fg-default);
+    --ew-structure-card-clip: none;
+    --ew-structure-card-padding: 20px;
+    --ew-structure-card-title-tracking: 0.02em;
+    --ew-structure-card-header-rule-display: none;
+    --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
+    --ew-structure-card-ornament-content: "";
+    --ew-structure-card-ornament-opacity: 0.22;
+    --ew-structure-card-ornament-bg: radial-gradient(circle at 92% 12%, var(--ew-color-action-bg) 0 2px, transparent 3px),
+      conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg);
+    --ew-structure-card-ornament-size: 120px 120px;
+    --ew-structure-card-ornament-blend: multiply;
+    --ew-structure-field-border-width: 1px;
+    --ew-structure-field-border-style: solid;
+    --ew-structure-field-radius: 14px;
+    --ew-structure-dialog-border-width: 1px;
+    --ew-structure-dialog-border-style: solid;
+    --ew-structure-dialog-radius: 20px;
+    --ew-structure-dialog-shadow: var(--ew-elevation-dialog);
+    --ew-structure-dialog-clip: none;
+    --ew-structure-tabs-indicator-height: 2px;
+    --ew-structure-tabs-indicator-style: solid;
+    --ew-structure-tabs-radius: 0px;
+    --ew-structure-switch-track-radius: 999px;
+    --ew-structure-switch-thumb-radius: 999px;
+    --ew-structure-switch-shadow: none;
+  }
+  [data-era="memphis"][data-fidelity-band="whisper"] {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+}
+@layer decorators {
+}

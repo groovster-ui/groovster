@@ -1,0 +1,24 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-radio {
+    /* anatomy: root, control, disc, label */
+  }
+  .ew-radio-group { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .ew-radio-group legend { font-weight: 600; margin-bottom: 4px; color: var(--ew-color-fg-default); }
+  .ew-radio { display: inline-flex; align-items: center; gap: 10px; font-family: var(--ew-font-body, system-ui, sans-serif); cursor: pointer; position: relative; }
+  .ew-radio__control { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .ew-radio__disc {
+    width: 18px; height: 18px; border-radius: 999px; flex: none;
+    border: var(--ew-structure-field-border-width, 1px) solid var(--ew-color-border-strong);
+    background: var(--ew-color-field-bg, #fff);
+    display: inline-grid; place-items: center;
+  }
+  .ew-radio__disc::after {
+    content: ""; width: 8px; height: 8px; border-radius: 999px;
+    background: var(--ew-color-action-bg); transform: scale(0); transition: transform 120ms ease;
+  }
+  .ew-radio__control:checked + .ew-radio__disc::after { transform: scale(1); }
+  .ew-radio__control:focus-visible + .ew-radio__disc { outline: 2px solid var(--ew-color-field-focus); outline-offset: 2px; }
+  .ew-radio__label { color: var(--ew-color-fg-default); }
+}

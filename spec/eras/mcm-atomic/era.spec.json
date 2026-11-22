@@ -71,12 +71,12 @@
     {
       "id": "mcm",
       "label": "MCM",
-      "description": "Softer organic radii, warmer wood neutrals, quieter ornaments."
+      "description": "Softer organic radii, warmer wood neutrals."
     },
     {
       "id": "atomic",
       "label": "Atomic",
-      "description": "Sharper geometry, starburst/atom motifs, punchier teal\u2013coral contrast."
+      "description": "Sharper geometry, punchier teal\u2013coral."
     }
   ],
   "modes": [

@@ -135,7 +135,11 @@ export function recommendTool({ description } = {}) {
   const rules = [
     { test: /(law|legal|luxury|hotel|editorial|finance|brass|jazz)/, era: 'deco', fidelity: 25, dialect: null },
     { test: /(synth|neon|game|night|festival|retro.?wave|outrun|cyber)/, era: 'neon', fidelity: 55, dialect: 'synthwave' },
-    { test: /(cafe|lifestyle|mid.?century|atomic|playful|product.?stor)/, era: 'mcm-atomic', fidelity: 40, dialect: 'mcm' },
+    { test: /(miami|pastel|day.?glow|vice)/, era: 'neon', fidelity: 45, dialect: 'miami' },
+    { test: /(memphis|confetti|postmodern|squiggle)/, era: 'memphis', fidelity: 50, dialect: null },
+    { test: /(groovy|70s|avocado|disco|funk)/, era: 'groovy', fidelity: 40, dialect: null },
+    { test: /(earth|organic|wellness|craft|linen|moss)/, era: 'earth', fidelity: 30, dialect: null },
+    { test: /(cafe|lifestyle|mid.?century|atomic|playful|product.?stor)/, era: 'mcm-atomic', fidelity: 40, dialect: 'atomic' },
     { test: /(admin|settings|saas|dashboard|serious|enterprise|default)/, era: 'neutral', fidelity: 0, dialect: null },
   ];
   let pick = { era: 'neutral', fidelity: 10, dialect: null, reason: 'default quiet system skin' };

@@ -1,0 +1,27 @@
+{
+  "name": "ew-select",
+  "type": "registry:ui",
+  "title": "Era Widgets — Select",
+  "description": "Native select with era chrome. Rich combobox WC deferred.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/select.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-select {\n    /* anatomy: root, label, control */\n  }\n  .ew-select { display: grid; gap: 6px; font-family: var(--ew-font-body, system-ui, sans-serif); }\n  .ew-select__label { font-size: 14px; font-weight: 600; color: var(--ew-color-fg-default); }\n  .ew-select__control {\n    appearance: none;\n    padding: var(--ew-field-padding-y, 8px) 36px var(--ew-field-padding-y, 8px) var(--ew-field-padding-x, 12px);\n    border: var(--ew-structure-field-border-width, 1px) var(--ew-structure-field-border-style, solid) var(--ew-color-field-border);\n    border-radius: var(--ew-structure-field-radius, 8px);\n    background: var(--ew-color-field-bg) url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E\") no-repeat right 12px center;\n    color: var(--ew-color-fg-default); font: inherit;\n  }\n  .ew-select__control:focus-visible { outline: 2px solid var(--ew-color-field-focus); outline-offset: 1px; }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/select.css"
+    },
+    {
+      "path": "era-widgets/select.example.html",
+      "content": "<!-- Era Widgets Select — set data-era on an ancestor -->\n<div class=\"ew-select\">\n  <label class=\"ew-select__label\" for=\"country\">Country</label>\n  <select id=\"country\" class=\"ew-select__control\">\n    <option value=\"us\">United States</option>\n    <option value=\"ca\">Canada</option>\n  </select>\n</div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/select.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-select",
+    "canonicalHtml": "<div class=\"ew-select\">\n  <label class=\"ew-select__label\" for=\"country\">Country</label>\n  <select id=\"country\" class=\"ew-select__control\">\n    <option value=\"us\">United States</option>\n    <option value=\"ca\">Canada</option>\n  </select>\n</div>",
+    "cssPackage": "@era-widgets/css/select.css"
+  }
+}

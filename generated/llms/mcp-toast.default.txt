@@ -1,0 +1,10 @@
+<!-- Toast -->
+<div class="ew-toast-region" aria-live="polite" aria-relevant="additions">
+  <div class="ew-toast" data-variant="success">
+    <strong class="ew-toast__title">Saved</strong>
+    <p class="ew-toast__body">Your changes are live.</p>
+  </div>
+</div>
+
+import "@era-widgets/css/toast.css";
+a11y: Wrap toasts in an aria-live region.

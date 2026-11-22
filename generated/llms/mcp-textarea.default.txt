@@ -1,0 +1,8 @@
+<!-- Textarea -->
+<div class="ew-textarea">
+  <label class="ew-textarea__label" for="bio">Bio</label>
+  <textarea id="bio" class="ew-textarea__control" rows="4"></textarea>
+</div>
+
+import "@era-widgets/css/textarea.css";
+a11y: Wire label via for/id.

@@ -1,0 +1,19 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-toast {
+    /* anatomy: root, title, body, region */
+  }
+  .ew-toast-region { display: grid; gap: 8px; }
+  .ew-toast {
+    border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
+    border-radius: var(--ew-structure-surface-radius, 8px);
+    background: var(--ew-color-bg-elevated); color: var(--ew-color-fg-default);
+    box-shadow: var(--ew-structure-card-shadow); padding: 12px 14px;
+  }
+  .ew-toast[data-variant="success"] { border-color: var(--ew-color-action-bg); }
+  .ew-toast[data-variant="warning"] { border-color: color-mix(in oklch, oklch(70% 0.15 85) 80%, var(--ew-color-border-strong)); }
+  .ew-toast[data-variant="danger"] { border-color: var(--ew-color-danger-bg); }
+  .ew-toast__title { display: block; margin-bottom: 4px; }
+  .ew-toast__body { margin: 0; }
+}

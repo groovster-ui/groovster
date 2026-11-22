@@ -1,0 +1,20 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-alert {
+    /* anatomy: root, title, body */
+  }
+  .ew-alert {
+    border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
+    border-inline-start-width: 4px;
+    border-inline-start-color: var(--ew-color-action-bg);
+    border-radius: var(--ew-structure-surface-radius, 8px);
+    background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default);
+    padding: 12px 14px; display: grid; gap: 4px;
+  }
+  .ew-alert[data-variant="success"] { border-inline-start-color: var(--ew-color-action-bg); }
+  .ew-alert[data-variant="warning"] { border-inline-start-color: oklch(70% 0.15 85); }
+  .ew-alert[data-variant="danger"] { border-inline-start-color: var(--ew-color-danger-bg); }
+  .ew-alert__title { font-weight: 700; }
+  .ew-alert__body { margin: 0; }
+}

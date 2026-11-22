@@ -1,0 +1,23 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-menu {
+    /* anatomy: trigger, panel, item */
+  }
+  .ew-menu { display: inline-block; position: relative; }
+  .ew-menu__panel {
+    border: var(--ew-structure-card-border-width, 1px) var(--ew-structure-card-border-style, solid) var(--ew-color-border-subtle);
+    border-radius: var(--ew-structure-surface-radius, 8px);
+    background: var(--ew-color-bg-elevated);
+    color: var(--ew-color-fg-default);
+    box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2));
+    padding: 6px; min-width: 160px;
+  }
+  .ew-menu__item {
+    display: block; width: 100%; text-align: start;
+    border: 0; background: transparent; color: inherit; font: inherit;
+    padding: 8px 10px; border-radius: calc(var(--ew-structure-control-radius, 6px) * 0.75);
+    cursor: pointer;
+  }
+  .ew-menu__item:hover, .ew-menu__item:focus-visible { background: color-mix(in oklch, var(--ew-color-action-bg) 16%, transparent); outline: none; }
+}

@@ -71,12 +71,12 @@
     {
       "id": "synthwave",
       "label": "Synthwave",
-      "description": "Dark violet nights, magenta/cyan, grid sun."
+      "description": "Dark violet nights, magenta/cyan."
     },
     {
       "id": "miami",
       "label": "Miami",
-      "description": "Daytime pastel aqua/pink, palm-adjacent, softer bloom."
+      "description": "Daytime pastel aqua/pink, softer bloom."
     }
   ],
   "modes": [

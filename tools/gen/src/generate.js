@@ -13,6 +13,7 @@ import { listFiles, readJson, writeText, rel } from './io.js';
 import { flattenTokens } from './tokens-to-css.js';
 import { genComponentCss } from './component-css.js';
 import { generateExtras } from './gen-extras.js';
+import { generateDialectCss } from './dialects.js';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
 
@@ -441,6 +442,8 @@ export function generateAll() {
   writeText(indexPath, genLlmsIndex(components, eras));
   outputs.push(rel(REPO_ROOT, indexPath));
 
+  generateDialectCss(outputs);
+
   // Bundle for smoke page
   const bundleParts = [
     fs.readFileSync(path.join(GEN_CSS, 'base.css'), 'utf8'),
@@ -449,6 +452,8 @@ export function generateAll() {
   for (const era of eras) {
     bundleParts.push(fs.readFileSync(path.join(GEN_CSS, 'eras', `${era.id}.css`), 'utf8'));
   }
+  const dialectsPath = path.join(GEN_CSS, 'dialects.css');
+  if (fs.existsSync(dialectsPath)) bundleParts.push(fs.readFileSync(dialectsPath, 'utf8'));
   for (const comp of components) {
     bundleParts.push(fs.readFileSync(path.join(GEN_CSS, `${comp.id}.css`), 'utf8'));
   }

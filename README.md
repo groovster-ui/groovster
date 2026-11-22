@@ -88,6 +88,16 @@ python3 -m http.server 4174 --directory registry
 
 Packages (local, publish-ready manifests; not published yet): `@era-widgets/css`, `@era-widgets/elements`, `@era-widgets/tokens`, `@era-widgets/mcp`.
 
+
+
+## Viral demo
+
+```bash
+pnpm gen
+python3 -m http.server 4175 --directory demos/viral
+# Deco · Atomic · Synthwave — CSS :has() flip, zero JS for look
+```
+
 ## License
 
 MIT (core). Default era fonts are open-licensed only (OFL).

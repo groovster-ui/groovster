@@ -1,0 +1,8 @@
+<!-- Tooltip -->
+<span class="ew-tooltip">
+  <button type="button" class="ew-button" aria-describedby="tip-1">Info</button>
+  <span id="tip-1" class="ew-tooltip__tip" role="tooltip">More detail</span>
+</span>
+
+import "@era-widgets/css/tooltip.css";
+a11y: Tooltips must not be the only name for a control.

@@ -1,0 +1,5 @@
+<!-- Link -->
+<a class="ew-link" href="/pricing">View pricing</a>
+
+import "@era-widgets/css/link.css";
+a11y: Use real <a href>.

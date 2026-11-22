@@ -1,0 +1,9 @@
+<!-- Checkbox -->
+<label class="ew-checkbox">
+  <input class="ew-checkbox__control" type="checkbox" />
+  <span class="ew-checkbox__box" aria-hidden="true"></span>
+  <span class="ew-checkbox__label">Accept terms</span>
+</label>
+
+import "@era-widgets/css/checkbox.css";
+a11y: Prefer native checkbox inside a label.

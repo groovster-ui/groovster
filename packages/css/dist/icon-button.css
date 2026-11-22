@@ -1,0 +1,20 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-icon-button {
+    /* anatomy: root, icon */
+  }
+  .ew-icon-button {
+    display: inline-grid; place-items: center;
+    width: 40px; height: 40px; padding: 0;
+    border: var(--ew-structure-button-border-width, 1px) var(--ew-structure-button-border-style, solid) var(--ew-color-border-strong);
+    border-radius: var(--ew-structure-control-radius, 8px);
+    background: var(--ew-color-action-bg); color: var(--ew-color-action-fg);
+    box-shadow: var(--ew-structure-button-shadow, none);
+    cursor: pointer; font: inherit;
+  }
+  .ew-icon-button[data-variant="ghost"] { background: transparent; color: var(--ew-color-fg-default); border-color: transparent; box-shadow: none; }
+  .ew-icon-button[data-variant="secondary"] { background: transparent; color: var(--ew-color-fg-default); }
+  .ew-icon-button:focus-visible { outline: 2px solid var(--ew-color-field-focus); outline-offset: 2px; }
+  .ew-icon-button__icon { line-height: 1; font-size: 18px; }
+}
