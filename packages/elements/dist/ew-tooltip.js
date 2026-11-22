@@ -6,35 +6,40 @@
 (() => {
   const TAG = 'ew-tooltip';
   if (customElements.get(TAG)) return;
+  let uid = 0;
 
   class EwTooltip extends HTMLElement {
-    #ready = false;
     #mo = null;
     #showTimer = 0;
     #hideTimer = 0;
 
     connectedCallback() {
       this.classList.add('ew-tooltip');
+      this.#unbind();
       this.addEventListener('pointerenter', this.#onEnter);
       this.addEventListener('pointerleave', this.#onLeave);
       this.addEventListener('focusin', this.#onEnter);
       this.addEventListener('focusout', this.#onLeave);
       this.addEventListener('keydown', this.#onKey);
       this.#upgrade();
-      if (!this.#ready) {
-        this.#mo = new MutationObserver(() => this.#upgrade());
-        this.#mo.observe(this, { childList: true, subtree: true });
-      }
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => this.#upgrade());
+      this.#mo.observe(this, { childList: true, subtree: true });
     }
     disconnectedCallback() {
+      this.#hide();
       this.#mo?.disconnect();
+      this.#mo = null;
+      this.#unbind();
+      clearTimeout(this.#showTimer);
+      clearTimeout(this.#hideTimer);
+    }
+    #unbind() {
       this.removeEventListener('pointerenter', this.#onEnter);
       this.removeEventListener('pointerleave', this.#onLeave);
       this.removeEventListener('focusin', this.#onEnter);
       this.removeEventListener('focusout', this.#onLeave);
       this.removeEventListener('keydown', this.#onKey);
-      clearTimeout(this.#showTimer);
-      clearTimeout(this.#hideTimer);
     }
 
     get #trigger() {
@@ -45,10 +50,7 @@
     }
 
     #upgrade() {
-      if (this.#ready || !this.#tip || !this.#trigger) return;
-      this.#ready = true;
-      this.#mo?.disconnect();
-      this.#mo = null;
+      if (!this.#tip || !this.#trigger) return;
       this.#ensure();
     }
 
@@ -56,7 +58,7 @@
       const tip = this.#tip;
       const trigger = this.#trigger;
       if (!tip || !trigger) return;
-      if (!tip.id) tip.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
+      if (!tip.id) tip.id = `${TAG}-${++uid}`;
       const anchorName = `--ew-tooltip-${tip.id}`;
       tip.setAttribute('role', 'tooltip');
       tip.setAttribute('popover', 'manual');
@@ -84,14 +86,33 @@
     #show() {
       const tip = this.#tip;
       if (!tip) return;
-      tip.showPopover();
+      if (typeof tip.showPopover === 'function') {
+        try {
+          tip.showPopover();
+        } catch {
+          /* already open */
+        }
+      }
       tip.dataset.ewOpen = 'true';
       tip.style.opacity = '1';
     }
     #hide() {
       const tip = this.#tip;
-      if (!tip || !tip.matches(':popover-open')) return;
-      tip.hidePopover();
+      if (!tip) return;
+      let open = tip.dataset.ewOpen === 'true';
+      try {
+        open = open || tip.matches(':popover-open');
+      } catch {
+        /* selector unsupported */
+      }
+      if (!open) return;
+      if (typeof tip.hidePopover === 'function') {
+        try {
+          tip.hidePopover();
+        } catch {
+          /* already closed */
+        }
+      }
       tip.dataset.ewOpen = 'false';
       tip.style.opacity = '';
     }

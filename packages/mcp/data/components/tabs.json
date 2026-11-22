@@ -1,0 +1,172 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "tabs",
+  "name": "Tabs",
+  "summary": "Tablist + tabpanels. Phase 0 specifies the contract; Phase 1 ships a light-DOM web component for keyboard behavior.",
+  "className": "ew-tabs",
+  "nativeElement": "div (custom element later: ew-tabs)",
+  "behavior": "web-component",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-tabs",
+      "description": "Tabs root."
+    },
+    {
+      "part": "list",
+      "required": true,
+      "selector": "[role=tablist]",
+      "description": "Tab list."
+    },
+    {
+      "part": "tab",
+      "required": true,
+      "selector": "[role=tab]",
+      "description": "A tab."
+    },
+    {
+      "part": "panel",
+      "required": true,
+      "selector": "[role=tabpanel]",
+      "description": "A panel."
+    },
+    {
+      "part": "indicator",
+      "required": false,
+      "selector": "[data-slot=indicator]",
+      "description": "Active indicator (underline, neon bar, deco rule)."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "line",
+        "enclosed",
+        "pills"
+      ],
+      "default": "line",
+      "description": "Tab chrome."
+    },
+    "orientation": {
+      "attribute": "data-orientation",
+      "values": [
+        "horizontal",
+        "vertical"
+      ],
+      "default": "horizontal",
+      "description": "Layout orientation."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "selected",
+      "selector": "[aria-selected=true]",
+      "description": "Active tab."
+    },
+    {
+      "name": "disabled",
+      "selector": "[aria-disabled=true], :disabled",
+      "description": "Disabled tab."
+    },
+    {
+      "name": "focus",
+      "selector": ":focus-visible",
+      "description": "Focused tab."
+    }
+  ],
+  "aria": {
+    "role": "tablist / tab / tabpanel",
+    "requiredAttributes": [
+      "role",
+      "aria-selected",
+      "aria-controls",
+      "id",
+      "aria-labelledby (on panels)"
+    ],
+    "optionalAttributes": [
+      "aria-orientation",
+      "aria-disabled"
+    ],
+    "notes": [
+      "Follow WAI-ARIA APG Tabs pattern.",
+      "Only one tab selected; associated panel visible.",
+      "tablist gets aria-orientation when vertical."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "Left / Right (horizontal)",
+      "action": "Move focus between tabs; optional auto-activate"
+    },
+    {
+      "keys": "Up / Down (vertical)",
+      "action": "Move focus between tabs"
+    },
+    {
+      "keys": "Home / End",
+      "action": "First / last tab"
+    },
+    {
+      "keys": "Enter / Space",
+      "action": "Activate focused tab",
+      "when": "manual activation mode"
+    },
+    {
+      "keys": "Tab",
+      "action": "Move into active panel from tablist"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Tabs and panels."
+    },
+    {
+      "name": "indicator",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Active indicator."
+    },
+    {
+      "name": "ornament-before",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Optional list ornament."
+    }
+  ],
+  "canonicalHtml": "<div class=\"ew-tabs\">\n  <div role=\"tablist\" aria-label=\"Plans\">\n    <button type=\"button\" role=\"tab\" id=\"t-basic\" aria-selected=\"true\" aria-controls=\"p-basic\">Basic</button>\n    <button type=\"button\" role=\"tab\" id=\"t-pro\" aria-selected=\"false\" aria-controls=\"p-pro\" tabindex=\"-1\">Pro</button>\n  </div>\n  <div role=\"tabpanel\" id=\"p-basic\" aria-labelledby=\"t-basic\">Basic plan</div>\n  <div role=\"tabpanel\" id=\"p-pro\" aria-labelledby=\"t-pro\" hidden>Pro plan</div>\n</div>",
+  "imports": [
+    "@groovster/css/tabs.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "do": [
+    "Use roles tablist/tab/tabpanel with correct aria wiring.",
+    "Keep selected tab in the tab order; others tabindex=-1.",
+    "Let the indicator slot express era personality."
+  ],
+  "dont": [
+    "Don't use only color to show selection \u2014 include structure/indicator.",
+    "Don't put interactive content in the tablist outside tabs.",
+    "Don't skip keyboard arrow navigation in the web component."
+  ],
+  "tokenDeps": [
+    "color.action.*",
+    "color.fg.*",
+    "color.border.*",
+    "space.tabs.*",
+    "type.control",
+    "motion.indicator"
+  ]
+}

@@ -1,12 +1,47 @@
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { REPO_ROOT, runWithOutRoot } from './paths.js';
+import { REPO_ROOT } from './paths.js';
 import { generateAll } from './generate.js';
 import { checkBudgets } from './budgets.js';
 import { validateAll } from './validate.js';
-import { rel } from './io.js';
+
+/** Generator-owned paths. Runtime reports and package build output are excluded. */
+export const OWNED_PREFIXES = [
+  'packages/css/dist/',
+  'packages/elements/dist/',
+  'packages/tokens/dist/',
+  'packages/react/src/',
+  'packages/mcp/data/',
+  'registry/',
+  'generated/docs/',
+  'generated/llms/',
+  'generated/rules/',
+];
+
+export const OWNED_FILES = new Set([
+  'packages/react/package.json',
+  'packages/react/README.md',
+  'generated/manifest.json',
+  'llms.txt',
+]);
+
+export const RUNTIME_PREFIXES = [
+  'generated/eval/',
+  'generated/a11y/',
+  'generated/contrast/',
+  'packages/react/dist/',
+];
+
+export function isRuntimeArtifact(relPath) {
+  return RUNTIME_PREFIXES.some((prefix) => relPath.startsWith(prefix));
+}
+
+export function isOwnedPath(relPath) {
+  if (isRuntimeArtifact(relPath)) return false;
+  if (OWNED_FILES.has(relPath)) return true;
+  return OWNED_PREFIXES.some((prefix) => relPath.startsWith(prefix));
+}
 
 function walkFiles(dir) {
   if (!fs.existsSync(dir)) return [];
@@ -19,174 +54,176 @@ function walkFiles(dir) {
   return out;
 }
 
-/**
- * Directory trees compared in full under a given root.
- * Under generated/, only gen-owned paths (docs/llms/rules/manifest) — not a11y/contrast/eval.
- */
-const TRACKED_DIRS = [
-  'packages/css/dist',
-  'packages/elements/dist',
-  'packages/tokens/dist',
-  'registry',
-  'generated/docs',
-  'generated/llms',
-  'generated/rules',
-];
-
-/** Generated React package files (exclude node_modules / hand files). */
-function reactGeneratedFiles(root) {
-  const files = [];
-  const srcDir = path.join(root, 'packages/react/src');
-  if (fs.existsSync(srcDir)) {
-    for (const file of walkFiles(srcDir)) {
-      if (/\.(tsx|ts)$/.test(file)) files.push(file);
-    }
-  }
-  for (const name of ['package.json', 'README.md']) {
-    const f = path.join(root, 'packages/react', name);
-    if (fs.existsSync(f)) files.push(f);
-  }
-  return files;
+function toPosix(relPath) {
+  return relPath.split(path.sep).join('/');
 }
 
-function snapshot(root) {
-  const map = new Map();
-  for (const dir of TRACKED_DIRS) {
-    const abs = path.join(root, dir);
-    for (const file of walkFiles(abs)) {
-      map.set(rel(root, file), fs.readFileSync(file, 'utf8'));
+export function buffersEqual(a, b) {
+  if (!a || !b) return false;
+  return Buffer.isBuffer(a) && Buffer.isBuffer(b) ? a.equals(b) : a === b;
+}
+
+/**
+ * Compare a committed snapshot, a generation, and a second generation.
+ * `owned` is every file currently inside generator-owned roots.
+ */
+export function classifyDrift({ committed, generated, regenerated, manifest, owned }) {
+  const drift = [];
+  const manifestSet = new Set(manifest || []);
+  const seen = new Set();
+
+  for (const file of manifestSet) {
+    seen.add(file);
+    if (!generated.has(file)) {
+      drift.push({ file, reason: 'missing: listed in the generation manifest but not produced' });
+      continue;
+    }
+    if (!committed.has(file)) {
+      drift.push({ file, reason: 'missing from baseline: generator produced a file that is not committed' });
+    } else if (!buffersEqual(committed.get(file), generated.get(file))) {
+      drift.push({ file, reason: 'modified: committed bytes differ from generator output' });
+    }
+    if (regenerated && generated.has(file) && !buffersEqual(generated.get(file), regenerated.get(file))) {
+      drift.push({ file, reason: 'nondeterministic: a second generation changed the bytes' });
     }
   }
-  for (const file of reactGeneratedFiles(root)) {
-    map.set(rel(root, file), fs.readFileSync(file, 'utf8'));
+
+  for (const file of owned || []) {
+    if (!isOwnedPath(file) || manifestSet.has(file)) continue;
+    drift.push({ file, reason: 'unexpected: generator-owned path is not in the manifest' });
   }
-  const manifest = path.join(root, 'generated/manifest.json');
-  if (fs.existsSync(manifest)) {
-    map.set('generated/manifest.json', fs.readFileSync(manifest, 'utf8'));
+
+  for (const file of committed.keys()) {
+    if (!isOwnedPath(file) || manifestSet.has(file) || generated.has(file)) continue;
+    drift.push({ file, reason: 'orphan: committed generated file was not reproduced' });
   }
-  const llms = path.join(root, 'llms.txt');
-  if (fs.existsSync(llms)) {
-    map.set('llms.txt', fs.readFileSync(llms, 'utf8'));
+
+  return drift.filter((item) => {
+    const key = `${item.file}:${item.reason}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function snapshotOwned() {
+  const map = new Map();
+  const roots = [
+    ...OWNED_PREFIXES.map((prefix) => path.join(REPO_ROOT, prefix)),
+    ...OWNED_FILES,
+  ];
+  for (const root of roots) {
+    const abs = path.isAbsolute(root) ? root : path.join(REPO_ROOT, root);
+    if (!fs.existsSync(abs)) continue;
+    const files = fs.statSync(abs).isDirectory() ? walkFiles(abs) : [abs];
+    for (const file of files) {
+      const relPath = toPosix(path.relative(REPO_ROOT, file));
+      if (!isOwnedPath(relPath)) continue;
+      map.set(relPath, fs.readFileSync(file));
+    }
   }
   return map;
 }
 
-function bundleElements(outRoot) {
-  const result = spawnSync(
-    process.execPath,
-    [path.join(REPO_ROOT, 'scripts/bundle-elements.mjs'), `--out-root=${outRoot}`],
-    {
-      cwd: REPO_ROOT,
-      encoding: 'utf8',
-      env: { ...process.env, GROOVSTER_OUT_ROOT: outRoot },
-    }
-  );
+function listOwnedFiles() {
+  return [...snapshotOwned().keys()];
+}
+
+export function commandFailure(result, label) {
+  if (!result) return `${label} did not run`;
+  if (result.error) return `${label} failed to start: ${result.error.message}`;
   if (result.status !== 0) {
-    throw new Error(
-      `bundle-elements failed (exit ${result.status}): ${result.stderr || result.stdout || ''}`.trim()
-    );
+    const stderr = result.stderr ? String(result.stderr).trim() : '';
+    return `${label} exited ${result.status}${stderr ? `: ${stderr}` : ''}`;
   }
+  return null;
 }
 
-function generateInto(outRoot) {
-  bundleElements(outRoot);
-  return runWithOutRoot(outRoot, () => generateAll());
-}
-
-function compareSnapshots(committed, generated) {
-  const drift = [];
-
-  for (const [file, content] of generated) {
-    if (!committed.has(file)) {
-      drift.push({
-        file,
-        reason: 'new: produced by generate but missing from committed tree',
-      });
-      continue;
-    }
-    if (committed.get(file) !== content) {
-      drift.push({
-        file,
-        reason: 'stale or hand-edited; regenerated content differs from committed',
-      });
-    }
+function restoreSnapshot(before, afterKeys) {
+  for (const [relPath, bytes] of before) {
+    const abs = path.join(REPO_ROOT, relPath);
+    fs.mkdirSync(path.dirname(abs), { recursive: true });
+    fs.writeFileSync(abs, bytes);
   }
-
-  for (const [file] of committed) {
-    if (!generated.has(file)) {
-      drift.push({
-        file,
-        reason: 'orphan: present in committed tree but not produced by generate',
-      });
-    }
-  }
-
-  return drift;
-}
-
-function compareDeterminism(first, second) {
-  const drift = [];
-  for (const [file, content] of first) {
-    if (!second.has(file)) {
-      drift.push({ file, reason: 'generator is non-deterministic (missing on second run)' });
-    } else if (second.get(file) !== content) {
-      drift.push({ file, reason: 'generator is non-deterministic' });
-    }
-  }
-  for (const [file] of second) {
-    if (!first.has(file)) {
-      drift.push({ file, reason: 'generator is non-deterministic (extra on second run)' });
-    }
-  }
-  return drift;
-}
-
-function rmTemp(dir) {
-  try {
-    fs.rmSync(dir, { recursive: true, force: true });
-  } catch {
-    // best-effort cleanup
+  for (const relPath of afterKeys) {
+    if (before.has(relPath)) continue;
+    fs.rmSync(path.join(REPO_ROOT, relPath), { force: true });
   }
 }
 
 /**
- * Validate specs, regenerate into temp out-roots (never touching the working tree),
- * then compare committed outputs vs fresh generate for drift / orphans / determinism.
+ * Snapshot committed bytes first, regenerate, then compare.
+ * On drift, restore the snapshot so a failed check does not hide the original files.
  */
 export function checkDriftAndBudgets() {
   const validationErrors = validateAll();
   if (validationErrors.length) {
-    return { ok: false, validationErrors, drift: [], budgetFailures: [] };
+    return { ok: false, validationErrors, drift: [], budgetFailures: [], buildErrors: [] };
   }
 
-  const temps = [];
+  const before = snapshotOwned();
+  const bundle = spawnSync(process.execPath, [path.join(REPO_ROOT, 'scripts/bundle-elements.mjs')], {
+    cwd: path.join(REPO_ROOT, 'packages/elements'),
+    encoding: 'utf8',
+  });
+  const buildErrors = [];
+  const bundleError = commandFailure(bundle, 'elements bundle');
+  if (bundleError) {
+    restoreSnapshot(before, listOwnedFiles());
+    return { ok: false, validationErrors: [], drift: [], budgetFailures: [], buildErrors: [bundleError] };
+  }
+
+  let afterManifest;
   try {
-    const tempA = fs.mkdtempSync(path.join(os.tmpdir(), 'groovster-gen-a-'));
-    const tempB = fs.mkdtempSync(path.join(os.tmpdir(), 'groovster-gen-b-'));
-    temps.push(tempA, tempB);
-
-    const afterManifest = generateInto(tempA);
-    const generated = snapshot(tempA);
-    const committed = snapshot(REPO_ROOT);
-
-    const drift = compareSnapshots(committed, generated);
-
-    generateInto(tempB);
-    const twice = snapshot(tempB);
-    drift.push(...compareDeterminism(generated, twice));
-
-    const budgetFailures = checkBudgets(afterManifest);
-
+    afterManifest = generateAll();
+  } catch (error) {
+    restoreSnapshot(before, listOwnedFiles());
     return {
-      ok: drift.length === 0 && budgetFailures.length === 0,
+      ok: false,
       validationErrors: [],
-      drift,
-      budgetFailures,
-      manifest: afterManifest,
+      drift: [],
+      budgetFailures: [],
+      buildErrors: [`generate failed: ${error.message}`],
     };
-  } finally {
-    for (const dir of temps) rmTemp(dir);
   }
+
+  const generated = snapshotOwned();
+  let regeneratedManifest;
+  try {
+    regeneratedManifest = generateAll();
+  } catch (error) {
+    restoreSnapshot(before, [...generated.keys()]);
+    return {
+      ok: false,
+      validationErrors: [],
+      drift: [],
+      budgetFailures: [],
+      buildErrors: [`second generate failed: ${error.message}`],
+    };
+  }
+  const regenerated = snapshotOwned();
+  const manifest = (regeneratedManifest?.outputs || afterManifest.outputs || []).slice().sort();
+  const drift = classifyDrift({
+    committed: before,
+    generated,
+    regenerated,
+    manifest,
+    owned: [...regenerated.keys()],
+  });
+  const budgetFailures = checkBudgets(afterManifest);
+
+  if (drift.length || budgetFailures.length) {
+    restoreSnapshot(before, [...regenerated.keys()]);
+  }
+
+  return {
+    ok: drift.length === 0 && budgetFailures.length === 0 && buildErrors.length === 0,
+    validationErrors: [],
+    drift,
+    budgetFailures,
+    buildErrors,
+    manifest: afterManifest,
+  };
 }
 
 export function checkCommittedFreshness() {

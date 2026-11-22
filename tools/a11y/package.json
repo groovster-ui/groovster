@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "node src/run.mjs",
-    "test:keyboard": "node src/keyboard.mjs"
+    "test:keyboard": "node src/keyboard.mjs",
+    "test:responsive": "node src/responsive.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.1",

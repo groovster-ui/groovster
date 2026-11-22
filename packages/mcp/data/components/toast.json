@@ -1,0 +1,118 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "web-component",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Reach action buttons if present"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Message."
+    },
+    {
+      "name": "frame",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Frame."
+    }
+  ],
+  "imports": [
+    "@groovster/css/toast.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "toast",
+  "name": "Toast",
+  "className": "ew-toast",
+  "nativeElement": "ew-toast-region",
+  "summary": "Transient notification region. CSS chrome; live region polite by default.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-toast",
+      "description": "Toast item."
+    },
+    {
+      "part": "title",
+      "required": false,
+      "selector": ".ew-toast__title",
+      "description": "Title."
+    },
+    {
+      "part": "body",
+      "required": true,
+      "selector": ".ew-toast__body",
+      "description": "Message."
+    },
+    {
+      "part": "region",
+      "required": true,
+      "selector": ".ew-toast-region",
+      "description": "Live region container."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "default": "info",
+      "description": "Tone."
+    }
+  },
+  "aria": {
+    "role": "status / alert",
+    "requiredAttributes": [
+      "aria-live on region"
+    ],
+    "optionalAttributes": [],
+    "notes": [
+      "Use <ew-toast-region>.show(...) for polite announcements.",
+      "Zag.js not used."
+    ]
+  },
+  "canonicalHtml": "<ew-toast-region class=\"ew-toast-region\" aria-live=\"polite\"></ew-toast-region>\n<!-- region.show({ title, body, variant }) -->",
+  "do": [
+    "Use a live region.",
+    "Keep messages short."
+  ],
+  "dont": [
+    "Don't stack critical errors only as toasts.",
+    "Don't auto-dismiss faster than readable."
+  ]
+}

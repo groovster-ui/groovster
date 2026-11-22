@@ -1,0 +1,125 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "web-component",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Enter / Space / ArrowDown",
+      "action": "Open listbox"
+    },
+    {
+      "keys": "Arrow keys / Home / End",
+      "action": "Move among options"
+    },
+    {
+      "keys": "Enter / Space",
+      "action": "Choose option"
+    },
+    {
+      "keys": "Escape",
+      "action": "Close"
+    }
+  ],
+  "slots": [
+    {
+      "name": "label",
+      "kind": "content",
+      "description": "Label."
+    },
+    {
+      "name": "ornament-after",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Chevron."
+    }
+  ],
+  "imports": [
+    "@groovster/css/select.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "select",
+  "name": "Select",
+  "className": "ew-select",
+  "nativeElement": "select + ew-select",
+  "summary": "Native select with era chrome. Rich combobox WC deferred.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-select",
+      "description": "Wrapper."
+    },
+    {
+      "part": "label",
+      "required": true,
+      "selector": ".ew-select__label",
+      "description": "Label."
+    },
+    {
+      "part": "control",
+      "required": true,
+      "selector": ".ew-select__control",
+      "description": "Native select."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "outline",
+        "filled"
+      ],
+      "default": "outline",
+      "description": "Chrome."
+    }
+  },
+  "aria": {
+    "role": "button + listbox (ew-select)",
+    "requiredAttributes": [
+      "aria-expanded",
+      "aria-controls",
+      "role=listbox/option"
+    ],
+    "optionalAttributes": [],
+    "notes": [
+      "Use <ew-select> to enhance a native <select> into an APG listbox pattern.",
+      "Native select remains in the DOM (hidden) for form posting.",
+      "Zag.js not used."
+    ]
+  },
+  "canonicalHtml": "<ew-select class=\"ew-select\">\n  <label class=\"ew-select__label\" for=\"country\">Country</label>\n  <select id=\"country\" class=\"ew-select__control\">\n    <option value=\"us\">United States</option>\n    <option value=\"ca\">Canada</option>\n  </select>\n</ew-select>",
+  "do": [
+    "Label the select.",
+    "Prefer native options for accessibility."
+  ],
+  "dont": [
+    "Don't rebuild a fake select in divs without a WC.",
+    "Don't remove focus rings."
+  ]
+}

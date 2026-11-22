@@ -10,10 +10,10 @@
     border-radius: var(--ew-structure-control-radius, 999px);
     background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default);
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
-    font-family: var(--ew-font-body, system-ui, sans-serif); font-weight: 700; font-size: 12px;
+    font-family: var(--ew-font-body, system-ui, sans-serif); font-weight: 700; font-size: 14px;
   }
   .ew-avatar[data-variant="square"] { border-radius: var(--ew-structure-surface-radius, 8px); }
-  .ew-avatar[data-size="sm"] { width: 28px; height: 28px; font-size: 10px; }
+  .ew-avatar[data-size="sm"] { width: 32px; height: 32px; font-size: 12px; }
   .ew-avatar[data-size="lg"] { width: 56px; height: 56px; font-size: 16px; }
   .ew-avatar__image { width: 100%; height: 100%; object-fit: cover; }
   .ew-avatar__fallback { line-height: 1; }

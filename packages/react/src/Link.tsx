@@ -1,25 +1,23 @@
 import * as React from 'react';
 
-export type LinkProps = {
-  className?: string;
-  children?: React.ReactNode;
+export type LinkProps = Omit<React.ComponentPropsWithoutRef<'a'>, 'size'> & {
   variant?: "default" | "subtle" | "nav";
   size?: "sm" | "md" | "lg";
-} & React.HTMLAttributes<HTMLElement>;
+};
 
-/** Thin wrapper: Text link with era underline/voice. */
-export const Link = React.forwardRef<HTMLElement, LinkProps>(function Link(
-  { className, children, variant, size, ...rest },
+/** Text link with era underline/voice. */
+export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
+  { className, variant, size, children, ...rest },
   ref
 ) {
   const dataProps: Record<string, string> = {};
-    if (variant != null) dataProps["data-variant"] = variant;
-    if (size != null) dataProps["data-size"] = size;
-  const cls = ['ew-link', className].filter(Boolean).join(' ');
+  if (variant != null) dataProps["data-variant"] = variant;
+  if (size != null) dataProps["data-size"] = size;
+  const cls = ["ew-link", className].filter(Boolean).join(' ');
   return React.createElement(
-    'a',
-    { ref, className: cls, ...dataProps, ...rest },
+    "a",
+    { ref, ...rest, className: cls, ...dataProps },
     children
   );
 });
-Link.displayName = 'Link';
+Link.displayName = "Link";

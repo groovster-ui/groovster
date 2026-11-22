@@ -1,0 +1,172 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "deco",
+  "name": "Deco",
+  "aliases": [
+    "art-deco",
+    "artdeco"
+  ],
+  "identity": {
+    "oneLiner": "Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer.",
+    "summary": "Art Deco as structure, not costume stickers. Stepped corners, fan/chevron rules, high-contrast lacquer surfaces, and disciplined brass accents. Vertical rhythm and symmetry beat busy motifs.",
+    "bestFit": [
+      "Luxury / hospitality",
+      "Editorial landing pages",
+      "Pricing with gravitas",
+      "Law / finance with warmth"
+    ],
+    "authenticityNotes": "Prefer stepped geometry and metal edge over random sunbursts. Ornament is architectural, not stickered."
+  },
+  "axes": {
+    "shape": "Stepped / chamfered corners; vertical emphasis; symmetric blocks",
+    "edge": "Double-line and stepped brass rules",
+    "surface": "Lacquer panels, subtle linen/noise, high contrast fields",
+    "elevation": "Terraced stacks (hard steps) more than soft blur shadows",
+    "ornament": "Chevrons, fan rules, thin brass lines via frame/ornament slots",
+    "typeVoice": "Elegant display for titles; restrained body; generous tracking on labels",
+    "motion": "Measured, linear accents; reveal like curtains, not bouncy",
+    "density": "Airy, ceremonial; larger titles",
+    "iconography": "Geometric line icons; mirrored where possible"
+  },
+  "fonts": {
+    "display": "Limelight",
+    "body": "Jost",
+    "mono": "IBM Plex Mono",
+    "license": "OFL-1.1",
+    "sources": [
+      "https://fonts.google.com/specimen/Limelight",
+      "https://fonts.google.com/specimen/Josefin+Sans",
+      "https://fonts.google.com/specimen/Jost",
+      "https://fonts.google.com/specimen/IBM+Plex+Mono"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 67,
+      "max": 100,
+      "default": 75
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Structure hints only: radius, type voice, subtle edge. No ornaments."
+      },
+      {
+        "id": "standard",
+        "min": 26,
+        "max": 66,
+        "description": "Clear era geometry and materials; sparse ornaments on surfaces. Alias: signature."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full decorative program — applied when data-fidelity-band is absent. Demo/showcase territory; neverDo still binds."
+      }
+    ]
+  },
+  "dialects": [
+    {
+      "id": "streamline",
+      "label": "Streamline",
+      "description": "Softer curves, poster moderne; less stepped, more speed-lines."
+    }
+  ],
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "Never put Cinzel/display faces on Button or TextField labels.",
+    "Never use neon pink/cyan — Deco metal is brass/gold/silver, not synthwave.",
+    "Never scatter sunburst SVGs on every card; one architectural motif per surface max.",
+    "Never soft-blur elevation as the primary model — prefer terraced steps.",
+    "Glow never counts toward contrast; lacquer text must pass AA on fills alone."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/deco.light.tokens.json",
+    "spec/tokens/tier1/deco.dark.tokens.json",
+    "spec/tokens/tier2/deco.light.tokens.json",
+    "spec/tokens/tier2/deco.dark.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: deco (Art Deco)",
+      "voice: lacquer + brass, ceremonial",
+      "shape: stepped / chamfered",
+      "edge: double-line brass rules",
+      "surface: lacquer panels",
+      "elevation: terraced steps",
+      "ornament: chevron / fan rules",
+      "type: Limelight + Jost",
+      "fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)",
+      "modes: light, dark",
+      "use: luxury, editorial, pricing",
+      "never: neon glow, display type on controls",
+      "dialect: streamline (optional)"
+    ]
+  },
+  "structure": {
+    "controlRadius": "0px",
+    "surfaceRadius": "0px",
+    "button": {
+      "borderWidth": "2px",
+      "borderStyle": "double",
+      "letterSpacing": "0.16em",
+      "textTransform": "uppercase",
+      "fontWeight": "600",
+      "shadow": "0 3px 0 0 var(--ew-color-border-strong)",
+      "clipPath": "none",
+      "paddingX": "22px",
+      "paddingY": "10px"
+    },
+    "card": {
+      "borderWidth": "4px",
+      "borderStyle": "double",
+      "shadow": "0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 70%, transparent), 0 6px 0 0 var(--ew-color-border-strong), 0 12px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 22%, transparent)",
+      "raisedShadow": "0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 70%, transparent), 0 6px 0 0 var(--ew-color-border-strong), 0 14px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 28%, transparent)",
+      "clipPath": "none",
+      "padding": "28px",
+      "headerRule": true,
+      "titleTracking": "0.18em",
+      "ornament": "chevron"
+    },
+    "field": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "0px",
+      "underline": true
+    },
+    "dialog": {
+      "borderWidth": "4px",
+      "borderStyle": "double",
+      "radius": "0px",
+      "shadow": "0 10px 0 0 var(--ew-color-border-strong)",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "3px",
+      "indicatorStyle": "double",
+      "radius": "0px",
+      "enclosed": true
+    },
+    "switch": {
+      "trackRadius": "0px",
+      "thumbRadius": "0px",
+      "shadow": "0 2px 0 0 var(--ew-color-border-strong)"
+    },
+    "tooltip": {
+      "radius": "0px",
+      "shadow": "0 3px 0 0 var(--ew-color-border-strong)",
+      "padding": "6px 10px"
+    },
+    "slider": {
+      "trackHeight": "3px",
+      "thumbSize": "14px",
+      "trackRadius": "0px"
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "memphis",
+  "name": "Memphis",
+  "aliases": [
+    "80s-memphis"
+  ],
+  "identity": {
+    "oneLiner": "Playful postmodern: squiggles, confetti shapes, loud primaries on cream.",
+    "summary": "Memphis Group energy — asymmetric geometry, bold pattern accents, and cheerful clash. Ornament is graphic, not historical.",
+    "bestFit": [
+      "Youth brands",
+      "Event microsites",
+      "Creative portfolios",
+      "Playful marketing"
+    ],
+    "authenticityNotes": "Few large motifs beat dense stickers. Keep forms usable."
+  },
+  "axes": {
+    "shape": "Asymmetric radii; tilted blocks at high fidelity",
+    "edge": "Thick graphic borders; dashed accents",
+    "surface": "Cream/paper with confetti dots",
+    "elevation": "Hard offset shadows (print)",
+    "ornament": "Squiggles, terrazzo dots via backdrop",
+    "typeVoice": "Bold geometric display; friendly body",
+    "motion": "Bouncy but reduced-motion safe",
+    "density": "Airy marketing",
+    "iconography": "Chunky geometric"
+  },
+  "fonts": {
+    "display": "Archivo Black",
+    "body": "Nunito",
+    "mono": "Space Mono",
+    "license": "OFL-1.1",
+    "sources": [
+      "https://fonts.google.com/specimen/Archivo+Black",
+      "https://fonts.google.com/specimen/Nunito",
+      "https://fonts.google.com/specimen/Space+Mono"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 67,
+      "max": 100,
+      "default": 75
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Structure hints only."
+      },
+      {
+        "id": "standard",
+        "min": 26,
+        "max": 66,
+        "description": "Clear era geometry. Alias: signature."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full decorative program. Applied when data-fidelity-band is absent."
+      }
+    ]
+  },
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "Never put Archivo Black on Button/TextField labels.",
+    "Never cover form controls with confetti patterns that hurt readability.",
+    "Never use more than two loud pattern planes per view.",
+    "Contrast must pass without pattern noise."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/memphis.light.tokens.json",
+    "spec/tokens/tier1/memphis.dark.tokens.json",
+    "spec/tokens/tier2/memphis.light.tokens.json",
+    "spec/tokens/tier2/memphis.dark.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: memphis",
+      "voice: playful postmodern",
+      "shape: asymmetric radii",
+      "edge: thick graphic borders",
+      "surface: cream + confetti",
+      "elevation: hard offset",
+      "ornament: squiggle / terrazzo",
+      "type: Archivo Black + Nunito",
+      "fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)",
+      "modes: light, dark",
+      "use: youth, events, creative",
+      "never: display type on controls"
+    ]
+  },
+  "structure": {
+    "controlRadius": "14px",
+    "surfaceRadius": "20px",
+    "button": {
+      "borderWidth": "3px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.02em",
+      "textTransform": "none",
+      "fontWeight": "800",
+      "shadow": "4px 4px 0 0 var(--ew-color-fg-default)",
+      "clipPath": "none",
+      "paddingX": "18px",
+      "paddingY": "10px"
+    },
+    "card": {
+      "borderWidth": "3px",
+      "borderStyle": "solid",
+      "shadow": "6px 6px 0 0 var(--ew-color-fg-default)",
+      "raisedShadow": "8px 8px 0 0 var(--ew-color-fg-default)",
+      "clipPath": "none",
+      "padding": "20px",
+      "headerRule": false,
+      "titleTracking": "0.02em",
+      "ornament": "starburst"
+    },
+    "field": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "radius": "14px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "radius": "20px",
+      "shadow": "var(--ew-elevation-dialog)",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "2px",
+      "indicatorStyle": "solid",
+      "radius": "0px",
+      "enclosed": false
+    },
+    "switch": {
+      "trackRadius": "999px",
+      "thumbRadius": "999px",
+      "shadow": "none"
+    },
+    "tooltip": {
+      "radius": "2px",
+      "shadow": "3px 3px 0 0 var(--ew-color-action-bg)",
+      "padding": "6px 8px"
+    },
+    "slider": {
+      "trackHeight": "8px",
+      "thumbSize": "18px",
+      "trackRadius": "2px"
+    }
+  }
+}

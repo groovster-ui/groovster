@@ -23,16 +23,15 @@
     }
 
     connectedCallback() {
-      this.setAttribute('class', `${this.className} ew-tabs`.trim());
+      this.classList.add('ew-tabs');
       if (!this.hasAttribute('data-orientation')) {
         this.dataset.orientation = 'horizontal';
       }
       this.#bind();
       this.#upgrade();
-      if (!this.#list) {
-        this.#mo = new MutationObserver(() => this.#upgrade());
-        this.#mo.observe(this, { childList: true, subtree: true });
-      }
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => this.#upgrade());
+      this.#mo.observe(this, { childList: true, subtree: true });
     }
 
     disconnectedCallback() {
@@ -41,10 +40,12 @@
       this.#unbind();
     }
 
+    attributeChangedCallback() {
+      if (this.isConnected) this.#upgrade();
+    }
+
     #upgrade() {
       if (!this.#list) return;
-      this.#mo?.disconnect();
-      this.#mo = null;
       this.#ensureIds();
       this.#syncFromDom();
       const list = this.#list;
@@ -124,6 +125,7 @@
     };
 
     #bind() {
+      this.#unbind();
       this.addEventListener('click', this.#onClick);
       this.addEventListener('keydown', this.#onKeyDown);
       const list = this.#list;
@@ -195,6 +197,13 @@
  * Focus stays on the combobox; options use aria-activedescendant.
  * Outside click closes without restoring focus. Escape/selection restore focus.
  * Tab closes and commits the active option.
+ *
+ * Sync contract:
+ * - Option DOM mutations (add, remove, text, disabled, selected, label) refresh the listbox.
+ * - input/change and form reset refresh the trigger.
+ * - Assigning the native select's value or selectedIndex refreshes the trigger.
+ * - ew-select.value sets the native value and refreshes the trigger.
+ * Attribute observation alone does not see every property write; the value hooks cover that.
  */
 (() => {
   const TAG = 'ew-select';
@@ -203,8 +212,10 @@
 
   class EwSelect extends HTMLElement {
     #open = false;
-    #ready = false;
     #mo = null;
+    #form = null;
+    #wrapped = null;
+    #syncing = false;
     #activeId = null;
     #typeahead = '';
     #typeaheadTimer = null;
@@ -216,19 +227,21 @@
     connectedCallback() {
       this.classList.add('ew-select');
       this.#upgrade();
-      if (!this.#ready) {
-        this.#mo = new MutationObserver(() => this.#upgrade());
-        this.#mo.observe(this, { childList: true });
-      }
     }
 
     disconnectedCallback() {
-      this.#mo?.disconnect();
-      this.#mo = null;
-      this.#native?.removeEventListener('change', this.#onNativeChange);
-      this.#unbind();
-      document.removeEventListener('pointerdown', this.#onDocPointer, true);
-      clearTimeout(this.#typeaheadTimer);
+      if (this.#open) this.#setOpen(false, { restoreFocus: false });
+      this.#teardown();
+    }
+
+    get value() {
+      return this.#native?.value ?? '';
+    }
+    set value(next) {
+      const native = this.#native;
+      if (!native) return;
+      native.value = next;
+      this.#syncFromNative();
     }
 
     get #native() {
@@ -244,41 +257,114 @@
       return [...(this.#list?.querySelectorAll('[role="option"]') || [])];
     }
 
-    #upgrade() {
-      if (this.#ready || !this.#native) return;
-      this.#ready = true;
+    #teardown() {
       this.#mo?.disconnect();
       this.#mo = null;
-      this.#ensureStructure();
       this.#unbind();
-      this.#bind();
-      this.#syncFromNative();
-      this.#observeNative();
+      this.#form?.removeEventListener('reset', this.#onFormReset);
+      this.#form = null;
+      this.#unwrapNative();
+      document.removeEventListener('pointerdown', this.#onDocPointer, true);
+      clearTimeout(this.#typeaheadTimer);
     }
 
-    #observeNative() {
+    #upgrade() {
       const native = this.#native;
-      if (!native) return;
+      if (!native) {
+        this.#observePending();
+        return;
+      }
+      this.#unbind();
+      this.#ensureStructure();
+      this.#wrapNative(native);
+      this.#bind();
+      this.#observeNative(native);
+      this.#syncFromNative();
+    }
+
+    #observePending() {
       this.#mo?.disconnect();
-      this.#mo = new MutationObserver(() => {
-        this.#ensureStructure();
-        this.#syncFromNative();
-      });
-      // Watch option list/text changes. Do not observe arbitrary <select> attrs —
-      // setting hidden/tabIndex in #ensureStructure would re-enter forever.
+      this.#mo = new MutationObserver(() => this.#upgrade());
+      this.#mo.observe(this, { childList: true });
+    }
+
+    #observeNative(native) {
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => this.#onNativeMutation());
       this.#mo.observe(native, {
         childList: true,
         subtree: true,
         characterData: true,
         attributes: true,
-        attributeFilter: ['value', 'disabled', 'label', 'selected'],
+        attributeFilter: ['selected', 'disabled', 'label', 'value'],
       });
-      native.removeEventListener('change', this.#onNativeChange);
-      native.addEventListener('change', this.#onNativeChange);
+      const label = this.querySelector('label');
+      if (label) {
+        this.#mo.observe(label, {
+          childList: true,
+          subtree: true,
+          characterData: true,
+          attributes: true,
+          attributeFilter: ['for'],
+        });
+      }
     }
 
-    #onNativeChange = () => {
-      this.#syncFromNative();
+    #onNativeMutation() {
+      if (this.#syncing || !this.#native) return;
+      this.#syncing = true;
+      try {
+        this.#rebuildOptions();
+        this.#syncFromNative();
+      } finally {
+        this.#syncing = false;
+      }
+    }
+
+    #wrapNative(native) {
+      this.#unwrapNative();
+      const host = this;
+      const valueDesc = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value');
+      const indexDesc = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'selectedIndex');
+      this.#wrapped = native;
+      if (valueDesc?.get && valueDesc?.set) {
+        Object.defineProperty(native, 'value', {
+          configurable: true,
+          enumerable: valueDesc.enumerable,
+          get() {
+            return valueDesc.get.call(this);
+          },
+          set(next) {
+            valueDesc.set.call(this, next);
+            host.#syncFromNative();
+          },
+        });
+      }
+      if (indexDesc?.get && indexDesc?.set) {
+        Object.defineProperty(native, 'selectedIndex', {
+          configurable: true,
+          enumerable: indexDesc.enumerable,
+          get() {
+            return indexDesc.get.call(this);
+          },
+          set(next) {
+            indexDesc.set.call(this, next);
+            host.#syncFromNative();
+          },
+        });
+      }
+    }
+
+    #unwrapNative() {
+      const native = this.#wrapped;
+      if (!native) return;
+      delete native.value;
+      delete native.selectedIndex;
+      this.#wrapped = null;
+    }
+
+    #onFormReset = () => {
+      queueMicrotask(() => this.#syncFromNative());
     };
 
     #ensureStructure() {
@@ -298,9 +384,7 @@
       }
       trigger.setAttribute('role', 'combobox');
       trigger.setAttribute('aria-haspopup', 'listbox');
-      if (!trigger.hasAttribute('aria-expanded')) {
-        trigger.setAttribute('aria-expanded', 'false');
-      }
+      trigger.setAttribute('aria-expanded', this.#open ? 'true' : 'false');
       trigger.setAttribute('aria-autocomplete', 'none');
       if (!trigger.id) trigger.id = `${native.id}-trigger`;
       trigger.style.setProperty('anchor-name', anchorName);
@@ -329,11 +413,10 @@
       list.setAttribute('role', 'listbox');
       list.setAttribute('popover', 'manual');
       list.style.setProperty('position-anchor', anchorName);
-      if (!this.#open) list.hidden = true;
+      list.hidden = true;
       list.id = list.id || `${native.id}-list`;
       trigger.setAttribute('aria-controls', list.id);
 
-      const prevActiveValue = this.#activeOption()?.dataset.value;
       list.replaceChildren();
       [...native.options].forEach((opt, i) => {
         const li = document.createElement('li');
@@ -347,23 +430,42 @@
         li.setAttribute('aria-selected', opt.selected ? 'true' : 'false');
         list.appendChild(li);
       });
-      if (this.#open) {
-        const restore =
-          this.#options.find((o) => o.dataset.value === prevActiveValue) ||
-          this.#options.find((o) => o.getAttribute('aria-selected') === 'true') ||
-          this.#options[0];
-        this.#setActive(restore);
-      }
       this.#updateTriggerLabel();
     }
 
+    #rebuildOptions() {
+      const native = this.#native;
+      const list = this.#list;
+      if (!native || !list) return;
+      list.replaceChildren();
+      [...native.options].forEach((opt, i) => {
+        const li = document.createElement('li');
+        li.className = 'ew-select__option';
+        li.setAttribute('role', 'option');
+        li.id = `${list.id}-opt-${i}`;
+        li.dataset.value = opt.value;
+        li.textContent = opt.textContent;
+        li.tabIndex = -1;
+        if (opt.disabled) li.setAttribute('aria-disabled', 'true');
+        li.setAttribute('aria-selected', opt.selected ? 'true' : 'false');
+        list.appendChild(li);
+      });
+    }
+
     #bind() {
+      this.#unbind();
       this.addEventListener('click', this.#onClick);
       this.addEventListener('keydown', this.#onKeyDown);
+      const form = this.#native?.form || null;
+      if (form) {
+        this.#form = form;
+        form.addEventListener('reset', this.#onFormReset);
+      }
     }
     #unbind() {
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKeyDown);
+      this.#form?.removeEventListener('reset', this.#onFormReset);
     }
 
     #onClick = (e) => {
@@ -422,7 +524,6 @@
           e.preventDefault();
           if (!this.#open) this.#setOpen(true, { restoreFocus: true });
           else {
-            // If activedescendant was lost (e.g. options rebuilt), still commit or close.
             const active = this.#activeOption() || options[0];
             if (active) this.#choose(active, { restoreFocus: true });
             else this.#setOpen(false, { restoreFocus: true });
@@ -477,12 +578,11 @@
         document.addEventListener('pointerdown', this.#onDocPointer, true);
         const selected =
           this.#options.find((o) => o.getAttribute('aria-selected') === 'true') || this.#options[0];
-        // Set active before showPopover so Enter always has a target even if popover throws.
         this.#setActive(selected);
         try {
           if (typeof list.showPopover === 'function') list.showPopover();
         } catch {
-          /* InvalidStateError when already open / not eligible — list still usable via hidden */
+          /* already open or not eligible; the list stays usable via hidden */
         }
         trigger.focus();
       } else {
@@ -558,7 +658,6 @@
 
   class EwMenu extends HTMLElement {
     #open = false;
-    #ready = false;
     #mo = null;
     #typeahead = '';
     #typeaheadTimer = null;
@@ -569,20 +668,24 @@
 
     connectedCallback() {
       this.classList.add('ew-menu');
+      this.removeEventListener('click', this.#onClick);
+      this.removeEventListener('keydown', this.#onKey);
       this.addEventListener('click', this.#onClick);
       this.addEventListener('keydown', this.#onKey);
       this.#upgrade();
-      if (!this.#ready) {
-        this.#mo = new MutationObserver(() => this.#upgrade());
-        this.#mo.observe(this, { childList: true, subtree: true });
-      }
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => this.#upgrade());
+      this.#mo.observe(this, { childList: true, subtree: true, characterData: true });
     }
     disconnectedCallback() {
+      if (this.#open) this.#setOpen(false, { restoreFocus: false });
       this.#mo?.disconnect();
+      this.#mo = null;
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKey);
       document.removeEventListener('pointerdown', this.#onDoc, true);
       clearTimeout(this.#typeaheadTimer);
+      this.#open = false;
     }
 
     get #trigger() {
@@ -598,10 +701,7 @@
     }
 
     #upgrade() {
-      if (this.#ready || !this.#trigger || !this.#panel) return;
-      this.#ready = true;
-      this.#mo?.disconnect();
-      this.#mo = null;
+      if (!this.#trigger || !this.#panel) return;
       this.#ensure();
     }
 
@@ -612,9 +712,9 @@
       if (!panel.id) panel.id = `${TAG}-${++uid}`;
       trigger.setAttribute('aria-haspopup', 'menu');
       trigger.setAttribute('aria-controls', panel.id);
-      trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute('aria-expanded', this.#open ? 'true' : 'false');
       panel.setAttribute('role', 'menu');
-      panel.hidden = true;
+      panel.hidden = !this.#open;
       this.#items.forEach((item, i) => {
         item.tabIndex = -1;
         if (!item.id) item.id = `${panel.id}-item-${i}`;
@@ -729,7 +829,6 @@
   let uid = 0;
 
   class EwPopover extends HTMLElement {
-    #ready = false;
     #mo = null;
     #onDoc = (e) => {
       if (!this.#isOpen()) return;
@@ -741,16 +840,18 @@
 
     connectedCallback() {
       this.classList.add('ew-popover');
+      this.removeEventListener('click', this.#onClick);
+      this.removeEventListener('keydown', this.#onKey);
       this.addEventListener('click', this.#onClick);
       this.addEventListener('keydown', this.#onKey);
       this.#upgrade();
-      if (!this.#ready) {
-        this.#mo = new MutationObserver(() => this.#upgrade());
-        this.#mo.observe(this, { childList: true, subtree: true });
-      }
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => this.#upgrade());
+      this.#mo.observe(this, { childList: true, subtree: true });
     }
     disconnectedCallback() {
       this.#mo?.disconnect();
+      this.#mo = null;
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKey);
       this.#panel?.removeEventListener('toggle', this.#onToggle);
@@ -765,10 +866,7 @@
     }
 
     #upgrade() {
-      if (this.#ready || !this.#trigger || !this.#panel) return;
-      this.#ready = true;
-      this.#mo?.disconnect();
-      this.#mo = null;
+      if (!this.#trigger || !this.#panel) return;
       this.#ensure();
     }
 
@@ -778,8 +876,8 @@
       if (!trigger || !panel) return;
       if (!panel.id) panel.id = `${TAG}-${++uid}`;
       trigger.setAttribute('aria-controls', panel.id);
-      trigger.setAttribute('aria-expanded', 'false');
-      if (!panel.hasAttribute('popover')) {
+      if (!trigger.hasAttribute('aria-expanded')) trigger.setAttribute('aria-expanded', 'false');
+      if (!panel.hasAttribute('popover') && trigger.getAttribute('aria-expanded') !== 'true') {
         panel.hidden = true;
       }
       panel.removeEventListener('toggle', this.#onToggle);
@@ -789,7 +887,11 @@
     #isOpen() {
       const panel = this.#panel;
       if (!panel) return false;
-      if (typeof panel.matches === 'function' && panel.matches(':popover-open')) return true;
+      try {
+        if (typeof panel.matches === 'function' && panel.matches(':popover-open')) return true;
+      } catch {
+        /* :popover-open is unsupported */
+      }
       return panel.hidden === false && !panel.hasAttribute('popover');
     }
 
@@ -868,35 +970,40 @@
 (() => {
   const TAG = 'ew-tooltip';
   if (customElements.get(TAG)) return;
+  let uid = 0;
 
   class EwTooltip extends HTMLElement {
-    #ready = false;
     #mo = null;
     #showTimer = 0;
     #hideTimer = 0;
 
     connectedCallback() {
       this.classList.add('ew-tooltip');
+      this.#unbind();
       this.addEventListener('pointerenter', this.#onEnter);
       this.addEventListener('pointerleave', this.#onLeave);
       this.addEventListener('focusin', this.#onEnter);
       this.addEventListener('focusout', this.#onLeave);
       this.addEventListener('keydown', this.#onKey);
       this.#upgrade();
-      if (!this.#ready) {
-        this.#mo = new MutationObserver(() => this.#upgrade());
-        this.#mo.observe(this, { childList: true, subtree: true });
-      }
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => this.#upgrade());
+      this.#mo.observe(this, { childList: true, subtree: true });
     }
     disconnectedCallback() {
+      this.#hide();
       this.#mo?.disconnect();
+      this.#mo = null;
+      this.#unbind();
+      clearTimeout(this.#showTimer);
+      clearTimeout(this.#hideTimer);
+    }
+    #unbind() {
       this.removeEventListener('pointerenter', this.#onEnter);
       this.removeEventListener('pointerleave', this.#onLeave);
       this.removeEventListener('focusin', this.#onEnter);
       this.removeEventListener('focusout', this.#onLeave);
       this.removeEventListener('keydown', this.#onKey);
-      clearTimeout(this.#showTimer);
-      clearTimeout(this.#hideTimer);
     }
 
     get #trigger() {
@@ -907,10 +1014,7 @@
     }
 
     #upgrade() {
-      if (this.#ready || !this.#tip || !this.#trigger) return;
-      this.#ready = true;
-      this.#mo?.disconnect();
-      this.#mo = null;
+      if (!this.#tip || !this.#trigger) return;
       this.#ensure();
     }
 
@@ -918,7 +1022,7 @@
       const tip = this.#tip;
       const trigger = this.#trigger;
       if (!tip || !trigger) return;
-      if (!tip.id) tip.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
+      if (!tip.id) tip.id = `${TAG}-${++uid}`;
       const anchorName = `--ew-tooltip-${tip.id}`;
       tip.setAttribute('role', 'tooltip');
       tip.setAttribute('popover', 'manual');
@@ -946,14 +1050,33 @@
     #show() {
       const tip = this.#tip;
       if (!tip) return;
-      tip.showPopover();
+      if (typeof tip.showPopover === 'function') {
+        try {
+          tip.showPopover();
+        } catch {
+          /* already open */
+        }
+      }
       tip.dataset.ewOpen = 'true';
       tip.style.opacity = '1';
     }
     #hide() {
       const tip = this.#tip;
-      if (!tip || !tip.matches(':popover-open')) return;
-      tip.hidePopover();
+      if (!tip) return;
+      let open = tip.dataset.ewOpen === 'true';
+      try {
+        open = open || tip.matches(':popover-open');
+      } catch {
+        /* selector unsupported */
+      }
+      if (!open) return;
+      if (typeof tip.hidePopover === 'function') {
+        try {
+          tip.hidePopover();
+        } catch {
+          /* already closed */
+        }
+      }
       tip.dataset.ewOpen = 'false';
       tip.style.opacity = '';
     }
@@ -979,6 +1102,11 @@
       if (!this.hasAttribute('aria-live')) this.setAttribute('aria-live', 'polite');
       if (!this.hasAttribute('aria-relevant')) this.setAttribute('aria-relevant', 'additions');
       this.setAttribute('aria-atomic', 'false');
+      for (const toast of this.querySelectorAll('.ew-toast')) this.#resume(toast);
+    }
+
+    disconnectedCallback() {
+      for (const toast of this.querySelectorAll('.ew-toast')) this.#pause(toast);
     }
 
     /** @param {{title?: string, body: string, variant?: string, timeout?: number}} opts */
@@ -1054,28 +1182,39 @@
 /* ---- ew-slider.js ---- */
 /**
  * <ew-slider> — light-DOM Slider enhancing native <input type="range"> (APG).
- * Syncs aria-valuenow / optional output. Keyboard via native range. No imports. Zag.js: not used.
+ * Syncs optional output. Keyboard via native range. No imports. Zag.js: not used.
+ *
+ * Sync contract: input/change, form reset, and assignments to value/min/max/step/disabled
+ * update aria-valuenow and the output. Attribute changes for those names do the same.
  */
 (() => {
   const TAG = 'ew-slider';
   if (customElements.get(TAG)) return;
+  let uid = 0;
 
   class EwSlider extends HTMLElement {
-    #ready = false;
     #mo = null;
+    #form = null;
+    #wrapped = null;
+    #listening = null;
 
     connectedCallback() {
       this.classList.add('ew-slider');
       this.#upgrade();
-      if (!this.#ready) {
-        this.#mo = new MutationObserver(() => this.#upgrade());
-        this.#mo.observe(this, { childList: true, subtree: true });
-      }
     }
+
     disconnectedCallback() {
-      this.#mo?.disconnect();
-      this.#native?.removeEventListener('input', this.#onInput);
-      this.#native?.removeEventListener('change', this.#onInput);
+      this.#teardown();
+    }
+
+    get value() {
+      return this.#native?.value ?? '';
+    }
+    set value(next) {
+      const input = this.#native;
+      if (!input) return;
+      input.value = next;
+      this.#sync();
     }
 
     get #native() {
@@ -1085,35 +1224,96 @@
       return this.querySelector('.ew-slider__value, output');
     }
 
-    #upgrade() {
-      if (this.#ready || !this.#native) return;
-      this.#ready = true;
+    #teardown() {
       this.#mo?.disconnect();
       this.#mo = null;
-      this.#ensure();
-      this.#native.addEventListener('input', this.#onInput);
-      this.#native.addEventListener('change', this.#onInput);
+      this.#detachInput();
+      this.#form?.removeEventListener('reset', this.#onReset);
+      this.#form = null;
+      this.#unwrap();
+    }
+
+    #detachInput() {
+      if (!this.#listening) return;
+      this.#listening.removeEventListener('input', this.#onInput);
+      this.#listening.removeEventListener('change', this.#onInput);
+      this.#listening = null;
+    }
+
+    #upgrade() {
+      const input = this.#native;
+      if (!input) {
+        if (!this.#mo) {
+          this.#mo = new MutationObserver(() => this.#upgrade());
+          this.#mo.observe(this, { childList: true, subtree: true });
+        }
+        return;
+      }
+      this.#detachInput();
+      this.#ensure(input);
+      input.addEventListener('input', this.#onInput);
+      input.addEventListener('change', this.#onInput);
+      this.#listening = input;
+      this.#wrap(input);
+      this.#form?.removeEventListener('reset', this.#onReset);
+      this.#form = input.form || null;
+      this.#form?.addEventListener('reset', this.#onReset);
+      this.#observe(input);
       this.#sync();
     }
 
-    #ensure() {
-      const input = this.#native;
-      if (!input) return;
-      if (!input.id) input.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
-      // Native range already exposes the slider role + APG keyboard; only mirror value attrs.
+    #ensure(input) {
+      if (!input.id) input.id = `${TAG}-${++uid}`;
       if (!input.hasAttribute('min')) input.min = '0';
       if (!input.hasAttribute('max')) input.max = '100';
-      this.#sync();
+      const label = this.querySelector('label');
+      if (label && !label.htmlFor) label.htmlFor = input.id;
+    }
+
+    #observe(input) {
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => this.#sync());
+      this.#mo.observe(input, {
+        attributes: true,
+        attributeFilter: ['min', 'max', 'step', 'value', 'disabled'],
+      });
+    }
+
+    #wrap(input) {
+      this.#unwrap();
+      const host = this;
+      const proto = HTMLInputElement.prototype;
+      this.#wrapped = input;
+      for (const key of ['value', 'min', 'max', 'step', 'disabled']) {
+        const desc = Object.getOwnPropertyDescriptor(proto, key);
+        if (!desc?.get || !desc?.set) continue;
+        Object.defineProperty(input, key, {
+          configurable: true,
+          enumerable: desc.enumerable,
+          get() {
+            return desc.get.call(this);
+          },
+          set(next) {
+            desc.set.call(this, next);
+            host.#sync();
+          },
+        });
+      }
+    }
+
+    #unwrap() {
+      const input = this.#wrapped;
+      if (!input) return;
+      for (const key of ['value', 'min', 'max', 'step', 'disabled']) delete input[key];
+      this.#wrapped = null;
     }
 
     #onInput = () => {
       this.#sync();
-      this.dispatchEvent(
-        new CustomEvent('ew-slider-change', {
-          bubbles: true,
-          detail: { value: this.#native?.value },
-        })
-      );
+    };
+
+    #onReset = () => {
+      queueMicrotask(() => this.#sync());
     };
 
     #sync() {
@@ -1122,6 +1322,8 @@
       input.setAttribute('aria-valuemin', input.min);
       input.setAttribute('aria-valuemax', input.max);
       input.setAttribute('aria-valuenow', input.value);
+      if (input.disabled) input.setAttribute('aria-disabled', 'true');
+      else input.removeAttribute('aria-disabled');
       const out = this.#output;
       if (out) out.textContent = input.value;
     }

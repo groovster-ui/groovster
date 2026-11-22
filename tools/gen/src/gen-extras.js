@@ -1,13 +1,33 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { SPEC_ROOT, getOutRoot, outPath } from './paths.js';
+import { REPO_ROOT, SPEC_ROOT, getOutRoot, outPath } from './paths.js';
 import { listFiles, writeText, rel } from './io.js';
 import { generateRegistry } from './registry.js';
 import { generateDialectCss } from './dialects.js';
 import { generateReactPackage } from './react-wrapper.js';
 
+function publishMcpData(outputs) {
+  const destRoot = path.join(REPO_ROOT, 'packages/mcp/data');
+  fs.rmSync(destRoot, { recursive: true, force: true });
+  const groups = [
+    ['components', (file) => file.endsWith('.json')],
+    ['eras', (file) => file.endsWith('.json')],
+    ['tokens', (file) => file.endsWith('.tokens.json')],
+  ];
+  for (const [folder, predicate] of groups) {
+    for (const file of listFiles(path.join(SPEC_ROOT, folder), predicate)) {
+      const relPath = path.relative(path.join(SPEC_ROOT), file);
+      const dest = path.join(destRoot, relPath);
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      fs.copyFileSync(file, dest);
+      outputs.push(rel(REPO_ROOT, dest));
+    }
+  }
+}
+
 export function generateExtras({ components, eras, outputs }) {
   generateReactPackage(components, outputs);
+  publishMcpData(outputs);
   // Tokens package dist
   const tokensDist = outPath('packages/tokens/dist');
   for (const tier of ['tier1', 'tier2', 'tier3']) {

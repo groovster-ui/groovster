@@ -35,7 +35,7 @@ export function isNegativeTask(task) {
 function bandFor(fidelity) {
   if (fidelity <= 25) return 'whisper';
   if (fidelity >= 67) return 'costume';
-  return 'signature';
+  return 'standard';
 }
 
 function ensureOpenDialog(html) {
@@ -87,7 +87,7 @@ export function assembleFromTask(task) {
   if (expect.requireEras?.length) {
     const blocks = expect.requireEras.map((era) => {
       const inner = cardWithButton({ title: era, buttonLabel: 'Choose' });
-      return `<div data-era="${era}" data-mode="${mode}" data-fidelity="${fidelity}" data-fidelity-band="${band}">\n${inner}\n</div>`;
+      return `<div data-era="${era}" data-mode="${mode}" data-fidelity-band="${band}">\n${inner}\n</div>`;
     });
     return blocks.join('\n');
   }
@@ -135,7 +135,7 @@ export function assembleFromTask(task) {
       html += `\n<button type="button" class="ew-button">Action ${buttons + 1}</button>`;
       buttons += 1;
     }
-    return `<div data-era="${era}" data-mode="${mode}" data-fidelity="${fidelity}" data-fidelity-band="${band}">\n${html}\n</div>`;
+    return `<div data-era="${era}" data-mode="${mode}" data-fidelity-band="${band}">\n${html}\n</div>`;
   }
 
   // Generic: stitch canonical HTML for requested components
@@ -178,7 +178,7 @@ export function assembleFromTask(task) {
 
   if (comps.includes('dialog')) html = ensureOpenDialog(html);
 
-  return `<div data-era="${era}" data-mode="${mode}" data-fidelity="${fidelity}" data-fidelity-band="${band}">\n${html}\n</div>`;
+  return `<div data-era="${era}" data-mode="${mode}" data-fidelity-band="${band}">\n${html}\n</div>`;
 }
 
 /**
@@ -276,6 +276,44 @@ export function runMcpAgent(task, { repoRoot = REPO } = {}) {
     totalTokens: promptTokens + completionTokens,
     mcp: true,
     mcpValidatePass: validation.pass === true,
+    kind: isNegativeTask(task) ? 'negative' : 'harness-self-test',
+  };
+}
+
+/** Hybrid agent: compact llms index plus selective MCP component reads. */
+export function runHybridAgent(task, { repoRoot }) {
+  const turns = [];
+  let promptTokens = countTokens(task.prompt);
+  let completionTokens = 0;
+  const indexPath = path.join(repoRoot, 'generated/llms/llms.txt');
+  const index = fs.existsSync(indexPath) ? fs.readFileSync(indexPath, 'utf8') : '';
+  turns.push({ tool: 'read_llms_index' });
+  promptTokens += countTokens(index);
+
+  const call = (name, args) => {
+    const result = dispatch(name, args);
+    turns.push({ tool: name, args });
+    promptTokens += countTokens(JSON.stringify(args));
+    completionTokens += countTokens(JSON.stringify(result));
+    return result;
+  };
+
+  const eraId = task.eras?.[0] || 'neutral';
+  for (const id of task.components || []) {
+    call('get_component', { name: id, era: eraId });
+  }
+  const html = emitTaskHtml(task, { repoRoot });
+  turns.push({ tool: 'emit_html' });
+  completionTokens += countTokens(html);
+  return {
+    html,
+    turns: turns.length,
+    turnLog: turns,
+    promptTokens,
+    completionTokens,
+    totalTokens: promptTokens + completionTokens,
+    mcp: 'hybrid',
+    tokenSource: 'heuristic',
     kind: isNegativeTask(task) ? 'negative' : 'harness-self-test',
   };
 }

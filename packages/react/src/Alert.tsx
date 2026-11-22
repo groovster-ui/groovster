@@ -1,25 +1,25 @@
 import * as React from 'react';
 
-export type AlertProps = {
-  className?: string;
-  children?: React.ReactNode;
+export type AlertProps = Omit<React.ComponentPropsWithoutRef<'div'>, 'size' | 'title'> & {
+  title?: React.ReactNode;
   variant?: "info" | "success" | "warning" | "danger";
   size?: "sm" | "md" | "lg";
-} & React.HTMLAttributes<HTMLElement>;
+};
 
-/** Thin wrapper: Inline alert for page-level feedback. */
-export const Alert = React.forwardRef<HTMLElement, AlertProps>(function Alert(
-  { className, children, variant, size, ...rest },
+/** Inline alert for page-level feedback. */
+export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  { className, variant, size, title, children, role, ...rest },
   ref
 ) {
   const dataProps: Record<string, string> = {};
-    if (variant != null) dataProps["data-variant"] = variant;
-    if (size != null) dataProps["data-size"] = size;
-  const cls = ['ew-alert', className].filter(Boolean).join(' ');
+  if (variant != null) dataProps["data-variant"] = variant;
+  if (size != null) dataProps["data-size"] = size;
+  const cls = ["ew-alert", className].filter(Boolean).join(' ');
   return React.createElement(
     'div',
-    { ref, className: cls, ...dataProps, ...rest },
-    children
+    { ref, className: cls, role: role ?? 'status', ...dataProps, ...rest },
+    title != null ? React.createElement('strong', { className: "ew-alert__title" }, title) : null,
+    React.createElement('p', { className: "ew-alert__body" }, children)
   );
 });
-Alert.displayName = 'Alert';
+Alert.displayName = "Alert";

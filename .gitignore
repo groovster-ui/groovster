@@ -7,6 +7,7 @@ node_modules/
 *.tsbuildinfo
 .cache/
 test-results/
+tests/react/.tmp/
 playwright-report/
 packages/*/dist/
 !packages/css/dist/

@@ -1,0 +1,182 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "mcm-atomic",
+  "name": "Atomic",
+  "aliases": [
+    "atomic",
+    "mcm",
+    "mid-century"
+  ],
+  "identity": {
+    "oneLiner": "1950s Atomic / Googie: starbursts, atom orbits, kidney Formica, script over caps.",
+    "summary": "Atomic / MCM blends boomerang curves with compact geometric type. Warm wood-adjacent neutrals, saturated accent triads, and playful but sparse starburst ornaments. Dialect switches MCM softness vs sharper Atomic.",
+    "bestFit": [
+      "Consumer lifestyle",
+      "Cafe / product stories",
+      "Playful SaaS marketing",
+      "Retro-modern portfolios"
+    ],
+    "authenticityNotes": "Signature motifs carry the era: starbursts, atom orbits, boomerangs/kidneys, LAX arch, Googie script, hairpins, two-tone. Motifs are few and large \u2014 never wallpaper every surface."
+  },
+  "axes": {
+    "shape": "Organic radii + boomerang-friendly asymmetry; kidney cards at high fidelity",
+    "edge": "2px charcoal outlines; crisp offset shadows",
+    "surface": "Warm matte pigments; light paper/wood grain only at high fidelity",
+    "elevation": "Soft lifted cards; occasional hard offset shadow (print-like)",
+    "ornament": "Starbursts, atom orbits, kidneys, boomerangs, hairpins via decorator slots",
+    "typeVoice": "Yellowtail script accent over League Spartan geometric caps; Work Sans UI",
+    "motion": "Breezy ease; gentle float \u2014 never violent bounce",
+    "density": "Relaxed marketing density",
+    "iconography": "Rounded geometric; period-simple"
+  },
+  "fonts": {
+    "display": "League Spartan",
+    "body": "Work Sans",
+    "mono": "Space Mono",
+    "script": "Yellowtail",
+    "displayAlt": "Oswald",
+    "license": "OFL-1.1",
+    "sources": [
+      "https://fonts.google.com/specimen/Yellowtail",
+      "https://fonts.google.com/specimen/League+Spartan",
+      "https://fonts.google.com/specimen/Work+Sans",
+      "https://fonts.google.com/specimen/Oswald",
+      "https://fonts.google.com/specimen/Space+Mono"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 67,
+      "max": 100,
+      "default": 75
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Structure hints only: radius, type voice, subtle edge. No ornaments."
+      },
+      {
+        "id": "standard",
+        "min": 26,
+        "max": 66,
+        "description": "Clear era geometry and materials; sparse ornaments on surfaces. Alias: signature."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full decorative program. Demo/showcase territory; neverDo still binds. Applied when data-fidelity-band is absent."
+      }
+    ]
+  },
+  "dialects": [
+    {
+      "id": "mcm",
+      "label": "MCM",
+      "description": "Softer organic radii, warmer wood neutrals."
+    },
+    {
+      "id": "atomic",
+      "label": "Atomic",
+      "description": "Sharper geometry, punchier teal\u2013coral."
+    }
+  ],
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "Never wallpaper every surface with starbursts.",
+    "Never use distressed Western wood type or comic balloons.",
+    "Never let coral/teal accents carry contrast alone on small text.",
+    "Never apply kidney clip-paths to dense form controls (inputs stay rectangular enough to use).",
+    "Do not mix synthwave neon grids into Atomic.",
+    "Costume heroes require .ew-hero__stage for backdrops (arch, starbursts, orbit, twotone)."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/mcm-atomic.light.tokens.json",
+    "spec/tokens/tier1/mcm-atomic.dark.tokens.json",
+    "spec/tokens/tier2/mcm-atomic.light.tokens.json",
+    "spec/tokens/tier2/mcm-atomic.dark.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: mcm-atomic (Atomic / Googie)",
+      "voice: mid-century atomic optimism",
+      "shape: TV radius 18/12, pills, LAX arch",
+      "edge: 2px charcoal",
+      "surface: Formica cream / Googie night",
+      "elevation: crisp offset shadow",
+      "ornament: .ew-hero__stage required; starburst/orbit/kidney/hairpin",
+      "type: Yellowtail + League Spartan + Work Sans",
+      "fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)",
+      "modes: light (Formica day), dark (Googie night)",
+      "dialects: mcm | atomic",
+      "use: lifestyle, diner, realtor, playful marketing",
+      "never: motif wallpaper, neon grids on forms"
+    ]
+  },
+  "structure": {
+    "controlRadius": "999px",
+    "surfaceRadius": "18px",
+    "button": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.06em",
+      "textTransform": "uppercase",
+      "fontWeight": "700",
+      "shadow": "4px 4px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 22%, transparent)",
+      "clipPath": "none",
+      "paddingX": "22px",
+      "paddingY": "11px"
+    },
+    "card": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "shadow": "5px 5px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 22%, transparent)",
+      "raisedShadow": "7px 7px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 28%, transparent)",
+      "clipPath": "none",
+      "padding": "0",
+      "headerRule": false,
+      "titleTracking": "0.08em",
+      "ornament": "none"
+    },
+    "field": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "12px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "18px",
+      "shadow": "8px 8px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 28%, transparent)",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "0px",
+      "indicatorStyle": "solid",
+      "radius": "999px",
+      "enclosed": false
+    },
+    "switch": {
+      "trackRadius": "999px",
+      "thumbRadius": "999px",
+      "shadow": "none"
+    },
+    "tooltip": {
+      "radius": "4px",
+      "shadow": "none",
+      "padding": "6px 8px"
+    },
+    "slider": {
+      "trackHeight": "6px",
+      "thumbSize": "16px",
+      "trackRadius": "999px"
+    }
+  }
+}

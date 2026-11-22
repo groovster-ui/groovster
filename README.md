@@ -1,123 +1,136 @@
-# Era Widgets
+# Groovster
 
-**Working title:** Era Widgets · **Repo:** `groovster` · **Never:** Forma UI
+CSS-first, spec-first UI skins for coding agents. Eras change geometry, typography, ornament, elevation, and surface — not only color. The canonical interface is HTML and CSS. React and MCP are optional layers over that contract.
 
-CSS-first, **spec-first** UI skins for coding agents. Eras rewrite structure (edges, ornament, surface, elevation, type voice), not just colors. Humans are the secondary audience.
+**Working title:** Era Widgets. **Never:** Forma UI.
 
-Authority: project roadmap v2 (Agent Store `docs/era-widgets-roadmap-v2.md`).
+Requires Node `>=20` and pnpm `9.15.9` (`packageManager` in the root `package.json`).
 
-## Principles (locked)
+## Architecture
 
-1. **Spec-first** — components, eras, and tokens live under `spec/`; code/docs/`llms.txt` are **generated**. Hand drift fails CI.
-2. **HTML + CSS is the public API** — e.g. `<button class="ew-button" data-variant="primary">`.
-3. **Zero JS for the look** — `data-era` × `data-mode` × `data-fidelity-band`.
+| Path | Role |
+|---|---|
+| `spec/` | Authoritative components, eras, tokens, and budgets |
+| `tools/gen/` | Deterministic generator |
+| `packages/css/` | Dependency-free era and component CSS |
+| `packages/elements/` | Light-DOM custom elements for behavior CSS cannot own |
+| `packages/react/` | Generated React wrappers. Peer dependency on React. Published from `dist/` |
+| `packages/mcp/` | MCP server. Published with a `data/` copy of the specs it needs |
+| `registry/` | Generated registry items |
+| `generated/` | Generated docs and agent instructions |
 
-### Look settings (fidelity)
+Do not hand-edit generator output. Change `spec/` or `tools/gen/`, then run `pnpm gen`.
 
-- **`data-fidelity-band="whisper|standard|costume"`** is the only fidelity API. (`default`/`signature` deprecated aliases of `standard`.)
-- **Costume is the default** when the attribute is absent — set `whisper` or `default` to opt down.
-- The band may live on the era element or an ancestor (`html` / `body` / `.ew-root`).
-- Also honors `prefers-reduced-motion`, `prefers-reduced-transparency`, and `forced-colors`.
-- See `FIDELITY.md` for details.
-4. **Native first** for behavior; small owned web components later for hard widgets.
-5. **Agent efficiency** — size budgets on MCP defaults, era cards, and llms sections.
-
-Phase 0 builds the **contract**: schemas, hero specs, Neutral + hero trio packs, generator skeleton, budgets, smoke page. React / Base UI / full MCP are **out of scope** here.
-
-## Repo map
-
-```
-spec/schema/          JSON Schemas (component, era, tokens)
-spec/components/      Hero widget specs
-spec/eras/            Era packs (neutral, deco, mcm-atomic, neon)
-spec/tokens/          DTCG-style tokens (tiers 1–3)
-spec/budgets/         Agent-facing output size budgets
-tools/gen/            `pnpm gen` / validate / drift+budget check
-packages/css/dist/    Generated CSS (do not hand-edit)
-generated/            Docs stubs + llms sections (generated)
-demos/smoke/          Plain HTML era flip page
-```
-
-## Setup
+## Install and check
 
 ```bash
-pnpm install
-pnpm gen        # validate specs → CSS, docs stubs, llms.txt, budget check
-pnpm check      # validate + budgets + fail on hand-drifted generated files
-```
-
-## Smoke
-
-```bash
+pnpm install --frozen-lockfile
 pnpm gen
-pnpm exec serve demos/smoke   # or: python3 -m http.server -d demos/smoke 4173
-# open the served URL; use the toolbar to flip data-era among neutral | deco | mcm-atomic | neon
+pnpm check
 ```
 
-Or open `demos/smoke/index.html` after `pnpm gen` (CSS path is relative to the repo).
+`pnpm check` validates specs, regenerates, and fails on drift, budget overflows, `@import` in published CSS, or module imports in published element scripts.
 
-## Adding a component (Phase 0 contract)
+## HTML and CSS
 
-1. Write `spec/components/<id>.json` (schema-validated).
+Link one stylesheet. Full bundle, or a base file plus the components and eras you use:
+
+```html
+<link rel="stylesheet" href="node_modules/@groovster/css/era-widgets.css" />
+<!-- or @groovster/css/base.css, button.css, eras/deco.css -->
+<div class="ew-root" data-era="deco" data-mode="light">
+  <button type="button" class="ew-button">Save</button>
+</div>
+```
+
+Published CSS is self-contained: no `@import`. Fonts are OFL WOFF2 files under `@groovster/css/fonts/*`.
+
+### Fidelity
+
+`data-fidelity-band` is the fidelity API.
+
+- `costume` — full ornament. **Default when the attribute is absent.**
+- `standard` — era geometry with quieter ornament.
+- `whisper` — minimal ornament.
+
+`default` and `signature` are deprecated aliases of `standard`. Numeric `data-fidelity` is not a supported attribute. The band may sit on the era element or an ancestor. Details: `FIDELITY.md`.
+
+## React
+
+```bash
+pnpm react:build
+```
+
+```tsx
+import { EraRoot, Button, Checkbox } from '@groovster/react';
+import '@groovster/css/era-widgets.css';
+
+export function Demo() {
+  return (
+    <EraRoot era="deco" fidelityBand="costume">
+      <Checkbox name="terms" value="yes" label="Accept terms" />
+      <Button>Save</Button>
+    </EraRoot>
+  );
+}
+```
+
+`fidelityBand` is `whisper`, `standard`, or `costume`. React 18 and 19 are peer-compatible: wrappers use `forwardRef` and do not rely on React 19-only APIs. The package does not bundle React.
+
+Tabs, select, menu, popover, tooltip, toast, and slider render custom elements. Load `@groovster/elements` before those behaviors run:
+
+```html
+<script src="node_modules/@groovster/elements/dist/era-elements.js"></script>
+```
+
+## MCP
+
+```bash
+pnpm mcp
+pnpm mcp:smoke
+```
+
+`pnpm mcp:smoke` calls the six tools in the repo and again from a packed install outside the repo. Cursor can launch `packages/mcp/src/server.js` over stdio. A published install uses `npx era-widgets-mcp` and the packaged `data/` directory.
+
+Tools: `list_eras`, `get_era_spec`, `get_component`, `install`, `recommend`, `validate`.
+
+## Change a component
+
+1. Edit `spec/components/<id>.json`.
 2. Run `pnpm gen`.
-3. Commit the spec **and** generated outputs together.
+3. Commit the spec and the generated files together.
 
+Do not add a framework package for the look. Eras stay in CSS.
 
-
-## Phase 1 — CSS core + Tabs element
-
-```bash
-pnpm gen
-pnpm check          # validate + drift/budgets + no-imports + contrast
-pnpm no-imports     # published CSS/JS must not @import / import modules
-pnpm contrast       # AA contrast on 4 packs (glow ignored)
-pnpm test:a11y      # Playwright axe + Tabs keyboard APG
-```
-
-Smoke (era **look** flips with zero JS via `:has()` radios):
+## Tests
 
 ```bash
-python3 -m http.server 4173 --directory demos/smoke
+pnpm test:unit          # generator, drift classifier, token parity
+pnpm test:react         # markup plus browser interaction
+pnpm test:elements      # custom-element remount and updates
+pnpm test:a11y          # axe, keyboard, responsive metrics
+pnpm test:packages      # install packed React and CSS outside the workspace
+pnpm mcp:smoke
+pnpm eval               # deterministic docs / MCP / hybrid harness
+pnpm eval -- --live     # optional real-model run; skipped without an API key
+pnpm sizes              # uncompressed, gzip, and brotli sizes
 ```
 
-Tabs behavior: `<script src="packages/elements/dist/ew-tabs.js">` — dependency-free, **no imports** in the published file. Zag.js not used.
+`pnpm eval` is a deterministic harness. Its token counts are heuristics. Live model results are recorded only when `GROOVSTER_EVAL_PROVIDER` and a provider key are set. The report keeps those sections separate and does not invent scores.
 
+## Known limits
 
+- Seven eras, twenty-one components. New eras are out of scope for this tree.
+- Vue and Svelte wrappers are not implemented.
+- Real-model evaluation is optional and is not a release gate.
+- Era spec files still store legacy numeric fidelity ranges because the era schema requires them. Public HTML, React, MCP, and examples use bands.
 
-## MCP + registry (Phase 2)
+## Tradeoffs
 
-```bash
-pnpm --filter @groovster/mcp smoke   # tool smoke (compact replies + exact-fix validate)
-pnpm mcp                               # stdio MCP server
-pnpm gen                               # also writes registry/ + generated/rules/ + llms.txt
-python3 -m http.server 4174 --directory registry
-# npx shadcn@latest add http://127.0.0.1:4174/r/button.json
-```
+Groovster stays a CSS-first skin system. React and MCP call the same specs; they are not second implementations of the visuals. JavaScript is limited to widgets whose behavior is not native (tabs, select, menu, popover, tooltip, toast, slider). That keeps the agent-facing markup stable and the published CSS free of a bundler. The cost is that rich widgets need a small element script, and fidelity is three named bands rather than a continuous scale.
 
-Packages (local, publish-ready manifests; not published yet): `@groovster/css`, `@groovster/elements`, `@groovster/tokens`, `@groovster/mcp`.
-
-
-
-## Viral demo
-
-```bash
-pnpm gen
-python3 -m http.server 4175 --directory demos/viral
-# Deco · Atomic · Synthwave — CSS :has() flip, zero JS for look
-```
+Which agent setup is most efficient — docs, MCP, or hybrid — is an empirical question. The deterministic harness compares all three on the same tasks. A live leaderboard requires `pnpm eval -- --live` and is not claimed here.
 
 ## License
 
-MIT (core). Default era fonts are open-licensed only (OFL).
-
-## Eval (Button + Card starter)
-
-```bash
-pnpm eval              # score golden fixtures for cursor-agent + claude-code setups
-pnpm eval:baseline     # persist baseline under generated/eval/ and spec/eval/
-```
-
-Tasks live in `spec/eval/tasks/` (≥10). Scoring covers validate / structure / tokens / turns.
-Live agent automation is not required yet — fixtures establish the harness + baseline placeholder.
-See `generated/eval/REPORT.md` after a run.
-
+MIT for the core. Default era fonts are OFL.

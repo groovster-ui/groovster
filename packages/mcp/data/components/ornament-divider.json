@@ -1,0 +1,99 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "css-only",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Move focus"
+    }
+  ],
+  "slots": [
+    {
+      "name": "ornament-before",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Motif."
+    }
+  ],
+  "imports": [
+    "@groovster/css/ornament-divider.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "ornament-divider",
+  "name": "OrnamentDivider",
+  "className": "ew-ornament-divider",
+  "nativeElement": "hr|div",
+  "summary": "Structural divider; eras supply ornament via decorators.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-ornament-divider",
+      "description": "Divider."
+    },
+    {
+      "part": "ornament",
+      "required": false,
+      "selector": "[data-slot=ornament-before]",
+      "description": "Centered ornament."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "line",
+        "ornament"
+      ],
+      "default": "line",
+      "description": "Ornament intensity."
+    }
+  },
+  "aria": {
+    "role": "separator",
+    "requiredAttributes": [],
+    "optionalAttributes": [
+      "aria-orientation"
+    ],
+    "notes": [
+      "Prefer <hr> or role=separator.",
+      "Decorative-only dividers can be aria-hidden."
+    ]
+  },
+  "canonicalHtml": "<hr class=\"ew-ornament-divider\" data-variant=\"ornament\" />",
+  "do": [
+    "Use for sectioning, not for layout hacks.",
+    "Let eras own the motif."
+  ],
+  "dont": [
+    "Don't wallpaper every section with costume ornaments at low fidelity.",
+    "Don't convey meaning only via ornament."
+  ]
+}

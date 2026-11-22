@@ -19,16 +19,24 @@ function listJson(dir, pred) {
   return out;
 }
 
+function loadDir(kind, predicate) {
+  const dir = path.join(SPEC_ROOT, kind);
+  if (!fs.existsSync(dir)) {
+    throw new Error(`Groovster ${kind} specs are missing at ${dir}.`);
+  }
+  const files = listJson(dir, predicate);
+  if (!files.length) {
+    throw new Error(`Groovster ${kind} specs directory is empty: ${dir}`);
+  }
+  return files.map(readJson);
+}
+
 export function loadComponents() {
-  return listJson(path.join(SPEC_ROOT, 'components'), (f) => f.endsWith('.json'))
-    .map(readJson)
-    .sort((a, b) => a.id.localeCompare(b.id));
+  return loadDir('components', (f) => f.endsWith('.json')).sort((a, b) => a.id.localeCompare(b.id));
 }
 
 export function loadEras() {
-  return listJson(path.join(SPEC_ROOT, 'eras'), (f) => f.endsWith('era.spec.json'))
-    .map(readJson)
-    .sort((a, b) => a.id.localeCompare(b.id));
+  return loadDir('eras', (f) => f.endsWith('era.spec.json')).sort((a, b) => a.id.localeCompare(b.id));
 }
 
 export function getComponent(name) {

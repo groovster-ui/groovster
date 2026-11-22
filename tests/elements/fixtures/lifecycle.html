@@ -1,0 +1,40 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Lifecycle</title>
+<div id="select-host">
+  <ew-select class="ew-select">
+    <label class="ew-select__label" for="country">Country</label>
+    <select id="country" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+    </select>
+  </ew-select>
+</div>
+<ew-slider class="ew-slider">
+  <label class="ew-slider__label" for="vol">Volume</label>
+  <input id="vol" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+  <output class="ew-slider__value" for="vol">40</output>
+</ew-slider>
+<ew-tabs class="ew-tabs">
+  <div role="tablist" aria-label="Plans">
+    <button type="button" role="tab" id="t-basic" aria-selected="true" aria-controls="p-basic">Basic</button>
+    <button type="button" role="tab" id="t-pro" aria-selected="false" aria-controls="p-pro" tabindex="-1">Pro</button>
+  </div>
+  <div role="tabpanel" id="p-basic" aria-labelledby="t-basic">Basic plan</div>
+  <div role="tabpanel" id="p-pro" aria-labelledby="t-pro" hidden>Pro plan</div>
+</ew-tabs>
+<ew-menu class="ew-menu">
+  <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+  <div class="ew-menu__panel" role="menu">
+    <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+  </div>
+</ew-menu>
+<ew-popover class="ew-popover">
+  <button type="button" class="ew-button ew-popover__trigger">Details</button>
+  <div class="ew-popover__panel"><p>Popover content</p></div>
+</ew-popover>
+<ew-tooltip class="ew-tooltip">
+  <button type="button" class="ew-button">Info</button>
+  <span id="tip-1" class="ew-tooltip__tip" role="tooltip">More detail</span>
+</ew-tooltip>
+<script src="/packages/elements/dist/era-elements.js"></script>

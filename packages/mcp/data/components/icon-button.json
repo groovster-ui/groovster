@@ -1,0 +1,99 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "native",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Enter / Space",
+      "action": "Activate"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Icon SVG/span."
+    }
+  ],
+  "imports": [
+    "@groovster/css/icon-button.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "icon-button",
+  "name": "IconButton",
+  "className": "ew-icon-button",
+  "nativeElement": "button",
+  "summary": "Icon-only button with required accessible name.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-icon-button",
+      "description": "Button."
+    },
+    {
+      "part": "icon",
+      "required": true,
+      "selector": ".ew-icon-button__icon",
+      "description": "Icon."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "primary",
+        "secondary",
+        "ghost"
+      ],
+      "default": "ghost",
+      "description": "Emphasis."
+    }
+  },
+  "aria": {
+    "role": "button",
+    "requiredAttributes": [
+      "aria-label or visible text"
+    ],
+    "optionalAttributes": [],
+    "notes": [
+      "Must have accessible name (aria-label).",
+      "Icon decorative via aria-hidden."
+    ]
+  },
+  "canonicalHtml": "<button type=\"button\" class=\"ew-icon-button\" data-variant=\"ghost\" aria-label=\"Close\">\n  <span class=\"ew-icon-button__icon\" aria-hidden=\"true\">\u00d7</span>\n</button>",
+  "do": [
+    "Always provide aria-label.",
+    "Keep 40\u00d740px hit target when possible."
+  ],
+  "dont": [
+    "Don't ship icon-only without a name.",
+    "Don't use for navigation that should be a link."
+  ]
+}

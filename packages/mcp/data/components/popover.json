@@ -1,0 +1,111 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "web-component",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Escape",
+      "action": "Dismiss"
+    },
+    {
+      "keys": "Tab",
+      "action": "Move into panel when open"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Panel body."
+    },
+    {
+      "name": "backdrop",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Optional backdrop."
+    }
+  ],
+  "imports": [
+    "@groovster/css/popover.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "popover",
+  "name": "Popover",
+  "className": "ew-popover",
+  "nativeElement": "ew-popover",
+  "summary": "Non-modal popover surface via Popover API.",
+  "anatomy": [
+    {
+      "part": "trigger",
+      "required": true,
+      "selector": ".ew-popover__trigger",
+      "description": "Opener."
+    },
+    {
+      "part": "panel",
+      "required": true,
+      "selector": ".ew-popover__panel",
+      "description": "Panel."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default",
+        "rich"
+      ],
+      "default": "default",
+      "description": "Density."
+    }
+  },
+  "aria": {
+    "role": "dialog or group",
+    "requiredAttributes": [
+      "aria-expanded",
+      "aria-controls"
+    ],
+    "optionalAttributes": [
+      "aria-labelledby"
+    ],
+    "notes": [
+      "<ew-popover> syncs aria and Escape/outside dismiss.",
+      "Zag.js not used."
+    ]
+  },
+  "canonicalHtml": "<ew-popover class=\"ew-popover\">\n  <button type=\"button\" class=\"ew-button ew-popover__trigger\" popovertarget=\"pop-1\">Details</button>\n  <div id=\"pop-1\" class=\"ew-popover__panel\" popover>\n    <p>Popover content</p>\n  </div>\n</ew-popover>",
+  "do": [
+    "Prefer popover attribute.",
+    "Keep content short."
+  ],
+  "dont": [
+    "Don't use as the only way to show critical errors.",
+    "Don't autoplay motion in the panel."
+  ]
+}

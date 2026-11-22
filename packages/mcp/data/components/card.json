@@ -1,0 +1,180 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "card",
+  "name": "Card",
+  "summary": "Surface container for grouped content. Cards are interaction containers \u2014 eras rewrite edge, elevation, and ornament.",
+  "className": "ew-card",
+  "nativeElement": "article|section|div",
+  "behavior": "css-only",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-card",
+      "description": "Surface root."
+    },
+    {
+      "part": "header",
+      "required": false,
+      "selector": ".ew-card__header",
+      "description": "Title region."
+    },
+    {
+      "part": "body",
+      "required": true,
+      "selector": ".ew-card__body",
+      "description": "Main content."
+    },
+    {
+      "part": "footer",
+      "required": false,
+      "selector": ".ew-card__footer",
+      "description": "Actions / meta."
+    },
+    {
+      "part": "media",
+      "required": false,
+      "selector": ".ew-card__media",
+      "description": "Optional media band."
+    },
+    {
+      "part": "frame",
+      "required": false,
+      "selector": "[data-slot=frame]",
+      "description": "Structural frame."
+    },
+    {
+      "part": "backdrop",
+      "required": false,
+      "selector": "[data-slot=backdrop]",
+      "description": "Backdrop texture/glow plane."
+    },
+    {
+      "part": "ornament-before",
+      "required": false,
+      "selector": "[data-slot=ornament-before]",
+      "description": "Header ornament."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "raised",
+        "inset",
+        "outline",
+        "flat"
+      ],
+      "default": "raised",
+      "description": "Elevation / edge treatment."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "interactive",
+      "selector": "[data-interactive=true]",
+      "description": "Whole card is a control (link/button pattern)."
+    },
+    {
+      "name": "focus-within",
+      "selector": ":focus-within",
+      "description": "Focus inside card."
+    }
+  ],
+  "aria": {
+    "role": "group / region / article (context-dependent)",
+    "requiredAttributes": [],
+    "optionalAttributes": [
+      "aria-labelledby",
+      "aria-label"
+    ],
+    "notes": [
+      "If the card is a single link/button, put the interactive element on the root or use a stretched link \u2014 do not nest buttons/links.",
+      "Name the card when it is a landmark-like region (aria-labelledby pointing at the title)."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Move through focusable descendants"
+    },
+    {
+      "keys": "Enter / Space",
+      "action": "Activate",
+      "when": "root is interactive"
+    }
+  ],
+  "slots": [
+    {
+      "name": "header",
+      "kind": "content",
+      "description": "Title / eyebrow."
+    },
+    {
+      "name": "media",
+      "kind": "content",
+      "description": "Image or media."
+    },
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Body content."
+    },
+    {
+      "name": "footer",
+      "kind": "content",
+      "description": "Actions."
+    },
+    {
+      "name": "frame",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Era frame."
+    },
+    {
+      "name": "backdrop",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Backdrop plane."
+    },
+    {
+      "name": "ornament-before",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Ornament near header."
+    }
+  ],
+  "canonicalHtml": "<article class=\"ew-card\">\n  <header class=\"ew-card__header\"><h3>Plan</h3></header>\n  <div class=\"ew-card__body\"><p>Everything you need to ship.</p></div>\n  <footer class=\"ew-card__footer\"><button type=\"button\" class=\"ew-button\">Choose</button></footer>\n</article>",
+  "imports": [
+    "@groovster/css/card.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "do": [
+    "Use semantic root (article/section) when content warrants it.",
+    "Let eras own elevation \u2014 avoid ad-hoc box-shadows on top.",
+    "Keep one primary action in the footer when actions exist."
+  ],
+  "dont": [
+    "Don't nest interactive cards inside interactive cards.",
+    "Don't put stats/schedules/promo stickers as floating overlays on card media (hero rules apply at page level).",
+    "Don't use glow as the only separation from the background."
+  ],
+  "tokenDeps": [
+    "color.surface.*",
+    "color.fg.*",
+    "color.border.*",
+    "space.card.*",
+    "radius.surface",
+    "elevation.*",
+    "type.title"
+  ]
+}

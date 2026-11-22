@@ -10,7 +10,6 @@
   let uid = 0;
 
   class EwPopover extends HTMLElement {
-    #ready = false;
     #mo = null;
     #onDoc = (e) => {
       if (!this.#isOpen()) return;
@@ -22,16 +21,18 @@
 
     connectedCallback() {
       this.classList.add('ew-popover');
+      this.removeEventListener('click', this.#onClick);
+      this.removeEventListener('keydown', this.#onKey);
       this.addEventListener('click', this.#onClick);
       this.addEventListener('keydown', this.#onKey);
       this.#upgrade();
-      if (!this.#ready) {
-        this.#mo = new MutationObserver(() => this.#upgrade());
-        this.#mo.observe(this, { childList: true, subtree: true });
-      }
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => this.#upgrade());
+      this.#mo.observe(this, { childList: true, subtree: true });
     }
     disconnectedCallback() {
       this.#mo?.disconnect();
+      this.#mo = null;
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKey);
       this.#panel?.removeEventListener('toggle', this.#onToggle);
@@ -46,10 +47,7 @@
     }
 
     #upgrade() {
-      if (this.#ready || !this.#trigger || !this.#panel) return;
-      this.#ready = true;
-      this.#mo?.disconnect();
-      this.#mo = null;
+      if (!this.#trigger || !this.#panel) return;
       this.#ensure();
     }
 
@@ -59,8 +57,8 @@
       if (!trigger || !panel) return;
       if (!panel.id) panel.id = `${TAG}-${++uid}`;
       trigger.setAttribute('aria-controls', panel.id);
-      trigger.setAttribute('aria-expanded', 'false');
-      if (!panel.hasAttribute('popover')) {
+      if (!trigger.hasAttribute('aria-expanded')) trigger.setAttribute('aria-expanded', 'false');
+      if (!panel.hasAttribute('popover') && trigger.getAttribute('aria-expanded') !== 'true') {
         panel.hidden = true;
       }
       panel.removeEventListener('toggle', this.#onToggle);
@@ -70,7 +68,11 @@
     #isOpen() {
       const panel = this.#panel;
       if (!panel) return false;
-      if (typeof panel.matches === 'function' && panel.matches(':popover-open')) return true;
+      try {
+        if (typeof panel.matches === 'function' && panel.matches(':popover-open')) return true;
+      } catch {
+        /* :popover-open is unsupported */
+      }
       return panel.hidden === false && !panel.hasAttribute('popover');
     }
 

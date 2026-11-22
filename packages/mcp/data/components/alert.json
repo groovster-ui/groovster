@@ -1,0 +1,112 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "behavior": "css-only",
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    }
+  ],
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Move focus"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Body."
+    },
+    {
+      "name": "ornament-before",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Icon/ornament."
+    }
+  ],
+  "imports": [
+    "@groovster/css/alert.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "space.*",
+    "radius.*"
+  ],
+  "id": "alert",
+  "name": "Alert",
+  "className": "ew-alert",
+  "nativeElement": "div",
+  "summary": "Inline alert for page-level feedback.",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-alert",
+      "description": "Alert root."
+    },
+    {
+      "part": "title",
+      "required": false,
+      "selector": ".ew-alert__title",
+      "description": "Title."
+    },
+    {
+      "part": "body",
+      "required": true,
+      "selector": ".ew-alert__body",
+      "description": "Body."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "default": "info",
+      "description": "Tone."
+    }
+  },
+  "aria": {
+    "role": "status or alert",
+    "requiredAttributes": [],
+    "optionalAttributes": [
+      "role"
+    ],
+    "notes": [
+      "Use role=alert for time-sensitive danger.",
+      "Otherwise status/polite is enough."
+    ]
+  },
+  "canonicalHtml": "<div class=\"ew-alert\" data-variant=\"warning\" role=\"status\">\n  <strong class=\"ew-alert__title\">Check your email</strong>\n  <p class=\"ew-alert__body\">We sent a confirmation link.</p>\n</div>",
+  "do": [
+    "Choose variant by severity.",
+    "Keep copy actionable."
+  ],
+  "dont": [
+    "Don't use danger for ordinary tips.",
+    "Don't hide alerts that require action."
+  ]
+}

@@ -19,16 +19,15 @@
     }
 
     connectedCallback() {
-      this.setAttribute('class', `${this.className} ew-tabs`.trim());
+      this.classList.add('ew-tabs');
       if (!this.hasAttribute('data-orientation')) {
         this.dataset.orientation = 'horizontal';
       }
       this.#bind();
       this.#upgrade();
-      if (!this.#list) {
-        this.#mo = new MutationObserver(() => this.#upgrade());
-        this.#mo.observe(this, { childList: true, subtree: true });
-      }
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => this.#upgrade());
+      this.#mo.observe(this, { childList: true, subtree: true });
     }
 
     disconnectedCallback() {
@@ -37,10 +36,12 @@
       this.#unbind();
     }
 
+    attributeChangedCallback() {
+      if (this.isConnected) this.#upgrade();
+    }
+
     #upgrade() {
       if (!this.#list) return;
-      this.#mo?.disconnect();
-      this.#mo = null;
       this.#ensureIds();
       this.#syncFromDom();
       const list = this.#list;
@@ -120,6 +121,7 @@
     };
 
     #bind() {
+      this.#unbind();
       this.addEventListener('click', this.#onClick);
       this.addEventListener('keydown', this.#onKeyDown);
       const list = this.#list;

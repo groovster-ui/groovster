@@ -1,0 +1,161 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "dialog",
+  "name": "Dialog",
+  "summary": "Modal dialog using native <dialog>. Open with showModal(); eras skin backdrop and frame.",
+  "className": "ew-dialog",
+  "nativeElement": "dialog",
+  "behavior": "native",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": "dialog.ew-dialog",
+      "description": "Native <dialog>."
+    },
+    {
+      "part": "backdrop",
+      "required": true,
+      "selector": ".ew-dialog::backdrop, [data-slot=backdrop]",
+      "description": "Modal backdrop."
+    },
+    {
+      "part": "frame",
+      "required": false,
+      "selector": "[data-slot=frame]",
+      "description": "Structural dialog chrome."
+    },
+    {
+      "part": "header",
+      "required": true,
+      "selector": ".ew-dialog__header",
+      "description": "Title row."
+    },
+    {
+      "part": "body",
+      "required": true,
+      "selector": ".ew-dialog__body",
+      "description": "Content."
+    },
+    {
+      "part": "footer",
+      "required": false,
+      "selector": ".ew-dialog__footer",
+      "description": "Actions."
+    },
+    {
+      "part": "close",
+      "required": false,
+      "selector": ".ew-dialog__close",
+      "description": "Explicit close control."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "modal",
+        "sheet"
+      ],
+      "default": "modal",
+      "description": "Presentation."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "open",
+      "selector": "[open]",
+      "description": "Dialog is open."
+    }
+  ],
+  "aria": {
+    "role": "dialog (native <dialog> provides)",
+    "requiredAttributes": [
+      "aria-labelledby (title id)"
+    ],
+    "optionalAttributes": [
+      "aria-describedby"
+    ],
+    "notes": [
+      "Use <dialog> and showModal() for true modal behavior and focus trap.",
+      "Label via aria-labelledby pointing at the visible title.",
+      "Escape closes native modal dialogs; keep a visible close control too."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "Escape",
+      "action": "Dismiss modal dialog"
+    },
+    {
+      "keys": "Tab / Shift+Tab",
+      "action": "Cycle focus inside dialog"
+    },
+    {
+      "keys": "Enter",
+      "action": "Activate focused control"
+    }
+  ],
+  "slots": [
+    {
+      "name": "header",
+      "kind": "content",
+      "description": "Title."
+    },
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Body."
+    },
+    {
+      "name": "footer",
+      "kind": "content",
+      "description": "Actions."
+    },
+    {
+      "name": "backdrop",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Backdrop treatment."
+    },
+    {
+      "name": "frame",
+      "kind": "decorator",
+      "cssRenderable": true,
+      "description": "Frame chrome."
+    }
+  ],
+  "canonicalHtml": "<dialog class=\"ew-dialog\" aria-labelledby=\"dlg-title\">\n  <header class=\"ew-dialog__header\"><h2 id=\"dlg-title\">Sign up</h2></header>\n  <div class=\"ew-dialog__body\"><!-- fields --></div>\n  <footer class=\"ew-dialog__footer\"><button type=\"button\" class=\"ew-button\" data-variant=\"ghost\" onclick=\"this.closest('dialog').close()\">Cancel</button><button type=\"submit\" class=\"ew-button\">Continue</button></footer>\n</dialog>",
+  "imports": [
+    "@groovster/css/dialog.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "do": [
+    "Call showModal() for modal dialogs.",
+    "Provide a clear title and primary action.",
+    "Honor prefers-reduced-motion on open/close."
+  ],
+  "dont": [
+    "Don't fake modals with only z-index divs when <dialog> works.",
+    "Don't trap focus incorrectly or leave focus in the background.",
+    "Don't obscure the title with ornaments."
+  ],
+  "tokenDeps": [
+    "color.surface.*",
+    "color.overlay",
+    "color.fg.*",
+    "space.dialog.*",
+    "radius.surface",
+    "elevation.dialog",
+    "motion.dialog"
+  ]
+}

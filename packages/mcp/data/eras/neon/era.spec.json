@@ -1,0 +1,180 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "neon",
+  "name": "Neon",
+  "aliases": [
+    "synthwave",
+    "outrun",
+    "retrowave"
+  ],
+  "identity": {
+    "oneLiner": "80s synthwave: perspective grid, striped sunset sun, chrome type, neon tubes.",
+    "summary": "Neon/Synthwave is high-contrast dark-first romance: perspective grid floor, striped sunset sun, wireframe mountains, chrome type, wedge neon tubes, and scanlines. Glow is decoration only — contrast must pass without it. Light mode is a Miami dusk pink sky with saturated magenta/cyan accents.",
+    "bestFit": [
+      "Gaming / music marketing",
+      "Nightclub / arcade microsites",
+      "Night-mode demos",
+      "Event / festival landing pages"
+    ],
+    "authenticityNotes": "Grid + sun + chrome type + glow tubes beat rainbow dashboards. One horizon plane per hero; never fixed page-wide."
+  },
+  "axes": {
+    "shape": "Wedge 45° corner cuts; squared chrome bezels",
+    "edge": "2px neon tube with layered outer glow",
+    "surface": "Indigo night lacquer (dark) or Miami dusk pink (light); scanline overlay",
+    "elevation": "Hard neon rim + dark drop; bloom is cosmetic",
+    "ornament": "Perspective grid, striped sun, wireframe mountains, scanlines",
+    "typeVoice": "Chrome/Monoton for H1; Orbitron for headings; Mr Dafoe script overlay; Exo 2 for UI",
+    "motion": "Optional RGB-split on chrome hover; respect reduced motion",
+    "density": "Showy marketing density; tighten for app chrome",
+    "iconography": "Angular / chrome stroke"
+  },
+  "fonts": {
+    "display": "Orbitron",
+    "body": "Exo 2",
+    "mono": "Share Tech Mono",
+    "license": "OFL-1.1",
+    "sources": [
+      "https://fonts.google.com/specimen/Orbitron",
+      "https://fonts.google.com/specimen/Monoton",
+      "https://fonts.google.com/specimen/Mr+Dafoe",
+      "https://fonts.google.com/specimen/Exo+2",
+      "https://fonts.google.com/specimen/Share+Tech+Mono"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 67,
+      "max": 100,
+      "default": 75
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Structure hints only: radius, type voice, subtle edge. No ornaments."
+      },
+      {
+        "id": "standard",
+        "min": 26,
+        "max": 66,
+        "description": "Clear era geometry and materials; sparse ornaments on surfaces. Alias: signature."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full decorative program. Demo/showcase territory; neverDo still binds. Applied when data-fidelity-band is absent."
+      }
+    ]
+  },
+  "dialects": [
+    {
+      "id": "synthwave",
+      "label": "Synthwave",
+      "description": "Dark violet nights, magenta/cyan."
+    },
+    {
+      "id": "miami",
+      "label": "Miami",
+      "description": "Daytime pastel aqua/pink, softer bloom."
+    }
+  ],
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "Glow never counts toward WCAG contrast — text/icons must pass on flat fills.",
+    "Never put Orbitron on Button/TextField/Switch labels.",
+    "Never stack multiple full-bleed grids; one backdrop plane per view.",
+    "Never use pure #ff00ff on pure #00ffff for small text.",
+    "Honor prefers-reduced-transparency: drop scanlines/bloom cleanly."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/neon.light.tokens.json",
+    "spec/tokens/tier1/neon.dark.tokens.json",
+    "spec/tokens/tier2/neon.light.tokens.json",
+    "spec/tokens/tier2/neon.dark.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: neon (Synthwave)",
+      "voice: chrome nights, magenta/cyan",
+      "shape: squared chrome bevel",
+      "edge: dual-tone chrome",
+      "surface: violet lacquer + scanline",
+      "elevation: hard rim (glow cosmetic)",
+      "ornament: .ew-hero__stage required (sun/mountains/grid)",
+      "type: Monoton chrome + Orbitron + Mr Dafoe + Exo 2",
+      "fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)",
+      "modes: light (dusk), dark (indigo night)",
+      "dialects: synthwave | miami",
+      "use: arcade, nightclub, festivals",
+      "never: glow-as-contrast, Orbitron on controls"
+    ]
+  },
+  "structure": {
+    "controlRadius": "2px",
+    "surfaceRadius": "4px",
+    "button": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.08em",
+      "textTransform": "uppercase",
+      "fontWeight": "700",
+      "shadow": "0 0 0 1px color-mix(in oklch, var(--ew-color-border-subtle) 80%, transparent), 0 0 12px color-mix(in oklch, var(--ew-color-action-bg) 35%, transparent)",
+      "clipPath": "none",
+      "paddingX": "18px",
+      "paddingY": "9px",
+      "bevel": "inset 0 1px 0 color-mix(in oklch, white 35%, transparent), inset 0 -1px 0 color-mix(in oklch, black 35%, transparent)"
+    },
+    "card": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "shadow": "0 0 0 1px var(--ew-color-border-subtle), 0 0 18px color-mix(in oklch, var(--ew-color-action-bg) 25%, transparent)",
+      "raisedShadow": "0 0 0 1px var(--ew-color-border-strong), 0 0 28px color-mix(in oklch, var(--ew-color-action-bg) 40%, transparent), 0 16px 40px color-mix(in oklch, black 55%, transparent)",
+      "clipPath": "none",
+      "padding": "20px",
+      "headerRule": true,
+      "titleTracking": "0.1em",
+      "ornament": "scanline"
+    },
+    "field": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "2px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "4px",
+      "shadow": "0 0 24px color-mix(in oklch, var(--ew-color-action-bg) 35%, transparent)",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "2px",
+      "indicatorStyle": "solid",
+      "radius": "2px",
+      "enclosed": false
+    },
+    "switch": {
+      "trackRadius": "2px",
+      "thumbRadius": "2px",
+      "shadow": "0 0 8px color-mix(in oklch, var(--ew-color-action-bg) 40%, transparent)"
+    },
+    "tooltip": {
+      "radius": "2px",
+      "shadow": "0 0 12px color-mix(in oklch, var(--ew-color-action-bg) 40%, transparent)",
+      "padding": "6px 8px"
+    },
+    "slider": {
+      "trackHeight": "4px",
+      "thumbSize": "14px",
+      "trackRadius": "2px"
+    }
+  }
+}

@@ -4,14 +4,9 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { getComponent, getEra, loadComponents, loadEras } from './load-spec.js';
-import {
-  collectTokenValues,
-  resolveValueAgainst,
-} from '../../../tools/gen/src/tokens-to-css.js';
-
-const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
+import { collectTokenValues, resolveValueAgainst } from './token-resolve.js';
+import { SPEC_ROOT, assertInsideSpec, safeId } from './paths.js';
 
 function countClass(html, cls) {
   const re = new RegExp(`class=["'][^"']*\\b${cls}\\b`, 'g');
@@ -108,12 +103,12 @@ function resolveSemantic(map, raw) {
 
 function contrastCheck(eraId, mode = 'light') {
   try {
-    const t1 = JSON.parse(
-      fs.readFileSync(path.join(REPO, 'spec/tokens/tier1', `${eraId}.${mode}.tokens.json`), 'utf8')
-    );
-    const t2 = JSON.parse(
-      fs.readFileSync(path.join(REPO, 'spec/tokens/tier2', `${eraId}.${mode}.tokens.json`), 'utf8')
-    );
+    const era = safeId(eraId, 'era');
+    const tone = mode === 'dark' ? 'dark' : 'light';
+    const t1Path = assertInsideSpec(path.join(SPEC_ROOT, 'tokens', 'tier1', `${era}.${tone}.tokens.json`));
+    const t2Path = assertInsideSpec(path.join(SPEC_ROOT, 'tokens', 'tier2', `${era}.${tone}.tokens.json`));
+    const t1 = JSON.parse(fs.readFileSync(t1Path, 'utf8'));
+    const t2 = JSON.parse(fs.readFileSync(t2Path, 'utf8'));
     const map = collectTokenValues(t1);
     const fg = resolveSemantic(map, t2.color.fg.default.$value);
     const bg = resolveSemantic(map, t2.color.bg.page.$value);

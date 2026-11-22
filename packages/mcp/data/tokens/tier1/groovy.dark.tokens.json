@@ -1,0 +1,110 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 1,
+    "era": "groovy",
+    "mode": "dark"
+  },
+  "color": {
+    "sand": {
+      "$type": "color",
+      "$value": "oklch(20% 0.03 70)"
+    },
+    "avocado": {
+      "$type": "color",
+      "$value": "oklch(68% 0.08 130)"
+    },
+    "harvest": {
+      "$type": "color",
+      "$value": "oklch(78% 0.1 75)"
+    },
+    "rust": {
+      "$type": "color",
+      "$value": "oklch(62% 0.1 40)"
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "oklch(92% 0.02 85)"
+    },
+    "accent": {
+      "solid": {
+        "$type": "color",
+        "$value": "oklch(68% 0.1 130)"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "oklch(18% 0.03 70)"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$type": "color",
+        "$value": "oklch(62% 0.12 35)"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "oklch(18% 0.02 35)"
+      }
+    }
+  },
+  "space": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "64px"
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "28px"
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "999px"
+    }
+  }
+}

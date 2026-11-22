@@ -1,30 +1,33 @@
 {
   "name": "@groovster/react",
   "version": "0.1.0-alpha.0",
-  "description": "Thin React wrappers over Groovster ew-* HTML/CSS (generated from specs).",
+  "description": "React wrappers over Groovster HTML/CSS. Generated from spec/components. React is a peer dependency.",
   "type": "module",
   "license": "MIT",
+  "sideEffects": false,
   "files": [
-    "src",
+    "dist",
     "README.md"
   ],
   "exports": {
-    ".": "./src/index.ts",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "peerDependencies": {
     "react": ">=18"
   },
   "devDependencies": {
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tsx": "^4.19.2",
-    "typescript": "~5.7.3"
+    "@types/react": "^19.0.2",
+    "react": "^19.0.0",
+    "typescript": "^5.7.3"
   },
   "publishConfig": {
     "access": "public"

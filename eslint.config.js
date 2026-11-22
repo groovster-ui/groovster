@@ -10,6 +10,7 @@ export default [
       'generated/**',
       'registry/r/**',
       'packages/react/src/**',
+      'tests/react/.tmp/**',
       'demos/**',
       'pnpm-lock.yaml',
     ],

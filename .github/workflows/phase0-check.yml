@@ -17,7 +17,7 @@ jobs:
   check:
     name: Lint, Test & Build
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 40
     
     steps:
       - name: Checkout repository
@@ -43,6 +43,15 @@ jobs:
 
       - name: Run validation checks
         run: pnpm check
+
+      - name: Build and typecheck React
+        run: pnpm react:build && pnpm react:typecheck
+
+      - name: Unit tests
+        run: pnpm test:unit
+
+      - name: Package size check
+        run: pnpm sizes:check
       
       - name: Fail on generated drift after gen
         run: pnpm gen && git diff --exit-code && test -z "$(git status --porcelain)"
@@ -87,8 +96,17 @@ jobs:
       - name: Run eval harness self-tests
         run: pnpm eval
       
-      - name: Run accessibility and unit tests
+      - name: Run React interaction tests
+        run: pnpm test:react
+
+      - name: Run web component lifecycle tests
+        run: pnpm test:elements
+
+      - name: Run accessibility tests
         run: pnpm test:a11y
-      
+
+      - name: Install packed packages outside the workspace
+        run: pnpm test:packages
+
       - name: Registry e2e
         run: pnpm registry:e2e
