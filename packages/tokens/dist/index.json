@@ -1,0 +1,14 @@
+{
+  "version": "0.1.0-alpha.0",
+  "eras": [
+    "deco",
+    "mcm-atomic",
+    "neon",
+    "neutral"
+  ],
+  "tiers": [
+    1,
+    2,
+    3
+  ]
+}

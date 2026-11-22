@@ -1,0 +1,30 @@
+{
+  "id": "ew-032",
+  "title": "Neon settings: switch + tabs",
+  "prompt": "Neon dark settings card with a Switch and Tabs for Profile/Billing.",
+  "eras": [
+    "neon"
+  ],
+  "components": [
+    "card",
+    "switch",
+    "tabs"
+  ],
+  "fidelity": 55,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-switch",
+      "ew-tabs"
+    ],
+    "dataEra": "neon",
+    "dataMode": "dark",
+    "forbid": [
+      "Orbitron"
+    ]
+  },
+  "rubric": [
+    "card+switch+tabs",
+    "neon dark"
+  ]
+}

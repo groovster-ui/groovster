@@ -1,0 +1,133 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 1,
+    "era": "neutral",
+    "mode": "dark",
+    "description": "Tier 1 raw values for neutral dark"
+  },
+  "color": {
+    "gray": {
+      "0": {
+        "$type": "color",
+        "$value": "oklch(14% 0.015 260)"
+      },
+      "1": {
+        "$type": "color",
+        "$value": "oklch(18% 0.015 260)"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "oklch(22% 0.018 260)"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "oklch(28% 0.02 260)"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "oklch(40% 0.02 260)"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "oklch(58% 0.02 260)"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "oklch(72% 0.015 260)"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "oklch(84% 0.01 260)"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "oklch(92% 0.008 260)"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "oklch(97% 0.005 260)"
+      }
+    },
+    "accent": {
+      "solid": {
+        "$type": "color",
+        "$value": "oklch(72% 0.12 260)"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "oklch(16% 0.02 260)"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$type": "color",
+        "$value": "oklch(65% 0.18 25)"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "oklch(16% 0.02 25)"
+      }
+    }
+  },
+  "space": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "64px"
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "999px"
+    }
+  }
+}

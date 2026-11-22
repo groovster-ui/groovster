@@ -38,6 +38,9 @@
     "generated/llms/switch.md",
     "generated/llms/tabs.md",
     "generated/llms/text-field.md",
+    "generated/rules/AGENTS.md",
+    "generated/rules/era-widgets.mdc",
+    "llms.txt",
     "packages/css/dist/base.css",
     "packages/css/dist/button.css",
     "packages/css/dist/card.css",
@@ -50,7 +53,29 @@
     "packages/css/dist/switch.css",
     "packages/css/dist/tabs.css",
     "packages/css/dist/text-field.css",
-    "packages/css/dist/tokens-components.css"
+    "packages/css/dist/tokens-components.css",
+    "packages/tokens/dist/index.json",
+    "packages/tokens/dist/tier1/deco.dark.tokens.json",
+    "packages/tokens/dist/tier1/deco.light.tokens.json",
+    "packages/tokens/dist/tier1/mcm-atomic.dark.tokens.json",
+    "packages/tokens/dist/tier1/mcm-atomic.light.tokens.json",
+    "packages/tokens/dist/tier1/neon.dark.tokens.json",
+    "packages/tokens/dist/tier1/neon.light.tokens.json",
+    "packages/tokens/dist/tier1/neutral.dark.tokens.json",
+    "packages/tokens/dist/tier1/neutral.light.tokens.json",
+    "packages/tokens/dist/tier2/deco.shared.tokens.json",
+    "packages/tokens/dist/tier2/mcm-atomic.shared.tokens.json",
+    "packages/tokens/dist/tier2/neon.shared.tokens.json",
+    "packages/tokens/dist/tier2/neutral.shared.tokens.json",
+    "packages/tokens/dist/tier3/components.shared.tokens.json",
+    "registry/README.md",
+    "registry/r/button.json",
+    "registry/r/card.json",
+    "registry/r/dialog.json",
+    "registry/r/switch.json",
+    "registry/r/tabs.json",
+    "registry/r/text-field.json",
+    "registry/registry.json"
   ],
   "budgetReport": {
     "budgets": {
@@ -141,7 +166,7 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 956,
+        "chars": 1255,
         "budget": "llms.index"
       }
     }

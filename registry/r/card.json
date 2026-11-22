@@ -1,0 +1,27 @@
+{
+  "name": "ew-card",
+  "type": "registry:ui",
+  "title": "Era Widgets — Card",
+  "description": "Surface container for grouped content. Cards are interaction containers — eras rewrite edge, elevation, and ornament.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/card.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-card {\n    /* anatomy: root, header, body, footer, media, frame, backdrop, ornament-before */\n  }\n  .ew-card {\n    --_card-radius: var(--ew-structure-surface-radius, var(--ew-card-radius, 12px));\n    --_card-border-w: var(--ew-structure-card-border-width, 1px);\n    --_card-border-style: var(--ew-structure-card-border-style, solid);\n    --_card-shadow: var(--ew-structure-card-shadow, var(--ew-elevation-1, none));\n    --_card-clip: var(--ew-structure-card-clip, none);\n    position: relative;\n    display: grid;\n    gap: var(--ew-card-gap, 12px);\n    padding: var(--ew-structure-card-padding, var(--ew-card-padding, 16px));\n    border: var(--_card-border-w) var(--_card-border-style) var(--ew-color-border-subtle, #ccc);\n    border-radius: var(--_card-radius);\n    clip-path: var(--_card-clip);\n    background: var(--ew-color-bg-surface, #f6f6f6);\n    color: var(--ew-color-fg-default, inherit);\n    box-shadow: var(--_card-shadow);\n    font-family: var(--ew-font-body, system-ui, sans-serif);\n    overflow: clip;\n  }\n  .ew-card[data-variant=\"raised\"] {\n    box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2, none));\n    background: var(--ew-color-bg-elevated, #fff);\n  }\n  .ew-card[data-variant=\"outline\"] { box-shadow: none; }\n  .ew-card[data-variant=\"flat\"] { border-color: transparent; box-shadow: none; }\n  .ew-card[data-variant=\"inset\"] { box-shadow: inset 0 1px 2px color-mix(in oklch, black 12%, transparent); }\n  .ew-card__header { display: grid; gap: 8px; }\n  .ew-card__header h3, .ew-card__header h2 {\n    margin: 0;\n    font-family: var(--ew-font-display, inherit);\n    letter-spacing: var(--ew-structure-card-title-tracking, 0);\n  }\n  .ew-card[data-header-rule=\"true\"] .ew-card__header::after {\n    content: \"\";\n    display: var(--ew-structure-card-header-rule-display, none);\n    height: 2px;\n    width: 100%;\n    background: var(--ew-structure-card-header-rule, var(--ew-color-border-strong));\n  }\n  .ew-card__body { margin: 0; }\n  .ew-card__footer { display: flex; gap: 8px; flex-wrap: wrap; }\n  .ew-card::before {\n    content: var(--ew-structure-card-ornament-content, none);\n    pointer-events: none;\n    position: absolute;\n    inset: 0;\n    z-index: 0;\n    opacity: var(--ew-structure-card-ornament-opacity, 0);\n    background: var(--ew-structure-card-ornament-bg, none);\n    background-size: var(--ew-structure-card-ornament-size, auto);\n    mix-blend-mode: var(--ew-structure-card-ornament-blend, normal);\n  }\n  .ew-card > * { position: relative; z-index: 1; }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/card.css"
+    },
+    {
+      "path": "era-widgets/card.example.html",
+      "content": "<!-- Era Widgets Card — set data-era on an ancestor -->\n<article class=\"ew-card\">\n  <header class=\"ew-card__header\"><h3>Plan</h3></header>\n  <div class=\"ew-card__body\"><p>Everything you need to ship.</p></div>\n  <footer class=\"ew-card__footer\"><button type=\"button\" class=\"ew-button\">Choose</button></footer>\n</article>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/card.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-card",
+    "canonicalHtml": "<article class=\"ew-card\">\n  <header class=\"ew-card__header\"><h3>Plan</h3></header>\n  <div class=\"ew-card__body\"><p>Everything you need to ship.</p></div>\n  <footer class=\"ew-card__footer\"><button type=\"button\" class=\"ew-button\">Choose</button></footer>\n</article>",
+    "cssPackage": "@era-widgets/css/card.css"
+  }
+}

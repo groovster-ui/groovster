@@ -1,0 +1,146 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 2,
+    "era": "deco",
+    "mode": "shared",
+    "description": "Tier 2 semantic roles for deco"
+  },
+  "color": {
+    "fg": {
+      "default": {
+        "$type": "color",
+        "$value": "oklch(18% 0.02 80)"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "oklch(42% 0.04 75)"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "oklch(96% 0.02 95)"
+      }
+    },
+    "bg": {
+      "page": {
+        "$type": "color",
+        "$value": "oklch(96% 0.02 95)"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "oklch(92% 0.025 90)"
+      },
+      "elevated": {
+        "$type": "color",
+        "$value": "oklch(88% 0.03 88)"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "oklch(72% 0.1 85)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "oklch(48% 0.08 75)"
+      }
+    },
+    "action": {
+      "bg": {
+        "$type": "color",
+        "$value": "oklch(42% 0.08 75)"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "oklch(96% 0.02 95)"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "oklch(36% 0.08 75)"
+      }
+    },
+    "field": {
+      "bg": {
+        "$type": "color",
+        "$value": "oklch(98% 0.015 95)"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "oklch(48% 0.08 75)"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "oklch(72% 0.1 85)"
+      }
+    },
+    "overlay": {
+      "$type": "color",
+      "$value": "oklch(14% 0.02 70 / 0.55)"
+    },
+    "track": {
+      "off": {
+        "$type": "color",
+        "$value": "oklch(88% 0.02 90)"
+      },
+      "on": {
+        "$type": "color",
+        "$value": "oklch(42% 0.08 75)"
+      }
+    },
+    "danger": {
+      "bg": {
+        "$type": "color",
+        "$value": "oklch(40% 0.14 25)"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "oklch(97% 0.02 95)"
+      }
+    }
+  },
+  "elevation": {
+    "1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "oklch(48% 0.08 75 / 0.35)"
+        }
+      ]
+    },
+    "2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "oklch(18% 0.02 80 / 0.25)"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "oklch(48% 0.08 75 / 0.2)"
+        }
+      ]
+    },
+    "dialog": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "12px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "oklch(18% 0.02 80 / 0.35)"
+        }
+      ]
+    }
+  }
+}

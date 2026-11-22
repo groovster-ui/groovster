@@ -1,0 +1,27 @@
+{
+  "id": "ew-024",
+  "title": "Tabs in mcm-atomic",
+  "prompt": "Build a Tabs using Era Widgets in the mcm-atomic era at fidelity ~40. HTML+CSS only.",
+  "eras": [
+    "mcm-atomic"
+  ],
+  "components": [
+    "tabs"
+  ],
+  "fidelity": 40,
+  "expect": {
+    "classes": [
+      "ew-tabs"
+    ],
+    "dataEra": "mcm-atomic",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ]
+  },
+  "rubric": [
+    "ew-tabs present",
+    "data-era=mcm-atomic"
+  ]
+}

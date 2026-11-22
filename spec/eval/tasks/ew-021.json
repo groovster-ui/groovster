@@ -1,0 +1,28 @@
+{
+  "id": "ew-021",
+  "title": "Dialog in mcm-atomic",
+  "prompt": "Build a Dialog using Era Widgets in the mcm-atomic era at fidelity ~40. HTML+CSS only.",
+  "eras": [
+    "mcm-atomic"
+  ],
+  "components": [
+    "dialog"
+  ],
+  "fidelity": 40,
+  "expect": {
+    "classes": [
+      "ew-dialog"
+    ],
+    "dataEra": "mcm-atomic",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix",
+      "div class=\"ew-dialog\""
+    ]
+  },
+  "rubric": [
+    "ew-dialog present",
+    "data-era=mcm-atomic"
+  ]
+}

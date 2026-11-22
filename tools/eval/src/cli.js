@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateMarkup } from './validate-markup.js';
+import { validateMarkup as mcpValidate } from '../../../packages/mcp/src/validate.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(here, '../../..');
@@ -24,7 +25,21 @@ function estimateTokens(text) {
 }
 
 function runTask(task, setup, fixtureHtml) {
-  const validation = validateMarkup(fixtureHtml, task.expect || {});
+  let validation;
+  if (setup.mcp) {
+    const era = task.eras?.[0];
+    const mcp = mcpValidate(fixtureHtml, era, { detail: 'full' });
+    // Map MCP result into eval shape; also require task.expect structure via heuristic
+    const struct = validateMarkup(fixtureHtml, task.expect || {});
+    validation = {
+      pass: mcp.pass && struct.pass,
+      score: mcp.pass && struct.pass ? 1 : Math.min(mcp.pass ? 1 : 0.5, struct.score),
+      issues: [...(mcp.issues || []).map((i) => i.problem || i), ...struct.issues],
+      fixes: [...(mcp.fixes || []), ...struct.fixes],
+    };
+  } else {
+    validation = validateMarkup(fixtureHtml, task.expect || {});
+  }
   const promptTokens = estimateTokens(task.prompt);
   const completionTokens = estimateTokens(fixtureHtml);
   const turns = 1; // golden fixture path = single-turn success placeholder

@@ -1,0 +1,27 @@
+{
+  "id": "ew-022",
+  "title": "TextField in mcm-atomic",
+  "prompt": "Build a TextField using Era Widgets in the mcm-atomic era at fidelity ~40. HTML+CSS only.",
+  "eras": [
+    "mcm-atomic"
+  ],
+  "components": [
+    "text-field"
+  ],
+  "fidelity": 40,
+  "expect": {
+    "classes": [
+      "ew-text-field"
+    ],
+    "dataEra": "mcm-atomic",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ]
+  },
+  "rubric": [
+    "ew-text-field present",
+    "data-era=mcm-atomic"
+  ]
+}

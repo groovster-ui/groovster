@@ -1,8 +1,20 @@
 {
   "name": "@era-widgets/tokens",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "private": true,
-  "description": "Token package stub — values live in spec/tokens and are emitted by gen.",
+  "description": "DTCG-style design tokens for Era Widgets (tiers 1–3).",
   "type": "module",
-  "license": "MIT"
+  "license": "MIT",
+  "files": ["dist", "README.md"],
+  "exports": {
+    ".": "./dist/index.json",
+    "./tier1/*": "./dist/tier1/*",
+    "./tier2/*": "./dist/tier2/*",
+    "./tier3/*": "./dist/tier3/*",
+    "./*": "./dist/*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["era-widgets", "design-tokens", "dtcg", "oklch"]
 }

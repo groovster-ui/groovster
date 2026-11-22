@@ -1,0 +1,27 @@
+{
+  "id": "ew-030",
+  "title": "Tabs in neon",
+  "prompt": "Build a Tabs using Era Widgets in the neon era at fidelity ~55. HTML+CSS only.",
+  "eras": [
+    "neon"
+  ],
+  "components": [
+    "tabs"
+  ],
+  "fidelity": 55,
+  "expect": {
+    "classes": [
+      "ew-tabs"
+    ],
+    "dataEra": "neon",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ]
+  },
+  "rubric": [
+    "ew-tabs present",
+    "data-era=neon"
+  ]
+}

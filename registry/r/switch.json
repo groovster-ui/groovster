@@ -1,0 +1,27 @@
+{
+  "name": "ew-switch",
+  "type": "registry:ui",
+  "title": "Era Widgets — Switch",
+  "description": "Binary on/off control. Prefer checkbox with switch role styling, or input type=checkbox with appearance skinning.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/switch.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-switch {\n    /* anatomy: root, control, track, thumb, label, indicator */\n  }\n  .ew-switch {\n    display: inline-flex;\n    align-items: center;\n    gap: 10px;\n    font-family: var(--ew-font-body, system-ui, sans-serif);\n    cursor: pointer;\n    position: relative;\n  }\n  .ew-switch__control {\n    position: absolute;\n    opacity: 0;\n    width: 1px;\n    height: 1px;\n  }\n  .ew-switch__track {\n    width: var(--ew-switch-track-width, 44px);\n    height: var(--ew-switch-track-height, 24px);\n    border-radius: var(--ew-structure-switch-track-radius, var(--ew-radius-pill, 999px));\n    background: var(--ew-color-track-off, #ccc);\n    display: inline-flex;\n    align-items: center;\n    padding: 3px;\n    box-shadow: var(--ew-structure-switch-shadow, none);\n    border: var(--ew-structure-button-border-width, 0) solid var(--ew-color-border-subtle);\n    transition: background var(--ew-motion-switch, 160ms) ease;\n  }\n  .ew-switch__thumb {\n    width: var(--ew-switch-thumb-size, 18px);\n    height: var(--ew-switch-thumb-size, 18px);\n    border-radius: var(--ew-structure-switch-thumb-radius, 50%);\n    background: var(--ew-color-bg-elevated, #fff);\n    box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);\n    transition: transform var(--ew-motion-switch, 160ms) ease;\n  }\n  .ew-switch__control:checked + .ew-switch__track { background: var(--ew-color-track-on, #334); }\n  .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb { transform: translateX(20px); }\n  .ew-switch__control:focus-visible + .ew-switch__track { outline: 2px solid var(--ew-color-field-focus, Highlight); outline-offset: 2px; }\n  .ew-switch__control:disabled + .ew-switch__track { opacity: 0.5; }\n  .ew-switch__label { color: var(--ew-color-fg-default, inherit); }\n  .ew-switch[data-size=\"sm\"] .ew-switch__track { width: 36px; height: 20px; }\n  .ew-switch[data-size=\"sm\"] .ew-switch__thumb { width: 14px; height: 14px; }\n  .ew-switch[data-size=\"sm\"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb { transform: translateX(16px); }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-switch__track, .ew-switch__thumb { transition: none; }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/switch.css"
+    },
+    {
+      "path": "era-widgets/switch.example.html",
+      "content": "<!-- Era Widgets Switch — set data-era on an ancestor -->\n<label class=\"ew-switch\">\n  <input class=\"ew-switch__control\" type=\"checkbox\" role=\"switch\" aria-checked=\"false\" />\n  <span class=\"ew-switch__track\" aria-hidden=\"true\"><span class=\"ew-switch__thumb\"></span></span>\n  <span class=\"ew-switch__label\">Notifications</span>\n</label>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/switch.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-switch",
+    "canonicalHtml": "<label class=\"ew-switch\">\n  <input class=\"ew-switch__control\" type=\"checkbox\" role=\"switch\" aria-checked=\"false\" />\n  <span class=\"ew-switch__track\" aria-hidden=\"true\"><span class=\"ew-switch__thumb\"></span></span>\n  <span class=\"ew-switch__label\">Notifications</span>\n</label>",
+    "cssPackage": "@era-widgets/css/switch.css"
+  }
+}

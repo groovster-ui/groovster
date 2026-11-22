@@ -1,0 +1,126 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "era-widgets",
+  "homepage": "https://github.com/example/groovster",
+  "items": [
+    {
+      "name": "ew-button",
+      "type": "registry:ui",
+      "title": "Era Widgets — Button",
+      "description": "Pressable control for primary actions. Zero attributes = medium primary button.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/button.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/button.css"
+        },
+        {
+          "path": "era-widgets/button.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/button.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-card",
+      "type": "registry:ui",
+      "title": "Era Widgets — Card",
+      "description": "Surface container for grouped content. Cards are interaction containers — eras rewrite edge, elevation, and ornament.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/card.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/card.css"
+        },
+        {
+          "path": "era-widgets/card.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/card.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-dialog",
+      "type": "registry:ui",
+      "title": "Era Widgets — Dialog",
+      "description": "Modal dialog using native <dialog>. Open with showModal(); eras skin backdrop and frame.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/dialog.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/dialog.css"
+        },
+        {
+          "path": "era-widgets/dialog.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/dialog.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-switch",
+      "type": "registry:ui",
+      "title": "Era Widgets — Switch",
+      "description": "Binary on/off control. Prefer checkbox with switch role styling, or input type=checkbox with appearance skinning.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/switch.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/switch.css"
+        },
+        {
+          "path": "era-widgets/switch.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/switch.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-tabs",
+      "type": "registry:ui",
+      "title": "Era Widgets — Tabs",
+      "description": "Tablist + tabpanels. Phase 0 specifies the contract; Phase 1 ships a light-DOM web component for keyboard behavior.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/tabs.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/tabs.css"
+        },
+        {
+          "path": "era-widgets/ew-tabs.js",
+          "type": "registry:file",
+          "target": "components/era-widgets/ew-tabs.js"
+        },
+        {
+          "path": "era-widgets/tabs.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/tabs.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-text-field",
+      "type": "registry:ui",
+      "title": "Era Widgets — TextField",
+      "description": "Labeled single-line text input. Native <input>; eras skin the chrome only.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/text-field.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/text-field.css"
+        },
+        {
+          "path": "era-widgets/text-field.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/text-field.example.html"
+        }
+      ]
+    }
+  ]
+}

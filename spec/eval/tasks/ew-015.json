@@ -1,0 +1,28 @@
+{
+  "id": "ew-015",
+  "title": "Dialog in deco",
+  "prompt": "Build a Dialog using Era Widgets in the deco era at fidelity ~35. HTML+CSS only.",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "dialog"
+  ],
+  "fidelity": 35,
+  "expect": {
+    "classes": [
+      "ew-dialog"
+    ],
+    "dataEra": "deco",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix",
+      "div class=\"ew-dialog\""
+    ]
+  },
+  "rubric": [
+    "ew-dialog present",
+    "data-era=deco"
+  ]
+}

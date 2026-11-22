@@ -1,0 +1,27 @@
+{
+  "id": "ew-018",
+  "title": "Tabs in deco",
+  "prompt": "Build a Tabs using Era Widgets in the deco era at fidelity ~35. HTML+CSS only.",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "tabs"
+  ],
+  "fidelity": 35,
+  "expect": {
+    "classes": [
+      "ew-tabs"
+    ],
+    "dataEra": "deco",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ]
+  },
+  "rubric": [
+    "ew-tabs present",
+    "data-era=deco"
+  ]
+}

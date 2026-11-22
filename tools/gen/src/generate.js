@@ -12,6 +12,7 @@ import {
 import { listFiles, readJson, writeText, rel } from './io.js';
 import { flattenTokens } from './tokens-to-css.js';
 import { genComponentCss } from './component-css.js';
+import { generateExtras } from './gen-extras.js';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
 
@@ -356,11 +357,17 @@ function genLlmsIndex(components, eras) {
     '',
     'CSS-first, spec-first UI skins for agents. Canonical API is HTML + ew- classes + data-* attrs.',
     'Set personality with data-era on a root. Do not rewrite markup per era.',
+    'Load ONLY the sections you need — do not ingest the whole library.',
     '',
-    '## Eras',
+    '## Quick start',
+    '- CSS: @era-widgets/css/era-widgets.css',
+    '- MCP: list_eras | get_component | validate | recommend',
+    '- Rules: generated/rules/era-widgets.mdc',
+    '',
+    '## Eras (cards: generated/llms/era-<id>.card.txt)',
     ...eras.map((e) => `- ${e.id}: ${e.identity.oneLiner} (fidelity ~${e.fidelity.recommended.default})`),
     '',
-    '## Components (load one section)',
+    '## Components (one file each)',
     ...components.map((c) => `- ${c.id}: generated/llms/${c.id}.md`),
     '',
     '## Rules',
@@ -368,6 +375,7 @@ function genLlmsIndex(components, eras) {
     '- Zero attrs = defaults.',
     '- Glow never counts as contrast.',
     '- Open-license fonts only in default packs.',
+    '- Published CSS/JS must import nothing.',
     '',
   ];
   return lines.join('\n');
@@ -467,6 +475,8 @@ export function generateAll() {
   }
   const index = fs.readFileSync(indexPath, 'utf8');
   budgetReport.measured['llms.index'] = { chars: index.length, budget: 'llms.index' };
+
+  generateExtras({ components, eras, outputs });
 
   const manifest = {
     generatedAt: 'deterministic-build',

@@ -1,0 +1,27 @@
+{
+  "id": "ew-017",
+  "title": "Switch in deco",
+  "prompt": "Build a Switch using Era Widgets in the deco era at fidelity ~35. HTML+CSS only.",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "switch"
+  ],
+  "fidelity": 35,
+  "expect": {
+    "classes": [
+      "ew-switch"
+    ],
+    "dataEra": "deco",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ]
+  },
+  "rubric": [
+    "ew-switch present",
+    "data-era=deco"
+  ]
+}

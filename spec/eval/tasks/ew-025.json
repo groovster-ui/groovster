@@ -1,0 +1,28 @@
+{
+  "id": "ew-025",
+  "title": "Button in neon",
+  "prompt": "Build a Button using Era Widgets in the neon era at fidelity ~55. HTML+CSS only.",
+  "eras": [
+    "neon"
+  ],
+  "components": [
+    "button"
+  ],
+  "fidelity": 55,
+  "expect": {
+    "classes": [
+      "ew-button"
+    ],
+    "dataEra": "neon",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ],
+    "minButtons": 1
+  },
+  "rubric": [
+    "ew-button present",
+    "data-era=neon"
+  ]
+}

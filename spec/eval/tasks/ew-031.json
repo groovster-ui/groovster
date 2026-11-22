@@ -1,0 +1,30 @@
+{
+  "id": "ew-031",
+  "title": "Deco signup dialog with fields",
+  "prompt": "Art Deco signup dialog with email TextField, primary Submit button, ghost Cancel.",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "dialog",
+    "text-field",
+    "button"
+  ],
+  "fidelity": 35,
+  "expect": {
+    "classes": [
+      "ew-dialog",
+      "ew-text-field",
+      "ew-button"
+    ],
+    "dataEra": "deco",
+    "minButtons": 2,
+    "forbid": [
+      "React"
+    ]
+  },
+  "rubric": [
+    "dialog+field+buttons",
+    "deco"
+  ]
+}

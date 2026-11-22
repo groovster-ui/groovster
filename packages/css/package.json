@@ -1,13 +1,31 @@
 {
   "name": "@era-widgets/css",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "private": true,
-  "description": "Generated CSS for Era Widgets (do not hand-edit; run pnpm gen).",
+  "description": "Generated CSS packs for Era Widgets. Self-contained — no @import inside published CSS.",
   "type": "module",
-  "files": ["dist"],
+  "license": "MIT",
+  "files": ["dist", "README.md"],
   "exports": {
+    ".": "./dist/era-widgets.css",
+    "./era-widgets.css": "./dist/era-widgets.css",
     "./base.css": "./dist/base.css",
+    "./button.css": "./dist/button.css",
+    "./card.css": "./dist/card.css",
+    "./dialog.css": "./dist/dialog.css",
+    "./tabs.css": "./dist/tabs.css",
+    "./switch.css": "./dist/switch.css",
+    "./text-field.css": "./dist/text-field.css",
+    "./eras/*.css": "./dist/eras/*.css",
     "./*": "./dist/*"
   },
-  "license": "MIT"
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/groovster.git",
+    "directory": "packages/css"
+  },
+  "keywords": ["era-widgets", "css", "design-systems", "art-deco", "synthwave"]
 }

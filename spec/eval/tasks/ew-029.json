@@ -1,0 +1,27 @@
+{
+  "id": "ew-029",
+  "title": "Switch in neon",
+  "prompt": "Build a Switch using Era Widgets in the neon era at fidelity ~55. HTML+CSS only.",
+  "eras": [
+    "neon"
+  ],
+  "components": [
+    "switch"
+  ],
+  "fidelity": 55,
+  "expect": {
+    "classes": [
+      "ew-switch"
+    ],
+    "dataEra": "neon",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ]
+  },
+  "rubric": [
+    "ew-switch present",
+    "data-era=neon"
+  ]
+}

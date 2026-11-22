@@ -1,0 +1,27 @@
+{
+  "id": "ew-023",
+  "title": "Switch in mcm-atomic",
+  "prompt": "Build a Switch using Era Widgets in the mcm-atomic era at fidelity ~40. HTML+CSS only.",
+  "eras": [
+    "mcm-atomic"
+  ],
+  "components": [
+    "switch"
+  ],
+  "fidelity": 40,
+  "expect": {
+    "classes": [
+      "ew-switch"
+    ],
+    "dataEra": "mcm-atomic",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ]
+  },
+  "rubric": [
+    "ew-switch present",
+    "data-era=mcm-atomic"
+  ]
+}

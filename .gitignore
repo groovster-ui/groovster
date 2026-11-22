@@ -8,9 +8,10 @@ node_modules/
 .cache/
 test-results/
 playwright-report/
-# Ignore package build outs except committed published trees
 packages/*/dist/
 !packages/css/dist/
 !packages/css/dist/**
 !packages/elements/dist/
 !packages/elements/dist/**
+!packages/tokens/dist/
+!packages/tokens/dist/**

@@ -1,10 +1,14 @@
 {
   "version": 1,
-  "name": "era-widgets-button-card-v0",
-  "description": "Starter eval: Button + Card across Neutral and hero trio. Primary metric scaffolding for agent success, tokens, turns.",
+  "name": "era-widgets-phase2-v0",
+  "description": "Phase 2 eval: \u226530 tasks across heroes + trio; setups include docs-only and MCP-column placeholders. Metrics: validate, tokens, turns.",
   "componentsInScope": [
     "button",
-    "card"
+    "card",
+    "dialog",
+    "text-field",
+    "switch",
+    "tabs"
   ],
   "erasInScope": [
     "neutral",
@@ -24,6 +28,18 @@
       "label": "Claude Code",
       "mcp": false,
       "notes": "Second setup for baseline comparison. MCP variants added in Phase 2."
+    },
+    {
+      "id": "openai-agent",
+      "label": "OpenAI-model agent",
+      "mcp": false,
+      "notes": "Third setup for Phase 2 baseline; MCP on/off variants later."
+    },
+    {
+      "id": "cursor-agent-mcp",
+      "label": "Cursor agent + MCP",
+      "mcp": true,
+      "notes": "Same fixtures today; live MCP runs TBD. Tracks with-MCP column."
     }
   ],
   "scoring": {
@@ -63,6 +79,27 @@
     "ew-009",
     "ew-010",
     "ew-011",
-    "ew-012"
+    "ew-012",
+    "ew-013",
+    "ew-014",
+    "ew-015",
+    "ew-016",
+    "ew-017",
+    "ew-018",
+    "ew-019",
+    "ew-020",
+    "ew-021",
+    "ew-022",
+    "ew-023",
+    "ew-024",
+    "ew-025",
+    "ew-026",
+    "ew-027",
+    "ew-028",
+    "ew-029",
+    "ew-030",
+    "ew-031",
+    "ew-032",
+    "ew-033"
   ]
 }

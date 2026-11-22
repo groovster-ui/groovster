@@ -74,6 +74,20 @@ python3 -m http.server 4173 --directory demos/smoke
 
 Tabs behavior: `<script src="packages/elements/dist/ew-tabs.js">` — dependency-free, **no imports** in the published file. Zag.js not used.
 
+
+
+## MCP + registry (Phase 2)
+
+```bash
+pnpm --filter @era-widgets/mcp smoke   # tool smoke (compact replies + exact-fix validate)
+pnpm mcp                               # stdio MCP server
+pnpm gen                               # also writes registry/ + generated/rules/ + llms.txt
+python3 -m http.server 4174 --directory registry
+# npx shadcn@latest add http://127.0.0.1:4174/r/button.json
+```
+
+Packages (local, publish-ready manifests; not published yet): `@era-widgets/css`, `@era-widgets/elements`, `@era-widgets/tokens`, `@era-widgets/mcp`.
+
 ## License
 
 MIT (core). Default era fonts are open-licensed only (OFL).

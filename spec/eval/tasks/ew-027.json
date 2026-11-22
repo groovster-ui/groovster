@@ -1,0 +1,28 @@
+{
+  "id": "ew-027",
+  "title": "Dialog in neon",
+  "prompt": "Build a Dialog using Era Widgets in the neon era at fidelity ~55. HTML+CSS only.",
+  "eras": [
+    "neon"
+  ],
+  "components": [
+    "dialog"
+  ],
+  "fidelity": 55,
+  "expect": {
+    "classes": [
+      "ew-dialog"
+    ],
+    "dataEra": "neon",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix",
+      "div class=\"ew-dialog\""
+    ]
+  },
+  "rubric": [
+    "ew-dialog present",
+    "data-era=neon"
+  ]
+}

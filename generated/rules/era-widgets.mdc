@@ -1,0 +1,16 @@
+---
+description: Era Widgets — CSS-first agent rules (generated)
+globs:
+  - "**/*.{html,css,tsx,jsx,vue,svelte}"
+---
+
+# Era Widgets
+
+- Canonical API is **HTML + `ew-*` classes + `data-*`**, not React props.
+- Set personality with `data-era` on a root (deco|mcm-atomic|neon|neutral). Do not rewrite markup per era.
+- Zero attributes = defaults. Prefer native `<button>`, `<dialog>`, `<input>`.
+- Tabs: `<ew-tabs>` + `@era-widgets/elements/ew-tabs.js` for APG keyboard.
+- CSS: link `@era-widgets/css/era-widgets.css` (published CSS must not use at-import).
+- Glow never counts as contrast; no display faces on controls.
+- MCP `validate` returns exact "change X to Y" fixes.
+- Heroes: button, card, dialog, switch, tabs, text-field. Eras: deco (~35), mcm-atomic (~40), neon (~55), neutral (~0).

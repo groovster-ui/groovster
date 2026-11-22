@@ -17,6 +17,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
       - run: pnpm no-imports
+      - run: pnpm mcp:smoke
       - run: pnpm eval
       - run: pnpm exec playwright install --with-deps chromium
         working-directory: tools/a11y

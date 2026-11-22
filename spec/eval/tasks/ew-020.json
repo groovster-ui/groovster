@@ -1,0 +1,28 @@
+{
+  "id": "ew-020",
+  "title": "Card in mcm-atomic",
+  "prompt": "Build a Card using Era Widgets in the mcm-atomic era at fidelity ~40. HTML+CSS only.",
+  "eras": [
+    "mcm-atomic"
+  ],
+  "components": [
+    "card"
+  ],
+  "fidelity": 40,
+  "expect": {
+    "classes": [
+      "ew-card"
+    ],
+    "dataEra": "mcm-atomic",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ],
+    "minCards": 1
+  },
+  "rubric": [
+    "ew-card present",
+    "data-era=mcm-atomic"
+  ]
+}

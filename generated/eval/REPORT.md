@@ -1,10 +1,12 @@
-# Eval report — era-widgets-button-card-v0
+# Eval report — era-widgets-phase2-v0
 
 Live agent runners not automated yet. This records validate/tokens/turns scaffolding against golden fixtures for each setup.
 
 ## Setups
-- **cursor-agent**: success 100% (12/12), mean score 1.000, mean tokens 135, mean turns 1.00
-- **claude-code**: success 100% (12/12), mean score 1.000, mean tokens 135, mean turns 1.00
+- **cursor-agent**: success 100% (33/33), mean score 1.000, mean tokens 121, mean turns 1.00
+- **claude-code**: success 100% (33/33), mean score 1.000, mean tokens 121, mean turns 1.00
+- **openai-agent**: success 100% (33/33), mean score 1.000, mean tokens 121, mean turns 1.00
+- **cursor-agent-mcp**: success 100% (33/33), mean score 1.000, mean tokens 121, mean turns 1.00
 
 ## How to run
 

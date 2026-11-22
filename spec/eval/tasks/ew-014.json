@@ -1,0 +1,28 @@
+{
+  "id": "ew-014",
+  "title": "Card in deco",
+  "prompt": "Build a Card using Era Widgets in the deco era at fidelity ~35. HTML+CSS only.",
+  "eras": [
+    "deco"
+  ],
+  "components": [
+    "card"
+  ],
+  "fidelity": 35,
+  "expect": {
+    "classes": [
+      "ew-card"
+    ],
+    "dataEra": "deco",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ],
+    "minCards": 1
+  },
+  "rubric": [
+    "ew-card present",
+    "data-era=deco"
+  ]
+}

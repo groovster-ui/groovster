@@ -1,0 +1,28 @@
+{
+  "id": "ew-019",
+  "title": "Button in mcm-atomic",
+  "prompt": "Build a Button using Era Widgets in the mcm-atomic era at fidelity ~40. HTML+CSS only.",
+  "eras": [
+    "mcm-atomic"
+  ],
+  "components": [
+    "button"
+  ],
+  "fidelity": 40,
+  "expect": {
+    "classes": [
+      "ew-button"
+    ],
+    "dataEra": "mcm-atomic",
+    "forbid": [
+      "React",
+      "Base UI",
+      "radix"
+    ],
+    "minButtons": 1
+  },
+  "rubric": [
+    "ew-button present",
+    "data-era=mcm-atomic"
+  ]
+}

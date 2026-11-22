@@ -20,7 +20,10 @@
     "contrast": "pnpm --filter @era-widgets/contrast contrast",
     "a11y": "pnpm --filter @era-widgets/a11y test",
     "a11y:keyboard": "pnpm --filter @era-widgets/a11y test:keyboard",
-    "test:a11y": "pnpm a11y && pnpm a11y:keyboard"
+    "test:a11y": "pnpm a11y && pnpm a11y:keyboard",
+    "mcp": "pnpm --filter @era-widgets/mcp start",
+    "mcp:smoke": "pnpm --filter @era-widgets/mcp smoke",
+    "registry:serve": "python3 -m http.server 4174 --directory registry"
   },
   "license": "MIT"
 }

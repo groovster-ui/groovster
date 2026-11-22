@@ -1,0 +1,29 @@
+{
+  "id": "ew-033",
+  "title": "Atomic form card",
+  "prompt": "Atomic fidelity 40 card with TextField email and primary Save.",
+  "eras": [
+    "mcm-atomic"
+  ],
+  "components": [
+    "card",
+    "text-field",
+    "button"
+  ],
+  "fidelity": 40,
+  "expect": {
+    "classes": [
+      "ew-card",
+      "ew-text-field",
+      "ew-button"
+    ],
+    "dataEra": "mcm-atomic",
+    "minButtons": 1,
+    "forbid": [
+      "React"
+    ]
+  },
+  "rubric": [
+    "atomic form card"
+  ]
+}

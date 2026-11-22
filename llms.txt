@@ -1,0 +1,31 @@
+# Era Widgets
+
+CSS-first, spec-first UI skins for agents. Canonical API is HTML + ew- classes + data-* attrs.
+Set personality with data-era on a root. Do not rewrite markup per era.
+Load ONLY the sections you need — do not ingest the whole library.
+
+## Quick start
+- CSS: @era-widgets/css/era-widgets.css
+- MCP: list_eras | get_component | validate | recommend
+- Rules: generated/rules/era-widgets.mdc
+
+## Eras (cards: generated/llms/era-<id>.card.txt)
+- deco: Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer. (fidelity ~35)
+- mcm-atomic: Mid-century atomic optimism: kidney shapes, starbursts, teal–coral–mustard. (fidelity ~40)
+- neon: Synthwave nights: magenta–cyan chrome on deep violet, grid horizon optional. (fidelity ~55)
+- neutral: Quiet modern system skin — the default before personality. (fidelity ~0)
+
+## Components (one file each)
+- button: generated/llms/button.md
+- card: generated/llms/card.md
+- dialog: generated/llms/dialog.md
+- switch: generated/llms/switch.md
+- tabs: generated/llms/tabs.md
+- text-field: generated/llms/text-field.md
+
+## Rules
+- Prefer native elements.
+- Zero attrs = defaults.
+- Glow never counts as contrast.
+- Open-license fonts only in default packs.
+- Published CSS/JS must import nothing.
