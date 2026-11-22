@@ -2,7 +2,7 @@
   "name": "era-widgets",
   "private": true,
   "version": "0.0.0",
-  "description": "Era Widgets \u2014 CSS-first, spec-first UI skins for agents (working title; never Forma UI).",
+  "description": "Era Widgets — CSS-first, spec-first UI skins for agents (working title; never Forma UI).",
   "type": "module",
   "packageManager": "pnpm@9.15.9",
   "engines": {
@@ -21,10 +21,11 @@
     "contrast": "pnpm --filter @era-widgets/contrast contrast",
     "a11y": "pnpm --filter @era-widgets/a11y test",
     "a11y:keyboard": "pnpm --filter @era-widgets/a11y test:keyboard",
-    "test:a11y": "pnpm a11y && pnpm a11y:keyboard",
+    "test:a11y": "pnpm a11y && pnpm a11y:keyboard && pnpm test:unit",
     "mcp": "pnpm --filter @era-widgets/mcp start",
     "mcp:smoke": "pnpm --filter @era-widgets/mcp smoke",
-    "registry:serve": "python3 -m http.server 4174 --directory registry"
+    "registry:serve": "python3 -m http.server 4174 --directory registry",
+    "test:unit": "node --test tests/unit/*.test.mjs"
   },
   "license": "MIT"
 }
