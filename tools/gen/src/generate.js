@@ -51,17 +51,17 @@ function ornamentVars(kind) {
       return {
         content: '""',
         opacity: '0.35',
-        bg: `linear-gradient(135deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top left / 28px 14px no-repeat,
-      linear-gradient(225deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top right / 28px 14px no-repeat`,
-        size: 'auto',
+        bg: `linear-gradient(135deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top left no-repeat,
+      linear-gradient(225deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top right no-repeat`,
+        size: '28px 14px',
         blend: 'normal',
       };
     case 'starburst':
       return {
         content: '""',
         opacity: '0.22',
-        bg: `radial-gradient(circle at 92% 12%, var(--ew-color-action-bg) 0 2px, transparent 3px),
-      conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg)`,
+        bg: `radial-gradient(circle at 92% 12%, var(--ew-color-action-bg) 0 2px, transparent 3px) no-repeat,
+      conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat`,
         size: '120px 120px',
         blend: 'multiply',
       };

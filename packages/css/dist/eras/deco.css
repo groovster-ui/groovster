@@ -137,9 +137,9 @@
     --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
     --ew-structure-card-ornament-content: "";
     --ew-structure-card-ornament-opacity: 0.35;
-    --ew-structure-card-ornament-bg: linear-gradient(135deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top left / 28px 14px no-repeat,
-      linear-gradient(225deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top right / 28px 14px no-repeat;
-    --ew-structure-card-ornament-size: auto;
+    --ew-structure-card-ornament-bg: linear-gradient(135deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top left no-repeat,
+      linear-gradient(225deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top right no-repeat;
+    --ew-structure-card-ornament-size: 28px 14px;
     --ew-structure-card-ornament-blend: normal;
     --ew-structure-field-border-width: 2px;
     --ew-structure-field-border-style: double;
