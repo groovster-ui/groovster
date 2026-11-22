@@ -20,6 +20,10 @@ test('five recipes and portable skill', () => {
   assert.equal(skill.includes('disable-model-invocation'), false);
   assert.ok(fs.existsSync(path.join(root, 'skills/groovster/examples/art-deco-hotel.md')));
   assert.ok(fs.existsSync(path.join(root, 'skills/groovster/references/anatomy.md')));
+  const anatomy = fs.readFileSync(path.join(root, 'skills/groovster/references/anatomy.md'), 'utf8');
+  assert.match(anatomy, /class="ew-hero__panel"/);
+  assert.ok(fs.existsSync(path.join(root, 'skills/groovster/references/llms/button.md')));
+  assert.equal(skill.includes('generated/llms/'), false);
 });
 
 test('generated recipe cards match the skill references', () => {

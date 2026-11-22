@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 /** Offline smoke: call tools directly (no MCP transport). */
+import fs from 'node:fs';
+import path from 'node:path';
 import { dispatch } from './tools.js';
+import { PACKAGE_ROOT } from './paths.js';
 
 const cases = [
   ['list_eras', {}],
   ['get_era_spec', { era: 'deco' }],
   ['get_component', { name: 'dialog', era: 'deco' }],
   ['recommend', { description: 'law firm marketing site' }],
+  ['find_recipe', { query: 'boutique hotel reservation' }],
   ['install', { name: 'button', target: 'npm' }],
   [
     'validate',
@@ -51,6 +55,16 @@ for (const [name, args] of cases) {
       if (out.era !== 'deco') {
         throw new Error(`recommend: expected deco for law firm, got ${out.era}`);
       }
+      if (out.recipe) assertPackagedCard(out.recipe.card, 'recommend');
+    } else if (name === 'find_recipe') {
+      const top = out.recipes?.[0];
+      if (!top || top.id !== 'hospitality' || top.era !== 'deco' || top.fidelity !== 'costume') {
+        throw new Error(`find_recipe: expected hospitality/deco/costume first, got ${JSON.stringify(top)}`);
+      }
+      if (!out.recipes.every((recipe, index) => index === 0 || recipe.rank <= out.recipes[index - 1].rank)) {
+        throw new Error('find_recipe: results are not ranked');
+      }
+      for (const recipe of out.recipes) assertPackagedCard(recipe.card, 'find_recipe');
     } else if (name === 'install') {
       if (!Array.isArray(out.steps) || out.steps.length < 1) {
         throw new Error('install: expected non-empty steps');
@@ -80,6 +94,14 @@ for (const [name, args] of cases) {
     console.error(err.message || err);
     failed++;
   }
+}
+
+function assertPackagedCard(card, label) {
+  if (!card || !card.startsWith('data/llms/recipe-') || !card.endsWith('.card.txt')) {
+    throw new Error(`${label}: card path must live in the package, got ${card}`);
+  }
+  const file = path.join(PACKAGE_ROOT, card);
+  if (!fs.existsSync(file)) throw new Error(`${label}: missing packaged card ${card}`);
 }
 
 if (failed) {

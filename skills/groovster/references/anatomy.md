@@ -2,10 +2,28 @@ GENERATED FILE — do not edit. Source: spec/recipes/. Run: pnpm gen
 
 # Component anatomy
 
-Canonical HTML only. Load the section you are writing. Full notes stay in generated/llms/<id>.md.
+Canonical HTML only. Load the section you are writing. Full notes are in references/llms/<id>.md.
 Set data-era on a root. Fidelity bands: whisper, standard, costume.
-Costume heroes: Neon and Atomic need .ew-hero__stage. Deco wraps copy in .ew-hero__panel.
+One hero tree for every era. Era CSS places the backdrop, stage, and panel.
 Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-menu, ew-popover, ew-tooltip, ew-toast-region, ew-slider.
+
+## hero
+
+```html
+<section class="ew-hero">
+  <div class="ew-hero__backdrop" aria-hidden="true"></div>
+  <div class="ew-hero__stage" aria-hidden="true"></div>
+  <div class="ew-hero__panel">
+    <div class="ew-hero__rays" aria-hidden="true"></div>
+    <div class="ew-hero__content">
+      <div class="ew-hero__fan" aria-hidden="true"></div>
+      <p class="ew-script">Kicker</p>
+      <h1 class="ew-hero__title">Title</h1>
+      <p class="ew-hero__subtitle">Subtitle</p>
+    </div>
+  </div>
+</section>
+```
 
 ## alert
 

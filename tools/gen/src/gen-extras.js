@@ -24,6 +24,17 @@ function publishMcpData(outputs) {
       outputs.push(rel(REPO_ROOT, dest));
     }
   }
+  const cardDir = outPath('generated/llms');
+  const cardDest = path.join(destRoot, 'llms');
+  fs.mkdirSync(cardDest, { recursive: true });
+  if (fs.existsSync(cardDir)) {
+    for (const name of fs.readdirSync(cardDir)) {
+      if (!/^recipe-[a-z0-9-]+\.card\.txt$/.test(name)) continue;
+      const dest = path.join(cardDest, name);
+      fs.copyFileSync(path.join(cardDir, name), dest);
+      outputs.push(rel(REPO_ROOT, dest));
+    }
+  }
 }
 
 export function generateExtras({ components, eras, outputs }) {
@@ -100,7 +111,7 @@ The band may be on the era element or an ancestor.
 
 Ornament: Neon \`.ew-hero\` with required \`.ew-hero__stage\` (sun/mountains/grid) plus \`.ew-chrome\` / \`.ew-script\`; Deco \`.ew-hero__panel\` / stepped frames — documented in \`llms.txt\` and era cards.
 
-MCP tools: list_eras, get_era_spec, get_component, install, recommend, validate.
+MCP tools: list_eras, get_era_spec, get_component, install, recommend, find_recipe, validate.
 \`recommend\` names a recipe when the description is a website. Load only that card.
 Load only the llms section you need from \`generated/llms/\`.
 Portable skill: \`skills/groovster/SKILL.md\`.

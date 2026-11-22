@@ -29,7 +29,7 @@ function starburstBadgeSvg(fill, ink) {
   return encodeURIComponent(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
       <polygon fill="${fill}" points="40,2 46,28 72,18 52,40 72,62 46,52 40,78 34,52 8,62 28,40 8,18 34,28"/>
-      <text x="40" y="45" text-anchor="middle" font-family="Futura,Arial,sans-serif" font-size="14" font-weight="700" fill="${ink}">NEW!</text>
+      <text x="40" y="44" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" textLength="18" lengthAdjust="spacingAndGlyphs" fill="${ink}">NEW!</text>
     </svg>`
   );
 }
@@ -230,6 +230,13 @@ export function atomicDecoratorCss() {
     background: var(--ew-color-bg-page);
     color: var(--ew-color-fg-default);
   }
+  /* Backdrop is in the shared hero tree. Keep it out of the grid so it cannot take the text cell. */
+  [data-era="mcm-atomic"] .ew-hero__backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
   [data-era="mcm-atomic"] .ew-hero__stage {
     position: relative;
     grid-column: 2;
@@ -238,6 +245,30 @@ export function atomicDecoratorCss() {
     min-height: 100%;
     pointer-events: none;
     overflow: hidden;
+  }
+  /* Panel wraps the copy in the canonical tree. It occupies the text cell; direct .ew-hero__content still does when there is no panel. */
+  [data-era="mcm-atomic"] .ew-hero__panel {
+    position: relative;
+    z-index: 2;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    margin: 0;
+    padding: clamp(36px, 5vw, 72px) clamp(28px, 4vw, 64px);
+    background: var(--ew-color-bg-page);
+  }
+  [data-era="mcm-atomic"] .ew-hero__panel .ew-hero__content {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
   }
 
   /* Diagonal two-tone lives only in the object column (cream shows through the cut). */
@@ -376,10 +407,14 @@ export function atomicDecoratorCss() {
       grid-template-rows: auto auto;
       min-height: 0;
     }
-    [data-era="mcm-atomic"] .ew-hero__content {
+    [data-era="mcm-atomic"] .ew-hero__content,
+    [data-era="mcm-atomic"] .ew-hero__panel {
       grid-column: 1;
       grid-row: 1;
       padding: 40px 24px 28px;
+    }
+    [data-era="mcm-atomic"] .ew-hero__panel .ew-hero__content {
+      padding: 0;
     }
     [data-era="mcm-atomic"] .ew-hero__stage {
       grid-column: 1;
@@ -487,6 +522,8 @@ export function atomicDecoratorCss() {
     background: var(--ew-ornament-star-badge) center / contain no-repeat;
     color: transparent;
     font-size: 0;
+    line-height: 0;
+    overflow: hidden;
     vertical-align: middle;
   }
 
@@ -537,7 +574,7 @@ export function atomicDecoratorCss() {
     border: 2px solid var(--ew-color-border-strong, var(--ew-color-ink));
     background: var(--ew-color-bg-surface);
     box-shadow: var(--ew-atomic-offset);
-    overflow: visible;
+    overflow: clip;
     padding: 0;
   }
   [data-era="mcm-atomic"] .ew-card[data-variant="raised"] {
@@ -554,18 +591,22 @@ export function atomicDecoratorCss() {
     z-index: 0;
     opacity: 1;
   }
+  /* Kidneys sit in the card's bottom padding, inside the border box, clear of the type. */
   [data-era="mcm-atomic"] .ew-card::before {
-    top: -16px;
-    left: -16px;
+    top: auto;
+    bottom: 10px;
+    left: 10px;
+    width: 46px;
+    height: 32px;
     background: var(--ew-color-teal);
     border-radius: 62% 38% 28% 72% / 48% 62% 38% 52%;
-    transform: rotate(-22deg);
+    transform: rotate(-18deg);
   }
   [data-era="mcm-atomic"] .ew-card::after {
-    bottom: -14px;
-    right: -14px;
-    width: 118px;
-    height: 84px;
+    bottom: 10px;
+    right: 10px;
+    width: 42px;
+    height: 30px;
     background: var(--ew-color-coral);
     border-radius: 38% 62% 70% 30% / 58% 42% 60% 40%;
     transform: rotate(16deg);
@@ -591,7 +632,12 @@ export function atomicDecoratorCss() {
   [data-era="mcm-atomic"] .ew-card__footer {
     position: relative;
     z-index: 2;
-    padding: 16px 20px 20px;
+    padding: 16px 20px 52px;
+    background: transparent;
+  }
+  [data-era="mcm-atomic"] .ew-card > :not(.ew-card__header):not(.ew-card__body):not(.ew-card__footer) {
+    position: relative;
+    z-index: 1;
   }
 
   /* --- Buttons: coral primary + starburst; turquoise outline secondary; pill; hover lift --- */
@@ -942,7 +988,8 @@ export function atomicDecoratorCss() {
     border-radius: var(--ew-structure-dialog-radius, 28px);
   }
 
-  ${mute(' .ew-hero__content')} {
+  ${mute(' .ew-hero__content')},
+  ${mute(' .ew-hero__panel')} {
     grid-column: 1 / -1;
   }
   ${mute('')} {

@@ -18,4 +18,4 @@ Ornament: Masthead hero hooks for the active era. One ornament divider between t
 Deviations: neon|mcm-atomic: Keep .ew-hero__stage in the masthead so costume sun, grid, starbursts, and arch can render. Cap stage height in page CSS so the essay starts on the first screen. deco: Wrap masthead copy in .ew-hero__panel with rays and fan. Do not rebuild the rest of the page.
 Demo: demos/recipes/editorial/index.html (earth, light, costume).
 Same HTML for every era. Set data-era, data-mode, and data-fidelity-band on the root.
-Anatomy: generated/llms/<component>.md — load only the components you write.
+Anatomy: references/anatomy.md. Component notes: references/llms/<component>.md.

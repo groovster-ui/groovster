@@ -2047,7 +2047,7 @@
     --ew-ornament-star-cream: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23F3E9D2%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C2.00%2036.59%2C20.91%2053.21%2C10.79%2043.09%2C27.41%2062.00%2C32.00%2043.09%2C36.59%2053.21%2C53.21%2036.59%2C43.09%2032.00%2C62.00%2027.41%2C43.09%2010.79%2C53.21%2020.91%2C36.59%202.00%2C32.00%2020.91%2C27.41%2010.79%2C10.79%2027.41%2C20.91%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-star-cream-sm: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23FFFBF3%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C7.40%2035.09%2C24.55%2049.39%2C14.61%2039.45%2C28.91%2056.60%2C32.00%2039.45%2C35.09%2049.39%2C49.39%2035.09%2C39.45%2032.00%2C56.60%2028.91%2C39.45%2014.61%2C49.39%2024.55%2C35.09%207.40%2C32.00%2024.55%2C28.91%2014.61%2C14.61%2028.91%2C24.55%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-star-gold: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23E0B84A%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C4.40%2035.89%2C22.62%2051.52%2C12.48%2041.38%2C28.11%2059.60%2C32.00%2041.38%2C35.89%2051.52%2C51.52%2035.89%2C41.38%2032.00%2C59.60%2028.11%2C41.38%2012.48%2C51.52%2022.62%2C35.89%204.40%2C32.00%2022.62%2C28.11%2012.48%2C12.48%2028.11%2C22.62%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
-    --ew-ornament-star-badge: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2080%2080%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20fill%3D%22%23B23A2A%22%20points%3D%2240%2C2%2046%2C28%2072%2C18%2052%2C40%2072%2C62%2046%2C52%2040%2C78%2034%2C52%208%2C62%2028%2C40%208%2C18%2034%2C28%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%2240%22%20y%3D%2245%22%20text-anchor%3D%22middle%22%20font-family%3D%22Futura%2CArial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22700%22%20fill%3D%22%23FFFBF3%22%3ENEW!%3C%2Ftext%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-ornament-star-badge: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2080%2080%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20fill%3D%22%23B23A2A%22%20points%3D%2240%2C2%2046%2C28%2072%2C18%2052%2C40%2072%2C62%2046%2C52%2040%2C78%2034%2C52%208%2C62%2028%2C40%208%2C18%2034%2C28%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%2240%22%20y%3D%2244%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2210%22%20font-weight%3D%22700%22%20textLength%3D%2218%22%20lengthAdjust%3D%22spacingAndGlyphs%22%20fill%3D%22%23FFFBF3%22%3ENEW!%3C%2Ftext%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-atom: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(60%2060)%22%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%230F6E6B%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(0)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%230F6E6B%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(60)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%230F6E6B%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(120)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%228%22%20fill%3D%22%23B23A2A%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-atom-ink: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(60%2060)%22%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(0)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(60)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(120)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%228%22%20fill%3D%22%23C4922A%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-atom-panel: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(60%2060)%22%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(0)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(60)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(120)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%228%22%20fill%3D%22%23E0B84A%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
@@ -2110,6 +2110,13 @@
     background: var(--ew-color-bg-page);
     color: var(--ew-color-fg-default);
   }
+  /* Backdrop is in the shared hero tree. Keep it out of the grid so it cannot take the text cell. */
+  [data-era="mcm-atomic"] .ew-hero__backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
   [data-era="mcm-atomic"] .ew-hero__stage {
     position: relative;
     grid-column: 2;
@@ -2118,6 +2125,30 @@
     min-height: 100%;
     pointer-events: none;
     overflow: hidden;
+  }
+  /* Panel wraps the copy in the canonical tree. It occupies the text cell; direct .ew-hero__content still does when there is no panel. */
+  [data-era="mcm-atomic"] .ew-hero__panel {
+    position: relative;
+    z-index: 2;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    margin: 0;
+    padding: clamp(36px, 5vw, 72px) clamp(28px, 4vw, 64px);
+    background: var(--ew-color-bg-page);
+  }
+  [data-era="mcm-atomic"] .ew-hero__panel .ew-hero__content {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
   }
 
   /* Diagonal two-tone lives only in the object column (cream shows through the cut). */
@@ -2256,10 +2287,14 @@
       grid-template-rows: auto auto;
       min-height: 0;
     }
-    [data-era="mcm-atomic"] .ew-hero__content {
+    [data-era="mcm-atomic"] .ew-hero__content,
+    [data-era="mcm-atomic"] .ew-hero__panel {
       grid-column: 1;
       grid-row: 1;
       padding: 40px 24px 28px;
+    }
+    [data-era="mcm-atomic"] .ew-hero__panel .ew-hero__content {
+      padding: 0;
     }
     [data-era="mcm-atomic"] .ew-hero__stage {
       grid-column: 1;
@@ -2367,6 +2402,8 @@
     background: var(--ew-ornament-star-badge) center / contain no-repeat;
     color: transparent;
     font-size: 0;
+    line-height: 0;
+    overflow: hidden;
     vertical-align: middle;
   }
 
@@ -2417,7 +2454,7 @@
     border: 2px solid var(--ew-color-border-strong, var(--ew-color-ink));
     background: var(--ew-color-bg-surface);
     box-shadow: var(--ew-atomic-offset);
-    overflow: visible;
+    overflow: clip;
     padding: 0;
   }
   [data-era="mcm-atomic"] .ew-card[data-variant="raised"] {
@@ -2434,18 +2471,22 @@
     z-index: 0;
     opacity: 1;
   }
+  /* Kidneys sit in the card's bottom padding, inside the border box, clear of the type. */
   [data-era="mcm-atomic"] .ew-card::before {
-    top: -16px;
-    left: -16px;
+    top: auto;
+    bottom: 10px;
+    left: 10px;
+    width: 46px;
+    height: 32px;
     background: var(--ew-color-teal);
     border-radius: 62% 38% 28% 72% / 48% 62% 38% 52%;
-    transform: rotate(-22deg);
+    transform: rotate(-18deg);
   }
   [data-era="mcm-atomic"] .ew-card::after {
-    bottom: -14px;
-    right: -14px;
-    width: 118px;
-    height: 84px;
+    bottom: 10px;
+    right: 10px;
+    width: 42px;
+    height: 30px;
     background: var(--ew-color-coral);
     border-radius: 38% 62% 70% 30% / 58% 42% 60% 40%;
     transform: rotate(16deg);
@@ -2471,7 +2512,12 @@
   [data-era="mcm-atomic"] .ew-card__footer {
     position: relative;
     z-index: 2;
-    padding: 16px 20px 20px;
+    padding: 16px 20px 52px;
+    background: transparent;
+  }
+  [data-era="mcm-atomic"] .ew-card > :not(.ew-card__header):not(.ew-card__body):not(.ew-card__footer) {
+    position: relative;
+    z-index: 1;
   }
 
   /* --- Buttons: coral primary + starburst; turquoise outline secondary; pill; hover lift --- */
@@ -3067,7 +3113,15 @@
   [data-era="mcm-atomic"][data-fidelity-band="default"] .ew-hero__content,
   [data-fidelity-band="default"] [data-era="mcm-atomic"] .ew-hero__content,
   [data-era="mcm-atomic"][data-fidelity-band="signature"] .ew-hero__content,
-  [data-fidelity-band="signature"] [data-era="mcm-atomic"] .ew-hero__content {
+  [data-fidelity-band="signature"] [data-era="mcm-atomic"] .ew-hero__content,
+  [data-era="mcm-atomic"][data-fidelity-band="whisper"] .ew-hero__panel,
+  [data-fidelity-band="whisper"] [data-era="mcm-atomic"] .ew-hero__panel,
+  [data-era="mcm-atomic"][data-fidelity-band="standard"] .ew-hero__panel,
+  [data-fidelity-band="standard"] [data-era="mcm-atomic"] .ew-hero__panel,
+  [data-era="mcm-atomic"][data-fidelity-band="default"] .ew-hero__panel,
+  [data-fidelity-band="default"] [data-era="mcm-atomic"] .ew-hero__panel,
+  [data-era="mcm-atomic"][data-fidelity-band="signature"] .ew-hero__panel,
+  [data-fidelity-band="signature"] [data-era="mcm-atomic"] .ew-hero__panel {
     grid-column: 1 / -1;
   }
   [data-era="mcm-atomic"][data-fidelity-band="whisper"],
@@ -3746,6 +3800,32 @@
     pointer-events: none;
     overflow: hidden;
   }
+  /* Shared hero tree puts a backdrop and a panel around the copy. The backdrop must not take row 1, and the panel must, or the title falls below the floor. */
+  [data-era="neon"] .ew-hero__backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  [data-era="neon"] .ew-hero__panel {
+    position: relative;
+    z-index: 4;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+  }
+  [data-era="neon"] .ew-hero__panel .ew-hero__rays,
+  [data-era="neon"] .ew-hero__panel .ew-hero__fan {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
 
   /* Content stack: chrome → script → subtitle → CTAs — always above the stage */
   [data-era="neon"] .ew-hero__content {
@@ -3764,18 +3844,19 @@
   }
 
   /*
-   * Perspective floor. Origin is the top edge (the horizon) so rotateX
-   * pivots there instead of lifting the near edge off the mountains.
-   * Even local spacing converges toward that vanishing line after projection.
+   * Perspective floor. Origin is the near edge (the hero bottom) so the
+   * grid meets the stage edge. Lines still converge toward the horizon.
    */
   [data-era="neon"] .ew-hero__grid {
     position: absolute;
     left: -35%;
     width: 170%;
-    /* Mountain valleys sit just under the sun's diameter (stage-local). */
+    /* Mountain valleys sit just under the sun's diameter (stage-local).
+       Origin is the near edge so the floor meets the hero bottom; the horizon recedes from there. */
     top: calc(var(--ew-hero-sun-h) + 6px);
-    height: 168%;
-    transform-origin: top center;
+    bottom: 0;
+    height: auto;
+    transform-origin: bottom center;
     transform: perspective(280px) rotateX(63deg);
     pointer-events: none;
     z-index: 0;
@@ -3802,7 +3883,7 @@
     top: auto;
     bottom: 0;
     height: min(48vh, 440px);
-    transform-origin: top center;
+    transform-origin: bottom center;
     transform: perspective(280px) rotateX(63deg);
   }
 
@@ -4017,6 +4098,8 @@
     overflow: visible;
     /* Clear the 45° cut so titles are never clipped */
     padding: 32px 32px 28px;
+    min-width: 0;
+    max-width: 100%;
   }
   [data-era="neon"] .ew-card[data-variant="raised"] {
     background: var(--ew-color-bg-elevated);
@@ -4042,6 +4125,8 @@
   [data-era="neon"] .ew-card__footer {
     position: relative;
     z-index: 2;
+    min-width: 0;
+    max-width: 100%;
   }
   [data-era="neon"] .ew-card__header h2,
   [data-era="neon"] .ew-card__header h3 {
@@ -4049,6 +4134,20 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--ew-color-fg-default);
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+  @media (max-width: 640px) {
+    [data-era="neon"] .ew-card {
+      padding: 20px 14px 16px;
+    }
+    [data-era="neon"] .ew-card__header h2,
+    [data-era="neon"] .ew-card__header h3 {
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+    }
   }
   [data-era="neon"] .ew-card__header::after {
     content: "" / "";

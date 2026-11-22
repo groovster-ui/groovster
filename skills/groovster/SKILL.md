@@ -19,7 +19,7 @@ Groovster skins HTML. Do not add React, Tailwind, or a component library. One HT
 3. Choose an era from that card.
 4. Set fidelity from the card. Dashboards and tables default to `whisper`.
 5. Write the required sections in order.
-6. Mark up controls from `references/anatomy.md` or `generated/llms/<component>.md`. Copy one component at a time.
+6. Mark up controls from `references/anatomy.md` or `references/llms/<component>.md`. Copy one component at a time.
 7. Add the smallest vanilla script for filters, dialogs, and fictional submits. Load `@groovster/elements/era-elements.js` for tabs, select, menu, popover, tooltip, toast, or slider.
 8. Stack below 800px. Do not set `outline: none`.
 9. Check: one `h1`, visible labels, native buttons and dialogs, hero hooks for costume neon/atomic/deco, no remote images or fonts, fictional payments labeled as fictional.
@@ -31,7 +31,7 @@ Eras: `neutral`, `deco`, `earth`, `groovy`, `mcm-atomic`, `memphis`, `neon`.
 
 Bands: `whisper`, `standard`, `costume`. Costume is the default when the attribute is absent.
 
-Costume heroes keep one structure. Neon and Atomic need `.ew-hero__stage`. Deco wraps the same copy in `.ew-hero__panel`. Dashboards omit `.ew-hero`.
+Costume heroes keep one structure: backdrop, stage, and panel, as in `references/anatomy.md`. Each era's CSS places that tree. Dashboards omit `.ew-hero`.
 
 ## CSS
 
@@ -39,7 +39,7 @@ Link `base.css`, the components you use, and each era the page can switch to. A 
 
 ## MCP
 
-Optional. Call `recommend`, then `get_component` only for a widget you are about to write. Without MCP, the recipe card and anatomy file are enough.
+Optional. Call `recommend` or `find_recipe`, then `get_component` only for a widget you are about to write. Without MCP, the recipe card and anatomy file are enough.
 
 ## Install
 

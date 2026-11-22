@@ -102,7 +102,7 @@ export async function smokeStandalone() {
   child.stdin.write(frame({ jsonrpc: '2.0', method: 'notifications/initialized' }));
   const listed = await request('tools/list', {});
   const names = listed.tools.map((tool) => tool.name).sort();
-  const expected = ['get_component', 'get_era_spec', 'install', 'list_eras', 'recommend', 'validate'];
+  const expected = ['find_recipe', 'get_component', 'get_era_spec', 'install', 'list_eras', 'recommend', 'validate'];
   if (names.join() !== expected.join()) {
     throw new Error(`Unexpected tools: ${names.join(', ')}`);
   }
@@ -116,6 +116,20 @@ export async function smokeStandalone() {
   if (!(era.content?.[0]?.text || '').includes('deco')) throw new Error('get_era_spec missed deco');
   const invalid = await request('tools/call', { name: 'validate', arguments: { markup: '<div><button class="ew-button">x</button></div>', era: 'deco' } });
   if (!(invalid.content?.[0]?.text || '').includes('fixes')) throw new Error('validate did not return fixes');
+  const found = await request('tools/call', { name: 'find_recipe', arguments: { query: 'hotel reservation' } });
+  const foundPayload = JSON.parse(found.content?.[0]?.text || '{}');
+  const top = foundPayload.recipes?.[0];
+  if (!top || top.id !== 'hospitality') throw new Error(`find_recipe missed hospitality: ${found.content?.[0]?.text}`);
+  for (const recipe of foundPayload.recipes || []) {
+    const cardFile = path.join(installed, recipe.card || '');
+    if (!recipe.card || !fs.existsSync(cardFile)) throw new Error(`packaged card missing for ${recipe.id}: ${recipe.card}`);
+  }
+  const advised = await request('tools/call', { name: 'recommend', arguments: { description: 'boutique hotel booking' } });
+  const advisedPayload = JSON.parse(advised.content?.[0]?.text || '{}');
+  const advisedCard = path.join(installed, advisedPayload.recipe?.card || '');
+  if (!advisedPayload.recipe?.card || !fs.existsSync(advisedCard)) {
+    throw new Error(`recommend card missing from package: ${advisedPayload.recipe?.card}`);
+  }
   child.kill();
   fs.rmSync(tmp, { recursive: true, force: true });
   console.log('Standalone MCP package smoke OK');

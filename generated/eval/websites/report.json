@@ -6,7 +6,7 @@
   },
   "visualQuality": "not scored",
   "footprint": {
-    "fullGzip": 35713,
+    "fullGzip": 36276,
     "selectiveGzip": 9354,
     "note": "Demos that switch all seven eras link the full bundle. A fixed era can link base, used components, and that era."
   },
@@ -32,7 +32,7 @@
         },
         "skill": {
           "kind": "reference-site",
-          "tokens": 1437,
+          "tokens": 1451,
           "structural": {
             "ok": true,
             "missing": []
@@ -41,7 +41,7 @@
         },
         "skill-mcp": {
           "kind": "reference-site-plus-recommend",
-          "tokens": 1723,
+          "tokens": 1743,
           "toolCalls": 1,
           "era": "deco",
           "fidelityBand": "whisper",
@@ -74,7 +74,7 @@
         },
         "skill": {
           "kind": "reference-site",
-          "tokens": 1438,
+          "tokens": 1452,
           "structural": {
             "ok": true,
             "missing": []
@@ -83,7 +83,7 @@
         },
         "skill-mcp": {
           "kind": "reference-site-plus-recommend",
-          "tokens": 1724,
+          "tokens": 1744,
           "toolCalls": 1,
           "era": "neon",
           "fidelityBand": "standard",
@@ -116,7 +116,7 @@
         },
         "skill": {
           "kind": "reference-site",
-          "tokens": 1475,
+          "tokens": 1489,
           "structural": {
             "ok": true,
             "missing": []
@@ -125,7 +125,7 @@
         },
         "skill-mcp": {
           "kind": "reference-site-plus-recommend",
-          "tokens": 1757,
+          "tokens": 1778,
           "toolCalls": 1,
           "era": "deco",
           "fidelityBand": "whisper",
@@ -158,7 +158,7 @@
         },
         "skill": {
           "kind": "reference-site",
-          "tokens": 1399,
+          "tokens": 1413,
           "structural": {
             "ok": true,
             "missing": []
@@ -167,7 +167,7 @@
         },
         "skill-mcp": {
           "kind": "reference-site-plus-recommend",
-          "tokens": 1643,
+          "tokens": 1664,
           "toolCalls": 1,
           "era": "groovy",
           "fidelityBand": "standard",
@@ -200,7 +200,7 @@
         },
         "skill": {
           "kind": "reference-site",
-          "tokens": 1472,
+          "tokens": 1486,
           "structural": {
             "ok": true,
             "missing": []
@@ -209,7 +209,7 @@
         },
         "skill-mcp": {
           "kind": "reference-site-plus-recommend",
-          "tokens": 1724,
+          "tokens": 1745,
           "toolCalls": 1,
           "era": "neutral",
           "fidelityBand": "whisper",
