@@ -804,7 +804,7 @@
       if (!tip || !trigger) return;
       if (!tip.id) tip.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
       tip.setAttribute('role', 'tooltip');
-      tip.hidden = true;
+      tip.setAttribute('popover', 'manual');
       tip.dataset.ewOpen = 'false';
       if (!trigger.getAttribute('aria-describedby')?.includes(tip.id)) {
         const prev = trigger.getAttribute('aria-describedby') || '';
@@ -827,14 +827,14 @@
     #show() {
       const tip = this.#tip;
       if (!tip) return;
-      tip.hidden = false;
+      tip.showPopover();
       tip.dataset.ewOpen = 'true';
       tip.style.opacity = '1';
     }
     #hide() {
       const tip = this.#tip;
-      if (!tip) return;
-      tip.hidden = true;
+      if (!tip || !tip.matches(':popover-open')) return;
+      tip.hidePopover();
       tip.dataset.ewOpen = 'false';
       tip.style.opacity = '';
     }

@@ -4,7 +4,11 @@
   .ew-toast {
     /* anatomy: root, title, body, region */
   }
-  .ew-toast-region, ew-toast-region { display: grid; gap: 8px; }
+  .ew-toast-region, ew-toast-region {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    display: grid; gap: 10px; pointer-events: none;
+  }
+  .ew-toast-region > * { pointer-events: auto; }
   .ew-toast {
     position: relative;
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);

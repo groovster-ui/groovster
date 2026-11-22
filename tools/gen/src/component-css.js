@@ -497,7 +497,11 @@ function tooltipCss(cls) {
 }
 
 function toastCss(cls) {
-  return `  .ew-toast-region, ew-toast-region { display: grid; gap: 8px; }
+  return `  .ew-toast-region, ew-toast-region {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    display: grid; gap: 10px; pointer-events: none;
+  }
+  .ew-toast-region > * { pointer-events: auto; }
   .${cls} {
     position: relative;
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
