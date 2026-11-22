@@ -67,7 +67,7 @@ export function generateRegistry(components) {
   const index = {
     $schema: 'https://ui.shadcn.com/schema/registry.json',
     name: 'era-widgets',
-    homepage: 'https://github.com/example/groovster',
+    homepage: 'https://github.com/groovster-ui/groovster',
     items: [],
   };
 
