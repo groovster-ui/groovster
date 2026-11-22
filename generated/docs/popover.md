@@ -17,8 +17,8 @@ Non-modal popover surface via Popover API.
 
 ## Imports
 
-- `@era-widgets/css/popover.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/popover.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

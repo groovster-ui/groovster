@@ -1,9 +1,9 @@
-# @era-widgets/css
+# @groovster/css
 
 Generated CSS for Era Widgets. **Published files import nothing** — link what you need:
 
 ```html
-<link rel="stylesheet" href="node_modules/@era-widgets/css/era-widgets.css" />
+<link rel="stylesheet" href="node_modules/@groovster/css/era-widgets.css" />
 <div data-era="deco" data-mode="light">…</div>
 ```
 

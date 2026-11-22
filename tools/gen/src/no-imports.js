@@ -1,15 +1,5 @@
 /**
- * Published/distributable outputs must import nothing.
- *
- * Scope (enforced):
- * - packages/css/dist (all .css) — no CSS at-import rules
- * - packages/elements/dist (js/mjs/cjs) — no ESM import / export-from / require()
- * - packages/elements root entry JS files if present — same as above
- *
- * Bundles must be self-contained. Consumers link CSS via link tags, never at-import
- * inside published CSS. Elements ship as a single dependency-free file.
- *
- * Out of scope: tools/, demos/, generated/docs, generated/llms.
+ * Published/distributable outputs must import nothing (static or dynamic).
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -18,7 +8,7 @@ import { listFiles } from './io.js';
 
 const CSS_IMPORT_RE = /@import\b/i;
 const JS_IMPORT_RE =
-  /\bimport\s*(?:[\s\w*{,}$]*\s*from\s*)?['"][^'"]+['"]|\bexport\s+[\s\w*{,}$]*\s*from\s*['"][^'"]+['"]|\brequire\s*\(\s*['"][^'"]+['"]\s*\)/;
+  /\bimport\s*(?:[\s\w*{,}$]*\s*from\s*)?['"][^'"]+['"]|\bexport\s+[\s\w*{,}$]*\s*from\s*['"][^'"]+['"]|\brequire\s*\(\s*['"][^'"]+['"]\s*\)|\bimport\s*\(/;
 
 function walkPublishedCss() {
   const root = path.join(REPO_ROOT, 'packages/css/dist');

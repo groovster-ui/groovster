@@ -1,7 +1,1 @@
-<!-- IconButton -->
-<button type="button" class="ew-icon-button" data-variant="ghost" aria-label="Close">
-  <span class="ew-icon-button__icon" aria-hidden="true">×</span>
-</button>
-
-import "@era-widgets/css/icon-button.css";
-a11y: Must have accessible name (aria-label).
+{"version":"0.1.0-alpha.0","name":"icon-button","html":"<button type=\"button\" class=\"ew-icon-button\" data-variant=\"ghost\" aria-label=\"Close\">\n  <span class=\"ew-icon-button__icon\" aria-hidden=\"true\">×</span>\n</button>","css":"import \"@groovster/css/icon-button.css\";","a11y":"Must have accessible name (aria-label)."}

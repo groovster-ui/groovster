@@ -36,8 +36,8 @@
     }
   ],
   "imports": [
-    "@era-widgets/css/link.css",
-    "@era-widgets/css/eras/<era>.css"
+    "@groovster/css/link.css",
+    "@groovster/css/eras/<era>.css"
   ],
   "tokenDeps": [
     "color.fg.*",

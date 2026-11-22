@@ -10,7 +10,7 @@ HTML:
 </div>
 ```
 
-CSS: @era-widgets/css/alert.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/alert.css + @groovster/css/eras/<era>.css
 Variants: variant=info|success|warning|danger(default:info)
 Sizes: sm|md|lg (default md)
 ARIA: status or alert

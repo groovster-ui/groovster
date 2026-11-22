@@ -1,18 +1,23 @@
 /**
  * <ew-menu> — light-DOM Menu Button (WAI-ARIA APG).
  * Public classes: ew-menu*. No dependencies. No imports. Zag.js: not used.
+ * Outside click closes without restoring focus. Escape/selection restore focus.
+ * Typeahead jumps to matching menuitems.
  */
 (() => {
   const TAG = 'ew-menu';
   if (customElements.get(TAG)) return;
+  let uid = 0;
 
   class EwMenu extends HTMLElement {
     #open = false;
     #ready = false;
     #mo = null;
+    #typeahead = '';
+    #typeaheadTimer = null;
     #onDoc = (e) => {
       if (!this.#open) return;
-      if (!this.contains(e.target)) this.#setOpen(false);
+      if (!this.contains(e.target)) this.#setOpen(false, { restoreFocus: false });
     };
 
     connectedCallback() {
@@ -30,6 +35,7 @@
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKey);
       document.removeEventListener('pointerdown', this.#onDoc, true);
+      clearTimeout(this.#typeaheadTimer);
     }
 
     get #trigger() {
@@ -56,7 +62,7 @@
       const trigger = this.#trigger;
       const panel = this.#panel;
       if (!trigger || !panel) return;
-      if (!panel.id) panel.id = `${TAG}-${Math.random().toString(36).slice(2, 8)}`;
+      if (!panel.id) panel.id = `${TAG}-${++uid}`;
       trigger.setAttribute('aria-haspopup', 'menu');
       trigger.setAttribute('aria-controls', panel.id);
       trigger.setAttribute('aria-expanded', 'false');
@@ -76,7 +82,7 @@
       }
       if (e.target.closest('.ew-menu__trigger, [aria-haspopup="menu"]')) {
         e.preventDefault();
-        this.#setOpen(!this.#open);
+        this.#setOpen(!this.#open, { restoreFocus: true });
       }
     };
 
@@ -86,15 +92,15 @@
       if (e.target === trigger || trigger?.contains(e.target)) {
         if (['ArrowDown', 'Enter', ' '].includes(e.key)) {
           e.preventDefault();
-          this.#setOpen(true);
+          this.#setOpen(true, { restoreFocus: true });
           items[0]?.focus();
         } else if (e.key === 'ArrowUp') {
           e.preventDefault();
-          this.#setOpen(true);
+          this.#setOpen(true, { restoreFocus: true });
           items[items.length - 1]?.focus();
         } else if (e.key === 'Escape' && this.#open) {
           e.preventDefault();
-          this.#setOpen(false);
+          this.#setOpen(false, { restoreFocus: true });
         }
         return;
       }
@@ -118,14 +124,24 @@
         this.#activate(item);
       } else if (e.key === 'Escape') {
         e.preventDefault();
-        this.#setOpen(false);
-        trigger?.focus();
+        this.#setOpen(false, { restoreFocus: true });
       } else if (e.key === 'Tab') {
-        this.#setOpen(false);
+        this.#setOpen(false, { restoreFocus: false });
+      } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        e.preventDefault();
+        this.#typeahead += e.key.toLowerCase();
+        clearTimeout(this.#typeaheadTimer);
+        this.#typeaheadTimer = setTimeout(() => {
+          this.#typeahead = '';
+        }, 500);
+        const match = items.find((it) =>
+          (it.textContent || '').trim().toLowerCase().startsWith(this.#typeahead)
+        );
+        match?.focus();
       }
     };
 
-    #setOpen(open) {
+    #setOpen(open, { restoreFocus = false } = {}) {
       this.#open = open;
       const trigger = this.#trigger;
       const panel = this.#panel;
@@ -135,7 +151,7 @@
       if (open) document.addEventListener('pointerdown', this.#onDoc, true);
       else {
         document.removeEventListener('pointerdown', this.#onDoc, true);
-        trigger.focus();
+        if (restoreFocus) trigger.focus();
       }
     }
 
@@ -146,7 +162,7 @@
           detail: { id: item.id, label: item.textContent?.trim() },
         })
       );
-      this.#setOpen(false);
+      this.#setOpen(false, { restoreFocus: true });
     }
   }
 

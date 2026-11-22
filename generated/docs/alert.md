@@ -15,8 +15,8 @@ Inline alert for page-level feedback.
 
 ## Imports
 
-- `@era-widgets/css/alert.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/alert.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

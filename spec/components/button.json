@@ -145,8 +145,8 @@
   ],
   "canonicalHtml": "<button type=\"button\" class=\"ew-button\">Save</button>",
   "imports": [
-    "@era-widgets/css/button.css",
-    "@era-widgets/css/eras/<era>.css"
+    "@groovster/css/button.css",
+    "@groovster/css/eras/<era>.css"
   ],
   "do": [
     "Use a real <button> with an accessible name.",

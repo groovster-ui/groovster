@@ -10,7 +10,7 @@ HTML:
 </ew-tooltip>
 ```
 
-CSS: @era-widgets/css/tooltip.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/tooltip.css + @groovster/css/eras/<era>.css
 Variants: variant=default(default:default)
 Sizes: sm|md|lg (default md)
 ARIA: tooltip

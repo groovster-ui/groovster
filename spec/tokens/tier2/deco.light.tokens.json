@@ -1,0 +1,146 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 2,
+    "era": "deco",
+    "mode": "light",
+    "description": "Tier 2 semantic roles for deco light (references tier 1)"
+  },
+  "color": {
+    "fg": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.ink}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.ink} 55%, {color.paper})"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.paper}"
+      }
+    },
+    "bg": {
+      "page": {
+        "$type": "color",
+        "$value": "{color.paper}"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.panel}"
+      },
+      "elevated": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.panel} 88%, {color.ink})"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.brass}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.brassDeep}"
+      }
+    },
+    "action": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "{color.accent.fg}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.accent.solid} 85%, {color.ink})"
+      }
+    },
+    "field": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.paper}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.brassDeep}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.brass}"
+      }
+    },
+    "overlay": {
+      "$type": "color",
+      "$value": "color-mix(in oklch, {color.ink} 55%, transparent)"
+    },
+    "track": {
+      "off": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.panel} 80%, {color.ink})"
+      },
+      "on": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      }
+    },
+    "danger": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.danger.solid}"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "{color.danger.fg}"
+      }
+    }
+  },
+  "elevation": {
+    "1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.brassDeep} 35%, transparent)"
+        }
+      ]
+    },
+    "2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.ink} 25%, transparent)"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.brassDeep} 20%, transparent)"
+        }
+      ]
+    },
+    "dialog": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "12px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.ink} 35%, transparent)"
+        }
+      ]
+    }
+  }
+}

@@ -9,7 +9,7 @@ HTML:
 </span>
 ```
 
-CSS: @era-widgets/css/avatar.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/avatar.css + @groovster/css/eras/<era>.css
 Variants: variant=circle|square(default:circle)
 Sizes: sm|md|lg (default md)
 ARIA: img when meaningful

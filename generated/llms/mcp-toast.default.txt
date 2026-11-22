@@ -1,6 +1,1 @@
-<!-- Toast -->
-<ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
-<!-- region.show({ title, body, variant }) -->
-
-import "@era-widgets/css/toast.css";
-a11y: Use <ew-toast-region>.show(...) for polite announcements.
+{"version":"0.1.0-alpha.0","name":"toast","html":"<ew-toast-region class=\"ew-toast-region\" aria-live=\"polite\"></ew-toast-region>\n<!-- region.show({ title, body, variant }) -->","css":"import \"@groovster/css/toast.css\";","a11y":"Use <ew-toast-region>.show(...) for polite announcements."}

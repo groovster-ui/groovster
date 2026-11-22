@@ -6,7 +6,7 @@ import { TOOL_DEFS, dispatch } from './tools.js';
 import { VERSION } from './paths.js';
 
 const server = new Server(
-  { name: 'era-widgets', version: VERSION },
+  { name: 'groovster', version: VERSION },
   { capabilities: { tools: {} } }
 );
 
@@ -22,10 +22,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const name = request.params.name;
   const args = request.params.arguments || {};
   const result = dispatch(name, args);
-  const text = JSON.stringify(result, null, 2);
+  // Compact single-copy JSON — no pretty-print, no duplicate structuredContent.
   return {
-    content: [{ type: 'text', text }],
-    structuredContent: result,
+    content: [{ type: 'text', text: JSON.stringify(result) }],
   };
 });
 

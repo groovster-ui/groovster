@@ -1,9 +1,1 @@
-<!-- Switch -->
-<label class="ew-switch">
-  <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-  <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-  <span class="ew-switch__label">Notifications</span>
-</label>
-
-import "@era-widgets/css/switch.css";
-a11y: If using role=switch, keep aria-checked in sync with checked.
+{"version":"0.1.0-alpha.0","name":"switch","html":"<label class=\"ew-switch\">\n  <input class=\"ew-switch__control\" type=\"checkbox\" role=\"switch\" aria-checked=\"false\" />\n  <span class=\"ew-switch__track\" aria-hidden=\"true\"><span class=\"ew-switch__thumb\"></span></span>\n  <span class=\"ew-switch__label\">Notifications</span>\n</label>","css":"import \"@groovster/css/switch.css\";","a11y":"If using role=switch, keep aria-checked in sync with checked."}

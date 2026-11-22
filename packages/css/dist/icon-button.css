@@ -17,4 +17,21 @@
   .ew-icon-button[data-variant="secondary"] { background: transparent; color: var(--ew-color-fg-default); }
   .ew-icon-button:focus-visible { outline: 2px solid var(--ew-color-field-focus); outline-offset: 2px; }
   .ew-icon-button__icon { line-height: 1; font-size: 18px; }
+  /* spec variant variant=primary */
+  .ew-icon-button[data-variant="primary"] { --ew-spec-variant-variant: primary; }
+  /* spec variant variant=secondary */
+  .ew-icon-button[data-variant="secondary"] { --ew-spec-variant-variant: secondary; }
+  /* spec variant variant=ghost */
+  .ew-icon-button[data-variant="ghost"] { --ew-spec-variant-variant: ghost; }
+  .ew-icon-button:not([data-variant]) { --ew-spec-variant-variant: ghost; }
+  .ew-icon-button[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-icon-button[data-size="md"] { --ew-spec-size: md; }
+  .ew-icon-button[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-icon-button:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-icon-button, .ew-icon-button *, .ew-icon-button *::before, .ew-icon-button *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

@@ -140,6 +140,31 @@
     "packages/css/dist/toast.css",
     "packages/css/dist/tokens-components.css",
     "packages/css/dist/tooltip.css",
+    "packages/react/README.md",
+    "packages/react/package.json",
+    "packages/react/src/Alert.tsx",
+    "packages/react/src/Avatar.tsx",
+    "packages/react/src/Breadcrumb.tsx",
+    "packages/react/src/Button.tsx",
+    "packages/react/src/Card.tsx",
+    "packages/react/src/Checkbox.tsx",
+    "packages/react/src/Dialog.tsx",
+    "packages/react/src/EraRoot.tsx",
+    "packages/react/src/IconButton.tsx",
+    "packages/react/src/Link.tsx",
+    "packages/react/src/Menu.tsx",
+    "packages/react/src/OrnamentDivider.tsx",
+    "packages/react/src/Popover.tsx",
+    "packages/react/src/Radio.tsx",
+    "packages/react/src/Select.tsx",
+    "packages/react/src/Slider.tsx",
+    "packages/react/src/Switch.tsx",
+    "packages/react/src/Tabs.tsx",
+    "packages/react/src/TextField.tsx",
+    "packages/react/src/Textarea.tsx",
+    "packages/react/src/Toast.tsx",
+    "packages/react/src/Tooltip.tsx",
+    "packages/react/src/index.ts",
     "packages/tokens/dist/index.json",
     "packages/tokens/dist/tier1/deco.dark.tokens.json",
     "packages/tokens/dist/tier1/deco.light.tokens.json",
@@ -155,13 +180,20 @@
     "packages/tokens/dist/tier1/neon.light.tokens.json",
     "packages/tokens/dist/tier1/neutral.dark.tokens.json",
     "packages/tokens/dist/tier1/neutral.light.tokens.json",
-    "packages/tokens/dist/tier2/deco.shared.tokens.json",
-    "packages/tokens/dist/tier2/earth.shared.tokens.json",
-    "packages/tokens/dist/tier2/groovy.shared.tokens.json",
-    "packages/tokens/dist/tier2/mcm-atomic.shared.tokens.json",
-    "packages/tokens/dist/tier2/memphis.shared.tokens.json",
-    "packages/tokens/dist/tier2/neon.shared.tokens.json",
-    "packages/tokens/dist/tier2/neutral.shared.tokens.json",
+    "packages/tokens/dist/tier2/deco.dark.tokens.json",
+    "packages/tokens/dist/tier2/deco.light.tokens.json",
+    "packages/tokens/dist/tier2/earth.dark.tokens.json",
+    "packages/tokens/dist/tier2/earth.light.tokens.json",
+    "packages/tokens/dist/tier2/groovy.dark.tokens.json",
+    "packages/tokens/dist/tier2/groovy.light.tokens.json",
+    "packages/tokens/dist/tier2/mcm-atomic.dark.tokens.json",
+    "packages/tokens/dist/tier2/mcm-atomic.light.tokens.json",
+    "packages/tokens/dist/tier2/memphis.dark.tokens.json",
+    "packages/tokens/dist/tier2/memphis.light.tokens.json",
+    "packages/tokens/dist/tier2/neon.dark.tokens.json",
+    "packages/tokens/dist/tier2/neon.light.tokens.json",
+    "packages/tokens/dist/tier2/neutral.dark.tokens.json",
+    "packages/tokens/dist/tier2/neutral.light.tokens.json",
     "packages/tokens/dist/tier3/components.shared.tokens.json",
     "registry/README.md",
     "registry/r/alert.json",
@@ -212,171 +244,171 @@
     },
     "measured": {
       "llms.section:alert": {
-        "chars": 521,
+        "chars": 517,
         "budget": "llms.section"
       },
       "mcp.defaultReply:alert": {
-        "chars": 288,
+        "chars": 348,
         "budget": "mcp.defaultReply"
       },
       "llms.section:avatar": {
-        "chars": 473,
+        "chars": 469,
         "budget": "llms.section"
       },
       "mcp.defaultReply:avatar": {
-        "chars": 226,
+        "chars": 283,
         "budget": "mcp.defaultReply"
       },
       "llms.section:breadcrumb": {
-        "chars": 653,
+        "chars": 649,
         "budget": "llms.section"
       },
       "mcp.defaultReply:breadcrumb": {
-        "chars": 428,
+        "chars": 503,
         "budget": "mcp.defaultReply"
       },
       "llms.section:button": {
-        "chars": 491,
+        "chars": 487,
         "budget": "llms.section"
       },
       "mcp.defaultReply:button": {
-        "chars": 187,
+        "chars": 240,
         "budget": "mcp.defaultReply"
       },
       "llms.section:card": {
-        "chars": 756,
+        "chars": 752,
         "budget": "llms.section"
       },
       "mcp.defaultReply:card": {
-        "chars": 450,
+        "chars": 513,
         "budget": "mcp.defaultReply"
       },
       "llms.section:checkbox": {
-        "chars": 551,
+        "chars": 547,
         "budget": "llms.section"
       },
       "mcp.defaultReply:checkbox": {
-        "chars": 312,
+        "chars": 375,
         "budget": "mcp.defaultReply"
       },
       "llms.section:dialog": {
-        "chars": 839,
+        "chars": 835,
         "budget": "llms.section"
       },
       "mcp.defaultReply:dialog": {
-        "chars": 544,
+        "chars": 619,
         "budget": "mcp.defaultReply"
       },
       "llms.section:icon-button": {
-        "chars": 509,
+        "chars": 505,
         "budget": "llms.section"
       },
       "mcp.defaultReply:icon-button": {
-        "chars": 270,
+        "chars": 332,
         "budget": "mcp.defaultReply"
       },
       "llms.section:link": {
-        "chars": 370,
+        "chars": 366,
         "budget": "llms.section"
       },
       "mcp.defaultReply:link": {
-        "chars": 127,
+        "chars": 178,
         "budget": "mcp.defaultReply"
       },
       "llms.section:menu": {
-        "chars": 683,
+        "chars": 679,
         "budget": "llms.section"
       },
       "mcp.defaultReply:menu": {
-        "chars": 438,
+        "chars": 515,
         "budget": "mcp.defaultReply"
       },
       "llms.section:ornament-divider": {
-        "chars": 471,
+        "chars": 467,
         "budget": "llms.section"
       },
       "mcp.defaultReply:ornament-divider": {
-        "chars": 169,
+        "chars": 221,
         "budget": "mcp.defaultReply"
       },
       "llms.section:popover": {
-        "chars": 581,
+        "chars": 577,
         "budget": "llms.section"
       },
       "mcp.defaultReply:popover": {
-        "chars": 350,
+        "chars": 414,
         "budget": "mcp.defaultReply"
       },
       "llms.section:radio": {
-        "chars": 825,
+        "chars": 821,
         "budget": "llms.section"
       },
       "mcp.defaultReply:radio": {
-        "chars": 562,
+        "chars": 647,
         "budget": "mcp.defaultReply"
       },
       "llms.section:select": {
-        "chars": 618,
+        "chars": 614,
         "budget": "llms.section"
       },
       "mcp.defaultReply:select": {
-        "chars": 389,
+        "chars": 456,
         "budget": "mcp.defaultReply"
       },
       "llms.section:slider": {
-        "chars": 561,
+        "chars": 557,
         "budget": "llms.section"
       },
       "mcp.defaultReply:slider": {
-        "chars": 357,
+        "chars": 428,
         "budget": "mcp.defaultReply"
       },
       "llms.section:switch": {
-        "chars": 746,
+        "chars": 742,
         "budget": "llms.section"
       },
       "mcp.defaultReply:switch": {
-        "chars": 399,
+        "chars": 468,
         "budget": "mcp.defaultReply"
       },
       "llms.section:tabs": {
-        "chars": 993,
+        "chars": 989,
         "budget": "llms.section"
       },
       "mcp.defaultReply:tabs": {
-        "chars": 558,
+        "chars": 652,
         "budget": "mcp.defaultReply"
       },
       "llms.section:text-field": {
-        "chars": 612,
+        "chars": 608,
         "budget": "llms.section"
       },
       "mcp.defaultReply:text-field": {
-        "chars": 277,
+        "chars": 342,
         "budget": "mcp.defaultReply"
       },
       "llms.section:textarea": {
-        "chars": 508,
+        "chars": 504,
         "budget": "llms.section"
       },
       "mcp.defaultReply:textarea": {
-        "chars": 249,
+        "chars": 311,
         "budget": "mcp.defaultReply"
       },
       "llms.section:toast": {
-        "chars": 493,
+        "chars": 489,
         "budget": "llms.section"
       },
       "mcp.defaultReply:toast": {
-        "chars": 242,
+        "chars": 294,
         "budget": "mcp.defaultReply"
       },
       "llms.section:tooltip": {
-        "chars": 581,
+        "chars": 577,
         "budget": "llms.section"
       },
       "mcp.defaultReply:tooltip": {
-        "chars": 315,
+        "chars": 379,
         "budget": "mcp.defaultReply"
       },
       "mcp.eraCard:deco": {
@@ -408,7 +440,7 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 2084,
+        "chars": 2082,
         "budget": "llms.index"
       }
     }

@@ -56,7 +56,7 @@ function itemFor(comp) {
     meta: {
       className: comp.className,
       canonicalHtml: comp.canonicalHtml,
-      cssPackage: `@era-widgets/css/${comp.id}.css`,
+      cssPackage: `@groovster/css/${comp.id}.css`,
     },
   };
 }
@@ -67,7 +67,7 @@ export function generateRegistry(components) {
   const index = {
     $schema: 'https://ui.shadcn.com/schema/registry.json',
     name: 'era-widgets',
-    homepage: 'https://github.com/groovster-ui/groovster',
+    homepage: 'https://groovsterui.com',
     items: [],
   };
 
@@ -105,7 +105,7 @@ npx shadcn@latest add ./registry/r/card.json
 \`\`\`
 
 Items include generated CSS (and \`ew-tabs.js\` for Tabs) plus an HTML example.
-Era look comes from \`data-era\` + \`@era-widgets/css/eras/<era>.css\` — not per-item React.
+Era look comes from \`data-era\` + \`@groovster/css/eras/<era>.css\` — not per-item React.
 `
   );
   outputs.push('registry/README.md');

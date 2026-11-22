@@ -18,8 +18,8 @@ Native select with era chrome. Rich combobox WC deferred.
 
 ## Imports
 
-- `@era-widgets/css/select.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/select.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

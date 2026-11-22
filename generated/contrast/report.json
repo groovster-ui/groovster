@@ -1,34 +1,97 @@
 {
   "eras": {
     "neutral": {
-      "pass": true,
-      "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
     },
     "deco": {
-      "pass": true,
-      "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
     },
     "mcm-atomic": {
-      "pass": true,
-      "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
     },
     "neon": {
-      "pass": true,
-      "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
     },
     "memphis": {
-      "pass": true,
-      "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
     },
     "groovy": {
-      "pass": true,
-      "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
     },
     "earth": {
-      "pass": true,
-      "issues": []
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
     }
   },
   "pass": true,
-  "note": "Glow ignored; flat OKLCH fills only."
+  "note": "Glow ignored; flat OKLCH fills only. OKLCH→sRGB + WCAG relative luminance. Both modes."
 }

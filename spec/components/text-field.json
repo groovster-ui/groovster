@@ -151,8 +151,8 @@
   ],
   "canonicalHtml": "<div class=\"ew-text-field\">\n  <label class=\"ew-text-field__label\" for=\"email\">Email</label>\n  <input id=\"email\" class=\"ew-text-field__control\" type=\"email\" autocomplete=\"email\" />\n</div>",
   "imports": [
-    "@era-widgets/css/text-field.css",
-    "@era-widgets/css/eras/<era>.css"
+    "@groovster/css/text-field.css",
+    "@groovster/css/eras/<era>.css"
   ],
   "do": [
     "Always provide a visible label.",

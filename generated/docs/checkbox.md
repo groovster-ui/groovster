@@ -16,8 +16,8 @@ Labeled checkbox. Native input; eras skin the box.
 
 ## Imports
 
-- `@era-widgets/css/checkbox.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/checkbox.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

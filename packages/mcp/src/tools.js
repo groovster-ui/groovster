@@ -3,8 +3,27 @@ import { VERSION } from './paths.js';
 import { eraCard, getComponent, getEra, loadComponents, loadEras } from './load-spec.js';
 import { validateMarkup } from './validate.js';
 
+const REGISTRY_BASE = (process.env.GROOVSTER_REGISTRY_URL || 'https://groovsterui.com/r').replace(/\/$/, '');
+
 function pin(payload) {
   return { version: VERSION, ...payload };
+}
+
+function eraIds() {
+  return loadEras().map((e) => e.id);
+}
+
+function hardWidgetScript(compId) {
+  const map = {
+    tabs: 'ew-tabs.js',
+    select: 'ew-select.js',
+    menu: 'ew-menu.js',
+    popover: 'ew-popover.js',
+    tooltip: 'ew-tooltip.js',
+    toast: 'ew-toast.js',
+    slider: 'ew-slider.js',
+  };
+  return map[compId] || null;
 }
 
 export function listEras({ detail } = {}) {
@@ -34,7 +53,10 @@ export function listEras({ detail } = {}) {
 export function getEraSpec({ era, detail } = {}) {
   const e = getEra(era);
   if (!e) {
-    return pin({ error: `Unknown era "${era}"`, change: 'change era to neutral|deco|mcm-atomic|neon' });
+    return pin({
+      error: `Unknown era "${era}"`,
+      change: `change era to ${eraIds().join('|')}`,
+    });
   }
   const card = eraCard(e);
   if (detail === 'full') {
@@ -65,18 +87,17 @@ export function getComponentTool({ name, era, framework, detail } = {}) {
     });
   }
   const eraId = era ? getEra(era)?.id : null;
-  const cssImport = `@era-widgets/css/${comp.id}.css`;
-  const eraImport = eraId ? `@era-widgets/css/eras/${eraId}.css` : '@era-widgets/css/eras/<era>.css';
+  const cssImport = `@groovster/css/${comp.id}.css`;
+  const eraImport = eraId ? `@groovster/css/eras/${eraId}.css` : '@groovster/css/eras/<era>.css';
   const html =
     eraId && !comp.canonicalHtml.includes('data-era')
       ? `<div data-era="${eraId}">\n${comp.canonicalHtml}\n</div>`
       : comp.canonicalHtml;
 
-  // framework wrappers are later; HTML is canonical
   if (framework && framework !== 'html' && detail !== 'full') {
     return pin({
       name: comp.id,
-      note: 'Canonical API is HTML. React wrapper not required for agents.',
+      note: 'Canonical API is HTML. React wrapper available as @groovster/react.',
       html,
       css: [`import "${cssImport}";`, eraId ? `import "${eraImport}";` : `/* set data-era on an ancestor */`],
       a11y: comp.aria.notes[0],
@@ -109,18 +130,26 @@ export function installTool({ name, target } = {}) {
   const tgt = (target || 'npm').toLowerCase();
   const comp = name ? getComponent(name) : null;
   const lines = [];
+  const script = comp ? hardWidgetScript(comp.id) : null;
   if (tgt === 'registry' || tgt === 'shadcn') {
-    lines.push(`npx shadcn@latest add http://localhost:4174/r/${comp ? comp.id : 'button'}.json`);
-    lines.push('Or open registry/registry.json from this repo and copy the item URL once hosted.');
+    const id = comp ? comp.id : 'button';
+    lines.push(`npx shadcn@latest add ${REGISTRY_BASE}/${id}.json`);
+    lines.push(`Registry base: ${REGISTRY_BASE} (override with GROOVSTER_REGISTRY_URL).`);
   } else if (tgt === 'copy' || tgt === 'copy-in') {
-    lines.push('Copy packages/css/dist/era-widgets.css into your project.');
-    if (comp?.id === 'tabs') lines.push('Copy packages/elements/dist/ew-tabs.js and load via <script>.');
+    lines.push('Copy packages/css/dist/era-widgets.css (or @groovster/css) into your project.');
+    if (script) {
+      lines.push(`Copy packages/elements/dist/${script} and load via <script src="…/dist/${script}">.`);
+    } else if (!comp) {
+      lines.push('For hard widgets copy packages/elements/dist/era-elements.js.');
+    }
     lines.push('Use canonical HTML from get_component; set data-era on a root.');
   } else {
-    lines.push('pnpm add @era-widgets/css @era-widgets/elements @era-widgets/tokens');
-    lines.push('Link CSS: <link rel="stylesheet" href="node_modules/@era-widgets/css/era-widgets.css" />');
-    if (comp?.id === 'tabs') {
-      lines.push('<script src="node_modules/@era-widgets/elements/ew-tabs.js" type="module"></script>');
+    lines.push('pnpm add @groovster/css @groovster/elements @groovster/tokens');
+    lines.push('Link CSS: <link rel="stylesheet" href="node_modules/@groovster/css/era-widgets.css" />');
+    if (script) {
+      lines.push(`<script src="node_modules/@groovster/elements/dist/${script}"></script>`);
+    } else if (!comp) {
+      lines.push('<script src="node_modules/@groovster/elements/dist/era-elements.js"></script>');
     }
   }
   return pin({
@@ -166,7 +195,7 @@ export function validateTool({ markup, era, detail } = {}) {
 export const TOOL_DEFS = [
   {
     name: 'list_eras',
-    description: 'List Era Widgets packs with one-line identity and recommended fidelity.',
+    description: 'List Groovster era packs with one-line identity and recommended fidelity.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -181,7 +210,7 @@ export const TOOL_DEFS = [
       type: 'object',
       required: ['era'],
       properties: {
-        era: { type: 'string', description: 'neutral | deco | mcm-atomic | neon (aliases: atomic, synthwave)' },
+        era: { type: 'string', description: eraIds().join(' | ') },
         detail: { type: 'string', enum: ['default', 'full'] },
       },
     },

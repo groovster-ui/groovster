@@ -1,19 +1,7 @@
-# Eval report — era-widgets-phase2-v0
+# Eval report — groovster-agent-harness-v1
 
-Live agent runners not automated yet. This records validate/tokens/turns scaffolding against golden fixtures for each setup.
+Docs-agent vs MCP-agent: real tool/doc I/O token counts, turn counts, validate + Playwright render check.
 
 ## Setups
-- **cursor-agent**: success 100% (33/33), mean score 1.000, mean tokens 121, mean turns 1.00
-- **claude-code**: success 100% (33/33), mean score 1.000, mean tokens 121, mean turns 1.00
-- **openai-agent**: success 100% (33/33), mean score 1.000, mean tokens 121, mean turns 1.00
-- **cursor-agent-mcp**: success 100% (33/33), mean score 1.000, mean tokens 121, mean turns 1.00
-
-## How to run
-
-```bash
-pnpm eval                 # score fixtures for all setups
-pnpm eval:baseline        # write generated/eval/baseline.json + spec/eval/baseline.json
-pnpm eval -- --setup cursor-agent
-```
-
-Live agents: place model output HTML at `spec/eval/runs/<setup>/<taskId>.html` (runner TBD) and re-score.
+- **docs-agent**: success 100% (33/33), mean score 0.955, mean tokens 774, mean turns 3.55
+- **mcp-agent**: success 100% (33/33), mean score 0.882, mean tokens 1790, mean turns 5.55

@@ -20,7 +20,7 @@
     },
     "ink": {
       "$type": "color",
-      "$value": "oklch(30% 0.03 70)"
+      "$value": "oklch(20% 0.03 70)"
     },
     "accent": {
       "solid": {

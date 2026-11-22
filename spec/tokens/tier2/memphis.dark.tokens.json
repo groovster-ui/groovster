@@ -2,98 +2,99 @@
   "$schema": "../../../schema/tokens.schema.json",
   "meta": {
     "tier": 2,
-    "era": "groovy",
-    "mode": "shared"
+    "era": "memphis",
+    "mode": "dark",
+    "description": "Tier 2 semantic roles for memphis dark (references tier 1)"
   },
   "color": {
     "fg": {
       "default": {
         "$type": "color",
-        "$value": "oklch(28% 0.03 60)"
+        "$value": "{color.ink}"
       },
       "muted": {
         "$type": "color",
-        "$value": "oklch(45% 0.04 70)"
+        "$value": "color-mix(in oklch, {color.ink} 65%, {color.cream})"
       },
       "inverse": {
         "$type": "color",
-        "$value": "oklch(96% 0.02 95)"
+        "$value": "{color.cream}"
       }
     },
     "bg": {
       "page": {
         "$type": "color",
-        "$value": "oklch(94% 0.03 85)"
+        "$value": "{color.cream}"
       },
       "surface": {
         "$type": "color",
-        "$value": "oklch(90% 0.04 85)"
+        "$value": "color-mix(in oklch, {color.cream} 85%, {color.blue})"
       },
       "elevated": {
         "$type": "color",
-        "$value": "oklch(97% 0.02 90)"
+        "$value": "color-mix(in oklch, {color.cream} 75%, {color.pink})"
       }
     },
     "border": {
       "subtle": {
         "$type": "color",
-        "$value": "oklch(75% 0.05 85)"
+        "$value": "{color.ink}"
       },
       "strong": {
         "$type": "color",
-        "$value": "oklch(50% 0.08 130)"
+        "$value": "{color.yellow}"
       }
     },
     "action": {
       "bg": {
         "$type": "color",
-        "$value": "oklch(42% 0.1 130)"
+        "$value": "{color.accent.solid}"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(97% 0.02 95)"
+        "$value": "{color.accent.fg}"
       },
       "hover": {
         "$type": "color",
-        "$value": "oklch(38% 0.1 130)"
+        "$value": "color-mix(in oklch, {color.accent.solid} 88%, {color.ink})"
       }
     },
     "field": {
       "bg": {
         "$type": "color",
-        "$value": "oklch(97% 0.02 90)"
+        "$value": "color-mix(in oklch, {color.cream} 90%, {color.ink})"
       },
       "border": {
         "$type": "color",
-        "$value": "oklch(60% 0.06 85)"
+        "$value": "{color.ink}"
       },
       "focus": {
         "$type": "color",
-        "$value": "oklch(50% 0.1 130)"
+        "$value": "{color.yellow}"
       }
     },
     "overlay": {
       "$type": "color",
-      "$value": "oklch(28% 0.03 60 / 0.4)"
+      "$value": "color-mix(in oklch, {color.cream} 70%, transparent)"
     },
     "track": {
       "off": {
         "$type": "color",
-        "$value": "oklch(85% 0.03 85)"
+        "$value": "color-mix(in oklch, {color.cream} 70%, {color.ink})"
       },
       "on": {
         "$type": "color",
-        "$value": "oklch(42% 0.1 130)"
+        "$value": "{color.accent.solid}"
       }
     },
     "danger": {
       "bg": {
         "$type": "color",
-        "$value": "oklch(40% 0.14 35)"
+        "$value": "{color.danger.solid}"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(97% 0.02 95)"
+        "$value": "{color.danger.fg}"
       }
     }
   },
@@ -102,11 +103,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
+          "offsetX": "4px",
           "offsetY": "4px",
-          "blur": "10px",
+          "blur": "0px",
           "spread": "0px",
-          "color": "oklch(28% 0.03 60 / 0.12)"
+          "color": "{color.ink}"
         }
       ]
     },
@@ -114,11 +115,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "10px",
-          "blur": "24px",
+          "offsetX": "6px",
+          "offsetY": "6px",
+          "blur": "0px",
           "spread": "0px",
-          "color": "oklch(28% 0.03 60 / 0.16)"
+          "color": "{color.yellow}"
         }
       ]
     },
@@ -126,11 +127,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "16px",
-          "blur": "40px",
+          "offsetX": "10px",
+          "offsetY": "10px",
+          "blur": "0px",
           "spread": "0px",
-          "color": "oklch(28% 0.03 60 / 0.2)"
+          "color": "{color.pink}"
         }
       ]
     }

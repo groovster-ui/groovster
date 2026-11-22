@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "name": "era-widgets-phase2-v0",
-  "description": "Phase 2 eval: \u226530 tasks across heroes + trio; setups include docs-only and MCP-column placeholders. Metrics: validate, tokens, turns.",
+  "name": "groovster-agent-harness-v1",
+  "description": "Groovster eval: 33 tasks \u00d7 docs-agent vs mcp-agent. Real tokens/turns from agent I/O; validate + render check.",
   "componentsInScope": [
     "button",
     "card",
@@ -18,28 +18,16 @@
   ],
   "setups": [
     {
-      "id": "cursor-agent",
-      "label": "Cursor agent",
+      "id": "docs-agent",
+      "label": "Docs/llms agent (no MCP)",
       "mcp": false,
-      "notes": "Docs/llms.txt only; no MCP."
+      "notes": "Reads generated llms + era cards; emits canonical HTML."
     },
     {
-      "id": "claude-code",
-      "label": "Claude Code",
-      "mcp": false,
-      "notes": "Second setup for baseline comparison. MCP variants added in Phase 2."
-    },
-    {
-      "id": "openai-agent",
-      "label": "OpenAI-model agent",
-      "mcp": false,
-      "notes": "Third setup for Phase 2 baseline; MCP on/off variants later."
-    },
-    {
-      "id": "cursor-agent-mcp",
-      "label": "Cursor agent + MCP",
+      "id": "mcp-agent",
+      "label": "MCP tool agent",
       "mcp": true,
-      "notes": "Same fixtures today; live MCP runs TBD. Tracks with-MCP column."
+      "notes": "Calls list_eras/get_era_spec/get_component/validate; real turn+token accounting."
     }
   ],
   "scoring": {

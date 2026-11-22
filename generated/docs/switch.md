@@ -16,8 +16,8 @@ Binary on/off control. Prefer checkbox with switch role styling, or input type=c
 
 ## Imports
 
-- `@era-widgets/css/switch.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/switch.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

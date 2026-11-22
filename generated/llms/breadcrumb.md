@@ -13,7 +13,7 @@ HTML:
 </nav>
 ```
 
-CSS: @era-widgets/css/breadcrumb.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/breadcrumb.css + @groovster/css/eras/<era>.css
 Variants: variant=default(default:default)
 Sizes: sm|md|lg (default md)
 ARIA: navigation

@@ -18,4 +18,23 @@
   .ew-toast[data-variant="danger"] { border-color: var(--ew-color-danger-bg); }
   .ew-toast__title { display: block; margin-bottom: 4px; }
   .ew-toast__body { margin: 0; }
+  /* spec variant variant=info */
+  .ew-toast[data-variant="info"] { --ew-spec-variant-variant: info; }
+  /* spec variant variant=success */
+  .ew-toast[data-variant="success"] { --ew-spec-variant-variant: success; }
+  /* spec variant variant=warning */
+  .ew-toast[data-variant="warning"] { --ew-spec-variant-variant: warning; }
+  /* spec variant variant=danger */
+  .ew-toast[data-variant="danger"] { --ew-spec-variant-variant: danger; }
+  .ew-toast:not([data-variant]) { --ew-spec-variant-variant: info; }
+  .ew-toast[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-toast[data-size="md"] { --ew-spec-size: md; }
+  .ew-toast[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-toast:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-toast, .ew-toast *, .ew-toast *::before, .ew-toast *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }
