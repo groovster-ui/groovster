@@ -6,14 +6,56 @@ import { fileURLToPath } from 'node:url';
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const ERAS = ['neutral', 'deco', 'mcm-atomic', 'neon', 'memphis', 'groovy', 'earth'];
 
+function parseHex(str) {
+  const m = String(str).trim().match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+  if (!m) return null;
+  let hex = m[1];
+  if (hex.length === 3) hex = hex.split('').map((c) => c + c).join('');
+  return {
+    kind: 'srgb',
+    r: parseInt(hex.slice(0, 2), 16) / 255,
+    g: parseInt(hex.slice(2, 4), 16) / 255,
+    b: parseInt(hex.slice(4, 6), 16) / 255,
+  };
+}
+
 function parseOklch(str) {
   const m = String(str).match(/oklch\(\s*([\d.]+)%?\s+([\d.]+)\s+([\d.]+)\s*(?:\/\s*[\d.]+)?\)/i);
   if (!m) return null;
+  const rawL = Number(m[1]);
   return {
-    l: Number(m[1]) / (m[1].includes('%') ? 1 : 100),
+    kind: 'oklch',
+    l: String(m[0]).includes('%') || rawL > 1 ? rawL / 100 : rawL,
     c: Number(m[2]),
-    h: Number(m[3])
+    h: Number(m[3]),
   };
+}
+
+function parseColor(str) {
+  if (str == null) return null;
+  return parseHex(str) || parseOklch(str);
+}
+
+function toHexChannel(v) {
+  const n = Math.round(Math.max(0, Math.min(1, v)) * 255);
+  return n.toString(16).padStart(2, '0');
+}
+
+function mixSrgbHex(color1, color2, p1) {
+  const a = parseHex(color1);
+  const b = parseHex(color2);
+  if (!a || !b) return null;
+  const p = p1 / 100;
+  const q = 1 - p;
+  return `#${toHexChannel(a.r * p + b.r * q)}${toHexChannel(a.g * p + b.g * q)}${toHexChannel(a.b * p + b.b * q)}`;
+}
+
+function luminanceOf(parsed) {
+  if (!parsed) return null;
+  if (parsed.kind === 'srgb') {
+    return srgbToRelativeLuminance(parsed.r, parsed.g, parsed.b);
+  }
+  return oklchToLuminance(parsed.l, parsed.c, parsed.h);
 }
 
 function oklchToLinearRgb(l, c, h) {
@@ -131,6 +173,10 @@ function evaluateColorMix(value, tokens) {
   const color1 = resolveReferences(colorMixMatch[1].trim(), tokens);
   const p1 = Number(colorMixMatch[2]);
   const color2 = resolveReferences(colorMixMatch[3].trim(), tokens);
+
+  // Hex palettes (e.g. deco): approximate the mix in sRGB for contrast checks
+  const hexMix = mixSrgbHex(color1, color2, p1);
+  if (hexMix) return hexMix;
   
   const mixed = mixOklch(color1, color2, p1);
   if (!mixed) return value;
@@ -172,14 +218,14 @@ function checkEra(era) {
     ];
     
     for (const [label, fg, bg, need] of pairs) {
-      const fgParsed = parseOklch(fg);
-      const bgParsed = parseOklch(bg);
-      if (!fgParsed || !bgParsed) {
+      const fgParsed = parseColor(fg);
+      const bgParsed = parseColor(bg);
+      const lumFg = luminanceOf(fgParsed);
+      const lumBg = luminanceOf(bgParsed);
+      if (lumFg == null || lumBg == null) {
         allIssues[mode].push({ label, error: `unparseable fg=${fg} bg=${bg}` });
         continue;
       }
-      const lumFg = oklchToLuminance(fgParsed.l, fgParsed.c, fgParsed.h);
-      const lumBg = oklchToLuminance(bgParsed.l, bgParsed.c, bgParsed.h);
       const ratio = contrastRatio(lumFg, lumBg);
       if (ratio < need) {
         allIssues[mode].push({ label, ratio: Number(ratio.toFixed(2)), need, fg, bg });

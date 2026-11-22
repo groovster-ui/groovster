@@ -12,138 +12,330 @@
   <link rel="stylesheet" href="../../packages/css/dist/eras/deco.css">
   <script type="module" src="../../packages/elements/dist/era-elements.js"></script>
   <style>
+    /* Showcase layout only — component ornament comes from the era pack */
     * { box-sizing: border-box; }
     body {
       margin: 0;
       --ew-font-display: 'Limelight', serif;
       --ew-font-body: 'Jost', sans-serif;
       --ew-font-mono: 'IBM Plex Mono', monospace;
+      position: relative;
+      z-index: 1;
     }
-    
+
     .hero {
       position: relative;
-      min-height: 90vh;
+      z-index: 1;
+      min-height: 88vh;
       display: grid;
       place-items: center;
-      text-align: center;
-      padding: 80px 24px 120px;
+      padding: 64px 24px 80px;
       overflow: hidden;
     }
-    
+
+    /* Framed hero panel — gold double-rule + stepped corners */
+    .hero__panel {
+      position: relative;
+      z-index: 2;
+      width: min(920px, 100%);
+      padding: 64px 48px 56px;
+      text-align: center;
+      border: 4px double var(--ew-color-gold);
+      background: color-mix(in oklch, var(--ew-color-panel) 88%, transparent);
+      clip-path: polygon(
+        0 28px, 10px 28px, 10px 16px, 16px 16px, 16px 0,
+        calc(100% - 16px) 0, calc(100% - 16px) 16px, calc(100% - 10px) 16px, calc(100% - 10px) 28px, 100% 28px,
+        100% calc(100% - 28px), calc(100% - 10px) calc(100% - 28px), calc(100% - 10px) calc(100% - 16px), calc(100% - 16px) calc(100% - 16px), calc(100% - 16px) 100%,
+        16px 100%, 16px calc(100% - 16px), 10px calc(100% - 16px), 10px calc(100% - 28px), 0 calc(100% - 28px)
+      );
+      box-shadow:
+        0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 65%, transparent),
+        0 10px 0 0 var(--ew-color-gold);
+    }
+
+    .hero__panel::before {
+      content: "" / "";
+      position: absolute;
+      inset: 12px;
+      border: 2px double color-mix(in oklch, var(--ew-color-gold) 75%, transparent);
+      clip-path: polygon(
+        0 18px, 8px 18px, 8px 10px, 10px 10px, 10px 0,
+        calc(100% - 10px) 0, calc(100% - 10px) 10px, calc(100% - 8px) 10px, calc(100% - 8px) 18px, 100% 18px,
+        100% calc(100% - 18px), calc(100% - 8px) calc(100% - 18px), calc(100% - 8px) calc(100% - 10px), calc(100% - 10px) calc(100% - 10px), calc(100% - 10px) 100%,
+        10px 100%, 10px calc(100% - 10px), 8px calc(100% - 10px), 8px calc(100% - 18px), 0 calc(100% - 18px)
+      );
+      pointer-events: none;
+    }
+
+    /* Cassandre-style speed lines behind title */
+    .hero__rays {
+      position: absolute;
+      inset: 6% 4% 24%;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent 0 10px,
+        color-mix(in oklch, var(--ew-color-gold) 42%, transparent) 10px 12px
+      );
+      mask-image: linear-gradient(180deg, transparent, black 18%, black 75%, transparent);
+      -webkit-mask-image: linear-gradient(180deg, transparent, black 18%, black 75%, transparent);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.9;
+      animation: deco-rays 14s linear infinite;
+    }
+
+    @keyframes deco-rays {
+      from { transform: translateX(0); }
+      to { transform: translateX(-15px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__rays { animation: none; }
+    }
+
     .hero__content {
       position: relative;
       z-index: 2;
-      max-width: 900px;
     }
-    
+
+    .hero__fan {
+      width: 148px;
+      height: 68px;
+      margin: 0 auto 28px;
+      background-color: var(--ew-color-gold);
+      -webkit-mask: var(--ew-ornament-fan) center / contain no-repeat;
+      mask: var(--ew-ornament-fan) center / contain no-repeat;
+    }
+
     .hero h1 {
       font-family: var(--ew-font-display);
-      font-size: clamp(48px, 8vw, 96px);
-      line-height: 1.1;
-      margin: 0 0 24px;
+      font-size: clamp(52px, 9vw, 104px);
+      line-height: 1.05;
+      margin: 0 0 20px;
       font-weight: 400;
     }
-    
+
     .hero__subtitle {
-      font-size: 20px;
-      letter-spacing: 0.24em;
+      font-size: 18px;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      margin: 0 0 48px;
-      opacity: 0.9;
+      margin: 0 0 40px;
       font-weight: 600;
+      color: var(--ew-color-fg-muted);
     }
-    
+
     .hero__cta {
       display: inline-flex;
       gap: 16px;
       flex-wrap: wrap;
       justify-content: center;
     }
-    
+
     .section {
       position: relative;
       z-index: 1;
-      max-width: 1200px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 80px 24px;
+      padding: 56px 24px 72px;
     }
-    
+
     .section__title {
       font-family: var(--ew-font-display);
-      font-size: clamp(32px, 5vw, 56px);
+      font-size: clamp(28px, 4.5vw, 48px);
       text-align: center;
-      margin: 0 0 56px;
+      margin: 0 0 48px;
       font-weight: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
     }
-    
+
+    /* Symmetric ornaments flanking section headings */
+    .section__title::before,
+    .section__title::after {
+      content: "" / "";
+      width: 72px;
+      height: 18px;
+      background:
+        repeating-linear-gradient(-45deg, var(--ew-color-gold) 0 6px, transparent 6px 12px),
+        repeating-linear-gradient(45deg, var(--ew-color-gold) 0 6px, transparent 6px 12px);
+      background-size: 100% 50%;
+      background-position: 0 0, 0 100%;
+      background-repeat: repeat-x;
+      flex: none;
+      opacity: 0.9;
+    }
+
+    [data-fidelity-band="whisper"] .section__title::before,
+    [data-fidelity-band="whisper"] .section__title::after,
+    [data-fidelity-band="whisper"] .hero__fan,
+    [data-fidelity-band="whisper"] .hero__rays,
+    [data-fidelity-band="whisper"] .hero__panel::before {
+      display: none;
+    }
+
+    [data-fidelity-band="whisper"] .hero__panel {
+      border-width: 1px;
+      border-style: solid;
+      clip-path: none;
+      box-shadow: none;
+      background: transparent;
+      padding: 48px 24px;
+    }
+
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      margin-bottom: 80px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 36px;
+      margin-bottom: 24px;
     }
-    
+
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
       max-width: 900px;
-      margin: 0 auto 80px;
+      margin: 0 auto 40px;
     }
-    
+
+    .consent-row {
+      max-width: 600px;
+      margin: 0 auto 56px;
+      display: grid;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .consent-row .ew-checkbox,
+    .consent-row .ew-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      line-height: 1.3;
+    }
+
+    .consent-row .ew-checkbox__box,
+    .consent-row .ew-switch__track {
+      flex: none;
+      align-self: center;
+    }
+
+    .consent-row .ew-checkbox__label,
+    .consent-row .ew-switch__label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+    }
+
     .pricing {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
+      gap: 28px;
       text-align: center;
-      padding: 48px 0;
+      padding: 24px 0 8px;
     }
-    
+
+    /* Tier cards — stepped tops + gold-gradient numerals */
     .pricing__item {
-      padding: 32px 24px;
-      border: 2px double var(--ew-color-gold);
+      position: relative;
+      padding: 40px 24px 32px;
+      border: 4px double var(--ew-color-gold);
       background: var(--ew-color-panel);
+      clip-path: polygon(
+        0 24px, 12px 24px, 12px 12px, 24px 12px, 24px 0,
+        calc(100% - 24px) 0, calc(100% - 24px) 12px, calc(100% - 12px) 12px, calc(100% - 12px) 24px, 100% 24px,
+        100% 100%, 0 100%
+      );
+      box-shadow: 0 6px 0 0 var(--ew-color-gold);
     }
-    
+
+    .pricing__item::before {
+      content: "" / "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 64px;
+      height: 12px;
+      background: repeating-linear-gradient(90deg, var(--ew-color-gold) 0 4px, transparent 4px 8px);
+      opacity: 0.85;
+    }
+
     .pricing__value {
       font-family: var(--ew-font-display);
-      font-size: 48px;
-      margin: 0 0 8px;
-      color: var(--ew-color-gold);
+      font-size: clamp(40px, 5vw, 56px);
+      margin: 12px 0 10px;
+      letter-spacing: 0.04em;
+      background: var(--ew-gradient-metal);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    
+
+    @supports not (background-clip: text) {
+      .pricing__value { color: var(--ew-color-gold); -webkit-text-fill-color: unset; }
+    }
+
     .pricing__label {
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 14px;
-      font-weight: 600;
-      opacity: 0.9;
+      letter-spacing: 0.18em;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ew-color-fg-muted);
     }
-    
+
+    [data-fidelity-band="whisper"] .pricing__item {
+      clip-path: none;
+      box-shadow: none;
+      border-width: 1px;
+      border-style: solid;
+    }
+    [data-fidelity-band="whisper"] .pricing__item::before { display: none; }
+    [data-fidelity-band="whisper"] .pricing__value {
+      background: none;
+      -webkit-text-fill-color: unset;
+      color: var(--ew-color-gold);
+    }
+
     .divider {
-      margin: 80px auto;
-      max-width: 600px;
+      margin: 48px auto;
+      max-width: 680px;
+    }
+
+    .actions-center { text-align: center; }
+
+    @media (max-width: 640px) {
+      .hero__panel { padding: 48px 20px 40px; }
+      .section__title { flex-wrap: wrap; gap: 12px; }
+      .section__title::before,
+      .section__title::after { width: 40px; }
     }
   </style>
 </head>
 <body>
   <ew-toast-region aria-live="polite" aria-atomic="false"></ew-toast-region>
 
-  <!-- Hero -->
+  <!-- Hero: framed panel + sunburst (era ::before) + speed lines -->
   <section class="hero">
-    <div class="hero__content">
-      <h1>The Gatsby</h1>
-      <p class="hero__subtitle">An Evening of Elegance</p>
-      <div class="hero__cta">
-        <button class="ew-button">Reserve Your Table</button>
-        <button class="ew-button" data-variant="secondary">View Gallery</button>
+    <div class="hero__panel">
+      <div class="hero__rays" aria-hidden="true"></div>
+      <div class="hero__content">
+        <div class="hero__fan" aria-hidden="true"></div>
+        <h1>The Gatsby</h1>
+        <p class="hero__subtitle">An Evening of Elegance</p>
+        <div class="hero__cta">
+          <button class="ew-button">Reserve Your Table</button>
+          <button class="ew-button" data-variant="secondary">View Gallery</button>
+        </div>
       </div>
     </div>
   </section>
 
   <div class="section">
     <h2 class="section__title">Featured Experiences</h2>
-    
+
     <div class="card-grid">
       <div class="ew-card">
         <div class="ew-card__header">
@@ -156,7 +348,7 @@
           <button class="ew-button" data-size="sm">Inquire</button>
         </div>
       </div>
-      
+
       <div class="ew-card" data-variant="raised">
         <div class="ew-card__header">
           <h3>The Diamond Suite</h3>
@@ -168,7 +360,7 @@
           <button class="ew-button" data-size="sm">Inquire</button>
         </div>
       </div>
-      
+
       <div class="ew-card">
         <div class="ew-card__header">
           <h3>The Sky Terrace</h3>
@@ -181,17 +373,17 @@
         </div>
       </div>
     </div>
-    
-    <hr class="ew-ornament-divider divider">
-    
+
+    <hr class="ew-ornament-divider divider" data-variant="ornament" aria-hidden="true">
+
     <h2 class="section__title">Reserve Your Experience</h2>
-    
+
     <div class="form-grid">
       <div class="ew-text-field">
         <label class="ew-text-field__label" for="guest-name">Guest Name</label>
         <input class="ew-text-field__control" id="guest-name" type="text" placeholder="John Smith">
       </div>
-      
+
       <ew-select>
         <label class="ew-select__label">Party Size</label>
         <select class="ew-select__control">
@@ -202,19 +394,19 @@
           <option value="10+">10+ Guests</option>
         </select>
       </ew-select>
-      
+
       <div class="ew-text-field">
         <label class="ew-text-field__label" for="guest-date">Preferred Date</label>
         <input class="ew-text-field__control" id="guest-date" type="date">
       </div>
-      
+
       <div class="ew-text-field">
         <label class="ew-text-field__label" for="guest-email">Email Address</label>
         <input class="ew-text-field__control" id="guest-email" type="email" placeholder="john@example.com">
       </div>
     </div>
-    
-    <div style="max-width: 600px; margin: 0 auto 80px; display: grid; gap: 16px;">
+
+    <div class="consent-row">
       <label class="ew-switch">
         <input class="ew-switch__control" type="checkbox">
         <div class="ew-switch__track">
@@ -222,22 +414,22 @@
         </div>
         <span class="ew-switch__label">Subscribe to exclusive events</span>
       </label>
-      
+
       <label class="ew-checkbox">
         <input class="ew-checkbox__control" type="checkbox">
         <div class="ew-checkbox__box"></div>
         <span class="ew-checkbox__label">I agree to the terms and conditions</span>
       </label>
     </div>
-    
-    <div style="text-align: center;">
+
+    <div class="actions-center">
       <button class="ew-button" data-size="lg" onclick="document.querySelector('ew-toast-region').show({title:'Reservation Received',body:'We will contact you within 24 hours.',variant:'info',timeout:5000})">Submit Reservation</button>
     </div>
-    
-    <hr class="ew-ornament-divider divider">
-    
+
+    <hr class="ew-ornament-divider divider" data-variant="ornament" aria-hidden="true">
+
     <h2 class="section__title">Membership Tiers</h2>
-    
+
     <ew-tabs style="max-width: 800px; margin: 0 auto 48px;">
       <div role="tablist">
         <button role="tab" aria-selected="true" aria-controls="panel-bronze">Bronze</button>
@@ -254,7 +446,7 @@
         <p>Elite membership with private concierge, 30% discount, and complimentary valet service.</p>
       </div>
     </ew-tabs>
-    
+
     <div class="pricing">
       <div class="pricing__item">
         <div class="pricing__value">$500</div>
@@ -269,13 +461,12 @@
         <div class="pricing__label">Gold Tier</div>
       </div>
     </div>
-    
-    <div style="text-align: center; margin-top: 48px;">
+
+    <div class="actions-center" style="margin-top: 48px;">
       <button class="ew-button" onclick="document.getElementById('membership-dialog').showModal()">View Membership Benefits</button>
     </div>
   </div>
-  
-  <!-- Dialog -->
+
   <dialog class="ew-dialog" id="membership-dialog">
     <form method="dialog">
       <div class="ew-dialog__header">

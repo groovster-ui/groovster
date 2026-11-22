@@ -12,64 +12,14 @@
       }
     },
     "deco": {
-      "pass": false,
+      "pass": true,
       "light": {
-        "pass": false,
-        "issues": [
-          {
-            "label": "fg/default on bg/page",
-            "error": "unparseable fg=#111111 bg=#F4EEDF"
-          },
-          {
-            "label": "fg/default on bg/surface",
-            "error": "unparseable fg=#111111 bg=#FBF7EC"
-          },
-          {
-            "label": "fg/default on bg/elevated",
-            "error": "unparseable fg=#111111 bg=color-mix(in oklch, #FBF7EC 85%, {color.brass} 15%)"
-          },
-          {
-            "label": "action/fg on action/bg",
-            "error": "unparseable fg=#F2D98A bg=#111111"
-          },
-          {
-            "label": "danger/fg on danger/bg",
-            "error": "unparseable fg=#FFFFFF bg=#8E1B1B"
-          },
-          {
-            "label": "fg/muted on bg/page",
-            "error": "unparseable fg=#4A4236 bg=#F4EEDF"
-          }
-        ]
+        "pass": true,
+        "issues": []
       },
       "dark": {
-        "pass": false,
-        "issues": [
-          {
-            "label": "fg/default on bg/page",
-            "error": "unparseable fg=#F3E7C9 bg=#0B0B0C"
-          },
-          {
-            "label": "fg/default on bg/surface",
-            "error": "unparseable fg=#F3E7C9 bg=#15130F"
-          },
-          {
-            "label": "fg/default on bg/elevated",
-            "error": "unparseable fg=#F3E7C9 bg=color-mix(in oklch, #15130F 85%, {color.brass} 15%)"
-          },
-          {
-            "label": "action/fg on action/bg",
-            "error": "unparseable fg=#0B0B0C bg=#D4AF37"
-          },
-          {
-            "label": "danger/fg on danger/bg",
-            "error": "unparseable fg=#F3E7C9 bg=#7A1E1E"
-          },
-          {
-            "label": "fg/muted on bg/page",
-            "error": "unparseable fg=#C9B68A bg=#0B0B0C"
-          }
-        ]
+        "pass": true,
+        "issues": []
       }
     },
     "mcm-atomic": {
@@ -128,6 +78,6 @@
       }
     }
   },
-  "pass": false,
+  "pass": true,
   "note": "Glow ignored; flat OKLCH fills only. Proper OKLCH→sRGB→WCAG luminance."
 }

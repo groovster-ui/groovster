@@ -32,7 +32,8 @@
       },
       "elevated": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.panel} 85%, {color.brass} 15%)"
+        "$value": "{color.sky}",
+        "$description": "Bible elevated: dark #1E1A14 lacquer step / light #FFFFFF"
       }
     },
     "border": {

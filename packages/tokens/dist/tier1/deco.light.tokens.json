@@ -37,10 +37,25 @@
       "$value": "#B08D2C",
       "$description": "gold borders and accents"
     },
+    "brass": {
+      "$type": "color",
+      "$value": "#9A7820",
+      "$description": "darker brass for light-mode contrast (elevated mixes, tracks)"
+    },
+    "brassDeep": {
+      "$type": "color",
+      "$value": "#6B5010",
+      "$description": "deep brass for terraced elevation shadows on ivory"
+    },
     "goldText": {
       "$type": "color",
       "$value": "#7A5C12",
       "$description": "gold text on ivory, 5.4:1"
+    },
+    "goldBorder": {
+      "$type": "color",
+      "$value": "#9A7820",
+      "$description": "field border — darker brass for AA on ivory"
     },
     "goldSubtle": {
       "$type": "color",
@@ -49,7 +64,7 @@
     },
     "goldFocus": {
       "$type": "color",
-      "$value": "#B08D2C",
+      "$value": "#9A7820",
       "$description": "focus ring"
     },
     "jade": {

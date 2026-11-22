@@ -37,6 +37,16 @@
       "$value": "#D4AF37",
       "$description": "primary brass/gold, 9.4:1 with ink text"
     },
+    "brass": {
+      "$type": "color",
+      "$value": "#C9A227",
+      "$description": "metallic brass for elevated mixes and tracks"
+    },
+    "brassDeep": {
+      "$type": "color",
+      "$value": "#7A5C12",
+      "$description": "deep brass for terraced elevation shadows"
+    },
     "goldBright": {
       "$type": "color",
       "$value": "#E8C766",
