@@ -111,7 +111,7 @@
 }
 @layer era {
   [data-era="memphis"] {
-    --ew-fidelity-default: 50;
+    --ew-fidelity-default: 75;
     --ew-structure-control-radius: 14px;
     --ew-structure-surface-radius: 20px;
     --ew-structure-button-border-width: 3px;
@@ -135,8 +135,8 @@
     --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
     --ew-structure-card-ornament-content: "";
     --ew-structure-card-ornament-opacity: 0.22;
-    --ew-structure-card-ornament-bg: radial-gradient(circle at 92% 12%, var(--ew-color-action-bg) 0 2px, transparent 3px),
-      conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg);
+    --ew-structure-card-ornament-bg: radial-gradient(circle at 92% 12%, var(--ew-color-action-bg) 0 2px, transparent 3px) no-repeat,
+      conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat;
     --ew-structure-card-ornament-size: 120px 120px;
     --ew-structure-card-ornament-blend: multiply;
     --ew-structure-field-border-width: 1px;

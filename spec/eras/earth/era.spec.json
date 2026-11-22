@@ -7,7 +7,7 @@
     "craft"
   ],
   "identity": {
-    "oneLiner": "Crafted earth tones: clay, moss, sand \u2014 quiet organic UI.",
+    "oneLiner": "Crafted earth tones: clay, moss, sand — quiet organic UI.",
     "summary": "Natural materials palette with soft stone radii and linen surfaces. Ornament is subtle grain/leaf, never costume tribal pastiche.",
     "bestFit": [
       "Wellness",
@@ -41,9 +41,9 @@
   },
   "fidelity": {
     "recommended": {
-      "min": 15,
-      "max": 50,
-      "default": 30
+      "min": 67,
+      "max": 100,
+      "default": 75
     },
     "bands": [
       {
@@ -93,7 +93,7 @@
       "elevation: soft natural",
       "ornament: leaf/grain sparse",
       "type: Fraunces + Source Sans 3",
-      "fidelity: default 30 (15\u201350)",
+      "fidelity: default 30 (15–50)",
       "modes: light, dark",
       "use: wellness, outdoor, craft",
       "never: tribal pastiche, display on controls"

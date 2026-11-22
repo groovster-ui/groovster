@@ -14,7 +14,7 @@
       },
       "muted": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.ink} 65%, {color.paper})"
+        "$value": "{color.cream}"
       },
       "inverse": {
         "$type": "color",
@@ -32,17 +32,18 @@
       },
       "elevated": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.panel} 80%, {color.brass})"
+        "$value": "{color.sky}",
+        "$description": "Bible elevated surface (dark lacquer step / light white)"
       }
     },
     "border": {
       "subtle": {
         "$type": "color",
-        "$value": "{color.brass}"
+        "$value": "{color.goldSubtle}"
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.brassDeep}"
+        "$value": "{color.gold}"
       }
     },
     "action": {
@@ -66,11 +67,11 @@
       },
       "border": {
         "$type": "color",
-        "$value": "{color.brassDeep}"
+        "$value": "{color.goldBorder}"
       },
       "focus": {
         "$type": "color",
-        "$value": "{color.brass}"
+        "$value": "{color.goldFocus}"
       }
     },
     "overlay": {
@@ -80,7 +81,7 @@
     "track": {
       "off": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.panel} 70%, {color.ink})"
+        "$value": "color-mix(in oklch, {color.panel} 90%, {color.brass} 10%)"
       },
       "on": {
         "$type": "color",

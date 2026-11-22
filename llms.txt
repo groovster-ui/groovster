@@ -10,12 +10,12 @@ Load ONLY the sections you need — do not ingest the whole library.
 - Rules: generated/rules/era-widgets.mdc
 
 ## Eras (cards: generated/llms/era-<id>.card.txt)
-- deco: Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer. (fidelity ~35)
-- earth: Crafted earth tones: clay, moss, sand — quiet organic UI. (fidelity ~30)
-- groovy: 70s groove: avocado & harvest gold, soft flares, lazy curves. (fidelity ~40)
-- mcm-atomic: Mid-century atomic optimism: kidney shapes, starbursts, teal–coral–mustard. (fidelity ~40)
-- memphis: Playful postmodern: squiggles, confetti shapes, loud primaries on cream. (fidelity ~50)
-- neon: Synthwave nights: magenta–cyan chrome on deep violet, grid horizon optional. (fidelity ~55)
+- deco: Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer. (fidelity ~75)
+- earth: Crafted earth tones: clay, moss, sand — quiet organic UI. (fidelity ~75)
+- groovy: 70s groove: avocado & harvest gold, soft flares, lazy curves. (fidelity ~75)
+- mcm-atomic: Mid-century atomic optimism: kidney shapes, starbursts, teal–coral–mustard. (fidelity ~75)
+- memphis: Playful postmodern: squiggles, confetti shapes, loud primaries on cream. (fidelity ~75)
+- neon: Synthwave nights: magenta–cyan chrome on deep violet, grid horizon optional. (fidelity ~75)
 - neutral: Quiet modern system skin — the default before personality. (fidelity ~0)
 
 ## Components (one file each)

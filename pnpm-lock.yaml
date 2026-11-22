@@ -6,7 +6,11 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      playwright:
+        specifier: ^1.49.1
+        version: 1.65.1
 
   packages/css: {}
 

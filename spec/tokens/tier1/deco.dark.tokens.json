@@ -4,52 +4,102 @@
     "tier": 1,
     "era": "deco",
     "mode": "dark",
-    "description": "Tier 1 raw values for deco dark"
+    "description": "Tier 1 raw values for deco dark (hero mode: black lacquer + gold)"
   },
   "color": {
     "ink": {
       "$type": "color",
-      "$value": "oklch(92% 0.02 90)"
+      "$value": "#F3E7C9",
+      "$description": "champagne, 16.0:1 on paper"
     },
     "paper": {
       "$type": "color",
-      "$value": "oklch(14% 0.02 70)",
+      "$value": "#0B0B0C",
       "$description": "black lacquer"
     },
     "panel": {
       "$type": "color",
-      "$value": "oklch(20% 0.025 70)"
+      "$value": "#15130F",
+      "$description": "surface layer"
+    },
+    "sky": {
+      "$type": "color",
+      "$value": "#1E1A14",
+      "$description": "elevated surfaces"
+    },
+    "cream": {
+      "$type": "color",
+      "$value": "#C9B68A",
+      "$description": "muted text, 9.3:1 on panel"
+    },
+    "gold": {
+      "$type": "color",
+      "$value": "#D4AF37",
+      "$description": "primary brass/gold, 9.4:1 with ink text"
     },
     "brass": {
       "$type": "color",
-      "$value": "oklch(78% 0.1 85)"
+      "$value": "#C9A227",
+      "$description": "metallic brass for elevated mixes and tracks"
     },
     "brassDeep": {
       "$type": "color",
-      "$value": "oklch(58% 0.09 80)"
+      "$value": "#7A5C12",
+      "$description": "deep brass for terraced elevation shadows"
     },
-    "burgundy": {
+    "goldBright": {
       "$type": "color",
-      "$value": "oklch(42% 0.1 20)"
+      "$value": "#E8C766",
+      "$description": "hover gold"
+    },
+    "goldBorder": {
+      "$type": "color",
+      "$value": "#B8952F",
+      "$description": "field border"
+    },
+    "goldSubtle": {
+      "$type": "color",
+      "$value": "#8A6F2E",
+      "$description": "subtle border"
+    },
+    "goldFocus": {
+      "$type": "color",
+      "$value": "#F1D27A",
+      "$description": "focus ring"
+    },
+    "fieldBg": {
+      "$type": "color",
+      "$value": "#100F0C",
+      "$description": "input field background"
+    },
+    "jade": {
+      "$type": "color",
+      "$value": "#1F6F5C",
+      "$description": "ornament secondary"
+    },
+    "oxblood": {
+      "$type": "color",
+      "$value": "#7A1E1E",
+      "$description": "danger + ornament tertiary"
     },
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(72% 0.1 85)"
+        "$value": "#D4AF37"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(14% 0.02 70)"
+        "$value": "#0B0B0C"
       }
     },
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(62% 0.14 25)"
+        "$value": "#7A1E1E"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(14% 0.02 70)"
+        "$value": "#F3E7C9"
       }
     }
   },
@@ -102,11 +152,11 @@
     },
     "md": {
       "$type": "dimension",
-      "$value": "2px"
+      "$value": "0px"
     },
     "lg": {
       "$type": "dimension",
-      "$value": "4px"
+      "$value": "0px"
     },
     "pill": {
       "$type": "dimension",
@@ -114,7 +164,8 @@
     },
     "step": {
       "$type": "dimension",
-      "$value": "8px"
+      "$value": "8px",
+      "$description": "stepped frame increment"
     }
   }
 }

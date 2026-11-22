@@ -8,8 +8,8 @@
     "retrowave"
   ],
   "identity": {
-    "oneLiner": "Synthwave nights: magenta\u2013cyan chrome on deep violet, grid horizon optional.",
-    "summary": "Neon/Synthwave is high-contrast dark-first romance: chrome bezels, scanline/grid backdrops at high fidelity, and magenta/cyan accents. Glow is decoration only \u2014 contrast must pass without it. Light mode is a washed Miami daytime dialect of the same geometry.",
+    "oneLiner": "Synthwave nights: magenta–cyan chrome on deep violet, grid horizon optional.",
+    "summary": "Neon/Synthwave is high-contrast dark-first romance: chrome bezels, scanline/grid backdrops at high fidelity, and magenta/cyan accents. Glow is decoration only — contrast must pass without it. Light mode is a washed Miami daytime dialect of the same geometry.",
     "bestFit": [
       "Gaming / music marketing",
       "Night-mode demos",
@@ -42,9 +42,9 @@
   },
   "fidelity": {
     "recommended": {
-      "min": 35,
-      "max": 75,
-      "default": 55
+      "min": 67,
+      "max": 100,
+      "default": 75
     },
     "bands": [
       {
@@ -84,7 +84,7 @@
     "dark"
   ],
   "neverDo": [
-    "Glow never counts toward WCAG contrast \u2014 text/icons must pass on flat fills.",
+    "Glow never counts toward WCAG contrast — text/icons must pass on flat fills.",
     "Never put Orbitron on Button/TextField/Switch labels.",
     "Never stack multiple full-bleed grids; one backdrop plane per view.",
     "Never use pure #ff00ff on pure #00ffff for small text.",
@@ -107,7 +107,7 @@
       "elevation: hard rim (glow cosmetic)",
       "ornament: grid / sun in backdrop",
       "type: Orbitron + Exo 2",
-      "fidelity: default 55 (35\u201375)",
+      "fidelity: default 55 (35–75)",
       "modes: light, dark",
       "dialects: synthwave | miami",
       "use: gaming, night demos, festivals",

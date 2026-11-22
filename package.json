@@ -28,5 +28,8 @@
     "test:unit": "node --test tests/unit/*.test.mjs",
     "registry:e2e": "node scripts/registry-e2e.mjs"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
 }

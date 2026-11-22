@@ -7,7 +7,7 @@
   ],
   "identity": {
     "oneLiner": "Playful postmodern: squiggles, confetti shapes, loud primaries on cream.",
-    "summary": "Memphis Group energy \u2014 asymmetric geometry, bold pattern accents, and cheerful clash. Ornament is graphic, not historical.",
+    "summary": "Memphis Group energy — asymmetric geometry, bold pattern accents, and cheerful clash. Ornament is graphic, not historical.",
     "bestFit": [
       "Youth brands",
       "Event microsites",
@@ -40,9 +40,9 @@
   },
   "fidelity": {
     "recommended": {
-      "min": 30,
-      "max": 70,
-      "default": 50
+      "min": 67,
+      "max": 100,
+      "default": 75
     },
     "bands": [
       {
@@ -92,7 +92,7 @@
       "elevation: hard offset",
       "ornament: squiggle / terrazzo",
       "type: Archivo Black + Nunito",
-      "fidelity: default 50 (30\u201370)",
+      "fidelity: default 50 (30–70)",
       "modes: light, dark",
       "use: youth, events, creative",
       "never: display type on controls"

@@ -29,21 +29,22 @@
     "iconography": "Geometric line icons; mirrored where possible"
   },
   "fonts": {
-    "display": "Cinzel",
-    "body": "Libre Baskerville",
+    "display": "Limelight",
+    "body": "Jost",
     "mono": "IBM Plex Mono",
     "license": "OFL-1.1",
     "sources": [
-      "https://fonts.google.com/specimen/Cinzel",
-      "https://fonts.google.com/specimen/Libre+Baskerville",
+      "https://fonts.google.com/specimen/Limelight",
+      "https://fonts.google.com/specimen/Josefin+Sans",
+      "https://fonts.google.com/specimen/Jost",
       "https://fonts.google.com/specimen/IBM+Plex+Mono"
     ]
   },
   "fidelity": {
     "recommended": {
-      "min": 20,
-      "max": 55,
-      "default": 35
+      "min": 67,
+      "max": 100,
+      "default": 75
     },
     "bands": [
       {
@@ -123,28 +124,28 @@
       "paddingY": "10px"
     },
     "card": {
-      "borderWidth": "3px",
+      "borderWidth": "4px",
       "borderStyle": "double",
-      "shadow": "0 4px 0 0 var(--ew-color-border-strong), 0 8px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 25%, transparent)",
-      "raisedShadow": "0 4px 0 0 var(--ew-color-border-strong), 0 10px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 28%, transparent)",
-      "clipPath": "polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px))",
+      "shadow": "0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 70%, transparent), 0 6px 0 0 var(--ew-color-border-strong), 0 12px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 22%, transparent)",
+      "raisedShadow": "0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 70%, transparent), 0 6px 0 0 var(--ew-color-border-strong), 0 14px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 28%, transparent)",
+      "clipPath": "polygon(0 20px, 8px 20px, 8px 12px, 12px 12px, 12px 0, calc(100% - 12px) 0, calc(100% - 12px) 12px, calc(100% - 8px) 12px, calc(100% - 8px) 20px, 100% 20px, 100% calc(100% - 20px), calc(100% - 8px) calc(100% - 20px), calc(100% - 8px) calc(100% - 12px), calc(100% - 12px) calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 12px calc(100% - 12px), 8px calc(100% - 12px), 8px calc(100% - 20px), 0 calc(100% - 20px))",
       "padding": "28px",
       "headerRule": true,
-      "titleTracking": "0.12em",
+      "titleTracking": "0.18em",
       "ornament": "chevron"
     },
     "field": {
       "borderWidth": "2px",
-      "borderStyle": "double",
+      "borderStyle": "solid",
       "radius": "0px",
-      "underline": false
+      "underline": true
     },
     "dialog": {
-      "borderWidth": "3px",
+      "borderWidth": "4px",
       "borderStyle": "double",
       "radius": "0px",
-      "shadow": "0 8px 0 0 var(--ew-color-border-strong)",
-      "clipPath": "polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px))"
+      "shadow": "0 10px 0 0 var(--ew-color-border-strong)",
+      "clipPath": "polygon(0 20px, 8px 20px, 8px 12px, 12px 12px, 12px 0, calc(100% - 12px) 0, calc(100% - 12px) 12px, calc(100% - 8px) 12px, calc(100% - 8px) 20px, 100% 20px, 100% calc(100% - 20px), calc(100% - 8px) calc(100% - 20px), calc(100% - 8px) calc(100% - 12px), calc(100% - 12px) calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 12px calc(100% - 12px), 8px calc(100% - 12px), 8px calc(100% - 20px), 0 calc(100% - 20px))"
     },
     "tabs": {
       "indicatorHeight": "3px",

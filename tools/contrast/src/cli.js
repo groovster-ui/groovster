@@ -45,9 +45,32 @@ function oklchToLinearSrgb({ L, C, H }) {
   };
 }
 
-/** WCAG relative luminance from an OKLCH color string. */
-function relativeLuminance(oklchStr) {
-  const parsed = parseOklch(oklchStr);
+function parseHex(str) {
+  const m = String(str).trim().match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+  if (!m) return null;
+  let h = m[1];
+  if (h.length === 3) h = h.split('').map((c) => c + c).join('');
+  return {
+    r: parseInt(h.slice(0, 2), 16) / 255,
+    g: parseInt(h.slice(2, 4), 16) / 255,
+    b: parseInt(h.slice(4, 6), 16) / 255,
+  };
+}
+
+function srgbChannelToLinear(c) {
+  return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+}
+
+/** WCAG relative luminance from an OKLCH or hex color string. */
+function relativeLuminance(colorStr) {
+  const hex = parseHex(colorStr);
+  if (hex) {
+    const r = srgbChannelToLinear(hex.r);
+    const g = srgbChannelToLinear(hex.g);
+    const b = srgbChannelToLinear(hex.b);
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  }
+  const parsed = parseOklch(colorStr);
   if (!parsed) return null;
   // OKLab matrix yields linear sRGB; clamp and apply WCAG Y coefficients.
   const { r, g, b } = oklchToLinearSrgb(parsed);
@@ -65,20 +88,37 @@ function colorValue(node) {
   return node?.$value ?? null;
 }
 
+const COLOR_TOKEN = String.raw`(?:oklch\([^)]+\)|#[0-9a-fA-F]{3,8})`;
+
 /** Resolve a semantic color that may be a `{ref}` or color-mix of refs. */
 function resolveSemanticColor(map, raw) {
   if (raw == null) return null;
   const resolved = resolveValueAgainst(map, raw);
   if (typeof resolved !== 'string') return null;
-  // Pure OKLCH after alias resolve
-  if (/^oklch\(/i.test(resolved.trim())) return resolved.trim();
-  // color-mix(in oklch, COLOR p%, transparent|COLOR)
-  const mix = resolved.match(
-    /color-mix\(\s*in\s+oklch\s*,\s*(oklch\([^)]+\))\s+([\d.]+)%\s*,\s*(transparent|oklch\([^)]+\))\s*\)/i
+  const trimmed = resolved.trim();
+  // Pure OKLCH or hex after alias resolve
+  if (/^oklch\(/i.test(trimmed) || parseHex(trimmed)) return trimmed;
+  // color-mix(in oklch, COLOR p%, transparent|COLOR) — COLOR may be oklch or hex
+  const mix = trimmed.match(
+    new RegExp(
+      String.raw`color-mix\(\s*in\s+oklch\s*,\s*(${COLOR_TOKEN})\s+([\d.]+)%\s*,\s*(transparent|${COLOR_TOKEN})\s*\)`,
+      'i'
+    )
   );
   if (mix) {
-    const base = parseOklch(mix[1]);
+    // Prefer returning a luminance-friendly solid: if both sides are hex, lerp sRGB and emit hex.
+    const baseHex = parseHex(mix[1]);
     const pct = Number(mix[2]) / 100;
+    if (baseHex && mix[3] === 'transparent') {
+      return mix[1];
+    }
+    const otherHex = mix[3] === 'transparent' ? null : parseHex(mix[3]);
+    if (baseHex && otherHex) {
+      const lerp = (a, b) => Math.round((a * pct + b * (1 - pct)) * 255);
+      const toHex = (n) => n.toString(16).padStart(2, '0');
+      return `#${toHex(lerp(baseHex.r, otherHex.r))}${toHex(lerp(baseHex.g, otherHex.g))}${toHex(lerp(baseHex.b, otherHex.b))}`;
+    }
+    const base = parseOklch(mix[1]);
     if (!base) return null;
     if (mix[3] === 'transparent') {
       // Treat as same hue at reduced alpha — for contrast use the solid base

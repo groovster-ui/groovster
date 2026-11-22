@@ -1,7 +1,7 @@
 {
   "suite": "groovster-agent-harness-v1",
   "version": 1,
-  "generatedAt": "2026-11-22T02:32:21.046Z",
+  "generatedAt": "2026-11-22T04:24:17.932Z",
   "mode": "live-agent-harness",
   "note": "Docs-agent vs MCP-agent: real tool/doc I/O token counts, turn counts, validate + Playwright render check.",
   "setups": {
