@@ -45,6 +45,7 @@ jobs:
       
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium
+        working-directory: tools/a11y
       
       - name: Run eval tests
         run: pnpm eval
