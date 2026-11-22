@@ -46,6 +46,9 @@ Load ONLY the sections you need — do not ingest the whole library.
 - toast: generated/llms/toast.md
 - tooltip: generated/llms/tooltip.md
 
+## Recipes (cards: generated/llms/recipe-<id>.card.txt)
+commerce, dashboard, editorial, event, hospitality. Composition, not a new era.
+
 ## Rules
 - Prefer native elements. Zero attrs = defaults. Glow ≠ contrast.
 - Published CSS/JS must import nothing.

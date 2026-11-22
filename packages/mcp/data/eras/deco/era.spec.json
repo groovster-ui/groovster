@@ -8,7 +8,7 @@
   ],
   "identity": {
     "oneLiner": "Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer.",
-    "summary": "Art Deco as structure, not costume stickers. Stepped corners, fan/chevron rules, high-contrast lacquer surfaces, and disciplined brass accents. Vertical rhythm and symmetry beat busy motifs.",
+    "summary": "Art Deco as architecture. Stepped corners, nested brass rules, lacquer and ivory surfaces, and a strict split between display lettering and readable text. Ornament is placed, not repeated.",
     "bestFit": [
       "Luxury / hospitality",
       "Editorial landing pages",
@@ -22,8 +22,8 @@
     "edge": "Double-line and stepped brass rules",
     "surface": "Lacquer panels, subtle linen/noise, high contrast fields",
     "elevation": "Terraced stacks (hard steps) more than soft blur shadows",
-    "ornament": "Chevrons, fan rules, thin brass lines via frame/ornament slots",
-    "typeVoice": "Elegant display for titles; restrained body; generous tracking on labels",
+    "ornament": "Stepped corners, nested rules, a hero fan, and diamond dividers \u2014 one motif per surface",
+    "typeVoice": "Limelight for ceremonial titles only; Jost for sections, controls, and reading text",
     "motion": "Measured, linear accents; reveal like curtains, not bouncy",
     "density": "Airy, ceremonial; larger titles",
     "iconography": "Geometric line icons; mirrored where possible"
@@ -51,19 +51,19 @@
         "id": "whisper",
         "min": 0,
         "max": 25,
-        "description": "Structure hints only: radius, type voice, subtle edge. No ornaments."
+        "description": "Understated Deco: display/body type, hairline brass, lacquer or ivory. No fans, rules, or stepped corners."
       },
       {
         "id": "standard",
         "min": 26,
         "max": 66,
-        "description": "Clear era geometry and materials; sparse ornaments on surfaces. Alias: signature."
+        "description": "Recognizable Deco: stepped corners, double rules, terraced brass. No sunburst, fan, or inner ceremonial frame. Aliases: default, signature."
       },
       {
         "id": "costume",
         "min": 67,
         "max": 100,
-        "description": "Full decorative program — applied when data-fidelity-band is absent. Demo/showcase territory; neverDo still binds."
+        "description": "Full architectural program when data-fidelity-band is absent or costume: hero fan and sunburst, nested frames, diamond dividers. neverDo still binds."
       }
     ]
   },
@@ -71,7 +71,7 @@
     {
       "id": "streamline",
       "label": "Streamline",
-      "description": "Softer curves, poster moderne; less stepped, more speed-lines."
+      "description": "Streamline Moderne: rounded chrome, horizontal speed lines, pill controls, and soft elevation. Same brass and type, without stepped corners."
     }
   ],
   "modes": [
@@ -80,9 +80,9 @@
   ],
   "neverDo": [
     "Never put Cinzel/display faces on Button or TextField labels.",
-    "Never use neon pink/cyan — Deco metal is brass/gold/silver, not synthwave.",
+    "Never use neon pink/cyan \u2014 Deco metal is brass/gold/silver, not synthwave.",
     "Never scatter sunburst SVGs on every card; one architectural motif per surface max.",
-    "Never soft-blur elevation as the primary model — prefer terraced steps.",
+    "Never soft-blur elevation as the primary model \u2014 prefer terraced steps.",
     "Glow never counts toward contrast; lacquer text must pass AA on fills alone."
   ],
   "tokenFiles": [
@@ -113,25 +113,26 @@
     "controlRadius": "0px",
     "surfaceRadius": "0px",
     "button": {
-      "borderWidth": "2px",
-      "borderStyle": "double",
-      "letterSpacing": "0.16em",
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.11em",
       "textTransform": "uppercase",
       "fontWeight": "600",
-      "shadow": "0 3px 0 0 var(--ew-color-border-strong)",
+      "shadow": "0 2px 0 0 var(--ew-color-brassDeep)",
       "clipPath": "none",
-      "paddingX": "22px",
-      "paddingY": "10px"
+      "paddingX": "20px",
+      "paddingY": "11px",
+      "bevel": "inset 0 1px 0 color-mix(in srgb, #F3E7C9 34%, transparent)"
     },
     "card": {
-      "borderWidth": "4px",
-      "borderStyle": "double",
-      "shadow": "0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 70%, transparent), 0 6px 0 0 var(--ew-color-border-strong), 0 12px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 22%, transparent)",
-      "raisedShadow": "0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 70%, transparent), 0 6px 0 0 var(--ew-color-border-strong), 0 14px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 28%, transparent)",
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "shadow": "inset 0 1px 0 color-mix(in srgb, #F3E7C9 18%, transparent), 0 4px 0 0 color-mix(in oklch, var(--ew-color-brassDeep) 48%, transparent)",
+      "raisedShadow": "inset 0 1px 0 color-mix(in srgb, #F3E7C9 22%, transparent), 0 6px 0 0 color-mix(in oklch, var(--ew-color-brassDeep) 55%, transparent)",
       "clipPath": "none",
-      "padding": "28px",
+      "padding": "22px",
       "headerRule": true,
-      "titleTracking": "0.18em",
+      "titleTracking": "0.12em",
       "ornament": "chevron"
     },
     "field": {
@@ -141,10 +142,10 @@
       "underline": true
     },
     "dialog": {
-      "borderWidth": "4px",
-      "borderStyle": "double",
+      "borderWidth": "1px",
+      "borderStyle": "solid",
       "radius": "0px",
-      "shadow": "0 10px 0 0 var(--ew-color-border-strong)",
+      "shadow": "0 8px 0 0 color-mix(in oklch, var(--ew-color-brassDeep) 50%, transparent)",
       "clipPath": "none"
     },
     "tabs": {

@@ -19,6 +19,7 @@ import { bandTokenCss, muteBandSel } from './band.js';
 import { decoDecoratorCss } from './deco-decorators.js';
 import { atomicDecoratorCss } from './atomic-decorators.js';
 import { neonDecoratorCss } from './neon-decorators.js';
+import { loadRecipes, recipeIndexLines, writeRecipeDocs } from './recipes.js';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
 
@@ -640,7 +641,7 @@ function genLlmsSection(comp) {
   return lines.join('\n');
 }
 
-function genLlmsIndex(components, eras) {
+function genLlmsIndex(components, eras, recipes = []) {
   const lines = [
     '# Era Widgets',
     '',
@@ -664,6 +665,7 @@ function genLlmsIndex(components, eras) {
     '## Components (one file each)',
     ...components.map((c) => `- ${c.id}: generated/llms/${c.id}.md`),
     '',
+    ...recipeIndexLines(recipes),
     '## Rules',
     '- Prefer native elements. Zero attrs = defaults. Glow ≠ contrast.',
     '- Published CSS/JS must import nothing.',
@@ -698,6 +700,7 @@ export function generateAll() {
 
   const components = loadComponents();
   const eras = loadEras();
+  const recipes = loadRecipes();
   const budgets = readJson(BUDGETS_PATH);
   const outputs = [];
 
@@ -738,8 +741,9 @@ export function generateAll() {
   }
 
   const indexPath = path.join(GEN_LLMS, 'llms.txt');
-  writeText(indexPath, genLlmsIndex(components, eras));
+  writeText(indexPath, genLlmsIndex(components, eras, recipes));
   outputs.push(rel(outRoot, indexPath));
+  writeRecipeDocs({ recipes, components, outputs });
 
   generateDialectCss(outputs);
 
@@ -781,6 +785,11 @@ export function generateAll() {
   }
   const index = fs.readFileSync(indexPath, 'utf8');
   budgetReport.measured['llms.index'] = { chars: index.length, budget: 'llms.index' };
+  for (const recipe of recipes) {
+    const cardPath = path.join(GEN_LLMS, `recipe-${recipe.id}.card.txt`);
+    const card = fs.readFileSync(cardPath, 'utf8');
+    budgetReport.measured[`llms.recipeCard:${recipe.id}`] = { chars: card.length, budget: 'llms.recipeCard' };
+  }
 
   generateExtras({ components, eras, outputs });
 
@@ -796,6 +805,7 @@ export function generateAll() {
     generatedAt: 'deterministic-build',
     components: components.map((c) => c.id),
     eras: eras.map((e) => e.id),
+    recipes: recipes.map((recipe) => recipe.id),
     outputs: [...new Set([...outputs, 'generated/manifest.json'])].sort(),
     budgetReport,
   };

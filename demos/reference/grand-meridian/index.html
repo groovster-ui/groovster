@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" class="ew-root" data-era="deco" data-mode="light" data-fidelity-band="costume">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Grand Meridian — Fifth Avenue</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css">
+  <script type="module" src="../../../packages/elements/dist/era-elements.js"></script>
+  <style>
+    body { margin: 0; }
+    a { color: inherit; }
+    .bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px 24px;
+      flex-wrap: wrap;
+      padding: 16px 24px;
+      border-bottom: 1px solid color-mix(in srgb, var(--ew-color-gold) 42%, transparent);
+      position: sticky;
+      top: 0;
+      z-index: 6;
+      background: color-mix(in srgb, var(--ew-color-bg-page) 94%, transparent);
+    }
+    .wordmark {
+      font-family: var(--ew-font-body);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ew-color-fg-default);
+    }
+    .bar__links, .bar__tools { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 72px 24px; }
+    .intro { max-width: 68ch; margin: 0 auto 8px; text-align: center; }
+    .kicker {
+      margin: 0 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ew-color-goldText, var(--ew-color-gold));
+    }
+    .lede { font-size: 18px; line-height: 1.7; margin: 0; }
+    .grid-3, .grid-2 {
+      display: grid;
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: 1.2fr 0.8fr; align-items: start; }
+    .meta { margin: 8px 0 0; color: var(--ew-color-fg-muted); font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 20px;
+      margin-top: 28px;
+    }
+    .form .wide { grid-column: 1 / -1; }
+    .status { min-height: 1.4em; margin: 8px 0 0; }
+    .foot {
+      padding: 36px 24px 56px;
+      text-align: center;
+      border-top: 1px solid color-mix(in srgb, var(--ew-color-gold) 40%, transparent);
+    }
+    .foot p { margin: 6px 0; color: var(--ew-color-fg-muted); }
+    .amenity { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+    .amenity li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid color-mix(in srgb, var(--ew-color-gold) 35%, transparent);
+    }
+    @media (max-width: 800px) {
+      .grid-3, .grid-2, .form { grid-template-columns: 1fr; }
+      .wrap { padding: 48px 16px; }
+      .lede { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <ew-toast-region aria-live="polite"></ew-toast-region>
+  <header class="bar">
+    <a class="wordmark" href="#arrive">The Grand Meridian</a>
+    <nav class="bar__links" aria-label="Hotel">
+      <a class="ew-link" data-variant="nav" href="#rooms" aria-current="page">Rooms</a>
+      <a class="ew-link" data-variant="nav" href="#table">The Palm Court</a>
+      <a class="ew-link" data-variant="nav" href="#reserve">Reserve</a>
+    </nav>
+    <div class="bar__tools">
+      <button class="ew-button" data-size="sm" data-variant="secondary" type="button" id="mode">Dark</button>
+      <button class="ew-button" data-size="sm" data-variant="ghost" type="button" data-band="whisper">Whisper</button>
+      <button class="ew-button" data-size="sm" data-variant="ghost" type="button" data-band="standard">Standard</button>
+      <button class="ew-button" data-size="sm" type="button" data-band="costume" aria-pressed="true">Costume</button>
+    </div>
+  </header>
+
+  <section class="ew-hero" id="arrive">
+    <div class="ew-hero__backdrop" aria-hidden="true"></div>
+    <div class="ew-hero__panel">
+      <div class="ew-hero__rays" aria-hidden="true"></div>
+      <div class="ew-hero__content">
+        <div class="ew-hero__fan" aria-hidden="true"></div>
+        <h1 class="ew-hero__title">The Grand Meridian</h1>
+        <p class="ew-hero__subtitle">Fifth Avenue · Since 1926</p>
+        <div class="ew-hero__cta">
+          <a class="ew-button" href="#reserve">Request a Suite</a>
+          <a class="ew-button" data-variant="secondary" href="#rooms">View the House</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="house">
+    <div class="intro">
+      <p class="kicker">A private hotel</p>
+      <h2 class="ew-section-heading">On the avenue</h2>
+      <p class="lede">Twelve floors of lacquered walnut, ivory plaster, and brass that has been polished, not replaced. The Meridian keeps a small number of rooms and a quieter idea of arrival.</p>
+    </div>
+  </section>
+
+  <section class="wrap" id="rooms">
+    <h2 class="ew-section-heading">Rooms and suites</h2>
+    <div class="grid-3">
+      <article class="ew-card">
+        <div class="ew-card__header"><h3>The Court Room</h3></div>
+        <div class="ew-card__body">
+          <p>A high-ceilinged room over the courtyard, with a writing desk and a bath in pale marble.</p>
+          <p class="meta">From $480</p>
+        </div>
+        <div class="ew-card__footer">
+          <button class="ew-button" data-size="sm" type="button" data-room="The Court Room">Inquire</button>
+        </div>
+      </article>
+      <article class="ew-card" data-variant="raised">
+        <div class="ew-card__header"><h3>The Avenue Suite</h3></div>
+        <div class="ew-card__body">
+          <p>A sitting room, a separate chamber, and windows that take the evening light down Fifth Avenue.</p>
+          <p class="meta">From $920</p>
+        </div>
+        <div class="ew-card__footer">
+          <button class="ew-button" data-size="sm" type="button" data-room="The Avenue Suite">Inquire</button>
+        </div>
+      </article>
+      <article class="ew-card">
+        <div class="ew-card__header"><h3>The Meridian</h3></div>
+        <div class="ew-card__body">
+          <p>The top-floor apartment: a dining alcove, a library, and a terrace faced in limestone.</p>
+          <p class="meta">From $1,800</p>
+        </div>
+        <div class="ew-card__footer">
+          <button class="ew-button" data-size="sm" type="button" data-room="The Meridian">Inquire</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" id="table">
+    <h2 class="ew-section-heading">The house</h2>
+    <div class="grid-2">
+      <article class="ew-card" data-variant="raised">
+        <div class="ew-card__header"><h3>The Palm Court</h3></div>
+        <div class="ew-card__body">
+          <p>Supper is served under a shallow dome. The menu is short: grilled sole, a steak for two, and a chocolate soufflé that requires twenty minutes and a little faith.</p>
+          <p>Jackets are requested after seven. The bar opens onto the court and keeps a standing list of champagnes.</p>
+        </div>
+      </article>
+      <article class="ew-card">
+        <div class="ew-card__header"><h3>For the stay</h3></div>
+        <div class="ew-card__body">
+          <ul class="amenity">
+            <li><span>Valet</span><span>Day and night</span></li>
+            <li><span>Bath</span><span>Marble, separate</span></li>
+            <li><span>Library</span><span>Second floor</span></li>
+            <li><span>Telex desk</span><span>Until midnight</span></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" id="reserve">
+    <h2 class="ew-section-heading">Reserve</h2>
+    <form class="form" id="reserve-form">
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="guest">Guest</label>
+        <input class="ew-text-field__control" id="guest" name="guest" required autocomplete="name" placeholder="Name">
+      </div>
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="email">Correspondence</label>
+        <input class="ew-text-field__control" id="email" name="email" type="email" required autocomplete="email" placeholder="name@studio.com">
+      </div>
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="arrive-on">Arrival</label>
+        <input class="ew-text-field__control" id="arrive-on" name="arrive" type="date" required>
+      </div>
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="depart">Departure</label>
+        <input class="ew-text-field__control" id="depart" name="depart" type="date" required>
+      </div>
+      <div class="ew-text-field wide">
+        <label class="ew-text-field__label" for="note">Note to the house</label>
+        <textarea class="ew-textarea__control" id="note" name="note" rows="4"></textarea>
+      </div>
+      <label class="ew-checkbox wide">
+        <input class="ew-checkbox__control" type="checkbox" required>
+        <span class="ew-checkbox__box" aria-hidden="true"></span>
+        <span class="ew-checkbox__label">I agree to the house conditions. No payment is taken on this page.</span>
+      </label>
+      <div class="wide">
+        <button class="ew-button" type="submit">Send the request</button>
+        <p class="status" id="reserve-status" role="status"></p>
+      </div>
+    </form>
+  </section>
+
+  <footer class="foot">
+    <p class="wordmark">The Grand Meridian</p>
+    <p>15 East 52nd Street · New York</p>
+    <p>A fictional house. Nothing here books a real room.</p>
+  </footer>
+
+  <dialog class="ew-dialog" id="room-dialog">
+    <form method="dialog">
+      <div class="ew-dialog__header"><h2 id="room-title">Inquire</h2></div>
+      <div class="ew-dialog__body">
+        <p id="room-copy">Tell the desk which room you would like held.</p>
+      </div>
+      <div class="ew-dialog__footer">
+        <a class="ew-button" href="#reserve">Continue to reserve</a>
+        <button class="ew-button" data-variant="ghost" type="submit">Close</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    const root = document.documentElement;
+    const modeBtn = document.getElementById('mode');
+    modeBtn.addEventListener('click', () => {
+      const dark = root.getAttribute('data-mode') !== 'dark';
+      root.setAttribute('data-mode', dark ? 'dark' : 'light');
+      modeBtn.textContent = dark ? 'Light' : 'Dark';
+    });
+    for (const btn of document.querySelectorAll('[data-band]')) {
+      btn.addEventListener('click', () => {
+        root.setAttribute('data-fidelity-band', btn.dataset.band);
+        for (const other of document.querySelectorAll('[data-band]')) {
+          other.setAttribute('aria-pressed', other === btn ? 'true' : 'false');
+        }
+      });
+    }
+    const dialog = document.getElementById('room-dialog');
+    for (const btn of document.querySelectorAll('[data-room]')) {
+      btn.addEventListener('click', () => {
+        document.getElementById('room-title').textContent = btn.dataset.room;
+        document.getElementById('room-copy').textContent = btn.dataset.room + ' can be held until six in the evening on the day of arrival. Continue to the reservation form — nothing is charged.';
+        dialog.showModal();
+      });
+    }
+    document.getElementById('reserve-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const guest = String(data.get('guest') || 'Guest');
+      document.getElementById('reserve-status').textContent = 'Request noted for ' + guest + '. The desk will write by the next morning.';
+      document.querySelector('ew-toast-region').show({
+        title: 'Request received',
+        body: 'The Grand Meridian will answer by letter. No payment was taken.',
+        variant: 'info',
+        timeout: 5000
+      });
+    });
+  </script>
+</body>
+</html>

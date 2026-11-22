@@ -39,6 +39,14 @@ export function loadEras() {
   return loadDir('eras', (f) => f.endsWith('era.spec.json')).sort((a, b) => a.id.localeCompare(b.id));
 }
 
+export function loadRecipes() {
+  const dir = path.join(SPEC_ROOT, 'recipes');
+  if (!fs.existsSync(dir)) return [];
+  return listJson(dir, (f) => f.endsWith('.json'))
+    .map(readJson)
+    .sort((a, b) => a.id.localeCompare(b.id));
+}
+
 export function getComponent(name) {
   const id = String(name || '').toLowerCase().replace(/\s+/g, '-');
   const aliases = { textfield: 'text-field', text_field: 'text-field' };

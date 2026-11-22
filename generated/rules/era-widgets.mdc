@@ -16,3 +16,5 @@ globs:
 - Glow never counts as contrast; no display faces on controls.
 - MCP `validate` returns exact "change X to Y" fixes.
 - Heroes: alert, avatar, breadcrumb, button, card, checkbox, dialog, icon-button, link, menu, ornament-divider, popover, radio, select, slider, switch, tabs, text-field, textarea, toast, tooltip. Eras: deco (costume default), earth (costume default), groovy (costume default), mcm-atomic (costume default), memphis (costume default), neon (costume default), neutral (costume default).
+- Website recipes live in `spec/recipes/`. Read one card at `generated/llms/recipe-<id>.card.txt`.
+- Agent skill: `skills/groovster/SKILL.md`.

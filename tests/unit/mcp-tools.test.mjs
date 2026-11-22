@@ -43,6 +43,34 @@ test('recommendTool keyword routing', () => {
   }
 });
 
+test('recommendTool attaches a recipe without changing era routes', () => {
+  const hotel = recommendTool({ description: 'boutique hotel booking' });
+  assert.equal(hotel.era, 'deco');
+  assert.equal(hotel.recipe.id, 'hospitality');
+  assert.ok(hotel.recipe.components.includes('dialog'));
+
+  const festival = recommendTool({ description: 'retro music festival' });
+  assert.equal(festival.era, 'neon');
+  assert.equal(festival.recipe.id, 'event');
+
+  const shop = recommendTool({ description: 'small ecommerce shop' });
+  assert.equal(shop.recipe.id, 'commerce');
+  assert.equal(shop.era, 'groovy');
+  assert.equal(shop.fidelityBand, 'standard');
+
+  const board = recommendTool({ description: 'operational dashboard' });
+  assert.equal(board.era, 'neutral');
+  assert.equal(board.recipe.id, 'dashboard');
+
+  const magazine = recommendTool({ description: 'editorial magazine' });
+  assert.equal(magazine.era, 'deco');
+  assert.equal(magazine.recipe.id, 'editorial');
+
+  const bland = recommendTool({ description: 'something unrelated bland' });
+  assert.equal(bland.era, 'neutral');
+  assert.equal(bland.recipe, null);
+});
+
 test('get_era_spec aliases', () => {
   const out = getEraSpec({ era: 'art-deco' });
   assert.equal(out.error, undefined);

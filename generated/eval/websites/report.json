@@ -1,0 +1,225 @@
+{
+  "live": {
+    "status": "not-run",
+    "reason": "Live model calls were not authorized.",
+    "credentialDetected": false
+  },
+  "visualQuality": "not scored",
+  "footprint": {
+    "fullGzip": 35713,
+    "selectiveGzip": 9354,
+    "note": "Demos that switch all seven eras link the full bundle. A fixed era can link base, used components, and that era."
+  },
+  "tasks": [
+    {
+      "id": "hotel",
+      "prompt": "Build an elegant art deco hotel booking website.",
+      "setups": {
+        "generic": {
+          "kind": "plain-html-template",
+          "tokens": 14,
+          "structural": {
+            "ok": true,
+            "missing": []
+          },
+          "usesGroovster": false
+        },
+        "docs": {
+          "kind": "instruction-weight",
+          "tokens": 1355,
+          "markupClaim": false,
+          "note": "Counts the index plus two component files. Does not generate a page."
+        },
+        "skill": {
+          "kind": "reference-site",
+          "tokens": 1437,
+          "structural": {
+            "ok": true,
+            "missing": []
+          },
+          "note": "Checks the existing reference site. This is not a model completion."
+        },
+        "skill-mcp": {
+          "kind": "reference-site-plus-recommend",
+          "tokens": 1723,
+          "toolCalls": 1,
+          "era": "deco",
+          "fidelityBand": "whisper",
+          "recipe": "hospitality",
+          "structural": {
+            "ok": true,
+            "missing": []
+          }
+        }
+      }
+    },
+    {
+      "id": "festival",
+      "prompt": "Create a beautiful 1980s-inspired music festival website with ticket purchasing, schedules, and mobile support.",
+      "setups": {
+        "generic": {
+          "kind": "plain-html-template",
+          "tokens": 14,
+          "structural": {
+            "ok": true,
+            "missing": []
+          },
+          "usesGroovster": false
+        },
+        "docs": {
+          "kind": "instruction-weight",
+          "tokens": 1355,
+          "markupClaim": false,
+          "note": "Counts the index plus two component files. Does not generate a page."
+        },
+        "skill": {
+          "kind": "reference-site",
+          "tokens": 1438,
+          "structural": {
+            "ok": true,
+            "missing": []
+          },
+          "note": "Checks the existing reference site. This is not a model completion."
+        },
+        "skill-mcp": {
+          "kind": "reference-site-plus-recommend",
+          "tokens": 1724,
+          "toolCalls": 1,
+          "era": "neon",
+          "fidelityBand": "standard",
+          "recipe": "event",
+          "structural": {
+            "ok": true,
+            "missing": []
+          }
+        }
+      }
+    },
+    {
+      "id": "editorial",
+      "prompt": "Design an editorial publication with a strong reading experience.",
+      "setups": {
+        "generic": {
+          "kind": "plain-html-template",
+          "tokens": 14,
+          "structural": {
+            "ok": true,
+            "missing": []
+          },
+          "usesGroovster": false
+        },
+        "docs": {
+          "kind": "instruction-weight",
+          "tokens": 1355,
+          "markupClaim": false,
+          "note": "Counts the index plus two component files. Does not generate a page."
+        },
+        "skill": {
+          "kind": "reference-site",
+          "tokens": 1475,
+          "structural": {
+            "ok": true,
+            "missing": []
+          },
+          "note": "Checks the existing reference site. This is not a model completion."
+        },
+        "skill-mcp": {
+          "kind": "reference-site-plus-recommend",
+          "tokens": 1757,
+          "toolCalls": 1,
+          "era": "deco",
+          "fidelityBand": "whisper",
+          "recipe": "editorial",
+          "structural": {
+            "ok": true,
+            "missing": []
+          }
+        }
+      }
+    },
+    {
+      "id": "shop",
+      "prompt": "Build a small ecommerce application for a boutique home shop.",
+      "setups": {
+        "generic": {
+          "kind": "plain-html-template",
+          "tokens": 14,
+          "structural": {
+            "ok": true,
+            "missing": []
+          },
+          "usesGroovster": false
+        },
+        "docs": {
+          "kind": "instruction-weight",
+          "tokens": 1355,
+          "markupClaim": false,
+          "note": "Counts the index plus two component files. Does not generate a page."
+        },
+        "skill": {
+          "kind": "reference-site",
+          "tokens": 1399,
+          "structural": {
+            "ok": true,
+            "missing": []
+          },
+          "note": "Checks the existing reference site. This is not a model completion."
+        },
+        "skill-mcp": {
+          "kind": "reference-site-plus-recommend",
+          "tokens": 1643,
+          "toolCalls": 1,
+          "era": "groovy",
+          "fidelityBand": "standard",
+          "recipe": "commerce",
+          "structural": {
+            "ok": true,
+            "missing": []
+          }
+        }
+      }
+    },
+    {
+      "id": "dashboard",
+      "prompt": "Build an operational dashboard for a dispatch board.",
+      "setups": {
+        "generic": {
+          "kind": "plain-html-template",
+          "tokens": 14,
+          "structural": {
+            "ok": true,
+            "missing": []
+          },
+          "usesGroovster": false
+        },
+        "docs": {
+          "kind": "instruction-weight",
+          "tokens": 1355,
+          "markupClaim": false,
+          "note": "Counts the index plus two component files. Does not generate a page."
+        },
+        "skill": {
+          "kind": "reference-site",
+          "tokens": 1472,
+          "structural": {
+            "ok": true,
+            "missing": []
+          },
+          "note": "Checks the existing reference site. This is not a model completion."
+        },
+        "skill-mcp": {
+          "kind": "reference-site-plus-recommend",
+          "tokens": 1724,
+          "toolCalls": 1,
+          "era": "neutral",
+          "fidelityBand": "whisper",
+          "recipe": "dashboard",
+          "structural": {
+            "ok": true,
+            "missing": []
+          }
+        }
+      }
+    }
+  ]
+}

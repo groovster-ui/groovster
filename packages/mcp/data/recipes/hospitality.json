@@ -1,0 +1,150 @@
+{
+  "$schema": "../schema/recipe.schema.json",
+  "id": "hospitality",
+  "name": "Premium hospitality",
+  "category": "Hotel, inn, or reservation-led stay",
+  "summary": "A polished stay page: rooms, a short visit story, and a reservation request. The request does not hold a room.",
+  "priority": 40,
+  "keywords": [
+    "hotel",
+    "hospitality",
+    "resort",
+    "reservation",
+    "lodging",
+    "inn",
+    "booking"
+  ],
+  "eras": {
+    "recommended": [
+      "deco",
+      "earth",
+      "mcm-atomic"
+    ],
+    "alsoFits": [
+      "groovy",
+      "neutral",
+      "memphis",
+      "neon"
+    ],
+    "avoid": []
+  },
+  "fidelity": {
+    "page": "costume",
+    "forms": "standard",
+    "data": "whisper",
+    "notes": "Costume for the arrival story and room cards. The request form uses ordinary labels and native fields."
+  },
+  "sections": {
+    "required": [
+      {
+        "id": "masthead",
+        "purpose": "Property name and place"
+      },
+      {
+        "id": "rooms",
+        "purpose": "Stay options"
+      },
+      {
+        "id": "reserve",
+        "purpose": "Fictional reservation request"
+      },
+      {
+        "id": "visit",
+        "purpose": "Arrival notes"
+      }
+    ],
+    "optional": [
+      {
+        "id": "policies",
+        "purpose": "House notes"
+      }
+    ]
+  },
+  "hierarchy": [
+    "h1 property name",
+    "h2 rooms and request",
+    "h3 room name"
+  ],
+  "layouts": [
+    "Arrival hero, room cards, then a reservation form.",
+    "Room art is local CSS, not a remote photograph."
+  ],
+  "responsive": {
+    "breakpoint": "800px",
+    "behavior": "Stack room cards and form fields. Keep the request button on screen after the fields."
+  },
+  "components": {
+    "required": [
+      "button",
+      "card",
+      "dialog",
+      "text-field",
+      "select",
+      "radio",
+      "textarea",
+      "alert",
+      "ornament-divider",
+      "link"
+    ],
+    "optional": [
+      "popover"
+    ]
+  },
+  "typography": {
+    "priorities": [
+      "Property name in the display face.",
+      "Room names and rates easy to compare.",
+      "Form labels in the body face."
+    ]
+  },
+  "spacing": {
+    "priority": "Generous hero and room cards. Compact, aligned form rows."
+  },
+  "interactions": [
+    "Choose a room with radios.",
+    "Submit opens a confirmation alert and dialog stating the request is fictional.",
+    "A popover can show rate notes without leaving the page."
+  ],
+  "accessibility": [
+    "Room choice is a radio group.",
+    "Dates, guests, and notes have visible labels.",
+    "Confirmation is a status alert, not color alone.",
+    "Popover is the Popover API."
+  ],
+  "ornament": {
+    "use": [
+      "Costume hero appropriate to the era.",
+      "A divider between rooms and the request."
+    ],
+    "avoid": [
+      "Ornament that covers the rate.",
+      "Placeholder text as the only label."
+    ]
+  },
+  "density": "comfortable",
+  "eraDeviations": [
+    {
+      "eras": [
+        "deco"
+      ],
+      "note": "Arrival copy uses .ew-hero__panel, rays, and fan."
+    },
+    {
+      "eras": [
+        "neon",
+        "mcm-atomic"
+      ],
+      "note": "The same hero includes .ew-hero__stage. Do not restyle the form with a second HTML tree."
+    }
+  ],
+  "customization": [
+    "Property, rooms, rates, and default era.",
+    "Reservation fields stay native inputs."
+  ],
+  "demo": {
+    "path": "demos/recipes/hospitality/index.html",
+    "era": "deco",
+    "mode": "light",
+    "fidelity": "costume"
+  }
+}

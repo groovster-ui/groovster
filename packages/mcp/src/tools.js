@@ -1,6 +1,6 @@
 
 import { VERSION } from './paths.js';
-import { eraCard, getComponent, getEra, loadComponents, loadEras } from './load-spec.js';
+import { eraCard, getComponent, getEra, loadComponents, loadEras, loadRecipes } from './load-spec.js';
 import { validateMarkup } from './validate.js';
 
 const REGISTRY_BASE = (process.env.GROOVSTER_REGISTRY_URL || 'https://groovsterui.com/r').replace(/\/$/, '');
@@ -172,11 +172,49 @@ export function installTool({ name, target } = {}) {
       lines.push('<script src="node_modules/@groovster/elements/dist/era-elements.js"></script>');
     }
   }
+  lines.push(
+    'Agent skill: copy skills/groovster into .cursor/skills, .claude/skills, or .agents/skills. See docs/agents.md.',
+  );
   return pin({
     target: tgt,
     component: comp?.id || null,
     steps: lines,
   });
+}
+
+function keywordHit(text, word) {
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(?:^|\\b)${escaped}(?:\\b|$)`, 'i').test(text);
+}
+
+function matchRecipe(text) {
+  let best = null;
+  let bestRank = -1;
+  for (const recipe of loadRecipes()) {
+    let hits = 0;
+    for (const word of recipe.keywords || []) {
+      if (keywordHit(text, word)) hits += 1;
+    }
+    if (!hits) continue;
+    const rank = hits * 1000 + (recipe.priority || 0);
+    if (rank > bestRank) {
+      best = recipe;
+      bestRank = rank;
+    }
+  }
+  return best;
+}
+
+function recipeAdvice(recipe) {
+  if (!recipe) return null;
+  return {
+    id: recipe.id,
+    summary: recipe.summary,
+    eras: recipe.eras.recommended,
+    fidelity: recipe.fidelity.page,
+    components: recipe.components.required,
+    card: `generated/llms/recipe-${recipe.id}.card.txt`,
+  };
 }
 
 export function recommendTool({ description } = {}) {
@@ -192,11 +230,22 @@ export function recommendTool({ description } = {}) {
     { test: /(admin|settings|saas|dashboard|serious|enterprise|default)/, era: 'neutral', fidelityBand: 'whisper', dialect: null },
   ];
   let pick = { era: 'neutral', fidelityBand: 'whisper', dialect: null, reason: 'default quiet system skin' };
+  let eraHit = false;
   for (const r of rules) {
     if (r.test.test(text)) {
       pick = { era: r.era, fidelityBand: r.fidelityBand, dialect: r.dialect, reason: `matched /${r.test.source}/` };
+      eraHit = true;
       break;
     }
+  }
+  const recipe = matchRecipe(text);
+  if (recipe && !eraHit) {
+    pick = {
+      era: recipe.eras.recommended[0],
+      fidelityBand: recipe.fidelity.page,
+      dialect: null,
+      reason: `recipe ${recipe.id}`,
+    };
   }
   const era = getEra(pick.era);
   return pin({
@@ -205,6 +254,7 @@ export function recommendTool({ description } = {}) {
     dialect: pick.dialect,
     oneLiner: era?.identity?.oneLiner,
     reason: pick.reason,
+    recipe: recipeAdvice(recipe),
   });
 }
 
@@ -265,7 +315,7 @@ export const TOOL_DEFS = [
   },
   {
     name: 'recommend',
-    description: 'Suggest era + fidelity (+ dialect) for a product description.',
+    description: 'Suggest era, fidelity, and a website recipe id when one fits. Returns a card path, not full specs.',
     inputSchema: {
       type: 'object',
       required: ['description'],

@@ -1,0 +1,149 @@
+{
+  "$schema": "../schema/recipe.schema.json",
+  "id": "editorial",
+  "name": "Editorial publication",
+  "category": "Magazine, journal, or essay-led publication",
+  "summary": "A reading-first publication. Display type carries the issue; body copy stays quiet and long enough to read.",
+  "priority": 10,
+  "keywords": [
+    "magazine",
+    "newspaper",
+    "masthead",
+    "journal",
+    "essay",
+    "editorial",
+    "publication"
+  ],
+  "eras": {
+    "recommended": [
+      "earth",
+      "deco",
+      "neutral"
+    ],
+    "alsoFits": [
+      "groovy",
+      "mcm-atomic",
+      "memphis",
+      "neon"
+    ],
+    "avoid": []
+  },
+  "fidelity": {
+    "page": "costume",
+    "forms": "standard",
+    "data": "whisper",
+    "notes": "Costume on the masthead. Keep the essay and newsletter controls free of display faces."
+  },
+  "sections": {
+    "required": [
+      {
+        "id": "masthead",
+        "purpose": "Issue title, kicker, and primary navigation"
+      },
+      {
+        "id": "story",
+        "purpose": "Lead essay with byline and a readable measure"
+      },
+      {
+        "id": "departments",
+        "purpose": "Sectioned secondary stories"
+      },
+      {
+        "id": "newsletter",
+        "purpose": "Fictional subscribe form"
+      }
+    ],
+    "optional": [
+      {
+        "id": "archive",
+        "purpose": "Past issues as links"
+      }
+    ]
+  },
+  "hierarchy": [
+    "h1 issue or publication name",
+    "h2 lead story",
+    "h3 department stories"
+  ],
+  "layouts": [
+    "Full-bleed masthead, then a narrow measure for the essay.",
+    "Department stories sit in a wrapping grid, not a component gallery."
+  ],
+  "responsive": {
+    "breakpoint": "800px",
+    "behavior": "Stack the essay and side note. Let the nav wrap. Do not shrink body text below 1rem."
+  },
+  "components": {
+    "required": [
+      "link",
+      "button",
+      "card",
+      "tabs",
+      "text-field",
+      "checkbox",
+      "alert",
+      "ornament-divider",
+      "avatar",
+      "breadcrumb"
+    ],
+    "optional": [
+      "textarea"
+    ]
+  },
+  "typography": {
+    "priorities": [
+      "Display face on the masthead and story title only.",
+      "Body face for the essay.",
+      "No display face on buttons, fields, or nav."
+    ]
+  },
+  "spacing": {
+    "priority": "Large space before the essay, tight space inside paragraphs, generous gap between departments."
+  },
+  "interactions": [
+    "Department tabs switch story groups.",
+    "Newsletter submit confirms locally and states that no list is contacted."
+  ],
+  "accessibility": [
+    "One h1.",
+    "Visible labels on the email field and consent checkbox.",
+    "Tabs use the ew-tabs element.",
+    "Skip link to the essay."
+  ],
+  "ornament": {
+    "use": [
+      "Masthead hero hooks for the active era.",
+      "One ornament divider between the essay and departments."
+    ],
+    "avoid": [
+      "Ornament behind body text.",
+      "A costume divider between every paragraph."
+    ]
+  },
+  "density": "immersive",
+  "eraDeviations": [
+    {
+      "eras": [
+        "neon",
+        "mcm-atomic"
+      ],
+      "note": "Keep .ew-hero__stage in the masthead so costume sun, grid, starbursts, and arch can render. Cap stage height in page CSS so the essay starts on the first screen."
+    },
+    {
+      "eras": [
+        "deco"
+      ],
+      "note": "Wrap masthead copy in .ew-hero__panel with rays and fan. Do not rebuild the rest of the page."
+    }
+  ],
+  "customization": [
+    "Publication name, issue, essay, departments, and the default era.",
+    "Swap era and band on the root without rewriting sections."
+  ],
+  "demo": {
+    "path": "demos/recipes/editorial/index.html",
+    "era": "earth",
+    "mode": "light",
+    "fidelity": "costume"
+  }
+}

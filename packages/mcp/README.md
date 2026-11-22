@@ -10,12 +10,12 @@ MCP server for Era Widgets. Compact replies by default (`detail: "full"` for mor
 | `get_era_spec` | 10–20 line era card + top neverDo |
 | `get_component` | HTML snippet + CSS import + one a11y note |
 | `install` | npm / registry / copy steps |
-| `recommend` | era + fidelityBand (`whisper` \| `standard` \| `costume`) + dialect |
+| `recommend` | era + fidelityBand (`whisper` \| `standard` \| `costume`) + dialect, plus a recipe id and card path when the description matches a website |
 | `validate` | `pass` + exact `change X to Y` fixes |
 
 ## Run
 
-The published package includes `data/` (components, eras, and tokens). Paths resolve from the installed package, not the monorepo.
+The published package includes `data/` (components, eras, tokens, and recipes). Paths resolve from the installed package, not the monorepo.
 
 ```bash
 pnpm --filter @groovster/mcp start

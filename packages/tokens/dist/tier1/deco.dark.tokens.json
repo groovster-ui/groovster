@@ -4,33 +4,33 @@
     "tier": 1,
     "era": "deco",
     "mode": "dark",
-    "description": "Tier 1 raw values for deco dark (hero mode: black lacquer + gold)"
+    "description": "Tier 1 raw values for deco dark (near-black lacquer, champagne, antique brass)"
   },
   "color": {
     "ink": {
       "$type": "color",
-      "$value": "#F3E7C9",
-      "$description": "champagne, 16.0:1 on paper"
+      "$value": "#F4EAD8",
+      "$description": "warm ivory ink on lacquer"
     },
     "paper": {
       "$type": "color",
-      "$value": "#0B0B0C",
-      "$description": "black lacquer"
+      "$value": "#0C0B09",
+      "$description": "near-black lacquer"
     },
     "panel": {
       "$type": "color",
-      "$value": "#15130F",
-      "$description": "surface layer"
+      "$value": "#16130F",
+      "$description": "lacquer surface"
     },
     "sky": {
       "$type": "color",
-      "$value": "#1E1A14",
-      "$description": "elevated surfaces"
+      "$value": "#211C16",
+      "$description": "charcoal elevated surface"
     },
     "cream": {
       "$type": "color",
-      "$value": "#C9B68A",
-      "$description": "muted text, 9.3:1 on panel"
+      "$value": "#CDB892",
+      "$description": "muted champagne text"
     },
     "gold": {
       "$type": "color",
@@ -39,18 +39,28 @@
     },
     "brass": {
       "$type": "color",
-      "$value": "#C9A227",
-      "$description": "metallic brass for elevated mixes and tracks"
+      "$value": "#C4A15A",
+      "$description": "antique brass for mixes and tracks"
     },
     "brassDeep": {
       "$type": "color",
-      "$value": "#7A5C12",
-      "$description": "deep brass for terraced elevation shadows"
+      "$value": "#6A5018",
+      "$description": "deep brass for terraced elevation"
+    },
+    "champagne": {
+      "$type": "color",
+      "$value": "#E6D4AE",
+      "$description": "edge highlight and large display metal"
+    },
+    "goldText": {
+      "$type": "color",
+      "$value": "#E4C97A",
+      "$description": "large gold type and links on lacquer"
     },
     "goldBright": {
       "$type": "color",
-      "$value": "#E8C766",
-      "$description": "hover gold"
+      "$value": "#E6D4AE",
+      "$description": "champagne highlight, not flat yellow"
     },
     "goldBorder": {
       "$type": "color",
@@ -69,8 +79,8 @@
     },
     "fieldBg": {
       "$type": "color",
-      "$value": "#100F0C",
-      "$description": "input field background"
+      "$value": "#100E0C",
+      "$description": "recessed field on lacquer"
     },
     "jade": {
       "$type": "color",
@@ -89,7 +99,7 @@
       },
       "fg": {
         "$type": "color",
-        "$value": "#0B0B0C"
+        "$value": "#0C0B09"
       }
     },
     "danger": {
