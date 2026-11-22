@@ -12,10 +12,10 @@
         "$type": "color",
         "$value": "{color.ink}"
       },
-      "muted": {
-        "$type": "color",
-        "$value": "{color.brassDeep}"
-      },
+    "muted": {
+      "$type": "color",
+      "$value": "{color.cream}"
+    },
       "inverse": {
         "$type": "color",
         "$value": "{color.paper}"
@@ -36,14 +36,14 @@
       }
     },
     "border": {
-      "subtle": {
-        "$type": "color",
-        "$value": "{color.brass}"
-      },
-      "strong": {
-        "$type": "color",
-        "$value": "{color.brassDeep}"
-      }
+    "subtle": {
+      "$type": "color",
+      "$value": "{color.goldSubtle}"
+    },
+    "strong": {
+      "$type": "color",
+      "$value": "{color.gold}"
+    }
     },
     "action": {
       "bg": {
@@ -64,14 +64,14 @@
         "$type": "color",
         "$value": "color-mix(in oklch, {color.paper} 95%, {color.panel} 5%)"
       },
-      "border": {
-        "$type": "color",
-        "$value": "{color.brassDeep}"
-      },
-      "focus": {
-        "$type": "color",
-        "$value": "{color.brass}"
-      }
+    "border": {
+      "$type": "color",
+      "$value": "{color.goldBorder}"
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "{color.goldFocus}"
+    }
     },
     "overlay": {
       "$type": "color",
