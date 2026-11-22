@@ -1073,7 +1073,7 @@
     --ew-mode: light;
     --ew-color-cream: oklch(97% 0.02 95);
     --ew-color-sand: oklch(90% 0.03 85);
-    --ew-color-teal: oklch(55% 0.1 200);
+    --ew-color-teal: oklch(50% 0.1 200);
     --ew-color-coral: oklch(65% 0.14 35);
     --ew-color-mustard: oklch(78% 0.12 90);
     --ew-color-ink: oklch(18% 0.03 60);
@@ -1511,7 +1511,7 @@
     --ew-color-sky: oklch(95% 0.03 230);
     --ew-color-panel: oklch(90% 0.04 320);
     --ew-color-magenta: oklch(60% 0.22 340);
-    --ew-color-cyan: oklch(65% 0.14 210);
+    --ew-color-cyan: oklch(45% 0.14 210);
     --ew-color-violet: oklch(45% 0.12 300);
     --ew-color-ink: oklch(22% 0.05 300);
     --ew-color-accent-solid: oklch(55% 0.2 340);
@@ -2087,6 +2087,7 @@
     font-weight: var(--ew-structure-button-font-weight, 600);
     letter-spacing: var(--ew-structure-button-letter-spacing, 0);
     text-transform: var(--ew-structure-button-text-transform, none);
+    text-decoration: none;
     box-shadow: var(--_btn-bevel), var(--_btn-shadow);
     cursor: pointer;
     transition: background 120ms ease, box-shadow 120ms ease, transform 120ms ease;
@@ -2388,7 +2389,12 @@
     /* anatomy: trigger, panel, item */
   }
   .ew-menu, ew-menu.ew-menu, ew-menu { display: inline-block; position: relative; }
+  .ew-menu__trigger { anchor-name: --ew-menu-trigger; }
   .ew-menu__panel {
+    inset: unset;
+    position-anchor: --ew-menu-trigger;
+    position-area: block-end;
+    min-width: anchor-size(width);
     border: var(--ew-structure-card-border-width, 1px) var(--ew-structure-card-border-style, solid) var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);
     background: var(--ew-color-bg-elevated);
@@ -2553,14 +2559,18 @@
     outline: 2px solid var(--ew-color-field-focus); outline-offset: 1px;
   }
   .ew-select__list {
-    list-style: none; margin: 4px 0 0; padding: 6px;
-    position: absolute; z-index: 20; inset-inline: 0; top: 100%;
+    list-style: none; margin: 0; padding: 6px;
+    inset: unset;
+    position-anchor: --ew-select-trigger;
+    position-area: block-end;
+    min-width: anchor-size(width);
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);
     background: var(--ew-color-bg-elevated); color: var(--ew-color-fg-default);
     box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2));
     max-height: 220px; overflow: auto;
   }
+  .ew-select__trigger { anchor-name: --ew-select-trigger; }
   .ew-select__option {
     padding: 8px 10px; border-radius: 6px; cursor: pointer;
   }
@@ -2881,7 +2891,11 @@
   .ew-toast {
     /* anatomy: root, title, body, region */
   }
-  .ew-toast-region, ew-toast-region { display: grid; gap: 8px; }
+  .ew-toast-region, ew-toast-region {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    display: grid; gap: 10px; pointer-events: none;
+  }
+  .ew-toast-region > * { pointer-events: auto; }
   .ew-toast {
     position: relative;
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);

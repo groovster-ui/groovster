@@ -27,14 +27,18 @@
     outline: 2px solid var(--ew-color-field-focus); outline-offset: 1px;
   }
   .ew-select__list {
-    list-style: none; margin: 4px 0 0; padding: 6px;
-    position: absolute; z-index: 20; inset-inline: 0; top: 100%;
+    list-style: none; margin: 0; padding: 6px;
+    inset: unset;
+    position-anchor: --ew-select-trigger;
+    position-area: block-end;
+    min-width: anchor-size(width);
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);
     background: var(--ew-color-bg-elevated); color: var(--ew-color-fg-default);
     box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2));
     max-height: 220px; overflow: auto;
   }
+  .ew-select__trigger { anchor-name: --ew-select-trigger; }
   .ew-select__option {
     padding: 8px 10px; border-radius: 6px; cursor: pointer;
   }

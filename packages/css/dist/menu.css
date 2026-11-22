@@ -5,7 +5,12 @@
     /* anatomy: trigger, panel, item */
   }
   .ew-menu, ew-menu.ew-menu, ew-menu { display: inline-block; position: relative; }
+  .ew-menu__trigger { anchor-name: --ew-menu-trigger; }
   .ew-menu__panel {
+    inset: unset;
+    position-anchor: --ew-menu-trigger;
+    position-area: block-end;
+    min-width: anchor-size(width);
     border: var(--ew-structure-card-border-width, 1px) var(--ew-structure-card-border-style, solid) var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);
     background: var(--ew-color-bg-elevated);
