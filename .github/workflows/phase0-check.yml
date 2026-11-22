@@ -43,12 +43,11 @@ jobs:
       - name: Run MCP smoke tests
         run: pnpm mcp:smoke
       
-      - name: Run eval tests
-        run: pnpm eval
-      
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps chromium
-        working-directory: tools/a11y
+      
+      - name: Run eval tests
+        run: pnpm eval
       
       - name: Run accessibility tests
         run: pnpm test:a11y
