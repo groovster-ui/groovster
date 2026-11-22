@@ -8,24 +8,24 @@
     "retrowave"
   ],
   "identity": {
-    "oneLiner": "Synthwave nights: magenta\u2013cyan chrome on deep violet, grid horizon optional.",
-    "summary": "Neon/Synthwave is high-contrast dark-first romance: chrome bezels, scanline/grid backdrops at high fidelity, and magenta/cyan accents. Glow is decoration only \u2014 contrast must pass without it. Light mode is a washed Miami daytime dialect of the same geometry.",
+    "oneLiner": "80s synthwave: perspective grid, striped sunset sun, chrome type, neon tubes.",
+    "summary": "Neon/Synthwave is high-contrast dark-first romance: perspective grid floor, striped sunset sun, wireframe mountains, chrome type, wedge neon tubes, and scanlines. Glow is decoration only — contrast must pass without it. Light mode is a dusk pastel sky with saturated magenta/cyan accents.",
     "bestFit": [
       "Gaming / music marketing",
+      "Nightclub / arcade microsites",
       "Night-mode demos",
-      "Devtool flair pages",
-      "Event / festival microsites"
+      "Event / festival landing pages"
     ],
-    "authenticityNotes": "Chrome + grid + dual accent beats rainbow. Prefer one horizon/grid plane, not every panel glowing."
+    "authenticityNotes": "Grid + sun + chrome type + glow tubes beat rainbow dashboards. One horizon plane per hero; never fixed page-wide."
   },
   "axes": {
-    "shape": "Slightly squared with chrome bevel; perspective grid only in backdrop slots",
-    "edge": "Beveled chrome / dual-tone borders",
-    "surface": "Deep violet/navy lacquer; subtle scanline noise",
+    "shape": "Wedge 45° corner cuts; squared chrome bezels",
+    "edge": "2px neon tube with layered outer glow",
+    "surface": "Indigo night lacquer (dark) or dusk lilac (light); scanline overlay",
     "elevation": "Hard neon rim + dark drop; bloom is cosmetic",
-    "ornament": "Grid horizon, sun disc, scanlines via backdrop/ornament",
-    "typeVoice": "Tech display for titles; readable sans for UI; mono accents",
-    "motion": "Pulse/glow optional; must respect reduced motion (static rim remains)",
+    "ornament": "Perspective grid, striped sun, wireframe mountains, scanlines",
+    "typeVoice": "Chrome/Monoton for H1; Orbitron for headings; Mr Dafoe script overlay; Exo 2 for UI",
+    "motion": "Optional RGB-split on chrome hover; respect reduced motion",
     "density": "Showy marketing density; tighten for app chrome",
     "iconography": "Angular / chrome stroke"
   },
@@ -36,6 +36,8 @@
     "license": "OFL-1.1",
     "sources": [
       "https://fonts.google.com/specimen/Orbitron",
+      "https://fonts.google.com/specimen/Monoton",
+      "https://fonts.google.com/specimen/Mr+Dafoe",
       "https://fonts.google.com/specimen/Exo+2",
       "https://fonts.google.com/specimen/Share+Tech+Mono"
     ]
@@ -106,12 +108,12 @@
       "surface: violet lacquer + scanline",
       "elevation: hard rim (glow cosmetic)",
       "ornament: grid / sun in backdrop",
-      "type: Orbitron + Exo 2",
-      "fidelity: default 55 (35\u201375)",
-      "modes: light, dark",
+      "type: Monoton chrome + Orbitron + Mr Dafoe + Exo 2",
+      "fidelity: costume default; bands whisper|default|costume",
+      "modes: light (dusk), dark (indigo night)",
       "dialects: synthwave | miami",
-      "use: gaming, night demos, festivals",
-      "never: glow-as-contrast, display on controls"
+      "use: arcade, nightclub, festivals",
+      "never: glow-as-contrast, Orbitron on controls"
     ]
   },
   "structure": {

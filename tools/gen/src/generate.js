@@ -16,6 +16,7 @@ import { generateExtras } from './gen-extras.js';
 import { generateDialectCss } from './dialects.js';
 import { bandTokenCss, muteBandSel } from './band.js';
 import { decoDecoratorCss } from './deco-decorators.js';
+import { neonDecoratorCss } from './neon-decorators.js';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
 
@@ -42,6 +43,8 @@ ${decls}
 function fontFaceBlock(era) {
   if (!era.fonts) return '';
   const families = [era.fonts.display, era.fonts.body, era.fonts.mono].filter(Boolean);
+  // Neon chrome + script faces (not on control labels).
+  if (era.id === 'neon') families.push('Monoton', 'Mr Dafoe');
   const unique = [...new Set(families)];
   return unique
     .map(
@@ -346,58 +349,7 @@ function genEraCss(era) {
   }
 `);
   } else if (era.id === 'neon') {
-    blocks.push(`  [data-era="neon"] .ew-button {
-    border-image: linear-gradient(120deg, var(--ew-color-border-strong), var(--ew-color-border-subtle), var(--ew-color-border-strong)) 1;
-  }
-  [data-era="neon"] .ew-button[data-variant="ghost"] { border-image: none; }
-  [data-era="neon"] .ew-card {
-    border-color: var(--ew-color-border-strong);
-    background-image:
-      linear-gradient(180deg, color-mix(in oklch, var(--ew-color-bg-elevated) 92%, white) 0%, var(--ew-color-bg-surface) 100%);
-  }
-  [data-era="neon"] .ew-card__header::after {
-    content: "";
-    display: block;
-    height: 2px;
-    margin-top: 10px;
-    background: linear-gradient(90deg, var(--ew-color-action-bg), var(--ew-color-border-subtle), transparent);
-  }
-  ${muteBandSel('neon', ' .ew-card__header::after')} { display: none; }
-  [data-era="neon"] .ew-card__header h2,
-  [data-era="neon"] .ew-card__header h3 {
-    text-transform: uppercase;
-    font-family: var(--ew-font-display, inherit);
-  }
-  [data-era="neon"] .ew-text-field__control,
-  [data-era="neon"] .ew-select__control,
-  [data-era="neon"] .ew-select__trigger,
-  [data-era="neon"] .ew-textarea__control {
-    border-radius: 2px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--ew-color-field-border);
-    background: var(--ew-color-field-bg);
-    box-shadow: none;
-  }
-  [data-era="neon"] .ew-dialog {
-    border-color: var(--ew-color-border-strong);
-    box-shadow: var(--ew-structure-dialog-shadow);
-  }
-  [data-era="neon"] .ew-switch__track {
-    border-radius: 2px;
-  }
-  [data-era="neon"] .ew-switch__thumb {
-    border-radius: 2px;
-    background: var(--ew-color-ink, var(--ew-color-fg-default));
-  }
-  [data-era="neon"][data-mode="dark"] .ew-switch__track {
-    border: 1px solid color-mix(in oklch, var(--ew-color-ink) 35%, transparent);
-  }
-  [data-era="neon"] .ew-tabs [role="tab"][aria-selected="true"],
-  [data-era="neon"] ew-tabs [role="tab"][aria-selected="true"] {
-    text-shadow: 0 0 8px color-mix(in oklch, var(--ew-color-action-bg) 45%, transparent);
-  }
-`);
+    blocks.push(neonDecoratorCss());
   } else if (era.id === 'neutral') {
     blocks.push(`  [data-era="neutral"] .ew-button {
     border-radius: var(--ew-structure-control-radius, 8px);

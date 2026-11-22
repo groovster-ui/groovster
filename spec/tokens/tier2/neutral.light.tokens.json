@@ -42,7 +42,8 @@
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.gray.4}"
+        "$value": "{color.gray.5}",
+        "$description": "≥3:1 against surface for non-text UI"
       }
     },
     "action": {
@@ -66,7 +67,7 @@
       },
       "border": {
         "$type": "color",
-        "$value": "{color.gray.4}"
+        "$value": "{color.gray.5}"
       },
       "focus": {
         "$type": "color",

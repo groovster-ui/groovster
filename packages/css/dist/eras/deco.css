@@ -67,7 +67,7 @@
     --ew-color-bg-surface: var(--ew-color-panel);
     --ew-color-bg-elevated: var(--ew-color-sky);
     --ew-color-border-subtle: var(--ew-color-goldSubtle);
-    --ew-color-border-strong: var(--ew-color-gold);
+    --ew-color-border-strong: var(--ew-color-goldBorder);
     --ew-color-action-bg: var(--ew-color-accent-solid);
     --ew-color-action-fg: var(--ew-color-accent-fg);
     --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 85%, var(--ew-color-ink));
