@@ -50,7 +50,7 @@ globs:
 - Zero attributes = defaults. Prefer native \`<button>\`, \`<dialog>\`, \`<input>\`.
 - Hard widgets (APG light-DOM WCs, Zag.js not used): \`ew-tabs\`, \`ew-select\`, \`ew-menu\`, \`ew-popover\`, \`ew-tooltip\`, \`ew-toast-region\`, \`ew-slider\` via \`@groovster/elements/era-elements.js\` (published JS imports nothing).
 - CSS: link \`@groovster/css/era-widgets.css\` (published CSS must not use at-import). Packaged OFL WOFF2 faces ship under \`@groovster/css/fonts/\`.
-- Ornament classes live on the era packs (Neon: \`.ew-hero*\`, \`.ew-chrome\`, \`.ew-script\`; Deco: \`.ew-hero__panel\`, stepped frames) — never demo-only \`<style>\`.
+- Ornament classes live on the era packs (Neon: \`.ew-hero__stage\` **required** around sun/mountains/grid, plus \`.ew-chrome\` / \`.ew-script\`; Deco: \`.ew-hero__panel\`, stepped frames) — never demo-only \`<style>\`.
 - Glow never counts as contrast; no display faces on controls.
 - MCP \`validate\` returns exact "change X to Y" fixes.
 - Heroes: ${componentList}. Eras: ${eraList}.
@@ -75,7 +75,7 @@ The band may be on the era element or an ancestor.
 </div>
 \`\`\`
 
-Ornament: Neon \`.ew-hero\` / \`.ew-chrome\` / \`.ew-script\`; Deco \`.ew-hero__panel\` / stepped frames — documented in \`llms.txt\` and era cards.
+Ornament: Neon \`.ew-hero\` with required \`.ew-hero__stage\` (sun/mountains/grid) plus \`.ew-chrome\` / \`.ew-script\`; Deco \`.ew-hero__panel\` / stepped frames — documented in \`llms.txt\` and era cards.
 
 MCP tools: list_eras, get_era_spec, get_component, install, recommend, validate.
 Load only the llms section you need from \`generated/llms/\`.

@@ -13,16 +13,15 @@ Load ONLY the sections you need — do not ingest the whole library.
 - deco: Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer.
 - earth: Crafted earth tones: clay, moss, sand — quiet organic UI.
 - groovy: 70s groove: avocado & harvest gold, soft flares, lazy curves.
-- mcm-atomic: Mid-century atomic optimism: kidney shapes, starbursts, teal–coral–mustard.
+- mcm-atomic: 1950s Atomic / Googie: starbursts, atom orbits, kidney Formica, script over caps.
 - memphis: Playful postmodern: squiggles, confetti shapes, loud primaries on cream.
 - neon: 80s synthwave: perspective grid, striped sunset sun, chrome type, neon tubes.
 - neutral: Quiet modern system skin — the default before personality.
 
 ## Fidelity & ornament
 - Bands: `whisper|standard|costume` (costume default; `default`/`signature` → standard).
-- Neon: `.ew-hero*` grid/sun/mountains, `.ew-chrome`, `.ew-script`, `.ew-sun-mark`.
-- Deco: `.ew-hero__panel` / backdrop / rays / fan; stepped frames; `.ew-ornament-divider`.
-- Docs: `demos/showcase/NEON.md`, `FIDELITY.md`. Fonts: OFL WOFF2 in `packages/css/fonts`.
+- Neon/Atomic costume heroes **require** `.ew-hero__stage` (Neon: sun/mountains/grid; Atomic: starbursts/orbit/arch/twotone).
+- Deco: `.ew-hero__panel` / rays / fan; stepped frames. Docs: NEON.md, ATOMIC.md, FIDELITY.md. Fonts: OFL WOFF2.
 
 ## Components (one file each)
 - alert: generated/llms/alert.md

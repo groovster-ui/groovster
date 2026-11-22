@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-era="mcm-atomic" data-mode="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palm Springs Modern — Atomic Showcase</title>
+  <link rel="stylesheet" href="../../packages/css/dist/base.css">
+  <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css">
+  <link rel="stylesheet" href="../../packages/css/dist/eras/mcm-atomic.css">
+  <script type="module" src="../../packages/elements/dist/era-elements.js"></script>
+  <style>
+    /* Layout only — ornament from the Atomic library classes */
+    * { box-sizing: border-box; }
+    body { margin: 0; position: relative; }
+    .section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 24px 72px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 880px;
+      margin: 0 auto 36px;
+    }
+    .consent {
+      max-width: 560px;
+      margin: 0 auto 48px;
+      display: grid;
+      gap: 16px;
+    }
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      text-align: center;
+    }
+    .actions { text-align: center; margin-top: 28px; }
+    .tier-label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      color: var(--ew-color-fg-muted);
+    }
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ew-backdrop" aria-hidden="true"></div>
+  <ew-toast-region aria-live="polite" aria-atomic="false"></ew-toast-region>
+
+  <section class="ew-hero">
+    <div class="ew-hero__stage" aria-hidden="true">
+      <div class="ew-hero__twotone"></div>
+      <div class="ew-hero__starbursts"></div>
+      <div class="ew-hero__arch"></div>
+      <div class="ew-orbit"></div>
+    </div>
+    <div class="ew-hero__content">
+      <span class="ew-badge-new" aria-hidden="true">NEW!</span>
+      <p class="ew-script">Welcome to</p>
+      <h1 class="ew-hero__title">Palm Springs</h1>
+      <p class="ew-hero__subtitle">Mid-century homes with kidney pools, boomerang counters, and a view of the mountains.</p>
+      <div class="ew-hero__cta">
+        <button type="button" class="ew-button">Tour Listings</button>
+        <button type="button" class="ew-button" data-variant="secondary">Meet the Team</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ew-section ew-section--roofline">
+    <h2 class="ew-section-heading">Featured Residences</h2>
+    <div class="ew-hairpin" aria-hidden="true"></div>
+    <div class="card-grid">
+      <div class="ew-card">
+        <div class="ew-card__header"><h3>Butterfly Roof</h3></div>
+        <div class="ew-card__body">
+          <p>Canted eaves, turquoise Formica kitchen, and a kidney pool that catches the late desert light.</p>
+        </div>
+        <div class="ew-card__footer">
+          <button type="button" class="ew-button" data-size="sm">View</button>
+        </div>
+      </div>
+      <div class="ew-card" data-variant="raised">
+        <div class="ew-card__header"><h3>Theme Building Lot</h3></div>
+        <div class="ew-card__body">
+          <p>Parabolic entry arch, two-tone garage doors, and a Googie script address plaque out front.</p>
+        </div>
+        <div class="ew-card__footer">
+          <button type="button" class="ew-button" data-size="sm">View</button>
+        </div>
+      </div>
+      <div class="ew-card">
+        <div class="ew-card__header"><h3>Atomic Ranch</h3></div>
+        <div class="ew-card__body">
+          <p>Starburst lighting, hairpin legs, and a mustard accent wall ready for your Blue Note collection.</p>
+        </div>
+        <div class="ew-card__footer">
+          <button type="button" class="ew-button" data-size="sm">View</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="ew-wordmark" aria-hidden="true">MODERN</p>
+    <div class="ew-dots" aria-hidden="true"></div>
+    <div class="ew-cutout" aria-hidden="true"></div>
+  </section>
+
+  <section class="section">
+    <h2 class="ew-section-heading">Request a Showing</h2>
+    <nav class="ew-breadcrumb" aria-label="Breadcrumb">
+      <ol class="ew-breadcrumb__list">
+        <li class="ew-breadcrumb__item"><a class="ew-breadcrumb__link" href="#">Home</a></li>
+        <li class="ew-breadcrumb__item"><a class="ew-breadcrumb__link" href="#">Listings</a></li>
+        <li class="ew-breadcrumb__item"><span class="ew-breadcrumb__current" aria-current="page">Showing</span></li>
+      </ol>
+    </nav>
+
+    <ew-tabs class="ew-tabs" data-variant="pills">
+      <div role="tablist" aria-label="Inquiry type">
+        <button type="button" role="tab" aria-selected="true" id="tab-buy">Buy</button>
+        <button type="button" role="tab" aria-selected="false" id="tab-rent">Rent</button>
+        <button type="button" role="tab" aria-selected="false" id="tab-sell">Sell</button>
+      </div>
+      <div role="tabpanel" aria-labelledby="tab-buy">
+        <div class="form-grid" style="margin-top:24px">
+          <div class="ew-text-field">
+            <label class="ew-text-field__label" for="name">Full name</label>
+            <input id="name" class="ew-text-field__control" type="text" autocomplete="name" />
+          </div>
+          <div class="ew-text-field">
+            <label class="ew-text-field__label" for="email">Email</label>
+            <input id="email" class="ew-text-field__control" type="email" autocomplete="email" />
+          </div>
+          <div class="ew-select">
+            <label class="ew-select__label" for="neighborhood">Neighborhood</label>
+            <ew-select>
+              <button type="button" class="ew-select__trigger" id="neighborhood">Vista Las Palmas</button>
+              <div class="ew-select__listbox" role="listbox" hidden>
+                <div class="ew-select__option" role="option">Vista Las Palmas</div>
+                <div class="ew-select__option" role="option">Racquet Club Estates</div>
+                <div class="ew-select__option" role="option">Deepwell Ranch</div>
+              </div>
+            </ew-select>
+          </div>
+        </div>
+        <div class="consent">
+          <label class="ew-checkbox">
+            <input class="ew-checkbox__control" type="checkbox" />
+            <span class="ew-checkbox__box" aria-hidden="true"></span>
+            <span class="ew-checkbox__label">Email me new Formica-day listings</span>
+          </label>
+          <label class="ew-radio">
+            <input class="ew-radio__control" type="radio" name="contact" checked />
+            <span class="ew-radio__disc" aria-hidden="true"></span>
+            <span class="ew-radio__label">Call me</span>
+          </label>
+          <label class="ew-radio">
+            <input class="ew-radio__control" type="radio" name="contact" />
+            <span class="ew-radio__disc" aria-hidden="true"></span>
+            <span class="ew-radio__label">Text me</span>
+          </label>
+          <label class="ew-switch">
+            <input class="ew-switch__control" type="checkbox" role="switch" />
+            <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+            <span class="ew-switch__label">Include night tours</span>
+          </label>
+        </div>
+      </div>
+      <div role="tabpanel" aria-labelledby="tab-rent" hidden>
+        <p>Seasonal leases with butterfly roofs and kidney pools.</p>
+      </div>
+      <div role="tabpanel" aria-labelledby="tab-sell" hidden>
+        <p>We stage with starburst lamps and hairpin tables.</p>
+      </div>
+    </ew-tabs>
+
+    <div class="actions">
+      <button type="button" class="ew-button" id="open-dialog">Book a Tour</button>
+      <button type="button" class="ew-button" data-variant="secondary" id="show-toast">Ping Concierge</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="ew-section-heading">Membership</h2>
+    <div class="pricing">
+      <div class="ew-tier-card">
+        <p class="tier-label">Studio</p>
+        <p class="ew-tier-card__price">$49</p>
+        <p>Weekly open-house alerts</p>
+      </div>
+      <div class="ew-tier-card">
+        <p class="tier-label">Ranch</p>
+        <p class="ew-tier-card__price">$129</p>
+        <p>Private desert tours</p>
+      </div>
+      <div class="ew-tier-card">
+        <p class="tier-label">Estate</p>
+        <p class="ew-tier-card__price">$299</p>
+        <p>Concierge staging crew</p>
+      </div>
+    </div>
+    <div class="logo-row" style="margin-top:40px">
+      <span class="ew-orbit ew-orbit--logo" aria-hidden="true"></span>
+      <span class="ew-script" style="transform:none;font-size:28px;margin:0">Fabulous</span>
+      <span class="ew-orbit ew-orbit--spin" aria-hidden="true"></span>
+    </div>
+    <div class="ew-orbit ew-orbit--empty" aria-hidden="true"></div>
+    <div class="ew-alert" data-variant="info" role="status">
+      <p class="ew-alert__body">Desert nights cool fast — bring a cardigan to the open house.</p>
+    </div>
+  </section>
+
+  <dialog class="ew-dialog" id="tour-dialog">
+    <div class="ew-dialog__header">
+      <h2>Book Your Tour</h2>
+    </div>
+    <div class="ew-dialog__body">
+      <p>Pick a Formica-day slot. We will meet you under the parabolic arch.</p>
+    </div>
+    <div class="ew-dialog__footer">
+      <button type="button" class="ew-button" data-variant="secondary" id="close-dialog">Not now</button>
+      <button type="button" class="ew-button">Confirm</button>
+    </div>
+  </dialog>
+
+  <script type="module">
+    const dialog = document.getElementById('tour-dialog');
+    document.getElementById('open-dialog')?.addEventListener('click', () => dialog.showModal());
+    document.getElementById('close-dialog')?.addEventListener('click', () => dialog.close());
+    document.getElementById('show-toast')?.addEventListener('click', () => {
+      const region = document.querySelector('ew-toast-region');
+      region?.dispatchEvent(new CustomEvent('ew-toast', {
+        detail: { title: 'Concierge pinged', description: 'A starburst is on the way.' },
+        bubbles: true,
+      }));
+    });
+  </script>
+</body>
+</html>

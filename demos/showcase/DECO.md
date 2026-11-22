@@ -1,6 +1,6 @@
 # Deco library classes
 
-Costume ornament is the default when `data-fidelity-band` is absent. Opt down with `whisper` or `default` on the era element or an ancestor.
+Costume ornament is the default when `data-fidelity-band` is absent. Opt down with `whisper` or `standard` (`default` / `signature` are deprecated aliases).
 
 ## Hero
 

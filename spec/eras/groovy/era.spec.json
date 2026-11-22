@@ -121,7 +121,7 @@
       "padding": "24px",
       "headerRule": false,
       "titleTracking": "0.04em",
-      "ornament": "starburst"
+      "ornament": "none"
     },
     "field": {
       "borderWidth": "1px",

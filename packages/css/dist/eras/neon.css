@@ -8,11 +8,25 @@
   src: url("../fonts/Orbitron-Regular.woff2") format("woff2"), local("Orbitron");
 }
 @font-face {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Orbitron-Bold.woff2") format("woff2"), local("Orbitron");
+}
+@font-face {
   font-family: "Exo 2";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url("../fonts/Exo2-Regular.woff2") format("woff2"), local("Exo 2");
+}
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Exo2-Bold.woff2") format("woff2"), local("Exo 2");
 }
 @font-face {
   font-family: "Share Tech Mono";
@@ -283,7 +297,7 @@
     --ew-ornament-wedge: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20120%22%20fill%3D%22none%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M14%202%20H186%20L198%2014%20V106%20L186%20118%20H14%20L2%20106%20V14%20Z%22%0A%20%20%20%20%20%20stroke%3D%22black%22%20stroke-width%3D%223.5%22%20stroke-linejoin%3D%22miter%22%2F%3E%0A%20%20%3C%2Fsvg%3E");
     --ew-ornament-wedge-btn: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%2040%22%20fill%3D%22none%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M10%202%20H110%20L118%2010%20V30%20L110%2038%20H10%20L2%2030%20V10%20Z%22%0A%20%20%20%20%20%20stroke%3D%22black%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22miter%22%2F%3E%0A%20%20%3C%2Fsvg%3E");
     --ew-ornament-mountains: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20120%22%20fill%3D%22none%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%20%20%3Cpolyline%20points%3D%220%2C110%2060%2C70%20110%2C95%20180%2C35%20240%2C80%20300%2C50%20360%2C90%20420%2C25%20500%2C75%20560%2C45%20640%2C95%20700%2C55%20760%2C85%20800%2C70%22%0A%20%20%20%20%20%20stroke%3D%22black%22%20stroke-width%3D%222.2%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%3Cpolyline%20points%3D%220%2C118%2090%2C88%20160%2C105%20250%2C60%20340%2C100%20430%2C48%20520%2C92%20610%2C68%20700%2C100%20800%2C80%22%0A%20%20%20%20%20%20stroke%3D%22black%22%20stroke-width%3D%221.4%22%20fill%3D%22none%22%20opacity%3D%220.7%22%2F%3E%0A%20%20%3C%2Fsvg%3E");
-    --ew-ornament-sun-mark: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2040%22%20fill%3D%22none%22%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D%22s%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2523FFC857%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%2255%25%22%20stop-color%3D%22%2523FF6B35%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2523FF2A6D%22%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Cpath%20d%3D%22M4%2036%20A28%2028%200%200%201%2060%2036%20Z%22%20fill%3D%22url(%2523s)%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M8%2028%20H56%20M10%2032%20H54%20M14%2036%20H50%22%20stroke%3D%22%25230D0221%22%20stroke-width%3D%222.2%22%2F%3E%0A%20%20%3C%2Fsvg%3E");
+    --ew-ornament-sun-mark: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2040%22%20fill%3D%22none%22%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%3ClinearGradient%20id%3D%22s%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FFC857%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%2255%25%22%20stop-color%3D%22%23FF6B35%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23FF2A6D%22%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Cpath%20d%3D%22M4%2036%20A28%2028%200%200%201%2060%2036%20Z%22%20fill%3D%22url(%23s)%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M8%2028%20H56%20M10%2032%20H54%20M14%2036%20H50%22%20stroke%3D%22%230D0221%22%20stroke-width%3D%222.2%22%2F%3E%0A%20%20%3C%2Fsvg%3E");
     --ew-hero-horizon: 40%;
   }
 
@@ -304,9 +318,14 @@
     background: var(--ew-gradient-hero-light);
   }
 
-  /* Horizon stage in flow — sun + mountains + grid all INSIDE (no upward overflow into content) */
+  /* Horizon stage in flow — sun + mountains + grid all INSIDE (no upward overflow into content).
+     Required for costume neon heroes (see llms.txt). Sun height also set on .ew-hero so missing
+     stage degrades instead of collapsing the sun to 0px. */
+  [data-era="neon"] .ew-hero,
   [data-era="neon"] .ew-hero__stage {
     --ew-hero-sun-h: min(140px, 21vw);
+  }
+  [data-era="neon"] .ew-hero__stage {
     position: relative;
     grid-row: 2;
     height: calc(var(--ew-hero-sun-h) + min(38vh, 360px));
@@ -331,38 +350,57 @@
     justify-content: center;
   }
 
-  /* Perspective grid — from horizon (below sun) to stage bottom; no gap */
+  /*
+   * Perspective floor — NO rotateX (that opened a post-project gap under the mountains).
+   * Trapezoid clip + converging line gradients keep the top edge glued to the horizon.
+   */
   [data-era="neon"] .ew-hero__grid {
     position: absolute;
     left: 50%;
-    top: calc(var(--ew-hero-sun-h) - 6px);
+    /* Meet the visible mountain valley baseline (drawn strokes sit above the SVG box bottom) */
+    top: calc(var(--ew-hero-sun-h) - 22px);
     bottom: 0;
-    width: 160%;
-    height: auto;
-    transform: translateX(-50%) perspective(640px) rotateX(52deg);
-    transform-origin: 50% 100%;
-    background:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 46px,
-        color-mix(in srgb, var(--ew-color-magenta) 75%, transparent) 46px 48px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 28px,
-        color-mix(in srgb, var(--ew-color-cyan) 65%, transparent) 28px 30px
-      );
+    width: 140%;
+    transform: translateX(-50%);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.9;
+    opacity: 0.95;
+    /* Wide at the horizon so the floor meets the full mountain baseline (narrow tops look like a gap) */
+    clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%);
+    background:
+      /* Horizon seam — cyan to match mountain stroke, then magenta accent */
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--ew-color-cyan) 95%, transparent) 0 2px,
+        color-mix(in srgb, var(--ew-color-magenta) 90%, transparent) 2px 4px,
+        transparent 4px
+      ),
+      /* Depth lines (parallel to horizon) — denser near top */
+      repeating-linear-gradient(
+        180deg,
+        transparent 0 10px,
+        color-mix(in srgb, var(--ew-color-cyan) 80%, transparent) 10px 12px,
+        transparent 12px 28px,
+        color-mix(in srgb, var(--ew-color-cyan) 70%, transparent) 28px 30px,
+        transparent 30px 56px,
+        color-mix(in srgb, var(--ew-color-cyan) 65%, transparent) 56px 58px,
+        transparent 58px 100px,
+        color-mix(in srgb, var(--ew-color-cyan) 55%, transparent) 100px 102px
+      ),
+      /* Vanishing (vertical) lines */
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 44px,
+        color-mix(in srgb, var(--ew-color-magenta) 85%, transparent) 44px 46px
+      );
   }
   [data-era="neon"][data-mode="light"] .ew-hero__grid {
-    opacity: 0.55;
+    opacity: 0.6;
   }
   [data-era="neon"] .ew-hero > .ew-hero__grid {
     top: auto;
     bottom: 0;
-    height: min(38vh, 360px);
+    height: min(42vh, 400px);
   }
 
   /* Striped sunset sun — top of stage, half-set onto the grid horizon */
@@ -411,11 +449,11 @@
     bottom: min(38vh, 360px);
   }
 
-  /* Wireframe mountains on the horizon (sun/grid join) */
+  /* Wireframe mountains — SVG ground line sits on the same horizon as the grid top */
   [data-era="neon"] .ew-hero__mountains {
     position: absolute;
     left: 50%;
-    top: calc(var(--ew-hero-sun-h) - 48px);
+    top: calc(var(--ew-hero-sun-h) - 76px);
     bottom: auto;
     width: min(1100px, 120%);
     height: 88px;
@@ -430,7 +468,7 @@
   }
   [data-era="neon"] .ew-hero > .ew-hero__mountains {
     top: auto;
-    bottom: calc(min(38vh, 360px) - 36px);
+    bottom: calc(min(38vh, 360px) - 4px);
   }
 
   /* Scanline overlay (hero) */

@@ -214,7 +214,7 @@ export const TOOL_DEFS = [
   {
     name: 'list_eras',
     description:
-      'List Groovster era packs. Fidelity bands: whisper|standard|costume (costume default; default/signature deprecated aliases of standard). Neon/Deco expose .ew-hero*, .ew-chrome, .ew-script ornament classes.',
+      'List Groovster era packs. Fidelity bands: whisper|standard|costume (costume default; default/signature → standard). Neon/Atomic costume heroes require .ew-hero__stage. Deco: .ew-hero__panel + stepped frames.',
     inputSchema: {
       type: 'object',
       properties: {

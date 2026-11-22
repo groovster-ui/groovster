@@ -13,7 +13,7 @@ The band may be on the era element or an ancestor.
 </div>
 ```
 
-Ornament: Neon `.ew-hero` / `.ew-chrome` / `.ew-script`; Deco `.ew-hero__panel` / stepped frames — documented in `llms.txt` and era cards.
+Ornament: Neon `.ew-hero` with required `.ew-hero__stage` (sun/mountains/grid) plus `.ew-chrome` / `.ew-script`; Deco `.ew-hero__panel` / stepped frames — documented in `llms.txt` and era cards.
 
 MCP tools: list_eras, get_era_spec, get_component, install, recommend, validate.
 Load only the llms section you need from `generated/llms/`.
