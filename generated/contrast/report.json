@@ -2,33 +2,98 @@
   "eras": {
     "neutral": {
       "pass": true,
-      "issues": []
+      "light": {
+        "pass": true,
+        "issues": []
+      },
+      "dark": {
+        "pass": true,
+        "issues": []
+      }
     },
     "deco": {
       "pass": true,
-      "issues": []
+      "light": {
+        "pass": true,
+        "issues": []
+      },
+      "dark": {
+        "pass": true,
+        "issues": []
+      }
     },
     "mcm-atomic": {
       "pass": true,
-      "issues": []
+      "light": {
+        "pass": true,
+        "issues": []
+      },
+      "dark": {
+        "pass": true,
+        "issues": []
+      }
     },
     "neon": {
-      "pass": true,
-      "issues": []
+      "pass": false,
+      "light": {
+        "pass": false,
+        "issues": [
+          {
+            "label": "fg/muted on bg/page",
+            "ratio": 2.57,
+            "need": 3,
+            "fg": "oklch(65% 0.14 210)",
+            "bg": "oklch(95% 0.03 230)"
+          }
+        ]
+      },
+      "dark": {
+        "pass": true,
+        "issues": []
+      }
     },
     "memphis": {
-      "pass": true,
-      "issues": []
+      "pass": false,
+      "light": {
+        "pass": false,
+        "issues": [
+          {
+            "label": "action/fg on action/bg",
+            "ratio": 4.48,
+            "need": 4.5,
+            "fg": "oklch(98% 0.01 250)",
+            "bg": "oklch(55% 0.2 250)"
+          }
+        ]
+      },
+      "dark": {
+        "pass": true,
+        "issues": []
+      }
     },
     "groovy": {
       "pass": true,
-      "issues": []
+      "light": {
+        "pass": true,
+        "issues": []
+      },
+      "dark": {
+        "pass": true,
+        "issues": []
+      }
     },
     "earth": {
       "pass": true,
-      "issues": []
+      "light": {
+        "pass": true,
+        "issues": []
+      },
+      "dark": {
+        "pass": true,
+        "issues": []
+      }
     }
   },
-  "pass": true,
-  "note": "Glow ignored; flat OKLCH fills only."
+  "pass": false,
+  "note": "Glow ignored; flat OKLCH fills only. Proper OKLCH→sRGB→WCAG luminance."
 }
