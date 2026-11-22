@@ -54,6 +54,7 @@ const FONT_FILES = {
   'Josefin Sans': { 400: 'JosefinSans-Regular.woff2', 700: 'JosefinSans-Bold.woff2' },
   'Nunito Sans': { 400: 'NunitoSans-Regular.woff2', 700: 'NunitoSans-Bold.woff2' },
   'Space Mono': { 400: 'SpaceMono-Regular.woff2', 700: 'SpaceMono-Bold.woff2' },
+  'Courier Prime': { 400: 'CourierPrime-Regular.woff2' },
   Comfortaa: { 400: 'Comfortaa-Regular.woff2', 700: 'Comfortaa-Bold.woff2' },
   Mulish: { 400: 'Mulish-Regular.woff2', 700: 'Mulish-Bold.woff2' },
   'Archivo Black': { 400: 'ArchivoBlack-Regular.woff2' },
@@ -213,15 +214,6 @@ function ornamentVars(kind) {
       linear-gradient(225deg, transparent 40%, var(--ew-color-border-strong) 40%, var(--ew-color-border-strong) 45%, transparent 45%) top right no-repeat`,
         size: '28px 14px',
         blend: 'normal',
-      };
-    case 'starburst':
-      return {
-        content: '""',
-        opacity: '0.22',
-        // Conic rays only — no stray radial dot at 92%/12%.
-        bg: `conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat`,
-        size: '120px 120px',
-        blend: 'multiply',
       };
     case 'scanline':
       return {

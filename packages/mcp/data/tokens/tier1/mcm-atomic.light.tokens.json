@@ -94,7 +94,7 @@
     },
     "mono": {
       "$type": "fontFamily",
-      "$value": ["Space Mono", "ui-monospace", "monospace"]
+      "$value": ["Courier Prime", "ui-monospace", "monospace"]
     },
     "script": {
       "$type": "fontFamily",

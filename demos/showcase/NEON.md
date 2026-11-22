@@ -46,7 +46,6 @@ Blind glance: costume dark and bare read as 80s synthwave without being told. Li
 
 ### Still imperfect
 
-- `~/groovster-bible/neon/contact-sheet.png` was not available in this environment for side-by-side pixel review.
 - Chrome reads strong; Monoton + gradient can look more tubular/striped than classic metal reflection depending on glyph metrics.
 - Wedge frames keep a rectangular layout box (same Deco SVG-mask pattern); the painted border follows the cut.
 - Dark active tabs use a glowing underline; light mode uses an ink plate + magenta underline for AA at 13px.

@@ -29,18 +29,11 @@
   src: url("../fonts/WorkSans-Bold.woff2") format("woff2"), local("Work Sans");
 }
 @font-face {
-  font-family: "Space Mono";
+  font-family: "Courier Prime";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/SpaceMono-Regular.woff2") format("woff2"), local("Space Mono");
-}
-@font-face {
-  font-family: "Space Mono";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("../fonts/SpaceMono-Bold.woff2") format("woff2"), local("Space Mono");
+  src: url("../fonts/CourierPrime-Regular.woff2") format("woff2"), local("Courier Prime");
 }
 @font-face {
   font-family: "Yellowtail";
@@ -95,7 +88,7 @@
     --ew-radius-organic: 28px;
     --ew-font-display: "League Spartan", Futura, sans-serif;
     --ew-font-body: "Work Sans", system-ui, sans-serif;
-    --ew-font-mono: "Space Mono", ui-monospace, monospace;
+    --ew-font-mono: "Courier Prime", ui-monospace, monospace;
     --ew-font-script: Yellowtail, cursive;
     --ew-font-displayAlt: Oswald, "League Spartan", sans-serif;
     --ew-color-fg-default: var(--ew-color-ink);
@@ -177,7 +170,7 @@
     --ew-elevation-dialog: 8px 8px 0px 0px color-mix(in oklch, var(--ew-color-ink) 30%, transparent);
     --ew-font-display: "League Spartan", "Bodoni Moda", serif;
     --ew-font-body: "Work Sans", Futura, system-ui, sans-serif;
-    --ew-font-mono: "Space Mono", ui-monospace, monospace;
+    --ew-font-mono: "Courier Prime", ui-monospace, monospace;
     color: var(--ew-color-fg-default);
     background: var(--ew-color-bg-page);
     font-family: var(--ew-font-body, system-ui, sans-serif);
@@ -256,7 +249,7 @@
     --ew-font-body: "Work Sans", system-ui, sans-serif;
     --ew-font-script: "Yellowtail", cursive;
     --ew-font-display-alt: "Oswald", "League Spartan", sans-serif;
-    --ew-font-mono: "Space Mono", ui-monospace, monospace;
+    --ew-font-mono: "Courier Prime", ui-monospace, monospace;
     --ew-ornament-star-1: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23B23A2A%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C2.00%2036.59%2C20.91%2053.21%2C10.79%2043.09%2C27.41%2062.00%2C32.00%2043.09%2C36.59%2053.21%2C53.21%2036.59%2C43.09%2032.00%2C62.00%2027.41%2C43.09%2010.79%2C53.21%2020.91%2C36.59%202.00%2C32.00%2020.91%2C27.41%2010.79%2C10.79%2027.41%2C20.91%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-star-2: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%230F6E6B%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C2.00%2036.59%2C20.91%2053.21%2C10.79%2043.09%2C27.41%2062.00%2C32.00%2043.09%2C36.59%2053.21%2C53.21%2036.59%2C43.09%2032.00%2C62.00%2027.41%2C43.09%2010.79%2C53.21%2020.91%2C36.59%202.00%2C32.00%2020.91%2C27.41%2010.79%2C10.79%2027.41%2C20.91%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-star-3: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23C4922A%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C4.40%2035.89%2C22.62%2051.52%2C12.48%2041.38%2C28.11%2059.60%2C32.00%2041.38%2C35.89%2051.52%2C51.52%2035.89%2C41.38%2032.00%2C59.60%2028.11%2C41.38%2012.48%2C51.52%2022.62%2C35.89%204.40%2C32.00%2022.62%2C28.11%2012.48%2C12.48%2028.11%2C22.62%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
@@ -265,13 +258,21 @@
     --ew-ornament-star-6: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%230F6E6B%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C-1.60%2037.76%2C18.09%2055.76%2C8.24%2045.91%2C26.24%2065.60%2C32.00%2045.91%2C37.76%2055.76%2C55.76%2037.76%2C45.91%2032.00%2C65.60%2026.24%2C45.91%208.24%2C55.76%2018.09%2C37.76%20-1.60%2C32.00%2018.09%2C26.24%208.24%2C8.24%2026.24%2C18.09%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-star-7: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23C4922A%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C11.00%2034.25%2C26.57%2046.85%2C17.15%2037.43%2C29.75%2053.00%2C32.00%2037.43%2C34.25%2046.85%2C46.85%2034.25%2C37.43%2032.00%2C53.00%2029.75%2C37.43%2017.15%2C46.85%2026.57%2C34.25%2011.00%2C32.00%2026.57%2C29.75%2017.15%2C17.15%2029.75%2C26.57%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-star-8: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23B23A2A%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C-3.40%2038.39%2C16.56%2057.03%2C6.97%2047.44%2C25.61%2067.40%2C32.00%2047.44%2C38.39%2057.03%2C57.03%2038.39%2C47.44%2032.00%2C67.40%2025.61%2C47.44%206.97%2C57.03%2016.56%2C38.39%20-3.40%2C32.00%2016.56%2C25.61%206.97%2C6.97%2025.61%2C16.56%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-ornament-star-coral-ring: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23B23A2A%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C0.50%2037.06%2C19.78%2054.27%2C9.73%2044.22%2C26.94%2063.50%2C32.00%2044.22%2C37.06%2054.27%2C54.27%2037.06%2C44.22%2032.00%2C63.50%2026.94%2C44.22%209.73%2C54.27%2019.78%2C37.06%200.50%2C32.00%2019.78%2C26.94%209.73%2C9.73%2026.94%2C19.78%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%225%22%20stroke-linejoin%3D%22round%22%20paint-order%3D%22stroke%20fill%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-ornament-star-cream: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23F3E9D2%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C2.00%2036.59%2C20.91%2053.21%2C10.79%2043.09%2C27.41%2062.00%2C32.00%2043.09%2C36.59%2053.21%2C53.21%2036.59%2C43.09%2032.00%2C62.00%2027.41%2C43.09%2010.79%2C53.21%2020.91%2C36.59%202.00%2C32.00%2020.91%2C27.41%2010.79%2C10.79%2027.41%2C20.91%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-ornament-star-cream-sm: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23FFFBF3%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C7.40%2035.09%2C24.55%2049.39%2C14.61%2039.45%2C28.91%2056.60%2C32.00%2039.45%2C35.09%2049.39%2C49.39%2035.09%2C39.45%2032.00%2C56.60%2028.91%2C39.45%2014.61%2C49.39%2024.55%2C35.09%207.40%2C32.00%2024.55%2C28.91%2014.61%2C14.61%2028.91%2C24.55%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-ornament-star-gold: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23E0B84A%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C4.40%2035.89%2C22.62%2051.52%2C12.48%2041.38%2C28.11%2059.60%2C32.00%2041.38%2C35.89%2051.52%2C51.52%2035.89%2C41.38%2032.00%2C59.60%2028.11%2C41.38%2012.48%2C51.52%2022.62%2C35.89%204.40%2C32.00%2022.62%2C28.11%2012.48%2C12.48%2028.11%2C22.62%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-star-badge: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2080%2080%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20fill%3D%22%23B23A2A%22%20points%3D%2240%2C2%2046%2C28%2072%2C18%2052%2C40%2072%2C62%2046%2C52%2040%2C78%2034%2C52%208%2C62%2028%2C40%208%2C18%2034%2C28%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%2240%22%20y%3D%2245%22%20text-anchor%3D%22middle%22%20font-family%3D%22Futura%2CArial%2Csans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22700%22%20fill%3D%22%23FFFBF3%22%3ENEW!%3C%2Ftext%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-atom: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(60%2060)%22%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%230F6E6B%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(0)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%230F6E6B%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(60)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%230F6E6B%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(120)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%228%22%20fill%3D%22%23B23A2A%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-atom-ink: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(60%2060)%22%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(0)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(60)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(120)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%228%22%20fill%3D%22%23C4922A%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-ornament-atom-panel: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(60%2060)%22%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(0)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(60)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(120)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%228%22%20fill%3D%22%23E0B84A%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-ornament-atom-on-dark: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(60%2060)%22%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(0)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(60)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cellipse%20cx%3D%220%22%20cy%3D%220%22%20rx%3D%2248%22%20ry%3D%2218%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222.2%22%20transform%3D%22rotate(120)%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%228%22%20fill%3D%22%23E0B84A%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-kidney-teal: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2080%2056%22%20fill%3D%22%230F6E6B%22%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M8%2028%20C8%2010%2022%202%2040%204%20C58%206%2072%2014%2074%2028%20C76%2042%2064%2052%2046%2054%20C28%2056%2018%2048%2012%2040%20C6%2034%208%2032%208%2028%20Z%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-kidney-coral: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2080%2056%22%20fill%3D%22%23B23A2A%22%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M8%2028%20C8%2010%2022%202%2040%204%20C58%206%2072%2014%2074%2028%20C76%2042%2064%2052%2046%2054%20C28%2056%2018%2048%2012%2040%20C6%2034%208%2032%208%2028%20Z%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
-    --ew-ornament-boomerang: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M8%2040%20C18%2018%2034%2010%2052%2012%20C40%2022%2034%2034%2036%2052%20C28%2042%2018%2040%208%2040%20Z%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222.4%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M44%208%20C52%2022%2054%2036%2048%2052%20C46%2040%2040%2032%2028%2028%20C36%2020%2042%2012%2044%208%20Z%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%221.6%22%20opacity%3D%220.7%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-ornament-boomerang: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cg%20opacity%3D%220.08%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M8%2040%20C18%2018%2034%2010%2052%2012%20C40%2022%2034%2034%2036%2052%20C28%2042%2018%2040%208%2040%20Z%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222.4%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M44%208%20C52%2022%2054%2036%2048%2052%20C46%2040%2040%2032%2028%2028%20C36%2020%2042%2012%2044%208%20Z%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%221.6%22%20opacity%3D%220.7%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-ornament-boomerang-night: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cg%20opacity%3D%220.16%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M8%2040%20C18%2018%2034%2010%2052%2012%20C40%2022%2034%2034%2036%2052%20C28%2042%2018%2040%208%2040%20Z%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222.4%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M44%208%20C52%2022%2054%2036%2048%2052%20C46%2040%2040%2032%2028%2028%20C36%2020%2042%2012%2044%208%20Z%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%221.6%22%20opacity%3D%220.7%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-hairpin: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2016%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%225%22%20fill%3D%22%232A2522%22%2F%3E%0A%20%20%20%20%20%20%3Cline%20x1%3D%2218%22%20y1%3D%228%22%20x2%3D%22142%22%20y2%3D%228%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22152%22%20cy%3D%228%22%20r%3D%225%22%20fill%3D%22%232A2522%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-ornament-hairpin-light: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%2016%22%20fill%3D%22none%22%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%225%22%20fill%3D%22%23F3E9D2%22%2F%3E%0A%20%20%20%20%20%20%3Cline%20x1%3D%2218%22%20y1%3D%228%22%20x2%3D%22142%22%20y2%3D%228%22%20stroke%3D%22%23F3E9D2%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%22152%22%20cy%3D%228%22%20r%3D%225%22%20fill%3D%22%23F3E9D2%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-dots: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2016%22%20fill%3D%22%230F6E6B%22%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%2210%22%20cy%3D%228%22%20r%3D%223%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%2232%22%20cy%3D%228%22%20r%3D%225%22%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D%2254%22%20cy%3D%228%22%20r%3D%223%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-cutout: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%2080%22%20fill%3D%22%232A2522%22%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M8%2062%20L28%2018%20L48%2048%20L62%2012%20L92%2058%20L70%2072%20L48%2052%20L32%2072%20Z%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     --ew-ornament-arch: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20160%22%20fill%3D%22none%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M20%20150%20Q200%20-20%20380%20150%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%224%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M60%20150%20Q200%2020%20340%20150%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222.2%22%20opacity%3D%220.7%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%20%20%3Cline%20x1%3D%22200%22%20y1%3D%2240%22%20x2%3D%22200%22%20y2%3D%22150%22%20stroke%3D%22%232A2522%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
@@ -279,70 +280,74 @@
     --ew-atomic-offset: 4px 4px 0 0 color-mix(in oklch, var(--ew-color-ink) 22%, transparent);
   }
 
-  /* --- Formica boomerang page scatter (~8% opacity) --- */
+  /* --- Formica boomerang page scatter (~8% baked into the tile) ---
+     Painted on the era root so the canvas background covers the whole document.
+     An absolute .ew-backdrop only fills the viewport unless some ancestor is
+     position:relative; the root background does not need that. */
+  [data-era="mcm-atomic"] {
+    position: relative;
+    background-image: var(--ew-ornament-boomerang);
+    background-repeat: repeat;
+    background-size: 112px 112px;
+    background-attachment: scroll;
+  }
+  [data-era="mcm-atomic"][data-mode="dark"] {
+    background-image: var(--ew-ornament-boomerang-night);
+  }
   [data-era="mcm-atomic"] .ew-backdrop,
   [data-era="mcm-atomic"].ew-backdrop {
     position: absolute;
     inset: 0;
+    width: 100%;
+    min-height: 100%;
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
+    background: none;
   }
   [data-era="mcm-atomic"] .ew-backdrop::before,
   [data-era="mcm-atomic"].ew-backdrop::before {
-    content: "" / "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.08;
-    background-image: var(--ew-ornament-boomerang);
-    background-size: 96px 96px;
-    background-repeat: repeat;
+    content: none;
   }
 
-  /* --- Hero --- */
+  /* --- Hero: text block on the cream side, orbit/stars on the teal side.
+     Columns from 881px up; stacked rows below so type never crosses the split. --- */
   [data-era="mcm-atomic"] .ew-hero {
     position: relative;
+    z-index: 1;
     isolation: isolate;
     overflow: hidden;
-    min-height: min(88vh, 920px);
+    min-height: min(82vh, 780px);
     display: grid;
-    place-items: center;
-    padding: 56px 24px 72px;
+    grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+    align-items: stretch;
+    padding: 0;
     background: var(--ew-color-bg-page);
     color: var(--ew-color-fg-default);
   }
   [data-era="mcm-atomic"] .ew-hero__stage {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    grid-column: 2;
+    grid-row: 1;
     z-index: 0;
+    min-height: 100%;
     pointer-events: none;
     overflow: hidden;
   }
 
-  /* Diagonal two-tone split ('57 Chevy) */
+  /* Diagonal two-tone lives only in the object column (cream shows through the cut). */
   [data-era="mcm-atomic"] .ew-hero__twotone {
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(
-        118deg,
-        var(--ew-color-teal) 0 46%,
-        var(--ew-color-cream, var(--ew-color-bg-page)) 46.2% 100%
-      );
-    opacity: 0.92;
+    background: var(--ew-color-teal);
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
   }
   [data-era="mcm-atomic"][data-mode="dark"] .ew-hero__twotone {
-    background:
-      linear-gradient(
-        118deg,
-        color-mix(in oklch, var(--ew-color-teal) 70%, var(--ew-color-bg-page)) 0 46%,
-        var(--ew-color-bg-page) 46.2% 100%
-      );
+    background: color-mix(in oklch, var(--ew-color-teal) 58%, var(--ew-color-bg-page));
   }
 
-  /* 5–9 varied starbursts in stage */
+  /* 5–9 starbursts, all inside the object stage (cream/gold read on teal; coral has a cream ring) */
   [data-era="mcm-atomic"] .ew-hero__starbursts {
     position: absolute;
     inset: 0;
@@ -356,47 +361,49 @@
   }
   [data-era="mcm-atomic"] .ew-hero__starbursts::before {
     background:
-      var(--ew-ornament-star-1) 8% 18% / 56px 56px no-repeat,
-      var(--ew-ornament-star-2) 78% 12% / 40px 40px no-repeat,
-      var(--ew-ornament-star-3) 92% 42% / 48px 48px no-repeat,
-      var(--ew-ornament-star-4) 14% 72% / 36px 36px no-repeat,
-      var(--ew-ornament-star-5) 62% 78% / 28px 28px no-repeat;
-    opacity: 0.85;
+      var(--ew-ornament-star-coral-ring) 72% 14% / 84px 84px no-repeat,
+      var(--ew-ornament-star-cream) 32% 20% / 52px 52px no-repeat,
+      var(--ew-ornament-star-gold) 84% 50% / 58px 58px no-repeat,
+      var(--ew-ornament-star-cream-sm) 28% 72% / 40px 40px no-repeat,
+      var(--ew-ornament-star-gold) 54% 82% / 34px 34px no-repeat;
+    opacity: 1;
   }
   [data-era="mcm-atomic"] .ew-hero__starbursts::after {
     background:
-      var(--ew-ornament-star-6) 42% 8% / 64px 64px no-repeat,
-      var(--ew-ornament-star-7) 88% 78% / 32px 32px no-repeat,
-      var(--ew-ornament-star-8) 28% 48% / 44px 44px no-repeat,
-      var(--ew-ornament-star-2) 4% 48% / 24px 24px no-repeat;
-    opacity: 0.7;
+      var(--ew-ornament-star-cream) 50% 10% / 30px 30px no-repeat,
+      var(--ew-ornament-star-coral-ring) 22% 46% / 46px 46px no-repeat,
+      var(--ew-ornament-star-cream-sm) 78% 78% / 38px 38px no-repeat;
+    opacity: 0.95;
   }
 
-  /* Parabolic arch frame */
+  /* Parabolic arch frame — cream so it reads on the teal panel */
   [data-era="mcm-atomic"] .ew-hero__arch {
     position: absolute;
     left: 50%;
-    bottom: 4%;
-    width: min(920px, 96%);
-    height: min(220px, 36%);
+    bottom: 2%;
+    width: min(520px, 108%);
+    height: min(180px, 42%);
     transform: translateX(-50%);
-    background-color: var(--ew-color-ink);
+    background-color: #F3E9D2;
     -webkit-mask: var(--ew-ornament-arch) center / 100% 100% no-repeat;
     mask: var(--ew-ornament-arch) center / 100% 100% no-repeat;
-    opacity: 0.55;
+    opacity: 0.9;
   }
 
-  /* Atom orbit centerpiece */
+  /* Atom orbit — logo/spinner keep the teal mark; the hero orbit sits on the panel */
   [data-era="mcm-atomic"] .ew-orbit {
     position: absolute;
-    left: 50%;
-    top: 42%;
-    width: min(220px, 38vw);
-    height: min(220px, 38vw);
+    left: 58%;
+    top: 46%;
+    width: min(240px, 70%);
+    height: min(240px, 70%);
     transform: translate(-50%, -50%);
     background: var(--ew-ornament-atom) center / contain no-repeat;
     z-index: 1;
-    opacity: 0.9;
+    opacity: 0.95;
+  }
+  [data-era="mcm-atomic"] .ew-hero__stage .ew-orbit {
+    background-image: var(--ew-ornament-atom-panel);
   }
   [data-era="mcm-atomic"] .ew-orbit--logo {
     position: relative;
@@ -417,8 +424,12 @@
     margin: 24px auto;
     width: 96px;
     height: 96px;
-    opacity: 0.55;
+    opacity: 0.9;
     background: var(--ew-ornament-atom-ink) center / contain no-repeat;
+  }
+  [data-era="mcm-atomic"][data-mode="dark"] .ew-orbit--empty {
+    background-image: var(--ew-ornament-atom-on-dark);
+    opacity: 1;
   }
   [data-era="mcm-atomic"] .ew-orbit--spin {
     position: relative;
@@ -441,13 +452,38 @@
   [data-era="mcm-atomic"] .ew-hero__content {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 880px;
-    width: 100%;
-    margin: 0 auto;
+    grid-column: 1;
+    grid-row: 1;
+    text-align: start;
+    max-width: none;
+    width: auto;
+    margin: 0;
+    padding: clamp(36px, 5vw, 72px) clamp(28px, 4vw, 64px);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
+    background: var(--ew-color-bg-page);
+  }
+  @media (max-width: 880px) {
+    [data-era="mcm-atomic"] .ew-hero {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      min-height: 0;
+    }
+    [data-era="mcm-atomic"] .ew-hero__content {
+      grid-column: 1;
+      grid-row: 1;
+      padding: 40px 24px 28px;
+    }
+    [data-era="mcm-atomic"] .ew-hero__stage {
+      grid-column: 1;
+      grid-row: 2;
+      min-height: 240px;
+    }
+    [data-era="mcm-atomic"] .ew-hero__twotone {
+      clip-path: polygon(0 16%, 100% 0, 100% 100%, 0 100%);
+    }
   }
 
   /* Googie script + geometric caps */
@@ -467,12 +503,13 @@
   [data-era="mcm-atomic"] .ew-hero h1 {
     font-family: var(--ew-font-display);
     font-weight: 700;
-    font-size: clamp(40px, 8vw, 88px);
+    font-size: clamp(40px, 5vw, 84px);
     line-height: 1.02;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     margin: 0 0 16px;
     color: var(--ew-color-ink);
+    max-width: 12ch;
   }
   [data-era="mcm-atomic"] .ew-hero__subtitle {
     font-family: var(--ew-font-body);
@@ -486,7 +523,7 @@
     display: inline-flex;
     gap: 14px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   /* Section heading + starburst ornament */
@@ -556,6 +593,9 @@
     margin: 20px auto;
     background: var(--ew-ornament-hairpin) center / contain no-repeat;
   }
+  [data-era="mcm-atomic"][data-mode="dark"] .ew-hairpin {
+    background-image: var(--ew-ornament-hairpin-light);
+  }
   [data-era="mcm-atomic"] .ew-dots {
     display: block;
     width: 64px;
@@ -603,21 +643,27 @@
   [data-era="mcm-atomic"] .ew-card::after {
     content: "" / "";
     position: absolute;
-    width: 56px;
-    height: 40px;
+    width: 132px;
+    height: 92px;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.85;
+    opacity: 1;
   }
   [data-era="mcm-atomic"] .ew-card::before {
-    top: -10px;
-    left: -14px;
-    background: var(--ew-ornament-kidney-teal) center / contain no-repeat;
+    top: -16px;
+    left: -16px;
+    background: var(--ew-color-teal);
+    border-radius: 62% 38% 28% 72% / 48% 62% 38% 52%;
+    transform: rotate(-22deg);
   }
   [data-era="mcm-atomic"] .ew-card::after {
-    bottom: -12px;
-    right: -16px;
-    background: var(--ew-ornament-kidney-coral) center / contain no-repeat;
+    bottom: -14px;
+    right: -14px;
+    width: 118px;
+    height: 84px;
+    background: var(--ew-color-coral);
+    border-radius: 38% 62% 70% 30% / 58% 42% 60% 40%;
+    transform: rotate(16deg);
   }
   [data-era="mcm-atomic"] .ew-card__header {
     position: relative;
@@ -697,7 +743,7 @@
   [data-era="mcm-atomic"] .ew-select__label,
   [data-era="mcm-atomic"] .ew-textarea__label {
     font-family: var(--ew-font-display);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -720,17 +766,34 @@
     border-color: var(--ew-color-mustard);
   }
 
-  /* Checkbox / radio */
+  /* Checkbox is a rounded square (control radius is a pill, which made this a radio).
+     No offset shadow — that read as a second ring. */
+  [data-era="mcm-atomic"] .ew-checkbox__box {
+    border-radius: 4px;
+    box-shadow: none;
+    width: 20px;
+    height: 20px;
+  }
+  [data-era="mcm-atomic"] .ew-checkbox__box::after {
+    width: 10px;
+    height: 6px;
+    border-width: 0 0 2.5px 2.5px;
+  }
   [data-era="mcm-atomic"] .ew-radio__control:not(:checked) + .ew-radio__disc,
   [data-era="mcm-atomic"] .ew-checkbox__control:not(:checked) + .ew-checkbox__box {
     border-width: 2px;
     border-style: solid;
     border-color: var(--ew-color-border-strong, var(--ew-color-ink));
     background: var(--ew-color-field-bg, #fff);
+    box-shadow: none;
   }
   [data-era="mcm-atomic"] .ew-checkbox__control:checked + .ew-checkbox__box {
     background: var(--ew-color-coral, var(--ew-color-action-bg));
     border-color: var(--ew-color-border-strong, var(--ew-color-ink));
+    box-shadow: none;
+  }
+  [data-era="mcm-atomic"] .ew-checkbox__control:checked + .ew-checkbox__box::after {
+    border-color: var(--ew-color-action-fg, #fff);
   }
   [data-era="mcm-atomic"] .ew-radio__control:checked + .ew-radio__disc {
     background: var(--ew-color-field-bg, #fff);
@@ -764,15 +827,33 @@
     background: var(--ew-color-bg-elevated, #fff);
   }
 
-  /* --- Tabs: pills on hairpin rail --- */
+  /* --- Tabs: pills on a hairpin rail that spans the tab row (not a detached ●──●) --- */
   [data-era="mcm-atomic"] .ew-tabs [role="tablist"],
   [data-era="mcm-atomic"] ew-tabs [role="tablist"] {
     position: relative;
     display: flex;
+    justify-self: start;
+    width: max-content;
+    max-width: 100%;
     gap: 8px;
-    padding: 10px 0 14px;
+    padding: 6px 16px 18px;
     border-bottom: none;
-    background: var(--ew-ornament-hairpin) center bottom 4px / min(100%, 320px) 12px no-repeat;
+    background: none;
+  }
+  [data-era="mcm-atomic"] .ew-tabs [role="tablist"]::after,
+  [data-era="mcm-atomic"] ew-tabs [role="tablist"]::after {
+    content: "" / "";
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(circle at 5px 50%, var(--ew-color-ink) 4.5px, transparent 5px),
+      radial-gradient(circle at calc(100% - 5px) 50%, var(--ew-color-ink) 4.5px, transparent 5px),
+      linear-gradient(var(--ew-color-ink), var(--ew-color-ink)) center / calc(100% - 18px) 2px no-repeat;
   }
   [data-era="mcm-atomic"] .ew-tabs [role="tab"],
   [data-era="mcm-atomic"] ew-tabs [role="tab"],
@@ -786,6 +867,8 @@
     text-transform: uppercase;
     border: 2px solid transparent;
     padding: 8px 16px;
+    position: relative;
+    z-index: 1;
   }
   [data-era="mcm-atomic"] .ew-tabs [role="tab"][aria-selected="true"],
   [data-era="mcm-atomic"] ew-tabs [role="tab"][aria-selected="true"] {
@@ -1017,6 +1100,22 @@
   [data-fidelity-band="default"] [data-era="mcm-atomic"] .ew-hairpin,
   [data-era="mcm-atomic"][data-fidelity-band="signature"] .ew-hairpin,
   [data-fidelity-band="signature"] [data-era="mcm-atomic"] .ew-hairpin,
+  [data-era="mcm-atomic"][data-fidelity-band="whisper"] .ew-tabs [role="tablist"]::after,
+  [data-fidelity-band="whisper"] [data-era="mcm-atomic"] .ew-tabs [role="tablist"]::after,
+  [data-era="mcm-atomic"][data-fidelity-band="standard"] .ew-tabs [role="tablist"]::after,
+  [data-fidelity-band="standard"] [data-era="mcm-atomic"] .ew-tabs [role="tablist"]::after,
+  [data-era="mcm-atomic"][data-fidelity-band="default"] .ew-tabs [role="tablist"]::after,
+  [data-fidelity-band="default"] [data-era="mcm-atomic"] .ew-tabs [role="tablist"]::after,
+  [data-era="mcm-atomic"][data-fidelity-band="signature"] .ew-tabs [role="tablist"]::after,
+  [data-fidelity-band="signature"] [data-era="mcm-atomic"] .ew-tabs [role="tablist"]::after,
+  [data-era="mcm-atomic"][data-fidelity-band="whisper"] ew-tabs [role="tablist"]::after,
+  [data-fidelity-band="whisper"] [data-era="mcm-atomic"] ew-tabs [role="tablist"]::after,
+  [data-era="mcm-atomic"][data-fidelity-band="standard"] ew-tabs [role="tablist"]::after,
+  [data-fidelity-band="standard"] [data-era="mcm-atomic"] ew-tabs [role="tablist"]::after,
+  [data-era="mcm-atomic"][data-fidelity-band="default"] ew-tabs [role="tablist"]::after,
+  [data-fidelity-band="default"] [data-era="mcm-atomic"] ew-tabs [role="tablist"]::after,
+  [data-era="mcm-atomic"][data-fidelity-band="signature"] ew-tabs [role="tablist"]::after,
+  [data-fidelity-band="signature"] [data-era="mcm-atomic"] ew-tabs [role="tablist"]::after,
   [data-era="mcm-atomic"][data-fidelity-band="whisper"] .ew-dots,
   [data-fidelity-band="whisper"] [data-era="mcm-atomic"] .ew-dots,
   [data-era="mcm-atomic"][data-fidelity-band="standard"] .ew-dots,
@@ -1176,13 +1275,38 @@
     border-radius: var(--ew-structure-dialog-radius, 28px);
   }
 
+  [data-era="mcm-atomic"][data-fidelity-band="whisper"] .ew-hero__content,
+  [data-fidelity-band="whisper"] [data-era="mcm-atomic"] .ew-hero__content,
+  [data-era="mcm-atomic"][data-fidelity-band="standard"] .ew-hero__content,
+  [data-fidelity-band="standard"] [data-era="mcm-atomic"] .ew-hero__content,
+  [data-era="mcm-atomic"][data-fidelity-band="default"] .ew-hero__content,
+  [data-fidelity-band="default"] [data-era="mcm-atomic"] .ew-hero__content,
+  [data-era="mcm-atomic"][data-fidelity-band="signature"] .ew-hero__content,
+  [data-fidelity-band="signature"] [data-era="mcm-atomic"] .ew-hero__content {
+    grid-column: 1 / -1;
+  }
+  [data-era="mcm-atomic"][data-fidelity-band="whisper"],
+  [data-fidelity-band="whisper"] [data-era="mcm-atomic"],
+  [data-era="mcm-atomic"][data-fidelity-band="standard"],
+  [data-fidelity-band="standard"] [data-era="mcm-atomic"],
+  [data-era="mcm-atomic"][data-fidelity-band="default"],
+  [data-fidelity-band="default"] [data-era="mcm-atomic"],
+  [data-era="mcm-atomic"][data-fidelity-band="signature"],
+  [data-fidelity-band="signature"] [data-era="mcm-atomic"] {
+    background-image: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     [data-era="mcm-atomic"] .ew-orbit--spin {
-      animation: none !important;
+      animation: ew-atomic-pulse 2.6s ease-in-out infinite !important;
     }
     [data-era="mcm-atomic"] .ew-button:hover {
       transform: none;
     }
+  }
+  @keyframes ew-atomic-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
   }
 
   @media (forced-colors: active) {
