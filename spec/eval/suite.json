@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "name": "groovster-agent-harness-v1",
-  "description": "Groovster eval: 33 tasks \u00d7 docs-agent vs mcp-agent. Real tokens/turns from agent I/O; validate + render check.",
+  "name": "groovster-harness-self-test-v1",
+  "description": "Harness self-test (not a live LLM): positive tasks must pass validators; negative tasks must fail validators. Docs-agent vs mcp-agent I/O + validate/render.",
   "componentsInScope": [
     "button",
     "card",
@@ -19,15 +19,15 @@
   "setups": [
     {
       "id": "docs-agent",
-      "label": "Docs/llms agent (no MCP)",
+      "label": "Docs/llms harness self-test (no MCP)",
       "mcp": false,
-      "notes": "Reads generated llms + era cards; emits canonical HTML."
+      "notes": "Harness self-test: reads generated llms + era cards; emits canonical or intentionally broken HTML."
     },
     {
       "id": "mcp-agent",
-      "label": "MCP tool agent",
+      "label": "MCP harness self-test",
       "mcp": true,
-      "notes": "Calls list_eras/get_era_spec/get_component/validate; real turn+token accounting."
+      "notes": "Harness self-test: calls list_eras/get_era_spec/get_component/validate; real turn+token accounting."
     }
   ],
   "scoring": {
@@ -35,7 +35,7 @@
       {
         "id": "validate",
         "weight": 0.5,
-        "description": "Spec/heuristic validate pass"
+        "description": "Spec/heuristic validate pass (inverted for negative tasks)"
       },
       {
         "id": "structure",
@@ -88,6 +88,9 @@
     "ew-030",
     "ew-031",
     "ew-032",
-    "ew-033"
+    "ew-033",
+    "ew-neg-001",
+    "ew-neg-002",
+    "ew-neg-003"
   ]
 }

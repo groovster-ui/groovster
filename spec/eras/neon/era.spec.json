@@ -107,7 +107,7 @@
       "edge: dual-tone chrome",
       "surface: violet lacquer + scanline",
       "elevation: hard rim (glow cosmetic)",
-      "ornament: grid / sun in backdrop",
+      "ornament: .ew-hero__stage required (sun/mountains/grid)",
       "type: Monoton chrome + Orbitron + Mr Dafoe + Exo 2",
       "fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)",
       "modes: light (dusk), dark (indigo night)",

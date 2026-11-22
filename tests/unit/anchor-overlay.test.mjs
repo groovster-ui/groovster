@@ -5,6 +5,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '../../tools/a11y/node_modules/playwright/index.mjs';
+import { expect } from '../../tools/a11y/node_modules/playwright/test.mjs';
+import { safePath } from '../helpers/safe-path.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const ERAS = ['neutral', 'deco', 'neon', 'mcm-atomic', 'memphis', 'groovy', 'earth'];
@@ -53,8 +55,8 @@ async function withPage(era, fn) {
       res.end(fixture(era));
       return;
     }
-    const file = path.join(REPO, url.replace(/^\//, ''));
-    if (!fs.existsSync(file)) {
+    const file = safePath(REPO, url.replace(/^\//, ''));
+    if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
       res.writeHead(404);
       res.end('missing');
       return;
@@ -81,6 +83,7 @@ for (const era of ERAS) {
       const before = await page.locator('#neighbor').boundingBox();
       const a = page.locator('#sel-a .ew-select__trigger');
       await a.click();
+      await expect.poll(async () => a.getAttribute('aria-expanded')).toBe('true');
       const meta = await page.evaluate(() => {
         const aTrig = document.querySelector('#sel-a .ew-select__trigger');
         const bTrig = document.querySelector('#sel-b .ew-select__trigger');
@@ -109,17 +112,24 @@ for (const era of ERAS) {
   test(`${era}: tooltip tip is anchored without shifting layout`, async () => {
     await withPage(era, async (page) => {
       const before = await page.locator('#neighbor').boundingBox();
-      await page.locator('#tip .ew-button').hover();
-      const tip = await page.evaluate(() => {
+      const tip = page.locator('#tip .ew-tooltip__tip');
+      const btn = page.locator('#tip .ew-button');
+      await btn.hover();
+      await expect
+        .poll(async () => tip.evaluate((el) => el.dataset.ewOpen), { timeout: 5000 })
+        .toBe('true');
+      const meta = await page.evaluate(() => {
         const tipEl = document.querySelector('#tip .ew-tooltip__tip');
         const trig = document.querySelector('#tip .ew-button');
         return {
           pos: getComputedStyle(tipEl).position,
-          anchor: tipEl.style.getPropertyValue('position-anchor') || getComputedStyle(tipEl).getPropertyValue('position-anchor'),
+          anchor:
+            tipEl.style.getPropertyValue('position-anchor') ||
+            getComputedStyle(tipEl).getPropertyValue('position-anchor'),
           trigAnchor: trig.style.getPropertyValue('anchor-name'),
         };
       });
-      assert.ok(['fixed', 'absolute'].includes(tip.pos));
+      assert.ok(['fixed', 'absolute'].includes(meta.pos));
       const after = await page.locator('#neighbor').boundingBox();
       assert.equal(Math.round(before.y), Math.round(after.y));
     });

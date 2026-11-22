@@ -27,3 +27,6 @@ packages/*/dist/
 *.pem
 *.key
 *.secret
+
+# Eval run artifacts (baseline.json only via --write-baseline)
+generated/eval/latest.json

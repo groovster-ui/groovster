@@ -7,7 +7,7 @@ Costume ornament is the default when `data-fidelity-band` is absent. Opt down wi
 | Class | Role |
 | --- | --- |
 | `.ew-hero` | Hero shell with dusk/night gradient |
-| `.ew-hero__stage` | Horizon band (bottom ~40%) holding sun, mountains, grid |
+| `.ew-hero__stage` | **Required** horizon band holding sun, mountains, grid (without it the sun collapses and mountains can overlap CTAs) |
 | `.ew-hero__grid` | Perspective grid floor (fills the stage) |
 | `.ew-hero__sun` | Striped sunset sun on the horizon |
 | `.ew-hero__mountains` | Cyan wireframe mountain polyline |

@@ -8,7 +8,6 @@
   let uid = 0;
 
   class EwTooltip extends HTMLElement {
-    #ready = false;
     #mo = null;
     #showTimer = 0;
     #hideTimer = 0;
@@ -33,7 +32,6 @@
       this.#unbind();
       clearTimeout(this.#showTimer);
       clearTimeout(this.#hideTimer);
-      this.#ready = false;
     }
     #unbind() {
       this.removeEventListener('pointerenter', this.#onEnter);
@@ -53,7 +51,6 @@
     #upgrade() {
       if (!this.#tip || !this.#trigger) return;
       this.#ensure();
-      this.#ready = true;
     }
 
     #ensure() {

@@ -2,14 +2,27 @@
 /**
  * Bundle packages/elements/src/*.js → dist/*.js and dist/era-elements.js
  * Published files must contain no import/require/export-from (CI no-imports).
+ *
+ * Optional out root (for gen:check temp trees):
+ *   GROOVSTER_OUT_ROOT=/tmp/foo  or  --out-root=/tmp/foo
+ * Src always reads from the real repo; dist writes under outRoot/packages/elements/dist.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const srcDir = path.join(root, 'packages/elements/src');
-const distDir = path.join(root, 'packages/elements/dist');
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+function resolveOutRoot() {
+  const arg = process.argv.find((a) => a.startsWith('--out-root='));
+  if (arg) return path.resolve(arg.slice('--out-root='.length));
+  if (process.env.GROOVSTER_OUT_ROOT) return path.resolve(process.env.GROOVSTER_OUT_ROOT);
+  return repoRoot;
+}
+
+const outRoot = resolveOutRoot();
+const srcDir = path.join(repoRoot, 'packages/elements/src');
+const distDir = path.join(outRoot, 'packages/elements/dist');
 
 const ORDER = [
   'ew-tabs.js',

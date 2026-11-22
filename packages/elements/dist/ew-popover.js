@@ -10,7 +10,6 @@
   let uid = 0;
 
   class EwPopover extends HTMLElement {
-    #ready = false;
     #mo = null;
     #onDoc = (e) => {
       if (!this.#isOpen()) return;
@@ -38,7 +37,6 @@
       this.removeEventListener('keydown', this.#onKey);
       this.#panel?.removeEventListener('toggle', this.#onToggle);
       document.removeEventListener('pointerdown', this.#onDoc, true);
-      this.#ready = false;
     }
 
     get #trigger() {
@@ -51,7 +49,6 @@
     #upgrade() {
       if (!this.#trigger || !this.#panel) return;
       this.#ensure();
-      this.#ready = true;
     }
 
     #ensure() {

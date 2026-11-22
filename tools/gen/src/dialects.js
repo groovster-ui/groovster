@@ -1,5 +1,4 @@
-import path from 'node:path';
-import { REPO_ROOT } from './paths.js';
+import { getOutRoot, outPath } from './paths.js';
 import { writeText, rel } from './io.js';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
@@ -43,8 +42,8 @@ export function generateDialectCss(outputs) {
   }
 }
 `;
-  const out = path.join(REPO_ROOT, 'packages/css/dist/dialects.css');
+  const out = outPath('packages/css/dist/dialects.css');
   writeText(out, css);
-  outputs.push(rel(REPO_ROOT, out));
+  outputs.push(rel(getOutRoot(), out));
   return out;
 }

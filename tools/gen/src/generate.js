@@ -2,12 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   BUDGETS_PATH,
-  GEN_CSS,
-  GEN_DOCS,
-  GEN_LLMS,
-  GEN_MANIFEST,
   REPO_ROOT,
   SPEC_ROOT,
+  getGenCss,
+  getGenDocs,
+  getGenLlms,
+  getGenManifest,
+  getOutRoot,
 } from './paths.js';
 import { listFiles, readJson, writeText, rel } from './io.js';
 import { flattenTokens } from './tokens-to-css.js';
@@ -16,6 +17,7 @@ import { generateExtras } from './gen-extras.js';
 import { generateDialectCss } from './dialects.js';
 import { bandTokenCss, muteBandSel } from './band.js';
 import { decoDecoratorCss } from './deco-decorators.js';
+import { atomicDecoratorCss } from './atomic-decorators.js';
 import { neonDecoratorCss } from './neon-decorators.js';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
@@ -39,65 +41,76 @@ ${decls}
   }`;
 }
 
-/** Map CSS family name → packaged WOFF2 basename (latin 400, OFL). */
+/** Map CSS family name → packaged WOFF2 basenames (latin OFL). Bold when the face is used at 600/700. */
 const FONT_FILES = {
-  Limelight: 'Limelight-Regular.woff2',
-  Jost: 'Jost-Regular.woff2',
-  'IBM Plex Mono': 'IBMPlexMono-Regular.woff2',
-  Orbitron: 'Orbitron-Regular.woff2',
-  'Exo 2': 'Exo2-Regular.woff2',
-  'Share Tech Mono': 'ShareTechMono-Regular.woff2',
-  Monoton: 'Monoton-Regular.woff2',
-  'Mr Dafoe': 'MrDafoe-Regular.woff2',
-  'Josefin Sans': 'JosefinSans-Regular.woff2',
-  'Nunito Sans': 'NunitoSans-Regular.woff2',
-  'Space Mono': 'SpaceMono-Regular.woff2',
-  Comfortaa: 'Comfortaa-Regular.woff2',
-  Mulish: 'Mulish-Regular.woff2',
-  'Archivo Black': 'ArchivoBlack-Regular.woff2',
-  Nunito: 'Nunito-Regular.woff2',
-  Fraunces: 'Fraunces-Regular.woff2',
-  'Source Sans 3': 'SourceSans3-Regular.woff2',
-  'Source Code Pro': 'SourceCodePro-Regular.woff2',
-  'Source Serif 4': 'SourceSerif4-Regular.woff2',
+  Limelight: { 400: 'Limelight-Regular.woff2' },
+  Jost: { 400: 'Jost-Regular.woff2', 700: 'Jost-Bold.woff2' },
+  'IBM Plex Mono': { 400: 'IBMPlexMono-Regular.woff2', 700: 'IBMPlexMono-Bold.woff2' },
+  Orbitron: { 400: 'Orbitron-Regular.woff2', 700: 'Orbitron-Bold.woff2' },
+  'Exo 2': { 400: 'Exo2-Regular.woff2', 700: 'Exo2-Bold.woff2' },
+  'Share Tech Mono': { 400: 'ShareTechMono-Regular.woff2' },
+  Monoton: { 400: 'Monoton-Regular.woff2' },
+  'Mr Dafoe': { 400: 'MrDafoe-Regular.woff2' },
+  'Josefin Sans': { 400: 'JosefinSans-Regular.woff2', 700: 'JosefinSans-Bold.woff2' },
+  'Nunito Sans': { 400: 'NunitoSans-Regular.woff2', 700: 'NunitoSans-Bold.woff2' },
+  'Space Mono': { 400: 'SpaceMono-Regular.woff2', 700: 'SpaceMono-Bold.woff2' },
+  Comfortaa: { 400: 'Comfortaa-Regular.woff2', 700: 'Comfortaa-Bold.woff2' },
+  Mulish: { 400: 'Mulish-Regular.woff2', 700: 'Mulish-Bold.woff2' },
+  'Archivo Black': { 400: 'ArchivoBlack-Regular.woff2' },
+  Nunito: { 400: 'Nunito-Regular.woff2', 700: 'Nunito-Bold.woff2' },
+  Fraunces: { 400: 'Fraunces-Regular.woff2', 700: 'Fraunces-Bold.woff2' },
+  'Source Sans 3': { 400: 'SourceSans3-Regular.woff2', 700: 'SourceSans3-Bold.woff2' },
+  'Source Code Pro': { 400: 'SourceCodePro-Regular.woff2', 700: 'SourceCodePro-Bold.woff2' },
+  'Source Serif 4': { 400: 'SourceSerif4-Regular.woff2', 700: 'SourceSerif4-Bold.woff2' },
+  Yellowtail: { 400: 'Yellowtail-Regular.woff2' },
+  'League Spartan': { 400: 'LeagueSpartan-Regular.woff2', 700: 'LeagueSpartan-Bold.woff2' },
+  'Work Sans': { 400: 'WorkSans-Regular.woff2', 700: 'WorkSans-Bold.woff2' },
+  Oswald: { 400: 'Oswald-Regular.woff2', 700: 'Oswald-Bold.woff2' },
 };
 
 /**
- * @font-face with shipped WOFF2 (font-display: swap).
+ * @font-face with shipped WOFF2 (font-display: swap), including bold faces that are used.
  * Paths are relative to dist/eras/*.css; the era-widgets bundle rewrites them.
  */
 function fontFaceBlock(era, { forBundle = false } = {}) {
   if (!era.fonts) return '';
   const families = [era.fonts.display, era.fonts.body, era.fonts.mono].filter(Boolean);
   if (era.id === 'neon') families.push('Monoton', 'Mr Dafoe');
+  if (era.id === 'mcm-atomic') {
+    if (era.fonts.script) families.push(era.fonts.script);
+    if (era.fonts.displayAlt) families.push(era.fonts.displayAlt);
+  }
   const unique = [...new Set(families)];
   const prefix = forBundle ? './fonts/' : '../fonts/';
   return unique
-    .map((family) => {
-      const file = FONT_FILES[family];
-      if (!file) {
-        return `@font-face {
+    .flatMap((family) => {
+      const files = FONT_FILES[family];
+      if (!files) {
+        return [`@font-face {
   font-family: "${family}";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: local("${family}");
-}`;
+}`];
       }
-      return `@font-face {
+      return Object.entries(files).map(
+        ([weight, file]) => `@font-face {
   font-family: "${family}";
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${weight};
   font-display: swap;
   src: url("${prefix}${file}") format("woff2"), local("${family}");
-}`;
+}`
+      );
     })
     .join('\n');
 }
 
 function copyPackagedFonts(outputs) {
   const srcDir = path.join(REPO_ROOT, 'packages/css/fonts');
-  const destDir = path.join(GEN_CSS, 'fonts');
+  const destDir = path.join(getGenCss(), 'fonts');
+  const outRoot = getOutRoot();
   fs.mkdirSync(destDir, { recursive: true });
   if (!fs.existsSync(srcDir)) return;
   for (const name of fs.readdirSync(srcDir)) {
@@ -105,7 +118,7 @@ function copyPackagedFonts(outputs) {
     const to = path.join(destDir, name);
     if (fs.statSync(from).isFile()) {
       fs.copyFileSync(from, to);
-      outputs.push(rel(REPO_ROOT, to));
+      outputs.push(rel(outRoot, to));
     }
   }
 }
@@ -354,72 +367,7 @@ function genEraCss(era) {
   if (era.id === 'deco') {
     blocks.push(decoDecoratorCss());
   } else if (era.id === 'mcm-atomic') {
-    blocks.push(`  [data-era="mcm-atomic"] .ew-card {
-    border-radius: var(--ew-structure-surface-radius, 24px);
-  }
-  [data-era="mcm-atomic"] .ew-card[data-variant="raised"] {
-    border-radius: 28px 28px 36px 20px / 24px 32px 22px 30px;
-  }
-  ${muteBandSel('mcm-atomic', ' .ew-card[data-variant="raised"]')} {
-    border-radius: var(--ew-structure-surface-radius, 24px);
-  }
-  [data-era="mcm-atomic"] .ew-button {
-    border-radius: var(--ew-structure-control-radius, 999px);
-  }
-  [data-era="mcm-atomic"] .ew-card__header h2,
-  [data-era="mcm-atomic"] .ew-card__header h3 {
-    text-transform: lowercase;
-    font-weight: 600;
-  }
-  [data-era="mcm-atomic"] .ew-text-field__control,
-  [data-era="mcm-atomic"] .ew-select__control,
-  [data-era="mcm-atomic"] .ew-select__trigger,
-  [data-era="mcm-atomic"] .ew-textarea__control {
-    border-radius: var(--ew-structure-field-radius, 16px);
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--ew-color-field-border);
-    background: var(--ew-color-field-bg);
-    box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent);
-  }
-  [data-era="mcm-atomic"] .ew-radio__control:not(:checked) + .ew-radio__disc,
-  [data-era="mcm-atomic"] .ew-checkbox__control:not(:checked) + .ew-checkbox__box {
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--ew-color-border-strong);
-    background: var(--ew-color-field-bg);
-  }
-  [data-era="mcm-atomic"] .ew-checkbox__control:checked + .ew-checkbox__box {
-    background: var(--ew-color-action-bg);
-    border-color: var(--ew-color-action-bg);
-  }
-  [data-era="mcm-atomic"] .ew-radio__control:checked + .ew-radio__disc {
-    background: var(--ew-color-field-bg);
-    border-color: var(--ew-color-border-strong);
-  }
-  [data-era="mcm-atomic"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
-    background: var(--ew-color-fg-default);
-  }
-  [data-era="mcm-atomic"] .ew-switch__control:not(:checked) + .ew-switch__track {
-    border: 2px solid var(--ew-color-border-strong);
-    background: var(--ew-color-field-bg);
-  }
-  [data-era="mcm-atomic"] .ew-switch__control:checked + .ew-switch__track {
-    background: var(--ew-color-track-on, var(--ew-color-action-bg));
-    border-color: var(--ew-color-border-strong);
-  }
-  [data-era="mcm-atomic"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
-    background: var(--ew-color-bg-elevated, #fff);
-  }
-  [data-era="mcm-atomic"] .ew-dialog {
-    border-radius: var(--ew-structure-dialog-radius, 28px);
-    border-width: 0;
-  }
-  [data-era="mcm-atomic"] .ew-tabs[data-variant="pills"] [role="tab"],
-  [data-era="mcm-atomic"] ew-tabs[data-variant="pills"] [role="tab"] {
-    border-radius: 999px;
-  }
-`);
+    blocks.push(atomicDecoratorCss());
   } else if (era.id === 'neon') {
     blocks.push(neonDecoratorCss());
   } else if (era.id === 'neutral') {
@@ -435,6 +383,13 @@ function genEraCss(era) {
   }
   [data-era="neutral"] .ew-slider__control {
     height: var(--ew-structure-slider-track-height, 6px);
+  }
+  /* Off-state switch: knob + track edge ≥3:1 against the card surface */
+  [data-era="neutral"] .ew-switch__track {
+    border: 2px solid var(--ew-color-border-strong);
+  }
+  [data-era="neutral"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
+    background: var(--ew-color-fg-default);
   }
 `);
   } else if (era.id === 'memphis') {
@@ -560,7 +515,11 @@ function genEraCss(era) {
   }
   [data-era="groovy"] .ew-switch__track {
     border-radius: 999px;
-    box-shadow: inset 0 0 0 2px color-mix(in oklch, var(--ew-color-fg-default) 12%, transparent);
+    border: 2px solid var(--ew-color-border-strong);
+    box-shadow: none;
+  }
+  [data-era="groovy"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
+    background: var(--ew-color-fg-default);
   }
 `);
   } else if (era.id === 'earth') {
@@ -707,9 +666,8 @@ function genLlmsIndex(components, eras) {
     '',
     '## Fidelity & ornament',
     '- Bands: `whisper|standard|costume` (costume default; `default`/`signature` → standard).',
-    '- Neon: `.ew-hero*` grid/sun/mountains, `.ew-chrome`, `.ew-script`, `.ew-sun-mark`.',
-    '- Deco: `.ew-hero__panel` / backdrop / rays / fan; stepped frames; `.ew-ornament-divider`.',
-    '- Docs: `demos/showcase/NEON.md`, `FIDELITY.md`. Fonts: OFL WOFF2 in `packages/css/fonts`.',
+    '- Neon/Atomic costume heroes **require** `.ew-hero__stage` (Neon: sun/mountains/grid; Atomic: starbursts/orbit/arch/twotone).',
+    '- Deco: `.ew-hero__panel` / rays / fan; stepped frames. Docs: NEON.md, ATOMIC.md, FIDELITY.md. Fonts: OFL WOFF2.',
     '',
     '## Components (one file each)',
     ...components.map((c) => `- ${c.id}: generated/llms/${c.id}.md`),
@@ -740,6 +698,12 @@ function mcpDefaultReply(comp) {
 }
 
 export function generateAll() {
+  const GEN_CSS = getGenCss();
+  const GEN_DOCS = getGenDocs();
+  const GEN_LLMS = getGenLlms();
+  const GEN_MANIFEST = getGenManifest();
+  const outRoot = getOutRoot();
+
   const components = loadComponents();
   const eras = loadEras();
   const budgets = readJson(BUDGETS_PATH);
@@ -749,41 +713,41 @@ export function generateAll() {
 
   const base = path.join(GEN_CSS, 'base.css');
   writeText(base, genBaseCss());
-  outputs.push(rel(REPO_ROOT, base));
+  outputs.push(rel(outRoot, base));
 
   const tier3 = readJson(path.join(SPEC_ROOT, 'tokens/tier3/components.shared.tokens.json'));
   const componentsCssVars = `${HEADER}@layer tokens {\n  :root, .ew-root {\n${flattenTokens(tier3).join('\n')}\n  }\n}\n`;
   const componentsTokensPath = path.join(GEN_CSS, 'tokens-components.css');
   writeText(componentsTokensPath, componentsCssVars);
-  outputs.push(rel(REPO_ROOT, componentsTokensPath));
+  outputs.push(rel(outRoot, componentsTokensPath));
 
   for (const comp of components) {
     const cssPath = path.join(GEN_CSS, `${comp.id}.css`);
     writeText(cssPath, genComponentCss(comp));
-    outputs.push(rel(REPO_ROOT, cssPath));
+    outputs.push(rel(outRoot, cssPath));
 
     const docPath = path.join(GEN_DOCS, `${comp.id}.md`);
     writeText(docPath, genDocsStub(comp));
-    outputs.push(rel(REPO_ROOT, docPath));
+    outputs.push(rel(outRoot, docPath));
 
     const llmsPath = path.join(GEN_LLMS, `${comp.id}.md`);
     writeText(llmsPath, genLlmsSection(comp));
-    outputs.push(rel(REPO_ROOT, llmsPath));
+    outputs.push(rel(outRoot, llmsPath));
   }
 
   for (const era of eras) {
     const cssPath = path.join(GEN_CSS, 'eras', `${era.id}.css`);
     writeText(cssPath, genEraCss(era));
-    outputs.push(rel(REPO_ROOT, cssPath));
+    outputs.push(rel(outRoot, cssPath));
 
     const cardPath = path.join(GEN_LLMS, `era-${era.id}.card.txt`);
     writeText(cardPath, genEraCard(era));
-    outputs.push(rel(REPO_ROOT, cardPath));
+    outputs.push(rel(outRoot, cardPath));
   }
 
   const indexPath = path.join(GEN_LLMS, 'llms.txt');
   writeText(indexPath, genLlmsIndex(components, eras));
-  outputs.push(rel(REPO_ROOT, indexPath));
+  outputs.push(rel(outRoot, indexPath));
 
   generateDialectCss(outputs);
 
@@ -804,7 +768,7 @@ export function generateAll() {
   // Era CSS uses ../fonts/ (from dist/eras/); rewrite for dist/era-widgets.css.
   const bundleCss = bundleParts.join('\n').replaceAll('url("../fonts/', 'url("./fonts/');
   writeText(bundlePath, bundleCss);
-  outputs.push(rel(REPO_ROOT, bundlePath));
+  outputs.push(rel(outRoot, bundlePath));
 
   // Budget snapshots for CI
   const budgetReport = {
@@ -817,7 +781,7 @@ export function generateAll() {
     const mcp = mcpDefaultReply(comp);
     budgetReport.measured[`mcp.defaultReply:${comp.id}`] = { chars: mcp.length, budget: 'mcp.defaultReply' };
     writeText(path.join(GEN_LLMS, `mcp-${comp.id}.default.txt`), mcp);
-    outputs.push(rel(REPO_ROOT, path.join(GEN_LLMS, `mcp-${comp.id}.default.txt`)));
+    outputs.push(rel(outRoot, path.join(GEN_LLMS, `mcp-${comp.id}.default.txt`)));
   }
   for (const era of eras) {
     const card = fs.readFileSync(path.join(GEN_LLMS, `era-${era.id}.card.txt`), 'utf8');
@@ -847,3 +811,4 @@ export function generateAll() {
 
   return manifest;
 }
+

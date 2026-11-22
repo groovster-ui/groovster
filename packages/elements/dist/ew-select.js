@@ -22,7 +22,6 @@
 
   class EwSelect extends HTMLElement {
     #open = false;
-    #ready = false;
     #mo = null;
     #form = null;
     #wrapped = null;
@@ -77,7 +76,6 @@
       this.#unwrapNative();
       document.removeEventListener('pointerdown', this.#onDocPointer, true);
       clearTimeout(this.#typeaheadTimer);
-      this.#ready = false;
     }
 
     #upgrade() {
@@ -92,7 +90,6 @@
       this.#bind();
       this.#observeNative(native);
       this.#syncFromNative();
-      this.#ready = true;
     }
 
     #observePending() {
@@ -337,8 +334,9 @@
           e.preventDefault();
           if (!this.#open) this.#setOpen(true, { restoreFocus: true });
           else {
-            const active = this.#activeOption();
+            const active = this.#activeOption() || options[0];
             if (active) this.#choose(active, { restoreFocus: true });
+            else this.#setOpen(false, { restoreFocus: true });
           }
           return;
         }
@@ -387,15 +385,23 @@
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
       if (open) {
         list.hidden = false;
-        if (typeof list.showPopover === 'function') list.showPopover();
         document.addEventListener('pointerdown', this.#onDocPointer, true);
         const selected =
           this.#options.find((o) => o.getAttribute('aria-selected') === 'true') || this.#options[0];
         this.#setActive(selected);
+        try {
+          if (typeof list.showPopover === 'function') list.showPopover();
+        } catch {
+          /* already open or not eligible; the list stays usable via hidden */
+        }
         trigger.focus();
       } else {
-        if (typeof list.hidePopover === 'function' && list.matches?.(':popover-open')) {
-          list.hidePopover();
+        try {
+          if (typeof list.hidePopover === 'function' && list.matches?.(':popover-open')) {
+            list.hidePopover();
+          }
+        } catch {
+          /* ignore */
         }
         list.hidden = true;
         document.removeEventListener('pointerdown', this.#onDocPointer, true);

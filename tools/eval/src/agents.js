@@ -1,11 +1,19 @@
 /**
- * Deterministic agent runners for eval — real tool/doc I/O, turns, and token counts.
- * Not LLM-backed: they consume MCP tools or llms/spec docs the same way an agent would.
+ * Harness self-test agent runners — NOT live LLM agents.
+ *
+ * Deterministic runners that exercise the same doc/MCP I/O paths an agent
+ * would use, then emit markup for the suite to grade:
+ *   - positive / harness-self-test tasks: assembleFromTask (satisfies expect)
+ *   - negative tasks: intentionally broken markup (brokenMarkup / fixture)
+ *     so validators are expected to FAIL
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { dispatch } from '../../../packages/mcp/src/tools.js';
 import { getComponent } from '../../../packages/mcp/src/load-spec.js';
+
+const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 
 /** Count tokens from UTF-8 text using a GPT-ish wordpiece heuristic (not chars/4). */
 export function countTokens(text) {
@@ -18,6 +26,10 @@ export function countTokens(text) {
     else n += 1;
   }
   return n;
+}
+
+export function isNegativeTask(task) {
+  return task?.kind === 'negative' || task?.expectPass === false;
 }
 
 function bandFor(fidelity) {
@@ -169,7 +181,32 @@ export function assembleFromTask(task) {
   return `<div data-era="${era}" data-mode="${mode}" data-fidelity-band="${band}">\n${html}\n</div>`;
 }
 
-/** Docs-only agent: reads llms sections + era card, then emits task HTML. */
+/**
+ * Emit markup for a harness-self-test task.
+ * Negatives must NOT go through assembleFromTask (which always satisfies expect).
+ */
+export function emitTaskHtml(task, { repoRoot = REPO } = {}) {
+  if (isNegativeTask(task)) {
+    if (typeof task.brokenMarkup === 'string' && task.brokenMarkup.trim()) {
+      return task.brokenMarkup;
+    }
+    if (task.fixture) {
+      const fixturePath = path.isAbsolute(task.fixture)
+        ? task.fixture
+        : path.join(repoRoot, task.fixture.replace(/^\.\//, ''));
+      if (!fs.existsSync(fixturePath)) {
+        throw new Error(`Negative task ${task.id}: fixture not found: ${fixturePath}`);
+      }
+      return fs.readFileSync(fixturePath, 'utf8');
+    }
+    throw new Error(
+      `Negative task ${task.id}: provide brokenMarkup or fixture (do not assembleFromTask)`
+    );
+  }
+  return assembleFromTask(task);
+}
+
+/** Docs harness-self-test: reads llms sections + era card, then emits task HTML. */
 export function runDocsAgent(task, { repoRoot }) {
   const turns = [];
   let promptTokens = countTokens(task.prompt);
@@ -187,7 +224,7 @@ export function runDocsAgent(task, { repoRoot }) {
     promptTokens += countTokens(body);
   }
 
-  const html = assembleFromTask(task);
+  const html = emitTaskHtml(task, { repoRoot });
   turns.push({ tool: 'emit_html' });
   const completionTokens = countTokens(html);
 
@@ -199,11 +236,12 @@ export function runDocsAgent(task, { repoRoot }) {
     completionTokens,
     totalTokens: promptTokens + completionTokens,
     mcp: false,
+    kind: isNegativeTask(task) ? 'negative' : 'harness-self-test',
   };
 }
 
-/** MCP agent: calls list_eras / get_era_spec / get_component / validate. */
-export function runMcpAgent(task) {
+/** MCP harness-self-test: calls list_eras / get_era_spec / get_component / validate. */
+export function runMcpAgent(task, { repoRoot = REPO } = {}) {
   const turns = [];
   let promptTokens = countTokens(task.prompt);
   let completionTokens = 0;
@@ -224,7 +262,7 @@ export function runMcpAgent(task) {
     call('get_component', { name: id, era: eraId });
   }
 
-  const html = assembleFromTask(task);
+  const html = emitTaskHtml(task, { repoRoot });
   turns.push({ tool: 'emit_html' });
   completionTokens += countTokens(html);
 
@@ -238,6 +276,7 @@ export function runMcpAgent(task) {
     totalTokens: promptTokens + completionTokens,
     mcp: true,
     mcpValidatePass: validation.pass === true,
+    kind: isNegativeTask(task) ? 'negative' : 'harness-self-test',
   };
 }
 
@@ -263,7 +302,7 @@ export function runHybridAgent(task, { repoRoot }) {
   for (const id of task.components || []) {
     call('get_component', { name: id, era: eraId });
   }
-  const html = assembleFromTask(task);
+  const html = emitTaskHtml(task, { repoRoot });
   turns.push({ tool: 'emit_html' });
   completionTokens += countTokens(html);
   return {
@@ -275,5 +314,6 @@ export function runHybridAgent(task, { repoRoot }) {
     totalTokens: promptTokens + completionTokens,
     mcp: 'hybrid',
     tokenSource: 'heuristic',
+    kind: isNegativeTask(task) ? 'negative' : 'harness-self-test',
   };
 }

@@ -212,7 +212,6 @@
 
   class EwSelect extends HTMLElement {
     #open = false;
-    #ready = false;
     #mo = null;
     #form = null;
     #wrapped = null;
@@ -267,7 +266,6 @@
       this.#unwrapNative();
       document.removeEventListener('pointerdown', this.#onDocPointer, true);
       clearTimeout(this.#typeaheadTimer);
-      this.#ready = false;
     }
 
     #upgrade() {
@@ -282,7 +280,6 @@
       this.#bind();
       this.#observeNative(native);
       this.#syncFromNative();
-      this.#ready = true;
     }
 
     #observePending() {
@@ -527,8 +524,9 @@
           e.preventDefault();
           if (!this.#open) this.#setOpen(true, { restoreFocus: true });
           else {
-            const active = this.#activeOption();
+            const active = this.#activeOption() || options[0];
             if (active) this.#choose(active, { restoreFocus: true });
+            else this.#setOpen(false, { restoreFocus: true });
           }
           return;
         }
@@ -577,15 +575,23 @@
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
       if (open) {
         list.hidden = false;
-        if (typeof list.showPopover === 'function') list.showPopover();
         document.addEventListener('pointerdown', this.#onDocPointer, true);
         const selected =
           this.#options.find((o) => o.getAttribute('aria-selected') === 'true') || this.#options[0];
         this.#setActive(selected);
+        try {
+          if (typeof list.showPopover === 'function') list.showPopover();
+        } catch {
+          /* already open or not eligible; the list stays usable via hidden */
+        }
         trigger.focus();
       } else {
-        if (typeof list.hidePopover === 'function' && list.matches?.(':popover-open')) {
-          list.hidePopover();
+        try {
+          if (typeof list.hidePopover === 'function' && list.matches?.(':popover-open')) {
+            list.hidePopover();
+          }
+        } catch {
+          /* ignore */
         }
         list.hidden = true;
         document.removeEventListener('pointerdown', this.#onDocPointer, true);
@@ -652,7 +658,6 @@
 
   class EwMenu extends HTMLElement {
     #open = false;
-    #ready = false;
     #mo = null;
     #typeahead = '';
     #typeaheadTimer = null;
@@ -680,7 +685,6 @@
       this.removeEventListener('keydown', this.#onKey);
       document.removeEventListener('pointerdown', this.#onDoc, true);
       clearTimeout(this.#typeaheadTimer);
-      this.#ready = false;
       this.#open = false;
     }
 
@@ -699,7 +703,6 @@
     #upgrade() {
       if (!this.#trigger || !this.#panel) return;
       this.#ensure();
-      this.#ready = true;
     }
 
     #ensure() {
@@ -826,7 +829,6 @@
   let uid = 0;
 
   class EwPopover extends HTMLElement {
-    #ready = false;
     #mo = null;
     #onDoc = (e) => {
       if (!this.#isOpen()) return;
@@ -854,7 +856,6 @@
       this.removeEventListener('keydown', this.#onKey);
       this.#panel?.removeEventListener('toggle', this.#onToggle);
       document.removeEventListener('pointerdown', this.#onDoc, true);
-      this.#ready = false;
     }
 
     get #trigger() {
@@ -867,7 +868,6 @@
     #upgrade() {
       if (!this.#trigger || !this.#panel) return;
       this.#ensure();
-      this.#ready = true;
     }
 
     #ensure() {
@@ -973,7 +973,6 @@
   let uid = 0;
 
   class EwTooltip extends HTMLElement {
-    #ready = false;
     #mo = null;
     #showTimer = 0;
     #hideTimer = 0;
@@ -998,7 +997,6 @@
       this.#unbind();
       clearTimeout(this.#showTimer);
       clearTimeout(this.#hideTimer);
-      this.#ready = false;
     }
     #unbind() {
       this.removeEventListener('pointerenter', this.#onEnter);
@@ -1018,7 +1016,6 @@
     #upgrade() {
       if (!this.#tip || !this.#trigger) return;
       this.#ensure();
-      this.#ready = true;
     }
 
     #ensure() {

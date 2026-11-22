@@ -5,6 +5,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '../../tools/a11y/node_modules/playwright/index.mjs';
+import { expect } from '../../tools/a11y/node_modules/playwright/test.mjs';
+import { safePath } from '../helpers/safe-path.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -66,8 +68,8 @@ async function withPage(fn) {
       res.end(FIXTURE);
       return;
     }
-    const file = path.join(REPO, url.replace(/^\//, ''));
-    if (!fs.existsSync(file)) {
+    const file = safePath(REPO, url.replace(/^\//, ''));
+    if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
       res.writeHead(404);
       res.end('missing');
       return;
@@ -107,15 +109,55 @@ test('select is combobox with aria-activedescendant and typeahead', async () => 
     await trigger.focus();
     assert.equal(await trigger.getAttribute('role'), 'combobox');
     await page.keyboard.press('ArrowDown');
-    assert.equal(await trigger.getAttribute('aria-expanded'), 'true');
+    await expect.poll(async () => trigger.getAttribute('aria-expanded')).toBe('true');
     assert.ok(await trigger.getAttribute('aria-activedescendant'));
     await page.keyboard.type('c');
-    const active = await trigger.getAttribute('aria-activedescendant');
-    const text = await page.locator(`#${active}`).textContent();
-    assert.match(text || '', /Canada/i);
+    await expect
+      .poll(async () => {
+        const active = await trigger.getAttribute('aria-activedescendant');
+        if (!active) return '';
+        return (await page.locator(`[id="${active}"]`).textContent()) || '';
+      })
+      .toMatch(/Canada/i);
     await page.keyboard.press('Enter');
-    assert.equal(await trigger.getAttribute('aria-expanded'), 'false');
+    await expect.poll(async () => trigger.getAttribute('aria-expanded')).toBe('false');
     assert.equal(await page.locator('#sel select').inputValue(), 'ca');
+  });
+});
+
+test('select picks up native option mutations after setup', async () => {
+  await withPage(async (page) => {
+    const trigger = page.locator('#sel .ew-select__trigger');
+    await expect.poll(async () => trigger.textContent()).toMatch(/United States/i);
+
+    await page.evaluate(() => {
+      const native = document.querySelector('#sel select');
+      const us = native.querySelector('option[value="us"]');
+      us.textContent = 'USA';
+      const br = document.createElement('option');
+      br.value = 'br';
+      br.textContent = 'Brazil';
+      native.appendChild(br);
+      native.value = 'br';
+      native.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+
+    await expect.poll(async () => trigger.textContent()).toMatch(/Brazil/i);
+    await expect
+      .poll(async () => page.locator('#sel [role="option"]').count())
+      .toBe(4);
+    await expect
+      .poll(async () =>
+        page.locator('#sel [role="option"][data-value="br"]').getAttribute('aria-selected')
+      )
+      .toBe('true');
+
+    await trigger.focus();
+    await page.keyboard.press('ArrowDown');
+    await expect.poll(async () => trigger.getAttribute('aria-expanded')).toBe('true');
+    const labels = await page.locator('#sel [role="option"]').allTextContents();
+    assert.ok(labels.some((t) => /Brazil/i.test(t)));
+    assert.ok(labels.some((t) => /USA/i.test(t)));
   });
 });
 
@@ -124,8 +166,9 @@ test('select outside click does not restore focus to trigger', async () => {
     const trigger = page.locator('#sel .ew-select__trigger');
     await trigger.focus();
     await page.keyboard.press('ArrowDown');
+    await expect.poll(async () => trigger.getAttribute('aria-expanded')).toBe('true');
     await page.locator('body').click({ position: { x: 1, y: 1 } });
-    assert.equal(await trigger.getAttribute('aria-expanded'), 'false');
+    await expect.poll(async () => trigger.getAttribute('aria-expanded')).toBe('false');
     const active = await page.evaluate(() => document.activeElement?.className || '');
     assert.ok(!String(active).includes('ew-select__trigger'));
   });
@@ -136,12 +179,13 @@ test('menu typeahead and outside click focus behavior', async () => {
     const trigger = page.locator('#menu .ew-menu__trigger');
     await trigger.focus();
     await page.keyboard.press('ArrowDown');
-    assert.equal(await trigger.getAttribute('aria-expanded'), 'true');
+    await expect.poll(async () => trigger.getAttribute('aria-expanded')).toBe('true');
     await page.keyboard.type('d');
-    const focused = await page.evaluate(() => document.activeElement?.textContent?.trim());
-    assert.equal(focused, 'Delete');
+    await expect
+      .poll(async () => page.evaluate(() => document.activeElement?.textContent?.trim()))
+      .toBe('Delete');
     await page.locator('body').click({ position: { x: 1, y: 1 } });
-    assert.equal(await trigger.getAttribute('aria-expanded'), 'false');
+    await expect.poll(async () => trigger.getAttribute('aria-expanded')).toBe('false');
     const active = await page.evaluate(() => document.activeElement?.className || '');
     assert.ok(!String(active).includes('ew-menu__trigger'));
   });
@@ -151,11 +195,9 @@ test('popover toggle keeps aria-expanded in sync', async () => {
   await withPage(async (page) => {
     const trigger = page.locator('#pop .ew-popover__trigger');
     await trigger.click();
-    await page.waitForTimeout(50);
-    assert.equal(await trigger.getAttribute('aria-expanded'), 'true');
+    await expect.poll(async () => trigger.getAttribute('aria-expanded')).toBe('true');
     await page.keyboard.press('Escape');
-    await page.waitForTimeout(50);
-    assert.equal(await trigger.getAttribute('aria-expanded'), 'false');
+    await expect.poll(async () => trigger.getAttribute('aria-expanded')).toBe('false');
   });
 });
 
@@ -164,13 +206,29 @@ test('toast uses status role and pauses timer on hover', async () => {
     await page.evaluate(() => {
       document.getElementById('toast').show({ title: 'Saved', body: 'ok', timeout: 400 });
     });
-    const role = await page.locator('#toast .ew-toast').getAttribute('role');
+    const toast = page.locator('#toast .ew-toast');
+    await toast.waitFor({ state: 'attached' });
+    const role = await toast.getAttribute('role');
     assert.equal(role, 'status');
-    await page.locator('#toast .ew-toast').hover();
-    await page.waitForTimeout(500);
-    assert.equal(await page.locator('#toast .ew-toast').count(), 1);
+    await toast.hover();
+    // While hovered, toast must still be present after the original timeout would have fired.
+    await expect
+      .poll(async () => toast.count(), { timeout: 800 })
+      .toBe(1);
+    // Give the pause window time without flaking: assert still 1 after ~500ms via deadline poll.
+    const stillThere = await page.waitForFunction(() => {
+      const el = document.querySelector('#toast .ew-toast');
+      if (!el) return false;
+      const started = Number(el.dataset.hoverAssertAt || 0);
+      if (!started) {
+        el.dataset.hoverAssertAt = String(Date.now());
+        return false;
+      }
+      return Date.now() - started >= 500;
+    });
+    assert.ok(stillThere);
+    assert.equal(await toast.count(), 1);
     await page.mouse.move(0, 0);
-    await page.waitForTimeout(500);
-    assert.equal(await page.locator('#toast .ew-toast').count(), 0);
+    await expect.poll(async () => toast.count(), { timeout: 5000 }).toBe(0);
   });
 });

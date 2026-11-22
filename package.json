@@ -15,6 +15,7 @@
     "validate": "pnpm --filter @groovster/gen validate",
     "smoke": "pnpm gen && echo 'Open demos/smoke/index.html (or serve demos/smoke)'",
     "check": "pnpm validate && pnpm gen:check && pnpm contrast && pnpm no-imports",
+    "lint": "eslint .",
     "eval": "pnpm --filter @groovster/eval eval",
     "eval:baseline": "pnpm --filter @groovster/eval baseline",
     "no-imports": "pnpm --filter @groovster/gen exec node src/cli.js no-imports",
@@ -33,14 +34,18 @@
     "mcp": "pnpm --filter @groovster/mcp start",
     "mcp:smoke": "pnpm --filter @groovster/mcp smoke",
     "registry:serve": "python3 -m http.server 4174 --directory registry",
-    "test:unit": "node --test tests/unit/*.test.mjs",
+    "test:unit": "node --import tsx --test tests/unit/*.test.mjs",
     "registry:e2e": "node scripts/registry-e2e.mjs"
   },
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
     "esbuild": "^0.25.0",
+    "eslint": "^9.39.5",
+    "globals": "^17.14.0",
     "playwright": "^1.49.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tsx": "^4.19.2"
   }
 }

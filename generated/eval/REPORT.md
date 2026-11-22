@@ -1,10 +1,12 @@
-# Eval report — groovster-agent-harness-v1
+# Eval report — groovster-harness-self-test-v1
 
-Deterministic docs, MCP, and hybrid runners. Token counts are wordpiece heuristics, not provider usage. This is not a live LLM benchmark.
+Mode: **harness-self-test**
+
+Deterministic docs, MCP, and hybrid runners. Positive tasks must pass validation. Negative tasks must fail it. Token counts are wordpiece heuristics, not provider usage. This is not a live LLM benchmark.
 
 Live model evaluation: not-run — Pass --live with GROOVSTER_EVAL_PROVIDER and an API key. Ordinary CI does not call a model.
 
 ## Setups
-- **docs-agent**: success 100% (33/33), mean score 0.954, mean tokens 787, mean turns 3.55
-- **mcp-agent**: success 100% (33/33), mean score 0.881, mean tokens 1809, mean turns 5.55
-- **hybrid-agent**: success 100% (33/33), mean score 0.929, mean tokens 1488, mean turns 3.55
+- **docs-agent**: success 100% (36/36; 3 negative), mean score 0.939, mean tokens 783, mean turns 3.53
+- **mcp-agent**: success 100% (36/36; 3 negative), mean score 0.864, mean tokens 1805, mean turns 5.53
+- **hybrid-agent**: success 100% (36/36; 3 negative), mean score 0.913, mean tokens 1449, mean turns 3.53

@@ -12,7 +12,6 @@
 
   class EwMenu extends HTMLElement {
     #open = false;
-    #ready = false;
     #mo = null;
     #typeahead = '';
     #typeaheadTimer = null;
@@ -40,7 +39,6 @@
       this.removeEventListener('keydown', this.#onKey);
       document.removeEventListener('pointerdown', this.#onDoc, true);
       clearTimeout(this.#typeaheadTimer);
-      this.#ready = false;
       this.#open = false;
     }
 
@@ -59,7 +57,6 @@
     #upgrade() {
       if (!this.#trigger || !this.#panel) return;
       this.#ensure();
-      this.#ready = true;
     }
 
     #ensure() {

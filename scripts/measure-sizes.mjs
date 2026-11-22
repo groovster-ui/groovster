@@ -50,7 +50,6 @@ for (const file of files) {
   measured[file] = bytesOf(abs);
 }
 
-const report = { measuredAt: 'size-check', measured };
 if (!fs.existsSync(baselinePath)) {
   fs.writeFileSync(baselinePath, JSON.stringify({ bundle: measured['packages/css/dist/era-widgets.css'] }, null, 2) + '\n');
 }

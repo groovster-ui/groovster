@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateMarkup } from './validate-markup.js';
 import { validateMarkup as mcpValidate } from '../../../packages/mcp/src/validate.js';
-import { runDocsAgent, runMcpAgent, runHybridAgent, countTokens } from './agents.js';
+import { runDocsAgent, runMcpAgent, runHybridAgent, countTokens, isNegativeTask } from './agents.js';
 import { renderCheck } from './render-check.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -24,11 +24,13 @@ function readJson(p) {
 }
 
 async function runTask(task, setup) {
+  const negative = isNegativeTask(task);
+  const kind = negative ? 'negative' : 'harness-self-test';
   const agent =
     setup.mcp === 'hybrid'
       ? runHybridAgent(task, { repoRoot: REPO })
       : setup.mcp
-        ? runMcpAgent(task)
+        ? runMcpAgent(task, { repoRoot: REPO })
         : runDocsAgent(task, { repoRoot: REPO });
 
   const struct = validateMarkup(agent.html, task.expect || {});
@@ -37,11 +39,15 @@ async function runTask(task, setup) {
   const validatePass = struct.pass && mcp.pass;
 
   let render = { pass: true, issues: [] };
-  if (!skipRender) {
+  // Negatives assert validator failure; skip Playwright so broken markup does not need to paint.
+  if (!skipRender && !negative) {
     render = await renderCheck(REPO, agent.html, task.expect || {});
   }
 
-  const pass = validatePass && render.pass;
+  const rawPass = validatePass && render.pass;
+  // Negative tasks pass the suite only when validators FAIL as expected.
+  const pass = negative ? validatePass === false : rawPass;
+
   const validationScore = validatePass ? 1 : Math.max(0, 1 - (struct.issues.length + (mcp.issues?.length || 0)) * 0.15);
   const structureScore = struct.pass ? 1 : struct.score ?? 0.4;
   const tokenScore =
@@ -57,6 +63,9 @@ async function runTask(task, setup) {
   return {
     taskId: task.id,
     setupId: setup.id,
+    kind,
+    rawPass,
+    validatePass,
     pass,
     scores: {
       validate: Number(validationScore.toFixed(3)),
@@ -83,7 +92,7 @@ async function runTask(task, setup) {
 
 async function main() {
   const suite = readJson(path.join(SPEC_EVAL, 'suite.json'));
-  // Prefer the two real agent setups (docs vs MCP); allow filter override.
+  // Prefer the two harness-self-test setups (docs vs MCP); allow filter override.
   const preferred = suite.setups.filter((s) => s.id === 'docs-agent' || s.id === 'mcp-agent');
   const setups = (preferred.length >= 2 ? preferred : suite.setups).filter(
     (s) => !setupFilter || s.id === setupFilter
@@ -107,9 +116,10 @@ async function main() {
 
   const bySetup = {};
   for (const r of results) {
-    bySetup[r.setupId] ??= { passed: 0, total: 0, tokenSum: 0, turnSum: 0, scoreSum: 0 };
+    bySetup[r.setupId] ??= { passed: 0, total: 0, tokenSum: 0, turnSum: 0, scoreSum: 0, negatives: 0 };
     const b = bySetup[r.setupId];
     b.total += 1;
+    if (r.kind === 'negative') b.negatives += 1;
     if (r.pass) b.passed += 1;
     b.tokenSum += r.metrics?.totalTokens || 0;
     b.turnSum += r.metrics?.turns || 0;
@@ -130,9 +140,8 @@ async function main() {
   const summary = {
     suite: suite.name,
     version: suite.version,
-    generatedAt: new Date().toISOString(),
     mode: 'deterministic-harness',
-    note: 'Deterministic docs, MCP, and hybrid runners. Token counts are wordpiece heuristics, not provider usage. This is not a live LLM benchmark.',
+    note: 'Deterministic docs, MCP, and hybrid runners. Positive tasks must pass validation. Negative tasks must fail it. Token counts are wordpiece heuristics, not provider usage. This is not a live LLM benchmark.',
     live,
     setups: Object.fromEntries(
       Object.entries(bySetup).map(([id, b]) => [
@@ -144,6 +153,7 @@ async function main() {
           meanTurns: b.total ? b.turnSum / b.total : 0,
           passed: b.passed,
           total: b.total,
+          negatives: b.negatives,
         },
       ])
     ),
@@ -151,16 +161,23 @@ async function main() {
   };
 
   fs.mkdirSync(OUT, { recursive: true });
-  fs.writeFileSync(path.join(OUT, 'latest.json'), JSON.stringify(summary, null, 2) + '\n');
+  // Do not write latest.json — it churns timestamps and is not a baseline artifact.
 
   if (writeBaseline) {
-    const baseline = { ...summary, baseline: true, label: 'agent-harness-v1' };
+    const baseline = {
+      ...summary,
+      generatedAt: new Date().toISOString(),
+      baseline: true,
+      label: 'harness-self-test',
+    };
     fs.writeFileSync(path.join(OUT, 'baseline.json'), JSON.stringify(baseline, null, 2) + '\n');
     fs.writeFileSync(path.join(SPEC_EVAL, 'baseline.json'), JSON.stringify(baseline, null, 2) + '\n');
   }
 
   const lines = [
     `# Eval report — ${suite.name}`,
+    '',
+    `Mode: **harness-self-test**`,
     '',
     summary.note,
     '',
@@ -169,15 +186,16 @@ async function main() {
     '## Setups',
     ...Object.entries(summary.setups).map(
       ([id, s]) =>
-        `- **${id}**: success ${(s.successRate * 100).toFixed(0)}% (${s.passed}/${s.total}), mean score ${s.meanScore.toFixed(3)}, mean tokens ${s.meanTokens.toFixed(0)}, mean turns ${s.meanTurns.toFixed(2)}`
+        `- **${id}**: success ${(s.successRate * 100).toFixed(0)}% (${s.passed}/${s.total}; ${s.negatives} negative), mean score ${s.meanScore.toFixed(3)}, mean tokens ${s.meanTokens.toFixed(0)}, mean turns ${s.meanTurns.toFixed(2)}`
     ),
     '',
   ];
   fs.writeFileSync(path.join(OUT, 'REPORT.md'), lines.join('\n'));
 
   const failed = results.filter((r) => !r.pass);
+  const negCount = results.filter((r) => r.kind === 'negative').length;
   console.log(
-    `Eval ${suite.name}: ${results.length - failed.length}/${results.length} passed across ${setups.length} setups (tokenizer=${countTokens('test') && 'wordpiece'}).`
+    `Eval ${suite.name} [harness-self-test]: ${results.length - failed.length}/${results.length} passed across ${setups.length} setups (${negCount} negative; tokenizer=${countTokens('test') && 'wordpiece'}).`
   );
   for (const [id, s] of Object.entries(summary.setups)) {
     console.log(
@@ -188,7 +206,11 @@ async function main() {
   if (failed.length) {
     console.error('Failures:');
     for (const f of failed.slice(0, 20)) {
-      console.error(`  ${f.setupId}/${f.taskId}: ${f.issues.slice(0, 3).join('; ')}`);
+      const why =
+        f.kind === 'negative'
+          ? 'negative task unexpectedly passed validation'
+          : f.issues.slice(0, 3).join('; ');
+      console.error(`  ${f.setupId}/${f.taskId} [${f.kind}]: ${why}`);
     }
     process.exit(1);
   }

@@ -35,6 +35,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Lint
+        run: pnpm lint
+
       - name: Audit dependencies
         run: pnpm audit --audit-level=high
 
@@ -50,8 +53,11 @@ jobs:
       - name: Package size check
         run: pnpm sizes:check
       
-      - name: Verify no imports in published files
-        run: pnpm no-imports
+      - name: Fail on generated drift after gen
+        run: pnpm gen && git diff --exit-code && test -z "$(git status --porcelain)"
+      
+      - name: Typecheck React package
+        run: pnpm react:typecheck
       
       - name: Run MCP smoke tests
         run: pnpm mcp:smoke
@@ -87,7 +93,7 @@ jobs:
         run: pnpm exec playwright install-deps chromium
         working-directory: tools/a11y
       
-      - name: Run eval tests
+      - name: Run eval harness self-tests
         run: pnpm eval
       
       - name: Run React interaction tests
@@ -101,3 +107,6 @@ jobs:
 
       - name: Install packed packages outside the workspace
         run: pnpm test:packages
+
+      - name: Registry e2e
+        run: pnpm registry:e2e

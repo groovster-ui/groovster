@@ -32,8 +32,9 @@ function stepCorners(stroke) {
     br: `url("data:image/svg+xml,${stepCornerSvg(stroke, 'br')}")`,
   };
 }
-const STEP_LIGHT = stepCorners('%23B08D2C');
-const STEP_DARK = stepCorners('%23D4AF37');
+/* Pass raw hex — stepCornerSvg encodeURIComponent once; pre-encoded %23 becomes stroke="%23…" (invalid). */
+const STEP_LIGHT = stepCorners('#B08D2C');
+const STEP_DARK = stepCorners('#D4AF37');
 
 /**
  * Full Deco decorator layer CSS.
@@ -461,13 +462,14 @@ export function decoDecoratorCss() {
   }
   [data-era="deco"] .ew-switch__track,
   [data-era="deco"] .ew-switch__thumb { border-radius: 0; }
-  [data-era="deco"] .ew-switch__track { border: 2px solid var(--ew-color-gold); }
+  /* Track edge + off knob use goldBorder (≥3:1 on card); pure gold fails AA on ivory. */
+  [data-era="deco"] .ew-switch__track { border: 2px solid var(--ew-color-goldBorder, var(--ew-color-border-strong)); }
   [data-era="deco"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
-    background: var(--ew-color-gold);
+    background: var(--ew-color-goldBorder, var(--ew-color-border-strong));
   }
   [data-era="deco"] .ew-switch__control:checked + .ew-switch__track {
     background: var(--ew-color-track-on, var(--ew-color-action-bg));
-    border-color: var(--ew-color-gold);
+    border-color: var(--ew-color-goldBorder, var(--ew-color-border-strong));
   }
   [data-era="deco"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
     /* Dark lacquer knob on gold track (≥3:1; white fails on #D4AF37) */

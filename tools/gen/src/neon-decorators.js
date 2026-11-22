@@ -27,18 +27,18 @@ const MOUNTAINS_SVG = encodeURIComponent(
   </svg>`
 );
 
-/** Small sun mark for logo / empty states. */
+/** Small sun mark for logo / empty states. Pass raw #hex — encodeURIComponent once. */
 const SUN_MARK_SVG = encodeURIComponent(
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40" fill="none">
     <defs>
       <linearGradient id="s" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="%23FFC857"/>
-        <stop offset="55%" stop-color="%23FF6B35"/>
-        <stop offset="100%" stop-color="%23FF2A6D"/>
+        <stop offset="0%" stop-color="#FFC857"/>
+        <stop offset="55%" stop-color="#FF6B35"/>
+        <stop offset="100%" stop-color="#FF2A6D"/>
       </linearGradient>
     </defs>
-    <path d="M4 36 A28 28 0 0 1 60 36 Z" fill="url(%23s)"/>
-    <path d="M8 28 H56 M10 32 H54 M14 36 H50" stroke="%230D0221" stroke-width="2.2"/>
+    <path d="M4 36 A28 28 0 0 1 60 36 Z" fill="url(#s)"/>
+    <path d="M8 28 H56 M10 32 H54 M14 36 H50" stroke="#0D0221" stroke-width="2.2"/>
   </svg>`
 );
 
@@ -119,9 +119,14 @@ export function neonDecoratorCss() {
     background: var(--ew-gradient-hero-light);
   }
 
-  /* Horizon stage in flow — sun + mountains + grid all INSIDE (no upward overflow into content) */
+  /* Horizon stage in flow — sun + mountains + grid all INSIDE (no upward overflow into content).
+     Required for costume neon heroes (see llms.txt). Sun height also set on .ew-hero so missing
+     stage degrades instead of collapsing the sun to 0px. */
+  [data-era="neon"] .ew-hero,
   [data-era="neon"] .ew-hero__stage {
     --ew-hero-sun-h: min(140px, 21vw);
+  }
+  [data-era="neon"] .ew-hero__stage {
     position: relative;
     grid-row: 2;
     height: calc(var(--ew-hero-sun-h) + min(38vh, 360px));
@@ -146,38 +151,57 @@ export function neonDecoratorCss() {
     justify-content: center;
   }
 
-  /* Perspective grid — from horizon (below sun) to stage bottom; no gap */
+  /*
+   * Perspective floor — NO rotateX (that opened a post-project gap under the mountains).
+   * Trapezoid clip + converging line gradients keep the top edge glued to the horizon.
+   */
   [data-era="neon"] .ew-hero__grid {
     position: absolute;
     left: 50%;
-    top: calc(var(--ew-hero-sun-h) - 6px);
+    /* Meet the visible mountain valley baseline (drawn strokes sit above the SVG box bottom) */
+    top: calc(var(--ew-hero-sun-h) - 22px);
     bottom: 0;
-    width: 160%;
-    height: auto;
-    transform: translateX(-50%) perspective(640px) rotateX(52deg);
-    transform-origin: 50% 100%;
-    background:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 46px,
-        color-mix(in srgb, var(--ew-color-magenta) 75%, transparent) 46px 48px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0 28px,
-        color-mix(in srgb, var(--ew-color-cyan) 65%, transparent) 28px 30px
-      );
+    width: 140%;
+    transform: translateX(-50%);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.9;
+    opacity: 0.95;
+    /* Wide at the horizon so the floor meets the full mountain baseline (narrow tops look like a gap) */
+    clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%);
+    background:
+      /* Horizon seam — cyan to match mountain stroke, then magenta accent */
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--ew-color-cyan) 95%, transparent) 0 2px,
+        color-mix(in srgb, var(--ew-color-magenta) 90%, transparent) 2px 4px,
+        transparent 4px
+      ),
+      /* Depth lines (parallel to horizon) — denser near top */
+      repeating-linear-gradient(
+        180deg,
+        transparent 0 10px,
+        color-mix(in srgb, var(--ew-color-cyan) 80%, transparent) 10px 12px,
+        transparent 12px 28px,
+        color-mix(in srgb, var(--ew-color-cyan) 70%, transparent) 28px 30px,
+        transparent 30px 56px,
+        color-mix(in srgb, var(--ew-color-cyan) 65%, transparent) 56px 58px,
+        transparent 58px 100px,
+        color-mix(in srgb, var(--ew-color-cyan) 55%, transparent) 100px 102px
+      ),
+      /* Vanishing (vertical) lines */
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 44px,
+        color-mix(in srgb, var(--ew-color-magenta) 85%, transparent) 44px 46px
+      );
   }
   [data-era="neon"][data-mode="light"] .ew-hero__grid {
-    opacity: 0.55;
+    opacity: 0.6;
   }
   [data-era="neon"] .ew-hero > .ew-hero__grid {
     top: auto;
     bottom: 0;
-    height: min(38vh, 360px);
+    height: min(42vh, 400px);
   }
 
   /* Striped sunset sun — top of stage, half-set onto the grid horizon */
@@ -226,11 +250,11 @@ export function neonDecoratorCss() {
     bottom: min(38vh, 360px);
   }
 
-  /* Wireframe mountains on the horizon (sun/grid join) */
+  /* Wireframe mountains — SVG ground line sits on the same horizon as the grid top */
   [data-era="neon"] .ew-hero__mountains {
     position: absolute;
     left: 50%;
-    top: calc(var(--ew-hero-sun-h) - 48px);
+    top: calc(var(--ew-hero-sun-h) - 76px);
     bottom: auto;
     width: min(1100px, 120%);
     height: 88px;
@@ -245,7 +269,7 @@ export function neonDecoratorCss() {
   }
   [data-era="neon"] .ew-hero > .ew-hero__mountains {
     top: auto;
-    bottom: calc(min(38vh, 360px) - 36px);
+    bottom: calc(min(38vh, 360px) - 4px);
   }
 
   /* Scanline overlay (hero) */
