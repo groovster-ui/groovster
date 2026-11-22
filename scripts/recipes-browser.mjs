@@ -134,6 +134,62 @@ try {
     console.log(`${id} ok`);
   }
 
+  const modes = ['light', 'dark'];
+  const widths = [
+    [1440, 900],
+    [390, 844],
+  ];
+  for (const id of sites) {
+    await page.goto(`http://127.0.0.1:${port}/demos/recipes/${id}/index.html`, { waitUntil: 'networkidle' });
+    for (const [era] of ERAS) {
+      for (const mode of modes) {
+        for (const [width, height] of widths) {
+          await page.setViewportSize({ width, height });
+          await page.evaluate(({ era, mode }) => {
+            const root = document.querySelector('[data-groovster-root]');
+            root.dataset.era = era;
+            root.dataset.mode = mode;
+          }, { era, mode });
+          const problems = await page.evaluate(() => {
+            const viewW = document.documentElement.clientWidth;
+            const viewH = window.innerHeight;
+            const found = [];
+            if (document.documentElement.scrollWidth > viewW + 1) {
+              found.push(`scrollWidth ${document.documentElement.scrollWidth}`);
+            }
+            const nodes = [...document.querySelectorAll('.site-wrap, .site-nav, .site-bar, h1, .ew-card, .site-filters')];
+            for (const el of nodes) {
+              const box = el.getBoundingClientRect();
+              if (box.width > 0 && (box.right > viewW + 1 || box.left < -1)) {
+                found.push(`${el.tagName}.${String(el.className).slice(0, 60)}`);
+              }
+            }
+            const hero = document.querySelector('.ew-hero');
+            const title = hero?.querySelector('.ew-hero__title, h1');
+            if (hero && title) {
+              const titleBox = title.getBoundingClientRect();
+              const heroBox = hero.getBoundingClientRect();
+              if (titleBox.top < -1 || titleBox.bottom > viewH + 1) found.push('title outside first viewport');
+              if (titleBox.top < heroBox.top - 1 || titleBox.bottom > heroBox.bottom + 1) found.push('title outside hero');
+              const stage = hero.querySelector('.ew-hero__stage');
+              if (stage) {
+                const stageBox = stage.getBoundingClientRect();
+                if (stageBox.height > 24 && stageBox.width > 24) {
+                  const below = titleBox.top >= stageBox.bottom - 4;
+                  const beside = titleBox.right <= stageBox.left + 8 || titleBox.left >= stageBox.right - 8;
+                  if (below && !beside) found.push('title under art');
+                }
+              }
+            }
+            return found;
+          });
+          if (problems.length) fail(`${id} ${era} ${mode} ${width} ${problems.join(', ')}`);
+        }
+      }
+    }
+    console.log(`${id} heroes ok`);
+  }
+
   errors.length = 0;
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto(`http://127.0.0.1:${port}/demos/launch/index.html`, { waitUntil: 'networkidle' });

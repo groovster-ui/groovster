@@ -10,7 +10,7 @@ Recipes are composition notes. The HTML stays the same when `data-era` changes.
 | hospitality | `demos/recipes/hospitality/` | deco, costume |
 | dashboard | `demos/recipes/dashboard/` | neutral, whisper |
 
-Generated cards: `generated/llms/recipe-<id>.card.txt`. The skill copies those cards into `skills/groovster/references/`.
+Generated cards: `generated/llms/recipe-<id>.card.txt`. The skill copies those cards into `skills/groovster/references/`. The MCP package ships the same cards at `data/llms/recipe-<id>.card.txt`.
 
 ## Add a recipe
 

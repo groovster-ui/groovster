@@ -187,20 +187,35 @@ function keywordHit(text, word) {
   return new RegExp(`(?:^|\\b)${escaped}(?:\\b|$)`, 'i').test(text);
 }
 
+function recipeTerms(recipe) {
+  const terms = [...(recipe.keywords || [])];
+  if (recipe.id && !terms.includes(recipe.id)) terms.push(recipe.id);
+  for (const part of String(recipe.name || '').toLowerCase().split(/[^a-z0-9]+/)) {
+    if (part.length > 2 && !terms.includes(part)) terms.push(part);
+  }
+  return terms;
+}
+
+function scoreRecipe(recipe, text, { keywordsOnly = false } = {}) {
+  const terms = keywordsOnly ? recipe.keywords || [] : recipeTerms(recipe);
+  let hits = 0;
+  const matched = [];
+  for (const word of terms) {
+    if (!keywordHit(text, word)) continue;
+    hits += 1;
+    matched.push(word);
+  }
+  return { hits, matched, rank: hits * 1000 + (recipe.priority || 0) };
+}
+
 function matchRecipe(text) {
   let best = null;
   let bestRank = -1;
   for (const recipe of loadRecipes()) {
-    let hits = 0;
-    for (const word of recipe.keywords || []) {
-      if (keywordHit(text, word)) hits += 1;
-    }
-    if (!hits) continue;
-    const rank = hits * 1000 + (recipe.priority || 0);
-    if (rank > bestRank) {
-      best = recipe;
-      bestRank = rank;
-    }
+    const scored = scoreRecipe(recipe, text, { keywordsOnly: true });
+    if (!scored.hits || scored.rank <= bestRank) continue;
+    best = recipe;
+    bestRank = scored.rank;
   }
   return best;
 }
@@ -210,11 +225,28 @@ function recipeAdvice(recipe) {
   return {
     id: recipe.id,
     summary: recipe.summary,
+    era: recipe.eras.recommended[0],
     eras: recipe.eras.recommended,
     fidelity: recipe.fidelity.page,
     components: recipe.components.required,
-    card: `generated/llms/recipe-${recipe.id}.card.txt`,
+    card: `data/llms/recipe-${recipe.id}.card.txt`,
   };
+}
+
+export function findRecipeTool({ query } = {}) {
+  const text = String(query || '').toLowerCase();
+  const ranked = loadRecipes()
+    .map((recipe) => ({ recipe, ...scoreRecipe(recipe, text) }))
+    .filter((item) => item.hits > 0)
+    .sort((a, b) => b.rank - a.rank || a.recipe.id.localeCompare(b.recipe.id));
+  return pin({
+    query: text,
+    recipes: ranked.map((item) => ({
+      ...recipeAdvice(item.recipe),
+      rank: item.rank,
+      matched: item.matched,
+    })),
+  });
 }
 
 export function recommendTool({ description } = {}) {
@@ -315,11 +347,23 @@ export const TOOL_DEFS = [
   },
   {
     name: 'recommend',
-    description: 'Suggest era, fidelity, and a website recipe id when one fits. Returns a card path, not full specs.',
+    description: 'Suggest era, fidelity, and a website recipe id when one fits. Returns a card path inside this package, not full specs.',
     inputSchema: {
       type: 'object',
       required: ['description'],
       properties: { description: { type: 'string' } },
+    },
+  },
+  {
+    name: 'find_recipe',
+    description:
+      'Rank website recipes for a query. Each hit includes the recommended era, fidelity, and a recipe card path shipped in this package.',
+    inputSchema: {
+      type: 'object',
+      required: ['query'],
+      properties: {
+        query: { type: 'string', description: 'What the site is, in plain language.' },
+      },
     },
   },
   {
@@ -350,13 +394,15 @@ export function dispatch(name, args = {}) {
         return installTool(args);
       case 'recommend':
         return recommendTool(args);
+      case 'find_recipe':
+        return findRecipeTool(args);
       case 'validate':
         return validateTool(args);
       default:
         return pin({
           error: `Unknown tool "${name}"`,
           isError: true,
-          change: 'change tool to list_eras|get_era_spec|get_component|install|recommend|validate',
+          change: 'change tool to list_eras|get_era_spec|get_component|install|recommend|find_recipe|validate',
         });
     }
   } catch (error) {

@@ -15,7 +15,7 @@ The band may be on the era element or an ancestor.
 
 Ornament: Neon `.ew-hero` with required `.ew-hero__stage` (sun/mountains/grid) plus `.ew-chrome` / `.ew-script`; Deco `.ew-hero__panel` / stepped frames — documented in `llms.txt` and era cards.
 
-MCP tools: list_eras, get_era_spec, get_component, install, recommend, validate.
+MCP tools: list_eras, get_era_spec, get_component, install, recommend, find_recipe, validate.
 `recommend` names a recipe when the description is a website. Load only that card.
 Load only the llms section you need from `generated/llms/`.
 Portable skill: `skills/groovster/SKILL.md`.

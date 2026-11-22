@@ -48,6 +48,9 @@ try {
       const ref = path.join(item.dest, 'references', `${id}.md`);
       if (!fs.existsSync(ref)) throw new Error(`missing ${item.platform} reference ${id}`);
     }
+    const buttonNotes = path.join(item.dest, 'references', 'llms', 'button.md');
+    if (!fs.existsSync(buttonNotes)) throw new Error(`${item.platform} skill is missing references/llms/button.md`);
+    if (skill.includes('generated/llms/')) throw new Error(`${item.platform} skill still points at generated/llms`);
   }
   const vendor = path.join(tmp, 'vendor/groovster');
   fs.mkdirSync(vendor, { recursive: true });

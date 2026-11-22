@@ -134,6 +134,32 @@ export function neonDecoratorCss() {
     pointer-events: none;
     overflow: hidden;
   }
+  /* Shared hero tree puts a backdrop and a panel around the copy. The backdrop must not take row 1, and the panel must, or the title falls below the floor. */
+  [data-era="neon"] .ew-hero__backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  [data-era="neon"] .ew-hero__panel {
+    position: relative;
+    z-index: 4;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+  }
+  [data-era="neon"] .ew-hero__panel .ew-hero__rays,
+  [data-era="neon"] .ew-hero__panel .ew-hero__fan {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
 
   /* Content stack: chrome → script → subtitle → CTAs — always above the stage */
   [data-era="neon"] .ew-hero__content {
@@ -152,18 +178,19 @@ export function neonDecoratorCss() {
   }
 
   /*
-   * Perspective floor. Origin is the top edge (the horizon) so rotateX
-   * pivots there instead of lifting the near edge off the mountains.
-   * Even local spacing converges toward that vanishing line after projection.
+   * Perspective floor. Origin is the near edge (the hero bottom) so the
+   * grid meets the stage edge. Lines still converge toward the horizon.
    */
   [data-era="neon"] .ew-hero__grid {
     position: absolute;
     left: -35%;
     width: 170%;
-    /* Mountain valleys sit just under the sun's diameter (stage-local). */
+    /* Mountain valleys sit just under the sun's diameter (stage-local).
+       Origin is the near edge so the floor meets the hero bottom; the horizon recedes from there. */
     top: calc(var(--ew-hero-sun-h) + 6px);
-    height: 168%;
-    transform-origin: top center;
+    bottom: 0;
+    height: auto;
+    transform-origin: bottom center;
     transform: perspective(280px) rotateX(63deg);
     pointer-events: none;
     z-index: 0;
@@ -190,7 +217,7 @@ export function neonDecoratorCss() {
     top: auto;
     bottom: 0;
     height: min(48vh, 440px);
-    transform-origin: top center;
+    transform-origin: bottom center;
     transform: perspective(280px) rotateX(63deg);
   }
 
@@ -405,6 +432,8 @@ export function neonDecoratorCss() {
     overflow: visible;
     /* Clear the 45° cut so titles are never clipped */
     padding: 32px 32px 28px;
+    min-width: 0;
+    max-width: 100%;
   }
   [data-era="neon"] .ew-card[data-variant="raised"] {
     background: var(--ew-color-bg-elevated);
@@ -430,6 +459,8 @@ export function neonDecoratorCss() {
   [data-era="neon"] .ew-card__footer {
     position: relative;
     z-index: 2;
+    min-width: 0;
+    max-width: 100%;
   }
   [data-era="neon"] .ew-card__header h2,
   [data-era="neon"] .ew-card__header h3 {
@@ -437,6 +468,20 @@ export function neonDecoratorCss() {
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--ew-color-fg-default);
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+  @media (max-width: 640px) {
+    [data-era="neon"] .ew-card {
+      padding: 20px 14px 16px;
+    }
+    [data-era="neon"] .ew-card__header h2,
+    [data-era="neon"] .ew-card__header h3 {
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+    }
   }
   [data-era="neon"] .ew-card__header::after {
     content: "" / "";

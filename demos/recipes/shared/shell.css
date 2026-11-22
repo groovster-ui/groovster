@@ -10,7 +10,8 @@ body { margin: 0; }
 .site-nav__links { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
 .site-brand { font-family: var(--ew-font-display, inherit); font-size: 1.15rem; text-decoration: none; }
 .site-section { padding: 28px 0 8px; }
-.site-section h2, .site-hero h1, .site-bar h1 { font-family: var(--ew-font-display, inherit); font-weight: 400; }
+.site-section h2, .site-hero h1, .site-bar h1 { font-family: var(--ew-font-display, inherit); }
+.site-section h2 { font-weight: 400; }
 .site-section h2 { margin: 0 0 12px; font-size: clamp(1.7rem, 3vw, 2.5rem); }
 .site-lead, .site-measure { max-width: 68ch; font-size: 1.125rem; line-height: 1.65; }
 .site-kicker { margin: 0 0 8px; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.75rem; }
@@ -52,7 +53,7 @@ html[data-embed="1"] .site-skin { display: none; }
 .site-bar h1 { margin: 0; font-size: clamp(1.8rem, 3vw, 2.4rem); }
 @media (max-width: 800px) {
   .site-grid--2, .site-grid--3 { grid-template-columns: 1fr; }
-  .recipe-dashboard .site-grid--metrics { grid-template-columns: 1fr 1fr; }
+  .recipe-dashboard .site-grid--metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .site-hero h1 { font-size: clamp(2.4rem, 12vw, 4.5rem); }
 }
 @media (min-width: 801px) and (max-width: 1100px) {

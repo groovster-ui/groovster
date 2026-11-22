@@ -18,4 +18,4 @@ Ornament: Era chrome on cards, tabs, and controls. A single warning alert for th
 Deviations: neon|deco|mcm-atomic|memphis|groovy|earth: Switching era changes control geometry and type. Do not add .ew-hero. If costume ornament competes with the table, drop the page to standard or whisper.
 Demo: demos/recipes/dashboard/index.html (neutral, light, whisper).
 Same HTML for every era. Set data-era, data-mode, and data-fidelity-band on the root.
-Anatomy: generated/llms/<component>.md — load only the components you write.
+Anatomy: references/anatomy.md. Component notes: references/llms/<component>.md.

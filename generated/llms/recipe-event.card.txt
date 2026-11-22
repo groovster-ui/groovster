@@ -18,4 +18,4 @@ Ornament: Full costume hero, including neon stage or deco panel when that era is
 Deviations: neon|mcm-atomic: Hero includes .ew-hero__stage with sun, mountains, and grid plus atomic twotone, starbursts, arch, and orbit. deco: Hero copy sits in .ew-hero__panel. Lineup and schedule markup stay the same.
 Demo: demos/recipes/event/index.html (neon, dark, costume).
 Same HTML for every era. Set data-era, data-mode, and data-fidelity-band on the root.
-Anatomy: generated/llms/<component>.md — load only the components you write.
+Anatomy: references/anatomy.md. Component notes: references/llms/<component>.md.

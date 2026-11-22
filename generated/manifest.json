@@ -236,6 +236,11 @@
     "packages/mcp/data/eras/memphis/era.spec.json",
     "packages/mcp/data/eras/neon/era.spec.json",
     "packages/mcp/data/eras/neutral/era.spec.json",
+    "packages/mcp/data/llms/recipe-commerce.card.txt",
+    "packages/mcp/data/llms/recipe-dashboard.card.txt",
+    "packages/mcp/data/llms/recipe-editorial.card.txt",
+    "packages/mcp/data/llms/recipe-event.card.txt",
+    "packages/mcp/data/llms/recipe-hospitality.card.txt",
     "packages/mcp/data/recipes/commerce.json",
     "packages/mcp/data/recipes/dashboard.json",
     "packages/mcp/data/recipes/editorial.json",
@@ -353,7 +358,28 @@
     "skills/groovster/references/dashboard.md",
     "skills/groovster/references/editorial.md",
     "skills/groovster/references/event.md",
-    "skills/groovster/references/hospitality.md"
+    "skills/groovster/references/hospitality.md",
+    "skills/groovster/references/llms/alert.md",
+    "skills/groovster/references/llms/avatar.md",
+    "skills/groovster/references/llms/breadcrumb.md",
+    "skills/groovster/references/llms/button.md",
+    "skills/groovster/references/llms/card.md",
+    "skills/groovster/references/llms/checkbox.md",
+    "skills/groovster/references/llms/dialog.md",
+    "skills/groovster/references/llms/icon-button.md",
+    "skills/groovster/references/llms/link.md",
+    "skills/groovster/references/llms/menu.md",
+    "skills/groovster/references/llms/ornament-divider.md",
+    "skills/groovster/references/llms/popover.md",
+    "skills/groovster/references/llms/radio.md",
+    "skills/groovster/references/llms/select.md",
+    "skills/groovster/references/llms/slider.md",
+    "skills/groovster/references/llms/switch.md",
+    "skills/groovster/references/llms/tabs.md",
+    "skills/groovster/references/llms/text-field.md",
+    "skills/groovster/references/llms/textarea.md",
+    "skills/groovster/references/llms/toast.md",
+    "skills/groovster/references/llms/tooltip.md"
   ],
   "budgetReport": {
     "budgets": {
@@ -584,23 +610,23 @@
         "budget": "llms.index"
       },
       "llms.recipeCard:commerce": {
-        "chars": 1905,
+        "chars": 1909,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:dashboard": {
-        "chars": 2067,
+        "chars": 2071,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:editorial": {
-        "chars": 2125,
+        "chars": 2129,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:event": {
-        "chars": 1990,
+        "chars": 1994,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:hospitality": {
-        "chars": 1996,
+        "chars": 2000,
         "budget": "llms.recipeCard"
       }
     }

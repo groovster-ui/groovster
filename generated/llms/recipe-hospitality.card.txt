@@ -18,4 +18,4 @@ Ornament: Costume hero appropriate to the era. A divider between rooms and the r
 Deviations: deco: Arrival copy uses .ew-hero__panel, rays, and fan. neon|mcm-atomic: The same hero includes .ew-hero__stage. Do not restyle the form with a second HTML tree.
 Demo: demos/recipes/hospitality/index.html (deco, light, costume).
 Same HTML for every era. Set data-era, data-mode, and data-fidelity-band on the root.
-Anatomy: generated/llms/<component>.md — load only the components you write.
+Anatomy: references/anatomy.md. Component notes: references/llms/<component>.md.

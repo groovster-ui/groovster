@@ -18,4 +18,4 @@ Ornament: Era chrome on cards and buttons. Hero hooks so a costume switch still 
 Deviations: neon|mcm-atomic|deco: Masthead includes stage and panel hooks. Page CSS may shorten the hero so the first products stay visible.
 Demo: demos/recipes/commerce/index.html (groovy, light, standard).
 Same HTML for every era. Set data-era, data-mode, and data-fidelity-band on the root.
-Anatomy: generated/llms/<component>.md — load only the components you write.
+Anatomy: references/anatomy.md. Component notes: references/llms/<component>.md.

@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import path from 'node:path';
 import { SPEC_ROOT, outPath } from './paths.js';
 import { listFiles, readJson, writeText, rel } from './io.js';
@@ -35,7 +36,7 @@ export function recipeCard(recipe) {
     `Deviations: ${deviations}`,
     `Demo: ${recipe.demo.path} (${recipe.demo.era}, ${recipe.demo.mode}, ${recipe.demo.fidelity}).`,
     'Same HTML for every era. Set data-era, data-mode, and data-fidelity-band on the root.',
-    'Anatomy: generated/llms/<component>.md — load only the components you write.',
+    'Anatomy: references/anatomy.md. Component notes: references/llms/<component>.md.',
     '',
   ].join('\n');
 }
@@ -57,10 +58,28 @@ function anatomyDoc(components) {
   return [
     '# Component anatomy',
     '',
-    'Canonical HTML only. Load the section you are writing. Full notes stay in generated/llms/<id>.md.',
+    'Canonical HTML only. Load the section you are writing. Full notes are in references/llms/<id>.md.',
     'Set data-era on a root. Fidelity bands: whisper, standard, costume.',
-    'Costume heroes: Neon and Atomic need .ew-hero__stage. Deco wraps copy in .ew-hero__panel.',
+    'One hero tree for every era. Era CSS places the backdrop, stage, and panel.',
     'Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-menu, ew-popover, ew-tooltip, ew-toast-region, ew-slider.',
+    '',
+    '## hero',
+    '',
+    '```html',
+    '<section class="ew-hero">',
+    '  <div class="ew-hero__backdrop" aria-hidden="true"></div>',
+    '  <div class="ew-hero__stage" aria-hidden="true"></div>',
+    '  <div class="ew-hero__panel">',
+    '    <div class="ew-hero__rays" aria-hidden="true"></div>',
+    '    <div class="ew-hero__content">',
+    '      <div class="ew-hero__fan" aria-hidden="true"></div>',
+    '      <p class="ew-script">Kicker</p>',
+    '      <h1 class="ew-hero__title">Title</h1>',
+    '      <p class="ew-hero__subtitle">Subtitle</p>',
+    '    </div>',
+    '  </div>',
+    '</section>',
+    '```',
     '',
     ...blocks,
     '',
@@ -83,4 +102,12 @@ export function writeRecipeDocs({ recipes, components, outputs }) {
   const anatomyPath = outPath('skills/groovster/references/anatomy.md');
   writeText(anatomyPath, HEADER + anatomyDoc(components));
   outputs.push(rel(outRoot, anatomyPath));
+  const skillLlms = outPath('skills/groovster/references/llms');
+  fs.mkdirSync(skillLlms, { recursive: true });
+  for (const component of components) {
+    const src = outPath('generated/llms', `${component.id}.md`);
+    const dest = path.join(skillLlms, `${component.id}.md`);
+    fs.copyFileSync(src, dest);
+    outputs.push(rel(outRoot, dest));
+  }
 }

@@ -8,6 +8,7 @@ import {
   getComponentTool,
   getEraSpec,
   installTool,
+  findRecipeTool,
   recommendTool,
 } from '../../packages/mcp/src/tools.js';
 
@@ -69,6 +70,32 @@ test('recommendTool attaches a recipe without changing era routes', () => {
   const bland = recommendTool({ description: 'something unrelated bland' });
   assert.equal(bland.era, 'neutral');
   assert.equal(bland.recipe, null);
+});
+
+test('find_recipe ranks matches and points at packaged cards', () => {
+  const hotel = findRecipeTool({ query: 'boutique hotel reservation' });
+  assert.equal(hotel.recipes[0].id, 'hospitality');
+  assert.equal(hotel.recipes[0].era, 'deco');
+  assert.equal(hotel.recipes[0].fidelity, 'costume');
+  assert.ok(hotel.recipes[0].rank > 0);
+  const festival = findRecipeTool({ query: 'music festival lineup' });
+  assert.equal(festival.recipes[0].id, 'event');
+  assert.equal(festival.recipes[0].era, 'neon');
+  const both = findRecipeTool({ query: 'festival shop' });
+  assert.ok(both.recipes.length >= 2);
+  assert.ok(both.recipes[0].rank >= both.recipes[1].rank);
+  const none = findRecipeTool({ query: 'zzzz-unmatched' });
+  assert.deepEqual(none.recipes, []);
+  for (const recipe of [...hotel.recipes, ...festival.recipes]) {
+    assert.match(recipe.card, /^data\/llms\/recipe-[a-z0-9-]+\.card\.txt$/);
+    assert.ok(fs.existsSync(path.join(REPO, 'packages/mcp', recipe.card)), recipe.card);
+  }
+});
+
+test('recommend card path is inside the mcp package', () => {
+  const hotel = recommendTool({ description: 'boutique hotel booking' });
+  assert.match(hotel.recipe.card, /^data\/llms\/recipe-hospitality\.card\.txt$/);
+  assert.ok(fs.existsSync(path.join(REPO, 'packages/mcp', hotel.recipe.card)));
 });
 
 test('get_era_spec aliases', () => {
