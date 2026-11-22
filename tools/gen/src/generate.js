@@ -2,12 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   BUDGETS_PATH,
-  GEN_CSS,
-  GEN_DOCS,
-  GEN_LLMS,
-  GEN_MANIFEST,
   REPO_ROOT,
   SPEC_ROOT,
+  getGenCss,
+  getGenDocs,
+  getGenLlms,
+  getGenManifest,
+  getOutRoot,
 } from './paths.js';
 import { listFiles, readJson, writeText, rel } from './io.js';
 import { flattenTokens } from './tokens-to-css.js';
@@ -665,6 +666,12 @@ function mcpDefaultReply(comp) {
 }
 
 export function generateAll() {
+  const GEN_CSS = getGenCss();
+  const GEN_DOCS = getGenDocs();
+  const GEN_LLMS = getGenLlms();
+  const GEN_MANIFEST = getGenManifest();
+  const outRoot = getOutRoot();
+
   const components = loadComponents();
   const eras = loadEras();
   const budgets = readJson(BUDGETS_PATH);
@@ -672,41 +679,41 @@ export function generateAll() {
 
   const base = path.join(GEN_CSS, 'base.css');
   writeText(base, genBaseCss());
-  outputs.push(rel(REPO_ROOT, base));
+  outputs.push(rel(outRoot, base));
 
   const tier3 = readJson(path.join(SPEC_ROOT, 'tokens/tier3/components.shared.tokens.json'));
   const componentsCssVars = `${HEADER}@layer tokens {\n  :root, .ew-root {\n${flattenTokens(tier3).join('\n')}\n  }\n}\n`;
   const componentsTokensPath = path.join(GEN_CSS, 'tokens-components.css');
   writeText(componentsTokensPath, componentsCssVars);
-  outputs.push(rel(REPO_ROOT, componentsTokensPath));
+  outputs.push(rel(outRoot, componentsTokensPath));
 
   for (const comp of components) {
     const cssPath = path.join(GEN_CSS, `${comp.id}.css`);
     writeText(cssPath, genComponentCss(comp));
-    outputs.push(rel(REPO_ROOT, cssPath));
+    outputs.push(rel(outRoot, cssPath));
 
     const docPath = path.join(GEN_DOCS, `${comp.id}.md`);
     writeText(docPath, genDocsStub(comp));
-    outputs.push(rel(REPO_ROOT, docPath));
+    outputs.push(rel(outRoot, docPath));
 
     const llmsPath = path.join(GEN_LLMS, `${comp.id}.md`);
     writeText(llmsPath, genLlmsSection(comp));
-    outputs.push(rel(REPO_ROOT, llmsPath));
+    outputs.push(rel(outRoot, llmsPath));
   }
 
   for (const era of eras) {
     const cssPath = path.join(GEN_CSS, 'eras', `${era.id}.css`);
     writeText(cssPath, genEraCss(era));
-    outputs.push(rel(REPO_ROOT, cssPath));
+    outputs.push(rel(outRoot, cssPath));
 
     const cardPath = path.join(GEN_LLMS, `era-${era.id}.card.txt`);
     writeText(cardPath, genEraCard(era));
-    outputs.push(rel(REPO_ROOT, cardPath));
+    outputs.push(rel(outRoot, cardPath));
   }
 
   const indexPath = path.join(GEN_LLMS, 'llms.txt');
   writeText(indexPath, genLlmsIndex(components, eras));
-  outputs.push(rel(REPO_ROOT, indexPath));
+  outputs.push(rel(outRoot, indexPath));
 
   generateDialectCss(outputs);
 
@@ -725,7 +732,7 @@ export function generateAll() {
   }
   const bundlePath = path.join(GEN_CSS, 'era-widgets.css');
   writeText(bundlePath, bundleParts.join('\n'));
-  outputs.push(rel(REPO_ROOT, bundlePath));
+  outputs.push(rel(outRoot, bundlePath));
 
   // Budget snapshots for CI
   const budgetReport = {
@@ -738,7 +745,7 @@ export function generateAll() {
     const mcp = mcpDefaultReply(comp);
     budgetReport.measured[`mcp.defaultReply:${comp.id}`] = { chars: mcp.length, budget: 'mcp.defaultReply' };
     writeText(path.join(GEN_LLMS, `mcp-${comp.id}.default.txt`), mcp);
-    outputs.push(rel(REPO_ROOT, path.join(GEN_LLMS, `mcp-${comp.id}.default.txt`)));
+    outputs.push(rel(outRoot, path.join(GEN_LLMS, `mcp-${comp.id}.default.txt`)));
   }
   for (const era of eras) {
     const card = fs.readFileSync(path.join(GEN_LLMS, `era-${era.id}.card.txt`), 'utf8');
@@ -760,3 +767,4 @@ export function generateAll() {
 
   return manifest;
 }
+

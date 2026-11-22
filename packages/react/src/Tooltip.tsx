@@ -5,7 +5,6 @@ export type TooltipProps = {
   children?: React.ReactNode;
   variant?: "default";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: CSS tooltip for non-essential hints. Never the only accessible name. */
@@ -19,7 +18,7 @@ export const Tooltip = React.forwardRef<HTMLElement, TooltipProps>(function Tool
   const cls = ['ew-tooltip', className].filter(Boolean).join(' ');
   return React.createElement(
     'ew-tooltip',
-    { ref, className: cls, ...dataProps, ...rest },
+    { ref, class: cls, ...dataProps, ...rest },
     children
   );
 });

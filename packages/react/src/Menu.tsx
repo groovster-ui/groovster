@@ -5,7 +5,6 @@ export type MenuProps = {
   children?: React.ReactNode;
   variant?: "default";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Action menu using Popover API + menu roles. Full APG WC may deepen later. */
@@ -19,7 +18,7 @@ export const Menu = React.forwardRef<HTMLElement, MenuProps>(function Menu(
   const cls = ['ew-menu', className].filter(Boolean).join(' ');
   return React.createElement(
     'ew-menu',
-    { ref, className: cls, ...dataProps, ...rest },
+    { ref, class: cls, ...dataProps, ...rest },
     children
   );
 });

@@ -19,13 +19,48 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
 }));
 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
-  const name = request.params.name;
-  const args = request.params.arguments || {};
-  const result = dispatch(name, args);
-  // Compact single-copy JSON — no pretty-print, no duplicate structuredContent.
-  return {
-    content: [{ type: 'text', text: JSON.stringify(result) }],
-  };
+  try {
+    const name = request.params.name;
+    const args = request.params.arguments || {};
+    const def = TOOL_DEFS.find((t) => t.name === name);
+    if (!def) {
+      return {
+        content: [{ type: 'text', text: JSON.stringify({ error: `Unknown tool ${name}` }) }],
+        isError: true,
+      };
+    }
+    const required = def.inputSchema?.required || [];
+    const missing = required.filter((key) => args[key] == null || args[key] === '');
+    if (missing.length) {
+      return {
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify({
+              error: `Missing required argument(s): ${missing.join(', ')}`,
+            }),
+          },
+        ],
+        isError: true,
+      };
+    }
+    const result = dispatch(name, args);
+    if (result && typeof result === 'object' && result.error) {
+      return {
+        content: [{ type: 'text', text: JSON.stringify(result) }],
+        isError: true,
+      };
+    }
+    return {
+      content: [{ type: 'text', text: JSON.stringify(result) }],
+    };
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return {
+      content: [{ type: 'text', text: message }],
+      isError: true,
+    };
+  }
 });
 
 const transport = new StdioServerTransport();

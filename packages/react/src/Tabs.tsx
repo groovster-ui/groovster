@@ -6,7 +6,6 @@ export type TabsProps = {
   variant?: "line" | "enclosed" | "pills";
   orientation?: "horizontal" | "vertical";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Tablist + tabpanels. Phase 0 specifies the contract; Phase 1 ships a light-DOM web component for keyboard behavior. */
@@ -20,7 +19,7 @@ export const Tabs = React.forwardRef<HTMLElement, TabsProps>(function Tabs(
     if (size != null) dataProps["data-size"] = size;
   const cls = ['ew-tabs', className].filter(Boolean).join(' ');
   return React.createElement(
-    'ew-tabs',
+    'div',
     { ref, className: cls, ...dataProps, ...rest },
     children
   );

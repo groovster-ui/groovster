@@ -5,6 +5,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '../../tools/a11y/node_modules/playwright/index.mjs';
+import { expect } from '../../tools/a11y/node_modules/playwright/test.mjs';
+import { safePath } from '../helpers/safe-path.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -49,8 +51,8 @@ async function withPage(fn) {
       res.end(FIXTURE);
       return;
     }
-    const file = path.join(REPO, url.replace(/^\//, ''));
-    if (!fs.existsSync(file)) {
+    const file = safePath(REPO, url.replace(/^\//, ''));
+    if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
       res.writeHead(404);
       res.end('missing');
       return;
@@ -76,11 +78,11 @@ test('select lists use unique anchors and popover top-layer', async () => {
     const before = await page.locator('#neighbor').boundingBox();
     const a = page.locator('#sel-a .ew-select__trigger');
     await a.click();
+    await expect.poll(async () => a.getAttribute('aria-expanded')).toBe('true');
     const meta = await page.evaluate(() => {
       const aTrig = document.querySelector('#sel-a .ew-select__trigger');
       const bTrig = document.querySelector('#sel-b .ew-select__trigger');
       const aList = document.querySelector('#sel-a [role="listbox"]');
-      const bList = document.querySelector('#sel-b [role="listbox"]');
       return {
         aAnchor: aTrig.style.getPropertyValue('anchor-name'),
         bAnchor: bTrig.style.getPropertyValue('anchor-name'),
@@ -107,7 +109,9 @@ test('tooltip tip is anchored to its trigger', async () => {
     const tip = page.locator('#tip .ew-tooltip__tip');
     const btn = page.locator('#tip .ew-button');
     await btn.hover();
-    await page.waitForTimeout(350);
+    await expect
+      .poll(async () => tip.evaluate((el) => el.dataset.ewOpen), { timeout: 5000 })
+      .toBe('true');
     const meta = await page.evaluate(() => {
       const tipEl = document.querySelector('#tip .ew-tooltip__tip');
       const trig = document.querySelector('#tip .ew-button');

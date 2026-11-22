@@ -5,7 +5,6 @@ export type BreadcrumbProps = {
   children?: React.ReactNode;
   variant?: "default";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Navigation breadcrumb trail. */

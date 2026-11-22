@@ -225,6 +225,7 @@
     disconnectedCallback() {
       this.#mo?.disconnect();
       this.#mo = null;
+      this.#native?.removeEventListener('change', this.#onNativeChange);
       this.#unbind();
       document.removeEventListener('pointerdown', this.#onDocPointer, true);
       clearTimeout(this.#typeaheadTimer);
@@ -252,7 +253,33 @@
       this.#unbind();
       this.#bind();
       this.#syncFromNative();
+      this.#observeNative();
     }
+
+    #observeNative() {
+      const native = this.#native;
+      if (!native) return;
+      this.#mo?.disconnect();
+      this.#mo = new MutationObserver(() => {
+        this.#ensureStructure();
+        this.#syncFromNative();
+      });
+      // Watch option list/text changes. Do not observe arbitrary <select> attrs —
+      // setting hidden/tabIndex in #ensureStructure would re-enter forever.
+      this.#mo.observe(native, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: ['value', 'disabled', 'label', 'selected'],
+      });
+      native.removeEventListener('change', this.#onNativeChange);
+      native.addEventListener('change', this.#onNativeChange);
+    }
+
+    #onNativeChange = () => {
+      this.#syncFromNative();
+    };
 
     #ensureStructure() {
       const native = this.#native;
@@ -271,7 +298,9 @@
       }
       trigger.setAttribute('role', 'combobox');
       trigger.setAttribute('aria-haspopup', 'listbox');
-      trigger.setAttribute('aria-expanded', 'false');
+      if (!trigger.hasAttribute('aria-expanded')) {
+        trigger.setAttribute('aria-expanded', 'false');
+      }
       trigger.setAttribute('aria-autocomplete', 'none');
       if (!trigger.id) trigger.id = `${native.id}-trigger`;
       trigger.style.setProperty('anchor-name', anchorName);
@@ -300,10 +329,11 @@
       list.setAttribute('role', 'listbox');
       list.setAttribute('popover', 'manual');
       list.style.setProperty('position-anchor', anchorName);
-      list.hidden = true;
+      if (!this.#open) list.hidden = true;
       list.id = list.id || `${native.id}-list`;
       trigger.setAttribute('aria-controls', list.id);
 
+      const prevActiveValue = this.#activeOption()?.dataset.value;
       list.replaceChildren();
       [...native.options].forEach((opt, i) => {
         const li = document.createElement('li');
@@ -317,6 +347,13 @@
         li.setAttribute('aria-selected', opt.selected ? 'true' : 'false');
         list.appendChild(li);
       });
+      if (this.#open) {
+        const restore =
+          this.#options.find((o) => o.dataset.value === prevActiveValue) ||
+          this.#options.find((o) => o.getAttribute('aria-selected') === 'true') ||
+          this.#options[0];
+        this.#setActive(restore);
+      }
       this.#updateTriggerLabel();
     }
 
@@ -385,8 +422,10 @@
           e.preventDefault();
           if (!this.#open) this.#setOpen(true, { restoreFocus: true });
           else {
-            const active = this.#activeOption();
+            // If activedescendant was lost (e.g. options rebuilt), still commit or close.
+            const active = this.#activeOption() || options[0];
             if (active) this.#choose(active, { restoreFocus: true });
+            else this.#setOpen(false, { restoreFocus: true });
           }
           return;
         }
@@ -435,15 +474,24 @@
       trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
       if (open) {
         list.hidden = false;
-        if (typeof list.showPopover === 'function') list.showPopover();
         document.addEventListener('pointerdown', this.#onDocPointer, true);
         const selected =
           this.#options.find((o) => o.getAttribute('aria-selected') === 'true') || this.#options[0];
+        // Set active before showPopover so Enter always has a target even if popover throws.
         this.#setActive(selected);
+        try {
+          if (typeof list.showPopover === 'function') list.showPopover();
+        } catch {
+          /* InvalidStateError when already open / not eligible — list still usable via hidden */
+        }
         trigger.focus();
       } else {
-        if (typeof list.hidePopover === 'function' && list.matches?.(':popover-open')) {
-          list.hidePopover();
+        try {
+          if (typeof list.hidePopover === 'function' && list.matches?.(':popover-open')) {
+            list.hidePopover();
+          }
+        } catch {
+          /* ignore */
         }
         list.hidden = true;
         document.removeEventListener('pointerdown', this.#onDocPointer, true);

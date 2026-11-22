@@ -1,0 +1,18 @@
+{
+  "id": "ew-neg-003",
+  "kind": "negative",
+  "expectPass": false,
+  "title": "Unknown ew-* class + dialog not on dialog + unlabeled text field",
+  "prompt": "NEGATIVE: emit unknown class, ew-dialog on a div, and unlabeled text-field.",
+  "eras": ["neon"],
+  "components": ["dialog", "text-field"],
+  "fidelity": 50,
+  "fixture": "spec/eval/fixtures/ew-neg-003.html",
+  "expect": {
+    "classes": ["ew-dialog", "ew-text-field"],
+    "dataEra": "neon"
+  },
+  "rubric": [
+    "validators must fail: unknown ew-widgetz, dialog not on <dialog>, TextField missing label"
+  ]
+}

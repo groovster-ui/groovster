@@ -1,12 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { REPO_ROOT, SPEC_ROOT } from './paths.js';
-import { listFiles, readJson, writeText, rel } from './io.js';
-
-const REG_ROOT = path.join(REPO_ROOT, 'registry');
+import { getOutRoot, outPath } from './paths.js';
+import { writeText, rel } from './io.js';
 
 function itemFor(comp) {
-  const cssPath = path.join(REPO_ROOT, 'packages/css/dist', `${comp.id}.css`);
+  const cssPath = outPath('packages/css/dist', `${comp.id}.css`);
   const css = fs.existsSync(cssPath) ? fs.readFileSync(cssPath, 'utf8') : '';
   const files = [
     {
@@ -27,7 +25,7 @@ function itemFor(comp) {
   };
   const wcFile = wcByComp[comp.id];
   if (wcFile) {
-    const elPath = path.join(REPO_ROOT, 'packages/elements/dist', wcFile);
+    const elPath = outPath('packages/elements/dist', wcFile);
     if (fs.existsSync(elPath)) {
       files.push({
         path: `era-widgets/${wcFile}`,
@@ -63,7 +61,8 @@ function itemFor(comp) {
 
 export function generateRegistry(components) {
   const outputs = [];
-  fs.mkdirSync(path.join(REG_ROOT, 'r'), { recursive: true });
+  const regRoot = outPath('registry');
+  fs.mkdirSync(path.join(regRoot, 'r'), { recursive: true });
   const index = {
     $schema: 'https://ui.shadcn.com/schema/registry.json',
     name: 'era-widgets',
@@ -73,9 +72,9 @@ export function generateRegistry(components) {
 
   for (const comp of components) {
     const item = itemFor(comp);
-    const file = path.join(REG_ROOT, 'r', `${comp.id}.json`);
+    const file = path.join(regRoot, 'r', `${comp.id}.json`);
     writeText(file, JSON.stringify(item, null, 2));
-    outputs.push(rel(REPO_ROOT, file));
+    outputs.push(rel(getOutRoot(), file));
     index.items.push({
       name: item.name,
       type: item.type,
@@ -86,13 +85,13 @@ export function generateRegistry(components) {
     });
   }
 
-  const indexPath = path.join(REG_ROOT, 'registry.json');
+  const indexPath = path.join(regRoot, 'registry.json');
   writeText(indexPath, JSON.stringify(index, null, 2));
-  outputs.push(rel(REPO_ROOT, indexPath));
+  outputs.push(rel(getOutRoot(), indexPath));
 
   // Convenience: shadcn-style components.json hint
   writeText(
-    path.join(REG_ROOT, 'README.md'),
+    path.join(regRoot, 'README.md'),
     `# Era Widgets registry
 
 shadcn-compatible registry items for the six hero widgets.

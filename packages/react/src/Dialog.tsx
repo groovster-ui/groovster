@@ -5,7 +5,6 @@ export type DialogProps = {
   children?: React.ReactNode;
   variant?: "modal" | "sheet";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Modal dialog using native <dialog>. Open with showModal(); eras skin backdrop and frame. */

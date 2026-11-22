@@ -5,7 +5,6 @@ export type SwitchProps = {
   children?: React.ReactNode;
   variant?: "default" | "success";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Binary on/off control. Prefer checkbox with switch role styling, or input type=checkbox with appearance skinning. */
@@ -18,7 +17,7 @@ export const Switch = React.forwardRef<HTMLElement, SwitchProps>(function Switch
     if (size != null) dataProps["data-size"] = size;
   const cls = ['ew-switch', className].filter(Boolean).join(' ');
   return React.createElement(
-    'input[type=checkbox]',
+    'label',
     { ref, className: cls, ...dataProps, ...rest },
     children
   );

@@ -1,7 +1,7 @@
 import { createServer } from 'node:http';
 import fs from 'node:fs';
-import path from 'node:path';
 import { chromium } from '../../a11y/node_modules/playwright/index.mjs';
+import { safePath } from '../../../tests/helpers/safe-path.mjs';
 
 /**
  * Load markup with Groovster CSS in Playwright and confirm expected classes render.
@@ -20,8 +20,8 @@ export async function renderCheck(repoRoot, html, expect = {}) {
       res.end(pageHtml);
       return;
     }
-    const file = path.join(repoRoot, url.replace(/^\//, ''));
-    if (!fs.existsSync(file)) {
+    const file = safePath(repoRoot, url.replace(/^\//, ''));
+    if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
       res.writeHead(404);
       res.end('missing');
       return;

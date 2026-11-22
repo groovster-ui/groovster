@@ -5,7 +5,6 @@ export type ToastProps = {
   children?: React.ReactNode;
   variant?: "info" | "success" | "warning" | "danger";
   size?: "sm" | "md" | "lg";
-  [dataAttr: `data-${string}`]: string | undefined;
 } & React.HTMLAttributes<HTMLElement>;
 
 /** Thin wrapper: Transient notification region. CSS chrome; live region polite by default. */
@@ -16,10 +15,10 @@ export const Toast = React.forwardRef<HTMLElement, ToastProps>(function Toast(
   const dataProps: Record<string, string> = {};
     if (variant != null) dataProps["data-variant"] = variant;
     if (size != null) dataProps["data-size"] = size;
-  const cls = ['ew-toast', className].filter(Boolean).join(' ');
+  const cls = ['ew-toast-region', className].filter(Boolean).join(' ');
   return React.createElement(
     'ew-toast-region',
-    { ref, className: cls, ...dataProps, ...rest },
+    { ref, class: cls, ...dataProps, ...rest },
     children
   );
 });
