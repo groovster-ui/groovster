@@ -3,11 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Night Drive Arcade — Neon Showcase</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Monoton&family=Mr+Dafoe&family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../packages/css/dist/base.css">
+  <title>Night Drive Arcade — Neon Showcase</title>  <link rel="stylesheet" href="../../packages/css/dist/base.css">
   <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css">
   <link rel="stylesheet" href="../../packages/css/dist/eras/neon.css">
   <script type="module" src="../../packages/elements/dist/era-elements.js"></script>
@@ -29,9 +25,6 @@
   <ew-toast-region aria-live="polite" aria-atomic="false"></ew-toast-region>
 
   <section class="ew-hero">
-    <div class="ew-hero__grid" aria-hidden="true"></div>
-    <div class="ew-hero__sun" aria-hidden="true"></div>
-    <div class="ew-hero__mountains" aria-hidden="true"></div>
     <div class="ew-hero__scanlines" aria-hidden="true"></div>
     <div class="ew-hero__content">
       <div class="ew-sun-mark" aria-hidden="true"></div>
@@ -42,6 +35,11 @@
         <button type="button" class="ew-button">Insert Coin</button>
         <button type="button" class="ew-button" data-variant="secondary">High Scores</button>
       </div>
+    </div>
+    <div class="ew-hero__stage" aria-hidden="true">
+      <div class="ew-hero__sun"></div>
+      <div class="ew-hero__mountains"></div>
+      <div class="ew-hero__grid"></div>
     </div>
   </section>
 

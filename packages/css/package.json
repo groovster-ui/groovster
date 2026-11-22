@@ -6,6 +6,7 @@
   "license": "MIT",
   "files": [
     "dist",
+    "fonts",
     "README.md"
   ],
   "exports": {
@@ -19,6 +20,7 @@
     "./switch.css": "./dist/switch.css",
     "./text-field.css": "./dist/text-field.css",
     "./eras/*.css": "./dist/eras/*.css",
+    "./fonts/*": "./dist/fonts/*",
     "./*": "./dist/*"
   },
   "publishConfig": {

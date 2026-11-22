@@ -5,21 +5,21 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Fraunces");
+  src: url("../fonts/Fraunces-Regular.woff2") format("woff2"), local("Fraunces");
 }
 @font-face {
   font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Source Sans 3");
+  src: url("../fonts/SourceSans3-Regular.woff2") format("woff2"), local("Source Sans 3");
 }
 @font-face {
   font-family: "Source Code Pro";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Source Code Pro");
+  src: url("../fonts/SourceCodePro-Regular.woff2") format("woff2"), local("Source Code Pro");
 }
 @layer tokens {
   [data-era="earth"], [data-era="earth"][data-mode="light"] {
@@ -183,6 +183,8 @@
   }
   [data-era="earth"][data-fidelity-band="whisper"],
   [data-fidelity-band="whisper"] [data-era="earth"],
+  [data-era="earth"][data-fidelity-band="standard"],
+  [data-fidelity-band="standard"] [data-era="earth"],
   [data-era="earth"][data-fidelity-band="default"],
   [data-fidelity-band="default"] [data-era="earth"],
   [data-era="earth"][data-fidelity-band="signature"],
@@ -219,6 +221,8 @@
   }
   [data-era="earth"][data-fidelity-band="whisper"] .ew-card__header::after,
   [data-fidelity-band="whisper"] [data-era="earth"] .ew-card__header::after,
+  [data-era="earth"][data-fidelity-band="standard"] .ew-card__header::after,
+  [data-fidelity-band="standard"] [data-era="earth"] .ew-card__header::after,
   [data-era="earth"][data-fidelity-band="default"] .ew-card__header::after,
   [data-fidelity-band="default"] [data-era="earth"] .ew-card__header::after,
   [data-era="earth"][data-fidelity-band="signature"] .ew-card__header::after,

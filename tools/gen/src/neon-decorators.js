@@ -3,10 +3,12 @@ import { muteBandSel } from './band.js';
 /** Wedge frame: 45° corner cuts — stroke follows the cut (mask, not clip-path). */
 const WEDGE_FRAME_SVG = encodeURIComponent(
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" fill="none" preserveAspectRatio="none">
-    <path d="M18 2 H182 L198 18 V102 L182 118 H18 L2 102 V18 Z"
+    <path d="M14 2 H186 L198 14 V106 L186 118 H14 L2 106 V14 Z"
       stroke="black" stroke-width="3.5" stroke-linejoin="miter"/>
   </svg>`
 );
+/** Filled wedge for clipping card chrome so no rectangular outer frame shows. */
+const WEDGE_FILL = `polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px)`;
 
 const WEDGE_BTN_SVG = encodeURIComponent(
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="none" preserveAspectRatio="none">
@@ -42,12 +44,12 @@ const SUN_MARK_SVG = encodeURIComponent(
 
 /**
  * Full Neon decorator layer CSS — 80s synthwave.
- * Costume ON by default; whisper|default mute via muteBandSel.
+ * Costume ON by default; whisper|standard|default mute via muteBandSel.
  */
 export function neonDecoratorCss() {
   const mute = (rest) => muteBandSel('neon', rest);
 
-  return `  /* === NEON: 80s SYNTHWAVE — costume default; mute via whisper|default === */
+  return `  /* === NEON: 80s SYNTHWAVE — costume default; mute via whisper|standard === */
 
   [data-era="neon"] {
     --ew-font-display: "Orbitron", Eurostile, sans-serif;
@@ -79,34 +81,37 @@ export function neonDecoratorCss() {
       #0d0221 70%,
       #05010f 100%
     );
+    /* Miami dusk pink sky (not lavender) */
     --ew-gradient-hero-light: linear-gradient(
       180deg,
-      #f7c8e8 0%,
-      #d9b3f5 28%,
-      #9ec9f5 58%,
-      #7a9fff 100%
+      #ff9ec8 0%,
+      #ffc1d9 28%,
+      #ffd6a8 58%,
+      #7ec8ff 100%
     );
-    --ew-glow-magenta: 0 0 6px color-mix(in oklch, var(--ew-color-magenta) 70%, transparent),
-      0 0 16px color-mix(in oklch, var(--ew-color-magenta) 45%, transparent),
-      0 0 32px color-mix(in oklch, var(--ew-color-magenta) 28%, transparent);
-    --ew-glow-cyan: 0 0 6px color-mix(in oklch, var(--ew-color-cyan) 70%, transparent),
-      0 0 16px color-mix(in oklch, var(--ew-color-cyan) 45%, transparent),
-      0 0 28px color-mix(in oklch, var(--ew-color-cyan) 28%, transparent);
+    --ew-glow-magenta: 0 0 6px color-mix(in srgb, var(--ew-color-magenta) 70%, transparent),
+      0 0 16px color-mix(in srgb, var(--ew-color-magenta) 45%, transparent),
+      0 0 32px color-mix(in srgb, var(--ew-color-magenta) 28%, transparent);
+    --ew-glow-cyan: 0 0 6px color-mix(in srgb, var(--ew-color-cyan) 70%, transparent),
+      0 0 16px color-mix(in srgb, var(--ew-color-cyan) 45%, transparent),
+      0 0 28px color-mix(in srgb, var(--ew-color-cyan) 28%, transparent);
     --ew-ornament-wedge: url("data:image/svg+xml,${WEDGE_FRAME_SVG}");
     --ew-ornament-wedge-btn: url("data:image/svg+xml,${WEDGE_BTN_SVG}");
     --ew-ornament-mountains: url("data:image/svg+xml,${MOUNTAINS_SVG}");
     --ew-ornament-sun-mark: url("data:image/svg+xml,${SUN_MARK_SVG}");
+    --ew-hero-horizon: 40%;
   }
 
-  /* --- Hero: grid floor + striped sun + mountains (hero-only, not fixed page) --- */
+  /* --- Hero: CSS grid — content row then in-flow horizon stage (no overlap) --- */
   [data-era="neon"] .ew-hero {
+    --ew-hero-horizon: min(42vh, 400px);
     position: relative;
     isolation: isolate;
     overflow: hidden;
     min-height: min(88vh, 920px);
     display: grid;
-    place-items: center;
-    padding: 48px 24px 96px;
+    grid-template-rows: 1fr auto;
+    padding: 48px 24px 0;
     background: var(--ew-gradient-hero-dark);
     color: var(--ew-color-fg-default);
   }
@@ -114,28 +119,54 @@ export function neonDecoratorCss() {
     background: var(--ew-gradient-hero-light);
   }
 
-  /* Perspective grid floor — bottom ~40% */
+  /* Horizon stage in flow — sun + mountains + grid all INSIDE (no upward overflow into content) */
+  [data-era="neon"] .ew-hero__stage {
+    --ew-hero-sun-h: min(140px, 21vw);
+    position: relative;
+    grid-row: 2;
+    height: calc(var(--ew-hero-sun-h) + min(38vh, 360px));
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  /* Content stack: chrome → script → subtitle → CTAs — always above the stage */
+  [data-era="neon"] .ew-hero__content {
+    position: relative;
+    z-index: 4;
+    grid-row: 1;
+    text-align: center;
+    max-width: 920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 12px 12px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Perspective grid — from horizon (below sun) to stage bottom; no gap */
   [data-era="neon"] .ew-hero__grid {
     position: absolute;
     left: 50%;
+    top: calc(var(--ew-hero-sun-h) - 6px);
     bottom: 0;
     width: 160%;
-    height: 42%;
-    transform: translateX(-50%) perspective(520px) rotateX(58deg);
+    height: auto;
+    transform: translateX(-50%) perspective(640px) rotateX(52deg);
     transform-origin: 50% 100%;
     background:
       repeating-linear-gradient(
         90deg,
         transparent 0 46px,
-        color-mix(in oklch, var(--ew-color-magenta) 75%, transparent) 46px 48px
+        color-mix(in srgb, var(--ew-color-magenta) 75%, transparent) 46px 48px
       ),
       repeating-linear-gradient(
         0deg,
         transparent 0 28px,
-        color-mix(in oklch, var(--ew-color-cyan) 65%, transparent) 28px 30px
+        color-mix(in srgb, var(--ew-color-cyan) 65%, transparent) 28px 30px
       );
-    mask-image: linear-gradient(180deg, transparent 0%, black 35%, black 100%);
-    -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 35%, black 100%);
     pointer-events: none;
     z-index: 0;
     opacity: 0.9;
@@ -143,18 +174,23 @@ export function neonDecoratorCss() {
   [data-era="neon"][data-mode="light"] .ew-hero__grid {
     opacity: 0.55;
   }
+  [data-era="neon"] .ew-hero > .ew-hero__grid {
+    top: auto;
+    bottom: 0;
+    height: min(38vh, 360px);
+  }
 
-  /* Striped sunset sun — half-set on horizon */
+  /* Striped sunset sun — top of stage, half-set onto the grid horizon */
   [data-era="neon"] .ew-hero__sun {
     position: absolute;
     left: 50%;
-    bottom: 36%;
+    top: 0;
+    bottom: auto;
     width: min(280px, 42vw);
-    height: min(140px, 21vw);
+    height: var(--ew-hero-sun-h);
     transform: translateX(-50%);
     border-radius: 999px 999px 0 0;
     background: var(--ew-gradient-sunset);
-    /* Stripe gaps widen toward bottom */
     mask-image: repeating-linear-gradient(
       180deg,
       black 0 10px,
@@ -181,26 +217,35 @@ export function neonDecoratorCss() {
       black 92px 120px,
       transparent 120px 140px
     );
-    box-shadow: 0 0 40px color-mix(in oklch, var(--ew-color-magenta) 45%, transparent);
+    box-shadow: 0 0 40px color-mix(in srgb, var(--ew-color-magenta) 45%, transparent);
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
+  }
+  [data-era="neon"] .ew-hero > .ew-hero__sun {
+    top: auto;
+    bottom: min(38vh, 360px);
   }
 
-  /* Wireframe mountains on horizon */
+  /* Wireframe mountains on the horizon (sun/grid join) */
   [data-era="neon"] .ew-hero__mountains {
     position: absolute;
     left: 50%;
-    bottom: 34%;
+    top: calc(var(--ew-hero-sun-h) - 48px);
+    bottom: auto;
     width: min(1100px, 120%);
-    height: 90px;
+    height: 88px;
     transform: translateX(-50%);
     background-color: var(--ew-color-cyan);
     -webkit-mask: var(--ew-ornament-mountains) center / 100% 100% no-repeat;
     mask: var(--ew-ornament-mountains) center / 100% 100% no-repeat;
-    filter: drop-shadow(0 0 6px color-mix(in oklch, var(--ew-color-cyan) 55%, transparent));
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--ew-color-cyan) 55%, transparent));
     pointer-events: none;
-    z-index: 1;
+    z-index: 3;
     opacity: 0.95;
+  }
+  [data-era="neon"] .ew-hero > .ew-hero__mountains {
+    top: auto;
+    bottom: calc(min(38vh, 360px) - 36px);
   }
 
   /* Scanline overlay (hero) */
@@ -210,30 +255,21 @@ export function neonDecoratorCss() {
     background: repeating-linear-gradient(
       180deg,
       transparent 0 3px,
-      color-mix(in oklch, var(--ew-color-fg-default) 4%, transparent) 3px 4px
+      color-mix(in srgb, var(--ew-color-fg-default) 4%, transparent) 3px 4px
     );
     pointer-events: none;
     z-index: 3;
     opacity: 0.55;
   }
 
-  [data-era="neon"] .ew-hero__content {
-    position: relative;
-    z-index: 4;
-    text-align: center;
-    max-width: 920px;
-  }
-
-  /* Chrome type — metallic horizon-split + white stroke + solid fallback */
-  [data-era="neon"] .ew-hero__title,
+  /* Chrome type — size inherits; hero headlines keep display clamp */
   [data-era="neon"] .ew-chrome {
     font-family: var(--ew-font-chrome);
     font-weight: 400;
-    font-size: clamp(48px, 10vw, 108px);
+    font-size: inherit;
     line-height: 1;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin: 0 0 12px;
     display: inline-block;
     position: relative;
     color: var(--ew-color-cyan);
@@ -241,8 +277,31 @@ export function neonDecoratorCss() {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px color-mix(in oklch, white 70%, transparent);
-    filter: drop-shadow(0 2px 0 color-mix(in oklch, var(--ew-color-magenta) 55%, transparent));
+    -webkit-text-stroke: 1px #fff;
+    paint-order: stroke fill;
+    filter: drop-shadow(0 2px 0 color-mix(in srgb, var(--ew-color-magenta) 55%, transparent));
+  }
+  [data-era="neon"] .ew-chrome[data-size="sm"] { font-size: clamp(18px, 3vw, 28px); }
+  [data-era="neon"] .ew-chrome[data-size="md"] { font-size: clamp(28px, 5vw, 48px); }
+  [data-era="neon"] .ew-chrome[data-size="lg"] { font-size: clamp(48px, 10vw, 108px); }
+  [data-era="neon"] .ew-hero__title {
+    font-family: var(--ew-font-chrome);
+    font-weight: 400;
+    font-size: clamp(48px, 10vw, 108px);
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+    display: inline-block;
+    position: relative;
+    color: var(--ew-color-cyan);
+    background: var(--ew-gradient-chrome);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    paint-order: stroke fill;
+    filter: drop-shadow(0 2px 0 color-mix(in srgb, var(--ew-color-magenta) 55%, transparent));
   }
   @supports not (background-clip: text) {
     [data-era="neon"] .ew-hero__title,
@@ -263,10 +322,10 @@ export function neonDecoratorCss() {
     display: inline-block;
     position: relative;
     z-index: 5;
-    margin: -8px 0 8px;
+    margin: -4px 0 12px;
     text-shadow:
-      0 0 8px color-mix(in oklch, var(--ew-color-magenta) 55%, transparent),
-      2px 2px 0 color-mix(in oklch, var(--ew-color-bg-page) 80%, transparent);
+      0 0 8px color-mix(in srgb, var(--ew-color-magenta) 55%, transparent),
+      2px 2px 0 color-mix(in srgb, var(--ew-color-bg-page) 80%, transparent);
     letter-spacing: 0.02em;
     font-weight: 400;
     text-transform: none;
@@ -278,7 +337,7 @@ export function neonDecoratorCss() {
     letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--ew-color-fg-muted);
-    margin: 8px 0 32px;
+    margin: 8px 0 28px;
   }
   [data-era="neon"] .ew-hero__cta {
     display: inline-flex;
@@ -304,7 +363,7 @@ export function neonDecoratorCss() {
     text-align: center;
     margin: 0 0 40px;
     color: var(--ew-color-cyan);
-    text-shadow: 0 0 12px color-mix(in oklch, var(--ew-color-cyan) 40%, transparent);
+    text-shadow: 0 0 12px color-mix(in srgb, var(--ew-color-cyan) 40%, transparent);
   }
 
   /* RGB-split hover on chrome headlines */
@@ -312,25 +371,31 @@ export function neonDecoratorCss() {
     [data-era="neon"] .ew-hero__title:hover,
     [data-era="neon"] .ew-chrome:hover {
       text-shadow:
-        -2px 0 color-mix(in oklch, var(--ew-color-magenta) 80%, transparent),
-        2px 0 color-mix(in oklch, var(--ew-color-cyan) 80%, transparent);
+        -2px 0 color-mix(in srgb, var(--ew-color-magenta) 80%, transparent),
+        2px 0 color-mix(in srgb, var(--ew-color-cyan) 80%, transparent);
     }
   }
 
-  /* --- Cards: neon tubes + wedge frames --- */
+  /* --- Cards: wedge tube only (clip fill to wedge; stroke via mask — no rect outer frame) --- */
   [data-era="neon"] .ew-card {
     position: relative;
-    border: 2px solid var(--ew-color-magenta);
+    border: none !important;
+    outline: none;
     border-radius: 0;
     background: var(--ew-color-bg-surface);
-    box-shadow: var(--ew-glow-magenta);
-    clip-path: none;
+    /* drop-shadow follows clip-path; box-shadow would draw a rectangular aura */
+    box-shadow: none;
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--ew-color-magenta) 70%, transparent))
+      drop-shadow(0 0 16px color-mix(in srgb, var(--ew-color-magenta) 40%, transparent));
+    clip-path: ${WEDGE_FILL};
     overflow: visible;
+    /* Clear the 45° cut so titles are never clipped */
+    padding: 32px 32px 28px;
   }
   [data-era="neon"] .ew-card[data-variant="raised"] {
-    border-color: var(--ew-color-cyan);
     background: var(--ew-color-bg-elevated);
-    box-shadow: var(--ew-glow-cyan);
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--ew-color-cyan) 70%, transparent))
+      drop-shadow(0 0 16px color-mix(in srgb, var(--ew-color-cyan) 40%, transparent));
   }
   [data-era="neon"] .ew-card::after {
     content: "" / "";
@@ -346,6 +411,12 @@ export function neonDecoratorCss() {
   [data-era="neon"] .ew-card[data-variant="raised"]::after {
     background-color: var(--ew-color-cyan);
   }
+  [data-era="neon"] .ew-card__header,
+  [data-era="neon"] .ew-card__body,
+  [data-era="neon"] .ew-card__footer {
+    position: relative;
+    z-index: 2;
+  }
   [data-era="neon"] .ew-card__header h2,
   [data-era="neon"] .ew-card__header h3 {
     font-family: var(--ew-font-display);
@@ -359,10 +430,10 @@ export function neonDecoratorCss() {
     height: 2px;
     margin-top: 12px;
     background: linear-gradient(90deg, var(--ew-color-magenta), var(--ew-color-cyan), transparent);
-    box-shadow: 0 0 8px color-mix(in oklch, var(--ew-color-magenta) 50%, transparent);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--ew-color-magenta) 50%, transparent);
   }
 
-  /* Buttons — wedge border via mask + glow tube */
+  /* Buttons — wedge border via mask + glow tube (no rect border) */
   [data-era="neon"] .ew-button {
     position: relative;
     text-transform: uppercase;
@@ -370,9 +441,10 @@ export function neonDecoratorCss() {
     font-weight: 700;
     font-family: var(--ew-font-body);
     border-radius: 0;
-    border: 2px solid var(--ew-color-magenta);
+    border: none;
     box-shadow: var(--ew-glow-magenta);
     clip-path: none;
+    padding-inline: 22px;
   }
   [data-era="neon"] .ew-button::after {
     content: "" / "";
@@ -385,7 +457,6 @@ export function neonDecoratorCss() {
     opacity: 0.9;
   }
   [data-era="neon"] .ew-button[data-variant="secondary"] {
-    border-color: var(--ew-color-cyan);
     background: transparent;
     color: var(--ew-color-cyan);
     box-shadow: var(--ew-glow-cyan);
@@ -394,7 +465,6 @@ export function neonDecoratorCss() {
     background-color: var(--ew-color-cyan);
   }
   [data-era="neon"] .ew-button[data-variant="ghost"] {
-    border-color: transparent;
     box-shadow: none;
   }
   [data-era="neon"] .ew-button[data-variant="ghost"]::after { display: none; }
@@ -415,7 +485,7 @@ export function neonDecoratorCss() {
     border-radius: 0;
     border: 2px solid var(--ew-color-cyan);
     background: var(--ew-color-field-bg);
-    box-shadow: 0 0 10px color-mix(in oklch, var(--ew-color-cyan) 35%, transparent);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--ew-color-cyan) 35%, transparent);
   }
   [data-era="neon"] .ew-text-field__control:focus-visible,
   [data-era="neon"] .ew-select__trigger:focus-visible {
@@ -423,36 +493,59 @@ export function neonDecoratorCss() {
     outline-offset: 2px;
   }
 
-  /* Checkbox / radio / switch — thumbs ≥3:1 */
-  [data-era="neon"] .ew-checkbox__box,
-  [data-era="neon"] .ew-radio__disc {
+  /* Checkbox / radio — field bg only when unchecked so checked fill/tick stay visible */
+  [data-era="neon"] .ew-checkbox__control:not(:checked) + .ew-checkbox__box,
+  [data-era="neon"] .ew-radio__control:not(:checked) + .ew-radio__disc {
     border-radius: 0;
     border: 2px solid var(--ew-color-cyan);
     background: var(--ew-color-field-bg);
-    box-shadow: 0 0 8px color-mix(in oklch, var(--ew-color-cyan) 35%, transparent);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--ew-color-cyan) 35%, transparent);
   }
-  [data-era="neon"] .ew-radio__disc { border-radius: 999px; }
-  [data-era="neon"] .ew-switch__track {
+  [data-era="neon"] .ew-radio__control:not(:checked) + .ew-radio__disc { border-radius: 999px; }
+  [data-era="neon"] .ew-checkbox__control:checked + .ew-checkbox__box {
+    border-radius: 0;
+    border: 2px solid var(--ew-color-action-bg);
+    background: var(--ew-color-action-bg);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--ew-color-magenta) 45%, transparent);
+  }
+  [data-era="neon"] .ew-radio__control:checked + .ew-radio__disc {
+    border-radius: 999px;
+    border: 2px solid var(--ew-color-cyan);
+    background: var(--ew-color-field-bg);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--ew-color-cyan) 35%, transparent);
+  }
+
+  /* Switch — lit track + bright knob when on */
+  [data-era="neon"] .ew-switch__control:not(:checked) + .ew-switch__track {
     border-radius: 0;
     border: 2px solid var(--ew-color-border-strong);
     background: var(--ew-color-track-off);
   }
-  [data-era="neon"] .ew-switch__thumb {
+  [data-era="neon"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
     border-radius: 0;
-    background: var(--ew-color-fg-default);
-    box-shadow: 0 0 6px color-mix(in oklch, var(--ew-color-cyan) 40%, transparent);
+    background: #ffffff;
+    box-shadow: 0 0 6px color-mix(in srgb, var(--ew-color-cyan) 40%, transparent);
+  }
+  [data-era="neon"] .ew-switch__control:checked + .ew-switch__track {
+    border-radius: 0;
+    border: 2px solid var(--ew-color-magenta);
+    background: var(--ew-color-track-on, var(--ew-color-action-bg));
+    box-shadow: var(--ew-glow-magenta);
   }
   [data-era="neon"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
-    background: var(--ew-color-fg-inverse);
+    border-radius: 0;
+    background: #ffffff;
+    box-shadow: 0 0 10px color-mix(in srgb, #fff 80%, transparent);
   }
 
   /* Dialog */
   [data-era="neon"] .ew-dialog {
-    border: 2px solid var(--ew-color-magenta);
+    border: none;
     border-radius: 0;
     background: var(--ew-color-bg-elevated);
     box-shadow: var(--ew-glow-magenta), var(--ew-structure-dialog-shadow);
     position: relative;
+    padding: 28px;
   }
   [data-era="neon"] .ew-dialog::after {
     content: "" / "";
@@ -468,12 +561,14 @@ export function neonDecoratorCss() {
     font-family: var(--ew-font-display);
     text-transform: uppercase;
     letter-spacing: 0.14em;
+    position: relative;
+    z-index: 2;
   }
 
   /* Tabs — glowing underline on active */
   [data-era="neon"] .ew-tabs [role="tablist"],
   [data-era="neon"] ew-tabs [role="tablist"] {
-    border-bottom: 1px solid color-mix(in oklch, var(--ew-color-cyan) 45%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--ew-color-cyan) 45%, transparent);
     gap: 4px;
   }
   [data-era="neon"] .ew-tabs [role="tab"],
@@ -489,18 +584,17 @@ export function neonDecoratorCss() {
   [data-era="neon"] ew-tabs [role="tab"][aria-selected="true"] {
     color: var(--ew-color-cyan);
     border-bottom-color: var(--ew-color-cyan);
-    box-shadow: 0 4px 12px color-mix(in oklch, var(--ew-color-cyan) 45%, transparent);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--ew-color-cyan) 45%, transparent);
     background: transparent;
-    text-shadow: 0 0 8px color-mix(in oklch, var(--ew-color-cyan) 45%, transparent);
+    text-shadow: 0 0 8px color-mix(in srgb, var(--ew-color-cyan) 45%, transparent);
   }
-  /* Light mode: cyan-on-dusk fails AA at 13px — use ink plate + magenta underline */
   [data-era="neon"][data-mode="light"] .ew-tabs [role="tab"][aria-selected="true"],
   [data-era="neon"][data-mode="light"] ew-tabs [role="tab"][aria-selected="true"] {
     color: var(--ew-color-fg-default);
     border-bottom-color: var(--ew-color-magenta);
-    background: color-mix(in oklch, var(--ew-color-bg-elevated) 88%, var(--ew-color-magenta));
+    background: color-mix(in srgb, var(--ew-color-bg-elevated) 88%, var(--ew-color-magenta));
     text-shadow: none;
-    box-shadow: 0 4px 10px color-mix(in oklch, var(--ew-color-magenta) 28%, transparent);
+    box-shadow: 0 4px 10px color-mix(in srgb, var(--ew-color-magenta) 28%, transparent);
   }
   [data-era="neon"][data-mode="light"] .ew-section-heading {
     color: var(--ew-color-fg-default);
@@ -530,7 +624,7 @@ export function neonDecoratorCss() {
     height: 3px;
     margin: -12px -14px 10px;
     background: linear-gradient(90deg, var(--ew-color-magenta), var(--ew-color-cyan));
-    box-shadow: 0 0 10px color-mix(in oklch, var(--ew-color-magenta) 50%, transparent);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--ew-color-magenta) 50%, transparent);
   }
   [data-era="neon"] .ew-tooltip__tip {
     border-radius: 0;
@@ -557,7 +651,7 @@ export function neonDecoratorCss() {
   [data-era="neon"] .ew-select__option:hover,
   [data-era="neon"] .ew-menu__item:hover,
   [data-era="neon"] .ew-menu__item:focus-visible {
-    background: color-mix(in oklch, var(--ew-color-magenta) 22%, var(--ew-color-bg-elevated));
+    background: color-mix(in srgb, var(--ew-color-magenta) 22%, var(--ew-color-bg-elevated));
     outline: 1px solid var(--ew-color-magenta);
     outline-offset: -1px;
   }
@@ -572,10 +666,13 @@ export function neonDecoratorCss() {
   [data-era="neon"] .ew-tier-card {
     position: relative;
     text-align: center;
-    padding: 36px 20px 28px;
-    border: 2px solid var(--ew-color-cyan);
+    padding: 40px 32px 32px;
+    border: none !important;
     background: var(--ew-color-bg-surface);
-    box-shadow: var(--ew-glow-cyan);
+    box-shadow: none;
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--ew-color-cyan) 70%, transparent))
+      drop-shadow(0 0 16px color-mix(in srgb, var(--ew-color-cyan) 40%, transparent));
+    clip-path: ${WEDGE_FILL};
   }
   [data-era="neon"] .ew-tier-card::after {
     content: "" / "";
@@ -591,11 +688,20 @@ export function neonDecoratorCss() {
     font-family: var(--ew-font-chrome);
     font-size: clamp(36px, 5vw, 56px);
     margin: 0 0 8px;
+    position: relative;
+    z-index: 2;
     background: var(--ew-gradient-chrome);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: var(--ew-color-cyan);
+    -webkit-text-stroke: 1px #fff;
+    paint-order: stroke fill;
+    color: var(--ew-color-fg-default);
+  }
+  [data-era="neon"][data-mode="light"] .ew-tier-card__price {
+    /* Readable solid fallback under clip */
+    color: var(--ew-color-fg-default);
+    filter: drop-shadow(0 1px 0 #fff);
   }
 
   /* Page-level faint scanlines (optional class) */
@@ -611,12 +717,13 @@ export function neonDecoratorCss() {
     background: repeating-linear-gradient(
       180deg,
       transparent 0 3px,
-      color-mix(in oklch, var(--ew-color-fg-default) 3.5%, transparent) 3px 4px
+      color-mix(in srgb, var(--ew-color-fg-default) 3.5%, transparent) 3px 4px
     );
     opacity: 0.5;
   }
 
-  /* Mute costume ornament under whisper/default */
+  /* Mute costume ornament under whisper/standard/default */
+  ${mute(' .ew-hero__stage')},
   ${mute(' .ew-hero__grid')},
   ${mute(' .ew-hero__sun')},
   ${mute(' .ew-hero__mountains')},
@@ -638,6 +745,7 @@ export function neonDecoratorCss() {
   ${mute(' .ew-alert')},
   ${mute(' .ew-toast')} {
     box-shadow: none;
+    filter: none;
   }
   ${mute(' .ew-hero')} {
     background: var(--ew-color-bg-page);
@@ -660,6 +768,10 @@ export function neonDecoratorCss() {
   }
 
   @media (forced-colors: active) {
+    [data-era="neon"] .ew-hero {
+      background: Canvas;
+      color: CanvasText;
+    }
     [data-era="neon"] .ew-hero__grid,
     [data-era="neon"] .ew-hero__sun,
     [data-era="neon"] .ew-hero__mountains,
@@ -673,7 +785,8 @@ export function neonDecoratorCss() {
       display: none;
     }
     [data-era="neon"] .ew-hero__title,
-    [data-era="neon"] .ew-chrome {
+    [data-era="neon"] .ew-chrome,
+    [data-era="neon"] .ew-tier-card__price {
       background: none;
       -webkit-text-fill-color: CanvasText;
       color: CanvasText;

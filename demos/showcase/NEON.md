@@ -1,17 +1,18 @@
 # Neon library classes
 
-Costume ornament is the default when `data-fidelity-band` is absent. Opt down with `whisper` or `default` on the era element or an ancestor.
+Costume ornament is the default when `data-fidelity-band` is absent. Opt down with `whisper` or `standard` (`default` / `signature` are deprecated aliases).
 
 ## Hero
 
 | Class | Role |
 | --- | --- |
 | `.ew-hero` | Hero shell with dusk/night gradient |
-| `.ew-hero__grid` | Perspective grid floor (bottom ~40%) |
+| `.ew-hero__stage` | Horizon band (bottom ~40%) holding sun, mountains, grid |
+| `.ew-hero__grid` | Perspective grid floor (fills the stage) |
 | `.ew-hero__sun` | Striped sunset sun on the horizon |
 | `.ew-hero__mountains` | Cyan wireframe mountain polyline |
 | `.ew-hero__scanlines` | Faint VHS scanline overlay |
-| `.ew-hero__content` | Title / script / subtitle / CTA stack |
+| `.ew-hero__content` | Title / script / subtitle / CTA stack (above the stage) |
 | `.ew-hero__title` | Chrome metallic headline |
 | `.ew-hero__subtitle` | Tracking Orbitron subtitle |
 | `.ew-hero__cta` | CTA row |
@@ -20,7 +21,7 @@ Costume ornament is the default when `data-fidelity-band` is absent. Opt down wi
 
 | Class | Role |
 | --- | --- |
-| `.ew-chrome` | Metallic horizon-split chrome type (any heading) |
+| `.ew-chrome` | Metallic horizon-split chrome type (inherits font-size; `data-size="sm|md|lg"` optional). Hero titles keep the display clamp. |
 | `.ew-script` | Hot-pink brush-script overlay (~-8°) |
 | `.ew-sun-mark` | Small striped sun for logo / empty states |
 | `.ew-section-heading` | Orbitron section title |
@@ -30,7 +31,7 @@ Costume ornament is the default when `data-fidelity-band` is absent. Opt down wi
 
 ## Acceptance (costume dark / light vs bible)
 
-Blind glance: costume dark and bare read as 80s synthwave without being told. Light is a dusk pastel sky with saturated cyan/magenta, not pink-on-pale-blue.
+Blind glance: costume dark and bare read as 80s synthwave without being told. Light is a Miami dusk pink sky with saturated cyan/magenta.
 
 | Motif | Costume dark | Costume light | Notes |
 | --- | --- | --- | --- |
