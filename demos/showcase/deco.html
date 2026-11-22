@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-era="deco" data-mode="dark" data-fidelity-band="costume">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Gatsby — An Evening of Elegance | Deco Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Josefin+Sans:wght@600;700&family=Jost:wght@400;500&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../packages/css/dist/base.css">
+  <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css">
+  <link rel="stylesheet" href="../../packages/css/dist/eras/deco.css">
+  <script type="module" src="../../packages/elements/dist/era-elements.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      --ew-font-display: 'Limelight', serif;
+      --ew-font-body: 'Jost', sans-serif;
+      --ew-font-mono: 'IBM Plex Mono', monospace;
+    }
+    
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 80px 24px 120px;
+      overflow: hidden;
+    }
+    
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+    
+    .hero h1 {
+      font-family: var(--ew-font-display);
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 1.1;
+      margin: 0 0 24px;
+      font-weight: 400;
+    }
+    
+    .hero__subtitle {
+      font-size: 20px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin: 0 0 48px;
+      opacity: 0.9;
+      font-weight: 600;
+    }
+    
+    .hero__cta {
+      display: inline-flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .section {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    
+    .section__title {
+      font-family: var(--ew-font-display);
+      font-size: clamp(32px, 5vw, 56px);
+      text-align: center;
+      margin: 0 0 56px;
+      font-weight: 400;
+    }
+    
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto 80px;
+    }
+    
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      text-align: center;
+      padding: 48px 0;
+    }
+    
+    .pricing__item {
+      padding: 32px 24px;
+      border: 2px double var(--ew-color-gold);
+      background: var(--ew-color-panel);
+    }
+    
+    .pricing__value {
+      font-family: var(--ew-font-display);
+      font-size: 48px;
+      margin: 0 0 8px;
+      color: var(--ew-color-gold);
+    }
+    
+    .pricing__label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+    
+    .divider {
+      margin: 80px auto;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <ew-toast-region aria-live="polite" aria-atomic="false"></ew-toast-region>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__content">
+      <h1>The Gatsby</h1>
+      <p class="hero__subtitle">An Evening of Elegance</p>
+      <div class="hero__cta">
+        <button class="ew-button">Reserve Your Table</button>
+        <button class="ew-button" data-variant="secondary">View Gallery</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="section">
+    <h2 class="section__title">Featured Experiences</h2>
+    
+    <div class="card-grid">
+      <div class="ew-card">
+        <div class="ew-card__header">
+          <h3>The Grand Ballroom</h3>
+        </div>
+        <div class="ew-card__body">
+          <p>An opulent space adorned with gilded moldings and crystal chandeliers. Accommodates up to 300 guests in ceremonial splendor.</p>
+        </div>
+        <div class="ew-card__footer">
+          <button class="ew-button" data-size="sm">Inquire</button>
+        </div>
+      </div>
+      
+      <div class="ew-card" data-variant="raised">
+        <div class="ew-card__header">
+          <h3>The Diamond Suite</h3>
+        </div>
+        <div class="ew-card__body">
+          <p>An intimate setting with marble floors and geometric brass fixtures. Perfect for exclusive gatherings of discerning patrons.</p>
+        </div>
+        <div class="ew-card__footer">
+          <button class="ew-button" data-size="sm">Inquire</button>
+        </div>
+      </div>
+      
+      <div class="ew-card">
+        <div class="ew-card__header">
+          <h3>The Sky Terrace</h3>
+        </div>
+        <div class="ew-card__body">
+          <p>Panoramic city views from our rooftop sanctuary. Stepped terraces and vertical gardens create an elevated atmosphere.</p>
+        </div>
+        <div class="ew-card__footer">
+          <button class="ew-button" data-size="sm">Inquire</button>
+        </div>
+      </div>
+    </div>
+    
+    <hr class="ew-ornament-divider divider">
+    
+    <h2 class="section__title">Reserve Your Experience</h2>
+    
+    <div class="form-grid">
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="guest-name">Guest Name</label>
+        <input class="ew-text-field__control" id="guest-name" type="text" placeholder="John Smith">
+      </div>
+      
+      <ew-select>
+        <label class="ew-select__label">Party Size</label>
+        <select class="ew-select__control">
+          <option value="2">2 Guests</option>
+          <option value="4">4 Guests</option>
+          <option value="6">6 Guests</option>
+          <option value="8">8 Guests</option>
+          <option value="10+">10+ Guests</option>
+        </select>
+      </ew-select>
+      
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="guest-date">Preferred Date</label>
+        <input class="ew-text-field__control" id="guest-date" type="date">
+      </div>
+      
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="guest-email">Email Address</label>
+        <input class="ew-text-field__control" id="guest-email" type="email" placeholder="john@example.com">
+      </div>
+    </div>
+    
+    <div style="max-width: 600px; margin: 0 auto 80px; display: grid; gap: 16px;">
+      <label class="ew-switch">
+        <input class="ew-switch__control" type="checkbox">
+        <div class="ew-switch__track">
+          <div class="ew-switch__thumb"></div>
+        </div>
+        <span class="ew-switch__label">Subscribe to exclusive events</span>
+      </label>
+      
+      <label class="ew-checkbox">
+        <input class="ew-checkbox__control" type="checkbox">
+        <div class="ew-checkbox__box"></div>
+        <span class="ew-checkbox__label">I agree to the terms and conditions</span>
+      </label>
+    </div>
+    
+    <div style="text-align: center;">
+      <button class="ew-button" data-size="lg" onclick="document.querySelector('ew-toast-region').show({title:'Reservation Received',body:'We will contact you within 24 hours.',variant:'info',timeout:5000})">Submit Reservation</button>
+    </div>
+    
+    <hr class="ew-ornament-divider divider">
+    
+    <h2 class="section__title">Membership Tiers</h2>
+    
+    <ew-tabs style="max-width: 800px; margin: 0 auto 48px;">
+      <div role="tablist">
+        <button role="tab" aria-selected="true" aria-controls="panel-bronze">Bronze</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-silver">Silver</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-gold">Gold</button>
+      </div>
+      <div role="tabpanel" id="panel-bronze" tabindex="0">
+        <p>Entry-level membership with access to public events and 10% discount on reservations.</p>
+      </div>
+      <div role="tabpanel" id="panel-silver" hidden tabindex="0">
+        <p>Premium membership with priority booking, 20% discount, and exclusive lounge access.</p>
+      </div>
+      <div role="tabpanel" id="panel-gold" hidden tabindex="0">
+        <p>Elite membership with private concierge, 30% discount, and complimentary valet service.</p>
+      </div>
+    </ew-tabs>
+    
+    <div class="pricing">
+      <div class="pricing__item">
+        <div class="pricing__value">$500</div>
+        <div class="pricing__label">Bronze Tier</div>
+      </div>
+      <div class="pricing__item">
+        <div class="pricing__value">$2,000</div>
+        <div class="pricing__label">Silver Tier</div>
+      </div>
+      <div class="pricing__item">
+        <div class="pricing__value">$5,000</div>
+        <div class="pricing__label">Gold Tier</div>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 48px;">
+      <button class="ew-button" onclick="document.getElementById('membership-dialog').showModal()">View Membership Benefits</button>
+    </div>
+  </div>
+  
+  <!-- Dialog -->
+  <dialog class="ew-dialog" id="membership-dialog">
+    <form method="dialog">
+      <div class="ew-dialog__header">
+        <h2>Membership Benefits</h2>
+      </div>
+      <div class="ew-dialog__body">
+        <p><strong>All memberships include:</strong></p>
+        <ul>
+          <li>Priority reservation system</li>
+          <li>Exclusive event invitations</li>
+          <li>Complimentary coat check</li>
+          <li>Personalized concierge service</li>
+          <li>Members-only gallery viewings</li>
+        </ul>
+        <p>Memberships are valid for one calendar year and may be renewed annually at the prevailing rate.</p>
+      </div>
+      <div class="ew-dialog__footer">
+        <button class="ew-button">Become a Member</button>
+        <button class="ew-button" data-variant="ghost" type="submit">Close</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
