@@ -13,6 +13,8 @@
 (() => {
   const TAG = 'ew-tabs';
   if (customElements.get(TAG)) return;
+  
+  let idCounter = 0;
 
   class EwTabs extends HTMLElement {
     #mo = null;
@@ -629,6 +631,7 @@
       this.classList.add('ew-popover');
       this.addEventListener('click', this.#onClick);
       this.addEventListener('keydown', this.#onKey);
+      this.addEventListener('toggle', this.#onToggle);
       this.#upgrade();
       if (!this.#ready) {
         this.#mo = new MutationObserver(() => this.#upgrade());
@@ -639,6 +642,7 @@
       this.#mo?.disconnect();
       this.removeEventListener('click', this.#onClick);
       this.removeEventListener('keydown', this.#onKey);
+      this.removeEventListener('toggle', this.#onToggle);
       document.removeEventListener('pointerdown', this.#onDoc, true);
     }
 

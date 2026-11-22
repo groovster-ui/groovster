@@ -10,6 +10,8 @@
 (() => {
   const TAG = 'ew-tabs';
   if (customElements.get(TAG)) return;
+  
+  let idCounter = 0;
 
   class EwTabs extends HTMLElement {
     #mo = null;
