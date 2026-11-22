@@ -4,8 +4,10 @@ import { REPO_ROOT, SPEC_ROOT } from './paths.js';
 import { listFiles, writeText, rel } from './io.js';
 import { generateRegistry } from './registry.js';
 import { generateDialectCss } from './dialects.js';
+import { generateReactPackage } from './react-wrapper.js';
 
 export function generateExtras({ components, eras, outputs }) {
+  generateReactPackage(components, outputs);
   // Tokens package dist
   const tokensDist = path.join(REPO_ROOT, 'packages/tokens/dist');
   for (const tier of ['tier1', 'tier2', 'tier3']) {
