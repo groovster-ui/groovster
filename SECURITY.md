@@ -39,7 +39,7 @@ When using Era Widgets in your projects:
 ## Security Features
 
 - **No external dependencies in published packages**: Our CSS and JS packages have zero runtime dependencies
-- **Automated security scanning**: We use CodeQL and Dependabot to identify potential vulnerabilities
+- **Automated dependency updates**: We use Dependabot to keep dependencies up to date
 - **Locked dependencies**: We use `pnpm-lock.yaml` to ensure reproducible builds
 
 ## Disclosure Policy
