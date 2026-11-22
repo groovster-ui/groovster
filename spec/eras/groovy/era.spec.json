@@ -92,7 +92,7 @@
       "elevation: soft lift",
       "ornament: sun/petal sparse",
       "type: Comfortaa + Mulish",
-      "fidelity: default 40 (25–60)",
+      "fidelity: default 40 (25\u201360)",
       "modes: light, dark",
       "use: music, food, lifestyle",
       "never: neon grids, display on controls"
@@ -121,7 +121,7 @@
       "padding": "24px",
       "headerRule": false,
       "titleTracking": "0.04em",
-      "ornament": "none"
+      "ornament": "starburst"
     },
     "field": {
       "borderWidth": "1px",
@@ -146,6 +146,16 @@
       "trackRadius": "999px",
       "thumbRadius": "999px",
       "shadow": "none"
+    },
+    "tooltip": {
+      "radius": "999px",
+      "shadow": "0 4px 0 color-mix(in oklch, var(--ew-color-fg-default) 20%, transparent)",
+      "padding": "8px 12px"
+    },
+    "slider": {
+      "trackHeight": "10px",
+      "thumbSize": "18px",
+      "trackRadius": "999px"
     }
   }
 }

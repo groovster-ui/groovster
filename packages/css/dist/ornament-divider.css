@@ -15,4 +15,19 @@
     border-radius: var(--ew-structure-control-radius, 2px);
     box-shadow: 0 0 0 4px var(--ew-color-bg-page, #fff);
   }
+  /* spec variant variant=line */
+  .ew-ornament-divider[data-variant="line"] { --ew-spec-variant-variant: line; }
+  /* spec variant variant=ornament */
+  .ew-ornament-divider[data-variant="ornament"] { --ew-spec-variant-variant: ornament; }
+  .ew-ornament-divider:not([data-variant]) { --ew-spec-variant-variant: line; }
+  .ew-ornament-divider[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-ornament-divider[data-size="md"] { --ew-spec-size: md; }
+  .ew-ornament-divider[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-ornament-divider:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-ornament-divider, .ew-ornament-divider *, .ew-ornament-divider *::before, .ew-ornament-divider *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

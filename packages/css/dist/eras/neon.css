@@ -159,6 +159,12 @@
     --ew-structure-switch-track-radius: 2px;
     --ew-structure-switch-thumb-radius: 2px;
     --ew-structure-switch-shadow: 0 0 8px color-mix(in oklch, var(--ew-color-action-bg) 40%, transparent);
+    --ew-structure-tooltip-radius: 2px;
+    --ew-structure-tooltip-shadow: 0 0 12px color-mix(in oklch, var(--ew-color-action-bg) 40%, transparent);
+    --ew-structure-tooltip-padding: 6px 8px;
+    --ew-structure-slider-track-height: 4px;
+    --ew-structure-slider-thumb-size: 14px;
+    --ew-structure-slider-track-radius: 2px;
   }
   [data-era="neon"][data-fidelity-band="whisper"] {
     --ew-structure-card-ornament-opacity: 0;

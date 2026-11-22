@@ -150,6 +150,12 @@
     --ew-structure-switch-track-radius: 999px;
     --ew-structure-switch-thumb-radius: 999px;
     --ew-structure-switch-shadow: none;
+    --ew-structure-tooltip-radius: 4px;
+    --ew-structure-tooltip-shadow: none;
+    --ew-structure-tooltip-padding: 6px 8px;
+    --ew-structure-slider-track-height: 4px;
+    --ew-structure-slider-thumb-size: 14px;
+    --ew-structure-slider-track-radius: 2px;
   }
   [data-era="earth"][data-fidelity-band="whisper"] {
     --ew-structure-card-ornament-opacity: 0;
@@ -160,4 +166,55 @@
   }
 }
 @layer decorators {
+  [data-era="earth"] .ew-button {
+    border-radius: 6px;
+    border-width: 1px;
+    letter-spacing: 0.04em;
+    box-shadow: none;
+    background-image: linear-gradient(180deg, color-mix(in oklch, white 8%, transparent), transparent);
+  }
+  [data-era="earth"] .ew-card {
+    border-radius: 10px;
+    border-width: 1px;
+    box-shadow: none;
+    background-image:
+      linear-gradient(180deg, color-mix(in oklch, var(--ew-color-bg-elevated) 88%, var(--ew-color-border-subtle)), var(--ew-color-bg-surface));
+  }
+  [data-era="earth"] .ew-card__header::after {
+    content: "";
+    display: block;
+    height: 2px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
+    opacity: 0.65;
+  }
+  [data-era="earth"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
+  [data-era="earth"] .ew-text-field__control {
+    border-radius: 6px;
+    border-width: 0 0 2px 0;
+    background: transparent;
+  }
+  [data-era="earth"] .ew-dialog {
+    border-radius: 12px;
+    border-width: 1px;
+  }
+  [data-era="earth"] .ew-tabs [role="tablist"],
+  [data-era="earth"] ew-tabs [role="tablist"] {
+    border-bottom-color: color-mix(in oklch, var(--ew-color-border-strong) 55%, transparent);
+  }
+  [data-era="earth"] .ew-tooltip__tip {
+    border-radius: 4px;
+    border: 1px solid var(--ew-color-border-subtle);
+    background: var(--ew-color-bg-elevated);
+    color: var(--ew-color-fg-default);
+    box-shadow: none;
+  }
+  [data-era="earth"] .ew-slider__control {
+    height: var(--ew-structure-slider-track-height, 4px);
+    accent-color: var(--ew-color-border-strong);
+  }
+  [data-era="earth"] .ew-ornament-divider {
+    background: linear-gradient(90deg, transparent, var(--ew-color-border-subtle), transparent);
+  }
+
 }

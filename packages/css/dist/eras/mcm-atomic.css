@@ -157,6 +157,12 @@
     --ew-structure-switch-track-radius: 999px;
     --ew-structure-switch-thumb-radius: 999px;
     --ew-structure-switch-shadow: 3px 3px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent);
+    --ew-structure-tooltip-radius: 4px;
+    --ew-structure-tooltip-shadow: none;
+    --ew-structure-tooltip-padding: 6px 8px;
+    --ew-structure-slider-track-height: 6px;
+    --ew-structure-slider-thumb-size: 16px;
+    --ew-structure-slider-track-radius: 999px;
   }
   [data-era="mcm-atomic"][data-fidelity-band="whisper"] {
     --ew-structure-card-ornament-opacity: 0;

@@ -79,4 +79,26 @@
   .ew-tabs [data-slot="indicator"], ew-tabs [data-slot="indicator"] {
     display: var(--ew-structure-tabs-indicator-display, none);
   }
+  /* spec variant variant=line */
+  .ew-tabs[data-variant="line"] { --ew-spec-variant-variant: line; }
+  /* spec variant variant=enclosed */
+  .ew-tabs[data-variant="enclosed"] { --ew-spec-variant-variant: enclosed; }
+  /* spec variant variant=pills */
+  .ew-tabs[data-variant="pills"] { --ew-spec-variant-variant: pills; }
+  .ew-tabs:not([data-variant]) { --ew-spec-variant-variant: line; }
+  /* spec variant orientation=horizontal */
+  .ew-tabs[data-orientation="horizontal"] { --ew-spec-variant-orientation: horizontal; }
+  /* spec variant orientation=vertical */
+  .ew-tabs[data-orientation="vertical"] { --ew-spec-variant-orientation: vertical; }
+  .ew-tabs:not([data-orientation]) { --ew-spec-variant-orientation: horizontal; }
+  .ew-tabs[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-tabs[data-size="md"] { --ew-spec-size: md; }
+  .ew-tabs[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-tabs:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-tabs, .ew-tabs *, .ew-tabs *::before, .ew-tabs *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

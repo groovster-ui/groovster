@@ -57,4 +57,23 @@
     mix-blend-mode: var(--ew-structure-card-ornament-blend, normal);
   }
   .ew-card > * { position: relative; z-index: 1; }
+  /* spec variant variant=raised */
+  .ew-card[data-variant="raised"] { --ew-spec-variant-variant: raised; }
+  /* spec variant variant=inset */
+  .ew-card[data-variant="inset"] { --ew-spec-variant-variant: inset; }
+  /* spec variant variant=outline */
+  .ew-card[data-variant="outline"] { --ew-spec-variant-variant: outline; }
+  /* spec variant variant=flat */
+  .ew-card[data-variant="flat"] { --ew-spec-variant-variant: flat; }
+  .ew-card:not([data-variant]) { --ew-spec-variant-variant: raised; }
+  .ew-card[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-card[data-size="md"] { --ew-spec-size: md; }
+  .ew-card[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-card:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-card, .ew-card *, .ew-card *::before, .ew-card *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

@@ -49,4 +49,19 @@
   @media (prefers-reduced-motion: reduce) {
     .ew-switch__track, .ew-switch__thumb { transition: none; }
   }
+  /* spec variant variant=default */
+  .ew-switch[data-variant="default"] { --ew-spec-variant-variant: default; }
+  /* spec variant variant=success */
+  .ew-switch[data-variant="success"] { --ew-spec-variant-variant: success; }
+  .ew-switch:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-switch[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-switch[data-size="md"] { --ew-spec-size: md; }
+  .ew-switch[data-size="lg"] { --ew-spec-size: lg; }
+  .ew-switch:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-switch, .ew-switch *, .ew-switch *::before, .ew-switch *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
 }

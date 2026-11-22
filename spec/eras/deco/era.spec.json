@@ -79,9 +79,9 @@
   ],
   "neverDo": [
     "Never put Cinzel/display faces on Button or TextField labels.",
-    "Never use neon pink/cyan — Deco metal is brass/gold/silver, not synthwave.",
+    "Never use neon pink/cyan \u2014 Deco metal is brass/gold/silver, not synthwave.",
     "Never scatter sunburst SVGs on every card; one architectural motif per surface max.",
-    "Never soft-blur elevation as the primary model — prefer terraced steps.",
+    "Never soft-blur elevation as the primary model \u2014 prefer terraced steps.",
     "Glow never counts toward contrast; lacquer text must pass AA on fills alone."
   ],
   "tokenFiles": [
@@ -101,7 +101,7 @@
       "elevation: terraced steps",
       "ornament: chevron / fan rules",
       "type: Cinzel + Libre Baskerville",
-      "fidelity: default 35 (20–55)",
+      "fidelity: default 35 (20\u201355)",
       "modes: light, dark",
       "use: luxury, editorial, pricing",
       "never: neon glow, display type on controls",
@@ -156,6 +156,16 @@
       "trackRadius": "0px",
       "thumbRadius": "0px",
       "shadow": "0 2px 0 0 var(--ew-color-border-strong)"
+    },
+    "tooltip": {
+      "radius": "0px",
+      "shadow": "0 3px 0 0 var(--ew-color-border-strong)",
+      "padding": "6px 10px"
+    },
+    "slider": {
+      "trackHeight": "3px",
+      "thumbSize": "14px",
+      "trackRadius": "0px"
     }
   }
 }

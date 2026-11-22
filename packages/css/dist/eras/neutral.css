@@ -162,6 +162,12 @@
     --ew-structure-switch-track-radius: 999px;
     --ew-structure-switch-thumb-radius: 999px;
     --ew-structure-switch-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+    --ew-structure-tooltip-radius: 4px;
+    --ew-structure-tooltip-shadow: none;
+    --ew-structure-tooltip-padding: 6px 8px;
+    --ew-structure-slider-track-height: 6px;
+    --ew-structure-slider-thumb-size: 16px;
+    --ew-structure-slider-track-radius: 999px;
   }
   [data-era="neutral"][data-fidelity-band="whisper"] {
     --ew-structure-card-ornament-opacity: 0;
@@ -178,4 +184,12 @@
   [data-era="neutral"] .ew-card {
     border-radius: var(--ew-structure-surface-radius, 12px);
   }
+  [data-era="neutral"] .ew-tooltip__tip {
+    border-radius: var(--ew-structure-tooltip-radius, 6px);
+    box-shadow: var(--ew-structure-tooltip-shadow, none);
+  }
+  [data-era="neutral"] .ew-slider__control {
+    height: var(--ew-structure-slider-track-height, 6px);
+  }
+
 }
