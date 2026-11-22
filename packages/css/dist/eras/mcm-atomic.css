@@ -5,21 +5,21 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Josefin Sans");
+  src: url("../fonts/JosefinSans-Regular.woff2") format("woff2"), local("Josefin Sans");
 }
 @font-face {
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Nunito Sans");
+  src: url("../fonts/NunitoSans-Regular.woff2") format("woff2"), local("Nunito Sans");
 }
 @font-face {
   font-family: "Space Mono";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Space Mono");
+  src: url("../fonts/SpaceMono-Regular.woff2") format("woff2"), local("Space Mono");
 }
 @layer tokens {
   [data-era="mcm-atomic"], [data-era="mcm-atomic"][data-mode="light"] {
@@ -118,7 +118,7 @@
     --ew-color-action-bg: var(--ew-color-accent-solid);
     --ew-color-action-fg: var(--ew-color-accent-fg);
     --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 88%, var(--ew-color-ink));
-    --ew-color-field-bg: color-mix(in oklch, var(--ew-color-sand) 70%, var(--ew-color-ink));
+    --ew-color-field-bg: color-mix(in oklch, var(--ew-color-sand) 88%, var(--ew-color-ink));
     --ew-color-field-border: color-mix(in oklch, var(--ew-color-ink) 55%, var(--ew-color-teal));
     --ew-color-field-focus: var(--ew-color-teal);
     --ew-color-overlay: color-mix(in oklch, var(--ew-color-cream) 70%, transparent);
@@ -163,8 +163,7 @@
     --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
     --ew-structure-card-ornament-content: "";
     --ew-structure-card-ornament-opacity: 0.22;
-    --ew-structure-card-ornament-bg: radial-gradient(circle at 92% 12%, var(--ew-color-action-bg) 0 2px, transparent 3px) no-repeat,
-      conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat;
+    --ew-structure-card-ornament-bg: conic-gradient(from 0deg at 92% 12%, transparent 0 10deg, color-mix(in oklch, var(--ew-color-action-bg) 55%, transparent) 10deg 12deg, transparent 12deg 30deg) no-repeat;
     --ew-structure-card-ornament-size: 120px 120px;
     --ew-structure-card-ornament-blend: multiply;
     --ew-structure-field-border-width: 2px;
@@ -190,6 +189,8 @@
   }
   [data-era="mcm-atomic"][data-fidelity-band="whisper"],
   [data-fidelity-band="whisper"] [data-era="mcm-atomic"],
+  [data-era="mcm-atomic"][data-fidelity-band="standard"],
+  [data-fidelity-band="standard"] [data-era="mcm-atomic"],
   [data-era="mcm-atomic"][data-fidelity-band="default"],
   [data-fidelity-band="default"] [data-era="mcm-atomic"],
   [data-era="mcm-atomic"][data-fidelity-band="signature"],
@@ -210,6 +211,8 @@
   }
   [data-era="mcm-atomic"][data-fidelity-band="whisper"] .ew-card[data-variant="raised"],
   [data-fidelity-band="whisper"] [data-era="mcm-atomic"] .ew-card[data-variant="raised"],
+  [data-era="mcm-atomic"][data-fidelity-band="standard"] .ew-card[data-variant="raised"],
+  [data-fidelity-band="standard"] [data-era="mcm-atomic"] .ew-card[data-variant="raised"],
   [data-era="mcm-atomic"][data-fidelity-band="default"] .ew-card[data-variant="raised"],
   [data-fidelity-band="default"] [data-era="mcm-atomic"] .ew-card[data-variant="raised"],
   [data-era="mcm-atomic"][data-fidelity-band="signature"] .ew-card[data-variant="raised"],
@@ -235,19 +238,34 @@
     background: var(--ew-color-field-bg);
     box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent);
   }
-  [data-era="mcm-atomic"] .ew-radio__disc,
-  [data-era="mcm-atomic"] .ew-checkbox__box {
+  [data-era="mcm-atomic"] .ew-radio__control:not(:checked) + .ew-radio__disc,
+  [data-era="mcm-atomic"] .ew-checkbox__control:not(:checked) + .ew-checkbox__box {
     border-width: 2px;
     border-style: solid;
     border-color: var(--ew-color-border-strong);
     background: var(--ew-color-field-bg);
   }
-  [data-era="mcm-atomic"] .ew-switch__thumb {
+  [data-era="mcm-atomic"] .ew-checkbox__control:checked + .ew-checkbox__box {
+    background: var(--ew-color-action-bg);
+    border-color: var(--ew-color-action-bg);
+  }
+  [data-era="mcm-atomic"] .ew-radio__control:checked + .ew-radio__disc {
+    background: var(--ew-color-field-bg);
+    border-color: var(--ew-color-border-strong);
+  }
+  [data-era="mcm-atomic"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
     background: var(--ew-color-fg-default);
   }
-  [data-era="mcm-atomic"] .ew-switch__track {
+  [data-era="mcm-atomic"] .ew-switch__control:not(:checked) + .ew-switch__track {
     border: 2px solid var(--ew-color-border-strong);
     background: var(--ew-color-field-bg);
+  }
+  [data-era="mcm-atomic"] .ew-switch__control:checked + .ew-switch__track {
+    background: var(--ew-color-track-on, var(--ew-color-action-bg));
+    border-color: var(--ew-color-border-strong);
+  }
+  [data-era="mcm-atomic"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
+    background: var(--ew-color-bg-elevated, #fff);
   }
   [data-era="mcm-atomic"] .ew-dialog {
     border-radius: var(--ew-structure-dialog-radius, 28px);

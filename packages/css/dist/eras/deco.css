@@ -5,21 +5,21 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Limelight");
+  src: url("../fonts/Limelight-Regular.woff2") format("woff2"), local("Limelight");
 }
 @font-face {
   font-family: "Jost";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Jost");
+  src: url("../fonts/Jost-Regular.woff2") format("woff2"), local("Jost");
 }
 @font-face {
   font-family: "IBM Plex Mono";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("IBM Plex Mono");
+  src: url("../fonts/IBMPlexMono-Regular.woff2") format("woff2"), local("IBM Plex Mono");
 }
 @layer tokens {
   [data-era="deco"], [data-era="deco"][data-mode="light"] {
@@ -206,6 +206,8 @@
   }
   [data-era="deco"][data-fidelity-band="whisper"],
   [data-fidelity-band="whisper"] [data-era="deco"],
+  [data-era="deco"][data-fidelity-band="standard"],
+  [data-fidelity-band="standard"] [data-era="deco"],
   [data-era="deco"][data-fidelity-band="default"],
   [data-fidelity-band="default"] [data-era="deco"],
   [data-era="deco"][data-fidelity-band="signature"],
@@ -228,12 +230,20 @@
     --ew-gradient-metal-dark: linear-gradient(180deg, #F6E27A 0%, #D4AF37 38%, #9C7A22 62%, #E9CD6B 100%);
     --ew-gradient-metal: var(--ew-gradient-metal-light);
     --ew-ornament-fan: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 56'%3E%3Cpath d='M8 52 L60 4 L112 52 M18 52 L60 14 L102 52 M28 52 L60 22 L92 52 M38 52 L60 30 L82 52 M48 52 L60 38 L72 52' stroke='%23000' stroke-width='2.4' fill='none'/%3E%3Ccircle cx='60' cy='52' r='4' fill='%23000'/%3E%3C/svg%3E");
-    --ew-deco-step-frame: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20120%22%20fill%3D%22none%22%20preserveAspectRatio%3D%22none%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M8%2028%20H16%20V16%20H28%20V8%20H172%20V16%20H184%20V28%20H192%20V92%20H184%20V104%20H172%20V112%20H28%20V104%20H16%20V92%20H8%20Z%22%0A%20%20%20%20%20%20stroke%3D%22black%22%20stroke-width%3D%223%22%20stroke-linejoin%3D%22miter%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M14%2034%20H22%20V22%20H34%20V14%20H166%20V22%20H178%20V34%20H186%20V86%20H178%20V98%20H166%20V106%20H34%20V98%20H22%20V86%20H14%20Z%22%0A%20%20%20%20%20%20stroke%3D%22black%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22miter%22%2F%3E%0A%20%20%3C%2Fsvg%3E");
+    --ew-deco-step-tl: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%3E%0A%20%20%20%20%20%20%3Cg%20%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523B08D2C%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22miter%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M2%2028%20V16%20H8%20V8%20H16%20V2%20H28%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523B08D2C%22%20stroke-width%3D%221.25%22%20stroke-linejoin%3D%22miter%22%20opacity%3D%220.85%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M6%2028%20V18%20H12%20V12%20H18%20V6%20H28%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-deco-step-tr: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(28%200)%20scale(-1%201)%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523B08D2C%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22miter%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M2%2028%20V16%20H8%20V8%20H16%20V2%20H28%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523B08D2C%22%20stroke-width%3D%221.25%22%20stroke-linejoin%3D%22miter%22%20opacity%3D%220.85%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M6%2028%20V18%20H12%20V12%20H18%20V6%20H28%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-deco-step-bl: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(0%2028)%20scale(1%20-1)%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523B08D2C%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22miter%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M2%2028%20V16%20H8%20V8%20H16%20V2%20H28%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523B08D2C%22%20stroke-width%3D%221.25%22%20stroke-linejoin%3D%22miter%22%20opacity%3D%220.85%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M6%2028%20V18%20H12%20V12%20H18%20V6%20H28%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-deco-step-br: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(28%2028)%20scale(-1%20-1)%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523B08D2C%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22miter%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M2%2028%20V16%20H8%20V8%20H16%20V2%20H28%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523B08D2C%22%20stroke-width%3D%221.25%22%20stroke-linejoin%3D%22miter%22%20opacity%3D%220.85%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M6%2028%20V18%20H12%20V12%20H18%20V6%20H28%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-deco-step-width: 3px;
     --ew-deco-step-clip: none;
     --ew-deco-step-clip-sm: none;
   }
   [data-era="deco"][data-mode="dark"] {
     --ew-gradient-metal: var(--ew-gradient-metal-dark);
+    --ew-deco-step-tl: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%3E%0A%20%20%20%20%20%20%3Cg%20%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523D4AF37%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22miter%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M2%2028%20V16%20H8%20V8%20H16%20V2%20H28%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523D4AF37%22%20stroke-width%3D%221.25%22%20stroke-linejoin%3D%22miter%22%20opacity%3D%220.85%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M6%2028%20V18%20H12%20V12%20H18%20V6%20H28%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-deco-step-tr: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(28%200)%20scale(-1%201)%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523D4AF37%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22miter%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M2%2028%20V16%20H8%20V8%20H16%20V2%20H28%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523D4AF37%22%20stroke-width%3D%221.25%22%20stroke-linejoin%3D%22miter%22%20opacity%3D%220.85%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M6%2028%20V18%20H12%20V12%20H18%20V6%20H28%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-deco-step-bl: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(0%2028)%20scale(1%20-1)%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523D4AF37%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22miter%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M2%2028%20V16%20H8%20V8%20H16%20V2%20H28%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523D4AF37%22%20stroke-width%3D%221.25%22%20stroke-linejoin%3D%22miter%22%20opacity%3D%220.85%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M6%2028%20V18%20H12%20V12%20H18%20V6%20H28%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    --ew-deco-step-br: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2228%22%20height%3D%2228%22%20viewBox%3D%220%200%2028%2028%22%3E%0A%20%20%20%20%20%20%3Cg%20transform%3D%22translate(28%2028)%20scale(-1%20-1)%22%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523D4AF37%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22miter%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M2%2028%20V16%20H8%20V8%20H16%20V2%20H28%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2523D4AF37%22%20stroke-width%3D%221.25%22%20stroke-linejoin%3D%22miter%22%20opacity%3D%220.85%22%0A%20%20%20%20%20%20%20%20%20%20d%3D%22M6%2028%20V18%20H12%20V12%20H18%20V6%20H28%22%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fsvg%3E");
   }
 
   /* --- Library: hero panel (sunburst is hero-only, not fixed page layer) --- */
@@ -269,30 +279,31 @@
     position: relative;
     z-index: 2;
     width: min(920px, 100%);
-    padding: 64px 48px 56px;
+    padding: 56px 48px 48px;
     text-align: center;
     border: 4px double var(--ew-color-gold);
-    background: color-mix(in oklch, var(--ew-color-panel) 92%, transparent);
+    /* Fixed-size stepped corners + straight gold edges (constant line width) */
+    background-color: color-mix(in srgb, var(--ew-color-panel) 92%, transparent);
+    background-image:
+      var(--ew-deco-step-tl),
+      var(--ew-deco-step-tr),
+      var(--ew-deco-step-bl),
+      var(--ew-deco-step-br);
+    background-size: 28px 28px;
+    background-position: left 6px top 6px, right 6px top 6px, left 6px bottom 6px, right 6px bottom 6px;
+    background-repeat: no-repeat;
     box-shadow:
-      0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 65%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--ew-color-gold) 65%, transparent),
       0 10px 0 0 var(--ew-color-gold);
   }
   [data-era="deco"] .ew-hero__panel::before {
-    content: "" / "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    opacity: 0.95;
+    content: none;
   }
   [data-era="deco"] .ew-hero__panel::after {
     content: "" / "";
     position: absolute;
     inset: 14px;
-    border: 2px double color-mix(in oklch, var(--ew-color-gold) 75%, transparent);
+    border: 2px double color-mix(in srgb, var(--ew-color-gold) 75%, transparent);
     pointer-events: none;
     z-index: 1;
   }
@@ -400,19 +411,20 @@
   [data-era="deco"] .ew-tier-card {
     position: relative;
     text-align: center;
-    padding: 40px 24px 28px;
+    padding: 36px 24px 28px;
     border: 3px double var(--ew-color-gold);
-    background: var(--ew-color-bg-surface);
+    background-color: var(--ew-color-bg-surface);
+    background-image:
+      var(--ew-deco-step-tl),
+      var(--ew-deco-step-tr),
+      var(--ew-deco-step-bl),
+      var(--ew-deco-step-br);
+    background-size: 24px 24px;
+    background-position: left 4px top 4px, right 4px top 4px, left 4px bottom 4px, right 4px bottom 4px;
+    background-repeat: no-repeat;
   }
   [data-era="deco"] .ew-tier-card::after {
-    content: "" / "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    opacity: 0.9;
+    content: none;
   }
   [data-era="deco"] .ew-tier-card::before {
     content: "" / "";
@@ -440,28 +452,34 @@
     color: var(--ew-color-gold);
   }
 
-  /* --- Cards: gold stepped frame via SVG mask (no clip-path border cutting) --- */
+  /* --- Cards: straight gold edges + fixed-size stepped corner tiles --- */
   [data-era="deco"] .ew-card {
     position: relative;
-    border-style: double;
-    border-width: 4px;
-    border-color: var(--ew-color-gold);
     clip-path: none;
-    background: var(--ew-color-bg-surface);
+    background-color: var(--ew-color-bg-surface);
+    border: 4px double var(--ew-color-gold);
+    background-image:
+      var(--ew-deco-step-tl),
+      var(--ew-deco-step-tr),
+      var(--ew-deco-step-bl),
+      var(--ew-deco-step-br);
+    background-size: 28px 28px;
+    background-position: left 6px top 6px, right 6px top 6px, left 6px bottom 6px, right 6px bottom 6px;
+    background-repeat: no-repeat;
     box-shadow:
-      0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 70%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--ew-color-gold) 70%, transparent),
       0 6px 0 0 var(--ew-color-border-strong),
-      0 12px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 22%, transparent);
+      0 12px 0 0 color-mix(in srgb, var(--ew-color-fg-default) 22%, transparent);
     overflow: visible;
-    padding-top: 8px;
+    padding: 16px 20px 20px;
   }
   [data-era="deco"] .ew-card[data-variant="raised"] {
-    background: var(--ew-color-bg-elevated);
+    background-color: var(--ew-color-bg-elevated);
   }
   [data-era="deco"] .ew-card::before {
     content: "" / "";
     position: absolute;
-    top: 18px;
+    top: 14px;
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
@@ -473,20 +491,17 @@
     z-index: 2;
     pointer-events: none;
   }
-  /* Stepped gold stroke follows ziggurat path (mask), plus inner double rule */
   [data-era="deco"] .ew-card::after {
-    content: "" / "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    opacity: 0.95;
+    content: none;
   }
   [data-era="deco"] .ew-card__header {
-    padding-top: 64px;
+    padding-top: 56px;
+  }
+  [data-era="deco"] .ew-card__header,
+  [data-era="deco"] .ew-card__body,
+  [data-era="deco"] .ew-card__footer {
+    position: relative;
+    z-index: 2;
   }
   [data-era="deco"] .ew-card__header h2,
   [data-era="deco"] .ew-card__header h3 {
@@ -513,102 +528,136 @@
   /* Mute costume ornament under whisper/default */
   [data-era="deco"][data-fidelity-band="whisper"] .ew-hero__backdrop,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-hero__backdrop,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-hero__backdrop,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-hero__backdrop,
   [data-era="deco"][data-fidelity-band="default"] .ew-hero__backdrop,
   [data-fidelity-band="default"] [data-era="deco"] .ew-hero__backdrop,
   [data-era="deco"][data-fidelity-band="signature"] .ew-hero__backdrop,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-hero__backdrop,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-hero__rays,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-hero__rays,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-hero__rays,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-hero__rays,
   [data-era="deco"][data-fidelity-band="default"] .ew-hero__rays,
   [data-fidelity-band="default"] [data-era="deco"] .ew-hero__rays,
   [data-era="deco"][data-fidelity-band="signature"] .ew-hero__rays,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-hero__rays,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-hero__fan,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-hero__fan,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-hero__fan,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-hero__fan,
   [data-era="deco"][data-fidelity-band="default"] .ew-hero__fan,
   [data-fidelity-band="default"] [data-era="deco"] .ew-hero__fan,
   [data-era="deco"][data-fidelity-band="signature"] .ew-hero__fan,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-hero__fan,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-hero__panel::before,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-hero__panel::before,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-hero__panel::before,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-hero__panel::before,
   [data-era="deco"][data-fidelity-band="default"] .ew-hero__panel::before,
   [data-fidelity-band="default"] [data-era="deco"] .ew-hero__panel::before,
   [data-era="deco"][data-fidelity-band="signature"] .ew-hero__panel::before,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-hero__panel::before,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-hero__panel::after,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-hero__panel::after,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-hero__panel::after,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-hero__panel::after,
   [data-era="deco"][data-fidelity-band="default"] .ew-hero__panel::after,
   [data-fidelity-band="default"] [data-era="deco"] .ew-hero__panel::after,
   [data-era="deco"][data-fidelity-band="signature"] .ew-hero__panel::after,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-hero__panel::after,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-section-heading::before,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-section-heading::before,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-section-heading::before,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-section-heading::before,
   [data-era="deco"][data-fidelity-band="default"] .ew-section-heading::before,
   [data-fidelity-band="default"] [data-era="deco"] .ew-section-heading::before,
   [data-era="deco"][data-fidelity-band="signature"] .ew-section-heading::before,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-section-heading::before,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-section-heading::after,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-section-heading::after,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-section-heading::after,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-section-heading::after,
   [data-era="deco"][data-fidelity-band="default"] .ew-section-heading::after,
   [data-fidelity-band="default"] [data-era="deco"] .ew-section-heading::after,
   [data-era="deco"][data-fidelity-band="signature"] .ew-section-heading::after,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-section-heading::after,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-tier-card::before,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-tier-card::before,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-tier-card::before,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-tier-card::before,
   [data-era="deco"][data-fidelity-band="default"] .ew-tier-card::before,
   [data-fidelity-band="default"] [data-era="deco"] .ew-tier-card::before,
   [data-era="deco"][data-fidelity-band="signature"] .ew-tier-card::before,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-tier-card::before,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-tier-card::after,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-tier-card::after,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-tier-card::after,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-tier-card::after,
   [data-era="deco"][data-fidelity-band="default"] .ew-tier-card::after,
   [data-fidelity-band="default"] [data-era="deco"] .ew-tier-card::after,
   [data-era="deco"][data-fidelity-band="signature"] .ew-tier-card::after,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-tier-card::after,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-card::before,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-card::before,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-card::before,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-card::before,
   [data-era="deco"][data-fidelity-band="default"] .ew-card::before,
   [data-fidelity-band="default"] [data-era="deco"] .ew-card::before,
   [data-era="deco"][data-fidelity-band="signature"] .ew-card::before,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-card::before,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-card::after,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-card::after,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-card::after,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-card::after,
   [data-era="deco"][data-fidelity-band="default"] .ew-card::after,
   [data-fidelity-band="default"] [data-era="deco"] .ew-card::after,
   [data-era="deco"][data-fidelity-band="signature"] .ew-card::after,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-card::after,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-card__header::after,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-card__header::after,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-card__header::after,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-card__header::after,
   [data-era="deco"][data-fidelity-band="default"] .ew-card__header::after,
   [data-fidelity-band="default"] [data-era="deco"] .ew-card__header::after,
   [data-era="deco"][data-fidelity-band="signature"] .ew-card__header::after,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-card__header::after,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-ornament-divider,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-ornament-divider,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-ornament-divider,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-ornament-divider,
   [data-era="deco"][data-fidelity-band="default"] .ew-ornament-divider,
   [data-fidelity-band="default"] [data-era="deco"] .ew-ornament-divider,
   [data-era="deco"][data-fidelity-band="signature"] .ew-ornament-divider,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-ornament-divider,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-ornament-divider::before,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-ornament-divider::before,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-ornament-divider::before,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-ornament-divider::before,
   [data-era="deco"][data-fidelity-band="default"] .ew-ornament-divider::before,
   [data-fidelity-band="default"] [data-era="deco"] .ew-ornament-divider::before,
   [data-era="deco"][data-fidelity-band="signature"] .ew-ornament-divider::before,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-ornament-divider::before,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-dialog::before,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-dialog::before,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-dialog::before,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-dialog::before,
   [data-era="deco"][data-fidelity-band="default"] .ew-dialog::before,
   [data-fidelity-band="default"] [data-era="deco"] .ew-dialog::before,
   [data-era="deco"][data-fidelity-band="signature"] .ew-dialog::before,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-dialog::before,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-dialog::after,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-dialog::after,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-dialog::after,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-dialog::after,
   [data-era="deco"][data-fidelity-band="default"] .ew-dialog::after,
   [data-fidelity-band="default"] [data-era="deco"] .ew-dialog::after,
   [data-era="deco"][data-fidelity-band="signature"] .ew-dialog::after,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-dialog::after,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-toast::before,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-toast::before,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-toast::before,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-toast::before,
   [data-era="deco"][data-fidelity-band="default"] .ew-toast::before,
   [data-fidelity-band="default"] [data-era="deco"] .ew-toast::before,
   [data-era="deco"][data-fidelity-band="signature"] .ew-toast::before,
@@ -617,18 +666,24 @@
   }
   [data-era="deco"][data-fidelity-band="whisper"] .ew-hero__panel,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-hero__panel,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-hero__panel,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-hero__panel,
   [data-era="deco"][data-fidelity-band="default"] .ew-hero__panel,
   [data-fidelity-band="default"] [data-era="deco"] .ew-hero__panel,
   [data-era="deco"][data-fidelity-band="signature"] .ew-hero__panel,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-hero__panel,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-card,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-card,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-card,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-card,
   [data-era="deco"][data-fidelity-band="default"] .ew-card,
   [data-fidelity-band="default"] [data-era="deco"] .ew-card,
   [data-era="deco"][data-fidelity-band="signature"] .ew-card,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-card,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-tier-card,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-tier-card,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-tier-card,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-tier-card,
   [data-era="deco"][data-fidelity-band="default"] .ew-tier-card,
   [data-fidelity-band="default"] [data-era="deco"] .ew-tier-card,
   [data-era="deco"][data-fidelity-band="signature"] .ew-tier-card,
@@ -638,24 +693,32 @@
   }
   [data-era="deco"][data-fidelity-band="whisper"] .ew-card,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-card,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-card,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-card,
   [data-era="deco"][data-fidelity-band="default"] .ew-card,
   [data-fidelity-band="default"] [data-era="deco"] .ew-card,
   [data-era="deco"][data-fidelity-band="signature"] .ew-card,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-card,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-hero__panel,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-hero__panel,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-hero__panel,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-hero__panel,
   [data-era="deco"][data-fidelity-band="default"] .ew-hero__panel,
   [data-fidelity-band="default"] [data-era="deco"] .ew-hero__panel,
   [data-era="deco"][data-fidelity-band="signature"] .ew-hero__panel,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-hero__panel,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-tier-card,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-tier-card,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-tier-card,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-tier-card,
   [data-era="deco"][data-fidelity-band="default"] .ew-tier-card,
   [data-fidelity-band="default"] [data-era="deco"] .ew-tier-card,
   [data-era="deco"][data-fidelity-band="signature"] .ew-tier-card,
   [data-fidelity-band="signature"] [data-era="deco"] .ew-tier-card,
   [data-era="deco"][data-fidelity-band="whisper"] .ew-dialog,
   [data-fidelity-band="whisper"] [data-era="deco"] .ew-dialog,
+  [data-era="deco"][data-fidelity-band="standard"] .ew-dialog,
+  [data-fidelity-band="standard"] [data-era="deco"] .ew-dialog,
   [data-era="deco"][data-fidelity-band="default"] .ew-dialog,
   [data-fidelity-band="default"] [data-era="deco"] .ew-dialog,
   [data-era="deco"][data-fidelity-band="signature"] .ew-dialog,
@@ -745,23 +808,40 @@
   [data-era="deco"] .ew-switch__track,
   [data-era="deco"] .ew-switch__thumb { border-radius: 0; }
   [data-era="deco"] .ew-switch__track { border: 2px solid var(--ew-color-gold); }
-  [data-era="deco"] .ew-switch__thumb { background: var(--ew-color-gold); }
-
-  /* Dialog — crest reserved space */
-  [data-era="deco"] .ew-dialog {
-    border-style: double;
-    border-width: 4px;
+  [data-era="deco"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
+    background: var(--ew-color-gold);
+  }
+  [data-era="deco"] .ew-switch__control:checked + .ew-switch__track {
+    background: var(--ew-color-track-on, var(--ew-color-action-bg));
     border-color: var(--ew-color-gold);
+  }
+  [data-era="deco"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
+    /* Dark lacquer knob on gold track (≥3:1; white fails on #D4AF37) */
+    background: var(--ew-color-action-fg, #0b0b0c);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--ew-color-fg-default) 25%, transparent);
+  }
+
+  /* Dialog — crest reserved space + stepped corner tiles */
+  [data-era="deco"] .ew-dialog {
     clip-path: none;
-    background: var(--ew-color-bg-elevated);
+    background-color: var(--ew-color-bg-elevated);
+    background-image:
+      var(--ew-deco-step-tl),
+      var(--ew-deco-step-tr),
+      var(--ew-deco-step-bl),
+      var(--ew-deco-step-br);
+    background-size: 28px 28px;
+    background-position: left 6px top 6px, right 6px top 6px, left 6px bottom 6px, right 6px bottom 6px;
+    background-repeat: no-repeat;
     box-shadow: 0 10px 0 0 var(--ew-color-border-strong);
     position: relative;
-    padding-top: 56px;
+    border: 4px double var(--ew-color-gold);
+    padding: 56px 24px 24px;
   }
   [data-era="deco"] .ew-dialog::before {
     content: "" / "";
     position: absolute;
-    top: 12px;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -773,20 +853,18 @@
     z-index: 2;
   }
   [data-era="deco"] .ew-dialog::after {
-    content: "" / "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    mask: var(--ew-deco-step-frame) center / 100% 100% no-repeat;
-    opacity: 0.9;
+    content: none;
   }
   [data-era="deco"] .ew-dialog h2 {
     text-transform: uppercase;
     letter-spacing: 0.16em;
     margin-top: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  [data-era="deco"] .ew-dialog__footer {
+    position: relative;
+    z-index: 2;
   }
 
   /* Tabs */

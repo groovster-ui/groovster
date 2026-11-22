@@ -6,7 +6,7 @@ surface: violet lacquer + scanline
 elevation: hard rim (glow cosmetic)
 ornament: grid / sun in backdrop
 type: Monoton chrome + Orbitron + Mr Dafoe + Exo 2
-fidelity: costume default; bands whisper|default|costume
+fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)
 modes: light (dusk), dark (indigo night)
 dialects: synthwave | miami
 use: arcade, nightclub, festivals

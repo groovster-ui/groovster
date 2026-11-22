@@ -6,7 +6,7 @@ surface: flat tonal
 elevation: soft shadow
 ornament: none
 type: Source Sans 3 + Source Serif 4
-fidelity: default 0 (0–20)
+fidelity: default 0 (0–20) (default deprecated alias of standard)
 modes: light, dark
 use: serious apps, brand host
 never: ornaments, glow, costume type

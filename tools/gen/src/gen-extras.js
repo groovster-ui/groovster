@@ -32,7 +32,7 @@ export function generateExtras({ components, eras, outputs }) {
   const rulesDir = outPath('generated/rules');
   const componentList = components.map((c) => c.id).join(', ');
   const eraIds = eras.map((e) => e.id).join('|');
-  const eraList = eras.map((e) => `${e.id} (~${e.fidelity.recommended.default})`).join(', ');
+  const eraList = eras.map((e) => `${e.id} (costume default)`).join(', ');
 
   writeText(
     path.join(rulesDir, 'era-widgets.mdc'),
@@ -46,10 +46,11 @@ globs:
 
 - Canonical API is **HTML + \`ew-*\` classes + \`data-*\`**, not React props.
 - Set personality with \`data-era\` on a root (${eraIds}). Do not rewrite markup per era.
-- Fidelity bands only: \`data-fidelity-band="whisper|default|costume"\` (costume default when absent; ancestor bands inherit).
+- Fidelity bands only: \`data-fidelity-band="whisper|standard|costume"\` (costume default when absent; \`default\`/\`signature\` deprecated aliases of \`standard\`; ancestor bands inherit).
 - Zero attributes = defaults. Prefer native \`<button>\`, \`<dialog>\`, \`<input>\`.
 - Hard widgets (APG light-DOM WCs, Zag.js not used): \`ew-tabs\`, \`ew-select\`, \`ew-menu\`, \`ew-popover\`, \`ew-tooltip\`, \`ew-toast-region\`, \`ew-slider\` via \`@groovster/elements/era-elements.js\` (published JS imports nothing).
-- CSS: link \`@groovster/css/era-widgets.css\` (published CSS must not use at-import).
+- CSS: link \`@groovster/css/era-widgets.css\` (published CSS must not use at-import). Packaged OFL WOFF2 faces ship under \`@groovster/css/fonts/\`.
+- Ornament classes live on the era packs (Neon: \`.ew-hero*\`, \`.ew-chrome\`, \`.ew-script\`; Deco: \`.ew-hero__panel\`, stepped frames) — never demo-only \`<style>\`.
 - Glow never counts as contrast; no display faces on controls.
 - MCP \`validate\` returns exact "change X to Y" fixes.
 - Heroes: ${componentList}. Eras: ${eraList}.
@@ -63,8 +64,8 @@ globs:
 
 Use **HTML** with \`ew-*\` classes. Flip eras with \`data-era\` (${eraIds}).
 
-Fidelity is **bands only**: \`data-fidelity-band="whisper|default|costume"\` (\`signature\` aliases \`default\`).
-**Costume is the default** when the attribute is absent; set whisper/default to opt down.
+Fidelity is **bands only**: \`data-fidelity-band="whisper|standard|costume"\` (\`default\`/\`signature\` deprecated aliases of \`standard\`).
+**Costume is the default** when the attribute is absent; set whisper/standard to opt down.
 The band may be on the era element or an ancestor.
 
 \`\`\`html
@@ -73,6 +74,8 @@ The band may be on the era element or an ancestor.
   <button type="button" class="ew-button">Save</button>
 </div>
 \`\`\`
+
+Ornament: Neon \`.ew-hero\` / \`.ew-chrome\` / \`.ew-script\`; Deco \`.ew-hero__panel\` / stepped frames — documented in \`llms.txt\` and era cards.
 
 MCP tools: list_eras, get_era_spec, get_component, install, recommend, validate.
 Load only the llms section you need from \`generated/llms/\`.

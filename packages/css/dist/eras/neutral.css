@@ -5,21 +5,21 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Source Serif 4");
+  src: url("../fonts/SourceSerif4-Regular.woff2") format("woff2"), local("Source Serif 4");
 }
 @font-face {
   font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Source Sans 3");
+  src: url("../fonts/SourceSans3-Regular.woff2") format("woff2"), local("Source Sans 3");
 }
 @font-face {
   font-family: "Source Code Pro";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Source Code Pro");
+  src: url("../fonts/SourceCodePro-Regular.woff2") format("woff2"), local("Source Code Pro");
 }
 @layer tokens {
   [data-era="neutral"], [data-era="neutral"][data-mode="light"] {
@@ -195,6 +195,8 @@
   }
   [data-era="neutral"][data-fidelity-band="whisper"],
   [data-fidelity-band="whisper"] [data-era="neutral"],
+  [data-era="neutral"][data-fidelity-band="standard"],
+  [data-fidelity-band="standard"] [data-era="neutral"],
   [data-era="neutral"][data-fidelity-band="default"],
   [data-fidelity-band="default"] [data-era="neutral"],
   [data-era="neutral"][data-fidelity-band="signature"],

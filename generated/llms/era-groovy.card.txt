@@ -6,7 +6,7 @@ surface: warm paper
 elevation: soft lift
 ornament: sun/petal sparse
 type: Comfortaa + Mulish
-fidelity: default 40 (25–60)
+fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)
 modes: light, dark
 use: music, food, lifestyle
 never: neon grids, display on controls

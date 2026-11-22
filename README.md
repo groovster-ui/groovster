@@ -14,7 +14,7 @@ Authority: project roadmap v2 (Agent Store `docs/era-widgets-roadmap-v2.md`).
 
 ### Look settings (fidelity)
 
-- **`data-fidelity-band="whisper|default|costume"`** is the only fidelity API. (`signature` aliases `default`.)
+- **`data-fidelity-band="whisper|standard|costume"`** is the only fidelity API. (`default`/`signature` deprecated aliases of `standard`.)
 - **Costume is the default** when the attribute is absent — set `whisper` or `default` to opt down.
 - The band may live on the era element or an ancestor (`html` / `body` / `.ew-root`).
 - Also honors `prefers-reduced-motion`, `prefers-reduced-transparency`, and `forced-colors`.

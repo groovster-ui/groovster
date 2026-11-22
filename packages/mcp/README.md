@@ -6,7 +6,7 @@ MCP server for Era Widgets. Compact replies by default (`detail: "full"` for mor
 
 | Tool | Default return |
 |---|---|
-| `list_eras` | id, oneLiner, fidelity, bestFit (2) |
+| `list_eras` | id, oneLiner, fidelity bands (`whisper\|standard\|costume`; costume default), bestFit (2) |
 | `get_era_spec` | 10–20 line era card + top neverDo |
 | `get_component` | HTML snippet + CSS import + one a11y note |
 | `install` | npm / registry / copy steps |

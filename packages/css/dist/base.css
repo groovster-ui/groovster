@@ -7,13 +7,15 @@
 }
 
 @layer tokens {
-  /* Bands only: whisper | default | costume (signature aliases default). Costume is the default. */
-  :root, .ew-root, [data-era] {
+  /* Bands: whisper | standard | costume. default/signature alias standard. Costume when absent.
+     Do not set --ew-band on bare [data-era] — that would block ancestor-band inheritance. */
+  :root {
     --ew-band: costume;
   }
   [data-fidelity-band="whisper"] { --ew-band: whisper; }
+  [data-fidelity-band="standard"],
   [data-fidelity-band="default"],
-  [data-fidelity-band="signature"] { --ew-band: default; }
+  [data-fidelity-band="signature"] { --ew-band: standard; }
   [data-fidelity-band="costume"] { --ew-band: costume; }
 
 }

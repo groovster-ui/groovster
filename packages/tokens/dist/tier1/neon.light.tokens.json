@@ -4,18 +4,18 @@
     "tier": 1,
     "era": "neon",
     "mode": "light",
-    "description": "Tier 1 raw values for neon light — dusk pastel sky with saturated neon accents"
+    "description": "Tier 1 raw values for neon light — Miami dusk pink sky with saturated neon accents"
   },
   "color": {
     "sky": {
       "$type": "color",
-      "$value": "#E8D4F5",
-      "$description": "dusk lavender page (not pale blue)"
+      "$value": "#FFD0E4",
+      "$description": "Miami dusk pink page (not lavender)"
     },
     "panel": {
       "$type": "color",
-      "$value": "#F7E8FF",
-      "$description": "lilac surface"
+      "$value": "#FFE8F2",
+      "$description": "blush surface"
     },
     "magenta": {
       "$type": "color",
@@ -25,12 +25,12 @@
     "cyan": {
       "$type": "color",
       "$value": "#066A80",
-      "$description": "deep cyan for AA on dusk lilac"
+      "$description": "deep cyan for AA on dusk pink"
     },
     "violet": {
       "$type": "color",
-      "$value": "#7A5BB5",
-      "$description": "dusk violet"
+      "$value": "#9B4F8A",
+      "$description": "dusk rose-violet"
     },
     "ink": {
       "$type": "color",

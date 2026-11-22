@@ -17,6 +17,7 @@ jobs:
   check:
     name: Lint, Test & Build
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     
     steps:
       - name: Checkout repository
@@ -33,10 +34,13 @@ jobs:
       
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      
+
       - name: Lint
         run: pnpm lint
-      
+
+      - name: Audit dependencies
+        run: pnpm audit --audit-level=high
+
       - name: Run validation checks
         run: pnpm check
       
@@ -48,9 +52,36 @@ jobs:
       
       - name: Run MCP smoke tests
         run: pnpm mcp:smoke
+
+      - name: Resolve Playwright version
+        id: playwright-version
+        run: |
+          version="$(node -e "
+            const fs = require('fs');
+            const lock = fs.readFileSync('pnpm-lock.yaml', 'utf8');
+            const match = lock.match(/^ {2}playwright@([^:]+):/m);
+            if (!match) {
+              throw new Error('playwright version not found in pnpm-lock.yaml');
+            }
+            process.stdout.write(match[1]);
+          ")"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
       
       - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: pnpm exec playwright install --with-deps chromium
+        working-directory: tools/a11y
+
+      - name: Install Playwright OS dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: pnpm exec playwright install-deps chromium
         working-directory: tools/a11y
       
       - name: Run eval harness self-tests

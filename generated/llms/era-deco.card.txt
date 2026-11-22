@@ -6,7 +6,7 @@ surface: lacquer panels
 elevation: terraced steps
 ornament: chevron / fan rules
 type: Limelight + Jost
-fidelity: costume default; bands whisper|default|costume
+fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)
 modes: light, dark
 use: luxury, editorial, pricing
 never: neon glow, display type on controls

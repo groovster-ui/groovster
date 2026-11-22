@@ -54,7 +54,7 @@
         "description": "Structure hints only: radius, type voice, subtle edge. No ornaments."
       },
       {
-        "id": "default",
+        "id": "standard",
         "min": 26,
         "max": 66,
         "description": "Clear era geometry and materials; sparse ornaments on surfaces. Alias: signature."
@@ -80,9 +80,9 @@
   ],
   "neverDo": [
     "Never put Cinzel/display faces on Button or TextField labels.",
-    "Never use neon pink/cyan \u2014 Deco metal is brass/gold/silver, not synthwave.",
+    "Never use neon pink/cyan — Deco metal is brass/gold/silver, not synthwave.",
     "Never scatter sunburst SVGs on every card; one architectural motif per surface max.",
-    "Never soft-blur elevation as the primary model \u2014 prefer terraced steps.",
+    "Never soft-blur elevation as the primary model — prefer terraced steps.",
     "Glow never counts toward contrast; lacquer text must pass AA on fills alone."
   ],
   "tokenFiles": [
@@ -102,7 +102,7 @@
       "elevation: terraced steps",
       "ornament: chevron / fan rules",
       "type: Limelight + Jost",
-      "fidelity: costume default; bands whisper|default|costume",
+      "fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)",
       "modes: light, dark",
       "use: luxury, editorial, pricing",
       "never: neon glow, display type on controls",
