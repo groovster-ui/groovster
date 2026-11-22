@@ -1,5 +1,26 @@
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
 
+@font-face {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Comfortaa");
+}
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Mulish");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("IBM Plex Mono");
+}
 @layer tokens {
   [data-era="groovy"], [data-era="groovy"][data-mode="light"] {
     --ew-era: groovy;
@@ -104,6 +125,9 @@
     --ew-elevation-1: 0px 3px 0px 0px color-mix(in oklch, var(--ew-color-harvest) 40%, transparent);
     --ew-elevation-2: 0px 8px 0px 0px color-mix(in oklch, var(--ew-color-sand) 55%, transparent);
     --ew-elevation-dialog: 0px 14px 0px 0px color-mix(in oklch, var(--ew-color-sand) 65%, transparent);
+    --ew-font-display: Comfortaa, "Bodoni Moda", serif;
+    --ew-font-body: Mulish, Futura, system-ui, sans-serif;
+    --ew-font-mono: "IBM Plex Mono", ui-monospace, monospace;
     color: var(--ew-color-fg-default);
     background: var(--ew-color-bg-page);
     font-family: var(--ew-font-body, system-ui, sans-serif);
@@ -160,7 +184,12 @@
     --ew-structure-slider-thumb-size: 18px;
     --ew-structure-slider-track-radius: 999px;
   }
-  [data-era="groovy"][data-fidelity-band="whisper"] {
+  [data-era="groovy"][data-fidelity-band="whisper"],
+  [data-fidelity-band="whisper"] [data-era="groovy"],
+  [data-era="groovy"][data-fidelity-band="default"],
+  [data-fidelity-band="default"] [data-era="groovy"],
+  [data-era="groovy"][data-fidelity-band="signature"],
+  [data-fidelity-band="signature"] [data-era="groovy"] {
     --ew-structure-card-ornament-opacity: 0;
     --ew-structure-button-clip: none;
     --ew-structure-card-clip: none;
@@ -191,10 +220,21 @@
       radial-gradient(circle at 46px 5px, var(--ew-color-action-bg) 0 3px, transparent 4px);
     opacity: 0.7;
   }
-  [data-era="groovy"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
-  [data-era="groovy"] .ew-text-field__control {
+  [data-era="groovy"][data-fidelity-band="whisper"] .ew-card__header::after,
+  [data-fidelity-band="whisper"] [data-era="groovy"] .ew-card__header::after,
+  [data-era="groovy"][data-fidelity-band="default"] .ew-card__header::after,
+  [data-fidelity-band="default"] [data-era="groovy"] .ew-card__header::after,
+  [data-era="groovy"][data-fidelity-band="signature"] .ew-card__header::after,
+  [data-fidelity-band="signature"] [data-era="groovy"] .ew-card__header::after { display: none; }
+  [data-era="groovy"] .ew-text-field__control,
+  [data-era="groovy"] .ew-select__control,
+  [data-era="groovy"] .ew-select__trigger,
+  [data-era="groovy"] .ew-textarea__control {
     border-radius: 999px;
     border-width: 2px;
+    border-style: solid;
+    border-color: var(--ew-color-field-border);
+    background: var(--ew-color-field-bg);
   }
   [data-era="groovy"] .ew-dialog {
     border-radius: 36px 28px 40px 32px / 28px 36px 30px 34px;

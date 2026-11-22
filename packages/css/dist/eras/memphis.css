@@ -1,5 +1,26 @@
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
 
+@font-face {
+  font-family: "Archivo Black";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Archivo Black");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Nunito");
+}
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Space Mono");
+}
 @layer tokens {
   [data-era="memphis"], [data-era="memphis"][data-mode="light"] {
     --ew-era: memphis;
@@ -104,6 +125,9 @@
     --ew-elevation-1: 4px 4px 0px 0px var(--ew-color-ink);
     --ew-elevation-2: 6px 6px 0px 0px var(--ew-color-yellow);
     --ew-elevation-dialog: 10px 10px 0px 0px var(--ew-color-pink);
+    --ew-font-display: "Archivo Black", "Bodoni Moda", serif;
+    --ew-font-body: Nunito, Futura, system-ui, sans-serif;
+    --ew-font-mono: "Space Mono", ui-monospace, monospace;
     color: var(--ew-color-fg-default);
     background: var(--ew-color-bg-page);
     font-family: var(--ew-font-body, system-ui, sans-serif);
@@ -160,7 +184,12 @@
     --ew-structure-slider-thumb-size: 18px;
     --ew-structure-slider-track-radius: 2px;
   }
-  [data-era="memphis"][data-fidelity-band="whisper"] {
+  [data-era="memphis"][data-fidelity-band="whisper"],
+  [data-fidelity-band="whisper"] [data-era="memphis"],
+  [data-era="memphis"][data-fidelity-band="default"],
+  [data-fidelity-band="default"] [data-era="memphis"],
+  [data-era="memphis"][data-fidelity-band="signature"],
+  [data-fidelity-band="signature"] [data-era="memphis"] {
     --ew-structure-card-ornament-opacity: 0;
     --ew-structure-button-clip: none;
     --ew-structure-card-clip: none;
@@ -196,7 +225,12 @@
       linear-gradient(-45deg, var(--ew-color-border-strong) 25%, transparent 25%) 0 0 / 8px 8px;
     clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   }
-  [data-era="memphis"][data-fidelity-band="whisper"] .ew-card__header::before { display: none; }
+  [data-era="memphis"][data-fidelity-band="whisper"] .ew-card__header::before,
+  [data-fidelity-band="whisper"] [data-era="memphis"] .ew-card__header::before,
+  [data-era="memphis"][data-fidelity-band="default"] .ew-card__header::before,
+  [data-fidelity-band="default"] [data-era="memphis"] .ew-card__header::before,
+  [data-era="memphis"][data-fidelity-band="signature"] .ew-card__header::before,
+  [data-fidelity-band="signature"] [data-era="memphis"] .ew-card__header::before { display: none; }
   [data-era="memphis"] .ew-text-field__control,
   [data-era="memphis"] .ew-select__trigger {
     border-width: 3px;

@@ -22,23 +22,32 @@
     border: var(--ew-structure-field-border-width, 1px) var(--ew-structure-field-border-style, solid) var(--ew-color-field-border);
     border-radius: var(--ew-structure-field-radius, 8px);
     background: var(--ew-color-field-bg); color: var(--ew-color-fg-default);
+    anchor-name: --ew-select-trigger;
   }
   .ew-select__trigger:focus-visible, .ew-select__control:focus-visible {
     outline: 2px solid var(--ew-color-field-focus); outline-offset: 1px;
   }
   .ew-select__list {
     list-style: none; margin: 0; padding: 6px;
+    box-sizing: border-box;
+    position: fixed;
     inset: unset;
     position-anchor: --ew-select-trigger;
-    position-area: block-end;
+    position-area: block-end span-inline-end;
+    position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
     min-width: anchor-size(width);
+    width: max(anchor-size(width), 12rem);
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);
     background: var(--ew-color-bg-elevated); color: var(--ew-color-fg-default);
     box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2));
-    max-height: 220px; overflow: auto;
+    max-height: min(220px, 50vh); overflow: auto;
+    margin: 0;
   }
-  .ew-select__trigger { anchor-name: --ew-select-trigger; }
+  .ew-select__list:popover-open,
+  .ew-select__list:not([hidden]) {
+    display: block;
+  }
   .ew-select__option {
     padding: 8px 10px; border-radius: 6px; cursor: pointer;
   }

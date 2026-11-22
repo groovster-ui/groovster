@@ -6,42 +6,41 @@ Groovster uses `data-fidelity-band` as the **only** supported fidelity API.
 
 ### Valid Values
 
-- `default` - Use era's recommended fidelity (automatically applied)
-- `whisper` - Minimal ornament, muted shadows, reduced drama
-- `costume` - Full structural ornament (era-dependent availability)
+- `costume` — Full structural ornament. **This is the default** when `data-fidelity-band` is absent.
+- `default` — Clear era geometry with quieter ornament (alias: `signature`).
+- `whisper` — Minimal ornament, muted shadows, reduced drama.
+
+The band may be set on the era element **or any ancestor** (e.g. `html` / `body` / `.ew-root`). Costume ornament applies unless a mute band (`whisper` | `default` | `signature`) is present on self or an ancestor.
 
 ### Usage
 
 ```html
-<!-- Default fidelity (recommended) -->
+<!-- Costume ornament (default — no band attribute needed) -->
 <div data-era="deco">...</div>
+
+<!-- Explicit costume (same as omitting the attribute) -->
+<div data-era="deco" data-fidelity-band="costume">...</div>
+
+<!-- Quieter geometry -->
+<div data-era="deco" data-fidelity-band="default">...</div>
 
 <!-- Muted, minimal ornament -->
 <div data-era="deco" data-fidelity-band="whisper">...</div>
 
-<!-- Full ornament (atomic, neon only) -->
-<div data-era="mcm-atomic" data-fidelity-band="costume">...</div>
+<!-- Band on an ancestor applies to nested eras -->
+<html data-fidelity-band="whisper">
+  <div data-era="neon">...</div>
+</html>
 ```
 
 ## Decision
 
-**Numeric `data-fidelity` (0-100) is NOT implemented.**
+**Numeric `data-fidelity` (0–100) is NOT supported.**
 
 Rationale:
 - Band-based fidelity provides clear, named presets
-- Easier for agents to reason about ("whisper" vs "costume")  
+- Easier for agents to reason about ("whisper" vs "costume")
 - Avoids continuous interpolation complexity
-- Matches existing CSS architecture
+- Matches the CSS architecture (costume-on by default; mute bands opt down)
 
-The generator sets `--ew-fidelity-default` from era specs, but no continuous mapping exists. Component CSS uses fidelity bands as discrete selectors.
-
-## For Future Continuous Fidelity
-
-If numeric fidelity is needed later:
-
-1. Add `@property --ew-fidelity` with range 0-100
-2. Map bands: whisper = 0-30, default = 31-70, costume = 71-100
-3. Use CSS `clamp()` or `calc()` to interpolate ornament opacity
-4. Update all 7 era specs with continuous ornament scales
-
-Current architecture supports heavy ornament via decorator slots and backdrop layers, ready for era-authenticity redesign.
+`--ew-band` resolves from `data-fidelity-band` and inherits. Component/decorator CSS uses discrete band selectors, not continuous opacity curves.

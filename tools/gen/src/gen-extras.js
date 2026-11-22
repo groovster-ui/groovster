@@ -46,6 +46,7 @@ globs:
 
 - Canonical API is **HTML + \`ew-*\` classes + \`data-*\`**, not React props.
 - Set personality with \`data-era\` on a root (${eraIds}). Do not rewrite markup per era.
+- Fidelity bands only: \`data-fidelity-band="whisper|default|costume"\` (costume default when absent; ancestor bands inherit).
 - Zero attributes = defaults. Prefer native \`<button>\`, \`<dialog>\`, \`<input>\`.
 - Hard widgets (APG light-DOM WCs, Zag.js not used): \`ew-tabs\`, \`ew-select\`, \`ew-menu\`, \`ew-popover\`, \`ew-tooltip\`, \`ew-toast-region\`, \`ew-slider\` via \`@groovster/elements/era-elements.js\` (published JS imports nothing).
 - CSS: link \`@groovster/css/era-widgets.css\` (published CSS must not use at-import).
@@ -61,6 +62,10 @@ globs:
     `# Era Widgets — agent notes (generated)
 
 Use **HTML** with \`ew-*\` classes. Flip eras with \`data-era\` (${eraIds}).
+
+Fidelity is **bands only**: \`data-fidelity-band="whisper|default|costume"\` (\`signature\` aliases \`default\`).
+**Costume is the default** when the attribute is absent; set whisper/default to opt down.
+The band may be on the era element or an ancestor.
 
 \`\`\`html
 <link rel="stylesheet" href="node_modules/@groovster/css/era-widgets.css" />

@@ -412,7 +412,7 @@
         "budget": "mcp.defaultReply"
       },
       "mcp.eraCard:deco": {
-        "chars": 380,
+        "chars": 398,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:earth": {

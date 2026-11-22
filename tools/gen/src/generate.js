@@ -14,6 +14,8 @@ import { flattenTokens } from './tokens-to-css.js';
 import { genComponentCss } from './component-css.js';
 import { generateExtras } from './gen-extras.js';
 import { generateDialectCss } from './dialects.js';
+import { bandTokenCss, muteBandSel } from './band.js';
+import { decoDecoratorCss } from './deco-decorators.js';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
 
@@ -29,23 +31,33 @@ function loadEras() {
     .sort((a, b) => a.id.localeCompare(b.id));
 }
 
-function fidelityAttrRules() {
-  // Map data-fidelity="0"…"100" → --ew-fidelity so the numeric API is real CSS.
-  const lines = [];
-  for (let i = 0; i <= 100; i++) {
-    lines.push(`  [data-fidelity="${i}"] { --ew-fidelity: ${i}; }`);
-  }
-  return lines.join('\n');
+/** Mute-band selectors (whisper|default|signature) on self or ancestor. */
+function muteBandBlock(eraId, decls) {
+  return `  ${muteBandSel(eraId)} {
+${decls}
+  }`;
+}
+
+/** @font-face stubs so consumers get font-display: swap when faces resolve via local/host. */
+function fontFaceBlock(era) {
+  if (!era.fonts) return '';
+  const families = [era.fonts.display, era.fonts.body, era.fonts.mono].filter(Boolean);
+  const unique = [...new Set(families)];
+  return unique
+    .map(
+      (family) => `@font-face {
+  font-family: "${family}";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("${family}");
+}`
+    )
+    .join('\n');
 }
 
 function genBaseCss() {
   return `${HEADER}@layer reset, tokens, era, components, decorators, overrides;
-
-@property --ew-fidelity {
-  syntax: "<number>";
-  inherits: true;
-  initial-value: 50;
-}
 
 @layer reset {
   .ew-root, .ew-root * { box-sizing: border-box; }
@@ -53,24 +65,7 @@ function genBaseCss() {
 }
 
 @layer tokens {
-  :root, .ew-root, [data-era] {
-    color-scheme: light dark;
-    --ew-fidelity: var(--ew-fidelity-default, 50);
-    --ew-fidelity-ornament: clamp(0, (var(--ew-fidelity) - 20) / 50, 1);
-    --ew-fidelity-drama: clamp(0, (var(--ew-fidelity) - 40) / 40, 1);
-  }
-${fidelityAttrRules()}
-  /* Continuous fidelity drives ornament/drama when band is absent */
-  [data-era][data-fidelity]:not([data-fidelity-band]) {
-    --ew-structure-card-ornament-opacity: calc(var(--ew-fidelity-ornament) * 0.35);
-  }
-${Array.from({ length: 26 }, (_, i) => `  [data-era][data-fidelity="${i}"]:not([data-fidelity-band]) {
-    --ew-structure-card-ornament-opacity: 0;
-    --ew-structure-button-clip: none;
-    --ew-structure-card-clip: none;
-    --ew-structure-button-shadow: none;
-    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
-  }`).join('\n')}
+${bandTokenCss()}
 }
 
 @layer overrides {
@@ -241,7 +236,10 @@ function tokenFileFor(era, tierDir, mode) {
 }
 
 function genEraCss(era) {
-  const blocks = [HEADER, `@layer tokens {`];
+  const faces = fontFaceBlock(era);
+  const blocks = [HEADER];
+  if (faces) blocks.push(faces);
+  blocks.push(`@layer tokens {`);
   for (const mode of era.modes) {
     const t1 = readJson(tokenFileFor(era, 'tier1', mode));
     const t2 = readJson(tokenFileFor(era, 'tier2', mode));
@@ -254,6 +252,16 @@ function genEraCss(era) {
     blocks.push(`    --ew-era: ${era.id};`);
     blocks.push(`    --ew-mode: ${mode};`);
     blocks.push(...vars);
+    // Spec fonts fill gaps when tier1 tokens omit font.* (Deco historically did).
+    const hasFont = vars.some((v) => v.includes('--ew-font-display'));
+    if (era.fonts && !hasFont) {
+      const quote = (name) => (String(name).includes(' ') ? `"${name}"` : name);
+      blocks.push(`    --ew-font-display: ${quote(era.fonts.display)}, "Bodoni Moda", serif;`);
+      blocks.push(`    --ew-font-body: ${quote(era.fonts.body)}, Futura, system-ui, sans-serif;`);
+      if (era.fonts.mono) {
+        blocks.push(`    --ew-font-mono: ${quote(era.fonts.mono)}, ui-monospace, monospace;`);
+      }
+    }
     blocks.push(`    color: var(--ew-color-fg-default);`);
     blocks.push(`    background: var(--ew-color-bg-page);`);
     blocks.push(`    font-family: var(--ew-font-body, system-ui, sans-serif);`);
@@ -269,373 +277,31 @@ function genEraCss(era) {
   }
   blocks.push(`  }`);
 
-  // Fidelity bands: whisper mutes ornaments / softens drama; costume keeps full structure
-  blocks.push(`  [data-era="${era.id}"][data-fidelity-band="whisper"] {`);
-  blocks.push(`    --ew-structure-card-ornament-opacity: 0;`);
-  blocks.push(`    --ew-structure-button-clip: none;`);
-  blocks.push(`    --ew-structure-card-clip: none;`);
-  blocks.push(`    --ew-structure-button-shadow: none;`);
-  blocks.push(`    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);`);
-  blocks.push(`  }`);
+  // Mute bands (whisper|default|signature) on self OR ancestor opt down from costume default
+  blocks.push(
+    muteBandBlock(
+      era.id,
+      `    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);`
+    )
+  );
   blocks.push(`}`);
   // Decorators layer: era-specific chrome that changes structure beyond variables
   blocks.push(`@layer decorators {`);
   if (era.id === 'deco') {
-    blocks.push(`  /* === DECO: ART DECO (1920s-30s) — poster-scale geometry === */
-  
-  /* Metallic gold + shared ornament masks (SVG as mask, tinted via background) */
-  [data-era="deco"] {
-    --ew-gradient-metal-light: linear-gradient(180deg, #E5C166 0%, #B08D2C 38%, #7A5C12 62%, #D4AE2E 100%);
-    --ew-gradient-metal-dark: linear-gradient(180deg, #F6E27A 0%, #D4AF37 38%, #9C7A22 62%, #E9CD6B 100%);
-    --ew-gradient-metal: var(--ew-gradient-metal-light);
-    --ew-ornament-fan: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 56'%3E%3Cpath d='M8 52 L60 4 L112 52 M18 52 L60 14 L102 52 M28 52 L60 22 L92 52 M38 52 L60 30 L82 52 M48 52 L60 38 L72 52' stroke='%23000' stroke-width='2.4' fill='none'/%3E%3Ccircle cx='60' cy='52' r='4' fill='%23000'/%3E%3C/svg%3E");
-    --ew-deco-step-clip: polygon(
-      0 20px, 8px 20px, 8px 12px, 12px 12px, 12px 0,
-      calc(100% - 12px) 0, calc(100% - 12px) 12px, calc(100% - 8px) 12px, calc(100% - 8px) 20px, 100% 20px,
-      100% calc(100% - 20px), calc(100% - 8px) calc(100% - 20px), calc(100% - 8px) calc(100% - 12px), calc(100% - 12px) calc(100% - 12px), calc(100% - 12px) 100%,
-      12px 100%, 12px calc(100% - 12px), 8px calc(100% - 12px), 8px calc(100% - 20px), 0 calc(100% - 20px)
-    );
-    --ew-deco-step-clip-sm: polygon(
-      0 12px, 6px 12px, 6px 6px, 6px 0,
-      calc(100% - 6px) 0, calc(100% - 6px) 6px, calc(100% - 6px) 12px, 100% 12px,
-      100% calc(100% - 12px), calc(100% - 6px) calc(100% - 12px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%,
-      6px 100%, 6px calc(100% - 6px), 6px calc(100% - 12px), 0 calc(100% - 12px)
-    );
-  }
-  [data-era="deco"][data-mode="dark"] {
-    --ew-gradient-metal: var(--ew-gradient-metal-dark);
-  }
-  
-  /* Page sunburst — bold poster rays (costume only) */
-  [data-era="deco"][data-fidelity-band="costume"]::before {
-    content: "" / "";
-    position: fixed;
-    inset: 0;
-    background:
-      repeating-conic-gradient(
-        from 0deg at 50% 36%,
-        color-mix(in oklch, var(--ew-color-gold) 78%, transparent) 0deg 4.5deg,
-        transparent 4.5deg 11deg
-      );
-    mask-image: radial-gradient(ellipse 85% 70% at 50% 32%, black 5%, transparent 68%);
-    -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 32%, black 5%, transparent 68%);
-    pointer-events: none;
-    z-index: 0;
-    opacity: 1;
-  }
-  
-  /* Subtle vertical pinstripe over lacquer */
-  [data-era="deco"][data-fidelity-band="costume"]::after {
-    content: "" / "";
-    position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(
-      90deg,
-      transparent 0 7px,
-      color-mix(in oklch, var(--ew-color-gold) 6%, transparent) 7px 8px
-    );
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.55;
-  }
-  
-  /* === CARDS — ziggurat frame + fan crest === */
-  [data-era="deco"] .ew-card {
-    border-style: double;
-    border-width: 4px;
-    border-color: var(--ew-color-gold);
-    clip-path: var(--ew-deco-step-clip);
-    box-shadow:
-      0 0 0 1px color-mix(in oklch, var(--ew-color-gold) 70%, transparent),
-      0 6px 0 0 var(--ew-color-border-strong),
-      0 12px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 22%, transparent);
-    overflow: visible;
-  }
-  
-  [data-era="deco"] .ew-card[data-variant="raised"] {
-    background: var(--ew-color-bg-elevated);
-  }
-  
-  /* Fan crest — large, gold-tinted via mask */
-  [data-era="deco"][data-fidelity-band="costume"] .ew-card::before {
-    content: "" / "";
-    position: absolute;
-    top: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 56px;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-ornament-fan) center / contain no-repeat;
-    mask: var(--ew-ornament-fan) center / contain no-repeat;
-    opacity: 1;
-    z-index: 2;
-    pointer-events: none;
-  }
-  
-  /* Inner double-rule stepped frame */
-  [data-era="deco"][data-fidelity-band="costume"] .ew-card::after {
-    content: "" / "";
-    position: absolute;
-    inset: 10px;
-    border: 2px double var(--ew-color-gold);
-    clip-path: var(--ew-deco-step-clip-sm);
-    pointer-events: none;
-    opacity: 0.85;
-    z-index: 1;
-  }
-  
-  [data-era="deco"] .ew-card__header {
-    padding-top: 48px;
-  }
-  
-  [data-era="deco"] .ew-card__header h2,
-  [data-era="deco"] .ew-card__header h3 {
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    text-align: center;
-    font-weight: 600;
-    color: var(--ew-color-fg-default);
-  }
-  
-  /* Bold chevron band under card titles */
-  [data-era="deco"][data-fidelity-band="costume"] .ew-card__header::after {
-    content: "" / "";
-    display: block;
-    height: 14px;
-    margin: 16px auto 0;
-    width: 160px;
-    background:
-      repeating-linear-gradient(
-        -45deg,
-        var(--ew-color-gold) 0 8px,
-        transparent 8px 16px
-      ),
-      repeating-linear-gradient(
-        45deg,
-        var(--ew-color-gold) 0 8px,
-        transparent 8px 16px
-      );
-    background-size: 100% 50%;
-    background-position: 0 0, 0 100%;
-    background-repeat: repeat-x;
-    opacity: 0.9;
-  }
-  
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-card::before,
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-card::after,
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
-  
-  /* === SECTION DIVIDERS — real-size chevron / fan === */
-  [data-era="deco"][data-fidelity-band="costume"] .ew-ornament-divider {
-    height: 28px;
-    margin: 48px auto;
-    max-width: 720px;
-    background:
-      linear-gradient(90deg, transparent, var(--ew-color-gold), transparent) center / 100% 2px no-repeat,
-      linear-gradient(90deg, transparent, var(--ew-color-gold), transparent) center / 100% 2px no-repeat;
-    background-position: center 10px, center 16px;
-    border: 0;
-    opacity: 1;
-  }
-  [data-era="deco"][data-fidelity-band="costume"] .ew-ornament-divider::before {
-    content: "" / "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 88px;
-    height: 40px;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-ornament-fan) center / contain no-repeat;
-    mask: var(--ew-ornament-fan) center / contain no-repeat;
-    background-image: none;
-    clip-path: none;
-  }
-  [data-era="deco"][data-fidelity-band="costume"] .ew-ornament-divider[data-variant="ornament"]::before {
-    width: 100px;
-    height: 46px;
-  }
-  
-  /* === BUTTONS === */
-  [data-era="deco"] .ew-button {
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-weight: 700;
-    clip-path: var(--ew-deco-step-clip-sm);
-    box-shadow: 0 3px 0 0 var(--ew-color-border-strong);
-  }
-  
-  [data-era="deco"] .ew-button:active {
-    box-shadow: 0 1px 0 0 var(--ew-color-border-strong);
-  }
-  
-  [data-era="deco"] .ew-button[data-variant="secondary"] {
-    border-style: double;
-    border-width: 3px;
-    border-color: var(--ew-color-gold);
-  }
-  
-  /* === INPUTS — gold underline / inset frame, small-caps labels === */
-  [data-era="deco"] .ew-text-field__label,
-  [data-era="deco"] .ew-select__label {
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 11px;
-    font-weight: 700;
-    font-variant-caps: all-small-caps;
-  }
-  
-  [data-era="deco"] .ew-text-field__control,
-  [data-era="deco"] .ew-select__control,
-  [data-era="deco"] .ew-select__trigger {
-    border-radius: 0;
-    border-top: 1px solid color-mix(in oklch, var(--ew-color-gold) 35%, transparent);
-    border-left: 1px solid color-mix(in oklch, var(--ew-color-gold) 35%, transparent);
-    border-right: 1px solid color-mix(in oklch, var(--ew-color-gold) 35%, transparent);
-    border-bottom: 3px solid var(--ew-color-gold);
-    background: color-mix(in oklch, var(--ew-color-field-bg) 92%, var(--ew-color-brass) 8%);
-  }
-  
-  [data-era="deco"] .ew-text-field__control:focus,
-  [data-era="deco"] .ew-select__control:focus {
-    outline: 2px solid var(--ew-color-field-focus);
-    outline-offset: 2px;
-    border-bottom-color: var(--ew-color-goldFocus, var(--ew-color-gold));
-  }
-  
-  /* === CHECKBOX / SWITCH alignment === */
-  [data-era="deco"] .ew-checkbox,
-  [data-era="deco"] .ew-switch {
-    align-items: center;
-    min-height: 28px;
-  }
-  [data-era="deco"] .ew-checkbox__box {
-    width: 20px;
-    height: 20px;
-    border-style: double;
-    border-width: 3px;
-    border-color: var(--ew-color-gold);
-  }
-  [data-era="deco"] .ew-switch__track,
-  [data-era="deco"] .ew-switch__thumb {
-    border-radius: 0;
-  }
-  [data-era="deco"] .ew-switch__track {
-    border: 2px solid var(--ew-color-gold);
-  }
-  [data-era="deco"] .ew-switch__thumb {
-    background: var(--ew-color-gold);
-  }
-  
-  /* === DIALOG === */
-  [data-era="deco"] .ew-dialog {
-    border-style: double;
-    border-width: 4px;
-    border-color: var(--ew-color-gold);
-    clip-path: var(--ew-deco-step-clip);
-    box-shadow: 0 10px 0 0 var(--ew-color-border-strong);
-    position: relative;
-  }
-  
-  [data-era="deco"][data-fidelity-band="costume"] .ew-dialog::before {
-    content: "" / "";
-    position: absolute;
-    top: 18px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 46px;
-    background-color: var(--ew-color-gold);
-    -webkit-mask: var(--ew-ornament-fan) center / contain no-repeat;
-    mask: var(--ew-ornament-fan) center / contain no-repeat;
-    opacity: 0.95;
-  }
-  
-  [data-era="deco"] .ew-dialog h2 {
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    text-align: center;
-    margin-top: 40px;
-  }
-  
-  /* === TABS — gold-framed === */
-  [data-era="deco"] .ew-tabs [role="tablist"],
-  [data-era="deco"] ew-tabs [role="tablist"] {
-    border-bottom: 3px double var(--ew-color-gold);
-    gap: 0;
-  }
-  
-  [data-era="deco"] .ew-tabs [role="tab"],
-  [data-era="deco"] ew-tabs [role="tab"] {
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 13px;
-    font-weight: 700;
-    border: 2px solid transparent;
-    border-bottom: 0;
-    margin-bottom: -3px;
-  }
-  
-  [data-era="deco"] .ew-tabs [role="tab"][aria-selected="true"],
-  [data-era="deco"] ew-tabs [role="tab"][aria-selected="true"] {
-    clip-path: polygon(0 8px, 8px 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
-    /* action pair stays AA in both modes (gold/lacquer dark; black/gold light) */
-    background: var(--ew-color-action-bg);
-    color: var(--ew-color-action-fg);
-    border-color: var(--ew-color-gold);
-  }
-  
-  /* === HEADINGS === */
-  [data-era="deco"] h1 {
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    text-align: center;
-  }
-  
-  [data-era="deco"][data-fidelity-band="costume"] h1 {
-    background: var(--ew-gradient-metal);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  @supports not (background-clip: text) {
-    [data-era="deco"][data-fidelity-band="costume"] h1 {
-      color: var(--ew-color-gold);
-      -webkit-text-fill-color: unset;
-    }
-  }
-  
-  [data-era="deco"] h2, [data-era="deco"] h3 {
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    text-align: center;
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    [data-era="deco"] * {
-      animation: none !important;
-      transition: none !important;
-    }
-  }
-  
-  @media (forced-colors: active) {
-    [data-era="deco"][data-fidelity-band="costume"]::before,
-    [data-era="deco"][data-fidelity-band="costume"]::after,
-    [data-era="deco"][data-fidelity-band="costume"] .ew-card::before,
-    [data-era="deco"][data-fidelity-band="costume"] .ew-card::after,
-    [data-era="deco"][data-fidelity-band="costume"] .ew-ornament-divider::before {
-      display: none;
-    }
-  }
-`);
+    blocks.push(decoDecoratorCss());
   } else if (era.id === 'mcm-atomic') {
     blocks.push(`  [data-era="mcm-atomic"] .ew-card {
     border-radius: var(--ew-structure-surface-radius, 24px);
   }
-  [data-era="mcm-atomic"][data-fidelity-band="costume"] .ew-card[data-variant="raised"] {
+  [data-era="mcm-atomic"] .ew-card[data-variant="raised"] {
     border-radius: 28px 28px 36px 20px / 24px 32px 22px 30px;
+  }
+  ${muteBandSel('mcm-atomic', ' .ew-card[data-variant="raised"]')} {
+    border-radius: var(--ew-structure-surface-radius, 24px);
   }
   [data-era="mcm-atomic"] .ew-button {
     border-radius: var(--ew-structure-control-radius, 999px);
@@ -645,11 +311,30 @@ function genEraCss(era) {
     text-transform: lowercase;
     font-weight: 600;
   }
-  [data-era="mcm-atomic"] .ew-text-field__control {
+  [data-era="mcm-atomic"] .ew-text-field__control,
+  [data-era="mcm-atomic"] .ew-select__control,
+  [data-era="mcm-atomic"] .ew-select__trigger,
+  [data-era="mcm-atomic"] .ew-textarea__control {
     border-radius: var(--ew-structure-field-radius, 16px);
-    border-width: 0;
-    background: var(--ew-color-bg-surface);
-    box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--ew-color-fg-default) 12%, transparent);
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--ew-color-field-border);
+    background: var(--ew-color-field-bg);
+    box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent);
+  }
+  [data-era="mcm-atomic"] .ew-radio__disc,
+  [data-era="mcm-atomic"] .ew-checkbox__box {
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--ew-color-border-strong);
+    background: var(--ew-color-field-bg);
+  }
+  [data-era="mcm-atomic"] .ew-switch__thumb {
+    background: var(--ew-color-fg-default);
+  }
+  [data-era="mcm-atomic"] .ew-switch__track {
+    border: 2px solid var(--ew-color-border-strong);
+    background: var(--ew-color-field-bg);
   }
   [data-era="mcm-atomic"] .ew-dialog {
     border-radius: var(--ew-structure-dialog-radius, 28px);
@@ -677,15 +362,22 @@ function genEraCss(era) {
     margin-top: 10px;
     background: linear-gradient(90deg, var(--ew-color-action-bg), var(--ew-color-border-subtle), transparent);
   }
-  [data-era="neon"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
+  ${muteBandSel('neon', ' .ew-card__header::after')} { display: none; }
   [data-era="neon"] .ew-card__header h2,
   [data-era="neon"] .ew-card__header h3 {
     text-transform: uppercase;
     font-family: var(--ew-font-display, inherit);
   }
-  [data-era="neon"] .ew-text-field__control {
+  [data-era="neon"] .ew-text-field__control,
+  [data-era="neon"] .ew-select__control,
+  [data-era="neon"] .ew-select__trigger,
+  [data-era="neon"] .ew-textarea__control {
     border-radius: 2px;
-    box-shadow: 0 0 0 1px color-mix(in oklch, var(--ew-color-border-subtle) 50%, transparent);
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--ew-color-field-border);
+    background: var(--ew-color-field-bg);
+    box-shadow: none;
   }
   [data-era="neon"] .ew-dialog {
     border-color: var(--ew-color-border-strong);
@@ -694,7 +386,13 @@ function genEraCss(era) {
   [data-era="neon"] .ew-switch__track {
     border-radius: 2px;
   }
-  [data-era="neon"] .ew-switch__thumb { border-radius: 2px; }
+  [data-era="neon"] .ew-switch__thumb {
+    border-radius: 2px;
+    background: var(--ew-color-ink, var(--ew-color-fg-default));
+  }
+  [data-era="neon"][data-mode="dark"] .ew-switch__track {
+    border: 1px solid color-mix(in oklch, var(--ew-color-ink) 35%, transparent);
+  }
   [data-era="neon"] .ew-tabs [role="tab"][aria-selected="true"],
   [data-era="neon"] ew-tabs [role="tab"][aria-selected="true"] {
     text-shadow: 0 0 8px color-mix(in oklch, var(--ew-color-action-bg) 45%, transparent);
@@ -743,7 +441,7 @@ function genEraCss(era) {
       linear-gradient(-45deg, var(--ew-color-border-strong) 25%, transparent 25%) 0 0 / 8px 8px;
     clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   }
-  [data-era="memphis"][data-fidelity-band="whisper"] .ew-card__header::before { display: none; }
+  ${muteBandSel('memphis', ' .ew-card__header::before')} { display: none; }
   [data-era="memphis"] .ew-text-field__control,
   [data-era="memphis"] .ew-select__trigger {
     border-width: 3px;
@@ -797,10 +495,16 @@ function genEraCss(era) {
       radial-gradient(circle at 46px 5px, var(--ew-color-action-bg) 0 3px, transparent 4px);
     opacity: 0.7;
   }
-  [data-era="groovy"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
-  [data-era="groovy"] .ew-text-field__control {
+  ${muteBandSel('groovy', ' .ew-card__header::after')} { display: none; }
+  [data-era="groovy"] .ew-text-field__control,
+  [data-era="groovy"] .ew-select__control,
+  [data-era="groovy"] .ew-select__trigger,
+  [data-era="groovy"] .ew-textarea__control {
     border-radius: 999px;
     border-width: 2px;
+    border-style: solid;
+    border-color: var(--ew-color-field-border);
+    background: var(--ew-color-field-bg);
   }
   [data-era="groovy"] .ew-dialog {
     border-radius: 36px 28px 40px 32px / 28px 36px 30px 34px;
@@ -858,11 +562,17 @@ function genEraCss(era) {
     background: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
     opacity: 0.65;
   }
-  [data-era="earth"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
-  [data-era="earth"] .ew-text-field__control {
+  ${muteBandSel('earth', ' .ew-card__header::after')} { display: none; }
+  [data-era="earth"] .ew-text-field__control,
+  [data-era="earth"] .ew-select__control,
+  [data-era="earth"] .ew-select__trigger,
+  [data-era="earth"] .ew-textarea__control {
     border-radius: 6px;
-    border-width: 0 0 2px 0;
-    background: transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--ew-color-field-border);
+    border-bottom-width: 2px;
+    background: var(--ew-color-field-bg);
   }
   [data-era="earth"] .ew-dialog {
     border-radius: 12px;

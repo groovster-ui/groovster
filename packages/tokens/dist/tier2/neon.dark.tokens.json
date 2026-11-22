@@ -80,7 +80,8 @@
     "track": {
       "off": {
         "$type": "color",
-        "$value": "{color.violet}"
+        "$value": "color-mix(in oklch, {color.panel} 78%, {color.sky})",
+        "$description": "Off track must contrast with thumb (ink) and elevated violet surfaces"
       },
       "on": {
         "$type": "color",

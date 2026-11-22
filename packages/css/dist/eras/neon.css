@@ -1,5 +1,26 @@
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
 
+@font-face {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Orbitron");
+}
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Exo 2");
+}
+@font-face {
+  font-family: "Share Tech Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Share Tech Mono");
+}
 @layer tokens {
   [data-era="neon"], [data-era="neon"][data-mode="light"] {
     --ew-era: neon;
@@ -99,13 +120,16 @@
     --ew-color-field-border: var(--ew-color-cyan);
     --ew-color-field-focus: var(--ew-color-cyan);
     --ew-color-overlay: color-mix(in oklch, var(--ew-color-sky) 70%, transparent);
-    --ew-color-track-off: var(--ew-color-violet);
+    --ew-color-track-off: color-mix(in oklch, var(--ew-color-panel) 78%, var(--ew-color-sky));
     --ew-color-track-on: var(--ew-color-accent-solid);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
     --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 0px 0px 0px 1px color-mix(in oklch, var(--ew-color-magenta) 55%, transparent);
     --ew-elevation-2: 0px 0px 12px 0px color-mix(in oklch, var(--ew-color-magenta) 35%, transparent), 0px 8px 24px 0px color-mix(in oklch, var(--ew-color-sky) 60%, transparent);
     --ew-elevation-dialog: 0px 0px 24px 0px color-mix(in oklch, var(--ew-color-cyan) 35%, transparent), 0px 20px 48px 0px color-mix(in oklch, var(--ew-color-sky) 70%, transparent);
+    --ew-font-display: Orbitron, "Bodoni Moda", serif;
+    --ew-font-body: "Exo 2", Futura, system-ui, sans-serif;
+    --ew-font-mono: "Share Tech Mono", ui-monospace, monospace;
     color: var(--ew-color-fg-default);
     background: var(--ew-color-bg-page);
     font-family: var(--ew-font-body, system-ui, sans-serif);
@@ -166,7 +190,12 @@
     --ew-structure-slider-thumb-size: 14px;
     --ew-structure-slider-track-radius: 2px;
   }
-  [data-era="neon"][data-fidelity-band="whisper"] {
+  [data-era="neon"][data-fidelity-band="whisper"],
+  [data-fidelity-band="whisper"] [data-era="neon"],
+  [data-era="neon"][data-fidelity-band="default"],
+  [data-fidelity-band="default"] [data-era="neon"],
+  [data-era="neon"][data-fidelity-band="signature"],
+  [data-fidelity-band="signature"] [data-era="neon"] {
     --ew-structure-card-ornament-opacity: 0;
     --ew-structure-button-clip: none;
     --ew-structure-card-clip: none;
@@ -191,15 +220,27 @@
     margin-top: 10px;
     background: linear-gradient(90deg, var(--ew-color-action-bg), var(--ew-color-border-subtle), transparent);
   }
-  [data-era="neon"][data-fidelity-band="whisper"] .ew-card__header::after { display: none; }
+  [data-era="neon"][data-fidelity-band="whisper"] .ew-card__header::after,
+  [data-fidelity-band="whisper"] [data-era="neon"] .ew-card__header::after,
+  [data-era="neon"][data-fidelity-band="default"] .ew-card__header::after,
+  [data-fidelity-band="default"] [data-era="neon"] .ew-card__header::after,
+  [data-era="neon"][data-fidelity-band="signature"] .ew-card__header::after,
+  [data-fidelity-band="signature"] [data-era="neon"] .ew-card__header::after { display: none; }
   [data-era="neon"] .ew-card__header h2,
   [data-era="neon"] .ew-card__header h3 {
     text-transform: uppercase;
     font-family: var(--ew-font-display, inherit);
   }
-  [data-era="neon"] .ew-text-field__control {
+  [data-era="neon"] .ew-text-field__control,
+  [data-era="neon"] .ew-select__control,
+  [data-era="neon"] .ew-select__trigger,
+  [data-era="neon"] .ew-textarea__control {
     border-radius: 2px;
-    box-shadow: 0 0 0 1px color-mix(in oklch, var(--ew-color-border-subtle) 50%, transparent);
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--ew-color-field-border);
+    background: var(--ew-color-field-bg);
+    box-shadow: none;
   }
   [data-era="neon"] .ew-dialog {
     border-color: var(--ew-color-border-strong);
@@ -208,7 +249,13 @@
   [data-era="neon"] .ew-switch__track {
     border-radius: 2px;
   }
-  [data-era="neon"] .ew-switch__thumb { border-radius: 2px; }
+  [data-era="neon"] .ew-switch__thumb {
+    border-radius: 2px;
+    background: var(--ew-color-ink, var(--ew-color-fg-default));
+  }
+  [data-era="neon"][data-mode="dark"] .ew-switch__track {
+    border: 1px solid color-mix(in oklch, var(--ew-color-ink) 35%, transparent);
+  }
   [data-era="neon"] .ew-tabs [role="tab"][aria-selected="true"],
   [data-era="neon"] ew-tabs [role="tab"][aria-selected="true"] {
     text-shadow: 0 0 8px color-mix(in oklch, var(--ew-color-action-bg) 45%, transparent);
