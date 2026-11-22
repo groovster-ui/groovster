@@ -139,7 +139,10 @@ function genEraCss(era) {
     const tier2Path = path.join(REPO_ROOT, ...era.tokenFiles.find((f) => f.includes('.shared.tokens') && f.includes('tier2')).split('/'));
     const t1 = readJson(tier1Path);
     const t2 = readJson(tier2Path);
-    const vars = [...flattenTokens(t1), ...flattenTokens(t2)];
+    const resolvedTokens = new Set();
+    const t1Vars = flattenTokens(t1, [], resolvedTokens);
+    const t2Vars = flattenTokens(t2, [], resolvedTokens);
+    const vars = [...t1Vars, ...t2Vars];
     const selector =
       mode === 'light'
         ? `[data-era="${era.id}"], [data-era="${era.id}"][data-mode="light"]`

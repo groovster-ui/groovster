@@ -10,91 +10,91 @@
     "fg": {
       "default": {
         "$type": "color",
-        "$value": "oklch(18% 0.015 260)"
+        "$value": "{color.gray.8}"
       },
       "muted": {
         "$type": "color",
-        "$value": "oklch(40% 0.02 260)"
+        "$value": "{color.gray.6}"
       },
       "inverse": {
         "$type": "color",
-        "$value": "oklch(99% 0.005 260)"
+        "$value": "{color.gray.0}"
       }
     },
     "bg": {
       "page": {
         "$type": "color",
-        "$value": "oklch(99% 0.005 260)"
+        "$value": "{color.gray.0}"
       },
       "surface": {
         "$type": "color",
-        "$value": "oklch(97% 0.008 260)"
+        "$value": "{color.gray.1}"
       },
       "elevated": {
         "$type": "color",
-        "$value": "oklch(100% 0 0)"
+        "$value": "color-mix(in oklch, {color.gray.0} 95%, white 5%)"
       }
     },
     "border": {
       "subtle": {
         "$type": "color",
-        "$value": "oklch(88% 0.012 260)"
+        "$value": "{color.gray.3}"
       },
       "strong": {
         "$type": "color",
-        "$value": "oklch(75% 0.015 260)"
+        "$value": "{color.gray.4}"
       }
     },
     "action": {
       "bg": {
         "$type": "color",
-        "$value": "oklch(45% 0.12 260)"
+        "$value": "{color.accent.solid}"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(99% 0.005 260)"
+        "$value": "{color.accent.fg}"
       },
       "hover": {
         "$type": "color",
-        "$value": "oklch(40% 0.12 260)"
+        "$value": "color-mix(in oklch, {color.accent.solid} 90%, black 10%)"
       }
     },
     "field": {
       "bg": {
         "$type": "color",
-        "$value": "oklch(100% 0 0)"
+        "$value": "{color.gray.0}"
       },
       "border": {
         "$type": "color",
-        "$value": "oklch(75% 0.015 260)"
+        "$value": "{color.gray.4}"
       },
       "focus": {
         "$type": "color",
-        "$value": "oklch(45% 0.12 260)"
+        "$value": "{color.accent.solid}"
       }
     },
     "overlay": {
       "$type": "color",
-      "$value": "oklch(18% 0.02 260 / 0.45)"
+      "$value": "color-mix(in oklch, {color.gray.8} 100%, transparent 55%)"
     },
     "track": {
       "off": {
         "$type": "color",
-        "$value": "oklch(88% 0.012 260)"
+        "$value": "{color.gray.3}"
       },
       "on": {
         "$type": "color",
-        "$value": "oklch(45% 0.12 260)"
+        "$value": "{color.accent.solid}"
       }
     },
     "danger": {
       "bg": {
         "$type": "color",
-        "$value": "oklch(42% 0.18 25)"
+        "$value": "{color.danger.solid}"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(99% 0.01 25)"
+        "$value": "{color.danger.fg}"
       }
     }
   },
@@ -107,7 +107,7 @@
           "offsetY": "1px",
           "blur": "2px",
           "spread": "0px",
-          "color": "oklch(18% 0.02 260 / 0.08)"
+          "color": "color-mix(in oklch, {color.gray.8} 100%, transparent 92%)"
         }
       ]
     },
@@ -119,7 +119,7 @@
           "offsetY": "4px",
           "blur": "12px",
           "spread": "0px",
-          "color": "oklch(18% 0.02 260 / 0.12)"
+          "color": "color-mix(in oklch, {color.gray.8} 100%, transparent 88%)"
         }
       ]
     },
@@ -131,7 +131,7 @@
           "offsetY": "16px",
           "blur": "40px",
           "spread": "0px",
-          "color": "oklch(18% 0.02 260 / 0.2)"
+          "color": "color-mix(in oklch, {color.gray.8} 100%, transparent 80%)"
         }
       ]
     }
