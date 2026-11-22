@@ -16,6 +16,7 @@ import { generateExtras } from './gen-extras.js';
 import { generateDialectCss } from './dialects.js';
 import { bandTokenCss, muteBandSel } from './band.js';
 import { decoDecoratorCss } from './deco-decorators.js';
+import { atomicDecoratorCss } from './atomic-decorators.js';
 import { neonDecoratorCss } from './neon-decorators.js';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
@@ -360,72 +361,7 @@ function genEraCss(era) {
   if (era.id === 'deco') {
     blocks.push(decoDecoratorCss());
   } else if (era.id === 'mcm-atomic') {
-    blocks.push(`  [data-era="mcm-atomic"] .ew-card {
-    border-radius: var(--ew-structure-surface-radius, 24px);
-  }
-  [data-era="mcm-atomic"] .ew-card[data-variant="raised"] {
-    border-radius: 28px 28px 36px 20px / 24px 32px 22px 30px;
-  }
-  ${muteBandSel('mcm-atomic', ' .ew-card[data-variant="raised"]')} {
-    border-radius: var(--ew-structure-surface-radius, 24px);
-  }
-  [data-era="mcm-atomic"] .ew-button {
-    border-radius: var(--ew-structure-control-radius, 999px);
-  }
-  [data-era="mcm-atomic"] .ew-card__header h2,
-  [data-era="mcm-atomic"] .ew-card__header h3 {
-    text-transform: lowercase;
-    font-weight: 600;
-  }
-  [data-era="mcm-atomic"] .ew-text-field__control,
-  [data-era="mcm-atomic"] .ew-select__control,
-  [data-era="mcm-atomic"] .ew-select__trigger,
-  [data-era="mcm-atomic"] .ew-textarea__control {
-    border-radius: var(--ew-structure-field-radius, 16px);
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--ew-color-field-border);
-    background: var(--ew-color-field-bg);
-    box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent);
-  }
-  [data-era="mcm-atomic"] .ew-radio__control:not(:checked) + .ew-radio__disc,
-  [data-era="mcm-atomic"] .ew-checkbox__control:not(:checked) + .ew-checkbox__box {
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--ew-color-border-strong);
-    background: var(--ew-color-field-bg);
-  }
-  [data-era="mcm-atomic"] .ew-checkbox__control:checked + .ew-checkbox__box {
-    background: var(--ew-color-action-bg);
-    border-color: var(--ew-color-action-bg);
-  }
-  [data-era="mcm-atomic"] .ew-radio__control:checked + .ew-radio__disc {
-    background: var(--ew-color-field-bg);
-    border-color: var(--ew-color-border-strong);
-  }
-  [data-era="mcm-atomic"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
-    background: var(--ew-color-fg-default);
-  }
-  [data-era="mcm-atomic"] .ew-switch__control:not(:checked) + .ew-switch__track {
-    border: 2px solid var(--ew-color-border-strong);
-    background: var(--ew-color-field-bg);
-  }
-  [data-era="mcm-atomic"] .ew-switch__control:checked + .ew-switch__track {
-    background: var(--ew-color-track-on, var(--ew-color-action-bg));
-    border-color: var(--ew-color-border-strong);
-  }
-  [data-era="mcm-atomic"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
-    background: var(--ew-color-bg-elevated, #fff);
-  }
-  [data-era="mcm-atomic"] .ew-dialog {
-    border-radius: var(--ew-structure-dialog-radius, 28px);
-    border-width: 0;
-  }
-  [data-era="mcm-atomic"] .ew-tabs[data-variant="pills"] [role="tab"],
-  [data-era="mcm-atomic"] ew-tabs[data-variant="pills"] [role="tab"] {
-    border-radius: 999px;
-  }
-`);
+    blocks.push(atomicDecoratorCss());
   } else if (era.id === 'neon') {
     blocks.push(neonDecoratorCss());
   } else if (era.id === 'neutral') {
