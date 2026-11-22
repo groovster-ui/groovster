@@ -1,4 +1,4 @@
-# @era-widgets/elements
+# @groovster/elements
 
 Dependency-free **light-DOM** web components (WAI-ARIA APG).
 
@@ -15,7 +15,7 @@ Dependency-free **light-DOM** web components (WAI-ARIA APG).
 | `ew-slider` | Range slider enhancer |
 
 ```html
-<script src="node_modules/@era-widgets/elements/era-elements.js"></script>
+<script src="node_modules/@groovster/elements/era-elements.js"></script>
 ```
 
-Build: `pnpm --filter @era-widgets/elements build` (or `node scripts/bundle-elements.mjs`).
+Build: `pnpm --filter @groovster/elements build` (or `node scripts/bundle-elements.mjs`).

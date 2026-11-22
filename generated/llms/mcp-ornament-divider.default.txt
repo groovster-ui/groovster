@@ -1,5 +1,1 @@
-<!-- OrnamentDivider -->
-<hr class="ew-ornament-divider" data-variant="ornament" />
-
-import "@era-widgets/css/ornament-divider.css";
-a11y: Prefer <hr> or role=separator.
+{"version":"0.1.0-alpha.0","name":"ornament-divider","html":"<hr class=\"ew-ornament-divider\" data-variant=\"ornament\" />","css":"import \"@groovster/css/ornament-divider.css\";","a11y":"Prefer <hr> or role=separator."}

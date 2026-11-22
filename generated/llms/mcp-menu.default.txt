@@ -1,11 +1,1 @@
-<!-- Menu -->
-<ew-menu class="ew-menu">
-  <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-  <div class="ew-menu__panel" role="menu">
-    <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-    <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-  </div>
-</ew-menu>
-
-import "@era-widgets/css/menu.css";
-a11y: Wrap with <ew-menu> for APG keyboard.
+{"version":"0.1.0-alpha.0","name":"menu","html":"<ew-menu class=\"ew-menu\">\n  <button type=\"button\" class=\"ew-button ew-menu__trigger\" aria-haspopup=\"menu\">Actions</button>\n  <div class=\"ew-menu__panel\" role=\"menu\">\n    <button type=\"button\" class=\"ew-menu__item\" role=\"menuitem\">Edit</button>\n    <button type=\"button\" class=\"ew-menu__item\" role=\"menuitem\">Delete</button>\n  </div>\n</ew-menu>","css":"import \"@groovster/css/menu.css\";","a11y":"Wrap with <ew-menu> for APG keyboard."}

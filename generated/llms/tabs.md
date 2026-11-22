@@ -14,7 +14,7 @@ HTML:
 </div>
 ```
 
-CSS: @era-widgets/css/tabs.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/tabs.css + @groovster/css/eras/<era>.css
 Variants: variant=line|enclosed|pills(default:line); orientation=horizontal|vertical(default:horizontal)
 Sizes: sm|md|lg (default md)
 ARIA: tablist / tab / tabpanel

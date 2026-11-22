@@ -12,4 +12,4 @@
 | Toast | Live region | `<ew-toast-region>.show()` | No |
 | Slider | Slider | `<ew-slider>` + native range | No — native keyboard |
 
-Revisit Zag only if a future pattern cannot meet APG keyboard/focus/ARIA with a small light-DOM WC (e.g. complex combobox typeahead with multi-select + grid). Published `@era-widgets/elements` must remain import-free.
+Revisit Zag only if a future pattern cannot meet APG keyboard/focus/ARIA with a small light-DOM WC (e.g. complex combobox typeahead with multi-select + grid). Published `@groovster/elements` must remain import-free.

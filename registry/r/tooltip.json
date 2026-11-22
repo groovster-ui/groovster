@@ -28,6 +28,6 @@
   "meta": {
     "className": "ew-tooltip",
     "canonicalHtml": "<ew-tooltip class=\"ew-tooltip\">\n  <button type=\"button\" class=\"ew-button\" aria-describedby=\"tip-1\">Info</button>\n  <span id=\"tip-1\" class=\"ew-tooltip__tip\" role=\"tooltip\">More detail</span>\n</ew-tooltip>",
-    "cssPackage": "@era-widgets/css/tooltip.css"
+    "cssPackage": "@groovster/css/tooltip.css"
   }
 }

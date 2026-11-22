@@ -54,8 +54,8 @@
     }
   ],
   "imports": [
-    "@era-widgets/css/select.css",
-    "@era-widgets/css/eras/<era>.css"
+    "@groovster/css/select.css",
+    "@groovster/css/eras/<era>.css"
   ],
   "tokenDeps": [
     "color.fg.*",

@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-textarea",
     "canonicalHtml": "<div class=\"ew-textarea\">\n  <label class=\"ew-textarea__label\" for=\"bio\">Bio</label>\n  <textarea id=\"bio\" class=\"ew-textarea__control\" rows=\"4\"></textarea>\n</div>",
-    "cssPackage": "@era-widgets/css/textarea.css"
+    "cssPackage": "@groovster/css/textarea.css"
   }
 }

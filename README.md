@@ -86,14 +86,14 @@ Tabs behavior: `<script src="packages/elements/dist/ew-tabs.js">` — dependency
 ## MCP + registry (Phase 2)
 
 ```bash
-pnpm --filter @era-widgets/mcp smoke   # tool smoke (compact replies + exact-fix validate)
+pnpm --filter @groovster/mcp smoke   # tool smoke (compact replies + exact-fix validate)
 pnpm mcp                               # stdio MCP server
 pnpm gen                               # also writes registry/ + generated/rules/ + llms.txt
 python3 -m http.server 4174 --directory registry
 # npx shadcn@latest add http://127.0.0.1:4174/r/button.json
 ```
 
-Packages (local, publish-ready manifests; not published yet): `@era-widgets/css`, `@era-widgets/elements`, `@era-widgets/tokens`, `@era-widgets/mcp`.
+Packages (local, publish-ready manifests; not published yet): `@groovster/css`, `@groovster/elements`, `@groovster/tokens`, `@groovster/mcp`.
 
 
 

@@ -648,7 +648,7 @@ function genLlmsIndex(components, eras) {
     'Load ONLY the sections you need — do not ingest the whole library.',
     '',
     '## Quick start',
-    '- CSS: @era-widgets/css/era-widgets.css',
+    '- CSS: @groovster/css/era-widgets.css',
     '- MCP: list_eras | get_component | validate | recommend',
     '- Rules: generated/rules/era-widgets.mdc',
     '',
@@ -674,15 +674,16 @@ function genEraCard(era) {
 }
 
 function mcpDefaultReply(comp) {
-  const html = comp.canonicalHtml;
-  const imp = (comp.imports || [])[0] || '@era-widgets/css/' + comp.id + '.css';
-  return [
-    `<!-- ${comp.name} -->`,
-    html,
-    '',
-    `import "${imp}";`,
-    `a11y: ${comp.aria.notes[0]}`,
-  ].join('\n');
+  // Budget the *real* compact MCP get_component payload (same shape as the server).
+  const cssImport = `@groovster/css/${comp.id}.css`;
+  const payload = {
+    version: '0.1.0-alpha.0',
+    name: comp.id,
+    html: comp.canonicalHtml,
+    css: `import "${cssImport}";`,
+    a11y: comp.aria.notes[0],
+  };
+  return JSON.stringify(payload);
 }
 
 export function generateAll() {

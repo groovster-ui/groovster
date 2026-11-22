@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-text-field",
     "canonicalHtml": "<div class=\"ew-text-field\">\n  <label class=\"ew-text-field__label\" for=\"email\">Email</label>\n  <input id=\"email\" class=\"ew-text-field__control\" type=\"email\" autocomplete=\"email\" />\n</div>",
-    "cssPackage": "@era-widgets/css/text-field.css"
+    "cssPackage": "@groovster/css/text-field.css"
   }
 }

@@ -1,8 +1,1 @@
-<!-- Tooltip -->
-<ew-tooltip class="ew-tooltip">
-  <button type="button" class="ew-button" aria-describedby="tip-1">Info</button>
-  <span id="tip-1" class="ew-tooltip__tip" role="tooltip">More detail</span>
-</ew-tooltip>
-
-import "@era-widgets/css/tooltip.css";
-a11y: <ew-tooltip> shows on focus/hover; Escape hides.
+{"version":"0.1.0-alpha.0","name":"tooltip","html":"<ew-tooltip class=\"ew-tooltip\">\n  <button type=\"button\" class=\"ew-button\" aria-describedby=\"tip-1\">Info</button>\n  <span id=\"tip-1\" class=\"ew-tooltip__tip\" role=\"tooltip\">More detail</span>\n</ew-tooltip>","css":"import \"@groovster/css/tooltip.css\";","a11y":"<ew-tooltip> shows on focus/hover; Escape hides."}

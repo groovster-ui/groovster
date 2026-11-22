@@ -16,8 +16,8 @@ Surface container for grouped content. Cards are interaction containers — eras
 
 ## Imports
 
-- `@era-widgets/css/card.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/card.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

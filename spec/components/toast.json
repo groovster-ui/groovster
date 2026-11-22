@@ -42,8 +42,8 @@
     }
   ],
   "imports": [
-    "@era-widgets/css/toast.css",
-    "@era-widgets/css/eras/<era>.css"
+    "@groovster/css/toast.css",
+    "@groovster/css/eras/<era>.css"
   ],
   "tokenDeps": [
     "color.fg.*",

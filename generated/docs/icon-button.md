@@ -14,8 +14,8 @@ Icon-only button with required accessible name.
 
 ## Imports
 
-- `@era-widgets/css/icon-button.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/icon-button.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

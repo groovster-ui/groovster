@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-ornament-divider",
     "canonicalHtml": "<hr class=\"ew-ornament-divider\" data-variant=\"ornament\" />",
-    "cssPackage": "@era-widgets/css/ornament-divider.css"
+    "cssPackage": "@groovster/css/ornament-divider.css"
   }
 }

@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-switch",
     "canonicalHtml": "<label class=\"ew-switch\">\n  <input class=\"ew-switch__control\" type=\"checkbox\" role=\"switch\" aria-checked=\"false\" />\n  <span class=\"ew-switch__track\" aria-hidden=\"true\"><span class=\"ew-switch__thumb\"></span></span>\n  <span class=\"ew-switch__label\">Notifications</span>\n</label>",
-    "cssPackage": "@era-widgets/css/switch.css"
+    "cssPackage": "@groovster/css/switch.css"
   }
 }

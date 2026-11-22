@@ -12,8 +12,8 @@ Text link with era underline/voice.
 
 ## Imports
 
-- `@era-widgets/css/link.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/link.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

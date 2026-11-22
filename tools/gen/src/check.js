@@ -1,11 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import os from 'node:os';
-import { REPO_ROOT, GEN_MANIFEST } from './paths.js';
+import { spawnSync } from 'node:child_process';
+import { REPO_ROOT } from './paths.js';
 import { generateAll } from './generate.js';
 import { checkBudgets } from './budgets.js';
 import { validateAll } from './validate.js';
-import { readJson } from './io.js';
 
 function walkFiles(dir) {
   if (!fs.existsSync(dir)) return [];
@@ -18,78 +17,70 @@ function walkFiles(dir) {
   return out;
 }
 
-/** CI-style: regenerate in a temp dir conceptually by hashing current vs fresh generate.
- *  Practical approach: regenerate in place is destructive; instead compare checksum of
- *  each tracked generated file against a fresh generation into a temp tree. */
+const TRACKED_ROOTS = [
+  path.join(REPO_ROOT, 'packages/css/dist'),
+  path.join(REPO_ROOT, 'packages/elements/dist'),
+  path.join(REPO_ROOT, 'generated'),
+];
+
+function snapshot(roots) {
+  const map = new Map();
+  for (const root of roots) {
+    for (const file of walkFiles(root)) {
+      map.set(path.relative(REPO_ROOT, file), fs.readFileSync(file, 'utf8'));
+    }
+  }
+  return map;
+}
+
+/**
+ * Regenerate in place (deterministic), then:
+ * - flag drift vs committed snapshot
+ * - flag orphan files that disappeared from a fresh generate
+ * - re-run generate for determinism
+ * - check agent budgets (including real MCP replies)
+ */
 export function checkDriftAndBudgets() {
   const validationErrors = validateAll();
   if (validationErrors.length) {
     return { ok: false, validationErrors, drift: [], budgetFailures: [] };
   }
 
-  // Snapshot existing generated outputs
-  const trackedRoots = [
-    path.join(REPO_ROOT, 'packages/css/dist'),
-    path.join(REPO_ROOT, 'generated'),
-  ];
-  const before = new Map();
-  for (const root of trackedRoots) {
-    for (const file of walkFiles(root)) {
-      before.set(path.relative(REPO_ROOT, file), fs.readFileSync(file, 'utf8'));
-    }
-  }
+  const before = snapshot(TRACKED_ROOTS);
 
-  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'ew-gen-'));
-  // Point generator at temp by temporarily swapping — simpler: regenerate then restore if needed.
-  // We regenerate in place, then compare to snapshot; if different from snapshot, drift existed
-  // OR generator is non-deterministic. For check mode we:
-  // 1) regenerate
-  // 2) compare new files to before snapshot — if generator is deterministic and files were
-  //    hand-edited, content changes relative to... wait, regenerating overwrites hand edits.
-  // Correct approach: regenerate to temp by monkeypatching paths — keep it simple:
-  // Read expected from fresh generate into memory without writing? Our generate writes.
-  // Pattern used by many gens: `gen` writes; `check` runs gen to temp and diffs.
-
-  // Implement temp redirect via env consumed by paths — for Phase 0, re-generate and
-  // verify that a second generate is a no-op (deterministic), AND that committed files
-  // match first generate result stored in before... Actually:
-  // - Load committed content (before)
-  // - Run generate (overwrites with correct content)
-  // - If before != after for any file that existed, those files had drifted (hand edits)
-  //   OR first-time generation. For CI on a clean tree after gen committed: before==after.
-  // - Also fail if generate creates new files not in before when before was non-empty? OK.
+  // Rebuild elements dist so orphan/stale checks cover published JS too.
+  spawnSync(process.execPath, [path.join(REPO_ROOT, 'scripts/bundle-elements.mjs')], {
+    cwd: path.join(REPO_ROOT, 'packages/elements'),
+    stdio: 'ignore',
+  });
 
   const afterManifest = generateAll();
+  const after = snapshot(TRACKED_ROOTS);
   const drift = [];
-  const after = new Map();
-  for (const root of trackedRoots) {
-    for (const file of walkFiles(root)) {
-      after.set(path.relative(REPO_ROOT, file), fs.readFileSync(file, 'utf8'));
-    }
-  }
 
   for (const [rel, content] of after) {
-    if (!before.has(rel)) continue; // new file after first gen — ok when bootstrapping
+    if (!before.has(rel)) continue;
     if (before.get(rel) !== content) {
-      drift.push({ file: rel, reason: 'hand-edited or stale; regenerated content differs from committed' });
+      drift.push({ file: rel, reason: 'stale or hand-edited; regenerated content differs from committed' });
     }
   }
 
-  // Determinism: generate again and ensure identical
-  const second = generateAll();
-  for (const root of trackedRoots) {
-    for (const file of walkFiles(root)) {
-      const rel = path.relative(REPO_ROOT, file);
-      const once = after.get(rel);
-      const twice = fs.readFileSync(file, 'utf8');
-      if (once !== twice) {
-        drift.push({ file: rel, reason: 'generator is non-deterministic' });
-      }
+  for (const [rel] of before) {
+    if (!after.has(rel)) {
+      drift.push({ file: rel, reason: 'orphan: present in tree but not produced by generate' });
+    }
+  }
+
+  // Determinism: second generate must match
+  generateAll();
+  const twice = snapshot(TRACKED_ROOTS);
+  for (const [rel, content] of after) {
+    if (twice.get(rel) !== content) {
+      drift.push({ file: rel, reason: 'generator is non-deterministic' });
     }
   }
 
   const budgetFailures = checkBudgets(afterManifest);
-  fs.rmSync(tmp, { recursive: true, force: true });
 
   return {
     ok: drift.length === 0 && budgetFailures.length === 0,
@@ -101,6 +92,5 @@ export function checkDriftAndBudgets() {
 }
 
 export function checkCommittedFreshness() {
-  // Alias used by CLI
   return checkDriftAndBudgets();
 }

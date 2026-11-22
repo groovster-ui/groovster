@@ -28,6 +28,6 @@
   "meta": {
     "className": "ew-slider",
     "canonicalHtml": "<ew-slider class=\"ew-slider\">\n  <label class=\"ew-slider__label\" for=\"vol\">Volume</label>\n  <input id=\"vol\" class=\"ew-slider__control\" type=\"range\" min=\"0\" max=\"100\" value=\"40\" />\n  <output class=\"ew-slider__value\">40</output>\n</ew-slider>",
-    "cssPackage": "@era-widgets/css/slider.css"
+    "cssPackage": "@groovster/css/slider.css"
   }
 }

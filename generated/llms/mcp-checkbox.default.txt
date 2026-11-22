@@ -1,9 +1,1 @@
-<!-- Checkbox -->
-<label class="ew-checkbox">
-  <input class="ew-checkbox__control" type="checkbox" />
-  <span class="ew-checkbox__box" aria-hidden="true"></span>
-  <span class="ew-checkbox__label">Accept terms</span>
-</label>
-
-import "@era-widgets/css/checkbox.css";
-a11y: Prefer native checkbox inside a label.
+{"version":"0.1.0-alpha.0","name":"checkbox","html":"<label class=\"ew-checkbox\">\n  <input class=\"ew-checkbox__control\" type=\"checkbox\" />\n  <span class=\"ew-checkbox__box\" aria-hidden=\"true\"></span>\n  <span class=\"ew-checkbox__label\">Accept terms</span>\n</label>","css":"import \"@groovster/css/checkbox.css\";","a11y":"Prefer native checkbox inside a label."}

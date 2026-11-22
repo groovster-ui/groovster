@@ -1,4 +1,4 @@
-# @era-widgets/mcp
+# @groovster/mcp
 
 MCP server for Era Widgets. Compact replies by default (`detail: "full"` for more).
 
@@ -16,7 +16,7 @@ MCP server for Era Widgets. Compact replies by default (`detail: "full"` for mor
 ## Run
 
 ```bash
-pnpm --filter @era-widgets/mcp start
+pnpm --filter @groovster/mcp start
 # Cursor MCP config: command node, args [ "packages/mcp/src/server.js" ], cwd repo root
-pnpm --filter @era-widgets/mcp smoke
+pnpm --filter @groovster/mcp smoke
 ```

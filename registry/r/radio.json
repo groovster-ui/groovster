@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-radio",
     "canonicalHtml": "<fieldset class=\"ew-radio-group\">\n  <legend>Plan</legend>\n  <label class=\"ew-radio\"><input class=\"ew-radio__control\" type=\"radio\" name=\"plan\" value=\"basic\" /><span class=\"ew-radio__disc\" aria-hidden=\"true\"></span><span class=\"ew-radio__label\">Basic</span></label>\n  <label class=\"ew-radio\"><input class=\"ew-radio__control\" type=\"radio\" name=\"plan\" value=\"pro\" /><span class=\"ew-radio__disc\" aria-hidden=\"true\"></span><span class=\"ew-radio__label\">Pro</span></label>\n</fieldset>",
-    "cssPackage": "@era-widgets/css/radio.css"
+    "cssPackage": "@groovster/css/radio.css"
   }
 }

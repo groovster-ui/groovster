@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-alert",
     "canonicalHtml": "<div class=\"ew-alert\" data-variant=\"warning\" role=\"status\">\n  <strong class=\"ew-alert__title\">Check your email</strong>\n  <p class=\"ew-alert__body\">We sent a confirmation link.</p>\n</div>",
-    "cssPackage": "@era-widgets/css/alert.css"
+    "cssPackage": "@groovster/css/alert.css"
   }
 }

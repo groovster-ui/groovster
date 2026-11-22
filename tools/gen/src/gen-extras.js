@@ -45,8 +45,8 @@ globs:
 - Canonical API is **HTML + \`ew-*\` classes + \`data-*\`**, not React props.
 - Set personality with \`data-era\` on a root (${eraIds}). Do not rewrite markup per era.
 - Zero attributes = defaults. Prefer native \`<button>\`, \`<dialog>\`, \`<input>\`.
-- Hard widgets (APG light-DOM WCs, Zag.js not used): \`ew-tabs\`, \`ew-select\`, \`ew-menu\`, \`ew-popover\`, \`ew-tooltip\`, \`ew-toast-region\`, \`ew-slider\` via \`@era-widgets/elements/era-elements.js\` (published JS imports nothing).
-- CSS: link \`@era-widgets/css/era-widgets.css\` (published CSS must not use at-import).
+- Hard widgets (APG light-DOM WCs, Zag.js not used): \`ew-tabs\`, \`ew-select\`, \`ew-menu\`, \`ew-popover\`, \`ew-tooltip\`, \`ew-toast-region\`, \`ew-slider\` via \`@groovster/elements/era-elements.js\` (published JS imports nothing).
+- CSS: link \`@groovster/css/era-widgets.css\` (published CSS must not use at-import).
 - Glow never counts as contrast; no display faces on controls.
 - MCP \`validate\` returns exact "change X to Y" fixes.
 - Heroes: ${componentList}. Eras: ${eraList}.
@@ -61,7 +61,7 @@ globs:
 Use **HTML** with \`ew-*\` classes. Flip eras with \`data-era\` (${eraIds}).
 
 \`\`\`html
-<link rel="stylesheet" href="node_modules/@era-widgets/css/era-widgets.css" />
+<link rel="stylesheet" href="node_modules/@groovster/css/era-widgets.css" />
 <div data-era="deco" data-mode="light">
   <button type="button" class="ew-button">Save</button>
 </div>

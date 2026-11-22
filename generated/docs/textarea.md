@@ -15,8 +15,8 @@ Multi-line text field with label. Native textarea.
 
 ## Imports
 
-- `@era-widgets/css/textarea.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/textarea.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

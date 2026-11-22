@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-checkbox",
     "canonicalHtml": "<label class=\"ew-checkbox\">\n  <input class=\"ew-checkbox__control\" type=\"checkbox\" />\n  <span class=\"ew-checkbox__box\" aria-hidden=\"true\"></span>\n  <span class=\"ew-checkbox__label\">Accept terms</span>\n</label>",
-    "cssPackage": "@era-widgets/css/checkbox.css"
+    "cssPackage": "@groovster/css/checkbox.css"
   }
 }

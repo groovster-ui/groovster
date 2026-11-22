@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-avatar",
     "canonicalHtml": "<span class=\"ew-avatar\" data-variant=\"circle\" aria-label=\"Ada Lovelace\">\n  <span class=\"ew-avatar__fallback\">AL</span>\n</span>",
-    "cssPackage": "@era-widgets/css/avatar.css"
+    "cssPackage": "@groovster/css/avatar.css"
   }
 }

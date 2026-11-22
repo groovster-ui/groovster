@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-link",
     "canonicalHtml": "<a class=\"ew-link\" href=\"/pricing\">View pricing</a>",
-    "cssPackage": "@era-widgets/css/link.css"
+    "cssPackage": "@groovster/css/link.css"
   }
 }

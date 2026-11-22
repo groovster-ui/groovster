@@ -28,6 +28,6 @@
   "meta": {
     "className": "ew-tabs",
     "canonicalHtml": "<div class=\"ew-tabs\">\n  <div role=\"tablist\" aria-label=\"Plans\">\n    <button type=\"button\" role=\"tab\" id=\"t-basic\" aria-selected=\"true\" aria-controls=\"p-basic\">Basic</button>\n    <button type=\"button\" role=\"tab\" id=\"t-pro\" aria-selected=\"false\" aria-controls=\"p-pro\" tabindex=\"-1\">Pro</button>\n  </div>\n  <div role=\"tabpanel\" id=\"p-basic\" aria-labelledby=\"t-basic\">Basic plan</div>\n  <div role=\"tabpanel\" id=\"p-pro\" aria-labelledby=\"t-pro\" hidden>Pro plan</div>\n</div>",
-    "cssPackage": "@era-widgets/css/tabs.css"
+    "cssPackage": "@groovster/css/tabs.css"
   }
 }

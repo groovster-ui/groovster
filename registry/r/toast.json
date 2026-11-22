@@ -28,6 +28,6 @@
   "meta": {
     "className": "ew-toast",
     "canonicalHtml": "<ew-toast-region class=\"ew-toast-region\" aria-live=\"polite\"></ew-toast-region>\n<!-- region.show({ title, body, variant }) -->",
-    "cssPackage": "@era-widgets/css/toast.css"
+    "cssPackage": "@groovster/css/toast.css"
   }
 }

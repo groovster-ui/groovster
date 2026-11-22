@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-card",
     "canonicalHtml": "<article class=\"ew-card\">\n  <header class=\"ew-card__header\"><h3>Plan</h3></header>\n  <div class=\"ew-card__body\"><p>Everything you need to ship.</p></div>\n  <footer class=\"ew-card__footer\"><button type=\"button\" class=\"ew-button\">Choose</button></footer>\n</article>",
-    "cssPackage": "@era-widgets/css/card.css"
+    "cssPackage": "@groovster/css/card.css"
   }
 }

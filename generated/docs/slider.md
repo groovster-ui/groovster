@@ -16,8 +16,8 @@ Native range input with era track/thumb chrome.
 
 ## Imports
 
-- `@era-widgets/css/slider.css`
-- `@era-widgets/css/eras/<era>.css`
+- `@groovster/css/slider.css`
+- `@groovster/css/eras/<era>.css`
 
 ## Variants
 

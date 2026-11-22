@@ -120,8 +120,8 @@
   ],
   "canonicalHtml": "<label class=\"ew-switch\">\n  <input class=\"ew-switch__control\" type=\"checkbox\" role=\"switch\" aria-checked=\"false\" />\n  <span class=\"ew-switch__track\" aria-hidden=\"true\"><span class=\"ew-switch__thumb\"></span></span>\n  <span class=\"ew-switch__label\">Notifications</span>\n</label>",
   "imports": [
-    "@era-widgets/css/switch.css",
-    "@era-widgets/css/eras/<era>.css"
+    "@groovster/css/switch.css",
+    "@groovster/css/eras/<era>.css"
   ],
   "do": [
     "Keep a visible text label.",

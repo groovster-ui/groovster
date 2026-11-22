@@ -28,6 +28,6 @@
   "meta": {
     "className": "ew-menu",
     "canonicalHtml": "<ew-menu class=\"ew-menu\">\n  <button type=\"button\" class=\"ew-button ew-menu__trigger\" aria-haspopup=\"menu\">Actions</button>\n  <div class=\"ew-menu__panel\" role=\"menu\">\n    <button type=\"button\" class=\"ew-menu__item\" role=\"menuitem\">Edit</button>\n    <button type=\"button\" class=\"ew-menu__item\" role=\"menuitem\">Delete</button>\n  </div>\n</ew-menu>",
-    "cssPackage": "@era-widgets/css/menu.css"
+    "cssPackage": "@groovster/css/menu.css"
   }
 }

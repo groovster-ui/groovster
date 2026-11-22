@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-icon-button",
     "canonicalHtml": "<button type=\"button\" class=\"ew-icon-button\" data-variant=\"ghost\" aria-label=\"Close\">\n  <span class=\"ew-icon-button__icon\" aria-hidden=\"true\">×</span>\n</button>",
-    "cssPackage": "@era-widgets/css/icon-button.css"
+    "cssPackage": "@groovster/css/icon-button.css"
   }
 }

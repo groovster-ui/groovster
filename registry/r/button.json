@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-button",
     "canonicalHtml": "<button type=\"button\" class=\"ew-button\">Save</button>",
-    "cssPackage": "@era-widgets/css/button.css"
+    "cssPackage": "@groovster/css/button.css"
   }
 }

@@ -11,7 +11,7 @@ HTML:
 </label>
 ```
 
-CSS: @era-widgets/css/switch.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/switch.css + @groovster/css/eras/<era>.css
 Variants: variant=default|success(default:default)
 Sizes: sm|md|lg (default md)
 ARIA: switch (via role=switch on checkbox) or checkbox

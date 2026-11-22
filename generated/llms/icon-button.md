@@ -9,7 +9,7 @@ HTML:
 </button>
 ```
 
-CSS: @era-widgets/css/icon-button.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/icon-button.css + @groovster/css/eras/<era>.css
 Variants: variant=primary|secondary|ghost(default:ghost)
 Sizes: sm|md|lg (default md)
 ARIA: button

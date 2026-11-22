@@ -1,5 +1,1 @@
-<!-- Button -->
-<button type="button" class="ew-button">Save</button>
-
-import "@era-widgets/css/button.css";
-a11y: Prefer native <button type="button|submit|reset"> over div[role=button].
+{"version":"0.1.0-alpha.0","name":"button","html":"<button type=\"button\" class=\"ew-button\">Save</button>","css":"import \"@groovster/css/button.css\";","a11y":"Prefer native <button type=\"button|submit|reset\"> over div[role=button]."}

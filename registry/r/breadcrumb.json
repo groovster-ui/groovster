@@ -22,6 +22,6 @@
   "meta": {
     "className": "ew-breadcrumb",
     "canonicalHtml": "<nav class=\"ew-breadcrumb\" aria-label=\"Breadcrumb\">\n  <ol class=\"ew-breadcrumb__list\">\n    <li class=\"ew-breadcrumb__item\"><a class=\"ew-link\" href=\"/\">Home</a></li>\n    <li class=\"ew-breadcrumb__item\"><a class=\"ew-link\" href=\"/docs\">Docs</a></li>\n    <li class=\"ew-breadcrumb__item\" aria-current=\"page\">Button</li>\n  </ol>\n</nav>",
-    "cssPackage": "@era-widgets/css/breadcrumb.css"
+    "cssPackage": "@groovster/css/breadcrumb.css"
   }
 }

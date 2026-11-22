@@ -11,7 +11,7 @@ HTML:
 </dialog>
 ```
 
-CSS: @era-widgets/css/dialog.css + @era-widgets/css/eras/<era>.css
+CSS: @groovster/css/dialog.css + @groovster/css/eras/<era>.css
 Variants: variant=modal|sheet(default:modal)
 Sizes: sm|md|lg (default md)
 ARIA: dialog (native <dialog> provides)
