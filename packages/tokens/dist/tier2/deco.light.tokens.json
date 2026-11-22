@@ -43,7 +43,8 @@
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.gold}"
+        "$value": "{color.goldBorder}",
+        "$description": "≥3:1 against surface for non-text UI"
       }
     },
     "action": {

@@ -5,9 +5,9 @@ edge: dual-tone chrome
 surface: violet lacquer + scanline
 elevation: hard rim (glow cosmetic)
 ornament: grid / sun in backdrop
-type: Orbitron + Exo 2
-fidelity: default 55 (35–75)
-modes: light, dark
+type: Monoton chrome + Orbitron + Mr Dafoe + Exo 2
+fidelity: costume default; bands whisper|default|costume
+modes: light (dusk), dark (indigo night)
 dialects: synthwave | miami
-use: gaming, night demos, festivals
-never: glow-as-contrast, display on controls
+use: arcade, nightclub, festivals
+never: glow-as-contrast, Orbitron on controls

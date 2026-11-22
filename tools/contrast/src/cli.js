@@ -98,38 +98,38 @@ function resolveSemanticColor(map, raw) {
   const trimmed = resolved.trim();
   // Pure OKLCH or hex after alias resolve
   if (/^oklch\(/i.test(trimmed) || parseHex(trimmed)) return trimmed;
-  // color-mix(in oklch, COLOR p%, transparent|COLOR) — COLOR may be oklch or hex
+  // color-mix(in oklch, COLOR p%, transparent|COLOR [q%]) — COLOR may be oklch or hex
   const mix = trimmed.match(
     new RegExp(
-      String.raw`color-mix\(\s*in\s+oklch\s*,\s*(${COLOR_TOKEN})\s+([\d.]+)%\s*,\s*(transparent|${COLOR_TOKEN})\s*\)`,
+      String.raw`color-mix\(\s*in\s+oklch\s*,\s*(${COLOR_TOKEN})\s+([\d.]+)%\s*,\s*(transparent|${COLOR_TOKEN})(?:\s+([\d.]+)%)?\s*\)`,
       'i'
     )
   );
   if (mix) {
-    // Prefer returning a luminance-friendly solid: if both sides are hex, lerp sRGB and emit hex.
-    const baseHex = parseHex(mix[1]);
     const pct = Number(mix[2]) / 100;
+    const otherPct = mix[4] != null ? Number(mix[4]) / 100 : 1 - pct;
+    const w1 = pct;
+    const w2 = otherPct;
+    const baseHex = parseHex(mix[1]);
     if (baseHex && mix[3] === 'transparent') {
       return mix[1];
     }
     const otherHex = mix[3] === 'transparent' ? null : parseHex(mix[3]);
     if (baseHex && otherHex) {
-      const lerp = (a, b) => Math.round((a * pct + b * (1 - pct)) * 255);
+      const lerp = (a, b) => Math.round((a * w1 + b * w2) * 255);
       const toHex = (n) => n.toString(16).padStart(2, '0');
       return `#${toHex(lerp(baseHex.r, otherHex.r))}${toHex(lerp(baseHex.g, otherHex.g))}${toHex(lerp(baseHex.b, otherHex.b))}`;
     }
     const base = parseOklch(mix[1]);
     if (!base) return null;
     if (mix[3] === 'transparent') {
-      // Treat as same hue at reduced alpha — for contrast use the solid base
-      // (overlay pairs aren't in the AA matrix). Fallback: darkened L.
       return `oklch(${(base.L * 100).toFixed(4)}% ${base.C} ${base.H})`;
     }
     const other = parseOklch(mix[3]);
     if (!other) return null;
-    const L = base.L * pct + other.L * (1 - pct);
-    const C = base.C * pct + other.C * (1 - pct);
-    const H = base.H; // keep primary hue
+    const L = base.L * w1 + other.L * w2;
+    const C = base.C * w1 + other.C * w2;
+    const H = base.H;
     return `oklch(${(L * 100).toFixed(4)}% ${C.toFixed(4)} ${H.toFixed(4)})`;
   }
   return null;
@@ -146,6 +146,7 @@ function checkEraMode(era, mode) {
   const map = collectTokenValues(t1);
 
   const c = t2.color;
+  // Text pairs (AA) + non-text UI pairs (≥3:1 borders/thumbs/tracks against fills).
   const pairs = [
     ['fg/default on bg/page', colorValue(c.fg.default), colorValue(c.bg.page), 4.5],
     ['fg/default on bg/surface', colorValue(c.fg.default), colorValue(c.bg.surface), 4.5],
@@ -153,6 +154,11 @@ function checkEraMode(era, mode) {
     ['action/fg on action/bg', colorValue(c.action.fg), colorValue(c.action.bg), 4.5],
     ['danger/fg on danger/bg', colorValue(c.danger.fg), colorValue(c.danger.bg), 4.5],
     ['fg/muted on bg/page', colorValue(c.fg.muted), colorValue(c.bg.page), 3],
+    // Non-text controls (WCAG 1.4.11)
+    ['border/strong on bg/surface', colorValue(c.border.strong), colorValue(c.bg.surface), 3],
+    ['field/border on field/bg', colorValue(c.field.border), colorValue(c.field.bg), 3],
+    ['fg/default (thumb) on track/off', colorValue(c.fg.default), colorValue(c.track.off), 3],
+    ['action/fg (thumb) on track/on', colorValue(c.action.fg), colorValue(c.track.on), 3],
   ];
   const issues = [];
   for (const [label, fgRaw, bgRaw, need] of pairs) {
@@ -179,7 +185,7 @@ function checkEraMode(era, mode) {
 const report = {
   eras: {},
   pass: true,
-  note: 'Glow ignored; flat OKLCH fills only. OKLCH→sRGB + WCAG relative luminance. Both modes.',
+  note: 'Glow ignored; flat fills only. Text AA + non-text controls ≥3:1 (borders, field, switch thumb/track). Both modes.',
 };
 for (const era of ERAS) {
   report.eras[era] = { modes: {}, pass: true };

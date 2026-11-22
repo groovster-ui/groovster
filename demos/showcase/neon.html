@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-era="neon" data-mode="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Night Drive Arcade — Neon Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=Monoton&family=Mr+Dafoe&family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../packages/css/dist/base.css">
+  <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css">
+  <link rel="stylesheet" href="../../packages/css/dist/eras/neon.css">
+  <script type="module" src="../../packages/elements/dist/era-elements.js"></script>
+  <style>
+    /* Layout only — ornament from the Neon library */
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    .section { max-width: 1100px; margin: 0 auto; padding: 56px 24px 72px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 880px; margin: 0 auto 36px; }
+    .consent { max-width: 560px; margin: 0 auto 48px; display: grid; gap: 16px; }
+    .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; text-align: center; }
+    .actions { text-align: center; }
+    .tier-label { text-transform: uppercase; letter-spacing: 0.16em; font-size: 12px; color: var(--ew-color-fg-muted); }
+    .divider { margin: 48px auto; max-width: 640px; }
+  </style>
+</head>
+<body>
+  <ew-toast-region aria-live="polite" aria-atomic="false"></ew-toast-region>
+
+  <section class="ew-hero">
+    <div class="ew-hero__grid" aria-hidden="true"></div>
+    <div class="ew-hero__sun" aria-hidden="true"></div>
+    <div class="ew-hero__mountains" aria-hidden="true"></div>
+    <div class="ew-hero__scanlines" aria-hidden="true"></div>
+    <div class="ew-hero__content">
+      <div class="ew-sun-mark" aria-hidden="true"></div>
+      <h1 class="ew-hero__title">Night Drive</h1>
+      <p class="ew-script">Arcade</p>
+      <p class="ew-hero__subtitle">Synthwave · After Hours</p>
+      <div class="ew-hero__cta">
+        <button type="button" class="ew-button">Insert Coin</button>
+        <button type="button" class="ew-button" data-variant="secondary">High Scores</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="section">
+    <h2 class="ew-section-heading">Cabinets</h2>
+    <div class="card-grid">
+      <div class="ew-card">
+        <div class="ew-card__header"><h3>Outrun Lane</h3></div>
+        <div class="ew-card__body">
+          <p>Four-lane highway cabinet with magenta tube bezels and a horizon grid projected on the marquee.</p>
+        </div>
+        <div class="ew-card__footer">
+          <button type="button" class="ew-button" data-size="sm">Play</button>
+        </div>
+      </div>
+      <div class="ew-card" data-variant="raised">
+        <div class="ew-card__header"><h3>Pulse Club</h3></div>
+        <div class="ew-card__body">
+          <p>VIP booth under cyan wireframe mountains. Chrome wordmarks and brush-script overlays on request.</p>
+        </div>
+        <div class="ew-card__footer">
+          <button type="button" class="ew-button" data-size="sm">Reserve</button>
+        </div>
+      </div>
+      <div class="ew-card">
+        <div class="ew-card__header"><h3>VHS Lounge</h3></div>
+        <div class="ew-card__body">
+          <p>Scanline projections, striped sunset backdrops, and glowing underlines on every playlist tab.</p>
+        </div>
+        <div class="ew-card__footer">
+          <button type="button" class="ew-button" data-size="sm">Queue</button>
+        </div>
+      </div>
+    </div>
+
+    <hr class="ew-ornament-divider divider" aria-hidden="true">
+
+    <h2 class="ew-section-heading">Player Card</h2>
+    <div class="form-grid">
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="handle">Handle</label>
+        <input class="ew-text-field__control" id="handle" type="text" placeholder="neon_rider">
+      </div>
+      <ew-select>
+        <label class="ew-select__label">Cabinet</label>
+        <select class="ew-select__control">
+          <option value="outrun">Outrun Lane</option>
+          <option value="pulse">Pulse Club</option>
+          <option value="vhs">VHS Lounge</option>
+        </select>
+      </ew-select>
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="email">Email</label>
+        <input class="ew-text-field__control" id="email" type="email" placeholder="you@night.drive">
+      </div>
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="crew">Crew Size</label>
+        <input class="ew-text-field__control" id="crew" type="number" min="1" value="2">
+      </div>
+    </div>
+
+    <div class="consent">
+      <label class="ew-switch">
+        <input class="ew-switch__control" type="checkbox">
+        <div class="ew-switch__track"><div class="ew-switch__thumb"></div></div>
+        <span class="ew-switch__label">Neon alerts on my phone</span>
+      </label>
+      <label class="ew-checkbox">
+        <input class="ew-checkbox__control" type="checkbox">
+        <div class="ew-checkbox__box"></div>
+        <span class="ew-checkbox__label">I accept the house rules</span>
+      </label>
+      <fieldset class="ew-radio-group">
+        <legend>Shift</legend>
+        <label class="ew-radio">
+          <input class="ew-radio__control" type="radio" name="shift" value="dusk" checked>
+          <span class="ew-radio__disc"></span>
+          <span class="ew-radio__label">Dusk</span>
+        </label>
+        <label class="ew-radio">
+          <input class="ew-radio__control" type="radio" name="shift" value="midnight">
+          <span class="ew-radio__disc"></span>
+          <span class="ew-radio__label">Midnight</span>
+        </label>
+      </fieldset>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="ew-button" data-size="lg"
+        onclick="document.querySelector('ew-toast-region').show({title:'Coin Accepted',body:'Lane unlocked for 30 minutes.',variant:'info',timeout:4000})">
+        Start Session
+      </button>
+    </div>
+
+    <hr class="ew-ornament-divider divider" aria-hidden="true">
+
+    <h2 class="ew-section-heading">Membership</h2>
+    <ew-tabs style="max-width: 720px; margin: 0 auto 40px;">
+      <div role="tablist">
+        <button role="tab" aria-selected="true" aria-controls="panel-cruiser">Cruiser</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-rider">Rider</button>
+        <button role="tab" aria-selected="false" aria-controls="panel-legend">Legend</button>
+      </div>
+      <div role="tabpanel" id="panel-cruiser" tabindex="0">
+        <p>Weeknight access, two cabinets, scanline lounge seating.</p>
+      </div>
+      <div role="tabpanel" id="panel-rider" hidden tabindex="0">
+        <p>Priority lanes, chrome wordmark merch, and midnight guest passes.</p>
+      </div>
+      <div role="tabpanel" id="panel-legend" hidden tabindex="0">
+        <p>Private booth under the grid, custom script overlays, unlimited tokens.</p>
+      </div>
+    </ew-tabs>
+
+    <div class="pricing">
+      <div class="ew-tier-card">
+        <div class="ew-tier-card__price">$25</div>
+        <div class="tier-label">Cruiser</div>
+      </div>
+      <div class="ew-tier-card">
+        <div class="ew-tier-card__price">$60</div>
+        <div class="tier-label">Rider</div>
+      </div>
+      <div class="ew-tier-card">
+        <div class="ew-tier-card__price">$120</div>
+        <div class="tier-label">Legend</div>
+      </div>
+    </div>
+
+    <div class="actions" style="margin-top: 40px;">
+      <ew-tooltip>
+        <button type="button" class="ew-button" onclick="document.getElementById('pass-dialog').showModal()">View Pass Perks</button>
+        <span class="ew-tooltip__tip" role="tooltip">Opens membership dialog</span>
+      </ew-tooltip>
+    </div>
+
+    <nav class="ew-breadcrumb" aria-label="Breadcrumb" style="margin-top: 48px; justify-content: center; display: flex; gap: 8px;">
+      <a class="ew-breadcrumb__item" href="#">Arcade</a>
+      <span class="ew-breadcrumb__sep" aria-hidden="true">/</span>
+      <a class="ew-breadcrumb__item" href="#">Night Drive</a>
+      <span class="ew-breadcrumb__sep" aria-hidden="true">/</span>
+      <span class="ew-breadcrumb__item" aria-current="page">Membership</span>
+    </nav>
+
+    <div class="ew-alert" style="margin-top: 32px;" role="status">
+      <div class="ew-alert__title">Lane Clear</div>
+      <p>Glow never counts for contrast — text passes on flat fills alone.</p>
+    </div>
+  </div>
+
+  <dialog class="ew-dialog" id="pass-dialog">
+    <form method="dialog">
+      <div class="ew-dialog__header"><h2>Pass Perks</h2></div>
+      <div class="ew-dialog__body">
+        <p>All passes include grid-floor photo ops, striped-sun backdrops, and glowing tab playlists.</p>
+        <ul>
+          <li>Perspective grid photobooth</li>
+          <li>Chrome title print</li>
+          <li>Script overlay stickers</li>
+        </ul>
+      </div>
+      <div class="ew-dialog__footer">
+        <button type="button" class="ew-button">Join</button>
+        <button type="submit" class="ew-button" data-variant="ghost">Close</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

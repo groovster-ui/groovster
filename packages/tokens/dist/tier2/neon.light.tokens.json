@@ -32,13 +32,13 @@
       },
       "elevated": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.panel} 85%, {color.magenta})"
+        "$value": "#FFFFFF"
       }
     },
     "border": {
       "subtle": {
         "$type": "color",
-        "$value": "{color.violet}"
+        "$value": "color-mix(in oklch, {color.violet} 55%, {color.panel})"
       },
       "strong": {
         "$type": "color",
@@ -62,7 +62,7 @@
     "field": {
       "bg": {
         "$type": "color",
-        "$value": "{color.sky}"
+        "$value": "#FFFFFF"
       },
       "border": {
         "$type": "color",
@@ -70,7 +70,7 @@
       },
       "focus": {
         "$type": "color",
-        "$value": "{color.cyan}"
+        "$value": "{color.magenta}"
       }
     },
     "overlay": {
@@ -80,12 +80,18 @@
     "track": {
       "off": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.panel} 70%, {color.violet})"
+        "$value": "color-mix(in oklch, {color.violet} 35%, {color.panel})",
+        "$description": "Off track ≥3:1 vs ink thumb on dusk surfaces"
       },
       "on": {
         "$type": "color",
         "$value": "{color.accent.solid}"
       }
+    },
+    "ornament": {
+      "primary": { "$type": "color", "$value": "{color.magenta}" },
+      "secondary": { "$type": "color", "$value": "{color.cyan}" },
+      "tertiary": { "$type": "color", "$value": "{color.sun}" }
     },
     "danger": {
       "bg": {

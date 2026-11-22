@@ -38,7 +38,7 @@
     "border": {
       "subtle": {
         "$type": "color",
-        "$value": "{color.violet}"
+        "$value": "color-mix(in oklch, {color.cyan} 55%, {color.panel})"
       },
       "strong": {
         "$type": "color",
@@ -80,13 +80,18 @@
     "track": {
       "off": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.panel} 78%, {color.sky})",
-        "$description": "Off track must contrast with thumb (ink) and elevated violet surfaces"
+        "$value": "color-mix(in oklch, {color.panel} 70%, {color.sky})",
+        "$description": "Off track must contrast ≥3:1 with ink thumb"
       },
       "on": {
         "$type": "color",
         "$value": "{color.accent.solid}"
       }
+    },
+    "ornament": {
+      "primary": { "$type": "color", "$value": "{color.magenta}" },
+      "secondary": { "$type": "color", "$value": "{color.cyan}" },
+      "tertiary": { "$type": "color", "$value": "{color.sun}" }
     },
     "danger": {
       "bg": {

@@ -4,113 +4,108 @@
     "tier": 1,
     "era": "neon",
     "mode": "dark",
-    "description": "Tier 1 raw values for neon dark"
+    "description": "Tier 1 raw values for neon dark — indigo night + magenta/cyan"
   },
   "color": {
     "sky": {
       "$type": "color",
-      "$value": "oklch(12% 0.05 300)",
-      "$description": "night"
+      "$value": "#0D0221",
+      "$description": "indigo night page"
     },
     "panel": {
       "$type": "color",
-      "$value": "oklch(18% 0.06 300)"
+      "$value": "#1A0B2E",
+      "$description": "surface lacquer"
     },
     "magenta": {
       "$type": "color",
-      "$value": "oklch(68% 0.25 340)"
+      "$value": "#FF2A6D",
+      "$description": "hot neon magenta"
     },
     "cyan": {
       "$type": "color",
-      "$value": "oklch(75% 0.14 210)"
+      "$value": "#05D9E8",
+      "$description": "electric cyan"
     },
     "violet": {
       "$type": "color",
-      "$value": "oklch(35% 0.12 300)"
+      "$value": "#2D0A4E",
+      "$description": "elevated violet"
     },
     "ink": {
       "$type": "color",
-      "$value": "oklch(95% 0.02 300)"
+      "$value": "#F5F0FF",
+      "$description": "near-white text on night"
+    },
+    "sun": {
+      "$type": "color",
+      "$value": "#FFC857",
+      "$description": "sunset yellow"
+    },
+    "orange": {
+      "$type": "color",
+      "$value": "#FF6B35",
+      "$description": "sunset orange"
     },
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(68% 0.25 340)"
+        "$value": "#FF2A6D"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(12% 0.04 300)"
+        "$value": "#0D0221"
       }
     },
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(65% 0.18 25)"
+        "$value": "#FF4D4D"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(12% 0.02 25)"
+        "$value": "#0D0221"
       }
     }
   },
   "space": {
-    "0": {
-      "$type": "dimension",
-      "$value": "0px"
-    },
-    "1": {
-      "$type": "dimension",
-      "$value": "4px"
-    },
-    "2": {
-      "$type": "dimension",
-      "$value": "8px"
-    },
-    "3": {
-      "$type": "dimension",
-      "$value": "12px"
-    },
-    "4": {
-      "$type": "dimension",
-      "$value": "16px"
-    },
-    "5": {
-      "$type": "dimension",
-      "$value": "24px"
-    },
-    "6": {
-      "$type": "dimension",
-      "$value": "32px"
-    },
-    "7": {
-      "$type": "dimension",
-      "$value": "48px"
-    },
-    "8": {
-      "$type": "dimension",
-      "$value": "64px"
-    }
+    "0": { "$type": "dimension", "$value": "0px" },
+    "1": { "$type": "dimension", "$value": "4px" },
+    "2": { "$type": "dimension", "$value": "8px" },
+    "3": { "$type": "dimension", "$value": "12px" },
+    "4": { "$type": "dimension", "$value": "16px" },
+    "5": { "$type": "dimension", "$value": "24px" },
+    "6": { "$type": "dimension", "$value": "32px" },
+    "7": { "$type": "dimension", "$value": "48px" },
+    "8": { "$type": "dimension", "$value": "64px" }
   },
   "radius": {
-    "none": {
-      "$type": "dimension",
-      "$value": "0px"
+    "none": { "$type": "dimension", "$value": "0px" },
+    "sm": { "$type": "dimension", "$value": "0px" },
+    "md": { "$type": "dimension", "$value": "2px" },
+    "lg": { "$type": "dimension", "$value": "4px" },
+    "pill": { "$type": "dimension", "$value": "999px" }
+  },
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": ["Orbitron", "Eurostile", "sans-serif"]
     },
-    "sm": {
-      "$type": "dimension",
-      "$value": "2px"
+    "body": {
+      "$type": "fontFamily",
+      "$value": ["Exo 2", "system-ui", "sans-serif"]
     },
-    "md": {
-      "$type": "dimension",
-      "$value": "4px"
+    "mono": {
+      "$type": "fontFamily",
+      "$value": ["Share Tech Mono", "ui-monospace", "monospace"]
     },
-    "lg": {
-      "$type": "dimension",
-      "$value": "6px"
+    "chrome": {
+      "$type": "fontFamily",
+      "$value": ["Monoton", "Orbitron", "sans-serif"]
     },
-    "pill": {
-      "$type": "dimension",
-      "$value": "999px"
+    "script": {
+      "$type": "fontFamily",
+      "$value": ["Mr Dafoe", "Brush Script MT", "cursive"]
     }
   }
 }

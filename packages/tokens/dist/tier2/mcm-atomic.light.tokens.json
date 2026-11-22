@@ -42,7 +42,7 @@
       },
       "strong": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.ink} 35%, {color.cream})"
+        "$value": "color-mix(in oklch, {color.ink} 55%, {color.cream})"
       }
     },
     "action": {
@@ -66,7 +66,7 @@
       },
       "border": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.ink} 25%, {color.cream})"
+        "$value": "color-mix(in oklch, {color.ink} 48%, {color.cream})"
       },
       "focus": {
         "$type": "color",

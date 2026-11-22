@@ -93,5 +93,5 @@
     }
   },
   "pass": true,
-  "note": "Glow ignored; flat OKLCH fills only. OKLCH→sRGB + WCAG relative luminance. Both modes."
+  "note": "Glow ignored; flat fills only. Text AA + non-text controls ≥3:1 (borders, field, switch thumb/track). Both modes."
 }

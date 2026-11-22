@@ -432,7 +432,7 @@
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:neon": {
-        "chars": 392,
+        "chars": 469,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:neutral": {
@@ -440,7 +440,7 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 2082,
+        "chars": 2083,
         "budget": "llms.index"
       }
     }
