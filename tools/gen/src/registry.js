@@ -16,14 +16,26 @@ function itemFor(comp) {
       target: `styles/era-widgets/${comp.id}.css`,
     },
   ];
-  if (comp.id === 'tabs') {
-    const el = fs.readFileSync(path.join(REPO_ROOT, 'packages/elements/dist/ew-tabs.js'), 'utf8');
-    files.push({
-      path: 'era-widgets/ew-tabs.js',
-      content: el,
-      type: 'registry:file',
-      target: 'components/era-widgets/ew-tabs.js',
-    });
+  const wcByComp = {
+    tabs: 'ew-tabs.js',
+    select: 'ew-select.js',
+    menu: 'ew-menu.js',
+    popover: 'ew-popover.js',
+    tooltip: 'ew-tooltip.js',
+    toast: 'ew-toast.js',
+    slider: 'ew-slider.js',
+  };
+  const wcFile = wcByComp[comp.id];
+  if (wcFile) {
+    const elPath = path.join(REPO_ROOT, 'packages/elements/dist', wcFile);
+    if (fs.existsSync(elPath)) {
+      files.push({
+        path: `era-widgets/${wcFile}`,
+        content: fs.readFileSync(elPath, 'utf8'),
+        type: 'registry:file',
+        target: `components/era-widgets/${wcFile}`,
+      });
+    }
   }
   // HTML example as a snippet file agents/shadcn can drop
   files.push({

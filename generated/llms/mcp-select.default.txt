@@ -1,11 +1,11 @@
 <!-- Select -->
-<div class="ew-select">
+<ew-select class="ew-select">
   <label class="ew-select__label" for="country">Country</label>
   <select id="country" class="ew-select__control">
     <option value="us">United States</option>
     <option value="ca">Canada</option>
   </select>
-</div>
+</ew-select>
 
 import "@era-widgets/css/select.css";
-a11y: Native <select> for Phase 3.
+a11y: Use <ew-select> to enhance a native <select> into an APG listbox pattern.

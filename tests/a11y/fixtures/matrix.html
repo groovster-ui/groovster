@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>Era Widgets a11y fixtures</title>
   <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
-  <script src="../../../packages/elements/dist/ew-tabs.js"></script>
+  <script src="../../../packages/elements/dist/era-elements.js"></script>
   <style>
     body { margin: 0; display: grid; gap: 32px; padding: 24px; }
     .case { padding: 24px; display: grid; gap: 16px; }
@@ -48,6 +48,38 @@
     </footer>
   </dialog>
 
+  <ew-select class="ew-select" data-testid="select-neutral-light">
+    <label class="ew-select__label" for="country-neutral-light">Country</label>
+    <select id="country-neutral-light" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neutral-light">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neutral-light">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neutral-light">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neutral-light">Details</button>
+    <div id="pop-neutral-light" class="ew-popover__panel" popover>
+      <p>Popover content for neutral-light.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neutral-light">
+    <button type="button" class="ew-button" aria-describedby="tip-neutral-light">Info</button>
+    <span id="tip-neutral-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-neutral-light">
+    <label class="ew-slider__label" for="vol-neutral-light">Volume</label>
+    <input id="vol-neutral-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neutral-light">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neutral-light" aria-live="polite"></ew-toast-region>
+
 </section>
 <section class="ew-root case" data-era="neutral" data-mode="dark" data-fidelity="40" data-fidelity-band="signature" data-testid="case-neutral-dark">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neutral / dark</h1>
@@ -84,6 +116,38 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
+
+  <ew-select class="ew-select" data-testid="select-neutral-dark">
+    <label class="ew-select__label" for="country-neutral-dark">Country</label>
+    <select id="country-neutral-dark" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neutral-dark">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neutral-dark">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neutral-dark">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neutral-dark">Details</button>
+    <div id="pop-neutral-dark" class="ew-popover__panel" popover>
+      <p>Popover content for neutral-dark.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neutral-dark">
+    <button type="button" class="ew-button" aria-describedby="tip-neutral-dark">Info</button>
+    <span id="tip-neutral-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-neutral-dark">
+    <label class="ew-slider__label" for="vol-neutral-dark">Volume</label>
+    <input id="vol-neutral-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neutral-dark">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neutral-dark" aria-live="polite"></ew-toast-region>
 
 </section>
 <section class="ew-root case" data-era="deco" data-mode="light" data-fidelity="40" data-fidelity-band="signature" data-testid="case-deco-light">
@@ -122,6 +186,38 @@
     </footer>
   </dialog>
 
+  <ew-select class="ew-select" data-testid="select-deco-light">
+    <label class="ew-select__label" for="country-deco-light">Country</label>
+    <select id="country-deco-light" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-deco-light">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-deco-light">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-deco-light">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-deco-light">Details</button>
+    <div id="pop-deco-light" class="ew-popover__panel" popover>
+      <p>Popover content for deco-light.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-deco-light">
+    <button type="button" class="ew-button" aria-describedby="tip-deco-light">Info</button>
+    <span id="tip-deco-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-deco-light">
+    <label class="ew-slider__label" for="vol-deco-light">Volume</label>
+    <input id="vol-deco-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-deco-light">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-deco-light" aria-live="polite"></ew-toast-region>
+
 </section>
 <section class="ew-root case" data-era="deco" data-mode="dark" data-fidelity="40" data-fidelity-band="signature" data-testid="case-deco-dark">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">deco / dark</h1>
@@ -158,6 +254,38 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
+
+  <ew-select class="ew-select" data-testid="select-deco-dark">
+    <label class="ew-select__label" for="country-deco-dark">Country</label>
+    <select id="country-deco-dark" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-deco-dark">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-deco-dark">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-deco-dark">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-deco-dark">Details</button>
+    <div id="pop-deco-dark" class="ew-popover__panel" popover>
+      <p>Popover content for deco-dark.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-deco-dark">
+    <button type="button" class="ew-button" aria-describedby="tip-deco-dark">Info</button>
+    <span id="tip-deco-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-deco-dark">
+    <label class="ew-slider__label" for="vol-deco-dark">Volume</label>
+    <input id="vol-deco-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-deco-dark">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-deco-dark" aria-live="polite"></ew-toast-region>
 
 </section>
 <section class="ew-root case" data-era="mcm-atomic" data-mode="light" data-fidelity="40" data-fidelity-band="signature" data-testid="case-mcm-atomic-light">
@@ -196,6 +324,38 @@
     </footer>
   </dialog>
 
+  <ew-select class="ew-select" data-testid="select-atomic-light">
+    <label class="ew-select__label" for="country-atomic-light">Country</label>
+    <select id="country-atomic-light" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-atomic-light">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-atomic-light">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-atomic-light">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-atomic-light">Details</button>
+    <div id="pop-atomic-light" class="ew-popover__panel" popover>
+      <p>Popover content for atomic-light.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-atomic-light">
+    <button type="button" class="ew-button" aria-describedby="tip-atomic-light">Info</button>
+    <span id="tip-atomic-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-atomic-light">
+    <label class="ew-slider__label" for="vol-atomic-light">Volume</label>
+    <input id="vol-atomic-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-atomic-light">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-atomic-light" aria-live="polite"></ew-toast-region>
+
 </section>
 <section class="ew-root case" data-era="mcm-atomic" data-mode="dark" data-fidelity="40" data-fidelity-band="signature" data-testid="case-mcm-atomic-dark">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">mcm-atomic / dark</h1>
@@ -232,6 +392,38 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
+
+  <ew-select class="ew-select" data-testid="select-atomic-dark">
+    <label class="ew-select__label" for="country-atomic-dark">Country</label>
+    <select id="country-atomic-dark" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-atomic-dark">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-atomic-dark">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-atomic-dark">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-atomic-dark">Details</button>
+    <div id="pop-atomic-dark" class="ew-popover__panel" popover>
+      <p>Popover content for atomic-dark.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-atomic-dark">
+    <button type="button" class="ew-button" aria-describedby="tip-atomic-dark">Info</button>
+    <span id="tip-atomic-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-atomic-dark">
+    <label class="ew-slider__label" for="vol-atomic-dark">Volume</label>
+    <input id="vol-atomic-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-atomic-dark">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-atomic-dark" aria-live="polite"></ew-toast-region>
 
 </section>
 <section class="ew-root case" data-era="neon" data-mode="light" data-fidelity="40" data-fidelity-band="signature" data-testid="case-neon-light">
@@ -270,6 +462,38 @@
     </footer>
   </dialog>
 
+  <ew-select class="ew-select" data-testid="select-neon-light">
+    <label class="ew-select__label" for="country-neon-light">Country</label>
+    <select id="country-neon-light" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neon-light">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neon-light">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neon-light">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neon-light">Details</button>
+    <div id="pop-neon-light" class="ew-popover__panel" popover>
+      <p>Popover content for neon-light.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neon-light">
+    <button type="button" class="ew-button" aria-describedby="tip-neon-light">Info</button>
+    <span id="tip-neon-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-neon-light">
+    <label class="ew-slider__label" for="vol-neon-light">Volume</label>
+    <input id="vol-neon-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neon-light">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neon-light" aria-live="polite"></ew-toast-region>
+
 </section>
 <section class="ew-root case" data-era="neon" data-mode="dark" data-fidelity="40" data-fidelity-band="signature" data-testid="case-neon-dark">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neon / dark</h1>
@@ -306,6 +530,38 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
+
+  <ew-select class="ew-select" data-testid="select-neon-dark">
+    <label class="ew-select__label" for="country-neon-dark">Country</label>
+    <select id="country-neon-dark" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neon-dark">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neon-dark">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neon-dark">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neon-dark">Details</button>
+    <div id="pop-neon-dark" class="ew-popover__panel" popover>
+      <p>Popover content for neon-dark.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neon-dark">
+    <button type="button" class="ew-button" aria-describedby="tip-neon-dark">Info</button>
+    <span id="tip-neon-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-neon-dark">
+    <label class="ew-slider__label" for="vol-neon-dark">Volume</label>
+    <input id="vol-neon-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neon-dark">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neon-dark" aria-live="polite"></ew-toast-region>
 
 </section>
 </body>

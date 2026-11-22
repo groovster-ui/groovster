@@ -187,6 +187,11 @@
           "target": "styles/era-widgets/menu.css"
         },
         {
+          "path": "era-widgets/ew-menu.js",
+          "type": "registry:file",
+          "target": "components/era-widgets/ew-menu.js"
+        },
+        {
           "path": "era-widgets/menu.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/menu.example.html"
@@ -223,6 +228,11 @@
           "path": "era-widgets/popover.css",
           "type": "registry:file",
           "target": "styles/era-widgets/popover.css"
+        },
+        {
+          "path": "era-widgets/ew-popover.js",
+          "type": "registry:file",
+          "target": "components/era-widgets/ew-popover.js"
         },
         {
           "path": "era-widgets/popover.example.html",
@@ -263,6 +273,11 @@
           "target": "styles/era-widgets/select.css"
         },
         {
+          "path": "era-widgets/ew-select.js",
+          "type": "registry:file",
+          "target": "components/era-widgets/ew-select.js"
+        },
+        {
           "path": "era-widgets/select.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/select.example.html"
@@ -280,6 +295,11 @@
           "path": "era-widgets/slider.css",
           "type": "registry:file",
           "target": "styles/era-widgets/slider.css"
+        },
+        {
+          "path": "era-widgets/ew-slider.js",
+          "type": "registry:file",
+          "target": "components/era-widgets/ew-slider.js"
         },
         {
           "path": "era-widgets/slider.example.html",
@@ -382,6 +402,11 @@
           "target": "styles/era-widgets/toast.css"
         },
         {
+          "path": "era-widgets/ew-toast.js",
+          "type": "registry:file",
+          "target": "components/era-widgets/ew-toast.js"
+        },
+        {
           "path": "era-widgets/toast.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/toast.example.html"
@@ -399,6 +424,11 @@
           "path": "era-widgets/tooltip.css",
           "type": "registry:file",
           "target": "styles/era-widgets/tooltip.css"
+        },
+        {
+          "path": "era-widgets/ew-tooltip.js",
+          "type": "registry:file",
+          "target": "components/era-widgets/ew-tooltip.js"
         },
         {
           "path": "era-widgets/tooltip.example.html",

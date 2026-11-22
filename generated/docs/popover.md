@@ -7,10 +7,12 @@ Non-modal popover surface via Popover API.
 ## Canonical HTML
 
 ```html
-<button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-1">Details</button>
-<div id="pop-1" class="ew-popover__panel" popover>
-  <p>Popover content</p>
-</div>
+<ew-popover class="ew-popover">
+  <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-1">Details</button>
+  <div id="pop-1" class="ew-popover__panel" popover>
+    <p>Popover content</p>
+  </div>
+</ew-popover>
 ```
 
 ## Imports
@@ -24,9 +26,9 @@ Non-modal popover surface via Popover API.
 
 ## ARIA
 
-- Role: dialog or group (context)
-- Native popover attribute preferred.
-- Name the panel when it contains interactive content.
+- Role: dialog or group
+- <ew-popover> syncs aria and Escape/outside dismiss.
+- Zag.js not used.
 
 ## Do
 

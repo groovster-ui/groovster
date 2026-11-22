@@ -4,6 +4,7 @@
   .ew-popover {
     /* anatomy: trigger, panel */
   }
+  .ew-popover, ew-popover.ew-popover, ew-popover { display: inline-block; position: relative; }
   .ew-popover__panel, .ew-popover__panel {
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);

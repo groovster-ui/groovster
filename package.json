@@ -9,11 +9,12 @@
     "node": ">=20"
   },
   "scripts": {
-    "gen": "pnpm --filter @era-widgets/gen gen",
+    "elements:build": "pnpm --filter @era-widgets/elements build",
+    "gen": "pnpm elements:build && pnpm --filter @era-widgets/gen gen",
     "gen:check": "pnpm --filter @era-widgets/gen check",
     "validate": "pnpm --filter @era-widgets/gen validate",
     "smoke": "pnpm gen && echo 'Open demos/smoke/index.html (or serve demos/smoke)'",
-    "check": "pnpm validate && pnpm gen:check && pnpm contrast",
+    "check": "pnpm validate && pnpm gen:check && pnpm contrast && pnpm no-imports",
     "eval": "pnpm --filter @era-widgets/eval eval",
     "eval:baseline": "pnpm --filter @era-widgets/eval baseline",
     "no-imports": "pnpm --filter @era-widgets/gen exec node src/cli.js no-imports",

@@ -7,13 +7,13 @@ Action menu using Popover API + menu roles. Full APG WC may deepen later.
 ## Canonical HTML
 
 ```html
-<div class="ew-menu">
-  <button type="button" class="ew-button ew-menu__trigger" popovertarget="menu-1" aria-haspopup="menu">Actions</button>
-  <div id="menu-1" class="ew-menu__panel" popover role="menu">
+<ew-menu class="ew-menu">
+  <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+  <div class="ew-menu__panel" role="menu">
     <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
     <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
   </div>
-</div>
+</ew-menu>
 ```
 
 ## Imports
@@ -28,8 +28,8 @@ Action menu using Popover API + menu roles. Full APG WC may deepen later.
 ## ARIA
 
 - Role: menu / menuitem
-- Use button trigger with aria-haspopup=menu.
-- Phase 3 ships CSS + popover markup pattern; dedicated WC optional later.
+- Wrap with <ew-menu> for APG keyboard.
+- Zag.js not used.
 
 ## Do
 

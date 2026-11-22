@@ -1,8 +1,10 @@
 <!-- Popover -->
-<button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-1">Details</button>
-<div id="pop-1" class="ew-popover__panel" popover>
-  <p>Popover content</p>
-</div>
+<ew-popover class="ew-popover">
+  <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-1">Details</button>
+  <div id="pop-1" class="ew-popover__panel" popover>
+    <p>Popover content</p>
+  </div>
+</ew-popover>
 
 import "@era-widgets/css/popover.css";
-a11y: Native popover attribute preferred.
+a11y: <ew-popover> syncs aria and Escape/outside dismiss.

@@ -1,6 +1,6 @@
 {
   "$schema": "../schema/component.schema.json",
-  "behavior": "native",
+  "behavior": "web-component",
   "sizes": {
     "attribute": "data-size",
     "values": [
@@ -24,12 +24,20 @@
   ],
   "keyboard": [
     {
-      "keys": "Arrow keys / Space / Enter",
-      "action": "Native select behavior"
+      "keys": "Enter / Space / ArrowDown",
+      "action": "Open listbox"
     },
     {
-      "keys": "Tab",
-      "action": "Move focus"
+      "keys": "Arrow keys / Home / End",
+      "action": "Move among options"
+    },
+    {
+      "keys": "Enter / Space",
+      "action": "Choose option"
+    },
+    {
+      "keys": "Escape",
+      "action": "Close"
     }
   ],
   "slots": [
@@ -58,7 +66,7 @@
   "id": "select",
   "name": "Select",
   "className": "ew-select",
-  "nativeElement": "select",
+  "nativeElement": "select + ew-select",
   "summary": "Native select with era chrome. Rich combobox WC deferred.",
   "anatomy": [
     {
@@ -92,18 +100,20 @@
     }
   },
   "aria": {
-    "role": "listbox/combobox (native select)",
+    "role": "button + listbox (ew-select)",
     "requiredAttributes": [
-      "id",
-      "for"
+      "aria-expanded",
+      "aria-controls",
+      "role=listbox/option"
     ],
     "optionalAttributes": [],
     "notes": [
-      "Native <select> for Phase 3.",
-      "Custom listbox WC may replace later without changing public class names."
+      "Use <ew-select> to enhance a native <select> into an APG listbox pattern.",
+      "Native select remains in the DOM (hidden) for form posting.",
+      "Zag.js not used."
     ]
   },
-  "canonicalHtml": "<div class=\"ew-select\">\n  <label class=\"ew-select__label\" for=\"country\">Country</label>\n  <select id=\"country\" class=\"ew-select__control\">\n    <option value=\"us\">United States</option>\n    <option value=\"ca\">Canada</option>\n  </select>\n</div>",
+  "canonicalHtml": "<ew-select class=\"ew-select\">\n  <label class=\"ew-select__label\" for=\"country\">Country</label>\n  <select id=\"country\" class=\"ew-select__control\">\n    <option value=\"us\">United States</option>\n    <option value=\"ca\">Canada</option>\n  </select>\n</ew-select>",
   "do": [
     "Label the select.",
     "Prefer native options for accessibility."

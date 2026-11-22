@@ -7,13 +7,13 @@ Native select with era chrome. Rich combobox WC deferred.
 ## Canonical HTML
 
 ```html
-<div class="ew-select">
+<ew-select class="ew-select">
   <label class="ew-select__label" for="country">Country</label>
   <select id="country" class="ew-select__control">
     <option value="us">United States</option>
     <option value="ca">Canada</option>
   </select>
-</div>
+</ew-select>
 ```
 
 ## Imports
@@ -27,9 +27,10 @@ Native select with era chrome. Rich combobox WC deferred.
 
 ## ARIA
 
-- Role: listbox/combobox (native select)
-- Native <select> for Phase 3.
-- Custom listbox WC may replace later without changing public class names.
+- Role: button + listbox (ew-select)
+- Use <ew-select> to enhance a native <select> into an APG listbox pattern.
+- Native select remains in the DOM (hidden) for form posting.
+- Zag.js not used.
 
 ## Do
 

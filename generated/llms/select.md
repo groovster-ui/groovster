@@ -4,18 +4,18 @@ Native select with era chrome. Rich combobox WC deferred.
 
 HTML:
 ```html
-<div class="ew-select">
+<ew-select class="ew-select">
   <label class="ew-select__label" for="country">Country</label>
   <select id="country" class="ew-select__control">
     <option value="us">United States</option>
     <option value="ca">Canada</option>
   </select>
-</div>
+</ew-select>
 ```
 
 CSS: @era-widgets/css/select.css + @era-widgets/css/eras/<era>.css
 Variants: variant=outline|filled(default:outline)
 Sizes: sm|md|lg (default md)
-ARIA: listbox/combobox (native select)
+ARIA: button + listbox (ew-select)
 Do: Label the select.
 Don't: Don't rebuild a fake select in divs without a WC.

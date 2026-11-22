@@ -4,7 +4,7 @@
   .ew-slider {
     /* anatomy: root, label, control, value */
   }
-  .ew-slider { display: grid; gap: 8px; font-family: var(--ew-font-body, system-ui, sans-serif); }
+  .ew-slider, ew-slider.ew-slider, ew-slider { display: grid; gap: 8px; font-family: var(--ew-font-body, system-ui, sans-serif); }
   .ew-slider__label { font-size: 14px; font-weight: 600; color: var(--ew-color-fg-default); }
   .ew-slider__control { width: 100%; accent-color: var(--ew-color-action-bg); }
   .ew-slider__control:focus-visible { outline: 2px solid var(--ew-color-field-focus); outline-offset: 2px; }

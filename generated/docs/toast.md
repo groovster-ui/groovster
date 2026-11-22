@@ -7,12 +7,8 @@ Transient notification region. CSS chrome; live region polite by default.
 ## Canonical HTML
 
 ```html
-<div class="ew-toast-region" aria-live="polite" aria-relevant="additions">
-  <div class="ew-toast" data-variant="success">
-    <strong class="ew-toast__title">Saved</strong>
-    <p class="ew-toast__body">Your changes are live.</p>
-  </div>
-</div>
+<ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+<!-- region.show({ title, body, variant }) -->
 ```
 
 ## Imports
@@ -26,9 +22,9 @@ Transient notification region. CSS chrome; live region polite by default.
 
 ## ARIA
 
-- Role: status (polite) or alert
-- Wrap toasts in an aria-live region.
-- Danger may use role=alert sparingly.
+- Role: status / alert
+- Use <ew-toast-region>.show(...) for polite announcements.
+- Zag.js not used.
 
 ## Do
 

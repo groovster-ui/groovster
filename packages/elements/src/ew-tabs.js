@@ -11,6 +11,8 @@
   if (customElements.get(TAG)) return;
 
   class EwTabs extends HTMLElement {
+    #mo = null;
+
     static get observedAttributes() {
       return ['data-orientation', 'data-activation'];
     }
@@ -20,13 +22,28 @@
       if (!this.hasAttribute('data-orientation')) {
         this.dataset.orientation = 'horizontal';
       }
-      this.#ensureIds();
-      this.#syncFromDom();
       this.#bind();
+      this.#upgrade();
+      if (!this.#list) {
+        this.#mo = new MutationObserver(() => this.#upgrade());
+        this.#mo.observe(this, { childList: true, subtree: true });
+      }
     }
 
     disconnectedCallback() {
+      this.#mo?.disconnect();
+      this.#mo = null;
       this.#unbind();
+    }
+
+    #upgrade() {
+      if (!this.#list) return;
+      this.#mo?.disconnect();
+      this.#mo = null;
+      this.#ensureIds();
+      this.#syncFromDom();
+      const list = this.#list;
+      if (list) list.setAttribute('aria-orientation', this.#orientation);
     }
 
     get #list() {

@@ -7,10 +7,10 @@ CSS tooltip for non-essential hints. Never the only accessible name.
 ## Canonical HTML
 
 ```html
-<span class="ew-tooltip">
+<ew-tooltip class="ew-tooltip">
   <button type="button" class="ew-button" aria-describedby="tip-1">Info</button>
   <span id="tip-1" class="ew-tooltip__tip" role="tooltip">More detail</span>
-</span>
+</ew-tooltip>
 ```
 
 ## Imports
@@ -25,8 +25,9 @@ CSS tooltip for non-essential hints. Never the only accessible name.
 ## ARIA
 
 - Role: tooltip
-- Tooltips must not be the only name for a control.
-- Show on focus as well as hover.
+- <ew-tooltip> shows on focus/hover; Escape hides.
+- Never the only accessible name.
+- Zag.js not used.
 
 ## Do
 

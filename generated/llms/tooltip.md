@@ -4,10 +4,10 @@ CSS tooltip for non-essential hints. Never the only accessible name.
 
 HTML:
 ```html
-<span class="ew-tooltip">
+<ew-tooltip class="ew-tooltip">
   <button type="button" class="ew-button" aria-describedby="tip-1">Info</button>
   <span id="tip-1" class="ew-tooltip__tip" role="tooltip">More detail</span>
-</span>
+</ew-tooltip>
 ```
 
 CSS: @era-widgets/css/tooltip.css + @era-widgets/css/eras/<era>.css

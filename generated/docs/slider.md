@@ -7,10 +7,11 @@ Native range input with era track/thumb chrome.
 ## Canonical HTML
 
 ```html
-<div class="ew-slider">
+<ew-slider class="ew-slider">
   <label class="ew-slider__label" for="vol">Volume</label>
   <input id="vol" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-</div>
+  <output class="ew-slider__value">40</output>
+</ew-slider>
 ```
 
 ## Imports
@@ -24,9 +25,10 @@ Native range input with era track/thumb chrome.
 
 ## ARIA
 
-- Role: slider (native range)
-- Native range provides keyboard.
-- Expose visible value when helpful.
+- Role: slider
+- <ew-slider> syncs ARIA value attrs with the native range.
+- Keyboard remains native.
+- Zag.js not used.
 
 ## Do
 

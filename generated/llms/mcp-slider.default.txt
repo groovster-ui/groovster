@@ -1,8 +1,9 @@
 <!-- Slider -->
-<div class="ew-slider">
+<ew-slider class="ew-slider">
   <label class="ew-slider__label" for="vol">Volume</label>
   <input id="vol" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-</div>
+  <output class="ew-slider__value">40</output>
+</ew-slider>
 
 import "@era-widgets/css/slider.css";
-a11y: Native range provides keyboard.
+a11y: <ew-slider> syncs ARIA value attrs with the native range.

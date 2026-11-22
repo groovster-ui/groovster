@@ -62,7 +62,7 @@
   "id": "menu",
   "name": "Menu",
   "className": "ew-menu",
-  "nativeElement": "div (popover)",
+  "nativeElement": "ew-menu",
   "summary": "Action menu using Popover API + menu roles. Full APG WC may deepen later.",
   "anatomy": [
     {
@@ -105,11 +105,11 @@
       "aria-controls"
     ],
     "notes": [
-      "Use button trigger with aria-haspopup=menu.",
-      "Phase 3 ships CSS + popover markup pattern; dedicated WC optional later."
+      "Wrap with <ew-menu> for APG keyboard.",
+      "Zag.js not used."
     ]
   },
-  "canonicalHtml": "<div class=\"ew-menu\">\n  <button type=\"button\" class=\"ew-button ew-menu__trigger\" popovertarget=\"menu-1\" aria-haspopup=\"menu\">Actions</button>\n  <div id=\"menu-1\" class=\"ew-menu__panel\" popover role=\"menu\">\n    <button type=\"button\" class=\"ew-menu__item\" role=\"menuitem\">Edit</button>\n    <button type=\"button\" class=\"ew-menu__item\" role=\"menuitem\">Delete</button>\n  </div>\n</div>",
+  "canonicalHtml": "<ew-menu class=\"ew-menu\">\n  <button type=\"button\" class=\"ew-button ew-menu__trigger\" aria-haspopup=\"menu\">Actions</button>\n  <div class=\"ew-menu__panel\" role=\"menu\">\n    <button type=\"button\" class=\"ew-menu__item\" role=\"menuitem\">Edit</button>\n    <button type=\"button\" class=\"ew-menu__item\" role=\"menuitem\">Delete</button>\n  </div>\n</ew-menu>",
   "do": [
     "Use a button trigger.",
     "Mark items as menuitem."

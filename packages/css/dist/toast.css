@@ -4,13 +4,15 @@
   .ew-toast {
     /* anatomy: root, title, body, region */
   }
-  .ew-toast-region { display: grid; gap: 8px; }
+  .ew-toast-region, ew-toast-region { display: grid; gap: 8px; }
   .ew-toast {
+    position: relative;
     border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);
     background: var(--ew-color-bg-elevated); color: var(--ew-color-fg-default);
-    box-shadow: var(--ew-structure-card-shadow); padding: 12px 14px;
+    box-shadow: var(--ew-structure-card-shadow); padding: 12px 40px 12px 14px;
   }
+  .ew-toast .ew-icon-button { position: absolute; top: 6px; inset-inline-end: 6px; width: 32px; height: 32px; }
   .ew-toast[data-variant="success"] { border-color: var(--ew-color-action-bg); }
   .ew-toast[data-variant="warning"] { border-color: color-mix(in oklch, oklch(70% 0.15 85) 80%, var(--ew-color-border-strong)); }
   .ew-toast[data-variant="danger"] { border-color: var(--ew-color-danger-bg); }

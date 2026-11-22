@@ -1,6 +1,6 @@
 {
   "$schema": "../schema/component.schema.json",
-  "behavior": "native",
+  "behavior": "web-component",
   "sizes": {
     "attribute": "data-size",
     "values": [
@@ -58,7 +58,7 @@
   "id": "popover",
   "name": "Popover",
   "className": "ew-popover",
-  "nativeElement": "div (popover)",
+  "nativeElement": "ew-popover",
   "summary": "Non-modal popover surface via Popover API.",
   "anatomy": [
     {
@@ -86,17 +86,20 @@
     }
   },
   "aria": {
-    "role": "dialog or group (context)",
-    "requiredAttributes": [],
+    "role": "dialog or group",
+    "requiredAttributes": [
+      "aria-expanded",
+      "aria-controls"
+    ],
     "optionalAttributes": [
       "aria-labelledby"
     ],
     "notes": [
-      "Native popover attribute preferred.",
-      "Name the panel when it contains interactive content."
+      "<ew-popover> syncs aria and Escape/outside dismiss.",
+      "Zag.js not used."
     ]
   },
-  "canonicalHtml": "<button type=\"button\" class=\"ew-button ew-popover__trigger\" popovertarget=\"pop-1\">Details</button>\n<div id=\"pop-1\" class=\"ew-popover__panel\" popover>\n  <p>Popover content</p>\n</div>",
+  "canonicalHtml": "<ew-popover class=\"ew-popover\">\n  <button type=\"button\" class=\"ew-button ew-popover__trigger\" popovertarget=\"pop-1\">Details</button>\n  <div id=\"pop-1\" class=\"ew-popover__panel\" popover>\n    <p>Popover content</p>\n  </div>\n</ew-popover>",
   "do": [
     "Prefer popover attribute.",
     "Keep content short."

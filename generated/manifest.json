@@ -284,11 +284,11 @@
         "budget": "mcp.defaultReply"
       },
       "llms.section:menu": {
-        "chars": 718,
+        "chars": 683,
         "budget": "llms.section"
       },
       "mcp.defaultReply:menu": {
-        "chars": 479,
+        "chars": 438,
         "budget": "mcp.defaultReply"
       },
       "llms.section:ornament-divider": {
@@ -300,11 +300,11 @@
         "budget": "mcp.defaultReply"
       },
       "llms.section:popover": {
-        "chars": 537,
+        "chars": 581,
         "budget": "llms.section"
       },
       "mcp.defaultReply:popover": {
-        "chars": 280,
+        "chars": 350,
         "budget": "mcp.defaultReply"
       },
       "llms.section:radio": {
@@ -316,19 +316,19 @@
         "budget": "mcp.defaultReply"
       },
       "llms.section:select": {
-        "chars": 610,
+        "chars": 618,
         "budget": "llms.section"
       },
       "mcp.defaultReply:select": {
-        "chars": 332,
+        "chars": 389,
         "budget": "mcp.defaultReply"
       },
       "llms.section:slider": {
-        "chars": 517,
+        "chars": 561,
         "budget": "llms.section"
       },
       "mcp.defaultReply:slider": {
-        "chars": 272,
+        "chars": 357,
         "budget": "mcp.defaultReply"
       },
       "llms.section:switch": {
@@ -364,19 +364,19 @@
         "budget": "mcp.defaultReply"
       },
       "llms.section:toast": {
-        "chars": 624,
+        "chars": 493,
         "budget": "llms.section"
       },
       "mcp.defaultReply:toast": {
-        "chars": 341,
+        "chars": 242,
         "budget": "mcp.defaultReply"
       },
       "llms.section:tooltip": {
-        "chars": 569,
+        "chars": 581,
         "budget": "llms.section"
       },
       "mcp.defaultReply:tooltip": {
-        "chars": 304,
+        "chars": 315,
         "budget": "mcp.defaultReply"
       },
       "mcp.eraCard:deco": {

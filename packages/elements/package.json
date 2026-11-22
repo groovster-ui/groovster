@@ -2,16 +2,26 @@
   "name": "@era-widgets/elements",
   "version": "0.1.0-alpha.0",
   "private": true,
-  "description": "Dependency-free light-DOM web components. Published JS imports nothing.",
+  "description": "Dependency-free light-DOM web components (APG). Published JS imports nothing.",
   "type": "module",
   "license": "MIT",
   "files": ["dist", "README.md"],
   "exports": {
-    ".": "./dist/ew-tabs.js",
-    "./ew-tabs.js": "./dist/ew-tabs.js"
+    ".": "./dist/era-elements.js",
+    "./era-elements.js": "./dist/era-elements.js",
+    "./ew-tabs.js": "./dist/ew-tabs.js",
+    "./ew-select.js": "./dist/ew-select.js",
+    "./ew-menu.js": "./dist/ew-menu.js",
+    "./ew-popover.js": "./dist/ew-popover.js",
+    "./ew-tooltip.js": "./dist/ew-tooltip.js",
+    "./ew-toast.js": "./dist/ew-toast.js",
+    "./ew-slider.js": "./dist/ew-slider.js"
+  },
+  "scripts": {
+    "build": "node ../../scripts/bundle-elements.mjs"
   },
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["era-widgets", "web-components", "a11y", "tabs"]
+  "keywords": ["era-widgets", "web-components", "a11y", "apg"]
 }

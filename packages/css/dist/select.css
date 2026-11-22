@@ -4,15 +4,40 @@
   .ew-select {
     /* anatomy: root, label, control */
   }
-  .ew-select { display: grid; gap: 6px; font-family: var(--ew-font-body, system-ui, sans-serif); }
+  .ew-select, ew-select.ew-select, ew-select {
+    display: grid; gap: 6px; font-family: var(--ew-font-body, system-ui, sans-serif); position: relative;
+  }
   .ew-select__label { font-size: 14px; font-weight: 600; color: var(--ew-color-fg-default); }
   .ew-select__control {
     appearance: none;
     padding: var(--ew-field-padding-y, 8px) 36px var(--ew-field-padding-y, 8px) var(--ew-field-padding-x, 12px);
     border: var(--ew-structure-field-border-width, 1px) var(--ew-structure-field-border-style, solid) var(--ew-color-field-border);
     border-radius: var(--ew-structure-field-radius, 8px);
-    background: var(--ew-color-field-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") no-repeat right 12px center;
+    background: var(--ew-color-field-bg);
     color: var(--ew-color-fg-default); font: inherit;
   }
-  .ew-select__control:focus-visible { outline: 2px solid var(--ew-color-field-focus); outline-offset: 1px; }
+  .ew-select__trigger {
+    appearance: none; text-align: start; cursor: pointer; font: inherit;
+    padding: var(--ew-field-padding-y, 8px) 36px var(--ew-field-padding-y, 8px) var(--ew-field-padding-x, 12px);
+    border: var(--ew-structure-field-border-width, 1px) var(--ew-structure-field-border-style, solid) var(--ew-color-field-border);
+    border-radius: var(--ew-structure-field-radius, 8px);
+    background: var(--ew-color-field-bg); color: var(--ew-color-fg-default);
+  }
+  .ew-select__trigger:focus-visible, .ew-select__control:focus-visible {
+    outline: 2px solid var(--ew-color-field-focus); outline-offset: 1px;
+  }
+  .ew-select__list {
+    list-style: none; margin: 4px 0 0; padding: 6px;
+    position: absolute; z-index: 20; inset-inline: 0; top: 100%;
+    border: var(--ew-structure-card-border-width, 1px) solid var(--ew-color-border-subtle);
+    border-radius: var(--ew-structure-surface-radius, 8px);
+    background: var(--ew-color-bg-elevated); color: var(--ew-color-fg-default);
+    box-shadow: var(--ew-structure-card-raised-shadow, var(--ew-elevation-2));
+    max-height: 220px; overflow: auto;
+  }
+  .ew-select__option {
+    padding: 8px 10px; border-radius: 6px; cursor: pointer;
+  }
+  .ew-select__option[aria-selected="true"] { background: color-mix(in oklch, var(--ew-color-action-bg) 18%, transparent); }
+  .ew-select__option:focus { outline: 2px solid var(--ew-color-field-focus); outline-offset: -2px; }
 }

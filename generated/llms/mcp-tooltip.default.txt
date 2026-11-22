@@ -1,8 +1,8 @@
 <!-- Tooltip -->
-<span class="ew-tooltip">
+<ew-tooltip class="ew-tooltip">
   <button type="button" class="ew-button" aria-describedby="tip-1">Info</button>
   <span id="tip-1" class="ew-tooltip__tip" role="tooltip">More detail</span>
-</span>
+</ew-tooltip>
 
 import "@era-widgets/css/tooltip.css";
-a11y: Tooltips must not be the only name for a control.
+a11y: <ew-tooltip> shows on focus/hover; Escape hides.

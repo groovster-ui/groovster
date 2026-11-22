@@ -9,7 +9,7 @@ globs:
 - Canonical API is **HTML + `ew-*` classes + `data-*`**, not React props.
 - Set personality with `data-era` on a root (deco|earth|groovy|mcm-atomic|memphis|neon|neutral). Do not rewrite markup per era.
 - Zero attributes = defaults. Prefer native `<button>`, `<dialog>`, `<input>`.
-- Tabs: `<ew-tabs>` + `@era-widgets/elements/ew-tabs.js` for APG keyboard.
+- Hard widgets (APG light-DOM WCs, Zag.js not used): `ew-tabs`, `ew-select`, `ew-menu`, `ew-popover`, `ew-tooltip`, `ew-toast-region`, `ew-slider` via `@era-widgets/elements/era-elements.js` (published JS imports nothing).
 - CSS: link `@era-widgets/css/era-widgets.css` (published CSS must not use at-import).
 - Glow never counts as contrast; no display faces on controls.
 - MCP `validate` returns exact "change X to Y" fixes.

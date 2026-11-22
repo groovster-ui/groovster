@@ -1,6 +1,6 @@
 {
   "$schema": "../schema/component.schema.json",
-  "behavior": "native",
+  "behavior": "web-component",
   "sizes": {
     "attribute": "data-size",
     "values": [
@@ -54,7 +54,7 @@
   "id": "slider",
   "name": "Slider",
   "className": "ew-slider",
-  "nativeElement": "input[type=range]",
+  "nativeElement": "input[type=range] + ew-slider",
   "summary": "Native range input with era track/thumb chrome.",
   "anatomy": [
     {
@@ -93,21 +93,22 @@
     }
   },
   "aria": {
-    "role": "slider (native range)",
+    "role": "slider",
     "requiredAttributes": [
-      "min",
-      "max",
-      "value"
+      "aria-valuemin",
+      "aria-valuemax",
+      "aria-valuenow"
     ],
     "optionalAttributes": [
       "aria-valuetext"
     ],
     "notes": [
-      "Native range provides keyboard.",
-      "Expose visible value when helpful."
+      "<ew-slider> syncs ARIA value attrs with the native range.",
+      "Keyboard remains native.",
+      "Zag.js not used."
     ]
   },
-  "canonicalHtml": "<div class=\"ew-slider\">\n  <label class=\"ew-slider__label\" for=\"vol\">Volume</label>\n  <input id=\"vol\" class=\"ew-slider__control\" type=\"range\" min=\"0\" max=\"100\" value=\"40\" />\n</div>",
+  "canonicalHtml": "<ew-slider class=\"ew-slider\">\n  <label class=\"ew-slider__label\" for=\"vol\">Volume</label>\n  <input id=\"vol\" class=\"ew-slider__control\" type=\"range\" min=\"0\" max=\"100\" value=\"40\" />\n  <output class=\"ew-slider__value\">40</output>\n</ew-slider>",
   "do": [
     "Provide min/max/value.",
     "Keep thumb large enough to grab."

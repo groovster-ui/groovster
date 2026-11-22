@@ -1,6 +1,6 @@
 {
   "$schema": "../schema/component.schema.json",
-  "behavior": "css-only",
+  "behavior": "web-component",
   "sizes": {
     "attribute": "data-size",
     "values": [
@@ -58,7 +58,7 @@
   "id": "tooltip",
   "name": "Tooltip",
   "className": "ew-tooltip",
-  "nativeElement": "span",
+  "nativeElement": "ew-tooltip",
   "summary": "CSS tooltip for non-essential hints. Never the only accessible name.",
   "anatomy": [
     {
@@ -87,16 +87,16 @@
   "aria": {
     "role": "tooltip",
     "requiredAttributes": [
-      "id on tip",
-      "aria-describedby on trigger when needed"
+      "aria-describedby on trigger"
     ],
     "optionalAttributes": [],
     "notes": [
-      "Tooltips must not be the only name for a control.",
-      "Show on focus as well as hover."
+      "<ew-tooltip> shows on focus/hover; Escape hides.",
+      "Never the only accessible name.",
+      "Zag.js not used."
     ]
   },
-  "canonicalHtml": "<span class=\"ew-tooltip\">\n  <button type=\"button\" class=\"ew-button\" aria-describedby=\"tip-1\">Info</button>\n  <span id=\"tip-1\" class=\"ew-tooltip__tip\" role=\"tooltip\">More detail</span>\n</span>",
+  "canonicalHtml": "<ew-tooltip class=\"ew-tooltip\">\n  <button type=\"button\" class=\"ew-button\" aria-describedby=\"tip-1\">Info</button>\n  <span id=\"tip-1\" class=\"ew-tooltip__tip\" role=\"tooltip\">More detail</span>\n</ew-tooltip>",
   "do": [
     "Duplicate essential info in accessible text.",
     "Support keyboard focus."

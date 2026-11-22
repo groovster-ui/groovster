@@ -1,6 +1,6 @@
 {
   "$schema": "../schema/component.schema.json",
-  "behavior": "css-only",
+  "behavior": "web-component",
   "sizes": {
     "attribute": "data-size",
     "values": [
@@ -54,7 +54,7 @@
   "id": "toast",
   "name": "Toast",
   "className": "ew-toast",
-  "nativeElement": "div",
+  "nativeElement": "ew-toast-region",
   "summary": "Transient notification region. CSS chrome; live region polite by default.",
   "anatomy": [
     {
@@ -96,17 +96,17 @@
     }
   },
   "aria": {
-    "role": "status (polite) or alert",
+    "role": "status / alert",
     "requiredAttributes": [
       "aria-live on region"
     ],
     "optionalAttributes": [],
     "notes": [
-      "Wrap toasts in an aria-live region.",
-      "Danger may use role=alert sparingly."
+      "Use <ew-toast-region>.show(...) for polite announcements.",
+      "Zag.js not used."
     ]
   },
-  "canonicalHtml": "<div class=\"ew-toast-region\" aria-live=\"polite\" aria-relevant=\"additions\">\n  <div class=\"ew-toast\" data-variant=\"success\">\n    <strong class=\"ew-toast__title\">Saved</strong>\n    <p class=\"ew-toast__body\">Your changes are live.</p>\n  </div>\n</div>",
+  "canonicalHtml": "<ew-toast-region class=\"ew-toast-region\" aria-live=\"polite\"></ew-toast-region>\n<!-- region.show({ title, body, variant }) -->",
   "do": [
     "Use a live region.",
     "Keep messages short."

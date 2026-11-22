@@ -4,7 +4,7 @@
   .ew-menu {
     /* anatomy: trigger, panel, item */
   }
-  .ew-menu { display: inline-block; position: relative; }
+  .ew-menu, ew-menu.ew-menu, ew-menu { display: inline-block; position: relative; }
   .ew-menu__panel {
     border: var(--ew-structure-card-border-width, 1px) var(--ew-structure-card-border-style, solid) var(--ew-color-border-subtle);
     border-radius: var(--ew-structure-surface-radius, 8px);
