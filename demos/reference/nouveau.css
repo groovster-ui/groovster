@@ -47,7 +47,7 @@
 .nv-dialog h2{font:500 2.1rem/1.1 var(--ew-font-display)}
 .nv-dialog__actions{display:flex;justify-content:flex-end;gap:1rem;flex-wrap:wrap}
 .nv-cart{display:flex;align-items:center;gap:.5rem}
-[data-filterable][hidden]{display:none!important}
+[data-filterable][hidden],[data-product][hidden]{display:none!important}
 [data-era="art-nouveau"][data-dialect="architectural"] .nv-feature-art{border-radius:42% 42% 10px 10px / 22% 22% 10px 10px}
 [data-era="art-nouveau"][data-dialect="architectural"] .nv-heading{font-family:"Josefin Sans",sans-serif;text-transform:uppercase;letter-spacing:.035em;font-weight:600}
 @media(max-width:830px){.nv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nv-two,.nv-layout-grace{grid-template-columns:1fr}.nv-feature-art{height:340px}}
