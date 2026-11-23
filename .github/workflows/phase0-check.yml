@@ -112,6 +112,9 @@ jobs:
       - name: Verify Swiss and Bauhaus browser demos
         run: node scripts/modernist-browser.mjs
 
+      - name: Verify Art Nouveau browser demos
+        run: node scripts/nouveau-browser.mjs
+
       - name: Run website instruction harness
         timeout-minutes: 5
         run: pnpm eval:sites

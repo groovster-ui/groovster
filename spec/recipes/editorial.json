@@ -26,7 +26,8 @@
       "mcm-atomic",
       "memphis",
       "neon",
-      "bauhaus"
+      "bauhaus",
+      "art-nouveau"
     ],
     "avoid": []
   },
@@ -136,6 +137,12 @@
         "deco"
       ],
       "note": "Wrap masthead copy in .ew-hero__panel with rays and fan. Do not rebuild the rest of the page."
+    },
+    {
+      "eras": [
+        "art-nouveau"
+      ],
+      "note": "Organic hero uses the canonical .ew-hero__stage; keep forms unornamented."
     }
   ],
   "customization": [

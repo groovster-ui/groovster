@@ -20,6 +20,7 @@ import { decoDecoratorCss } from './deco-decorators.js';
 import { atomicDecoratorCss } from './atomic-decorators.js';
 import { neonDecoratorCss } from './neon-decorators.js';
 import { modernistDecoratorCss } from './modernist-decorators.js';
+import { nouveauDecoratorCss } from './nouveau-decorators.js';
 import { loadRecipes, recipeIndexLines, writeRecipeDocs } from './recipes.js';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
@@ -79,10 +80,9 @@ function fontFaceBlock(era, { forBundle = false } = {}) {
   if (!era.fonts) return '';
   const families = [era.fonts.display, era.fonts.body, era.fonts.mono].filter(Boolean);
   if (era.id === 'neon') families.push('Monoton', 'Mr Dafoe');
-  if (era.id === 'mcm-atomic') {
-    if (era.fonts.script) families.push(era.fonts.script);
-    if (era.fonts.displayAlt) families.push(era.fonts.displayAlt);
-  }
+  // Optional font roles work for any era, including independently contributed eras.
+  if (era.fonts.script) families.push(era.fonts.script);
+  if (era.fonts.displayAlt) families.push(era.fonts.displayAlt);
   const unique = [...new Set(families)];
   const prefix = forBundle ? './fonts/' : '../fonts/';
   return unique
@@ -364,6 +364,8 @@ function genEraCss(era) {
     blocks.push(atomicDecoratorCss());
   } else if (era.id === 'neon') {
     blocks.push(neonDecoratorCss());
+  } else if (era.id === 'art-nouveau') {
+    blocks.push(nouveauDecoratorCss());
   } else if (era.id === 'swiss' || era.id === 'bauhaus') {
     blocks.push(modernistDecoratorCss(era.id));
   } else if (era.id === 'neutral') {
@@ -648,8 +650,8 @@ function genLlmsIndex(components, eras, recipes = []) {
   const lines = [
     '# Era Widgets',
     '',
-    'CSS-first, spec-first UI skins for agents. Canonical API is HTML + ew- classes + data-* attrs.',
-    'Set personality with data-era on a root. Do not rewrite markup per era.',
+    'CSS-first, spec-first skins for agents. API: HTML + ew- classes + data-*.',
+    'Set data-era on root; reuse HTML across eras.',
     'Load only needed sections; avoid full-library context.',
     '',
     '## Quick start',
@@ -662,8 +664,7 @@ function genLlmsIndex(components, eras, recipes = []) {
     '',
     '## Fidelity & ornament',
     '- Bands: `whisper|standard|costume` (costume default; `default`/`signature` → standard).',
-    '- Neon and Atomic costume use `.ew-hero__stage`; see era cards.',
-    '- Deco uses `.ew-hero__panel`; FIDELITY.md defines bands.',
+    '- Costume heroes use `.ew-hero__stage` and `.ew-hero__panel`; see era cards.',
     '',
     '## Components (one file each)',
     ...components.map((c) => `- ${c.id}: generated/llms/${c.id}.md`),
