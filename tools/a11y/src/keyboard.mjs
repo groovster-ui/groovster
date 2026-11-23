@@ -5,9 +5,11 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { expect } from 'playwright/test';
 import { safePath } from '../../../tests/helpers/safe-path.mjs';
+import { listEraIds } from '../../../tests/helpers/eras.mjs';
+import { isMatrixUrl, matrixDocument, widgetSid } from '../../../tests/a11y/matrix-html.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
-const FIXTURE = path.join(REPO, 'tests/a11y/fixtures/matrix.html');
+const MATRIX = matrixDocument(REPO);
 
 function contentType(p) {
   if (p.endsWith('.css')) return 'text/css';
@@ -17,10 +19,12 @@ function contentType(p) {
 
 const server = createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
-  let file =
-    url === '/' || url === '/matrix.html'
-      ? FIXTURE
-      : safePath(REPO, url.replace(/^\//, ''));
+  if (isMatrixUrl(url)) {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(MATRIX);
+    return;
+  }
+  const file = safePath(REPO, url.replace(/^\//, ''));
   if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     res.writeHead(404);
     res.end('missing');
@@ -39,15 +43,11 @@ await page.goto(`http://127.0.0.1:${port}/tests/a11y/fixtures/matrix.html`, {
 });
 
 const failures = [];
-const eras = ['neutral', 'deco', 'mcm-atomic', 'neon', 'memphis', 'groovy', 'earth'];
+const eras = listEraIds(REPO);
 const modes = ['light', 'dark'];
 
 function caseId(era, mode) {
   return `case-${era}-${mode}`;
-}
-
-function widgetSid(era, mode) {
-  return era === 'mcm-atomic' ? `atomic-${mode}` : `${era}-${mode}`;
 }
 
 async function isPanelOpen(locator) {

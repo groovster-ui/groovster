@@ -6,9 +6,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '../../tools/a11y/node_modules/playwright/index.mjs';
 import { safePath } from '../helpers/safe-path.mjs';
+import { listEraIds } from '../helpers/eras.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const ERAS = ['deco', 'neon', 'mcm-atomic', 'memphis', 'groovy', 'earth', 'neutral'];
+const ERAS = listEraIds(REPO);
 
 function contentType(p) {
   if (p.endsWith('.css')) return 'text/css';

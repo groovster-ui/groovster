@@ -250,7 +250,7 @@
   [data-era="bauhaus"] .ew-card[data-variant="raised"]{box-shadow:5px 5px 0 var(--ew-color-fg-default)}
   [data-era="bauhaus"] .ew-card__header{border-bottom:2px solid var(--ew-color-fg-default)}
   [data-era="bauhaus"] .ew-button{border:2px solid var(--ew-color-fg-default);border-radius:0;box-shadow:none}
-  [data-era="bauhaus"] .ew-button[data-variant="secondary"]{background:var(--ew-color-primary-yellow);color:var(--ew-color-gray-9)}
+  [data-era="bauhaus"] .ew-button[data-variant="secondary"]{background:var(--ew-color-primary-yellow);color:var(--ew-color-gray-9)}[data-era="bauhaus"][data-mode="dark"] .ew-button[data-variant="secondary"]{color:var(--ew-color-gray-0)}
   [data-era="bauhaus"] .ew-text-field__control,[data-era="bauhaus"] .ew-select__trigger,[data-era="bauhaus"] .ew-textarea__control{border-radius:0}
   [data-era="bauhaus"] .ew-tabs [role="tab"][aria-selected="true"]{border-bottom:4px solid var(--ew-color-action-bg)}
   :is([data-era="bauhaus"][data-fidelity-band="whisper"],[data-fidelity-band="whisper"] [data-era="bauhaus"]) .ew-hero{min-height:260px;padding-block:2rem}

@@ -1,6 +1,6 @@
 {
   "eras": {
-    "neutral": {
+    "bauhaus": {
       "modes": {
         "light": {
           "pass": true,
@@ -26,33 +26,7 @@
       },
       "pass": true
     },
-    "mcm-atomic": {
-      "modes": {
-        "light": {
-          "pass": true,
-          "issues": []
-        },
-        "dark": {
-          "pass": true,
-          "issues": []
-        }
-      },
-      "pass": true
-    },
-    "neon": {
-      "modes": {
-        "light": {
-          "pass": true,
-          "issues": []
-        },
-        "dark": {
-          "pass": true,
-          "issues": []
-        }
-      },
-      "pass": true
-    },
-    "memphis": {
+    "earth": {
       "modes": {
         "light": {
           "pass": true,
@@ -78,7 +52,59 @@
       },
       "pass": true
     },
-    "earth": {
+    "mcm-atomic": {
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
+    },
+    "memphis": {
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
+    },
+    "neon": {
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
+    },
+    "neutral": {
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
+    },
+    "swiss": {
       "modes": {
         "light": {
           "pass": true,

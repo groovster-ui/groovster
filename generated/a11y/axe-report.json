@@ -2,12 +2,12 @@
   "pass": true,
   "cases": [
     {
-      "id": "case-neutral-light",
+      "id": "case-bauhaus-light",
       "pass": true,
       "violations": []
     },
     {
-      "id": "case-neutral-dark",
+      "id": "case-bauhaus-dark",
       "pass": true,
       "violations": []
     },
@@ -22,32 +22,12 @@
       "violations": []
     },
     {
-      "id": "case-mcm-atomic-light",
+      "id": "case-earth-light",
       "pass": true,
       "violations": []
     },
     {
-      "id": "case-mcm-atomic-dark",
-      "pass": true,
-      "violations": []
-    },
-    {
-      "id": "case-neon-light",
-      "pass": true,
-      "violations": []
-    },
-    {
-      "id": "case-neon-dark",
-      "pass": true,
-      "violations": []
-    },
-    {
-      "id": "case-memphis-light",
-      "pass": true,
-      "violations": []
-    },
-    {
-      "id": "case-memphis-dark",
+      "id": "case-earth-dark",
       "pass": true,
       "violations": []
     },
@@ -62,22 +42,62 @@
       "violations": []
     },
     {
-      "id": "case-earth-light",
+      "id": "case-mcm-atomic-light",
       "pass": true,
       "violations": []
     },
     {
-      "id": "case-earth-dark",
+      "id": "case-mcm-atomic-dark",
       "pass": true,
       "violations": []
     },
     {
-      "id": "case-neutral-light-whisper",
+      "id": "case-memphis-light",
       "pass": true,
       "violations": []
     },
     {
-      "id": "case-neutral-dark-whisper",
+      "id": "case-memphis-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neon-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neon-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neutral-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neutral-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-swiss-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-swiss-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-bauhaus-light-whisper",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-bauhaus-dark-whisper",
       "pass": true,
       "violations": []
     },
@@ -92,32 +112,12 @@
       "violations": []
     },
     {
-      "id": "case-mcm-atomic-light-whisper",
+      "id": "case-earth-light-whisper",
       "pass": true,
       "violations": []
     },
     {
-      "id": "case-mcm-atomic-dark-whisper",
-      "pass": true,
-      "violations": []
-    },
-    {
-      "id": "case-neon-light-whisper",
-      "pass": true,
-      "violations": []
-    },
-    {
-      "id": "case-neon-dark-whisper",
-      "pass": true,
-      "violations": []
-    },
-    {
-      "id": "case-memphis-light-whisper",
-      "pass": true,
-      "violations": []
-    },
-    {
-      "id": "case-memphis-dark-whisper",
+      "id": "case-earth-dark-whisper",
       "pass": true,
       "violations": []
     },
@@ -132,12 +132,52 @@
       "violations": []
     },
     {
-      "id": "case-earth-light-whisper",
+      "id": "case-mcm-atomic-light-whisper",
       "pass": true,
       "violations": []
     },
     {
-      "id": "case-earth-dark-whisper",
+      "id": "case-mcm-atomic-dark-whisper",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-memphis-light-whisper",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-memphis-dark-whisper",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neon-light-whisper",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neon-dark-whisper",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neutral-light-whisper",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-neutral-dark-whisper",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-swiss-light-whisper",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-swiss-dark-whisper",
       "pass": true,
       "violations": []
     }
