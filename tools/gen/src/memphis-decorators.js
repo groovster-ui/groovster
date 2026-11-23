@@ -14,26 +14,13 @@ export function memphisDecoratorCss() {
   };
   const sliderThumbLight = sliderThumb('#1a83db', '#14151f');
   const sliderThumbDark = sliderThumb('#53a3f2', '#f2efe0');
-  const dotField = (dot, dotOpacity, shapeOpacity) => {
+  const shapeField = (shapeOpacity) => {
     const red = '#e6443a';
     const yellow = '#f0d947';
     const blue = '#4087de';
     const pink = '#e96cad';
-    let dots = '';
-    for (let y = 18; y < 640; y += 36) {
-      for (let x = 18; x < 640; x += 36) {
-        dots += `<circle cx='${x}' cy='${y}' r='3.4' fill='${dot}'/>`;
-      }
-    }
-    const shapes = `
-      <polygon points='70,36 176,36 176,150' fill='${red}'/>
-      <rect x='220' y='78' width='72' height='72' fill='${yellow}'/>
-      <polyline points='500,36 590,36 590,88 546,88 546,150 500,150' fill='none' stroke='${blue}' stroke-width='30' stroke-linejoin='miter' stroke-linecap='square'/>
-      <polyline points='150,300 150,370 198,370 198,440 246,440 246,510' fill='none' stroke='${blue}' stroke-width='30' stroke-linejoin='miter' stroke-linecap='butt'/>
-      <rect x='470' y='360' width='130' height='90' fill='${pink}'/>
-      <polygon points='40,470 150,470 40,610' fill='${pink}'/>
-      <rect x='330' y='540' width='36' height='36' fill='${yellow}'/>`;
-    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'><g opacity='${dotOpacity}'>${dots}</g><g opacity='${shapeOpacity}'>${shapes}</g></svg>`;
+    const shapes = `<polygon points='70,36 176,36 176,150' fill='${red}'/><rect x='220' y='78' width='72' height='72' fill='${yellow}'/><polyline points='500,36 590,36 590,88 546,88 546,150 500,150' fill='none' stroke='${blue}' stroke-width='30' stroke-linejoin='miter' stroke-linecap='square'/><polyline points='150,300 150,370 198,370 198,440 246,440 246,510' fill='none' stroke='${blue}' stroke-width='30' stroke-linejoin='miter' stroke-linecap='butt'/><rect x='470' y='360' width='130' height='90' fill='${pink}'/><polygon points='40,470 150,470 40,610' fill='${pink}'/><rect x='330' y='540' width='36' height='36' fill='${yellow}'/>`;
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'><g opacity='${shapeOpacity}'>${shapes}</g></svg>`;
     return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
   };
   const squiggle = (ink) => {
@@ -41,8 +28,8 @@ export function memphisDecoratorCss() {
     const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='104' height='28' viewBox='0 0 104 28'><path d='${d}' fill='none' stroke='${ink}' stroke-width='6' stroke-linecap='square' opacity='0.72'/></svg>`;
     return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
   };
-  const groundLight = dotField('#2b7ec9', '0.55', '0.38');
-  const groundDark = dotField('#85bcf5', '0.4', '0.28');
+  const groundLight = shapeField('0.38');
+  const groundDark = shapeField('0.28');
   const squiggleLight = squiggle('#3072c1');
   const squiggleDark = squiggle('#85bcf5');
   const costumeDark = costumeSel('memphis').replaceAll('[data-era="memphis"]', '[data-era="memphis"][data-mode="dark"]');
@@ -74,13 +61,13 @@ export function memphisDecoratorCss() {
   }
   ${costumeSel('memphis')} {
     background-color: var(--ew-color-bg-page);
-    background-image: ${groundLight};
-    background-repeat: repeat;
-    background-size: 640px 640px;
+    background-image: radial-gradient(circle, #2b7ec98c 3.4px, transparent 3.6px), ${groundLight};
+    background-repeat: repeat, repeat;
+    background-size: 36px 36px, 640px 640px;
   }
   ${costumeDark} {
     background-color: var(--ew-color-bg-page);
-    background-image: ${groundDark};
+    background-image: radial-gradient(circle, #85bcf566 3.4px, transparent 3.6px), ${groundDark};
   }
   [data-era="memphis"] .ew-button,
   [data-era="memphis"] .ew-icon-button {

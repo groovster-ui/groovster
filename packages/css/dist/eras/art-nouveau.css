@@ -241,14 +241,7 @@
     --ew-structure-slider-thumb-size: 17px;
     --ew-structure-slider-track-radius: 999px;
   }
-  [data-era="art-nouveau"][data-fidelity-band="whisper"],
-  [data-fidelity-band="whisper"] [data-era="art-nouveau"],
-  [data-era="art-nouveau"][data-fidelity-band="standard"],
-  [data-fidelity-band="standard"] [data-era="art-nouveau"],
-  [data-era="art-nouveau"][data-fidelity-band="default"],
-  [data-fidelity-band="default"] [data-era="art-nouveau"],
-  [data-era="art-nouveau"][data-fidelity-band="signature"],
-  [data-fidelity-band="signature"] [data-era="art-nouveau"] {
+  [data-era="art-nouveau"]:is([data-fidelity-band="whisper"],[data-fidelity-band="standard"],[data-fidelity-band="default"],[data-fidelity-band="signature"]), :is([data-fidelity-band="whisper"],[data-fidelity-band="standard"],[data-fidelity-band="default"],[data-fidelity-band="signature"]) [data-era="art-nouveau"] {
     --ew-structure-card-ornament-opacity: 0;
     --ew-structure-button-clip: none;
     --ew-structure-card-clip: none;

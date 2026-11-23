@@ -221,14 +221,7 @@
     --ew-structure-slider-thumb-size: 14px;
     --ew-structure-slider-track-radius: 0px;
   }
-  [data-era="deco"][data-fidelity-band="whisper"],
-  [data-fidelity-band="whisper"] [data-era="deco"],
-  [data-era="deco"][data-fidelity-band="standard"],
-  [data-fidelity-band="standard"] [data-era="deco"],
-  [data-era="deco"][data-fidelity-band="default"],
-  [data-fidelity-band="default"] [data-era="deco"],
-  [data-era="deco"][data-fidelity-band="signature"],
-  [data-fidelity-band="signature"] [data-era="deco"] {
+  [data-era="deco"]:is([data-fidelity-band="whisper"],[data-fidelity-band="standard"],[data-fidelity-band="default"],[data-fidelity-band="signature"]), :is([data-fidelity-band="whisper"],[data-fidelity-band="standard"],[data-fidelity-band="default"],[data-fidelity-band="signature"]) [data-era="deco"] {
     --ew-structure-card-ornament-opacity: 0;
     --ew-structure-button-clip: none;
     --ew-structure-card-clip: none;
@@ -994,33 +987,24 @@
   [data-era="deco"][data-dialect="streamline"] .ew-tabs [role="tab"],
   [data-era="deco"][data-dialect="streamline"] ew-tabs [role="tab"] { border-radius: 999px 999px 0 0; }
 
-  [data-era="deco"][data-fidelity-band="whisper"],
-  [data-fidelity-band="whisper"] [data-era="deco"] {
+  [data-era="deco"]:is([data-fidelity-band="whisper"]), :is([data-fidelity-band="whisper"]) [data-era="deco"] {
     --ew-deco-corners: var(--ew-deco-sheen);
     --ew-deco-corner-size: auto;
     --ew-deco-corner-pos: 0 0;
     --ew-deco-btn: none;
     --ew-deco-btn-hover: none;
   }
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-section-heading,
-  [data-fidelity-band="whisper"] [data-era="deco"] .ew-section-heading { padding-inline: 0; }
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-card,
-  [data-fidelity-band="whisper"] [data-era="deco"] .ew-card,
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-hero__panel,
-  [data-fidelity-band="whisper"] [data-era="deco"] .ew-hero__panel,
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-tier-card,
-  [data-fidelity-band="whisper"] [data-era="deco"] .ew-tier-card,
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-dialog,
-  [data-fidelity-band="whisper"] [data-era="deco"] .ew-dialog,
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-alert,
-  [data-fidelity-band="whisper"] [data-era="deco"] .ew-alert,
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-toast,
-  [data-fidelity-band="whisper"] [data-era="deco"] .ew-toast {
+  [data-era="deco"]:is([data-fidelity-band="whisper"]) .ew-section-heading, :is([data-fidelity-band="whisper"]) [data-era="deco"] .ew-section-heading { padding-inline: 0; }
+  [data-era="deco"]:is([data-fidelity-band="whisper"]) .ew-card, :is([data-fidelity-band="whisper"]) [data-era="deco"] .ew-card,
+  [data-era="deco"]:is([data-fidelity-band="whisper"]) .ew-hero__panel, :is([data-fidelity-band="whisper"]) [data-era="deco"] .ew-hero__panel,
+  [data-era="deco"]:is([data-fidelity-band="whisper"]) .ew-tier-card, :is([data-fidelity-band="whisper"]) [data-era="deco"] .ew-tier-card,
+  [data-era="deco"]:is([data-fidelity-band="whisper"]) .ew-dialog, :is([data-fidelity-band="whisper"]) [data-era="deco"] .ew-dialog,
+  [data-era="deco"]:is([data-fidelity-band="whisper"]) .ew-alert, :is([data-fidelity-band="whisper"]) [data-era="deco"] .ew-alert,
+  [data-era="deco"]:is([data-fidelity-band="whisper"]) .ew-toast, :is([data-fidelity-band="whisper"]) [data-era="deco"] .ew-toast {
     box-shadow: none;
     border-width: 1px;
   }
-  [data-era="deco"][data-fidelity-band="whisper"] .ew-button,
-  [data-fidelity-band="whisper"] [data-era="deco"] .ew-button {
+  [data-era="deco"]:is([data-fidelity-band="whisper"]) .ew-button, :is([data-fidelity-band="whisper"]) [data-era="deco"] .ew-button {
     box-shadow: none;
     background-image: none;
   }

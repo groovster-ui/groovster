@@ -97,6 +97,7 @@ export function groovyDecoratorCss() {
   ].map((rest) => bandSel('groovy', 'whisper', rest)).join(',\n  ');
 
   return `  [data-era="groovy"] {
+    --ew-groovy-daisy: ${daisyScatter};
     --ew-groovy-ink: ${ink};
     --ew-groovy-paper: ${paper};
     --ew-groovy-blob: 28px 42px 22px 36px / 36px 22px 40px 26px;
@@ -110,14 +111,14 @@ export function groovyDecoratorCss() {
   }
   ${costumeSel('groovy')} {
     background-color: #fffaf4;
-    background-image: ${daisyScatter}, ${pageRibbons};
+    background-image: var(--ew-groovy-daisy), ${pageRibbons};
     background-repeat: repeat, repeat-y;
     background-size: 440px 440px, 100% 520px;
     background-position: center top, center top;
   }
   ${costumeDark} {
     background-color: oklch(24% 0.045 350);
-    background-image: ${daisyScatter}, ${pageRibbonsDark};
+    background-image: var(--ew-groovy-daisy), ${pageRibbonsDark};
   }
   [data-era="groovy"] ::selection {
     background: var(--ew-color-sun);
@@ -477,7 +478,7 @@ export function groovyDecoratorCss() {
   }
   [data-era="groovy"] .ew-hero__backdrop {
     background-color: #fffaf4;
-    background-image: ${daisyScatter}, ${heroRibbons};
+    background-image: var(--ew-groovy-daisy), ${heroRibbons};
     background-repeat: repeat, no-repeat;
     background-size: 240px 240px, 100% 100%;
     background-position: center, center;

@@ -1,7 +1,8 @@
 {
   "bundle": {
-    "bytes": 263688,
-    "gzip": 33985,
-    "brotli": 23765
-  }
+    "bytes": 359498,
+    "gzip": 54695,
+    "brotli": 38006
+  },
+  "justification": "The 34KB gzip baseline was the seven-era bundle (deco, earth, groovy, atomic, memphis, neon, neutral) before Art Nouveau, Bauhaus, and Swiss shipped and before costume heroes carried inline ornament. Collapsing fidelity selectors with :is(), drawing the Memphis dot field as a gradient instead of hundreds of circle elements, and storing the Groovy daisy once cut the bundle from 61KB to 55KB gzip. Nine full era skins with heroes do not fit in the old 41KB cap (34KB plus 20%). This baseline is that reduced bundle; sizes:check still allows 20% growth."
 }

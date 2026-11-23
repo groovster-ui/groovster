@@ -200,14 +200,7 @@
     --ew-structure-slider-thumb-size: 18px;
     --ew-structure-slider-track-radius: 0px;
   }
-  [data-era="swiss"][data-fidelity-band="whisper"],
-  [data-fidelity-band="whisper"] [data-era="swiss"],
-  [data-era="swiss"][data-fidelity-band="standard"],
-  [data-fidelity-band="standard"] [data-era="swiss"],
-  [data-era="swiss"][data-fidelity-band="default"],
-  [data-fidelity-band="default"] [data-era="swiss"],
-  [data-era="swiss"][data-fidelity-band="signature"],
-  [data-fidelity-band="signature"] [data-era="swiss"] {
+  [data-era="swiss"]:is([data-fidelity-band="whisper"],[data-fidelity-band="standard"],[data-fidelity-band="default"],[data-fidelity-band="signature"]), :is([data-fidelity-band="whisper"],[data-fidelity-band="standard"],[data-fidelity-band="default"],[data-fidelity-band="signature"]) [data-era="swiss"] {
     --ew-structure-card-ornament-opacity: 0;
     --ew-structure-button-clip: none;
     --ew-structure-card-clip: none;

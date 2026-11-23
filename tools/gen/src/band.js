@@ -11,13 +11,13 @@ export const MUTE_BANDS = ['whisper', 'standard', 'default', 'signature'];
  * @param {string} era
  * @param {string} [rest] selector after the era root (e.g. " .ew-card::before")
  */
+function bandIs(bands) {
+  return `:is(${bands.map((band) => `[data-fidelity-band="${band}"]`).join(',')})`;
+}
+
 export function muteBandSel(era, rest = '') {
-  const parts = [];
-  for (const band of MUTE_BANDS) {
-    parts.push(`[data-era="${era}"][data-fidelity-band="${band}"]${rest}`);
-    parts.push(`[data-fidelity-band="${band}"] [data-era="${era}"]${rest}`);
-  }
-  return parts.join(',\n  ');
+  const bands = bandIs(MUTE_BANDS);
+  return `[data-era="${era}"]${bands}${rest}, ${bands} [data-era="${era}"]${rest}`;
 }
 
 /**
@@ -27,13 +27,8 @@ export function muteBandSel(era, rest = '') {
  * @param {string} [rest]
  */
 export function bandSel(era, bands, rest = '') {
-  const list = Array.isArray(bands) ? bands : [bands];
-  const parts = [];
-  for (const band of list) {
-    parts.push(`[data-era="${era}"][data-fidelity-band="${band}"]${rest}`);
-    parts.push(`[data-fidelity-band="${band}"] [data-era="${era}"]${rest}`);
-  }
-  return parts.join(',\n  ');
+  const list = bandIs(Array.isArray(bands) ? bands : [bands]);
+  return `[data-era="${era}"]${list}${rest}, ${list} [data-era="${era}"]${rest}`;
 }
 
 /**
@@ -43,10 +38,9 @@ export function bandSel(era, bands, rest = '') {
  * @param {string} [rest]
  */
 export function costumeSel(era, rest = '') {
-  const notMuteSelf = MUTE_BANDS.map((b) => `:not([data-fidelity-band="${b}"])`).join('');
-  const notMuteAnc = MUTE_BANDS.map((b) => `:not([data-fidelity-band="${b}"] *)`).join('');
+  const bands = bandIs(MUTE_BANDS);
   return [
-    `[data-era="${era}"]${notMuteSelf}${notMuteAnc}${rest}`,
+    `[data-era="${era}"]:not(${bands}):not(${bands} *)${rest}`,
     `[data-fidelity-band="costume"] [data-era="${era}"]${rest}`,
   ].join(',\n  ');
 }
