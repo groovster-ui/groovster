@@ -120,6 +120,30 @@ export function groovyDecoratorCss() {
     background-color: oklch(24% 0.045 350);
     background-image: var(--ew-groovy-daisy), ${pageRibbonsDark};
   }
+  /* The poster stays in the margins and the hero. Body type sits on a plate. */
+  ${costumeSel('groovy', ' :is(main, footer)')} {
+    background-color: var(--ew-color-bg-elevated);
+    background-image: none;
+  }
+  ${costumeSel('groovy', ' nav:not(.ew-breadcrumb)')} {
+    position: relative;
+    z-index: 3;
+    margin: 12px 0 16px;
+    padding: 10px 18px;
+    background-color: var(--ew-color-bg-elevated);
+    background-image: none;
+    border: 3px solid var(--ew-groovy-ink);
+    border-radius: 999px;
+    box-shadow: 4px 4px 0 0 var(--ew-color-magenta);
+  }
+  [data-era="groovy"] main :is(h2, h3) {
+    display: inline-block;
+    padding-bottom: 0.35em;
+    background-image: ${waveRule};
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 100% 8px;
+  }
   [data-era="groovy"] ::selection {
     background: var(--ew-color-sun);
     color: var(--ew-groovy-ink);

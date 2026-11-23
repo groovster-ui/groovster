@@ -69,6 +69,11 @@ export function memphisDecoratorCss() {
     background-color: var(--ew-color-bg-page);
     background-image: radial-gradient(circle, #85bcf566 3.4px, transparent 3.6px), ${groundDark};
   }
+  /* Dots and shapes stay in the margins. Copy sits on a solid plate. */
+  ${costumeSel('memphis', ' :is(nav, main, footer)')} {
+    background-color: var(--ew-color-bg-elevated);
+    background-image: none;
+  }
   [data-era="memphis"] .ew-button,
   [data-era="memphis"] .ew-icon-button {
     background: var(--ew-color-yellow);

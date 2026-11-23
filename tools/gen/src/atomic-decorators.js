@@ -199,6 +199,13 @@ export function atomicDecoratorCss() {
   [data-era="mcm-atomic"][data-mode="dark"] {
     background-image: var(--ew-ornament-boomerang-night);
   }
+  /* The boomerang tile stays in the margins. Body copy sits on a solid plate. */
+  [data-era="mcm-atomic"] :is(nav, main, footer) {
+    position: relative;
+    z-index: 1;
+    background-color: var(--ew-color-bg-elevated);
+    background-image: none;
+  }
   [data-era="mcm-atomic"] .ew-backdrop,
   [data-era="mcm-atomic"].ew-backdrop {
     position: absolute;

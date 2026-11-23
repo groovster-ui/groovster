@@ -244,6 +244,32 @@
     background-color: oklch(24% 0.045 350);
     background-image: var(--ew-groovy-daisy), url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20preserveAspectRatio%3D'none'%20width%3D'480'%20height%3D'129'%20viewBox%3D'0%200%20480%20129'%3E%3Cpath%20d%3D'M0%2027%20C120%20-7%20120%20-7%20240%2027%20C360%2061%20360%2061%20480%2027'%20fill%3D'none'%20stroke%3D'%23f6efe4'%20stroke-width%3D'17.4'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2027%20C120%20-7%20120%20-7%20240%2027%20C360%2061%20360%2061%20480%2027'%20fill%3D'none'%20stroke%3D'%23d0892e'%20stroke-width%3D'14'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2042%20C120%208%20120%208%20240%2042%20C360%2076%20360%2076%20480%2042'%20fill%3D'none'%20stroke%3D'%23f6efe4'%20stroke-width%3D'17.4'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2042%20C120%208%20120%208%20240%2042%20C360%2076%20360%2076%20480%2042'%20fill%3D'none'%20stroke%3D'%23e07a45'%20stroke-width%3D'14'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2057%20C120%2023%20120%2023%20240%2057%20C360%2091%20360%2091%20480%2057'%20fill%3D'none'%20stroke%3D'%23f6efe4'%20stroke-width%3D'17.4'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2057%20C120%2023%20120%2023%20240%2057%20C360%2091%20360%2091%20480%2057'%20fill%3D'none'%20stroke%3D'%23e0b15c'%20stroke-width%3D'14'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2072%20C120%2038%20120%2038%20240%2072%20C360%20106%20360%20106%20480%2072'%20fill%3D'none'%20stroke%3D'%23f6efe4'%20stroke-width%3D'17.4'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2072%20C120%2038%20120%2038%20240%2072%20C360%20106%20360%20106%20480%2072'%20fill%3D'none'%20stroke%3D'%23d9899a'%20stroke-width%3D'14'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2087%20C120%2053%20120%2053%20240%2087%20C360%20121%20360%20121%20480%2087'%20fill%3D'none'%20stroke%3D'%23f6efe4'%20stroke-width%3D'17.4'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2087%20C120%2053%20120%2053%20240%2087%20C360%20121%20360%20121%20480%2087'%20fill%3D'none'%20stroke%3D'%23c46b78'%20stroke-width%3D'14'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%20102%20C120%2068%20120%2068%20240%20102%20C360%20136%20360%20136%20480%20102'%20fill%3D'none'%20stroke%3D'%23f6efe4'%20stroke-width%3D'17.4'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%20102%20C120%2068%20120%2068%20240%20102%20C360%20136%20360%20136%20480%20102'%20fill%3D'none'%20stroke%3D'%23e7c49a'%20stroke-width%3D'14'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E");
   }
+  /* The poster stays in the margins and the hero. Body type sits on a plate. */
+  [data-era="groovy"]:not(:is([data-fidelity-band="whisper"],[data-fidelity-band="standard"],[data-fidelity-band="default"],[data-fidelity-band="signature"])):not(:is([data-fidelity-band="whisper"],[data-fidelity-band="standard"],[data-fidelity-band="default"],[data-fidelity-band="signature"]) *) :is(main, footer),
+  [data-fidelity-band="costume"] [data-era="groovy"] :is(main, footer) {
+    background-color: var(--ew-color-bg-elevated);
+    background-image: none;
+  }
+  [data-era="groovy"]:not(:is([data-fidelity-band="whisper"],[data-fidelity-band="standard"],[data-fidelity-band="default"],[data-fidelity-band="signature"])):not(:is([data-fidelity-band="whisper"],[data-fidelity-band="standard"],[data-fidelity-band="default"],[data-fidelity-band="signature"]) *) nav:not(.ew-breadcrumb),
+  [data-fidelity-band="costume"] [data-era="groovy"] nav:not(.ew-breadcrumb) {
+    position: relative;
+    z-index: 3;
+    margin: 12px 0 16px;
+    padding: 10px 18px;
+    background-color: var(--ew-color-bg-elevated);
+    background-image: none;
+    border: 3px solid var(--ew-groovy-ink);
+    border-radius: 999px;
+    box-shadow: 4px 4px 0 0 var(--ew-color-magenta);
+  }
+  [data-era="groovy"] main :is(h2, h3) {
+    display: inline-block;
+    padding-bottom: 0.35em;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20preserveAspectRatio%3D'none'%20width%3D'480'%20height%3D'69'%20viewBox%3D'0%200%20480%2069'%3E%3Cpath%20d%3D'M0%2024.5%20C120%2012.5%20120%2012.5%20240%2024.5%20C360%2036.5%20360%2036.5%20480%2024.5'%20fill%3D'none'%20stroke%3D'%231c140f'%20stroke-width%3D'12.4'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2024.5%20C120%2012.5%20120%2012.5%20240%2024.5%20C360%2036.5%20360%2036.5%20480%2024.5'%20fill%3D'none'%20stroke%3D'%23e7a23a'%20stroke-width%3D'9'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2034.5%20C120%2022.5%20120%2022.5%20240%2034.5%20C360%2046.5%20360%2046.5%20480%2034.5'%20fill%3D'none'%20stroke%3D'%231c140f'%20stroke-width%3D'12.4'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2034.5%20C120%2022.5%20120%2022.5%20240%2034.5%20C360%2046.5%20360%2046.5%20480%2034.5'%20fill%3D'none'%20stroke%3D'%23f08a3c'%20stroke-width%3D'9'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2044.5%20C120%2032.5%20120%2032.5%20240%2044.5%20C360%2056.5%20360%2056.5%20480%2044.5'%20fill%3D'none'%20stroke%3D'%231c140f'%20stroke-width%3D'12.4'%20stroke-linecap%3D'round'%2F%3E%3Cpath%20d%3D'M0%2044.5%20C120%2032.5%20120%2032.5%20240%2044.5%20C360%2056.5%20360%2056.5%20480%2044.5'%20fill%3D'none'%20stroke%3D'%23e48b9a'%20stroke-width%3D'9'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 100% 8px;
+  }
   [data-era="groovy"] ::selection {
     background: var(--ew-color-sun);
     color: var(--ew-groovy-ink);

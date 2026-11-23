@@ -276,17 +276,13 @@
     pointer-events: none;
   }
   [data-era="bauhaus"] .ew-hero__backdrop::after {
-    content: "bauhaus";
+    content: "";
     position: absolute;
-    left: 1.6rem;
-    bottom: 1.7rem;
-    transform: rotate(-90deg);
-    transform-origin: left bottom;
-    font: 700 0.68rem/1 var(--ew-font-display);
-    letter-spacing: 0.34em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    color: var(--ew-color-fg-default);
+    left: 1.4rem;
+    bottom: 1.4rem;
+    width: 14px;
+    height: 14px;
+    background: var(--ew-color-primary-red);
   }
   [data-era="bauhaus"] .ew-hero__stage {
     position: absolute;

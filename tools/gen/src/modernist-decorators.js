@@ -17,7 +17,10 @@ function swissCss() {
   [data-era="swiss"] .ew-script{font:700 .82rem/1.4 var(--ew-font-body);text-transform:uppercase;letter-spacing:.1em}
   [data-era="swiss"] .ew-hero__stage{position:absolute;inset:0 auto 0 10%;width:2px;background:var(--ew-color-action-bg);pointer-events:none}
   [data-era="swiss"] .ew-hero__stage::after{content:"";position:absolute;top:0;left:0;width:clamp(12px,2vw,30px);height:clamp(30px,7vw,100px);background:var(--ew-color-action-bg)}
-  [data-era="swiss"] h2,[data-era="swiss"] .ew-section-heading{font-family:var(--ew-font-display);font-size:clamp(2.8rem,6.4vw,5.6rem);font-weight:700;line-height:.9;letter-spacing:-.03em;text-align:left}
+  [data-era="swiss"] :is(h2, .ew-section-heading):not(.ew-dialog__header *){font-family:var(--ew-font-display);font-size:clamp(2.8rem,6.4vw,5.6rem);font-weight:700;line-height:.9;letter-spacing:-.03em;text-align:left}
+  [data-era="swiss"] .ew-dialog__header :is(h2, h3){font-family:var(--ew-font-display);font-size:1.35rem;font-weight:700;line-height:1.2;letter-spacing:0}
+  [data-era="swiss"] main { counter-reset: ew-swiss; }
+  [data-era="swiss"] main h2::before{counter-increment:ew-swiss;content:counter(ew-swiss, decimal-leading-zero);color:var(--ew-color-action-bg);font-size:.42em;margin-right:.45em;letter-spacing:0}
   [data-era="swiss"] .ew-card{border-radius:0;box-shadow:none;background-image:none}
   [data-era="swiss"] .ew-card[data-variant="raised"]{border-top:3px solid var(--ew-color-action-bg);box-shadow:none}
   [data-era="swiss"] .ew-card__header{border-bottom:1px solid var(--ew-color-border-subtle)}
@@ -85,17 +88,13 @@ function bauhausCss() {
     pointer-events: none;
   }
   [data-era="bauhaus"] .ew-hero__backdrop::after {
-    content: "bauhaus";
+    content: "";
     position: absolute;
-    left: 1.6rem;
-    bottom: 1.7rem;
-    transform: rotate(-90deg);
-    transform-origin: left bottom;
-    font: 700 0.68rem/1 var(--ew-font-display);
-    letter-spacing: 0.34em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    color: var(--ew-color-fg-default);
+    left: 1.4rem;
+    bottom: 1.4rem;
+    width: 14px;
+    height: 14px;
+    background: var(--ew-color-primary-red);
   }
   [data-era="bauhaus"] .ew-hero__stage {
     position: absolute;
