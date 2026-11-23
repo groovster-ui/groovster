@@ -8,7 +8,7 @@ export type SliderProps = Omit<React.ComponentPropsWithoutRef<'input'>, 'size' |
 
 /** Native range input with era track/thumb chrome. */
 export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(function Slider(
-  { className, variant, size, label, children, id, value, defaultValue, ...rest },
+  { className, variant, size, label, children: _children, id, value, defaultValue, ...rest },
   ref
 ) {
   const autoId = React.useId();

@@ -1,13 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { REPO_ROOT, SPEC_ROOT, getOutRoot, outPath } from './paths.js';
+import { SPEC_ROOT, getOutRoot, outPath } from './paths.js';
 import { listFiles, writeText, rel } from './io.js';
 import { generateRegistry } from './registry.js';
 import { generateDialectCss } from './dialects.js';
 import { generateReactPackage } from './react-wrapper.js';
 
 function publishMcpData(outputs) {
-  const destRoot = path.join(REPO_ROOT, 'packages/mcp/data');
+  const destRoot = path.join(getOutRoot(), 'packages/mcp/data');
   fs.rmSync(destRoot, { recursive: true, force: true });
   const groups = [
     ['components', (file) => file.endsWith('.json')],
@@ -21,7 +21,7 @@ function publishMcpData(outputs) {
       const dest = path.join(destRoot, relPath);
       fs.mkdirSync(path.dirname(dest), { recursive: true });
       fs.copyFileSync(file, dest);
-      outputs.push(rel(REPO_ROOT, dest));
+      outputs.push(rel(getOutRoot(), dest));
     }
   }
   const cardDir = outPath('generated/llms');
@@ -32,7 +32,7 @@ function publishMcpData(outputs) {
       if (!/^recipe-[a-z0-9-]+\.card\.txt$/.test(name)) continue;
       const dest = path.join(cardDest, name);
       fs.copyFileSync(path.join(cardDir, name), dest);
-      outputs.push(rel(REPO_ROOT, dest));
+      outputs.push(rel(getOutRoot(), dest));
     }
   }
 }
