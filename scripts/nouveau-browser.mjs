@@ -45,9 +45,9 @@ try{
     await page.locator('select[data-category]').selectOption('herb');
     if(await page.locator('[data-product]:visible').count()!==1)throw Error('category filtering failed');
     await page.locator('select[data-category]').selectOption('all');
-    await page.locator('[data-stock]').check();
+    await page.locator('input[data-stock]').check();
     if(await page.locator('[data-product]:visible').count()!==2)throw Error('stock filter failed');
-    await page.locator('[data-stock]').uncheck();
+    await page.locator('input[data-stock]').uncheck();
     await page.locator('[data-add]').first().click();
     await page.locator('[data-open-cart]').click();
     if(await page.locator('#cart-dialog [data-cart-total]').textContent()!=='$24.00')throw Error('cart total incorrect');
