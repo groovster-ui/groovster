@@ -21,7 +21,9 @@
     "alsoFits": [
       "deco",
       "earth",
-      "neutral"
+      "neutral",
+      "bauhaus",
+      "swiss"
     ],
     "avoid": []
   },

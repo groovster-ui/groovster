@@ -2,7 +2,7 @@
 
 CSS-first, spec-first UI skins for agents. Canonical API is HTML + ew- classes + data-* attrs.
 Set personality with data-era on a root. Do not rewrite markup per era.
-Load ONLY the sections you need — do not ingest the whole library.
+Load only needed sections; avoid full-library context.
 
 ## Quick start
 - CSS: @groovster/css/era-widgets.css
@@ -10,6 +10,7 @@ Load ONLY the sections you need — do not ingest the whole library.
 - Rules: generated/rules/era-widgets.mdc
 
 ## Eras (cards: generated/llms/era-<id>.card.txt)
+- bauhaus: Bauhaus: constructive geometric planes, functional type and disciplined color.
 - deco: Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer.
 - earth: Crafted earth tones: clay, moss, sand — quiet organic UI.
 - groovy: 70s groove: avocado & harvest gold, soft flares, lazy curves.
@@ -17,11 +18,12 @@ Load ONLY the sections you need — do not ingest the whole library.
 - memphis: Playful postmodern: squiggles, confetti shapes, loud primaries on cream.
 - neon: 80s synthwave: perspective grid, striped sunset sun, chrome type, neon tubes.
 - neutral: Quiet modern system skin — the default before personality.
+- swiss: Swiss: asymmetric typographic grids, objective clarity, measured red accents.
 
 ## Fidelity & ornament
 - Bands: `whisper|standard|costume` (costume default; `default`/`signature` → standard).
-- Neon/Atomic costume heroes **require** `.ew-hero__stage` (Neon: sun/mountains/grid; Atomic: starbursts/orbit/arch/twotone).
-- Deco: `.ew-hero__panel` / rays / fan; stepped frames. Docs: NEON.md, ATOMIC.md, FIDELITY.md. Fonts: OFL WOFF2.
+- Neon and Atomic costume use `.ew-hero__stage`; see era cards.
+- Deco uses `.ew-hero__panel`; FIDELITY.md defines bands.
 
 ## Components (one file each)
 - alert: generated/llms/alert.md

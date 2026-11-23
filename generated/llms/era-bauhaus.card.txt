@@ -1,0 +1,10 @@
+era: bauhaus
+movement: German Bauhaus, 1919–33
+voice: constructive geometric modernism
+geometry: circle, bar, colored planes, asymmetric balance
+type: bundled League Spartan + Source Sans 3
+color: paper, ink, disciplined red/yellow/blue
+whisper: geometry; standard: one plane; costume: integrated composition
+modes: light, dark; costume default
+use: museums, products, exhibitions
+never: floating confetti or rotated controls

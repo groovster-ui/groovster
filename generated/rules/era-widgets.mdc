@@ -7,7 +7,7 @@ globs:
 # Era Widgets
 
 - Canonical API is **HTML + `ew-*` classes + `data-*`**, not React props.
-- Set personality with `data-era` on a root (deco|earth|groovy|mcm-atomic|memphis|neon|neutral). Do not rewrite markup per era.
+- Set personality with `data-era` on a root (bauhaus|deco|earth|groovy|mcm-atomic|memphis|neon|neutral|swiss). Do not rewrite markup per era.
 - Fidelity bands only: `data-fidelity-band="whisper|standard|costume"` (costume default when absent; `default`/`signature` deprecated aliases of `standard`; ancestor bands inherit).
 - Zero attributes = defaults. Prefer native `<button>`, `<dialog>`, `<input>`.
 - Hard widgets (APG light-DOM WCs, Zag.js not used): `ew-tabs`, `ew-select`, `ew-menu`, `ew-popover`, `ew-tooltip`, `ew-toast-region`, `ew-slider` via `@groovster/elements/era-elements.js` (published JS imports nothing).
@@ -15,6 +15,6 @@ globs:
 - Ornament classes live on the era packs (Neon: `.ew-hero__stage` **required** around sun/mountains/grid, plus `.ew-chrome` / `.ew-script`; Deco: `.ew-hero__panel`, stepped frames) — never demo-only `<style>`.
 - Glow never counts as contrast; no display faces on controls.
 - MCP `validate` returns exact "change X to Y" fixes.
-- Heroes: alert, avatar, breadcrumb, button, card, checkbox, dialog, icon-button, link, menu, ornament-divider, popover, radio, select, slider, switch, tabs, text-field, textarea, toast, tooltip. Eras: deco (costume default), earth (costume default), groovy (costume default), mcm-atomic (costume default), memphis (costume default), neon (costume default), neutral (costume default).
+- Heroes: alert, avatar, breadcrumb, button, card, checkbox, dialog, icon-button, link, menu, ornament-divider, popover, radio, select, slider, switch, tabs, text-field, textarea, toast, tooltip. Eras: bauhaus (costume default), deco (costume default), earth (costume default), groovy (costume default), mcm-atomic (costume default), memphis (costume default), neon (costume default), neutral (costume default), swiss (costume default).
 - Website recipes live in `spec/recipes/`. Read one card at `generated/llms/recipe-<id>.card.txt`.
 - Agent skill: `skills/groovster/SKILL.md`.

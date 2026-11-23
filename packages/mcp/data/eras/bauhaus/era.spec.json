@@ -1,0 +1,157 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "bauhaus",
+  "name": "Bauhaus",
+  "aliases": [
+    "bauhaus-school",
+    "functional-modernism"
+  ],
+  "identity": {
+    "oneLiner": "Bauhaus: constructive geometric planes, functional type and disciplined color.",
+    "summary": "Bauhaus 1919–33: geometrical construction, integrated typography and function-led relationships among color planes and negative space.",
+    "bestFit": [
+      "Design museums",
+      "Product studios",
+      "Architecture and exhibitions"
+    ],
+    "authenticityNotes": "Shapes construct layouts, not background confetti."
+  },
+  "axes": {
+    "shape": "Rectangles, circles, geometric bars and diagonals",
+    "edge": "Hard structural 2px outlines",
+    "surface": "Flat colored constructive planes",
+    "elevation": "Print-like offset planes",
+    "ornament": "Integrated geometry restricted to feature regions",
+    "typeVoice": "Geometric display with legible sans body",
+    "motion": "Functional transitions only",
+    "density": "Medium, clear hierarchy",
+    "iconography": "Simple functional geometric icons"
+  },
+  "fonts": {
+    "display": "League Spartan",
+    "body": "Source Sans 3",
+    "mono": "Source Code Pro",
+    "license": "OFL-1.1 (already bundled locally)",
+    "sources": [
+      "https://fonts.google.com/specimen/League+Spartan"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 67,
+      "max": 100,
+      "default": 75
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Functional typography, reduced ornament and compact composition."
+      },
+      {
+        "id": "standard",
+        "min": 26,
+        "max": 66,
+        "description": "Distinctive era structure with limited graphic emphasis."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full expressive yet accessible visual composition."
+      }
+    ]
+  },
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "No randomly scattered circles and triangles.",
+    "No primary color text without sufficient contrast.",
+    "Never rotate functional labels or fields.",
+    "Avoid Memphis confetti and glossy gradients."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/bauhaus.light.tokens.json",
+    "spec/tokens/tier1/bauhaus.dark.tokens.json",
+    "spec/tokens/tier2/bauhaus.light.tokens.json",
+    "spec/tokens/tier2/bauhaus.dark.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: bauhaus",
+      "movement: German Bauhaus, 1919–33",
+      "voice: constructive geometric modernism",
+      "geometry: circle, bar, colored planes, asymmetric balance",
+      "type: bundled League Spartan + Source Sans 3",
+      "color: paper, ink, disciplined red/yellow/blue",
+      "whisper: geometry; standard: one plane; costume: integrated composition",
+      "modes: light, dark; costume default",
+      "use: museums, products, exhibitions",
+      "never: floating confetti or rotated controls"
+    ]
+  },
+  "structure": {
+    "controlRadius": "0px",
+    "surfaceRadius": "0px",
+    "button": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.04em",
+      "textTransform": "uppercase",
+      "fontWeight": "700",
+      "shadow": "none",
+      "clipPath": "none",
+      "paddingX": "16px",
+      "paddingY": "10px"
+    },
+    "card": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "shadow": "none",
+      "raisedShadow": "5px 5px 0 var(--ew-color-fg-default)",
+      "clipPath": "none",
+      "padding": "20px",
+      "headerRule": true,
+      "titleTracking": "0",
+      "ornament": "none"
+    },
+    "field": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "0px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "2px",
+      "borderStyle": "solid",
+      "radius": "0px",
+      "shadow": "none",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "4px",
+      "indicatorStyle": "solid",
+      "radius": "0px",
+      "enclosed": false
+    },
+    "switch": {
+      "trackRadius": "0px",
+      "thumbRadius": "0px",
+      "shadow": "none"
+    },
+    "tooltip": {
+      "radius": "0px",
+      "shadow": "none",
+      "padding": "6px 8px"
+    },
+    "slider": {
+      "trackHeight": "5px",
+      "thumbSize": "18px",
+      "trackRadius": "0px"
+    }
+  }
+}

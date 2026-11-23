@@ -1,0 +1,10 @@
+era: swiss
+movement: International Typographic Style
+voice: objective grid and typographic precision
+geometry: asymmetric 12-column modules, thin rules
+type: bundled Source Sans 3 + Source Code Pro
+color: paper, ink, restrained signal red
+whisper: hierarchy; standard: visible rule; costume: editorial scale
+modes: light, dark; costume default
+use: editorial, architecture, data-rich systems
+never: generic SaaS cards or arbitrary ornaments

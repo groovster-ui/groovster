@@ -18,13 +18,15 @@
     "recommended": [
       "earth",
       "deco",
-      "neutral"
+      "neutral",
+      "swiss"
     ],
     "alsoFits": [
       "groovy",
       "mcm-atomic",
       "memphis",
-      "neon"
+      "neon",
+      "bauhaus"
     ],
     "avoid": []
   },

@@ -1,0 +1,8 @@
+const root=document.querySelector('[data-era]');const say=s=>{const n=document.querySelector('[data-live]');if(n)n.textContent=s;};
+document.querySelector('[data-mode-switch]')?.addEventListener('change',e=>{root.dataset.mode=e.target.value;say('Mode changed to '+e.target.value)});
+document.querySelector('[data-band-switch]')?.addEventListener('change',e=>{root.dataset.fidelityBand=e.target.value;say('Fidelity changed to '+e.target.value)});
+document.querySelector('[data-filter]')?.addEventListener('input',e=>{const term=e.target.value.toLowerCase();document.querySelectorAll('[data-filterable]').forEach(node=>{node.hidden=!node.textContent.toLowerCase().includes(term)})});
+document.querySelector('[data-subscribe]')?.addEventListener('submit',e=>{e.preventDefault();const field=e.currentTarget.querySelector('input');if(field.checkValidity()){say('Subscribed locally: '+field.value);e.currentTarget.reset()}});
+document.querySelectorAll('[data-resolve]').forEach(btn=>btn.addEventListener('click',()=>{const row=btn.closest('tr');row.querySelector('[data-status]').textContent='Resolved';btn.disabled=true;say('Issue resolved')}));
+let cart=0;document.querySelectorAll('[data-buy]').forEach(btn=>btn.addEventListener('click',()=>{cart+=Number(btn.dataset.buy);document.querySelector('[data-cart]').textContent=cart.toLocaleString('en-US',{style:'currency',currency:'USD'});say('Cart updated')}));
+document.querySelector('[data-tickets]')?.addEventListener('input',e=>{document.querySelector('[data-cart]').textContent=(Number(e.target.value||0)*18).toLocaleString('en-US',{style:'currency',currency:'USD'})});

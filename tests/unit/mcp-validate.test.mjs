@@ -1,11 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateMarkup } from '../../packages/mcp/src/validate.js';
+import { loadEras } from '../../packages/mcp/src/load-spec.js';
 
 test('unknown era — exact fix message', () => {
   const out = validateMarkup('<div/>', 'nope', { detail: 'full' });
   assert.equal(out.pass, false);
-  const change = 'change era to one of: deco, earth, groovy, mcm-atomic, memphis, neon, neutral';
+  const change = `change era to one of: ${loadEras().map((era) => era.id).join(', ')}`;
   assert.ok(out.fixes.includes(change), `fixes missing: ${change}`);
   assert.ok(out.issues.some((i) => i.change === change));
 });

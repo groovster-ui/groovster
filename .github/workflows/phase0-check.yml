@@ -108,6 +108,9 @@ jobs:
       - name: Run recipe site checks
         run: pnpm test:sites
 
+      - name: Verify Swiss and Bauhaus browser demos
+        run: node scripts/modernist-browser.mjs
+
       - name: Run website instruction harness
         run: pnpm eval:sites
 

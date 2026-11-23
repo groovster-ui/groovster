@@ -1,0 +1,140 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 2,
+    "era": "swiss",
+    "mode": "light",
+    "description": "Semantic swiss light"
+  },
+  "color": {
+    "fg": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.gray.8}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{color.gray.6}"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.gray.0}"
+      }
+    },
+    "bg": {
+      "page": {
+        "$type": "color",
+        "$value": "{color.gray.0}"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.gray.1}"
+      },
+      "elevated": {
+        "$type": "color",
+        "$value": "{color.gray.0}"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.gray.3}"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.gray.6}",
+        "$description": "≥3:1 against surface for non-text UI"
+      }
+    },
+    "action": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "{color.accent.fg}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.accent.solid} 88%, {color.gray.9})"
+      }
+    },
+    "field": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.gray.0}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.gray.6}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      }
+    },
+    "overlay": {
+      "$type": "color",
+      "$value": "color-mix(in oklch, {color.gray.8} 45%, transparent)"
+    },
+    "track": {
+      "off": {
+        "$type": "color",
+        "$value": "{color.gray.3}"
+      },
+      "on": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      }
+    },
+    "danger": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.danger.solid}"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "{color.danger.fg}"
+      }
+    }
+  },
+  "elevation": {
+    "1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.gray.8} 8%, transparent)"
+        }
+      ]
+    },
+    "2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "12px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.gray.8} 12%, transparent)"
+        }
+      ]
+    },
+    "dialog": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "16px",
+          "blur": "40px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.gray.8} 20%, transparent)"
+        }
+      ]
+    }
+  }
+}
