@@ -1,0 +1,164 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 1,
+    "era": "art-nouveau",
+    "mode": "dark",
+    "description": "Original Art Nouveau dark lithographic material palette"
+  },
+  "color": {
+    "paper": {
+      "$type": "color",
+      "$value": "#14251F"
+    },
+    "panel": {
+      "$type": "color",
+      "$value": "#1C342A"
+    },
+    "elevated": {
+      "$type": "color",
+      "$value": "#294237"
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#F4EBD6"
+    },
+    "muted": {
+      "$type": "color",
+      "$value": "#D1D3B7"
+    },
+    "sage": {
+      "$type": "color",
+      "$value": "#90AB8E"
+    },
+    "leaf": {
+      "$type": "color",
+      "$value": "#B7C9A0"
+    },
+    "line": {
+      "$type": "color",
+      "$value": "#567B64"
+    },
+    "strong": {
+      "$type": "color",
+      "$value": "#ABC3A4"
+    },
+    "rose": {
+      "$type": "color",
+      "$value": "#DCA09A"
+    },
+    "brass": {
+      "$type": "color",
+      "$value": "#DCC790"
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "#F3CF75"
+    },
+    "accent": {
+      "solid": {
+        "$type": "color",
+        "$value": "#E6D39F"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "#1A3026"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$type": "color",
+        "$value": "#F09090"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "#192820"
+      }
+    }
+  },
+  "space": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "64px"
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "9px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "14px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "999px"
+    }
+  },
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": [
+        "Fraunces",
+        "Georgia",
+        "serif"
+      ]
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "Jost",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "Source Code Pro",
+        "monospace"
+      ]
+    }
+  }
+}

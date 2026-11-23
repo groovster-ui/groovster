@@ -3,7 +3,7 @@ GENERATED FILE — do not edit. Source: spec/recipes/. Run: pnpm gen
 # Editorial publication (editorial)
 A reading-first publication. Display type carries the issue; body copy stays quiet and long enough to read.
 Category: Magazine, journal, or essay-led publication
-Eras: earth, deco, neutral, swiss. Also: groovy, mcm-atomic, memphis, neon, bauhaus. Avoid: none.
+Eras: earth, deco, neutral, swiss. Also: groovy, mcm-atomic, memphis, neon, bauhaus, art-nouveau. Avoid: none.
 Fidelity: page costume; forms standard; data whisper. Costume on the masthead. Keep the essay and newsletter controls free of display faces.
 Sections: masthead, story, departments, newsletter. Optional: archive.
 Components: link, button, card, tabs, text-field, checkbox, alert, ornament-divider, avatar, breadcrumb. Optional: textarea.

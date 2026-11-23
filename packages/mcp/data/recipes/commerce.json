@@ -21,7 +21,8 @@
       "groovy",
       "earth",
       "deco",
-      "memphis"
+      "memphis",
+      "art-nouveau"
     ],
     "alsoFits": [
       "neutral",
@@ -132,6 +133,12 @@
         "deco"
       ],
       "note": "Masthead includes stage and panel hooks. Page CSS may shorten the hero so the first products stay visible."
+    },
+    {
+      "eras": [
+        "art-nouveau"
+      ],
+      "note": "Organic hero uses the canonical .ew-hero__stage; keep forms unornamented."
     }
   ],
   "customization": [

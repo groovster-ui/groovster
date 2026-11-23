@@ -24,6 +24,7 @@
     "tooltip"
   ],
   "eras": [
+    "art-nouveau",
     "bauhaus",
     "deco",
     "earth",
@@ -70,6 +71,7 @@
     "generated/llms/card.md",
     "generated/llms/checkbox.md",
     "generated/llms/dialog.md",
+    "generated/llms/era-art-nouveau.card.txt",
     "generated/llms/era-bauhaus.card.txt",
     "generated/llms/era-deco.card.txt",
     "generated/llms/era-earth.card.txt",
@@ -139,6 +141,7 @@
     "packages/css/dist/dialects.css",
     "packages/css/dist/dialog.css",
     "packages/css/dist/era-widgets.css",
+    "packages/css/dist/eras/art-nouveau.css",
     "packages/css/dist/eras/bauhaus.css",
     "packages/css/dist/eras/deco.css",
     "packages/css/dist/eras/earth.css",
@@ -235,6 +238,7 @@
     "packages/mcp/data/components/textarea.json",
     "packages/mcp/data/components/toast.json",
     "packages/mcp/data/components/tooltip.json",
+    "packages/mcp/data/eras/art-nouveau/era.spec.json",
     "packages/mcp/data/eras/bauhaus/era.spec.json",
     "packages/mcp/data/eras/deco/era.spec.json",
     "packages/mcp/data/eras/earth/era.spec.json",
@@ -254,6 +258,8 @@
     "packages/mcp/data/recipes/editorial.json",
     "packages/mcp/data/recipes/event.json",
     "packages/mcp/data/recipes/hospitality.json",
+    "packages/mcp/data/tokens/tier1/art-nouveau.dark.tokens.json",
+    "packages/mcp/data/tokens/tier1/art-nouveau.light.tokens.json",
     "packages/mcp/data/tokens/tier1/bauhaus.dark.tokens.json",
     "packages/mcp/data/tokens/tier1/bauhaus.light.tokens.json",
     "packages/mcp/data/tokens/tier1/deco.dark.tokens.json",
@@ -272,6 +278,8 @@
     "packages/mcp/data/tokens/tier1/neutral.light.tokens.json",
     "packages/mcp/data/tokens/tier1/swiss.dark.tokens.json",
     "packages/mcp/data/tokens/tier1/swiss.light.tokens.json",
+    "packages/mcp/data/tokens/tier2/art-nouveau.dark.tokens.json",
+    "packages/mcp/data/tokens/tier2/art-nouveau.light.tokens.json",
     "packages/mcp/data/tokens/tier2/bauhaus.dark.tokens.json",
     "packages/mcp/data/tokens/tier2/bauhaus.light.tokens.json",
     "packages/mcp/data/tokens/tier2/deco.dark.tokens.json",
@@ -317,6 +325,8 @@
     "packages/react/src/Tooltip.tsx",
     "packages/react/src/index.ts",
     "packages/tokens/dist/index.json",
+    "packages/tokens/dist/tier1/art-nouveau.dark.tokens.json",
+    "packages/tokens/dist/tier1/art-nouveau.light.tokens.json",
     "packages/tokens/dist/tier1/bauhaus.dark.tokens.json",
     "packages/tokens/dist/tier1/bauhaus.light.tokens.json",
     "packages/tokens/dist/tier1/deco.dark.tokens.json",
@@ -335,6 +345,8 @@
     "packages/tokens/dist/tier1/neutral.light.tokens.json",
     "packages/tokens/dist/tier1/swiss.dark.tokens.json",
     "packages/tokens/dist/tier1/swiss.light.tokens.json",
+    "packages/tokens/dist/tier2/art-nouveau.dark.tokens.json",
+    "packages/tokens/dist/tier2/art-nouveau.light.tokens.json",
     "packages/tokens/dist/tier2/bauhaus.dark.tokens.json",
     "packages/tokens/dist/tier2/bauhaus.light.tokens.json",
     "packages/tokens/dist/tier2/deco.dark.tokens.json",
@@ -601,6 +613,10 @@
         "chars": 379,
         "budget": "mcp.defaultReply"
       },
+      "mcp.eraCard:art-nouveau": {
+        "chars": 644,
+        "budget": "mcp.eraCard"
+      },
       "mcp.eraCard:bauhaus": {
         "chars": 426,
         "budget": "mcp.eraCard"
@@ -642,7 +658,7 @@
         "budget": "llms.index"
       },
       "llms.recipeCard:commerce": {
-        "chars": 1925,
+        "chars": 2025,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:dashboard": {
@@ -650,15 +666,15 @@
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:editorial": {
-        "chars": 2145,
+        "chars": 2158,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:event": {
-        "chars": 2010,
+        "chars": 2110,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:hospitality": {
-        "chars": 2000,
+        "chars": 2100,
         "budget": "llms.recipeCard"
       }
     }
