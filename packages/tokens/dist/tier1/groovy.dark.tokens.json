@@ -8,42 +8,66 @@
   "color": {
     "sand": {
       "$type": "color",
-      "$value": "oklch(20% 0.03 70)"
+      "$value": "oklch(22% 0.06 312)"
     },
     "avocado": {
       "$type": "color",
-      "$value": "oklch(68% 0.08 130)"
+      "$value": "oklch(76% 0.16 142)"
     },
     "harvest": {
       "$type": "color",
-      "$value": "oklch(78% 0.1 75)"
+      "$value": "oklch(86% 0.15 90)"
     },
     "rust": {
       "$type": "color",
-      "$value": "oklch(62% 0.1 40)"
+      "$value": "oklch(72% 0.15 45)"
     },
     "ink": {
       "$type": "color",
-      "$value": "oklch(92% 0.02 85)"
+      "$value": "oklch(96% 0.025 90)"
+    },
+    "sun": {
+      "$type": "color",
+      "$value": "oklch(86% 0.16 90)"
+    },
+    "tangerine": {
+      "$type": "color",
+      "$value": "oklch(74% 0.15 50)"
+    },
+    "magenta": {
+      "$type": "color",
+      "$value": "oklch(70% 0.18 5)"
+    },
+    "violet": {
+      "$type": "color",
+      "$value": "oklch(74% 0.14 310)"
+    },
+    "lime": {
+      "$type": "color",
+      "$value": "oklch(80% 0.16 135)"
+    },
+    "aqua": {
+      "$type": "color",
+      "$value": "oklch(78% 0.11 200)"
     },
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(68% 0.1 130)"
+        "$value": "oklch(86% 0.16 90)"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(18% 0.03 70)"
+        "$value": "oklch(22% 0.05 45)"
       }
     },
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(62% 0.12 35)"
+        "$value": "oklch(68% 0.17 35)"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(18% 0.02 35)"
+        "$value": "oklch(20% 0.05 40)"
       }
     }
   },
@@ -105,6 +129,31 @@
     "pill": {
       "$type": "dimension",
       "$value": "999px"
+    }
+  },
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": [
+        "Lilita One",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "Mulish",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "IBM Plex Mono",
+        "monospace"
+      ]
     }
   }
 }

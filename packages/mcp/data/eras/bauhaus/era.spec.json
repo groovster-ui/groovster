@@ -7,22 +7,22 @@
     "functional-modernism"
   ],
   "identity": {
-    "oneLiner": "Bauhaus: constructive geometric planes, functional type and disciplined color.",
-    "summary": "Bauhaus 1919–33: geometrical construction, integrated typography and function-led relationships among color planes and negative space.",
+    "oneLiner": "Bauhaus: one paper sheet, an ink spine, and three elementary forms sharing its edges.",
+    "summary": "Bauhaus 1919–33: the red square, blue circle, and yellow triangle are cropped by the sheet and locked to one spine. Type is Bayer lowercase; labels are tracked capitals.",
     "bestFit": [
       "Design museums",
       "Product studios",
       "Architecture and exhibitions"
     ],
-    "authenticityNotes": "Shapes construct layouts, not background confetti."
+    "authenticityNotes": "Forms share edges with the sheet and with each other. A tilted sticker is not a construction."
   },
   "axes": {
-    "shape": "Rectangles, circles, geometric bars and diagonals",
-    "edge": "Hard structural 2px outlines",
-    "surface": "Flat colored constructive planes",
-    "elevation": "Print-like offset planes",
-    "ornament": "Integrated geometry restricted to feature regions",
-    "typeVoice": "Geometric display with legible sans body",
+    "shape": "Red square, blue circle, yellow triangle sharing one spine",
+    "edge": "Hard ink keylines, like a press sheet",
+    "surface": "One paper, flat printer's color, no lighting",
+    "elevation": "A second plane, not a blur",
+    "ornament": "Geometry is the layout: cropped forms, not stickers",
+    "typeVoice": "Bayer lowercase display, tracked capital labels",
     "motion": "Functional transitions only",
     "density": "Medium, clear hierarchy",
     "iconography": "Simple functional geometric icons"
@@ -69,9 +69,10 @@
   ],
   "neverDo": [
     "No randomly scattered circles and triangles.",
+    "No tilted rectangles floating free of the spine.",
     "No primary color text without sufficient contrast.",
     "Never rotate functional labels or fields.",
-    "Avoid Memphis confetti and glossy gradients."
+    "Avoid Memphis confetti, gloss, and gradients."
   ],
   "tokenFiles": [
     "spec/tokens/tier1/bauhaus.light.tokens.json",
@@ -84,14 +85,14 @@
     "lines": [
       "era: bauhaus",
       "movement: German Bauhaus, 1919–33",
-      "voice: constructive geometric modernism",
-      "geometry: circle, bar, colored planes, asymmetric balance",
-      "type: bundled League Spartan + Source Sans 3",
-      "color: paper, ink, disciplined red/yellow/blue",
-      "whisper: geometry; standard: one plane; costume: integrated composition",
+      "voice: elementary forms locked to a sheet",
+      "geometry: red square, blue circle, yellow triangle on one spine",
+      "type: Bayer lowercase League Spartan; tracked capital labels",
+      "color: poster paper, ink, vermilion, chrome yellow, ultramarine",
+      "whisper: type only; standard: one red plane; costume: full sheet",
       "modes: light, dark; costume default",
       "use: museums, products, exhibitions",
-      "never: floating confetti or rotated controls"
+      "never: scattered shapes, tilted stickers, or rotated controls"
     ]
   },
   "structure": {
@@ -100,7 +101,7 @@
     "button": {
       "borderWidth": "2px",
       "borderStyle": "solid",
-      "letterSpacing": "0.04em",
+      "letterSpacing": "0.12em",
       "textTransform": "uppercase",
       "fontWeight": "700",
       "shadow": "none",

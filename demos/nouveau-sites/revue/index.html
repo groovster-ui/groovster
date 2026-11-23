@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Revue des Jardins — Issue 7</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../site.css" />
+  <script src="../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../site.js" defer></script>
+</head>
+<body>
+<div class="ew-root" data-era="art-nouveau" data-dialect="botanical" data-mode="light" data-fidelity-band="costume">
+  <a class="ew-link skip" href="#essay">Skip to the essay</a>
+  <div class="wrap">
+    <nav class="bar" aria-label="Primary">
+      <a class="brand" href="#masthead">Revue des Jardins</a>
+      <div class="links">
+        <a class="ew-link" href="#essay">Essay</a>
+        <a class="ew-link" href="#departments">Departments</a>
+        <a class="ew-link" href="#letter">Letter</a>
+      </div>
+    </nav>
+    <nav class="ew-breadcrumb" aria-label="Breadcrumb">
+      <ol class="ew-breadcrumb__list">
+        <li class="ew-breadcrumb__item"><a class="ew-link" href="#masthead">Issue 7</a></li>
+        <li class="ew-breadcrumb__item" aria-current="page">The line</li>
+      </ol>
+    </nav>
+  </div>
+  <section class="ew-hero" id="masthead">
+    <div class="ew-hero__backdrop" aria-hidden="true"></div>
+    <div class="ew-hero__stage" aria-hidden="true"></div>
+    <div class="ew-hero__panel">
+      <div class="ew-hero__content">
+        <p class="ew-script">Issue 7 · The line</p>
+        <h1 class="ew-hero__title">A stem that draws the page</h1>
+        <p class="ew-hero__subtitle">How a single tapering stroke holds a poster, a room, and a sentence.</p>
+      </div>
+    </div>
+  </section>
+  <main class="wrap">
+    <article class="section essay" id="essay">
+      <p class="site-byline" style="display:flex;gap:12px;align-items:center">
+        <span class="ew-avatar" data-variant="circle" aria-label="C. Moreau"><span class="ew-avatar__fallback">CM</span></span>
+        <span>C. Moreau · a fictional correspondent</span>
+      </p>
+      <p>The lithograph keeps its colors apart. Gold is a ring, olive is a stem, madder is the bloom behind the line. None of them is a texture laid over the words.</p>
+      <p>A Mucha sheet reserves a panel for the name. The ornament grows around that silence. When the same idea is asked to be a website, the panel is the paragraph and the button, and the halo stays to one side.</p>
+      <p>This essay is sample copy for the demonstration. It is not a historical paper.</p>
+    </article>
+    <hr class="ew-ornament-divider" data-variant="ornament" />
+    <section class="section" id="departments">
+      <h2>Departments</h2>
+      <ew-tabs class="ew-tabs">
+        <div role="tablist" aria-label="Departments">
+          <button type="button" role="tab" id="tab-plates" aria-selected="true" aria-controls="panel-plates">Plates</button>
+          <button type="button" role="tab" id="tab-rooms" aria-selected="false" aria-controls="panel-rooms" tabindex="-1">Rooms</button>
+        </div>
+        <div role="tabpanel" id="panel-plates" aria-labelledby="tab-plates">
+          <div class="grid3" style="margin-top:1rem">
+            <article class="ew-card"><header class="ew-card__header"><h3>The halo</h3></header><div class="ew-card__body"><p>A circle of petals that frames a reserved center.</p></div></article>
+            <article class="ew-card"><header class="ew-card__header"><h3>The whip</h3></header><div class="ew-card__body"><p>A stroke that thickens, hooks, and thins to nothing.</p></div></article>
+          </div>
+        </div>
+        <div role="tabpanel" id="panel-rooms" aria-labelledby="tab-rooms" hidden>
+          <p class="measure">Iron stems and a hooded arch, for the pages that are about stations rather than flowers.</p>
+        </div>
+      </ew-tabs>
+    </section>
+    <section class="section" id="letter">
+      <h2>A letter</h2>
+      <p class="note">Submitting confirms locally. No mailing list is contacted.</p>
+      <div class="ew-alert" id="letter-alert" role="status" hidden>
+        <strong class="ew-alert__title">Noted</strong>
+        <p class="ew-alert__body">The address stayed in this browser. Nothing was sent.</p>
+      </div>
+      <form class="form" data-fictional data-alert="#letter-alert" data-dialog="#letter-dialog">
+        <div class="ew-text-field"><label class="ew-text-field__label" for="email">Email</label><input id="email" class="ew-text-field__control" type="email" autocomplete="email" required /></div>
+        <label class="ew-checkbox">
+          <input class="ew-checkbox__control" type="checkbox" required />
+          <span class="ew-checkbox__box" aria-hidden="true"></span>
+          <span class="ew-checkbox__label">I understand this is a demonstration</span>
+        </label>
+        <button class="ew-button" type="submit">Keep it local</button>
+      </form>
+    </section>
+    <footer class="foot"><p class="note">Revue des Jardins · fictional issue</p></footer>
+  </main>
+  <dialog class="ew-dialog" id="letter-dialog" aria-labelledby="letter-title">
+    <header class="ew-dialog__header"><h2 id="letter-title">Kept on this page</h2></header>
+    <div class="ew-dialog__body"><p>No letter was delivered.</p></div>
+    <footer class="ew-dialog__footer"><button type="button" class="ew-button" onclick="this.closest('dialog').close()">Close</button></footer>
+  </dialog>
+</div>
+</body>
+</html>

@@ -8,42 +8,66 @@
   "color": {
     "sand": {
       "$type": "color",
-      "$value": "oklch(94% 0.03 85)"
+      "$value": "oklch(96.5% 0.028 90)"
     },
     "avocado": {
       "$type": "color",
-      "$value": "oklch(55% 0.08 130)"
+      "$value": "oklch(58% 0.16 142)"
     },
     "harvest": {
       "$type": "color",
-      "$value": "oklch(72% 0.12 75)"
+      "$value": "oklch(84% 0.16 88)"
     },
     "rust": {
       "$type": "color",
-      "$value": "oklch(50% 0.12 40)"
+      "$value": "oklch(56% 0.16 42)"
     },
     "ink": {
       "$type": "color",
-      "$value": "oklch(20% 0.03 60)"
+      "$value": "oklch(24% 0.045 45)"
+    },
+    "sun": {
+      "$type": "color",
+      "$value": "oklch(86% 0.16 90)"
+    },
+    "tangerine": {
+      "$type": "color",
+      "$value": "oklch(70% 0.17 48)"
+    },
+    "magenta": {
+      "$type": "color",
+      "$value": "oklch(58% 0.21 5)"
+    },
+    "violet": {
+      "$type": "color",
+      "$value": "oklch(40% 0.15 320)"
+    },
+    "lime": {
+      "$type": "color",
+      "$value": "oklch(78% 0.16 135)"
+    },
+    "aqua": {
+      "$type": "color",
+      "$value": "oklch(74% 0.12 200)"
     },
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(45% 0.1 130)"
+        "$value": "oklch(40% 0.15 320)"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(97% 0.02 95)"
+        "$value": "oklch(97% 0.02 90)"
       }
     },
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(48% 0.14 35)"
+        "$value": "oklch(46% 0.18 27)"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(97% 0.02 95)"
+        "$value": "oklch(97% 0.02 90)"
       }
     }
   },
@@ -111,7 +135,7 @@
     "display": {
       "$type": "fontFamily",
       "$value": [
-        "Comfortaa",
+        "Lilita One",
         "system-ui",
         "sans-serif"
       ]

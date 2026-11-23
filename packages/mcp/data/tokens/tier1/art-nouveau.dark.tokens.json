@@ -4,75 +4,79 @@
     "tier": 1,
     "era": "art-nouveau",
     "mode": "dark",
-    "description": "Original Art Nouveau dark lithographic material palette"
+    "description": "Art Nouveau dark palette: leaded green, brass line, madder glass, peacock"
   },
   "color": {
     "paper": {
       "$type": "color",
-      "$value": "#14251F"
+      "$value": "#101916"
     },
     "panel": {
       "$type": "color",
-      "$value": "#1C342A"
+      "$value": "#1A2820"
     },
     "elevated": {
       "$type": "color",
-      "$value": "#294237"
+      "$value": "#24342A"
     },
     "ink": {
       "$type": "color",
-      "$value": "#F4EBD6"
+      "$value": "#F6E6C4"
     },
     "muted": {
       "$type": "color",
-      "$value": "#D1D3B7"
+      "$value": "#D4C6A2"
     },
     "sage": {
       "$type": "color",
-      "$value": "#90AB8E"
+      "$value": "#9BB59A"
     },
     "leaf": {
       "$type": "color",
-      "$value": "#B7C9A0"
+      "$value": "#D7E4BC"
     },
     "line": {
       "$type": "color",
-      "$value": "#567B64"
+      "$value": "#3D5648"
     },
     "strong": {
       "$type": "color",
-      "$value": "#ABC3A4"
+      "$value": "#C5D2B6"
     },
     "rose": {
       "$type": "color",
-      "$value": "#DCA09A"
+      "$value": "#E8B4AA"
     },
     "brass": {
       "$type": "color",
-      "$value": "#DCC790"
+      "$value": "#E6C56A"
+    },
+    "peacock": {
+      "$type": "color",
+      "$value": "#8ED4C8"
     },
     "focus": {
       "$type": "color",
-      "$value": "#F3CF75"
+      "$value": "#F0D48A"
     },
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "#E6D39F"
+        "$value": "#E4C36A"
       },
       "fg": {
         "$type": "color",
-        "$value": "#1A3026"
+        "$value": "#1A2212"
       }
     },
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "#F09090"
+        "$value": "#F0A4A4"
       },
       "fg": {
         "$type": "color",
-        "$value": "#192820"
+        "$value": "#1A1412"
       }
     }
   },
@@ -140,7 +144,8 @@
     "display": {
       "$type": "fontFamily",
       "$value": [
-        "Fraunces",
+        "Cormorant Garamond",
+        "Palatino",
         "Georgia",
         "serif"
       ]
@@ -148,7 +153,7 @@
     "body": {
       "$type": "fontFamily",
       "$value": [
-        "Jost",
+        "Source Sans 3",
         "system-ui",
         "sans-serif"
       ]

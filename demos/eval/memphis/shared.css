@@ -1,0 +1,28 @@
+/* Page layout only. Memphis color and control shape stay in the era CSS. */
+body { margin: 0; }
+[hidden] { display: none !important; }
+.ew-root { min-height: 100vh; color: var(--ew-color-fg-default); }
+.wrap { width: min(1040px, calc(100% - 40px)); margin-inline: auto; }
+.nav { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; padding: 20px 0 8px; }
+.brand { font-family: var(--ew-font-display, sans-serif); font-size: 1.2rem; text-decoration: none; }
+h1 { font-family: var(--ew-font-display, sans-serif); font-weight: 400; font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 0.95; margin: 12px 0; }
+h2 { font-family: var(--ew-font-body, sans-serif); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 28px 0 12px; }
+.lead { max-width: 42rem; font-size: 1.05rem; line-height: 1.5; }
+.grid { display: grid; gap: 16px; }
+.grid-2 { grid-template-columns: 1.2fr 0.8fr; }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.form { display: grid; gap: 14px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: end; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.price { margin: 0; font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.muted { color: var(--ew-color-fg-muted); }
+.who { display: flex; gap: 12px; align-items: center; }
+.who p { margin: 0; }
+.metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--ew-color-border-subtle); }
+caption { text-align: left; font-weight: 700; padding-bottom: 8px; }
+@media (max-width: 800px) {
+  .grid-2, .grid-3, .pair, .metrics { grid-template-columns: 1fr; }
+  .metrics { grid-template-columns: 1fr 1fr; }
+}

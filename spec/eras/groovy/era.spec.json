@@ -7,33 +7,33 @@
     "psychedelic"
   ],
   "identity": {
-    "oneLiner": "70s groove: avocado & harvest gold, soft flares, lazy curves.",
-    "summary": "Warm seventies palette with flared radii and soft shadow. Motifs are flower/sun arcs, never neon grids.",
+    "oneLiner": "Psychedelic poster groove: sunbursts, hot color, thick ink.",
+    "summary": "Cream paper or plum night, saturated sun, magenta, tangerine, and violet. Controls are sticker bubbles with a hard second-color offset. Motifs are suns, daisies, and waves, never neon grids or muted avocado chrome.",
     "bestFit": [
       "Music / lifestyle",
       "Food brands",
       "Retro product stories"
     ],
-    "authenticityNotes": "Warmth and curve beat paisley overload."
+    "authenticityNotes": "Poster flatness, a heavy keyline, and a second-color offset beat soft beige and pill forms."
   },
   "axes": {
-    "shape": "Flared / superellipse radii",
-    "edge": "Soft borders or tonal only",
-    "surface": "Warm paper, suede-like",
-    "elevation": "Soft lift + occasional long shadow",
-    "ornament": "Sun arcs / petal marks sparse",
-    "typeVoice": "Rounded display; warm body",
+    "shape": "Bubble controls, organic cards",
+    "edge": "Thick ink keyline",
+    "surface": "Cream paper or plum night",
+    "elevation": "Hard color offset",
+    "ornament": "Sun, daisy, wave",
+    "typeVoice": "Poster display; warm body",
     "motion": "Slow ease, groovy sway (respect reduced motion)",
     "density": "Relaxed",
     "iconography": "Rounded stroke"
   },
   "fonts": {
-    "display": "Comfortaa",
+    "display": "Lilita One",
     "body": "Mulish",
     "mono": "IBM Plex Mono",
     "license": "OFL-1.1",
     "sources": [
-      "https://fonts.google.com/specimen/Comfortaa",
+      "https://fonts.google.com/specimen/Lilita+One",
       "https://fonts.google.com/specimen/Mulish",
       "https://fonts.google.com/specimen/IBM+Plex+Mono"
     ]
@@ -71,8 +71,8 @@
   ],
   "neverDo": [
     "Never mix synthwave neon into Groovy.",
-    "Never put Comfortaa on dense form controls.",
-    "Never use avocado/gold as the only contrast for small text.",
+    "Never put Lilita One on dense form controls.",
+    "Never use sun, magenta, or avocado as the only contrast for small text.",
     "Avoid spinning decorative flowers under reduced motion."
   ],
   "tokenFiles": [
@@ -85,13 +85,13 @@
   "card": {
     "lines": [
       "era: groovy",
-      "voice: 70s warm groove",
-      "shape: flared radii",
-      "edge: soft / tonal",
-      "surface: warm paper",
-      "elevation: soft lift",
-      "ornament: sun/petal sparse",
-      "type: Comfortaa + Mulish",
+      "voice: psychedelic poster",
+      "shape: bubble controls, organic cards",
+      "edge: thick ink keyline",
+      "surface: cream paper or plum night",
+      "elevation: hard color offset",
+      "ornament: sun, daisy, wave",
+      "type: Lilita One + Mulish",
       "fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)",
       "modes: light, dark",
       "use: music, food, lifestyle",
@@ -102,35 +102,35 @@
     "controlRadius": "999px",
     "surfaceRadius": "28px",
     "button": {
-      "borderWidth": "0px",
+      "borderWidth": "3px",
       "borderStyle": "solid",
-      "letterSpacing": "0.03em",
+      "letterSpacing": "0.01em",
       "textTransform": "none",
       "fontWeight": "700",
-      "shadow": "0 4px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 15%, transparent)",
+      "shadow": "4px 4px 0 0 var(--ew-color-magenta)",
       "clipPath": "none",
       "paddingX": "20px",
-      "paddingY": "10px"
+      "paddingY": "12px"
     },
     "card": {
-      "borderWidth": "0px",
+      "borderWidth": "3px",
       "borderStyle": "solid",
-      "shadow": "0 6px 16px color-mix(in oklch, var(--ew-color-fg-default) 12%, transparent)",
-      "raisedShadow": "0 10px 24px color-mix(in oklch, var(--ew-color-fg-default) 16%, transparent)",
+      "shadow": "6px 6px 0 0 var(--ew-color-magenta)",
+      "raisedShadow": "7px 7px 0 0 var(--ew-color-tangerine)",
       "clipPath": "none",
       "padding": "24px",
       "headerRule": false,
-      "titleTracking": "0.04em",
+      "titleTracking": "0.01em",
       "ornament": "none"
     },
     "field": {
-      "borderWidth": "1px",
+      "borderWidth": "3px",
       "borderStyle": "solid",
-      "radius": "999px",
+      "radius": "18px",
       "underline": false
     },
     "dialog": {
-      "borderWidth": "1px",
+      "borderWidth": "3px",
       "borderStyle": "solid",
       "radius": "28px",
       "shadow": "var(--ew-elevation-dialog)",
@@ -148,13 +148,13 @@
       "shadow": "none"
     },
     "tooltip": {
-      "radius": "999px",
-      "shadow": "0 4px 0 color-mix(in oklch, var(--ew-color-fg-default) 20%, transparent)",
+      "radius": "16px",
+      "shadow": "4px 4px 0 0 var(--ew-color-aqua)",
       "padding": "8px 12px"
     },
     "slider": {
-      "trackHeight": "10px",
-      "thumbSize": "18px",
+      "trackHeight": "16px",
+      "thumbSize": "32px",
       "trackRadius": "999px"
     }
   }

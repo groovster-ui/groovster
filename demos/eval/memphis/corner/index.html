@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Corner — a short stay</title>
+  <link rel="stylesheet" href="../../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <script src="../../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../../../recipes/shared/shell.js" defer></script>
+</head>
+<body>
+  <div class="ew-root" data-groovster-root data-recipe="memphis-corner" data-era="memphis" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link" href="#request">Skip to the request</a>
+    <div class="wrap">
+      <nav class="nav" aria-label="Primary">
+        <a class="ew-link brand" href="#rooms">Corner</a>
+        <a class="ew-link" href="#request">Request</a>
+      </nav>
+      <header>
+        <h1>Corner</h1>
+        <p class="lead">Twelve fictional rooms. A request does not hold one.</p>
+        <hr class="ew-ornament-divider" data-variant="ornament" />
+      </header>
+      <form id="rooms" data-demo-form="reservation" data-open-on-success="stay-dialog">
+        <h2>Rooms</h2>
+        <fieldset class="ew-radio-group">
+          <legend>Choose a room</legend>
+          <div class="grid grid-3">
+            <article class="ew-card">
+              <header class="ew-card__header"><h3>Garden</h3></header>
+              <div class="ew-card__body">
+                <p class="price">$210</p>
+                <p>Looks onto the street. Sample rate.</p>
+                <label class="ew-radio"><input class="ew-radio__control" type="radio" name="room" checked /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Garden</span></label>
+              </div>
+            </article>
+            <article class="ew-card">
+              <header class="ew-card__header"><h3>Stair</h3></header>
+              <div class="ew-card__body">
+                <p class="price">$260</p>
+                <p>Two windows and a desk. Sample rate.</p>
+                <label class="ew-radio"><input class="ew-radio__control" type="radio" name="room" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Stair</span></label>
+              </div>
+            </article>
+            <article class="ew-card">
+              <header class="ew-card__header"><h3>Attic</h3></header>
+              <div class="ew-card__body">
+                <p class="price">$180</p>
+                <p>A low ceiling and a bath. Sample rate.</p>
+                <label class="ew-radio"><input class="ew-radio__control" type="radio" name="room" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Attic</span></label>
+              </div>
+            </article>
+          </div>
+        </fieldset>
+        <h2 id="request">Request</h2>
+        <div class="form" style="max-width: 40rem">
+          <div class="pair">
+            <div class="ew-text-field">
+              <label class="ew-text-field__label" for="arrive">Arrive</label>
+              <input id="arrive" class="ew-text-field__control" type="date" required />
+            </div>
+            <div class="ew-text-field">
+              <label class="ew-text-field__label" for="depart">Depart</label>
+              <input id="depart" class="ew-text-field__control" type="date" required />
+            </div>
+          </div>
+          <div class="pair">
+            <div class="ew-text-field">
+              <label class="ew-text-field__label" for="who">Guest</label>
+              <input id="who" class="ew-text-field__control" type="text" autocomplete="name" required />
+            </div>
+            <ew-select class="ew-select">
+              <label class="ew-select__label" for="party">Party</label>
+              <select id="party" class="ew-select__control">
+                <option>1 guest</option>
+                <option>2 guests</option>
+                <option>3 guests</option>
+              </select>
+            </ew-select>
+          </div>
+          <div class="ew-textarea">
+            <label class="ew-textarea__label" for="desk">Note to the desk</label>
+            <textarea id="desk" class="ew-textarea__control" rows="3"></textarea>
+          </div>
+          <label class="ew-checkbox"><input class="ew-checkbox__control" type="checkbox" required /><span class="ew-checkbox__box" aria-hidden="true"></span><span class="ew-checkbox__label">I understand this request holds no room.</span></label>
+          <div class="actions">
+            <button type="submit" class="ew-button">Send request</button>
+            <button type="button" class="ew-button" data-variant="secondary">Ask a rate</button>
+          </div>
+          <div class="ew-alert" data-variant="success" role="status" data-demo-status hidden>
+            <strong class="ew-alert__title">Request noted</strong>
+            <p class="ew-alert__body">No room is held and no message is sent.</p>
+          </div>
+        </div>
+      </form>
+      <p class="foot">Fictional inn. No reservation is created.</p>
+    </div>
+    <dialog class="ew-dialog" id="stay-dialog" aria-labelledby="stay-title">
+      <header class="ew-dialog__header"><h2 id="stay-title">Request kept on this page</h2></header>
+      <div class="ew-dialog__body"><p>Corner did not receive this.</p></div>
+      <footer class="ew-dialog__footer"><button type="button" class="ew-button" data-close-dialog>Close</button></footer>
+    </dialog>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>

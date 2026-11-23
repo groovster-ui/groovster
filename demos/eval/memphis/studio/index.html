@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studio — a class list</title>
+  <link rel="stylesheet" href="../../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <script src="../../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../../../recipes/shared/shell.js" defer></script>
+</head>
+<body>
+  <div class="ew-root" data-groovster-root data-recipe="memphis-studio" data-era="memphis" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link" href="#join">Skip to the list</a>
+    <div class="wrap">
+      <nav class="nav" aria-label="Primary">
+        <a class="ew-link brand" href="#join">Studio</a>
+        <div class="actions">
+          <ew-menu class="ew-menu">
+            <button type="button" class="ew-button ew-menu__trigger" data-variant="secondary" aria-haspopup="menu">More</button>
+            <div class="ew-menu__panel" role="menu">
+              <button type="button" class="ew-menu__item" role="menuitem">Term dates</button>
+              <button type="button" class="ew-menu__item" role="menuitem">Materials list</button>
+              <button type="button" class="ew-menu__item" role="menuitem">Ask the desk</button>
+            </div>
+          </ew-menu>
+        </div>
+      </nav>
+      <nav class="ew-breadcrumb" aria-label="Breadcrumb">
+        <ol class="ew-breadcrumb__list">
+          <li class="ew-breadcrumb__item"><a class="ew-link" href="#join">Lot</a></li>
+          <li class="ew-breadcrumb__item"><a class="ew-link" href="#join">Classes</a></li>
+          <li class="ew-breadcrumb__item" aria-current="page">Evening drawing</li>
+        </ol>
+      </nav>
+      <header>
+        <h1>Studio</h1>
+        <p class="lead">A fictional evening class. Joining the list does not reserve a seat.</p>
+        <hr class="ew-ornament-divider" data-variant="ornament" />
+      </header>
+      <h2>Teachers</h2>
+      <div class="grid grid-3">
+        <article class="ew-card">
+          <header class="ew-card__header">
+            <div class="who">
+              <span class="ew-avatar" aria-label="N. Pell"><span class="ew-avatar__fallback">NP</span></span>
+              <h3>N. Pell</h3>
+            </div>
+          </header>
+          <div class="ew-card__body"><p>Line and still life. Sample teacher.</p></div>
+        </article>
+        <article class="ew-card">
+          <header class="ew-card__header">
+            <div class="who">
+              <span class="ew-avatar" aria-label="A. Cho"><span class="ew-avatar__fallback">AC</span></span>
+              <h3>A. Cho</h3>
+            </div>
+          </header>
+          <div class="ew-card__body"><p>Color notes. Sample teacher.</p></div>
+        </article>
+        <article class="ew-card">
+          <header class="ew-card__header">
+            <div class="who">
+              <span class="ew-avatar" aria-label="R. Ibarra"><span class="ew-avatar__fallback">RI</span></span>
+              <h3>R. Ibarra</h3>
+            </div>
+          </header>
+          <div class="ew-card__body"><p>Clay, one night a week.</p></div>
+        </article>
+      </div>
+      <h2>Nights</h2>
+      <ew-tabs class="ew-tabs">
+        <div role="tablist" aria-label="Class nights">
+          <button type="button" role="tab" id="night-draw" aria-selected="true" aria-controls="panel-draw">Drawing</button>
+          <button type="button" role="tab" id="night-clay" aria-selected="false" aria-controls="panel-clay" tabindex="-1">Clay</button>
+        </div>
+        <div role="tabpanel" id="panel-draw" aria-labelledby="night-draw">
+          <p>Tuesdays, 7–9. Twelve seats. Fictional room.</p>
+        </div>
+        <div role="tabpanel" id="panel-clay" aria-labelledby="night-clay" hidden>
+          <p>Thursdays, 6–9. Eight seats. Fictional room.</p>
+        </div>
+      </ew-tabs>
+      <h2 id="join">Join the list</h2>
+      <form class="form" data-demo-form="signup" data-open-on-success="list-dialog" style="max-width: 40rem">
+        <div class="pair">
+          <div class="ew-text-field">
+            <label class="ew-text-field__label" for="student">Name</label>
+            <input id="student" class="ew-text-field__control" type="text" autocomplete="name" required />
+          </div>
+          <div class="ew-text-field">
+            <label class="ew-text-field__label" for="student-mail">Email</label>
+            <input id="student-mail" class="ew-text-field__control" type="email" autocomplete="email" required />
+          </div>
+        </div>
+        <ew-select class="ew-select">
+          <label class="ew-select__label" for="session">Session</label>
+          <select id="session" class="ew-select__control">
+            <option>Spring sample</option>
+            <option>Summer sample</option>
+          </select>
+        </ew-select>
+        <fieldset class="ew-radio-group">
+          <legend>Level</legend>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="level" checked /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">New to the room</span></label>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="level" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Been here before</span></label>
+        </fieldset>
+        <label class="ew-checkbox"><input class="ew-checkbox__control" type="checkbox" required /><span class="ew-checkbox__box" aria-hidden="true"></span><span class="ew-checkbox__label">I understand this list holds no seat.</span></label>
+        <div class="actions">
+          <button type="submit" class="ew-button">Join list</button>
+          <ew-tooltip class="ew-tooltip">
+            <button type="button" class="ew-button" data-variant="ghost" aria-describedby="mat-tip">Materials</button>
+            <span id="mat-tip" class="ew-tooltip__tip" role="tooltip">Paper and a pencil. Nothing is sold here.</span>
+          </ew-tooltip>
+        </div>
+      </form>
+      <p class="foot">Fictional class. No seat is kept.</p>
+    </div>
+    <dialog class="ew-dialog" id="list-dialog" aria-labelledby="list-title">
+      <header class="ew-dialog__header"><h2 id="list-title">Name kept on this page</h2></header>
+      <div class="ew-dialog__body"><p>Studio did not receive this.</p></div>
+      <footer class="ew-dialog__footer"><button type="button" class="ew-button" data-close-dialog>Close</button></footer>
+    </dialog>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>

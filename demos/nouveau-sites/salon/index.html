@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Salon des Iris</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../site.css" />
+  <script src="../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../site.js" defer></script>
+</head>
+<body>
+<div class="ew-root" data-era="art-nouveau" data-dialect="botanical" data-mode="dark" data-fidelity-band="costume">
+  <a class="ew-link skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <nav class="bar" aria-label="Primary">
+      <a class="brand" href="#masthead">Salon des Iris</a>
+      <div class="links">
+        <a class="ew-link" href="#lineup">Lineup</a>
+        <a class="ew-link" href="#schedule">Evenings</a>
+        <a class="ew-link" href="#tickets">Hold a seat</a>
+      </div>
+    </nav>
+  </div>
+  <section class="ew-hero" id="masthead">
+    <div class="ew-hero__backdrop" aria-hidden="true"></div>
+    <div class="ew-hero__stage" aria-hidden="true"></div>
+    <div class="ew-hero__panel">
+      <div class="ew-hero__content">
+        <p class="ew-script">Three nights in the glass court</p>
+        <h1 class="ew-hero__title">Salon des Iris</h1>
+        <p class="ew-hero__subtitle">A fictional evening of songs and enamel. A hold takes no payment.</p>
+        <a class="ew-button" href="#tickets">Choose a seat</a>
+      </div>
+    </div>
+  </section>
+  <main id="main" class="wrap">
+    <section class="section" id="lineup">
+      <h2>Lineup</h2>
+      <div class="grid3">
+        <article class="ew-card"><div class="plate" data-tone="rose" aria-hidden="true"><span class="ew-nouveau-ornament" data-motif="spray"></span></div><header class="ew-card__header"><h3>Iris trio</h3></header><div class="ew-card__body"><p>Songs for a falling petal.</p></div></article>
+        <article class="ew-card"><div class="plate" data-tone="gold" aria-hidden="true"><span class="ew-nouveau-ornament" data-motif="whiplash"></span></div><header class="ew-card__header"><h3>The whip quartet</h3></header><div class="ew-card__body"><p>One line, four players.</p></div></article>
+        <article class="ew-card"><div class="plate" aria-hidden="true"><span class="ew-nouveau-ornament" data-motif="medallion"></span></div><header class="ew-card__header"><h3>Peacock solo</h3></header><div class="ew-card__body"><p>A halo of quiet brass.</p></div></article>
+      </div>
+    </section>
+    <section class="section" id="schedule">
+      <h2>Evenings</h2>
+      <ew-tabs class="ew-tabs">
+        <div role="tablist" aria-label="Evenings">
+          <button type="button" role="tab" id="day-fri" aria-selected="true" aria-controls="panel-fri">Friday</button>
+          <button type="button" role="tab" id="day-sat" aria-selected="false" aria-controls="panel-sat" tabindex="-1">Saturday</button>
+        </div>
+        <div role="tabpanel" id="panel-fri" aria-labelledby="day-fri">
+          <div class="table-wrap">
+            <table>
+              <caption>Friday, sample times</caption>
+              <thead><tr><th scope="col">Time</th><th scope="col">Act</th><th scope="col">Court</th></tr></thead>
+              <tbody>
+                <tr><td>19:00</td><td>Iris trio</td><td>Glass</td></tr>
+                <tr><td>21:00</td><td>Peacock solo</td><td>Gold</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div role="tabpanel" id="panel-sat" aria-labelledby="day-sat" hidden>
+          <div class="table-wrap">
+            <table>
+              <caption>Saturday, sample times</caption>
+              <thead><tr><th scope="col">Time</th><th scope="col">Act</th><th scope="col">Court</th></tr></thead>
+              <tbody>
+                <tr><td>18:30</td><td>The whip quartet</td><td>Iron</td></tr>
+                <tr><td>20:30</td><td>Iris trio</td><td>Glass</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </ew-tabs>
+    </section>
+    <hr class="ew-ornament-divider" data-variant="ornament" />
+    <section class="section" id="tickets">
+      <h2>Hold a seat</h2>
+      <p class="note">The hold is fictional and takes no payment.</p>
+      <div class="ew-alert" id="hold-alert" role="status" hidden>
+        <strong class="ew-alert__title">Hold noted</strong>
+        <p class="ew-alert__body">No ticket was issued.</p>
+      </div>
+      <form data-fictional data-alert="#hold-alert" data-dialog="#hold-dialog">
+        <fieldset class="ew-radio-group">
+          <legend>Seat</legend>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="seat" value="court" checked required /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Court — sample $40</span></label>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="seat" value="halo" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Halo — sample $75</span></label>
+        </fieldset>
+        <p><button class="ew-button" type="submit">Review the fictional hold</button></p>
+      </form>
+    </section>
+    <footer class="foot"><p class="note">Salon des Iris · demonstration evening</p></footer>
+  </main>
+  <dialog class="ew-dialog" id="hold-dialog" aria-labelledby="hold-title">
+    <header class="ew-dialog__header"><h2 id="hold-title">Nothing was charged</h2></header>
+    <div class="ew-dialog__body"><p>The seat and the price are samples. No payment was taken.</p></div>
+    <footer class="ew-dialog__footer"><button type="button" class="ew-button" onclick="this.closest('dialog').close()">Close</button></footer>
+  </dialog>
+</div>
+</body>
+</html>

@@ -26,6 +26,10 @@
       "$type": "color",
       "$value": "oklch(85% 0.14 95)"
     },
+    "mint": {
+      "$type": "color",
+      "$value": "oklch(78% 0.12 175)"
+    },
     "accent": {
       "solid": {
         "$type": "color",

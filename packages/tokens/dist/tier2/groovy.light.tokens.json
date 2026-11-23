@@ -14,7 +14,7 @@
       },
       "muted": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.ink} 72%, {color.sand})"
+        "$value": "color-mix(in oklch, {color.ink} 70%, {color.sand})"
       },
       "inverse": {
         "$type": "color",
@@ -28,7 +28,7 @@
       },
       "surface": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 88%, {color.harvest})"
+        "$value": "{color.sand}"
       },
       "elevated": {
         "$type": "color",
@@ -38,11 +38,11 @@
     "border": {
       "subtle": {
         "$type": "color",
-        "$value": "{color.avocado}"
+        "$value": "{color.ink}"
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.rust}"
+        "$value": "{color.ink}"
       }
     },
     "action": {
@@ -56,7 +56,7 @@
       },
       "hover": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.accent.solid} 85%, {color.ink})"
+        "$value": "color-mix(in oklch, {color.accent.solid} 82%, {color.ink})"
       }
     },
     "field": {
@@ -66,11 +66,11 @@
       },
       "border": {
         "$type": "color",
-        "$value": "{color.avocado}"
+        "$value": "{color.ink}"
       },
       "focus": {
         "$type": "color",
-        "$value": "{color.harvest}"
+        "$value": "{color.magenta}"
       }
     },
     "overlay": {
@@ -80,7 +80,7 @@
     "track": {
       "off": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 75%, {color.avocado})"
+        "$value": "color-mix(in oklch, {color.sand} 82%, {color.magenta})"
       },
       "on": {
         "$type": "color",
@@ -103,11 +103,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "3px",
+          "offsetX": "4px",
+          "offsetY": "4px",
           "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.rust} 35%, transparent)"
+          "color": "{color.magenta}"
         }
       ]
     },
@@ -115,11 +115,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "8px",
+          "offsetX": "6px",
+          "offsetY": "6px",
           "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.ink} 20%, transparent)"
+          "color": "{color.tangerine}"
         }
       ]
     },
@@ -127,11 +127,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "14px",
+          "offsetX": "8px",
+          "offsetY": "8px",
           "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.ink} 28%, transparent)"
+          "color": "{color.violet}"
         }
       ]
     }
