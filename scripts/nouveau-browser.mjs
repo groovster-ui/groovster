@@ -35,7 +35,7 @@ try{
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+1);
    if(overflow)throw Error('horizontal overflow '+site+' '+width+' '+mode+' '+dialect+' '+band);
    const key=[site,width,mode,band,dialect].join('-');
-   if(capture&&shots.has(key)){await page.screenshot({path:path.join(snap,key+'.png'),fullPage:true,animations:'disabled'});images++;}
+   if(capture&&shots.has(key)){await page.locator('[data-live]').evaluate(el=>{el.textContent=''});await page.screenshot({path:path.join(snap,key+'.png'),fullPage:true,animations:'disabled'});images++;}
    checks++;
   }
   if(errors.length)throw Error('browser console errors '+errors.join(';'));
