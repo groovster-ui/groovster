@@ -12,13 +12,13 @@ export function memphisDecoratorCss() {
     const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 26'><polygon points='15,2.5 27.5,23.5 2.5,23.5' fill='${fill}' stroke='${stroke}' stroke-width='3' stroke-linejoin='miter'/></svg>`;
     return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
   };
-  const sliderThumbLight = sliderThumb('oklch(60% 0.16 250)', 'oklch(20% 0.02 280)');
-  const sliderThumbDark = sliderThumb('oklch(70% 0.14 250)', 'oklch(95% 0.02 95)');
+  const sliderThumbLight = sliderThumb('#1a83db', '#14151f');
+  const sliderThumbDark = sliderThumb('#53a3f2', '#f2efe0');
   const dotField = (dot, dotOpacity, shapeOpacity) => {
-    const red = 'oklch(62% 0.2 28)';
-    const yellow = 'oklch(88% 0.16 100)';
-    const blue = 'oklch(62% 0.15 255)';
-    const pink = 'oklch(70% 0.17 350)';
+    const red = '#e6443a';
+    const yellow = '#f0d947';
+    const blue = '#4087de';
+    const pink = '#e96cad';
     let dots = '';
     for (let y = 18; y < 640; y += 36) {
       for (let x = 18; x < 640; x += 36) {
@@ -41,10 +41,10 @@ export function memphisDecoratorCss() {
     const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='104' height='28' viewBox='0 0 104 28'><path d='${d}' fill='none' stroke='${ink}' stroke-width='6' stroke-linecap='square' opacity='0.72'/></svg>`;
     return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
   };
-  const groundLight = dotField('oklch(58% 0.14 250)', '0.55', '0.38');
-  const groundDark = dotField('oklch(78% 0.1 250)', '0.4', '0.28');
-  const squiggleLight = squiggle('oklch(55% 0.14 255)');
-  const squiggleDark = squiggle('oklch(78% 0.1 250)');
+  const groundLight = dotField('#2b7ec9', '0.55', '0.38');
+  const groundDark = dotField('#85bcf5', '0.4', '0.28');
+  const squiggleLight = squiggle('#3072c1');
+  const squiggleDark = squiggle('#85bcf5');
   const costumeDark = costumeSel('memphis').replaceAll('[data-era="memphis"]', '[data-era="memphis"][data-mode="dark"]');
   const whisperFields = [
     ' .ew-text-field__control',
@@ -200,7 +200,7 @@ export function memphisDecoratorCss() {
   }
   [data-era="memphis"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
     transform: translateX(24px);
-    background: var(--ew-color-blue);
+    background: var(--ew-memphis-ink);
   }
   [data-era="memphis"] .ew-switch__control:focus-visible + .ew-switch__track {
     outline: 3px solid var(--ew-color-blue);

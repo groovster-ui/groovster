@@ -291,13 +291,22 @@
   }
   [data-era="groovy"] .ew-button[data-variant="secondary"],
   [data-era="groovy"] .ew-icon-button[data-variant="secondary"] {
-    background: var(--ew-color-magenta);
-    color: var(--ew-groovy-ink);
+    background: oklch(56% 0.19 5);
+    color: var(--ew-groovy-paper);
     border-color: var(--ew-groovy-ink);
     box-shadow: 4px 4px 0 0 var(--ew-color-aqua);
   }
+  [data-era="groovy"][data-mode="dark"] .ew-button[data-variant="secondary"],
+  [data-era="groovy"][data-mode="dark"] .ew-icon-button[data-variant="secondary"] {
+    background: var(--ew-color-magenta);
+    color: var(--ew-groovy-ink);
+  }
   [data-era="groovy"] .ew-button[data-variant="secondary"]:hover,
   [data-era="groovy"] .ew-icon-button[data-variant="secondary"]:hover {
+    background: color-mix(in oklch, oklch(56% 0.19 5) 82%, var(--ew-groovy-ink));
+  }
+  [data-era="groovy"][data-mode="dark"] .ew-button[data-variant="secondary"]:hover,
+  [data-era="groovy"][data-mode="dark"] .ew-icon-button[data-variant="secondary"]:hover {
     background: color-mix(in oklch, var(--ew-color-magenta) 82%, var(--ew-groovy-ink));
   }
   [data-era="groovy"] .ew-button[data-variant="secondary"]:active,
@@ -451,7 +460,7 @@
   }
   [data-era="groovy"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
     transform: translateX(24px);
-    background: var(--ew-color-lime);
+    background: var(--ew-groovy-ink);
   }
   [data-era="groovy"] .ew-switch__control:focus-visible + .ew-switch__track {
     outline: 3px solid var(--ew-color-violet);
@@ -479,7 +488,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 32px 32px;
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2032%2032'%3E%0A%20%20%20%20%20%20%3Cg%20fill%3D'none'%20stroke%3D'oklch(22%25%200.05%2045)'%20stroke-width%3D'2'%20stroke-linecap%3D'round'%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D'M16%202.5v4.5M16%2025v4.5M2.5%2016h4.5M25%2016h4.5M6.2%206.2l3.2%203.2M22.6%2022.6l3.2%203.2M25.8%206.2l-3.2%203.2M9.4%2022.6l-3.2%203.2'%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'16'%20cy%3D'16'%20r%3D'6.5'%20fill%3D'oklch(86%25%200.16%2090)'%20stroke%3D'oklch(22%25%200.05%2045)'%20stroke-width%3D'2'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2032%2032'%3E%0A%20%20%20%20%20%20%3Cg%20fill%3D'none'%20stroke%3D'%232d1205'%20stroke-width%3D'2'%20stroke-linecap%3D'round'%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D'M16%202.5v4.5M16%2025v4.5M2.5%2016h4.5M25%2016h4.5M6.2%206.2l3.2%203.2M22.6%2022.6l3.2%203.2M25.8%206.2l-3.2%203.2M9.4%2022.6l-3.2%203.2'%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'16'%20cy%3D'16'%20r%3D'6.5'%20fill%3D'%23facb39'%20stroke%3D'%232d1205'%20stroke-width%3D'2'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     box-shadow: none;
   }
   [data-era="groovy"] .ew-slider__control::-moz-range-thumb {
@@ -492,7 +501,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 32px 32px;
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2032%2032'%3E%0A%20%20%20%20%20%20%3Cg%20fill%3D'none'%20stroke%3D'oklch(22%25%200.05%2045)'%20stroke-width%3D'2'%20stroke-linecap%3D'round'%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D'M16%202.5v4.5M16%2025v4.5M2.5%2016h4.5M25%2016h4.5M6.2%206.2l3.2%203.2M22.6%2022.6l3.2%203.2M25.8%206.2l-3.2%203.2M9.4%2022.6l-3.2%203.2'%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'16'%20cy%3D'16'%20r%3D'6.5'%20fill%3D'oklch(86%25%200.16%2090)'%20stroke%3D'oklch(22%25%200.05%2045)'%20stroke-width%3D'2'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2032%2032'%3E%0A%20%20%20%20%20%20%3Cg%20fill%3D'none'%20stroke%3D'%232d1205'%20stroke-width%3D'2'%20stroke-linecap%3D'round'%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D'M16%202.5v4.5M16%2025v4.5M2.5%2016h4.5M25%2016h4.5M6.2%206.2l3.2%203.2M22.6%2022.6l3.2%203.2M25.8%206.2l-3.2%203.2M9.4%2022.6l-3.2%203.2'%2F%3E%0A%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'16'%20cy%3D'16'%20r%3D'6.5'%20fill%3D'%23facb39'%20stroke%3D'%232d1205'%20stroke-width%3D'2'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     box-shadow: none;
   }
   [data-era="groovy"] .ew-slider__control:focus-visible {
@@ -650,7 +659,7 @@
     width: 52px;
     height: 52px;
     margin-bottom: 8px;
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'32'%20cy%3D'14'%20r%3D'10'%20fill%3D'oklch(58%25%200.21%205)'%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'48'%20cy%3D'24'%20r%3D'10'%20fill%3D'oklch(70%25%200.17%2048)'%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'44'%20cy%3D'42'%20r%3D'10'%20fill%3D'oklch(86%25%200.16%2090)'%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'20'%20cy%3D'42'%20r%3D'10'%20fill%3D'oklch(78%25%200.16%20135)'%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'16'%20cy%3D'24'%20r%3D'10'%20fill%3D'oklch(74%25%200.12%20200)'%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'32'%20cy%3D'30'%20r%3D'8'%20fill%3D'oklch(86%25%200.16%2090)'%20stroke%3D'oklch(22%25%200.05%2045)'%20stroke-width%3D'3'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'32'%20cy%3D'14'%20r%3D'10'%20fill%3D'%23d6286a'%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'48'%20cy%3D'24'%20r%3D'10'%20fill%3D'%23f0772d'%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'44'%20cy%3D'42'%20r%3D'10'%20fill%3D'%23facb39'%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'20'%20cy%3D'42'%20r%3D'10'%20fill%3D'%2389ce5f'%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'16'%20cy%3D'24'%20r%3D'10'%20fill%3D'%2324c1c9'%2F%3E%0A%20%20%20%20%20%20%3Ccircle%20cx%3D'32'%20cy%3D'30'%20r%3D'8'%20fill%3D'%23facb39'%20stroke%3D'%232d1205'%20stroke-width%3D'3'%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E");
     background-size: 52px 52px;
     background-repeat: no-repeat;
   }

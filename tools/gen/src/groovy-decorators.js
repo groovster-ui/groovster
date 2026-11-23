@@ -7,11 +7,13 @@ import { bandSel, costumeSel, muteBandSel } from './band.js';
  * so dark mode does not flip that type to cream.
  */
 export function groovyDecoratorCss() {
-  const sun = 'oklch(86% 0.16 90)';
-  const tangerine = 'oklch(70% 0.17 48)';
-  const magenta = 'oklch(58% 0.21 5)';
-  const lime = 'oklch(78% 0.16 135)';
-  const aqua = 'oklch(74% 0.12 200)';
+  // Hex inside data-URI SVGs. oklch() in an SVG image is not a valid painted color.
+  const sun = '#facb39';
+  const tangerine = '#f0772d';
+  const magenta = '#d6286a';
+  const lime = '#89ce5f';
+  const aqua = '#24c1c9';
+  const inkHex = '#2d1205';
 
   const svgUrl = (svg) => `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
 
@@ -69,8 +71,8 @@ export function groovyDecoratorCss() {
 
   const ink = 'oklch(22% 0.05 45)';
   const paper = 'oklch(97% 0.025 90)';
-  const thumbLight = sunThumb(ink);
-  const daisyLight = daisy(ink);
+  const thumbLight = sunThumb(inkHex);
+  const daisyLight = daisy(inkHex);
   const costumeDark = costumeSel('groovy').replaceAll('[data-era="groovy"]', '[data-era="groovy"][data-mode="dark"]');
   const whisperShadow = [
     ' .ew-button',
@@ -158,13 +160,22 @@ export function groovyDecoratorCss() {
   }
   [data-era="groovy"] .ew-button[data-variant="secondary"],
   [data-era="groovy"] .ew-icon-button[data-variant="secondary"] {
-    background: var(--ew-color-magenta);
-    color: var(--ew-groovy-ink);
+    background: oklch(56% 0.19 5);
+    color: var(--ew-groovy-paper);
     border-color: var(--ew-groovy-ink);
     box-shadow: 4px 4px 0 0 var(--ew-color-aqua);
   }
+  [data-era="groovy"][data-mode="dark"] .ew-button[data-variant="secondary"],
+  [data-era="groovy"][data-mode="dark"] .ew-icon-button[data-variant="secondary"] {
+    background: var(--ew-color-magenta);
+    color: var(--ew-groovy-ink);
+  }
   [data-era="groovy"] .ew-button[data-variant="secondary"]:hover,
   [data-era="groovy"] .ew-icon-button[data-variant="secondary"]:hover {
+    background: color-mix(in oklch, oklch(56% 0.19 5) 82%, var(--ew-groovy-ink));
+  }
+  [data-era="groovy"][data-mode="dark"] .ew-button[data-variant="secondary"]:hover,
+  [data-era="groovy"][data-mode="dark"] .ew-icon-button[data-variant="secondary"]:hover {
     background: color-mix(in oklch, var(--ew-color-magenta) 82%, var(--ew-groovy-ink));
   }
   [data-era="groovy"] .ew-button[data-variant="secondary"]:active,
@@ -318,7 +329,7 @@ export function groovyDecoratorCss() {
   }
   [data-era="groovy"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
     transform: translateX(24px);
-    background: var(--ew-color-lime);
+    background: var(--ew-groovy-ink);
   }
   [data-era="groovy"] .ew-switch__control:focus-visible + .ew-switch__track {
     outline: 3px solid var(--ew-color-violet);
