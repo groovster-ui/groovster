@@ -1,18 +1,18 @@
 /* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
 
 @font-face {
-  font-family: "Source Sans 3";
+  font-family: "Inter Tight";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/SourceSans3-Regular.woff2") format("woff2"), local("Source Sans 3");
+  src: url("../fonts/InterTight-Regular.woff2") format("woff2"), local("Inter Tight");
 }
 @font-face {
-  font-family: "Source Sans 3";
+  font-family: "Inter Tight";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("../fonts/SourceSans3-Bold.woff2") format("woff2"), local("Source Sans 3");
+  src: url("../fonts/InterTight-Bold.woff2") format("woff2"), local("Inter Tight");
 }
 @font-face {
   font-family: "Source Code Pro";
@@ -60,8 +60,8 @@
     --ew-radius-md: 0px;
     --ew-radius-lg: 0px;
     --ew-radius-pill: 999px;
-    --ew-font-display: "Source Sans 3", Arial, sans-serif;
-    --ew-font-body: "Source Sans 3", Arial, sans-serif;
+    --ew-font-display: "Inter Tight", Arial, sans-serif;
+    --ew-font-body: "Inter Tight", Arial, sans-serif;
     --ew-font-mono: "Source Code Pro", monospace;
     --ew-color-fg-default: var(--ew-color-gray-8);
     --ew-color-fg-muted: var(--ew-color-gray-6);
@@ -120,8 +120,8 @@
     --ew-radius-md: 0px;
     --ew-radius-lg: 0px;
     --ew-radius-pill: 999px;
-    --ew-font-display: "Source Sans 3", Arial, sans-serif;
-    --ew-font-body: "Source Sans 3", Arial, sans-serif;
+    --ew-font-display: "Inter Tight", Arial, sans-serif;
+    --ew-font-body: "Inter Tight", Arial, sans-serif;
     --ew-font-mono: "Source Code Pro", monospace;
     --ew-color-fg-default: var(--ew-color-gray-8);
     --ew-color-fg-muted: var(--ew-color-gray-6);
@@ -220,13 +220,14 @@
   [data-era="swiss"] .ew-hero{display:grid;align-items:center;min-height:clamp(340px,55vw,670px);position:relative;isolation:isolate;padding:clamp(2rem,5vw,5rem);border-block:2px solid var(--ew-color-fg-default)}
   [data-era="swiss"] .ew-hero__panel{position:relative;z-index:1;width:min(100%,1120px);margin-inline:auto;display:grid;grid-template-columns:repeat(12,minmax(0,1fr))}
   [data-era="swiss"] .ew-hero__content{grid-column:3/-1;min-width:0}
-  [data-era="swiss"] .ew-hero__title{font-family:var(--ew-font-display);font-size:clamp(3.25rem,9.3vw,9.5rem);font-weight:700;line-height:.9;letter-spacing:-.075em;max-width:11ch;overflow-wrap:anywhere;margin:.12em 0 .3em}
+  [data-era="swiss"] .ew-hero__title{font-family:var(--ew-font-display);font-size:clamp(3.25rem,9.3vw,9.5rem);font-weight:700;line-height:.9;letter-spacing:-.03em;max-width:11ch;overflow-wrap:anywhere;margin:.12em 0 .3em}
   [data-era="swiss"] .ew-hero__subtitle{font-size:clamp(1rem,1.8vw,1.45rem);line-height:1.45;max-width:42ch}
   [data-era="swiss"] .ew-script{font:700 .82rem/1.4 var(--ew-font-body);text-transform:uppercase;letter-spacing:.1em}
   [data-era="swiss"] .ew-hero__stage{position:absolute;inset:0 auto 0 10%;width:2px;background:var(--ew-color-action-bg);pointer-events:none}
   [data-era="swiss"] .ew-hero__stage::after{content:"";position:absolute;top:0;left:0;width:clamp(12px,2vw,30px);height:clamp(30px,7vw,100px);background:var(--ew-color-action-bg)}
+  [data-era="swiss"] h2,[data-era="swiss"] .ew-section-heading{font-family:var(--ew-font-display);font-size:clamp(2.8rem,6.4vw,5.6rem);font-weight:700;line-height:.9;letter-spacing:-.03em;text-align:left}
   [data-era="swiss"] .ew-card{border-radius:0;box-shadow:none;background-image:none}
-  [data-era="swiss"] .ew-card[data-variant="raised"]{border-top:3px solid var(--ew-color-fg-default);box-shadow:none}
+  [data-era="swiss"] .ew-card[data-variant="raised"]{border-top:3px solid var(--ew-color-action-bg);box-shadow:none}
   [data-era="swiss"] .ew-card__header{border-bottom:1px solid var(--ew-color-border-subtle)}
   [data-era="swiss"] .ew-button{border-radius:0;box-shadow:none}
   [data-era="swiss"] .ew-text-field__control,[data-era="swiss"] .ew-select__trigger,[data-era="swiss"] .ew-textarea__control{border-radius:0}
@@ -234,6 +235,6 @@
   :is([data-era="swiss"][data-fidelity-band="whisper"],[data-fidelity-band="whisper"] [data-era="swiss"]) .ew-hero{min-height:250px;padding-block:2rem}
   :is([data-era="swiss"][data-fidelity-band="whisper"],[data-fidelity-band="whisper"] [data-era="swiss"]) .ew-hero__stage{display:none}
   :is([data-era="swiss"][data-fidelity-band="standard"],[data-fidelity-band="standard"] [data-era="swiss"],[data-era="swiss"][data-fidelity-band="default"],[data-fidelity-band="default"] [data-era="swiss"],[data-era="swiss"][data-fidelity-band="signature"],[data-fidelity-band="signature"] [data-era="swiss"]) .ew-hero__title{font-size:clamp(3.25rem,7vw,7rem)}
-  @media(max-width:700px){[data-era="swiss"] .ew-hero{padding:1.5rem;min-height:320px}[data-era="swiss"] .ew-hero__content{grid-column:2/-1}[data-era="swiss"] .ew-hero__title{font-size:clamp(3.1rem,12vw,6rem)}}
+  @media(max-width:700px){[data-era="swiss"] .ew-hero{padding:1.5rem;min-height:320px}[data-era="swiss"] .ew-hero__content{grid-column:2/-1}[data-era="swiss"] .ew-hero__title{font-size:clamp(3.1rem,12vw,6rem);letter-spacing:-.03em}}
 
 }

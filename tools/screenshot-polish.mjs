@@ -4,10 +4,11 @@ import { dirname, join } from 'path';
 import { createServer } from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import { listEraIds } from './gen/src/era-catalog.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(__dirname, '..');
-const ERAS = ['neon', 'deco', 'mcm-atomic', 'memphis', 'groovy', 'earth', 'neutral'];
+const ERAS = listEraIds(repoRoot);
 
 function contentType(p) {
   if (p.endsWith('.css')) return 'text/css';

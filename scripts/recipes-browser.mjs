@@ -4,6 +4,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { safePath } from '../tests/helpers/safe-path.mjs';
+import { eraSwitchEntries } from '../tools/gen/src/era-catalog.js';
 
 const require = createRequire(path.join(path.dirname(fileURLToPath(import.meta.url)), '../tools/a11y/package.json'));
 const { chromium } = require('playwright');
@@ -18,15 +19,7 @@ const TYPES = {
   '.woff2': 'font/woff2',
   '.svg': 'image/svg+xml',
 };
-const ERAS = [
-  ['neutral', 'Neutral'],
-  ['deco', 'Deco'],
-  ['earth', 'Earth'],
-  ['groovy', 'Groovy'],
-  ['mcm-atomic', 'Atomic'],
-  ['memphis', 'Memphis'],
-  ['neon', 'Neon'],
-];
+const ERAS = eraSwitchEntries(root);
 
 function serve() {
   const server = http.createServer((req, res) => {

@@ -110,7 +110,7 @@ jobs:
         run: pnpm test:sites
 
       - name: Verify Swiss and Bauhaus browser demos
-        run: node scripts/modernist-browser.mjs
+        run: pnpm test:modernist-browser
 
       - name: Verify Art Nouveau browser demos
         run: node scripts/nouveau-browser.mjs

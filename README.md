@@ -23,10 +23,10 @@ Do not hand-edit generator output. Change `spec/` or `tools/gen/`, then run `pnp
 
 ## Websites
 
-Five reference sites and a seven-era preview:
+Five reference sites and an every-era preview:
 
 - `demos/recipes/editorial/`, `event/`, `commerce/`, `hospitality/`, `dashboard/`
-- `demos/launch/` — one page, seven eras
+- `demos/launch/` — one page, every era
 - Agent skill: `skills/groovster/SKILL.md`
 - Install notes: `docs/agents.md`
 
@@ -133,7 +133,7 @@ pnpm sizes              # uncompressed, gzip, and brotli sizes
 
 ## Known limits
 
-- Seven eras, twenty-one components. New eras are out of scope for this tree.
+- Era skins are the ids in `spec/eras`. Twenty-one components.
 - Vue and Svelte wrappers are not implemented.
 - Real-model evaluation is optional and is not a release gate.
 - Era spec files still store legacy numeric fidelity ranges because the era schema requires them. Public HTML, React, MCP, and examples use bands.

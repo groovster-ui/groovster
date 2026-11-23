@@ -6,9 +6,10 @@ import {
   collectTokenValues,
   resolveValueAgainst,
 } from '../../gen/src/tokens-to-css.js';
+import { listEraIds } from '../../gen/src/era-catalog.js';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
-const ERAS = ['neutral', 'deco', 'mcm-atomic', 'neon', 'memphis', 'groovy', 'earth'];
+const ERAS = listEraIds(REPO);
 const MODES = ['light', 'dark'];
 
 /** Parse `oklch(L% C H[/A])` → { L 0–1, C, H, A }. */

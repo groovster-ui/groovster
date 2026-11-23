@@ -13,7 +13,6 @@ Load only needed sections; avoid full-library context.
 - art-nouveau: Art Nouveau: flowing whiplash curves, botanical frames and organic ironwork.
 - bauhaus: Bauhaus: constructive geometric planes, functional type and disciplined color.
 - deco: Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer.
-- earth: Crafted earth tones: clay, moss, sand — quiet organic UI.
 - groovy: 70s groove: avocado & harvest gold, soft flares, lazy curves.
 - mcm-atomic: 1950s Atomic / Googie: starbursts, atom orbits, kidney Formica, script over caps.
 - memphis: Playful postmodern: squiggles, confetti shapes, loud primaries on cream.

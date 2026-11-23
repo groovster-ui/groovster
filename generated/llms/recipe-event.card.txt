@@ -3,7 +3,7 @@ GENERATED FILE — do not edit. Source: spec/recipes/. Run: pnpm gen
 # Event or festival (event)
 A poster-like event page with a lineup, a schedule, and ticket choice. The hold is fictional and takes no payment.
 Category: Ticketed event, festival, or performance series
-Eras: neon, memphis, groovy, mcm-atomic. Also: deco, earth, neutral, bauhaus, swiss, art-nouveau. Avoid: none.
+Eras: neon, memphis, groovy, mcm-atomic. Also: deco, neutral, bauhaus, swiss, art-nouveau. Avoid: none.
 Fidelity: page costume; forms standard; data standard. Costume on the poster hero. Ticket choices stay a labeled radio group.
 Sections: masthead, lineup, schedule, tickets. Optional: visit.
 Components: button, link, card, tabs, radio, dialog, alert, ornament-divider. Optional: toast, select.

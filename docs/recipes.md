@@ -4,7 +4,7 @@ Recipes are composition notes. The HTML stays the same when `data-era` changes.
 
 | Recipe | Demo | Default era |
 |---|---|---|
-| editorial | `demos/recipes/editorial/` | earth, costume |
+| editorial | `demos/recipes/editorial/` | swiss, costume |
 | event | `demos/recipes/event/` | neon, dark, costume |
 | commerce | `demos/recipes/commerce/` | groovy, standard |
 | hospitality | `demos/recipes/hospitality/` | deco, costume |
@@ -20,6 +20,6 @@ Generated cards: `generated/llms/recipe-<id>.card.txt`. The skill copies those c
 4. Run `pnpm gen`.
 5. Mention the id in `skills/groovster/SKILL.md`.
 
-`recommend` matches keywords on word boundaries, then ranks by hit count and `priority`. Do not reuse a keyword that already routes an era test, such as wellness, organic, craft, or cafe.
+`recommend` matches keywords on word boundaries, then ranks by hit count and `priority`. Do not reuse a keyword that already routes an era test, such as architecture, museum, exhibition, or cafe.
 
 Serve the demos from the repository root. Paths are relative to each page. `demos/launch/` previews every recipe and every era in one frame.

@@ -22,7 +22,7 @@ The following studies establish visual principles rather than license the underl
 | Tiffany Studios, *Dogwood* (c. 1900–1925) | [The Met collection](https://www.metmuseum.org/art/collection/search/15302) | Asymmetry, natural silhouette and nuanced color; translate using CSS surfaces rather than glass textures |
 
 ### Core distinctions
-**Art Nouveau**: flowing and organic, structurally connected curves, lithographic surface tones. **Art Deco**: stepped geometry, axial symmetry, lacquer and brass. **Earth**: understated material textures and nature, without ceremonial decoration. **Groovy**: 1970s pop/psychedelic flow with bolder cartoon-like forms. **Bauhaus**: industrial geometric construction.
+**Art Nouveau**: flowing and organic, structurally connected curves, lithographic surface tones. **Art Deco**: stepped geometry, axial symmetry, lacquer and brass. **Groovy**: 1970s pop/psychedelic flow with bolder cartoon-like forms. **Bauhaus**: industrial geometric construction.
 
 ## Eight deterministic ornamental primitives
 
