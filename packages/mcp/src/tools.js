@@ -252,12 +252,13 @@ export function findRecipeTool({ query } = {}) {
 export function recommendTool({ description } = {}) {
   const text = String(description || '').toLowerCase();
   const rules = [
+    { test: /(swiss|international|architecture|museum|editorial[- ]grid)/, era: 'swiss', fidelityBand: 'standard', dialect: null },
+    { test: /(bauhaus|design school|furniture|exhibition)/, era: 'bauhaus', fidelityBand: 'standard', dialect: null },
     { test: /(law|legal|luxury|hotel|editorial|finance|brass|jazz)/, era: 'deco', fidelityBand: 'whisper', dialect: null },
     { test: /(synth|neon|game|night|festival|retro.?wave|outrun|cyber)/, era: 'neon', fidelityBand: 'standard', dialect: 'synthwave' },
     { test: /(miami|pastel|day.?glow|vice)/, era: 'neon', fidelityBand: 'standard', dialect: 'miami' },
     { test: /(memphis|confetti|postmodern|squiggle)/, era: 'memphis', fidelityBand: 'standard', dialect: null },
     { test: /(groovy|70s|avocado|disco|funk)/, era: 'groovy', fidelityBand: 'standard', dialect: null },
-    { test: /(earth|organic|wellness|craft|linen|moss)/, era: 'earth', fidelityBand: 'standard', dialect: null },
     { test: /(cafe|lifestyle|mid.?century|atomic|playful|product.?stor)/, era: 'mcm-atomic', fidelityBand: 'standard', dialect: 'atomic' },
     { test: /(admin|settings|saas|dashboard|serious|enterprise|default)/, era: 'neutral', fidelityBand: 'whisper', dialect: null },
   ];

@@ -6,9 +6,9 @@
   },
   "visualQuality": "not scored",
   "footprint": {
-    "fullGzip": 39166,
+    "fullGzip": 38785,
     "selectiveGzip": 9354,
-    "note": "Demos that switch all seven eras link the full bundle. A fixed era can link base, used components, and that era."
+    "note": "Demos that switch every era link the full bundle. A fixed era can link base, used components, and that era."
   },
   "tasks": [
     {
@@ -26,13 +26,13 @@
         },
         "docs": {
           "kind": "instruction-weight",
-          "tokens": 1357,
+          "tokens": 1334,
           "markupClaim": false,
           "note": "Counts the index plus two component files. Does not generate a page."
         },
         "skill": {
           "kind": "reference-site",
-          "tokens": 1451,
+          "tokens": 1450,
           "structural": {
             "ok": true,
             "missing": []
@@ -41,7 +41,7 @@
         },
         "skill-mcp": {
           "kind": "reference-site-plus-recommend",
-          "tokens": 1743,
+          "tokens": 1737,
           "toolCalls": 1,
           "era": "deco",
           "fidelityBand": "whisper",
@@ -68,13 +68,13 @@
         },
         "docs": {
           "kind": "instruction-weight",
-          "tokens": 1357,
+          "tokens": 1334,
           "markupClaim": false,
           "note": "Counts the index plus two component files. Does not generate a page."
         },
         "skill": {
           "kind": "reference-site",
-          "tokens": 1458,
+          "tokens": 1457,
           "structural": {
             "ok": true,
             "missing": []
@@ -83,7 +83,7 @@
         },
         "skill-mcp": {
           "kind": "reference-site-plus-recommend",
-          "tokens": 1750,
+          "tokens": 1749,
           "toolCalls": 1,
           "era": "neon",
           "fidelityBand": "standard",
@@ -110,13 +110,13 @@
         },
         "docs": {
           "kind": "instruction-weight",
-          "tokens": 1357,
+          "tokens": 1334,
           "markupClaim": false,
           "note": "Counts the index plus two component files. Does not generate a page."
         },
         "skill": {
           "kind": "reference-site",
-          "tokens": 1495,
+          "tokens": 1494,
           "structural": {
             "ok": true,
             "missing": []
@@ -125,7 +125,7 @@
         },
         "skill-mcp": {
           "kind": "reference-site-plus-recommend",
-          "tokens": 1789,
+          "tokens": 1783,
           "toolCalls": 1,
           "era": "deco",
           "fidelityBand": "whisper",
@@ -152,13 +152,13 @@
         },
         "docs": {
           "kind": "instruction-weight",
-          "tokens": 1357,
+          "tokens": 1334,
           "markupClaim": false,
           "note": "Counts the index plus two component files. Does not generate a page."
         },
         "skill": {
           "kind": "reference-site",
-          "tokens": 1419,
+          "tokens": 1418,
           "structural": {
             "ok": true,
             "missing": []
@@ -167,7 +167,7 @@
         },
         "skill-mcp": {
           "kind": "reference-site-plus-recommend",
-          "tokens": 1670,
+          "tokens": 1664,
           "toolCalls": 1,
           "era": "groovy",
           "fidelityBand": "standard",
@@ -194,13 +194,13 @@
         },
         "docs": {
           "kind": "instruction-weight",
-          "tokens": 1357,
+          "tokens": 1334,
           "markupClaim": false,
           "note": "Counts the index plus two component files. Does not generate a page."
         },
         "skill": {
           "kind": "reference-site",
-          "tokens": 1492,
+          "tokens": 1488,
           "structural": {
             "ok": true,
             "missing": []
@@ -209,7 +209,7 @@
         },
         "skill-mcp": {
           "kind": "reference-site-plus-recommend",
-          "tokens": 1756,
+          "tokens": 1752,
           "toolCalls": 1,
           "era": "neutral",
           "fidelityBand": "whisper",

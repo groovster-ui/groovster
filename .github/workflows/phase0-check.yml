@@ -126,6 +126,10 @@ jobs:
         timeout-minutes: 5
         run: pnpm test:modernist
 
+      - name: Verify Art Nouveau browser demos
+        timeout-minutes: 10
+        run: node scripts/nouveau-browser.mjs
+
       - name: Run website instruction harness
         timeout-minutes: 5
         run: pnpm eval:sites

@@ -17,8 +17,8 @@
   "eras": {
     "recommended": [
       "deco",
-      "earth",
-      "mcm-atomic"
+      "mcm-atomic",
+      "art-nouveau"
     ],
     "alsoFits": [
       "groovy",
@@ -135,6 +135,12 @@
         "mcm-atomic"
       ],
       "note": "The same hero includes .ew-hero__stage. Do not restyle the form with a second HTML tree."
+    },
+    {
+      "eras": [
+        "art-nouveau"
+      ],
+      "note": "Organic hero uses the canonical .ew-hero__stage; keep forms unornamented."
     }
   ],
   "customization": [

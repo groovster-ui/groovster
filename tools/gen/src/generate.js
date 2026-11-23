@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { transformSync } from 'esbuild';
 import {
   BUDGETS_PATH,
   REPO_ROOT,
@@ -20,7 +21,10 @@ import { decoDecoratorCss } from './deco-decorators.js';
 import { atomicDecoratorCss } from './atomic-decorators.js';
 import { neonDecoratorCss } from './neon-decorators.js';
 import { modernistDecoratorCss } from './modernist-decorators.js';
+import { nouveauDecoratorCss } from './nouveau-decorators.js';
 import { loadRecipes, recipeIndexLines, writeRecipeDocs } from './recipes.js';
+import { loadEraCatalog } from './era-catalog.js';
+import { matrixDocument } from '../../../tests/a11y/matrix-html.mjs';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
 
@@ -31,9 +35,7 @@ function loadComponents() {
 }
 
 function loadEras() {
-  return listFiles(path.join(SPEC_ROOT, 'eras'), (f) => f.endsWith('era.spec.json'))
-    .map((f) => readJson(f))
-    .sort((a, b) => a.id.localeCompare(b.id));
+  return loadEraCatalog(REPO_ROOT);
 }
 
 /** Mute-band selectors (whisper|default|signature) on self or ancestor. */
@@ -63,6 +65,7 @@ const FONT_FILES = {
   Nunito: { 400: 'Nunito-Regular.woff2', 700: 'Nunito-Bold.woff2' },
   Fraunces: { 400: 'Fraunces-Regular.woff2', 700: 'Fraunces-Bold.woff2' },
   'Source Sans 3': { 400: 'SourceSans3-Regular.woff2', 700: 'SourceSans3-Bold.woff2' },
+  'Inter Tight': { 400: 'InterTight-Regular.woff2', 700: 'InterTight-Bold.woff2' },
   'Source Code Pro': { 400: 'SourceCodePro-Regular.woff2', 700: 'SourceCodePro-Bold.woff2' },
   'Source Serif 4': { 400: 'SourceSerif4-Regular.woff2', 700: 'SourceSerif4-Bold.woff2' },
   Yellowtail: { 400: 'Yellowtail-Regular.woff2' },
@@ -79,10 +82,9 @@ function fontFaceBlock(era, { forBundle = false } = {}) {
   if (!era.fonts) return '';
   const families = [era.fonts.display, era.fonts.body, era.fonts.mono].filter(Boolean);
   if (era.id === 'neon') families.push('Monoton', 'Mr Dafoe');
-  if (era.id === 'mcm-atomic') {
-    if (era.fonts.script) families.push(era.fonts.script);
-    if (era.fonts.displayAlt) families.push(era.fonts.displayAlt);
-  }
+  // Optional font roles work for any era, including independently contributed eras.
+  if (era.fonts.script) families.push(era.fonts.script);
+  if (era.fonts.displayAlt) families.push(era.fonts.displayAlt);
   const unique = [...new Set(families)];
   const prefix = forBundle ? './fonts/' : '../fonts/';
   return unique
@@ -364,6 +366,8 @@ function genEraCss(era) {
     blocks.push(atomicDecoratorCss());
   } else if (era.id === 'neon') {
     blocks.push(neonDecoratorCss());
+  } else if (era.id === 'art-nouveau') {
+    blocks.push(nouveauDecoratorCss());
   } else if (era.id === 'swiss' || era.id === 'bauhaus') {
     blocks.push(modernistDecoratorCss(era.id));
   } else if (era.id === 'neutral') {
@@ -518,64 +522,6 @@ function genEraCss(era) {
     background: var(--ew-color-fg-default);
   }
 `);
-  } else if (era.id === 'earth') {
-    blocks.push(`  [data-era="earth"] .ew-button {
-    border-radius: 6px;
-    border-width: 1px;
-    letter-spacing: 0.04em;
-    box-shadow: none;
-    background-image: linear-gradient(180deg, color-mix(in oklch, white 8%, transparent), transparent);
-  }
-  [data-era="earth"] .ew-card {
-    border-radius: 10px;
-    border-width: 1px;
-    box-shadow: none;
-    background-image:
-      linear-gradient(180deg, color-mix(in oklch, var(--ew-color-bg-elevated) 88%, var(--ew-color-border-subtle)), var(--ew-color-bg-surface));
-  }
-  [data-era="earth"] .ew-card__header::after {
-    content: "";
-    display: block;
-    height: 2px;
-    margin-top: 10px;
-    background: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
-    opacity: 0.65;
-  }
-  ${muteBandSel('earth', ' .ew-card__header::after')} { display: none; }
-  [data-era="earth"] .ew-text-field__control,
-  [data-era="earth"] .ew-select__control,
-  [data-era="earth"] .ew-select__trigger,
-  [data-era="earth"] .ew-textarea__control {
-    border-radius: 6px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--ew-color-field-border);
-    border-bottom-width: 2px;
-    background: var(--ew-color-field-bg);
-  }
-  [data-era="earth"] .ew-dialog {
-    border-radius: 12px;
-    border-width: 1px;
-  }
-  [data-era="earth"] .ew-tabs [role="tablist"],
-  [data-era="earth"] ew-tabs [role="tablist"] {
-    border-bottom-color: color-mix(in oklch, var(--ew-color-border-strong) 55%, transparent);
-  }
-  [data-era="earth"] .ew-tooltip__tip {
-    border-radius: 4px;
-    border: 1px solid var(--ew-color-border-subtle);
-    background: var(--ew-color-bg-elevated);
-    color: var(--ew-color-fg-default);
-    box-shadow: none;
-  }
-  [data-era="earth"] .ew-slider__control {
-    height: var(--ew-structure-slider-track-height, 4px);
-    accent-color: var(--ew-color-border-strong);
-  }
-  [data-era="earth"] .ew-ornament-divider {
-    background: linear-gradient(90deg, transparent, var(--ew-color-border-subtle), transparent);
-  }
-`);
   }
   blocks.push(`}`);
   return blocks.join('\n') + '\n';
@@ -648,8 +594,8 @@ function genLlmsIndex(components, eras, recipes = []) {
   const lines = [
     '# Era Widgets',
     '',
-    'CSS-first, spec-first UI skins for agents. Canonical API is HTML + ew- classes + data-* attrs.',
-    'Set personality with data-era on a root. Do not rewrite markup per era.',
+    'CSS-first, spec-first skins for agents. API: HTML + ew- classes + data-*.',
+    'Set data-era on root; reuse HTML across eras.',
     'Load only needed sections; avoid full-library context.',
     '',
     '## Quick start',
@@ -662,8 +608,7 @@ function genLlmsIndex(components, eras, recipes = []) {
     '',
     '## Fidelity & ornament',
     '- Bands: `whisper|standard|costume` (costume default; `default`/`signature` → standard).',
-    '- Neon and Atomic costume use `.ew-hero__stage`; see era cards.',
-    '- Deco uses `.ew-hero__panel`; FIDELITY.md defines bands.',
+    '- Costume heroes use `.ew-hero__stage` and `.ew-hero__panel`; see era cards.',
     '',
     '## Components (one file each)',
     ...components.map((c) => `- ${c.id}: generated/llms/${c.id}.md`),
@@ -766,7 +711,10 @@ export function generateAll() {
   const bundlePath = path.join(GEN_CSS, 'era-widgets.css');
   // Era CSS uses ../fonts/ (from dist/eras/); rewrite for dist/era-widgets.css.
   const bundleCss = bundleParts.join('\n').replaceAll('url("../fonts/', 'url("./fonts/');
-  writeText(bundlePath, bundleCss);
+  // Existing build-time esbuild removes repetition in the all-era delivery bundle.
+  // Standalone era/component CSS files stay readable and are not minified here.
+  const compactBundle = transformSync(bundleCss, { loader: 'css', minify: true, charset: 'utf8' }).code;
+  writeText(bundlePath, compactBundle);
   outputs.push(rel(outRoot, bundlePath));
 
   // Budget snapshots for CI
@@ -795,6 +743,24 @@ export function generateAll() {
   }
 
   generateExtras({ components, eras, outputs });
+
+  const matrixPath = path.join(getOutRoot(), 'tests/a11y/fixtures/matrix.html');
+  writeText(matrixPath, matrixDocument(REPO_ROOT));
+  outputs.push(rel(outRoot, matrixPath));
+
+  const shellPath = path.join(getOutRoot(), 'demos/recipes/shared/shell.js');
+  if (fs.existsSync(shellPath)) {
+    const shell = fs.readFileSync(shellPath, 'utf8');
+    const eraIds = JSON.stringify(eras.map((era) => era.id));
+    const eraPairs = JSON.stringify(eras.map((era) => [era.id, era.name]));
+    const eraBlock = /^ {2}const ERA_IDS = .*\n {2}const ERAS = .*$/m;
+    if (!eraBlock.test(shell)) throw new Error('demos/recipes/shared/shell.js is missing the era catalog block');
+    const nextShell = shell.replace(
+      eraBlock,
+      `  const ERA_IDS = ${eraIds};\n  const ERAS = ${eraPairs};`,
+    );
+    if (nextShell !== shell) writeText(shellPath, nextShell);
+  }
 
   const elementsDist = path.join(outRoot, 'packages/elements/dist');
   if (fs.existsSync(elementsDist)) {

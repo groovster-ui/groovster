@@ -6,7 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { listEraIds } from '../helpers/eras.mjs';
+import { listEraIds } from '../../tools/gen/src/era-catalog.js';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const MATRIX_PATH = '/tests/a11y/fixtures/matrix.html';

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- Swiss International and Bauhaus are first-class eras, with costume geometry, light and dark tokens, reference pages, and recipe routing.
+
 ### Changed
 
 - Deco drops the title plate. Hero, card, and dialog frames are 1px brass rules — an outer border plus a hairline inner rule — on the lacquer and ivory palette. The fan, sunburst, and stepped corner ornaments stay. `demos/showcase/DECO.md` describes this look.
@@ -17,4 +21,5 @@
 
 ### Breaking
 
+- The Earth era is removed (`data-era="earth"`), including its CSS pack, tokens, recipe default, and fonts that only Earth used. Editorial recipes now default to Swiss.
 - `@groovster/tokens` no longer ships per-era `packages/tokens/dist/tier2/<era>.shared.tokens.json` (dropped when the package became independently distributable in PR #18). Mode-specific files replace them: `tier2/<era>.light.tokens.json` and `tier2/<era>.dark.tokens.json`. Cross-component tokens stay at `tier3/components.shared.tokens.json`.

@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { listEraIds } from '../helpers/eras.mjs';
+import { listEraIds } from '../../tools/gen/src/era-catalog.js';
 import { expectedAxeCases, matrixDocument } from '../a11y/matrix-html.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');

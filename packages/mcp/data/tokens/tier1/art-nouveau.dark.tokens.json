@@ -2,44 +2,77 @@
   "$schema": "../../../schema/tokens.schema.json",
   "meta": {
     "tier": 1,
-    "era": "earth",
-    "mode": "light"
+    "era": "art-nouveau",
+    "mode": "dark",
+    "description": "Original Art Nouveau dark lithographic material palette"
   },
   "color": {
-    "sand": {
+    "paper": {
       "$type": "color",
-      "$value": "oklch(95% 0.02 90)"
+      "$value": "#14251F"
     },
-    "clay": {
+    "panel": {
       "$type": "color",
-      "$value": "oklch(62% 0.06 50)"
+      "$value": "#1C342A"
     },
-    "moss": {
+    "elevated": {
       "$type": "color",
-      "$value": "oklch(45% 0.06 145)"
+      "$value": "#294237"
     },
     "ink": {
       "$type": "color",
-      "$value": "oklch(20% 0.03 70)"
+      "$value": "#F4EBD6"
+    },
+    "muted": {
+      "$type": "color",
+      "$value": "#D1D3B7"
+    },
+    "sage": {
+      "$type": "color",
+      "$value": "#90AB8E"
+    },
+    "leaf": {
+      "$type": "color",
+      "$value": "#B7C9A0"
+    },
+    "line": {
+      "$type": "color",
+      "$value": "#567B64"
+    },
+    "strong": {
+      "$type": "color",
+      "$value": "#ABC3A4"
+    },
+    "rose": {
+      "$type": "color",
+      "$value": "#DCA09A"
+    },
+    "brass": {
+      "$type": "color",
+      "$value": "#DCC790"
+    },
+    "focus": {
+      "$type": "color",
+      "$value": "#F3CF75"
     },
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(40% 0.06 145)"
+        "$value": "#E6D39F"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(97% 0.01 90)"
+        "$value": "#1A3026"
       }
     },
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(45% 0.12 35)"
+        "$value": "#F09090"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(97% 0.01 90)"
+        "$value": "#192820"
       }
     }
   },
@@ -88,15 +121,15 @@
     },
     "sm": {
       "$type": "dimension",
-      "$value": "6px"
+      "$value": "9px"
     },
     "md": {
       "$type": "dimension",
-      "$value": "10px"
+      "$value": "14px"
     },
     "lg": {
       "$type": "dimension",
-      "$value": "16px"
+      "$value": "24px"
     },
     "pill": {
       "$type": "dimension",
@@ -115,7 +148,7 @@
     "body": {
       "$type": "fontFamily",
       "$value": [
-        "Source Sans 3",
+        "Jost",
         "system-ui",
         "sans-serif"
       ]

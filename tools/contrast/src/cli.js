@@ -6,7 +6,7 @@ import {
   collectTokenValues,
   resolveValueAgainst,
 } from '../../gen/src/tokens-to-css.js';
-import { listEraIds } from '../../../tests/helpers/eras.mjs';
+import { listEraIds } from '../../gen/src/era-catalog.js';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const ERAS = listEraIds(REPO);

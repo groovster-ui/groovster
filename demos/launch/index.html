@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Groovster — one website, seven eras</title>
+  <title>Groovster — one website, every era</title>
   <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css" />
   <style>
     body { margin: 0; }
@@ -21,7 +21,7 @@
   <div class="ew-root" data-era="neutral" data-mode="light" data-fidelity-band="whisper">
     <main class="launch">
       <p style="letter-spacing:0.14em;text-transform:uppercase;font-size:0.75rem">Groovster</p>
-      <h1>One website. Seven eras.</h1>
+      <h1>One website. Every era.</h1>
       <p class="launch-lead">The preview is a real page. Switching the era changes geometry, type, surfaces, and ornament. The HTML inside does not get rewritten.</p>
       <div class="controls" role="group" aria-label="Website type">
         <p>Website</p>
@@ -34,8 +34,10 @@
       <div class="controls" role="group" aria-label="Visual era">
         <p>Era</p>
         <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="neutral">Neutral</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="swiss">Swiss</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="bauhaus">Bauhaus</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="art-nouveau">Art Nouveau</button>
         <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="deco">Deco</button>
-        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="earth">Earth</button>
         <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="groovy">Groovy</button>
         <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="mcm-atomic">Atomic</button>
         <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-era="memphis">Memphis</button>
@@ -60,7 +62,7 @@
   </div>
   <script>
     const recipes = {
-      editorial: { era: 'earth', mode: 'light', band: 'costume' },
+      editorial: { era: 'swiss', mode: 'light', band: 'costume' },
       event: { era: 'neon', mode: 'dark', band: 'costume' },
       commerce: { era: 'groovy', mode: 'light', band: 'standard' },
       hospitality: { era: 'deco', mode: 'light', band: 'costume' },

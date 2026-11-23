@@ -28,12 +28,12 @@
     "iconography": "Sparse functional icons"
   },
   "fonts": {
-    "display": "Source Sans 3",
-    "body": "Source Sans 3",
+    "display": "Inter Tight",
+    "body": "Inter Tight",
     "mono": "Source Code Pro",
     "license": "OFL-1.1 (already bundled locally)",
     "sources": [
-      "https://fonts.google.com/specimen/Source+Sans+3"
+      "https://fonts.google.com/specimen/Inter+Tight"
     ]
   },
   "fidelity": {
@@ -86,7 +86,7 @@
       "movement: International Typographic Style",
       "voice: objective grid and typographic precision",
       "geometry: asymmetric 12-column modules, thin rules",
-      "type: bundled Source Sans 3 + Source Code Pro",
+      "type: bundled Inter Tight + Source Code Pro",
       "color: paper, ink, restrained signal red",
       "whisper: hierarchy; standard: visible rule; costume: editorial scale",
       "modes: light, dark; costume default",

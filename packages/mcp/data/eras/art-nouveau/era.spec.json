@@ -1,0 +1,178 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "art-nouveau",
+  "name": "Art Nouveau",
+  "aliases": [
+    "nouveau",
+    "belle-epoque",
+    "jugendstil",
+    "organic-art-nouveau"
+  ],
+  "identity": {
+    "oneLiner": "Art Nouveau: flowing whiplash curves, botanical frames and organic ironwork.",
+    "summary": "Art Nouveau (c.1890–1914) unifies typography, botanical line work and architecture in composed organic forms. Botanical is Mucha/Grasset-inspired; Architectural interprets Guimard/Horta structural ironwork.",
+    "bestFit": [
+      "Botanical luxury and independent boutiques",
+      "Museums and historic cultural venues",
+      "Elegant hospitality and tea houses",
+      "Jewelry, beauty and editorial stories"
+    ],
+    "authenticityNotes": "Curves grow from structure; negative space protects content. No mass-repeated flowers, sticker art, or Deco geometry."
+  },
+  "axes": {
+    "shape": "Organic arches, tapered whiplash lines, asymmetrical floral frames; readable controls retain practical geometry",
+    "edge": "Paired fine stems and selected vegetal corner arcs",
+    "surface": "Ivory/parchment and deep forest ink; calm contrast with muted pastel lithographic accents",
+    "elevation": "Almost flat; delicate ink edge and soft offset where needed",
+    "ornament": "Original six-vector grammar: vine, whiplash, floral spray, arch, iron stem, medallion, curved rule and corner",
+    "typeVoice": "Fraunces display with Jost body; architectural alternate Josefin Sans for signage",
+    "motion": "Measured organic transitions; no animated wallpaper or excessive drift",
+    "density": "Expansive ceremonial sections, disciplined forms and data",
+    "iconography": "Natural line shapes; functional labels remain standard"
+  },
+  "fonts": {
+    "display": "Fraunces",
+    "displayAlt": "Josefin Sans",
+    "body": "Jost",
+    "mono": "Source Code Pro",
+    "license": "OFL-1.1 (all fonts already bundled in the repo)",
+    "sources": [
+      "https://fonts.google.com/specimen/Fraunces",
+      "https://fonts.google.com/specimen/Josefin+Sans",
+      "https://fonts.google.com/specimen/Jost",
+      "https://fonts.google.com/specimen/Source+Code+Pro"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 67,
+      "max": 100,
+      "default": 75
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Elegant type, very fine organic rules, minimum display ornament; compact functional composition."
+      },
+      {
+        "id": "standard",
+        "min": 26,
+        "max": 66,
+        "description": "Recognizable flowing hero arch and one decorative stem; controlled botanical/architectural framing."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full integrated whiplash, botanical spray or structural ironwork with flowing hero and sectional rhythm."
+      }
+    ]
+  },
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "Never repeat dense floral wallpaper across forms or product grids.",
+    "Never cover copy, prices or input controls with ornament or place ornaments in the pointer hit area.",
+    "Never mistake Art Deco gold steps, Groovy pop graphics, or Memphis scatter for organic Art Nouveau.",
+    "Never force organic clip paths on input controls; preserve contrast, focus and field labels.",
+    "No remote fonts/assets, licensed poster reproductions, runtime packages or ornamental JavaScript."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/art-nouveau.light.tokens.json",
+    "spec/tokens/tier1/art-nouveau.dark.tokens.json",
+    "spec/tokens/tier2/art-nouveau.light.tokens.json",
+    "spec/tokens/tier2/art-nouveau.dark.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: art-nouveau; voice: botanical / architectural Belle Époque",
+      "identity: integrated whiplash, nature-inspired organic structure",
+      "dialects: botanical (default) | architectural",
+      "type: Fraunces + Jost; architectural: Josefin Sans display",
+      "palette: ivory/forest/sage/rose; dark forest/brass",
+      "shape: sinuous arch, stem, spray, medallion; no geometric Deco steps",
+      "fidelity: whisper restrained | standard one flourish | costume full composition",
+      "modes: light/dark; costume default",
+      "use: organic luxury, museum, hospitality, botanical commerce",
+      "never: sticker flowers, ornament over controls, external resources",
+      "details: docs/art-nouveau-grammar.md on demand"
+    ]
+  },
+  "structure": {
+    "controlRadius": "11px",
+    "surfaceRadius": "30px 14px 30px 14px",
+    "button": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.035em",
+      "textTransform": "none",
+      "fontWeight": "600",
+      "shadow": "0 2px 0 color-mix(in oklch,var(--ew-color-border-strong) 35%,transparent)",
+      "clipPath": "none",
+      "paddingX": "22px",
+      "paddingY": "11px"
+    },
+    "card": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "shadow": "0 8px 24px color-mix(in oklch,var(--ew-color-fg-default) 8%,transparent)",
+      "raisedShadow": "0 14px 30px color-mix(in oklch,var(--ew-color-fg-default) 12%,transparent)",
+      "clipPath": "none",
+      "padding": "23px",
+      "headerRule": true,
+      "titleTracking": "0.015em",
+      "ornament": "none"
+    },
+    "field": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "radius": "9px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "radius": "24px 8px 24px 8px",
+      "shadow": "var(--ew-elevation-dialog)",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "2px",
+      "indicatorStyle": "solid",
+      "radius": "0px",
+      "enclosed": false
+    },
+    "switch": {
+      "trackRadius": "999px",
+      "thumbRadius": "999px",
+      "shadow": "none"
+    },
+    "tooltip": {
+      "radius": "10px",
+      "shadow": "none",
+      "padding": "7px 11px"
+    },
+    "slider": {
+      "trackHeight": "5px",
+      "thumbSize": "17px",
+      "trackRadius": "999px"
+    }
+  },
+  "dialects": [
+    {
+      "id": "botanical",
+      "label": "Botanical",
+      "description": "Mucha/Grasset-inspired organic flourishes, vine frames, floral curves and warm lithographic composition; the default."
+    },
+    {
+      "id": "architectural",
+      "label": "Architectural",
+      "description": "Guimard/Horta-inspired iron-stem arches, elongated supports, restrained structure and signage typography."
+    }
+  ]
+}

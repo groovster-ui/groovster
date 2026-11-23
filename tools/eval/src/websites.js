@@ -68,7 +68,7 @@ function footprint() {
   return {
     fullGzip: zlib.gzipSync(full).length,
     selectiveGzip: zlib.gzipSync(selective).length,
-    note: 'Demos that switch all seven eras link the full bundle. A fixed era can link base, used components, and that era.',
+    note: 'Demos that switch every era link the full bundle. A fixed era can link base, used components, and that era.',
   };
 }
 

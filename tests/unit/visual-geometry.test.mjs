@@ -377,3 +377,47 @@ test('Neon grid lines converge toward the horizon', async () => {
     await page.close();
   });
 });
+
+test('Neon floor starts at the horizon and meets the hero bottom', async () => {
+  await withServer(async (port, browser) => {
+    for (const [width, height] of [
+      [1280, 900],
+      [1440, 900],
+      [390, 844],
+      [1024, 800],
+    ]) {
+      const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 1 });
+      await page.goto(`http://127.0.0.1:${port}/demos/showcase/neon.html`, { waitUntil: 'networkidle' });
+      await page.evaluate(() => {
+        document.documentElement.setAttribute('data-mode', 'dark');
+        document.documentElement.removeAttribute('data-fidelity-band');
+      });
+      const box = await page.evaluate(() => {
+        const grid = document.querySelector('.ew-hero__grid').getBoundingClientRect();
+        const hero = document.querySelector('.ew-hero').getBoundingClientRect();
+        const mountains = document.querySelector('.ew-hero__mountains').getBoundingClientRect();
+        return {
+          gridTop: grid.top,
+          gridBottom: grid.bottom,
+          gridHeight: grid.height,
+          heroBottom: hero.bottom,
+          heroHeight: hero.height,
+          horizon: mountains.bottom,
+        };
+      });
+      assert.ok(
+        Math.abs(box.gridTop - box.horizon) <= 4,
+        `${width} floor top ${box.gridTop.toFixed(1)} vs horizon ${box.horizon.toFixed(1)}`,
+      );
+      assert.ok(
+        Math.abs(box.gridBottom - box.heroBottom) <= 1,
+        `${width} floor bottom ${box.gridBottom.toFixed(1)} vs hero ${box.heroBottom.toFixed(1)}`,
+      );
+      assert.ok(
+        box.gridHeight >= box.heroHeight * 0.4,
+        `${width} floor height ${box.gridHeight.toFixed(1)} < 40% of hero ${box.heroHeight.toFixed(1)}`,
+      );
+      await page.close();
+    }
+  });
+});

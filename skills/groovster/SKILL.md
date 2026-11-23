@@ -23,11 +23,11 @@ Groovster skins HTML. Do not add React, Tailwind, or a component library. One HT
 7. Add the smallest vanilla script for filters, dialogs, and fictional submits. Load `@groovster/elements/era-elements.js` for tabs, select, menu, popover, tooltip, toast, or slider.
 8. Stack below 800px. Do not set `outline: none`.
 9. Check: one `h1`, visible labels, native buttons and dialogs, hero hooks for costume neon/atomic/deco, no remote images or fonts, fictional payments labeled as fictional.
-10. Switch `data-era` across the seven eras. Do not fork the HTML per era.
+10. Switch `data-era` across the eras. Do not fork the HTML per era.
 
 ## Era and fidelity
 
-Eras: `neutral`, `deco`, `earth`, `groovy`, `mcm-atomic`, `memphis`, `neon`.
+Eras: `neutral`, `deco`, `groovy`, `mcm-atomic`, `memphis`, `neon`, `swiss`, `bauhaus`, `art-nouveau`.
 
 Bands: `whisper`, `standard`, `costume`. Costume is the default when the attribute is absent.
 
@@ -35,7 +35,7 @@ Costume heroes keep one structure: backdrop, stage, and panel, as in `references
 
 ## CSS
 
-Link `base.css`, the components you use, and each era the page can switch to. A page that switches all seven eras may link `era-widgets.css`. Fonts are OFL WOFF2 beside the CSS.
+Link `base.css`, the components you use, and each era the page can switch to. A page that switches every era may link `era-widgets.css`. Fonts are OFL WOFF2 beside the CSS.
 
 ## MCP
 

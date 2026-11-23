@@ -33,7 +33,9 @@ test('recommendTool keyword routing', () => {
     ['neon festival outrun', 'neon'],
     ['memphis confetti postmodern', 'memphis'],
     ['groovy 70s avocado disco', 'groovy'],
-    ['earth organic wellness craft', 'earth'],
+    ['swiss international architecture museum', 'swiss'],
+    ['editorial grid for a museum', 'swiss'],
+    ['bauhaus design school furniture exhibition', 'bauhaus'],
     ['cafe lifestyle mid-century atomic', 'mcm-atomic'],
     ['admin settings saas dashboard', 'neutral'],
     ['something unrelated bland', 'neutral'],
@@ -84,6 +86,10 @@ test('find_recipe ranks matches and points at packaged cards', () => {
   const both = findRecipeTool({ query: 'festival shop' });
   assert.ok(both.recipes.length >= 2);
   assert.ok(both.recipes[0].rank >= both.recipes[1].rank);
+  const architecture = findRecipeTool({ query: 'architecture firm portfolio' });
+  assert.ok(architecture.recipes.length > 0, 'architecture firm portfolio should match a recipe');
+  assert.equal(architecture.recipes[0].id, 'editorial');
+  assert.equal(architecture.recipes[0].era, 'swiss');
   const none = findRecipeTool({ query: 'zzzz-unmatched' });
   assert.deepEqual(none.recipes, []);
   for (const recipe of [...hotel.recipes, ...festival.recipes]) {

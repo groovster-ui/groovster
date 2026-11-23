@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from '../../tools/a11y/node_modules/playwright/index.mjs';
 import { expect } from '../../tools/a11y/node_modules/playwright/test.mjs';
 import { safePath } from '../helpers/safe-path.mjs';
-import { listEraIds } from '../helpers/eras.mjs';
+import { listEraIds } from '../../tools/gen/src/era-catalog.js';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const ERAS = listEraIds(REPO);

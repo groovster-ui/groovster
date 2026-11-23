@@ -12,21 +12,23 @@
     "journal",
     "essay",
     "editorial",
-    "publication"
+    "publication",
+    "architecture",
+    "portfolio"
   ],
   "eras": {
     "recommended": [
-      "earth",
+      "swiss",
       "deco",
-      "neutral",
-      "swiss"
+      "neutral"
     ],
     "alsoFits": [
       "groovy",
       "mcm-atomic",
       "memphis",
       "neon",
-      "bauhaus"
+      "bauhaus",
+      "art-nouveau"
     ],
     "avoid": []
   },
@@ -144,7 +146,7 @@
   ],
   "demo": {
     "path": "demos/recipes/editorial/index.html",
-    "era": "earth",
+    "era": "swiss",
     "mode": "light",
     "fidelity": "costume"
   }

@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { safePath } from '../../../tests/helpers/safe-path.mjs';
-import { listEraIds } from '../../../tests/helpers/eras.mjs';
+import { listEraIds } from '../../../tools/gen/src/era-catalog.js';
 import { isMatrixUrl, matrixDocument } from '../../../tests/a11y/matrix-html.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');

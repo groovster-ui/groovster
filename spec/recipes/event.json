@@ -20,10 +20,10 @@
     ],
     "alsoFits": [
       "deco",
-      "earth",
       "neutral",
       "bauhaus",
-      "swiss"
+      "swiss",
+      "art-nouveau"
     ],
     "avoid": []
   },
@@ -132,6 +132,12 @@
         "deco"
       ],
       "note": "Hero copy sits in .ew-hero__panel. Lineup and schedule markup stay the same."
+    },
+    {
+      "eras": [
+        "art-nouveau"
+      ],
+      "note": "Organic hero uses the canonical .ew-hero__stage; keep forms unornamented."
     }
   ],
   "customization": [

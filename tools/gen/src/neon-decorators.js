@@ -129,7 +129,8 @@ export function neonDecoratorCss() {
   [data-era="neon"] .ew-hero__stage {
     position: relative;
     grid-row: 2;
-    height: calc(var(--ew-hero-sun-h) + min(38vh, 360px));
+    /* Extra depth below the horizon so the floor is at least 40% of the hero. */
+    height: calc(var(--ew-hero-sun-h) + min(38vh, 360px) + 6rem);
     z-index: 1;
     pointer-events: none;
     overflow: hidden;
@@ -178,23 +179,34 @@ export function neonDecoratorCss() {
   }
 
   /*
-   * Perspective floor. Origin is the near edge (the hero bottom) so the
-   * grid meets the stage edge. Lines still converge toward the horizon.
+   * Perspective floor. The box starts on the mountain ground line and
+   * stretches to the hero bottom. rotateX lives on ::before, pivoted at
+   * that top edge, so the grid fills downward and the box itself stays
+   * aligned (a transform on the box collapses it to a strip).
    */
   [data-era="neon"] .ew-hero__grid {
     position: absolute;
     left: -35%;
     width: 170%;
-    /* Mountain valleys sit just under the sun's diameter (stage-local).
-       Origin is the near edge so the floor meets the hero bottom; the horizon recedes from there. */
-    top: calc(var(--ew-hero-sun-h) + 6px);
+    /* Mountain SVG ground sits on this line (viewBox y 118/120 of the 88px mask). */
+    top: calc(var(--ew-hero-sun-h) + 12px);
     bottom: 0;
     height: auto;
-    transform-origin: bottom center;
-    transform: perspective(280px) rotateX(63deg);
+    overflow: hidden;
     pointer-events: none;
     z-index: 0;
     opacity: 0.95;
+  }
+  [data-era="neon"] .ew-hero__grid::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    /* Layout height projects, under perspective(280px) rotateX(63deg), to the hero bottom. */
+    height: calc(0.2 * (min(38vh, 360px) + 6rem - 12px) + 200px);
+    transform-origin: top center;
+    transform: perspective(280px) rotateX(63deg);
     background-image:
       linear-gradient(
         to bottom,
@@ -214,11 +226,10 @@ export function neonDecoratorCss() {
     opacity: 0.72;
   }
   [data-era="neon"] .ew-hero > .ew-hero__grid {
-    top: auto;
+    top: calc(var(--ew-hero-sun-h) + 12px);
     bottom: 0;
-    height: min(48vh, 440px);
-    transform-origin: bottom center;
-    transform: perspective(280px) rotateX(63deg);
+    height: auto;
+    transform: none;
   }
 
   /* Striped sunset sun — top of stage, half-set onto the grid horizon */

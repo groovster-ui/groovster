@@ -26,7 +26,7 @@ Codex also reads `AGENTS.md`. Point a separate app at the skill folder. Do not p
 
 Copy `packages/css/dist/era-widgets.css` together with `packages/css/dist/fonts/`. The stylesheet loads those fonts with a relative URL.
 
-A page that switches all seven eras can link the full bundle. A page fixed to one era can link `base.css`, the component files it uses, and `eras/<id>.css`.
+A page that switches every era can link the full bundle. A page fixed to one era can link `base.css`, the component files it uses, and `eras/<id>.css`.
 
 Hard widgets (tabs, select, menu, popover, tooltip, toast, slider) need `packages/elements/dist/era-elements.js`. Published CSS and that script import no packages.
 

@@ -18,7 +18,7 @@ const TYPES = {
   '.json': 'application/json',
 };
 const SITES = {
-  editorial: { era: 'earth', mode: 'light', band: 'costume' },
+  editorial: { era: 'swiss', mode: 'light', band: 'costume' },
   event: { era: 'neon', mode: 'dark', band: 'costume' },
   commerce: { era: 'groovy', mode: 'light', band: 'standard' },
   hospitality: { era: 'deco', mode: 'light', band: 'costume' },
@@ -31,7 +31,7 @@ const SHOTS = [
   ['hospitality', 'deco', 'costume'],
   ['dashboard', 'neutral', 'whisper'],
   ['dashboard', 'neutral', 'costume'],
-  ['editorial', 'earth', 'costume'],
+  ['editorial', 'swiss', 'costume'],
   ['commerce', 'groovy', 'standard'],
 ];
 
