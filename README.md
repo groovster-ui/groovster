@@ -115,7 +115,7 @@ Do not add a framework package for the look. Eras stay in CSS.
 
 ```bash
 pnpm test:unit          # generator, drift classifier, token parity
-pnpm test:react         # markup plus browser interaction
+pnpm react:build && pnpm test:react   # build once, then markup plus browser interaction
 pnpm test:elements      # custom-element remount and updates
 pnpm test:a11y          # axe, keyboard, responsive metrics
 pnpm test:packages      # install packed React and CSS outside the workspace

@@ -33,22 +33,28 @@ jobs:
           cache: pnpm
       
       - name: Install dependencies
+        timeout-minutes: 10
         run: pnpm install --frozen-lockfile
 
       - name: Lint
+        timeout-minutes: 5
         run: pnpm lint
 
       - name: Audit dependencies
+        timeout-minutes: 5
         run: pnpm audit --audit-level=high
 
       - name: Run validation checks
+        timeout-minutes: 10
         run: pnpm check
 
       - name: Build and typecheck React
+        timeout-minutes: 5
         run: pnpm react:build && pnpm react:typecheck
 
       - name: Resolve Playwright version
         id: playwright-version
+        timeout-minutes: 5
         run: |
           version="$(node -e "
             const fs = require('fs');
@@ -70,11 +76,13 @@ jobs:
       
       - name: Install Playwright browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
+        timeout-minutes: 15
         run: pnpm exec playwright install --with-deps chromium
         working-directory: tools/a11y
 
       - name: Install Playwright OS dependencies
         if: steps.playwright-cache.outputs.cache-hit == 'true'
+        timeout-minutes: 10
         run: pnpm exec playwright install-deps chromium
         working-directory: tools/a11y
 
@@ -83,12 +91,15 @@ jobs:
         run: pnpm test:unit
 
       - name: Package size check
+        timeout-minutes: 5
         run: pnpm sizes:check
 
       - name: Fail on generated drift after gen
+        timeout-minutes: 5
         run: pnpm gen && git diff --exit-code && test -z "$(git status --porcelain)"
 
       - name: Run MCP smoke tests
+        timeout-minutes: 5
         run: pnpm mcp:smoke
 
       - name: Run eval harness self-tests
@@ -96,9 +107,11 @@ jobs:
         run: pnpm eval
       
       - name: Run React interaction tests
+        timeout-minutes: 5
         run: pnpm test:react
 
       - name: Run web component lifecycle tests
+        timeout-minutes: 5
         run: pnpm test:elements
 
       - name: Run accessibility tests
@@ -110,9 +123,11 @@ jobs:
         run: pnpm test:sites
 
       - name: Verify Swiss and Bauhaus browser demos
-        run: pnpm test:modernist-browser
+        timeout-minutes: 5
+        run: pnpm test:modernist
 
       - name: Verify Art Nouveau browser demos
+        timeout-minutes: 10
         run: node scripts/nouveau-browser.mjs
 
       - name: Run website instruction harness

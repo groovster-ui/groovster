@@ -1,7 +1,8 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { REPO_ROOT } from './paths.js';
+import { REPO_ROOT, getOutRoot, setOutRoot } from './paths.js';
 import { generateAll } from './generate.js';
 import { checkBudgets } from './budgets.js';
 import { validateAll } from './validate.js';
@@ -82,9 +83,13 @@ export function classifyDrift({ committed, generated, regenerated, manifest, own
       continue;
     }
     if (!committed.has(file)) {
-      drift.push({ file, reason: 'missing from baseline: generator produced a file that is not committed' });
+      drift.push({ file, reason: 'new: missing from baseline — generator produced a file that is not committed' });
     } else if (!buffersEqual(committed.get(file), generated.get(file))) {
-      drift.push({ file, reason: 'modified: committed bytes differ from generator output' });
+      drift.push({
+        file,
+        reason: 'modified: committed bytes differ from generator output',
+        diff: contentDiff(committed.get(file), generated.get(file)),
+      });
     }
     if (regenerated && generated.has(file) && !buffersEqual(generated.get(file), regenerated.get(file))) {
       drift.push({ file, reason: 'nondeterministic: a second generation changed the bytes' });
@@ -109,6 +114,34 @@ export function classifyDrift({ committed, generated, regenerated, manifest, own
   });
 }
 
+/** First differing lines, so a drift failure shows the content change. */
+export function contentDiff(before, after) {
+  if (!before || !after) return '';
+  const binary = before.includes(0) || after.includes(0);
+  if (binary) return 'binary content differs';
+  const a = before.toString('utf8').split('\n');
+  const b = after.toString('utf8').split('\n');
+  const lines = [];
+  const max = Math.max(a.length, b.length);
+  for (let i = 0; i < max && lines.length < 40; i += 1) {
+    if (a[i] === b[i]) continue;
+    if (a[i] !== undefined) lines.push(`- ${a[i]}`);
+    if (b[i] !== undefined) lines.push(`+ ${b[i]}`);
+  }
+  return lines.join('\n');
+}
+
+function snapshotDir(rootDir) {
+  const map = new Map();
+  if (!fs.existsSync(rootDir)) return map;
+  for (const file of walkFiles(rootDir)) {
+    const relPath = toPosix(path.relative(rootDir, file));
+    if (!relPath || relPath.startsWith('..')) continue;
+    map.set(relPath, fs.readFileSync(file));
+  }
+  return map;
+}
+
 function snapshotOwned() {
   const map = new Map();
   const roots = [
@@ -128,10 +161,6 @@ function snapshotOwned() {
   return map;
 }
 
-function listOwnedFiles() {
-  return [...snapshotOwned().keys()];
-}
-
 export function commandFailure(result, label) {
   if (!result) return `${label} did not run`;
   if (result.error) return `${label} failed to start: ${result.error.message}`;
@@ -142,21 +171,23 @@ export function commandFailure(result, label) {
   return null;
 }
 
-function restoreSnapshot(before, afterKeys) {
-  for (const [relPath, bytes] of before) {
+/**
+ * Read a committed file when the generator wrote it outside the owned prefixes.
+ * The owned snapshot already covers the generator roots.
+ */
+function withCommittedCounterparts(committed, generated) {
+  for (const relPath of generated.keys()) {
+    if (committed.has(relPath)) continue;
     const abs = path.join(REPO_ROOT, relPath);
-    fs.mkdirSync(path.dirname(abs), { recursive: true });
-    fs.writeFileSync(abs, bytes);
+    if (!fs.existsSync(abs) || !fs.statSync(abs).isFile()) continue;
+    committed.set(relPath, fs.readFileSync(abs));
   }
-  for (const relPath of afterKeys) {
-    if (before.has(relPath)) continue;
-    fs.rmSync(path.join(REPO_ROOT, relPath), { force: true });
-  }
+  return committed;
 }
 
 /**
- * Snapshot committed bytes first, regenerate, then compare.
- * On drift, restore the snapshot so a failed check does not hide the original files.
+ * Generate into a temp directory and compare that tree to the worktree.
+ * This function does not write, restore, or delete anything under REPO_ROOT.
  */
 export function checkDriftAndBudgets() {
   const validationErrors = validateAll();
@@ -164,69 +195,73 @@ export function checkDriftAndBudgets() {
     return { ok: false, validationErrors, drift: [], budgetFailures: [], buildErrors: [] };
   }
 
-  const before = snapshotOwned();
-  const bundle = spawnSync(process.execPath, [path.join(REPO_ROOT, 'scripts/bundle-elements.mjs')], {
-    cwd: path.join(REPO_ROOT, 'packages/elements'),
-    encoding: 'utf8',
-  });
-  const buildErrors = [];
-  const bundleError = commandFailure(bundle, 'elements bundle');
-  if (bundleError) {
-    restoreSnapshot(before, listOwnedFiles());
-    return { ok: false, validationErrors: [], drift: [], budgetFailures: [], buildErrors: [bundleError] };
-  }
-
-  let afterManifest;
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'groovster-gen-'));
+  const previousOut = getOutRoot();
   try {
-    afterManifest = generateAll();
-  } catch (error) {
-    restoreSnapshot(before, listOwnedFiles());
+    const bundle = spawnSync(
+      process.execPath,
+      [path.join(REPO_ROOT, 'scripts/bundle-elements.mjs'), `--out-root=${temp}`],
+      {
+        cwd: path.join(REPO_ROOT, 'packages/elements'),
+        encoding: 'utf8',
+        env: { ...process.env, GROOVSTER_OUT_ROOT: temp },
+      }
+    );
+    const bundleError = commandFailure(bundle, 'elements bundle');
+    if (bundleError) {
+      return { ok: false, validationErrors: [], drift: [], budgetFailures: [], buildErrors: [bundleError] };
+    }
+
+    setOutRoot(temp);
+    let afterManifest;
+    try {
+      afterManifest = generateAll();
+    } catch (error) {
+      return {
+        ok: false,
+        validationErrors: [],
+        drift: [],
+        budgetFailures: [],
+        buildErrors: [`generate failed: ${error.message}`],
+      };
+    }
+    const generated = snapshotDir(temp);
+
+    let regeneratedManifest;
+    try {
+      regeneratedManifest = generateAll();
+    } catch (error) {
+      return {
+        ok: false,
+        validationErrors: [],
+        drift: [],
+        budgetFailures: [],
+        buildErrors: [`second generate failed: ${error.message}`],
+      };
+    }
+    const regenerated = snapshotDir(temp);
+    const committed = withCommittedCounterparts(snapshotOwned(), generated);
+    const manifest = (regeneratedManifest?.outputs || afterManifest.outputs || []).slice().sort();
+    const drift = classifyDrift({
+      committed,
+      generated,
+      regenerated,
+      manifest,
+      owned: [...regenerated.keys()],
+    });
+    const budgetFailures = checkBudgets(afterManifest);
     return {
-      ok: false,
+      ok: drift.length === 0 && budgetFailures.length === 0,
       validationErrors: [],
-      drift: [],
-      budgetFailures: [],
-      buildErrors: [`generate failed: ${error.message}`],
+      drift,
+      budgetFailures,
+      buildErrors: [],
+      manifest: afterManifest,
     };
+  } finally {
+    setOutRoot(previousOut);
+    fs.rmSync(temp, { recursive: true, force: true });
   }
-
-  const generated = snapshotOwned();
-  let regeneratedManifest;
-  try {
-    regeneratedManifest = generateAll();
-  } catch (error) {
-    restoreSnapshot(before, [...generated.keys()]);
-    return {
-      ok: false,
-      validationErrors: [],
-      drift: [],
-      budgetFailures: [],
-      buildErrors: [`second generate failed: ${error.message}`],
-    };
-  }
-  const regenerated = snapshotOwned();
-  const manifest = (regeneratedManifest?.outputs || afterManifest.outputs || []).slice().sort();
-  const drift = classifyDrift({
-    committed: before,
-    generated,
-    regenerated,
-    manifest,
-    owned: [...regenerated.keys()],
-  });
-  const budgetFailures = checkBudgets(afterManifest);
-
-  if (drift.length || budgetFailures.length) {
-    restoreSnapshot(before, [...regenerated.keys()]);
-  }
-
-  return {
-    ok: drift.length === 0 && budgetFailures.length === 0 && buildErrors.length === 0,
-    validationErrors: [],
-    drift,
-    budgetFailures,
-    buildErrors,
-    manifest: afterManifest,
-  };
 }
 
 export function checkCommittedFreshness() {

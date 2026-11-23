@@ -5,9 +5,11 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 import { safePath } from '../../../tests/helpers/safe-path.mjs';
+import { listEraIds } from '../../../tools/gen/src/era-catalog.js';
+import { expectedAxeCases, isMatrixUrl, matrixDocument } from '../../../tests/a11y/matrix-html.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
-const FIXTURE = path.join(REPO, 'tests/a11y/fixtures/matrix.html');
+const MATRIX = matrixDocument(REPO);
 
 function contentType(p) {
   if (p.endsWith('.css')) return 'text/css';
@@ -18,10 +20,12 @@ function contentType(p) {
 
 const server = createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
-  let file =
-    url === '/' || url === '/matrix.html'
-      ? FIXTURE
-      : safePath(REPO, url.replace(/^\//, ''));
+  if (isMatrixUrl(url)) {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(MATRIX);
+    return;
+  }
+  const file = safePath(REPO, url.replace(/^\//, ''));
   if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     res.writeHead(404);
     res.end('not found');
@@ -72,6 +76,11 @@ const outDir = path.join(REPO, 'generated/a11y');
 fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(path.join(outDir, 'axe-report.json'), JSON.stringify(report, null, 2) + '\n');
 
+const expected = expectedAxeCases(REPO);
+if (report.cases.length !== expected) {
+  report.pass = false;
+  console.error(`axe case count ${report.cases.length} !== ${expected} (${listEraIds(REPO).length} eras × 2 modes × 2 fidelity).`);
+}
 if (!report.pass) {
   console.error('axe failed:');
   for (const c of report.cases.filter((x) => !x.pass)) {
@@ -79,4 +88,4 @@ if (!report.pass) {
   }
   process.exit(1);
 }
-console.log(`axe OK: ${report.cases.length} cases (heroes × eras × modes).`);
+console.log(`axe OK: ${report.cases.length} cases (${listEraIds(REPO).length} eras × 2 modes × 2 fidelity).`);

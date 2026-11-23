@@ -5,7 +5,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { REPO_ROOT } from './paths.js';
+import { getOutRoot } from './paths.js';
 import { writeText, rel } from './io.js';
 
 const TAG_RE = /^[a-z][a-z0-9-]*$/;
@@ -335,7 +335,7 @@ ${propTypeBlock(comp, [`  label?: React.ReactNode;`])}
 
 /** ${comp.summary} */
 export const ${name} = React.forwardRef<HTMLInputElement, ${name}Props>(function ${name}(
-  { ${destructureNames(comp, ['label', 'children', 'id', 'value', 'defaultValue'])} },
+  { ${destructureNames(comp, ['label', 'children: _children', 'id', 'value', 'defaultValue'])} },
   ref
 ) {
   const autoId = React.useId();
@@ -523,7 +523,7 @@ function emitLeaf(comp, native, { voidElement = false, host = false } = {}) {
     'className',
     ...variantFields(comp).map((field) => field.key),
     ...(comp.sizes ? ['size'] : []),
-    'children',
+    voidElement ? 'children: _children' : 'children',
     ...(tag === 'button' ? ["type = 'button'"] : []),
     '...rest',
   ].join(', ');
@@ -681,7 +681,7 @@ Register \`@groovster/elements\` before using tabs, select, menu, popover, toolt
 }
 
 export function generateReactPackage(components, outputs) {
-  const root = path.join(REPO_ROOT, 'packages/react');
+  const root = path.join(getOutRoot(), 'packages/react');
   const src = path.join(root, 'src');
   fs.mkdirSync(src, { recursive: true });
 
@@ -690,21 +690,21 @@ export function generateReactPackage(components, outputs) {
     const name = toPascal(comp.id);
     const file = path.join(src, `${name}.tsx`);
     writeText(file, componentSource(comp));
-    outputs.push(rel(REPO_ROOT, file));
+    outputs.push(rel(getOutRoot(), file));
     indexLines.push(`export { ${name} } from './${name}.js';`);
     indexLines.push(`export type { ${name}Props } from './${name}.js';`);
   }
 
   writeText(path.join(src, 'EraRoot.tsx'), eraRootSource());
-  outputs.push(rel(REPO_ROOT, path.join(src, 'EraRoot.tsx')));
+  outputs.push(rel(getOutRoot(), path.join(src, 'EraRoot.tsx')));
   indexLines.push(`export { EraRoot } from './EraRoot.js';`);
   indexLines.push(`export type { EraRootProps, FidelityBand } from './EraRoot.js';`);
   writeText(path.join(src, 'index.ts'), indexLines.join('\n') + '\n');
-  outputs.push(rel(REPO_ROOT, path.join(src, 'index.ts')));
+  outputs.push(rel(getOutRoot(), path.join(src, 'index.ts')));
 
   writeText(path.join(root, 'package.json'), packageJsonSource());
-  outputs.push(rel(REPO_ROOT, path.join(root, 'package.json')));
+  outputs.push(rel(getOutRoot(), path.join(root, 'package.json')));
   writeText(path.join(root, 'README.md'), readmeSource());
-  outputs.push(rel(REPO_ROOT, path.join(root, 'README.md')));
+  outputs.push(rel(getOutRoot(), path.join(root, 'README.md')));
   return components.map((comp) => toPascal(comp.id));
 }

@@ -762,11 +762,11 @@ export function generateAll() {
     if (nextShell !== shell) writeText(shellPath, nextShell);
   }
 
-  const elementsDist = path.join(REPO_ROOT, 'packages/elements/dist');
+  const elementsDist = path.join(outRoot, 'packages/elements/dist');
   if (fs.existsSync(elementsDist)) {
     for (const name of fs.readdirSync(elementsDist)) {
       const full = path.join(elementsDist, name);
-      if (fs.statSync(full).isFile()) outputs.push(rel(REPO_ROOT, full));
+      if (fs.statSync(full).isFile()) outputs.push(rel(outRoot, full));
     }
   }
 

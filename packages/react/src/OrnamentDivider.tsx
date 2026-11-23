@@ -7,7 +7,7 @@ export type OrnamentDividerProps = Omit<React.ComponentPropsWithoutRef<'hr'>, 's
 
 /** Structural divider; eras supply ornament via decorators. */
 export const OrnamentDivider = React.forwardRef<HTMLHRElement, OrnamentDividerProps>(function OrnamentDivider(
-  { className, variant, size, children, ...rest },
+  { className, variant, size, children: _children, ...rest },
   ref
 ) {
   const dataProps: Record<string, string> = {};

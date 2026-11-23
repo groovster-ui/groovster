@@ -5,9 +5,10 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { safePath } from '../../../tests/helpers/safe-path.mjs';
 import { listEraIds } from '../../../tools/gen/src/era-catalog.js';
+import { isMatrixUrl, matrixDocument } from '../../../tests/a11y/matrix-html.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
-const FIXTURE = path.join(REPO, 'tests/a11y/fixtures/matrix.html');
+const MATRIX = matrixDocument(REPO);
 const SHOTS = path.join(REPO, 'tests/a11y/screenshots');
 const widths = [320, 375, 768, 1024, 1440];
 
@@ -20,7 +21,12 @@ function contentType(file) {
 
 const server = createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
-  const file = url === '/' || url === '/matrix.html' ? FIXTURE : safePath(REPO, url.replace(/^\//, ''));
+  if (isMatrixUrl(url)) {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(MATRIX);
+    return;
+  }
+  const file = safePath(REPO, url.replace(/^\//, ''));
   if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     res.writeHead(404);
     res.end('not found');

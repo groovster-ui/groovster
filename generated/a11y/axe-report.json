@@ -2,6 +2,16 @@
   "pass": true,
   "cases": [
     {
+      "id": "case-art-nouveau-light",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-art-nouveau-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
       "id": "case-bauhaus-light",
       "pass": true,
       "violations": []
@@ -78,6 +88,16 @@
     },
     {
       "id": "case-swiss-dark",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-art-nouveau-light-whisper",
+      "pass": true,
+      "violations": []
+    },
+    {
+      "id": "case-art-nouveau-dark-whisper",
       "pass": true,
       "violations": []
     },

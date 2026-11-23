@@ -113,6 +113,11 @@ pnpm mcp:smoke
 # Run eval tests
 pnpm eval
 
+# Optional weekly live-model eval (does not run on pull requests).
+# Repository secret: OPENAI_API_KEY
+# The scheduled workflow skips with a log line when that secret is absent.
+# Optional: ANTHROPIC_API_KEY, and GROOVSTER_EVAL_PROVIDER=openai|anthropic.
+
 # Check contrast ratios
 pnpm contrast
 ```

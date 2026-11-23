@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import { classifyDrift, commandFailure } from '../../tools/gen/src/check.js';
+import { checkDriftAndBudgets, classifyDrift, commandFailure } from '../../tools/gen/src/check.js';
 
 const buf = (text) => Buffer.from(text);
 
@@ -29,6 +29,9 @@ test('drift classifier flags modified, missing, new, unexpected, and nondetermin
   });
   const reasons = drift.map((item) => `${item.file} ${item.reason}`);
   assert.ok(reasons.some((line) => line.includes('base.css') && line.includes('modified')));
+  const modified = drift.find((item) => item.file.endsWith('base.css') && item.reason.includes('modified'));
+  assert.match(modified.diff, /- old/);
+  assert.match(modified.diff, /\+ new/);
   assert.ok(reasons.some((line) => line.includes('missing.css') && line.includes('missing')));
   assert.ok(reasons.some((line) => line.includes('Button.tsx') && line.includes('missing from baseline')));
   assert.ok(reasons.some((line) => line.includes('orphan.css') && line.includes('unexpected')));
@@ -52,6 +55,33 @@ test('clean generation has no drift', () => {
 test('commandFailure reports a nonzero child process', () => {
   assert.match(commandFailure({ status: 2, stderr: 'boom' }, 'elements bundle'), /exited 2/);
   assert.equal(commandFailure({ status: 0 }, 'elements bundle'), null);
+});
+
+test('drift check compares a temp tree and does not write the worktree', () => {
+  const probe = path.join('generated/manifest.json');
+  const react = path.join('packages/react/src/Button.tsx');
+  const mcp = path.join('packages/mcp/data/eras/swiss/era.spec.json');
+  const before = fs.readFileSync(probe);
+  const mtimes = [probe, react, mcp].map((file) => fs.statSync(file).mtimeMs);
+  const result = checkDriftAndBudgets();
+  assert.equal(
+    result.ok,
+    true,
+    JSON.stringify(
+      {
+        drift: result.drift.slice(0, 8),
+        build: result.buildErrors,
+        budgets: result.budgetFailures,
+        validation: result.validationErrors,
+      },
+      null,
+      2
+    )
+  );
+  assert.ok(before.equals(fs.readFileSync(probe)));
+  [probe, react, mcp].forEach((file, index) => {
+    assert.equal(fs.statSync(file).mtimeMs, mtimes[index], `${file} was written during the drift check`);
+  });
 });
 
 test('a spec change without regeneration is modified output', () => {

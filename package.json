@@ -20,7 +20,6 @@
     "eval:baseline": "pnpm --filter @groovster/eval baseline",
     "eval:sites": "pnpm --filter @groovster/eval websites",
     "test:sites": "node scripts/recipes-browser.mjs",
-    "test:modernist-browser": "node scripts/modernist-browser.mjs",
     "fidelity:density": "node scripts/fidelity-density.mjs",
     "skill:install": "node scripts/install-skill.mjs",
     "skill:verify": "node scripts/verify-skill-install.mjs",
@@ -32,7 +31,8 @@
     "a11y:responsive": "pnpm --filter @groovster/a11y test:responsive",
     "react:build": "pnpm --filter @groovster/react build",
     "react:typecheck": "pnpm --filter @groovster/react typecheck",
-    "test:react": "pnpm react:build && node --test tests/react/*.test.mjs",
+    "test:react": "node --test tests/react/*.test.mjs",
+    "test:modernist": "node --test tests/demos/modernist.test.mjs",
     "test:elements": "pnpm elements:build && node --test tests/elements/*.test.mjs",
     "test:packages": "node scripts/react-consumer.mjs",
     "sizes": "node scripts/measure-sizes.mjs",
@@ -52,6 +52,7 @@
     "playwright": "^1.49.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tsx": "^4.19.2"
+    "tsx": "^4.19.2",
+    "typescript-eslint": "^8.73.0"
   }
 }
