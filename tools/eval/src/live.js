@@ -4,7 +4,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dispatch } from '../../../packages/mcp/src/tools.js';
 import { validateMarkup } from './validate-markup.js';
 
@@ -57,8 +57,14 @@ const PRICE_PER_TOKEN = {
 
 export function resolveLiveConfig() {
   const provider = process.env.GROOVSTER_EVAL_PROVIDER || '';
-  const openai = process.env.OPENAI_API_KEY;
-  const anthropic = process.env.ANTHROPIC_API_KEY;
+  const openai = process.env.OPENAI_API_KEY || '';
+  const anthropic = process.env.ANTHROPIC_API_KEY || '';
+  if (!openai && !anthropic) {
+    return {
+      error:
+        'Skipping live model eval: repository secret OPENAI_API_KEY is not set. No live calls were made.',
+    };
+  }
   if (provider === 'openai' || (!provider && openai && !anthropic)) {
     if (!openai) return { error: 'OPENAI_API_KEY is not set' };
     return { provider: 'openai', model: process.env.GROOVSTER_EVAL_MODEL || 'gpt-4.1-mini', apiKey: openai };
@@ -217,13 +223,14 @@ async function runOne({ config, task, mode }) {
     if (!step.toolCalls.length) {
       const html = extractHtml(step.text);
       const struct = validateMarkup(html, task.expect || {});
+      const shouldPass = task.expectPass !== false && task.kind !== 'negative';
       const cost = estimateCost(model, providerTokens ? inputTokens : null, providerTokens ? outputTokens : null);
       return {
         taskId: task.id,
         mode,
         model,
         provider: config.provider,
-        pass: struct.pass,
+        pass: shouldPass ? struct.pass : !struct.pass,
         html,
         issues: struct.issues,
         turns: turn + 1,
@@ -320,4 +327,34 @@ export async function runLiveEvaluation({ tasks }) {
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify(report, null, 2) + '\n');
   return report;
+}
+
+function loadSuiteTasks() {
+  const suite = JSON.parse(fs.readFileSync(path.join(REPO, 'spec/eval/suite.json'), 'utf8'));
+  return suite.tasks.map((id) => JSON.parse(fs.readFileSync(path.join(REPO, 'spec/eval/tasks', `${id}.json`), 'utf8')));
+}
+
+async function main() {
+  const config = resolveLiveConfig();
+  if (config.error) {
+    console.log(config.error);
+    process.exit(config.error.startsWith('Skipping') ? 0 : 1);
+  }
+  const report = await runLiveEvaluation({ tasks: loadSuiteTasks() });
+  if (report.status !== 'completed') {
+    console.log(report.reason || `Skipping live model eval: status ${report.status}. No live calls were made.`);
+    process.exit(0);
+  }
+  console.log(`Live model eval completed: ${report.passed}/${report.total} passed with ${report.provider}/${report.model}.`);
+  if (report.failed) {
+    console.error(`Live model eval failed ${report.failed} of ${report.total} runs.`);
+    process.exit(1);
+  }
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
 }

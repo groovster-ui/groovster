@@ -115,7 +115,7 @@ Do not add a framework package for the look. Eras stay in CSS.
 
 ```bash
 pnpm test:unit          # generator, drift classifier, token parity
-pnpm test:react         # markup plus browser interaction
+pnpm react:build && pnpm test:react   # build once, then markup plus browser interaction
 pnpm test:elements      # custom-element remount and updates
 pnpm test:a11y          # axe, keyboard, responsive metrics
 pnpm test:packages      # install packed React and CSS outside the workspace
@@ -133,7 +133,7 @@ pnpm sizes              # uncompressed, gzip, and brotli sizes
 
 ## Known limits
 
-- Seven eras, twenty-one components. New eras are out of scope for this tree.
+- Eras live in `spec/eras` (nine today), with twenty-one components.
 - Vue and Svelte wrappers are not implemented.
 - Real-model evaluation is optional and is not a release gate.
 - Era spec files still store legacy numeric fidelity ranges because the era schema requires them. Public HTML, React, MCP, and examples use bands.
