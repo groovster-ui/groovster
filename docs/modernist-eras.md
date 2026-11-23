@@ -25,7 +25,7 @@ Primary research:
 
 Four static reference pages in \`demos/reference/{swiss-journal,swiss-console,bauhaus-museum,bauhaus-studio}\` show editorial, data-intensive, cultural, and commercial use cases. Their markup uses canonical Groovster components. Only a local stylesheet and dependency-free vanilla JS supply example layout and local interactions. Fidelity and light/dark are switchable without HTML rewrites.
 
-Run \`pnpm gen && pnpm check && pnpm test:unit && node scripts/modernist-browser.mjs\`. Browser test covers five widths, two color modes, three bands and representative interactions. Contrast, keyboard and aesthetic critique remain important; automated checks cannot establish professional art direction. The demos contain fictional data and do not transact.
+Run \`pnpm gen && pnpm check && pnpm test:unit && pnpm test:modernist\`. Browser test covers five widths, two color modes, three bands and representative interactions. Contrast, keyboard and aesthetic critique remain important; automated checks cannot establish professional art direction. The demos contain fictional data and do not transact.
 
 ## Agent economy
 
