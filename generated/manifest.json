@@ -26,7 +26,6 @@
   "eras": [
     "bauhaus",
     "deco",
-    "earth",
     "groovy",
     "mcm-atomic",
     "memphis",
@@ -72,7 +71,6 @@
     "generated/llms/dialog.md",
     "generated/llms/era-bauhaus.card.txt",
     "generated/llms/era-deco.card.txt",
-    "generated/llms/era-earth.card.txt",
     "generated/llms/era-groovy.card.txt",
     "generated/llms/era-mcm-atomic.card.txt",
     "generated/llms/era-memphis.card.txt",
@@ -141,7 +139,6 @@
     "packages/css/dist/era-widgets.css",
     "packages/css/dist/eras/bauhaus.css",
     "packages/css/dist/eras/deco.css",
-    "packages/css/dist/eras/earth.css",
     "packages/css/dist/eras/groovy.css",
     "packages/css/dist/eras/mcm-atomic.css",
     "packages/css/dist/eras/memphis.css",
@@ -154,10 +151,10 @@
     "packages/css/dist/fonts/CourierPrime-Regular.woff2",
     "packages/css/dist/fonts/Exo2-Bold.woff2",
     "packages/css/dist/fonts/Exo2-Regular.woff2",
-    "packages/css/dist/fonts/Fraunces-Bold.woff2",
-    "packages/css/dist/fonts/Fraunces-Regular.woff2",
     "packages/css/dist/fonts/IBMPlexMono-Bold.woff2",
     "packages/css/dist/fonts/IBMPlexMono-Regular.woff2",
+    "packages/css/dist/fonts/InterTight-Bold.woff2",
+    "packages/css/dist/fonts/InterTight-Regular.woff2",
     "packages/css/dist/fonts/JosefinSans-Bold.woff2",
     "packages/css/dist/fonts/JosefinSans-Regular.woff2",
     "packages/css/dist/fonts/Jost-Bold.woff2",
@@ -237,7 +234,6 @@
     "packages/mcp/data/components/tooltip.json",
     "packages/mcp/data/eras/bauhaus/era.spec.json",
     "packages/mcp/data/eras/deco/era.spec.json",
-    "packages/mcp/data/eras/earth/era.spec.json",
     "packages/mcp/data/eras/groovy/era.spec.json",
     "packages/mcp/data/eras/mcm-atomic/era.spec.json",
     "packages/mcp/data/eras/memphis/era.spec.json",
@@ -258,8 +254,6 @@
     "packages/mcp/data/tokens/tier1/bauhaus.light.tokens.json",
     "packages/mcp/data/tokens/tier1/deco.dark.tokens.json",
     "packages/mcp/data/tokens/tier1/deco.light.tokens.json",
-    "packages/mcp/data/tokens/tier1/earth.dark.tokens.json",
-    "packages/mcp/data/tokens/tier1/earth.light.tokens.json",
     "packages/mcp/data/tokens/tier1/groovy.dark.tokens.json",
     "packages/mcp/data/tokens/tier1/groovy.light.tokens.json",
     "packages/mcp/data/tokens/tier1/mcm-atomic.dark.tokens.json",
@@ -276,8 +270,6 @@
     "packages/mcp/data/tokens/tier2/bauhaus.light.tokens.json",
     "packages/mcp/data/tokens/tier2/deco.dark.tokens.json",
     "packages/mcp/data/tokens/tier2/deco.light.tokens.json",
-    "packages/mcp/data/tokens/tier2/earth.dark.tokens.json",
-    "packages/mcp/data/tokens/tier2/earth.light.tokens.json",
     "packages/mcp/data/tokens/tier2/groovy.dark.tokens.json",
     "packages/mcp/data/tokens/tier2/groovy.light.tokens.json",
     "packages/mcp/data/tokens/tier2/mcm-atomic.dark.tokens.json",
@@ -321,8 +313,6 @@
     "packages/tokens/dist/tier1/bauhaus.light.tokens.json",
     "packages/tokens/dist/tier1/deco.dark.tokens.json",
     "packages/tokens/dist/tier1/deco.light.tokens.json",
-    "packages/tokens/dist/tier1/earth.dark.tokens.json",
-    "packages/tokens/dist/tier1/earth.light.tokens.json",
     "packages/tokens/dist/tier1/groovy.dark.tokens.json",
     "packages/tokens/dist/tier1/groovy.light.tokens.json",
     "packages/tokens/dist/tier1/mcm-atomic.dark.tokens.json",
@@ -339,8 +329,6 @@
     "packages/tokens/dist/tier2/bauhaus.light.tokens.json",
     "packages/tokens/dist/tier2/deco.dark.tokens.json",
     "packages/tokens/dist/tier2/deco.light.tokens.json",
-    "packages/tokens/dist/tier2/earth.dark.tokens.json",
-    "packages/tokens/dist/tier2/earth.light.tokens.json",
     "packages/tokens/dist/tier2/groovy.dark.tokens.json",
     "packages/tokens/dist/tier2/groovy.light.tokens.json",
     "packages/tokens/dist/tier2/mcm-atomic.dark.tokens.json",
@@ -403,7 +391,8 @@
     "skills/groovster/references/llms/text-field.md",
     "skills/groovster/references/llms/textarea.md",
     "skills/groovster/references/llms/toast.md",
-    "skills/groovster/references/llms/tooltip.md"
+    "skills/groovster/references/llms/tooltip.md",
+    "tests/a11y/fixtures/matrix.html"
   ],
   "budgetReport": {
     "budgets": {
@@ -609,10 +598,6 @@
         "chars": 438,
         "budget": "mcp.eraCard"
       },
-      "mcp.eraCard:earth": {
-        "chars": 377,
-        "budget": "mcp.eraCard"
-      },
       "mcp.eraCard:groovy": {
         "chars": 350,
         "budget": "mcp.eraCard"
@@ -634,31 +619,31 @@
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:swiss": {
-        "chars": 441,
+        "chars": 439,
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 2460,
+        "chars": 2393,
         "budget": "llms.index"
       },
       "llms.recipeCard:commerce": {
-        "chars": 1925,
+        "chars": 1918,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:dashboard": {
-        "chars": 2087,
+        "chars": 2074,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:editorial": {
-        "chars": 2145,
+        "chars": 2138,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:event": {
-        "chars": 2010,
+        "chars": 2003,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:hospitality": {
-        "chars": 2000,
+        "chars": 1993,
         "budget": "llms.recipeCard"
       }
     }

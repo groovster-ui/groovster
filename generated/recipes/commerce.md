@@ -3,7 +3,7 @@ GENERATED FILE — do not edit. Source: spec/recipes/. Run: pnpm gen
 # Boutique ecommerce (commerce)
 A scannable product grid with filters and a cart. Checkout collects a fictional order and charges nothing.
 Category: Small catalog, filters, and a fictional cart
-Eras: groovy, earth, deco, memphis. Also: neutral, mcm-atomic, neon, bauhaus, swiss. Avoid: none.
+Eras: groovy, deco, memphis. Also: neutral, mcm-atomic, neon, bauhaus, swiss. Avoid: none.
 Fidelity: page standard; forms standard; data whisper. Standard keeps product prices and filters clearer than full costume. Costume remains available from the switcher.
 Sections: masthead, filters, catalog, cart. Optional: note.
 Components: button, card, select, checkbox, dialog, text-field, alert, link. Optional: toast.

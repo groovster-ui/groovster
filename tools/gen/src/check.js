@@ -26,6 +26,7 @@ export const OWNED_FILES = new Set([
   'packages/react/README.md',
   'generated/manifest.json',
   'llms.txt',
+  'tests/a11y/fixtures/matrix.html',
 ]);
 
 export const RUNTIME_PREFIXES = [

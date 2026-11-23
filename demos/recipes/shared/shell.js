@@ -3,8 +3,8 @@
  * Visual eras stay in CSS. This file imports nothing.
  */
 (() => {
-  const ERA_IDS = ['neutral', 'deco', 'earth', 'groovy', 'mcm-atomic', 'memphis', 'neon'];
-  const ERAS = [['neutral', 'Neutral'], ['deco', 'Deco'], ['earth', 'Earth'], ['groovy', 'Groovy'], ['mcm-atomic', 'Atomic'], ['memphis', 'Memphis'], ['neon', 'Neon']];
+  const ERA_IDS = ["bauhaus","deco","groovy","mcm-atomic","memphis","neon","neutral","swiss"];
+  const ERAS = [["bauhaus","Bauhaus"],["deco","Deco"],["groovy","Groovy"],["mcm-atomic","Atomic"],["memphis","Memphis"],["neon","Neon"],["neutral","Neutral"],["swiss","Swiss International"]];
   const MODES = [['light', 'Light'], ['dark', 'Dark']];
   const BANDS = [['whisper', 'Whisper'], ['standard', 'Standard'], ['costume', 'Costume']];
   const root = document.querySelector('[data-groovster-root]');

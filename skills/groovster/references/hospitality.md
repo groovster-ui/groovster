@@ -3,7 +3,7 @@ GENERATED FILE — do not edit. Source: spec/recipes/. Run: pnpm gen
 # Premium hospitality (hospitality)
 A polished stay page: rooms, a short visit story, and a reservation request. The request does not hold a room.
 Category: Hotel, inn, or reservation-led stay
-Eras: deco, earth, mcm-atomic. Also: groovy, neutral, memphis, neon. Avoid: none.
+Eras: deco, mcm-atomic. Also: groovy, neutral, memphis, neon. Avoid: none.
 Fidelity: page costume; forms standard; data whisper. Costume for the arrival story and room cards. The request form uses ordinary labels and native fields.
 Sections: masthead, rooms, reserve, visit. Optional: policies.
 Components: button, card, dialog, text-field, select, radio, textarea, alert, ornament-divider, link. Optional: popover.

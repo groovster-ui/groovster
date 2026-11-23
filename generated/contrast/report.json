@@ -1,6 +1,6 @@
 {
   "eras": {
-    "neutral": {
+    "bauhaus": {
       "modes": {
         "light": {
           "pass": true,
@@ -26,7 +26,7 @@
       },
       "pass": true
     },
-    "mcm-atomic": {
+    "groovy": {
       "modes": {
         "light": {
           "pass": true,
@@ -39,7 +39,7 @@
       },
       "pass": true
     },
-    "neon": {
+    "mcm-atomic": {
       "modes": {
         "light": {
           "pass": true,
@@ -65,7 +65,7 @@
       },
       "pass": true
     },
-    "groovy": {
+    "neon": {
       "modes": {
         "light": {
           "pass": true,
@@ -78,7 +78,20 @@
       },
       "pass": true
     },
-    "earth": {
+    "neutral": {
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
+    },
+    "swiss": {
       "modes": {
         "light": {
           "pass": true,

@@ -5,9 +5,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '../../tools/a11y/node_modules/playwright/index.mjs';
+import { listEraIds } from '../../tools/gen/src/era-catalog.js';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const ERAS = ['neutral', 'deco', 'neon', 'mcm-atomic', 'memphis', 'groovy', 'earth'];
+const ERAS = listEraIds(REPO);
 const MODES = ['light', 'dark'];
 
 function contentType(p) {

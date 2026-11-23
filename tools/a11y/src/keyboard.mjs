@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { expect } from 'playwright/test';
 import { safePath } from '../../../tests/helpers/safe-path.mjs';
+import { listEraIds } from '../../../tools/gen/src/era-catalog.js';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const FIXTURE = path.join(REPO, 'tests/a11y/fixtures/matrix.html');
@@ -39,7 +40,7 @@ await page.goto(`http://127.0.0.1:${port}/tests/a11y/fixtures/matrix.html`, {
 });
 
 const failures = [];
-const eras = ['neutral', 'deco', 'mcm-atomic', 'neon', 'memphis', 'groovy', 'earth'];
+const eras = listEraIds(REPO);
 const modes = ['light', 'dark'];
 
 function caseId(era, mode) {

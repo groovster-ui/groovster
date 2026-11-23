@@ -7,9 +7,10 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from '../../tools/a11y/node_modules/playwright/index.mjs';
 import { expect } from '../../tools/a11y/node_modules/playwright/test.mjs';
 import { safePath } from '../helpers/safe-path.mjs';
+import { listEraIds } from '../../tools/gen/src/era-catalog.js';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const ERAS = ['neutral', 'deco', 'neon', 'mcm-atomic', 'memphis', 'groovy', 'earth'];
+const ERAS = listEraIds(REPO);
 
 function contentType(p) {
   if (p.endsWith('.css')) return 'text/css';

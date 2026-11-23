@@ -14,7 +14,8 @@ See `OFL.txt` for the full license text and per-family copyright notices.
 | MCM Atomic | Yellowtail (400), League Spartan (400/700), Work Sans (400/700), Oswald (400/700), Courier Prime (400) |
 | Groovy | Comfortaa (400/700), Mulish (400/700), IBM Plex Mono (400/700) |
 | Memphis | Archivo Black (400), Nunito (400/700), Space Mono (400/700) |
-| Earth | Fraunces (400/700), Source Sans 3 (400/700), Source Code Pro (400/700) |
+| Swiss | Inter Tight (400/700), Source Code Pro (400/700) |
+| Bauhaus | League Spartan (400/700), Source Sans 3 (400/700), Source Code Pro (400/700) |
 | Neutral | Source Serif 4 (400/700), Source Sans 3 (400/700), Source Code Pro (400/700) |
 
 Bold (700) faces are shipped so `font-weight: 600/700` is not synthesized by the browser.

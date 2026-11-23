@@ -9,7 +9,7 @@ Primary research:
 - [The Cooper Union: Swiss Style Now](https://cooper.edu/index.php/art/news/inside-look-swiss-style-now-curators) — typographic discipline and modern interpretation
 - [Poster House exhibition catalogue](https://posterhouse.org/exhibition/the-swiss-grid/) — regional variation within the movement
 
-**Grammar:** twelve-column implied display grid, deliberate asymmetric content placement, editorial-scale sans, narrow signal rule, flat paper/ink planes, measured red accent, 0px corners. Spacing and alignment establish hierarchy; ornament does not. Use Source Sans 3 and Source Code Pro as bundled OFL alternatives, not claims of historic Akzidenz-Grotesk accuracy. Costume = monumental editorial scale, Standard = selective alignment and type scale, Whisper = readable restrained grid. Avoid generic centered SaaS cards and arbitrary red decoration.
+**Grammar:** twelve-column implied display grid, deliberate asymmetric content placement, editorial-scale sans, narrow signal rule, flat paper/ink planes, measured red accent, 0px corners. Spacing and alignment establish hierarchy; ornament does not. Use Inter Tight and Source Code Pro as bundled OFL alternatives, not claims of historic Akzidenz-Grotesk accuracy. Costume = monumental editorial scale, Standard = selective alignment and type scale, Whisper = readable restrained grid. Avoid generic centered SaaS cards and arbitrary red decoration.
 
 ## Bauhaus (1919–33)
 Primary research:

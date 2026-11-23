@@ -134,7 +134,7 @@
     "display": {
       "$type": "fontFamily",
       "$value": [
-        "Source Sans 3",
+        "Inter Tight",
         "Arial",
         "sans-serif"
       ]
@@ -142,7 +142,7 @@
     "body": {
       "$type": "fontFamily",
       "$value": [
-        "Source Sans 3",
+        "Inter Tight",
         "Arial",
         "sans-serif"
       ]

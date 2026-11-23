@@ -19,7 +19,6 @@
       "swiss"
     ],
     "alsoFits": [
-      "earth",
       "deco",
       "groovy",
       "memphis",
@@ -130,8 +129,7 @@
         "deco",
         "mcm-atomic",
         "memphis",
-        "groovy",
-        "earth"
+        "groovy"
       ],
       "note": "Switching era changes control geometry and type. Do not add .ew-hero. If costume ornament competes with the table, drop the page to standard or whisper."
     }

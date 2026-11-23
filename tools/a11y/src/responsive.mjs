@@ -3,6 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { safePath } from '../../../tests/helpers/safe-path.mjs';
+import { listEraIds } from '../../../tools/gen/src/era-catalog.js';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const FIXTURE = path.join(REPO, 'tests/a11y/fixtures/matrix.html');
@@ -18,9 +20,8 @@ function contentType(file) {
 
 const server = createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
-  let file = path.join(REPO, url.replace(/^\//, ''));
-  if (url === '/' || url === '/matrix.html') file = FIXTURE;
-  if (!file.startsWith(REPO) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
+  const file = url === '/' || url === '/matrix.html' ? FIXTURE : safePath(REPO, url.replace(/^\//, ''));
+  if (!file || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     res.writeHead(404);
     res.end('not found');
     return;
@@ -56,7 +57,7 @@ try {
   }
 
   await page.setViewportSize({ width: 375, height: 800 });
-  const eras = ['neutral', 'deco', 'mcm-atomic', 'neon', 'memphis', 'groovy', 'earth'];
+  const eras = listEraIds(REPO);
   for (const era of eras) {
     const locator = page.locator(`[data-testid="case-${era}-light"]`);
     await locator.scrollIntoViewIfNeeded();

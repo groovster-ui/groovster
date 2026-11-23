@@ -21,6 +21,8 @@ import { atomicDecoratorCss } from './atomic-decorators.js';
 import { neonDecoratorCss } from './neon-decorators.js';
 import { modernistDecoratorCss } from './modernist-decorators.js';
 import { loadRecipes, recipeIndexLines, writeRecipeDocs } from './recipes.js';
+import { loadEraCatalog } from './era-catalog.js';
+import { matrixDocument } from '../../../tests/a11y/matrix-html.mjs';
 
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
 
@@ -31,9 +33,7 @@ function loadComponents() {
 }
 
 function loadEras() {
-  return listFiles(path.join(SPEC_ROOT, 'eras'), (f) => f.endsWith('era.spec.json'))
-    .map((f) => readJson(f))
-    .sort((a, b) => a.id.localeCompare(b.id));
+  return loadEraCatalog(REPO_ROOT);
 }
 
 /** Mute-band selectors (whisper|default|signature) on self or ancestor. */
@@ -61,8 +61,8 @@ const FONT_FILES = {
   Mulish: { 400: 'Mulish-Regular.woff2', 700: 'Mulish-Bold.woff2' },
   'Archivo Black': { 400: 'ArchivoBlack-Regular.woff2' },
   Nunito: { 400: 'Nunito-Regular.woff2', 700: 'Nunito-Bold.woff2' },
-  Fraunces: { 400: 'Fraunces-Regular.woff2', 700: 'Fraunces-Bold.woff2' },
   'Source Sans 3': { 400: 'SourceSans3-Regular.woff2', 700: 'SourceSans3-Bold.woff2' },
+  'Inter Tight': { 400: 'InterTight-Regular.woff2', 700: 'InterTight-Bold.woff2' },
   'Source Code Pro': { 400: 'SourceCodePro-Regular.woff2', 700: 'SourceCodePro-Bold.woff2' },
   'Source Serif 4': { 400: 'SourceSerif4-Regular.woff2', 700: 'SourceSerif4-Bold.woff2' },
   Yellowtail: { 400: 'Yellowtail-Regular.woff2' },
@@ -518,64 +518,6 @@ function genEraCss(era) {
     background: var(--ew-color-fg-default);
   }
 `);
-  } else if (era.id === 'earth') {
-    blocks.push(`  [data-era="earth"] .ew-button {
-    border-radius: 6px;
-    border-width: 1px;
-    letter-spacing: 0.04em;
-    box-shadow: none;
-    background-image: linear-gradient(180deg, color-mix(in oklch, white 8%, transparent), transparent);
-  }
-  [data-era="earth"] .ew-card {
-    border-radius: 10px;
-    border-width: 1px;
-    box-shadow: none;
-    background-image:
-      linear-gradient(180deg, color-mix(in oklch, var(--ew-color-bg-elevated) 88%, var(--ew-color-border-subtle)), var(--ew-color-bg-surface));
-  }
-  [data-era="earth"] .ew-card__header::after {
-    content: "";
-    display: block;
-    height: 2px;
-    margin-top: 10px;
-    background: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
-    opacity: 0.65;
-  }
-  ${muteBandSel('earth', ' .ew-card__header::after')} { display: none; }
-  [data-era="earth"] .ew-text-field__control,
-  [data-era="earth"] .ew-select__control,
-  [data-era="earth"] .ew-select__trigger,
-  [data-era="earth"] .ew-textarea__control {
-    border-radius: 6px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--ew-color-field-border);
-    border-bottom-width: 2px;
-    background: var(--ew-color-field-bg);
-  }
-  [data-era="earth"] .ew-dialog {
-    border-radius: 12px;
-    border-width: 1px;
-  }
-  [data-era="earth"] .ew-tabs [role="tablist"],
-  [data-era="earth"] ew-tabs [role="tablist"] {
-    border-bottom-color: color-mix(in oklch, var(--ew-color-border-strong) 55%, transparent);
-  }
-  [data-era="earth"] .ew-tooltip__tip {
-    border-radius: 4px;
-    border: 1px solid var(--ew-color-border-subtle);
-    background: var(--ew-color-bg-elevated);
-    color: var(--ew-color-fg-default);
-    box-shadow: none;
-  }
-  [data-era="earth"] .ew-slider__control {
-    height: var(--ew-structure-slider-track-height, 4px);
-    accent-color: var(--ew-color-border-strong);
-  }
-  [data-era="earth"] .ew-ornament-divider {
-    background: linear-gradient(90deg, transparent, var(--ew-color-border-subtle), transparent);
-  }
-`);
   }
   blocks.push(`}`);
   return blocks.join('\n') + '\n';
@@ -795,6 +737,24 @@ export function generateAll() {
   }
 
   generateExtras({ components, eras, outputs });
+
+  const matrixPath = path.join(getOutRoot(), 'tests/a11y/fixtures/matrix.html');
+  writeText(matrixPath, matrixDocument(REPO_ROOT));
+  outputs.push(rel(outRoot, matrixPath));
+
+  const shellPath = path.join(getOutRoot(), 'demos/recipes/shared/shell.js');
+  if (fs.existsSync(shellPath)) {
+    const shell = fs.readFileSync(shellPath, 'utf8');
+    const eraIds = JSON.stringify(eras.map((era) => era.id));
+    const eraPairs = JSON.stringify(eras.map((era) => [era.id, era.name]));
+    const eraBlock = /^ {2}const ERA_IDS = .*\n {2}const ERAS = .*$/m;
+    if (!eraBlock.test(shell)) throw new Error('demos/recipes/shared/shell.js is missing the era catalog block');
+    const nextShell = shell.replace(
+      eraBlock,
+      `  const ERA_IDS = ${eraIds};\n  const ERAS = ${eraPairs};`,
+    );
+    if (nextShell !== shell) writeText(shellPath, nextShell);
+  }
 
   const elementsDist = path.join(REPO_ROOT, 'packages/elements/dist');
   if (fs.existsSync(elementsDist)) {

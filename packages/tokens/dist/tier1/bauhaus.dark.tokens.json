@@ -72,15 +72,15 @@
     "primary": {
       "red": {
         "$type": "color",
-        "$value": "#F26B5A"
+        "$value": "#BC372F"
       },
       "yellow": {
         "$type": "color",
-        "$value": "#F2C84B"
+        "$value": "#F1CA49"
       },
       "blue": {
         "$type": "color",
-        "$value": "#7EA7E4"
+        "$value": "#3C67AA"
       }
     }
   },

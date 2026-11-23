@@ -11,10 +11,8 @@
   </style>
 </head>
 <body>
-
-<section class="ew-root case" data-era="neutral" data-mode="light" data-fidelity-band="costume" data-testid="case-neutral-light">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neutral / light</h1>
-  
+<section class="ew-root case" data-era="bauhaus" data-mode="light" data-fidelity-band="costume" data-testid="case-bauhaus-light">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">bauhaus / light</h1>
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -24,8 +22,8 @@
     </footer>
   </article>
   <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-neutral-light">Email</label>
-    <input id="email-neutral-light" class="ew-text-field__control" type="email" autocomplete="email" />
+    <label class="ew-text-field__label" for="email-bauhaus-light">Email</label>
+    <input id="email-bauhaus-light" class="ew-text-field__control" type="email" autocomplete="email" />
   </div>
   <label class="ew-switch">
     <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
@@ -34,56 +32,53 @@
   </label>
   <ew-tabs class="ew-tabs">
     <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-neutral-light" aria-selected="true" aria-controls="p1-neutral-light">Basic</button>
-      <button type="button" role="tab" id="t2-neutral-light" aria-selected="false" aria-controls="p2-neutral-light" tabindex="-1">Pro</button>
+      <button type="button" role="tab" id="t1-bauhaus-light" aria-selected="true" aria-controls="p1-bauhaus-light">Basic</button>
+      <button type="button" role="tab" id="t2-bauhaus-light" aria-selected="false" aria-controls="p2-bauhaus-light" tabindex="-1">Pro</button>
     </div>
-    <div role="tabpanel" id="p1-neutral-light" aria-labelledby="t1-neutral-light">Basic panel</div>
-    <div role="tabpanel" id="p2-neutral-light" aria-labelledby="t2-neutral-light" hidden>Pro panel</div>
+    <div role="tabpanel" id="p1-bauhaus-light" aria-labelledby="t1-bauhaus-light">Basic panel</div>
+    <div role="tabpanel" id="p2-bauhaus-light" aria-labelledby="t2-bauhaus-light" hidden>Pro panel</div>
   </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-neutral-light">
-    <header class="ew-dialog__header"><h2 id="dtitle-neutral-light">Dialog</h2></header>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-bauhaus-light">
+    <header class="ew-dialog__header"><h2 id="dtitle-bauhaus-light">Dialog</h2></header>
     <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
     <footer class="ew-dialog__footer">
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
-  <ew-select class="ew-select" data-testid="select-neutral-light">
-    <label class="ew-select__label" for="country-neutral-light">Country</label>
-    <select id="country-neutral-light" class="ew-select__control">
+  <ew-select class="ew-select" data-testid="select-bauhaus-light">
+    <label class="ew-select__label" for="country-bauhaus-light">Country</label>
+    <select id="country-bauhaus-light" class="ew-select__control">
       <option value="us">United States</option>
       <option value="ca">Canada</option>
       <option value="mx">Mexico</option>
     </select>
   </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-neutral-light">
+  <ew-menu class="ew-menu" data-testid="menu-bauhaus-light">
     <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-neutral-light">
+    <div class="ew-menu__panel" role="menu" id="menu-panel-bauhaus-light">
       <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
       <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
     </div>
   </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-neutral-light">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neutral-light">Details</button>
-    <div id="pop-neutral-light" class="ew-popover__panel" popover>
-      <p>Popover content for neutral-light.</p>
+  <ew-popover class="ew-popover" data-testid="popover-bauhaus-light">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-bauhaus-light">Details</button>
+    <div id="pop-bauhaus-light" class="ew-popover__panel" popover>
+      <p>Popover content for bauhaus-light.</p>
     </div>
   </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neutral-light">
-    <button type="button" class="ew-button" aria-describedby="tip-neutral-light">Info</button>
-    <span id="tip-neutral-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-bauhaus-light">
+    <button type="button" class="ew-button" aria-describedby="tip-bauhaus-light">Info</button>
+    <span id="tip-bauhaus-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-neutral-light">
-    <label class="ew-slider__label" for="vol-neutral-light">Volume</label>
-    <input id="vol-neutral-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-neutral-light">40</output>
+  <ew-slider class="ew-slider" data-testid="slider-bauhaus-light">
+    <label class="ew-slider__label" for="vol-bauhaus-light">Volume</label>
+    <input id="vol-bauhaus-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-bauhaus-light">40</output>
   </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-neutral-light" aria-live="polite"></ew-toast-region>
-
+  <ew-toast-region class="ew-toast-region" data-testid="toast-bauhaus-light" aria-live="polite"></ew-toast-region>
 </section>
-<section class="ew-root case" data-era="neutral" data-mode="dark" data-fidelity-band="costume" data-testid="case-neutral-dark">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neutral / dark</h1>
-  
+<section class="ew-root case" data-era="bauhaus" data-mode="dark" data-fidelity-band="costume" data-testid="case-bauhaus-dark">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">bauhaus / dark</h1>
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -93,8 +88,8 @@
     </footer>
   </article>
   <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-neutral-dark">Email</label>
-    <input id="email-neutral-dark" class="ew-text-field__control" type="email" autocomplete="email" />
+    <label class="ew-text-field__label" for="email-bauhaus-dark">Email</label>
+    <input id="email-bauhaus-dark" class="ew-text-field__control" type="email" autocomplete="email" />
   </div>
   <label class="ew-switch">
     <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
@@ -103,56 +98,53 @@
   </label>
   <ew-tabs class="ew-tabs">
     <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-neutral-dark" aria-selected="true" aria-controls="p1-neutral-dark">Basic</button>
-      <button type="button" role="tab" id="t2-neutral-dark" aria-selected="false" aria-controls="p2-neutral-dark" tabindex="-1">Pro</button>
+      <button type="button" role="tab" id="t1-bauhaus-dark" aria-selected="true" aria-controls="p1-bauhaus-dark">Basic</button>
+      <button type="button" role="tab" id="t2-bauhaus-dark" aria-selected="false" aria-controls="p2-bauhaus-dark" tabindex="-1">Pro</button>
     </div>
-    <div role="tabpanel" id="p1-neutral-dark" aria-labelledby="t1-neutral-dark">Basic panel</div>
-    <div role="tabpanel" id="p2-neutral-dark" aria-labelledby="t2-neutral-dark" hidden>Pro panel</div>
+    <div role="tabpanel" id="p1-bauhaus-dark" aria-labelledby="t1-bauhaus-dark">Basic panel</div>
+    <div role="tabpanel" id="p2-bauhaus-dark" aria-labelledby="t2-bauhaus-dark" hidden>Pro panel</div>
   </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-neutral-dark">
-    <header class="ew-dialog__header"><h2 id="dtitle-neutral-dark">Dialog</h2></header>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-bauhaus-dark">
+    <header class="ew-dialog__header"><h2 id="dtitle-bauhaus-dark">Dialog</h2></header>
     <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
     <footer class="ew-dialog__footer">
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
-  <ew-select class="ew-select" data-testid="select-neutral-dark">
-    <label class="ew-select__label" for="country-neutral-dark">Country</label>
-    <select id="country-neutral-dark" class="ew-select__control">
+  <ew-select class="ew-select" data-testid="select-bauhaus-dark">
+    <label class="ew-select__label" for="country-bauhaus-dark">Country</label>
+    <select id="country-bauhaus-dark" class="ew-select__control">
       <option value="us">United States</option>
       <option value="ca">Canada</option>
       <option value="mx">Mexico</option>
     </select>
   </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-neutral-dark">
+  <ew-menu class="ew-menu" data-testid="menu-bauhaus-dark">
     <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-neutral-dark">
+    <div class="ew-menu__panel" role="menu" id="menu-panel-bauhaus-dark">
       <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
       <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
     </div>
   </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-neutral-dark">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neutral-dark">Details</button>
-    <div id="pop-neutral-dark" class="ew-popover__panel" popover>
-      <p>Popover content for neutral-dark.</p>
+  <ew-popover class="ew-popover" data-testid="popover-bauhaus-dark">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-bauhaus-dark">Details</button>
+    <div id="pop-bauhaus-dark" class="ew-popover__panel" popover>
+      <p>Popover content for bauhaus-dark.</p>
     </div>
   </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neutral-dark">
-    <button type="button" class="ew-button" aria-describedby="tip-neutral-dark">Info</button>
-    <span id="tip-neutral-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-bauhaus-dark">
+    <button type="button" class="ew-button" aria-describedby="tip-bauhaus-dark">Info</button>
+    <span id="tip-bauhaus-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-neutral-dark">
-    <label class="ew-slider__label" for="vol-neutral-dark">Volume</label>
-    <input id="vol-neutral-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-neutral-dark">40</output>
+  <ew-slider class="ew-slider" data-testid="slider-bauhaus-dark">
+    <label class="ew-slider__label" for="vol-bauhaus-dark">Volume</label>
+    <input id="vol-bauhaus-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-bauhaus-dark">40</output>
   </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-neutral-dark" aria-live="polite"></ew-toast-region>
-
+  <ew-toast-region class="ew-toast-region" data-testid="toast-bauhaus-dark" aria-live="polite"></ew-toast-region>
 </section>
 <section class="ew-root case" data-era="deco" data-mode="light" data-fidelity-band="costume" data-testid="case-deco-light">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">deco / light</h1>
-  
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -185,7 +177,6 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
   <ew-select class="ew-select" data-testid="select-deco-light">
     <label class="ew-select__label" for="country-deco-light">Country</label>
     <select id="country-deco-light" class="ew-select__control">
@@ -217,11 +208,9 @@
     <output class="ew-slider__value" for="vol-deco-light">40</output>
   </ew-slider>
   <ew-toast-region class="ew-toast-region" data-testid="toast-deco-light" aria-live="polite"></ew-toast-region>
-
 </section>
 <section class="ew-root case" data-era="deco" data-mode="dark" data-fidelity-band="costume" data-testid="case-deco-dark">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">deco / dark</h1>
-  
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -254,7 +243,6 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
   <ew-select class="ew-select" data-testid="select-deco-dark">
     <label class="ew-select__label" for="country-deco-dark">Country</label>
     <select id="country-deco-dark" class="ew-select__control">
@@ -286,425 +274,9 @@
     <output class="ew-slider__value" for="vol-deco-dark">40</output>
   </ew-slider>
   <ew-toast-region class="ew-toast-region" data-testid="toast-deco-dark" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="mcm-atomic" data-mode="light" data-fidelity-band="costume" data-testid="case-mcm-atomic-light">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">mcm-atomic / light</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-mcm-atomic-light">Email</label>
-    <input id="email-mcm-atomic-light" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-mcm-atomic-light" aria-selected="true" aria-controls="p1-mcm-atomic-light">Basic</button>
-      <button type="button" role="tab" id="t2-mcm-atomic-light" aria-selected="false" aria-controls="p2-mcm-atomic-light" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-mcm-atomic-light" aria-labelledby="t1-mcm-atomic-light">Basic panel</div>
-    <div role="tabpanel" id="p2-mcm-atomic-light" aria-labelledby="t2-mcm-atomic-light" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-mcm-atomic-light">
-    <header class="ew-dialog__header"><h2 id="dtitle-mcm-atomic-light">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-atomic-light">
-    <label class="ew-select__label" for="country-mcm-atomic-light">Country</label>
-    <select id="country-mcm-atomic-light" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-atomic-light">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-mcm-atomic-light">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-atomic-light">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-mcm-atomic-light">Details</button>
-    <div id="pop-mcm-atomic-light" class="ew-popover__panel" popover>
-      <p>Popover content for mcm-atomic-light.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-atomic-light">
-    <button type="button" class="ew-button" aria-describedby="tip-mcm-atomic-light">Info</button>
-    <span id="tip-mcm-atomic-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-atomic-light">
-    <label class="ew-slider__label" for="vol-mcm-atomic-light">Volume</label>
-    <input id="vol-mcm-atomic-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-mcm-atomic-light">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-atomic-light" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="mcm-atomic" data-mode="dark" data-fidelity-band="costume" data-testid="case-mcm-atomic-dark">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">mcm-atomic / dark</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-mcm-atomic-dark">Email</label>
-    <input id="email-mcm-atomic-dark" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-mcm-atomic-dark" aria-selected="true" aria-controls="p1-mcm-atomic-dark">Basic</button>
-      <button type="button" role="tab" id="t2-mcm-atomic-dark" aria-selected="false" aria-controls="p2-mcm-atomic-dark" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-mcm-atomic-dark" aria-labelledby="t1-mcm-atomic-dark">Basic panel</div>
-    <div role="tabpanel" id="p2-mcm-atomic-dark" aria-labelledby="t2-mcm-atomic-dark" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-mcm-atomic-dark">
-    <header class="ew-dialog__header"><h2 id="dtitle-mcm-atomic-dark">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-atomic-dark">
-    <label class="ew-select__label" for="country-mcm-atomic-dark">Country</label>
-    <select id="country-mcm-atomic-dark" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-atomic-dark">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-mcm-atomic-dark">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-atomic-dark">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-mcm-atomic-dark">Details</button>
-    <div id="pop-mcm-atomic-dark" class="ew-popover__panel" popover>
-      <p>Popover content for mcm-atomic-dark.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-atomic-dark">
-    <button type="button" class="ew-button" aria-describedby="tip-mcm-atomic-dark">Info</button>
-    <span id="tip-mcm-atomic-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-atomic-dark">
-    <label class="ew-slider__label" for="vol-mcm-atomic-dark">Volume</label>
-    <input id="vol-mcm-atomic-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-mcm-atomic-dark">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-atomic-dark" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="neon" data-mode="light" data-fidelity-band="costume" data-testid="case-neon-light">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neon / light</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-neon-light">Email</label>
-    <input id="email-neon-light" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-neon-light" aria-selected="true" aria-controls="p1-neon-light">Basic</button>
-      <button type="button" role="tab" id="t2-neon-light" aria-selected="false" aria-controls="p2-neon-light" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-neon-light" aria-labelledby="t1-neon-light">Basic panel</div>
-    <div role="tabpanel" id="p2-neon-light" aria-labelledby="t2-neon-light" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-neon-light">
-    <header class="ew-dialog__header"><h2 id="dtitle-neon-light">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-neon-light">
-    <label class="ew-select__label" for="country-neon-light">Country</label>
-    <select id="country-neon-light" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-neon-light">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-neon-light">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-neon-light">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neon-light">Details</button>
-    <div id="pop-neon-light" class="ew-popover__panel" popover>
-      <p>Popover content for neon-light.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neon-light">
-    <button type="button" class="ew-button" aria-describedby="tip-neon-light">Info</button>
-    <span id="tip-neon-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-neon-light">
-    <label class="ew-slider__label" for="vol-neon-light">Volume</label>
-    <input id="vol-neon-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-neon-light">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-neon-light" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="neon" data-mode="dark" data-fidelity-band="costume" data-testid="case-neon-dark">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neon / dark</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-neon-dark">Email</label>
-    <input id="email-neon-dark" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-neon-dark" aria-selected="true" aria-controls="p1-neon-dark">Basic</button>
-      <button type="button" role="tab" id="t2-neon-dark" aria-selected="false" aria-controls="p2-neon-dark" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-neon-dark" aria-labelledby="t1-neon-dark">Basic panel</div>
-    <div role="tabpanel" id="p2-neon-dark" aria-labelledby="t2-neon-dark" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-neon-dark">
-    <header class="ew-dialog__header"><h2 id="dtitle-neon-dark">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-neon-dark">
-    <label class="ew-select__label" for="country-neon-dark">Country</label>
-    <select id="country-neon-dark" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-neon-dark">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-neon-dark">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-neon-dark">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neon-dark">Details</button>
-    <div id="pop-neon-dark" class="ew-popover__panel" popover>
-      <p>Popover content for neon-dark.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neon-dark">
-    <button type="button" class="ew-button" aria-describedby="tip-neon-dark">Info</button>
-    <span id="tip-neon-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-neon-dark">
-    <label class="ew-slider__label" for="vol-neon-dark">Volume</label>
-    <input id="vol-neon-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-neon-dark">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-neon-dark" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="memphis" data-mode="light" data-fidelity-band="costume" data-testid="case-memphis-light">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">memphis / light</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-memphis-light">Email</label>
-    <input id="email-memphis-light" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-memphis-light" aria-selected="true" aria-controls="p1-memphis-light">Basic</button>
-      <button type="button" role="tab" id="t2-memphis-light" aria-selected="false" aria-controls="p2-memphis-light" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-memphis-light" aria-labelledby="t1-memphis-light">Basic panel</div>
-    <div role="tabpanel" id="p2-memphis-light" aria-labelledby="t2-memphis-light" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-memphis-light">
-    <header class="ew-dialog__header"><h2 id="dtitle-memphis-light">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-memphis-light">
-    <label class="ew-select__label" for="country-memphis-light">Country</label>
-    <select id="country-memphis-light" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-memphis-light">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-memphis-light">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-memphis-light">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-memphis-light">Details</button>
-    <div id="pop-memphis-light" class="ew-popover__panel" popover>
-      <p>Popover content for memphis-light.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-memphis-light">
-    <button type="button" class="ew-button" aria-describedby="tip-memphis-light">Info</button>
-    <span id="tip-memphis-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-memphis-light">
-    <label class="ew-slider__label" for="vol-memphis-light">Volume</label>
-    <input id="vol-memphis-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-memphis-light">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-memphis-light" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="memphis" data-mode="dark" data-fidelity-band="costume" data-testid="case-memphis-dark">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">memphis / dark</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-memphis-dark">Email</label>
-    <input id="email-memphis-dark" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-memphis-dark" aria-selected="true" aria-controls="p1-memphis-dark">Basic</button>
-      <button type="button" role="tab" id="t2-memphis-dark" aria-selected="false" aria-controls="p2-memphis-dark" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-memphis-dark" aria-labelledby="t1-memphis-dark">Basic panel</div>
-    <div role="tabpanel" id="p2-memphis-dark" aria-labelledby="t2-memphis-dark" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-memphis-dark">
-    <header class="ew-dialog__header"><h2 id="dtitle-memphis-dark">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-memphis-dark">
-    <label class="ew-select__label" for="country-memphis-dark">Country</label>
-    <select id="country-memphis-dark" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-memphis-dark">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-memphis-dark">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-memphis-dark">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-memphis-dark">Details</button>
-    <div id="pop-memphis-dark" class="ew-popover__panel" popover>
-      <p>Popover content for memphis-dark.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-memphis-dark">
-    <button type="button" class="ew-button" aria-describedby="tip-memphis-dark">Info</button>
-    <span id="tip-memphis-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-memphis-dark">
-    <label class="ew-slider__label" for="vol-memphis-dark">Volume</label>
-    <input id="vol-memphis-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-memphis-dark">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-memphis-dark" aria-live="polite"></ew-toast-region>
-
 </section>
 <section class="ew-root case" data-era="groovy" data-mode="light" data-fidelity-band="costume" data-testid="case-groovy-light">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">groovy / light</h1>
-  
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -737,7 +309,6 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
   <ew-select class="ew-select" data-testid="select-groovy-light">
     <label class="ew-select__label" for="country-groovy-light">Country</label>
     <select id="country-groovy-light" class="ew-select__control">
@@ -769,11 +340,9 @@
     <output class="ew-slider__value" for="vol-groovy-light">40</output>
   </ew-slider>
   <ew-toast-region class="ew-toast-region" data-testid="toast-groovy-light" aria-live="polite"></ew-toast-region>
-
 </section>
 <section class="ew-root case" data-era="groovy" data-mode="dark" data-fidelity-band="costume" data-testid="case-groovy-dark">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">groovy / dark</h1>
-  
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -806,7 +375,6 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
   <ew-select class="ew-select" data-testid="select-groovy-dark">
     <label class="ew-select__label" for="country-groovy-dark">Country</label>
     <select id="country-groovy-dark" class="ew-select__control">
@@ -838,11 +406,9 @@
     <output class="ew-slider__value" for="vol-groovy-dark">40</output>
   </ew-slider>
   <ew-toast-region class="ew-toast-region" data-testid="toast-groovy-dark" aria-live="polite"></ew-toast-region>
-
 </section>
-<section class="ew-root case" data-era="earth" data-mode="light" data-fidelity-band="costume" data-testid="case-earth-light">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">earth / light</h1>
-  
+<section class="ew-root case" data-era="mcm-atomic" data-mode="light" data-fidelity-band="costume" data-testid="case-mcm-atomic-light">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">mcm-atomic / light</h1>
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -852,8 +418,8 @@
     </footer>
   </article>
   <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-earth-light">Email</label>
-    <input id="email-earth-light" class="ew-text-field__control" type="email" autocomplete="email" />
+    <label class="ew-text-field__label" for="email-mcm-atomic-light">Email</label>
+    <input id="email-mcm-atomic-light" class="ew-text-field__control" type="email" autocomplete="email" />
   </div>
   <label class="ew-switch">
     <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
@@ -862,56 +428,53 @@
   </label>
   <ew-tabs class="ew-tabs">
     <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-earth-light" aria-selected="true" aria-controls="p1-earth-light">Basic</button>
-      <button type="button" role="tab" id="t2-earth-light" aria-selected="false" aria-controls="p2-earth-light" tabindex="-1">Pro</button>
+      <button type="button" role="tab" id="t1-mcm-atomic-light" aria-selected="true" aria-controls="p1-mcm-atomic-light">Basic</button>
+      <button type="button" role="tab" id="t2-mcm-atomic-light" aria-selected="false" aria-controls="p2-mcm-atomic-light" tabindex="-1">Pro</button>
     </div>
-    <div role="tabpanel" id="p1-earth-light" aria-labelledby="t1-earth-light">Basic panel</div>
-    <div role="tabpanel" id="p2-earth-light" aria-labelledby="t2-earth-light" hidden>Pro panel</div>
+    <div role="tabpanel" id="p1-mcm-atomic-light" aria-labelledby="t1-mcm-atomic-light">Basic panel</div>
+    <div role="tabpanel" id="p2-mcm-atomic-light" aria-labelledby="t2-mcm-atomic-light" hidden>Pro panel</div>
   </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-earth-light">
-    <header class="ew-dialog__header"><h2 id="dtitle-earth-light">Dialog</h2></header>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-mcm-atomic-light">
+    <header class="ew-dialog__header"><h2 id="dtitle-mcm-atomic-light">Dialog</h2></header>
     <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
     <footer class="ew-dialog__footer">
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
-  <ew-select class="ew-select" data-testid="select-earth-light">
-    <label class="ew-select__label" for="country-earth-light">Country</label>
-    <select id="country-earth-light" class="ew-select__control">
+  <ew-select class="ew-select" data-testid="select-atomic-light">
+    <label class="ew-select__label" for="country-mcm-atomic-light">Country</label>
+    <select id="country-mcm-atomic-light" class="ew-select__control">
       <option value="us">United States</option>
       <option value="ca">Canada</option>
       <option value="mx">Mexico</option>
     </select>
   </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-earth-light">
+  <ew-menu class="ew-menu" data-testid="menu-atomic-light">
     <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-earth-light">
+    <div class="ew-menu__panel" role="menu" id="menu-panel-mcm-atomic-light">
       <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
       <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
     </div>
   </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-earth-light">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-earth-light">Details</button>
-    <div id="pop-earth-light" class="ew-popover__panel" popover>
-      <p>Popover content for earth-light.</p>
+  <ew-popover class="ew-popover" data-testid="popover-atomic-light">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-mcm-atomic-light">Details</button>
+    <div id="pop-mcm-atomic-light" class="ew-popover__panel" popover>
+      <p>Popover content for mcm-atomic-light.</p>
     </div>
   </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-earth-light">
-    <button type="button" class="ew-button" aria-describedby="tip-earth-light">Info</button>
-    <span id="tip-earth-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-atomic-light">
+    <button type="button" class="ew-button" aria-describedby="tip-mcm-atomic-light">Info</button>
+    <span id="tip-mcm-atomic-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-earth-light">
-    <label class="ew-slider__label" for="vol-earth-light">Volume</label>
-    <input id="vol-earth-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-earth-light">40</output>
+  <ew-slider class="ew-slider" data-testid="slider-atomic-light">
+    <label class="ew-slider__label" for="vol-mcm-atomic-light">Volume</label>
+    <input id="vol-mcm-atomic-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-mcm-atomic-light">40</output>
   </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-earth-light" aria-live="polite"></ew-toast-region>
-
+  <ew-toast-region class="ew-toast-region" data-testid="toast-atomic-light" aria-live="polite"></ew-toast-region>
 </section>
-<section class="ew-root case" data-era="earth" data-mode="dark" data-fidelity-band="costume" data-testid="case-earth-dark">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">earth / dark</h1>
-  
+<section class="ew-root case" data-era="mcm-atomic" data-mode="dark" data-fidelity-band="costume" data-testid="case-mcm-atomic-dark">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">mcm-atomic / dark</h1>
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -921,8 +484,8 @@
     </footer>
   </article>
   <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-earth-dark">Email</label>
-    <input id="email-earth-dark" class="ew-text-field__control" type="email" autocomplete="email" />
+    <label class="ew-text-field__label" for="email-mcm-atomic-dark">Email</label>
+    <input id="email-mcm-atomic-dark" class="ew-text-field__control" type="email" autocomplete="email" />
   </div>
   <label class="ew-switch">
     <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
@@ -931,56 +494,53 @@
   </label>
   <ew-tabs class="ew-tabs">
     <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-earth-dark" aria-selected="true" aria-controls="p1-earth-dark">Basic</button>
-      <button type="button" role="tab" id="t2-earth-dark" aria-selected="false" aria-controls="p2-earth-dark" tabindex="-1">Pro</button>
+      <button type="button" role="tab" id="t1-mcm-atomic-dark" aria-selected="true" aria-controls="p1-mcm-atomic-dark">Basic</button>
+      <button type="button" role="tab" id="t2-mcm-atomic-dark" aria-selected="false" aria-controls="p2-mcm-atomic-dark" tabindex="-1">Pro</button>
     </div>
-    <div role="tabpanel" id="p1-earth-dark" aria-labelledby="t1-earth-dark">Basic panel</div>
-    <div role="tabpanel" id="p2-earth-dark" aria-labelledby="t2-earth-dark" hidden>Pro panel</div>
+    <div role="tabpanel" id="p1-mcm-atomic-dark" aria-labelledby="t1-mcm-atomic-dark">Basic panel</div>
+    <div role="tabpanel" id="p2-mcm-atomic-dark" aria-labelledby="t2-mcm-atomic-dark" hidden>Pro panel</div>
   </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-earth-dark">
-    <header class="ew-dialog__header"><h2 id="dtitle-earth-dark">Dialog</h2></header>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-mcm-atomic-dark">
+    <header class="ew-dialog__header"><h2 id="dtitle-mcm-atomic-dark">Dialog</h2></header>
     <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
     <footer class="ew-dialog__footer">
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
-  <ew-select class="ew-select" data-testid="select-earth-dark">
-    <label class="ew-select__label" for="country-earth-dark">Country</label>
-    <select id="country-earth-dark" class="ew-select__control">
+  <ew-select class="ew-select" data-testid="select-atomic-dark">
+    <label class="ew-select__label" for="country-mcm-atomic-dark">Country</label>
+    <select id="country-mcm-atomic-dark" class="ew-select__control">
       <option value="us">United States</option>
       <option value="ca">Canada</option>
       <option value="mx">Mexico</option>
     </select>
   </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-earth-dark">
+  <ew-menu class="ew-menu" data-testid="menu-atomic-dark">
     <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-earth-dark">
+    <div class="ew-menu__panel" role="menu" id="menu-panel-mcm-atomic-dark">
       <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
       <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
     </div>
   </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-earth-dark">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-earth-dark">Details</button>
-    <div id="pop-earth-dark" class="ew-popover__panel" popover>
-      <p>Popover content for earth-dark.</p>
+  <ew-popover class="ew-popover" data-testid="popover-atomic-dark">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-mcm-atomic-dark">Details</button>
+    <div id="pop-mcm-atomic-dark" class="ew-popover__panel" popover>
+      <p>Popover content for mcm-atomic-dark.</p>
     </div>
   </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-earth-dark">
-    <button type="button" class="ew-button" aria-describedby="tip-earth-dark">Info</button>
-    <span id="tip-earth-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-atomic-dark">
+    <button type="button" class="ew-button" aria-describedby="tip-mcm-atomic-dark">Info</button>
+    <span id="tip-mcm-atomic-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-earth-dark">
-    <label class="ew-slider__label" for="vol-earth-dark">Volume</label>
-    <input id="vol-earth-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-earth-dark">40</output>
+  <ew-slider class="ew-slider" data-testid="slider-atomic-dark">
+    <label class="ew-slider__label" for="vol-mcm-atomic-dark">Volume</label>
+    <input id="vol-mcm-atomic-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-mcm-atomic-dark">40</output>
   </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-earth-dark" aria-live="polite"></ew-toast-region>
-
+  <ew-toast-region class="ew-toast-region" data-testid="toast-atomic-dark" aria-live="polite"></ew-toast-region>
 </section>
-<section class="ew-root case" data-era="neutral" data-mode="light" data-fidelity-band="whisper" data-testid="case-neutral-light-whisper">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neutral / light / whisper</h1>
-  
+<section class="ew-root case" data-era="memphis" data-mode="light" data-fidelity-band="costume" data-testid="case-memphis-light">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">memphis / light</h1>
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -990,8 +550,8 @@
     </footer>
   </article>
   <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-neutral-light-whisper">Email</label>
-    <input id="email-neutral-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+    <label class="ew-text-field__label" for="email-memphis-light">Email</label>
+    <input id="email-memphis-light" class="ew-text-field__control" type="email" autocomplete="email" />
   </div>
   <label class="ew-switch">
     <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
@@ -1000,56 +560,317 @@
   </label>
   <ew-tabs class="ew-tabs">
     <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-neutral-light-whisper" aria-selected="true" aria-controls="p1-neutral-light-whisper">Basic</button>
-      <button type="button" role="tab" id="t2-neutral-light-whisper" aria-selected="false" aria-controls="p2-neutral-light-whisper" tabindex="-1">Pro</button>
+      <button type="button" role="tab" id="t1-memphis-light" aria-selected="true" aria-controls="p1-memphis-light">Basic</button>
+      <button type="button" role="tab" id="t2-memphis-light" aria-selected="false" aria-controls="p2-memphis-light" tabindex="-1">Pro</button>
     </div>
-    <div role="tabpanel" id="p1-neutral-light-whisper" aria-labelledby="t1-neutral-light-whisper">Basic panel</div>
-    <div role="tabpanel" id="p2-neutral-light-whisper" aria-labelledby="t2-neutral-light-whisper" hidden>Pro panel</div>
+    <div role="tabpanel" id="p1-memphis-light" aria-labelledby="t1-memphis-light">Basic panel</div>
+    <div role="tabpanel" id="p2-memphis-light" aria-labelledby="t2-memphis-light" hidden>Pro panel</div>
   </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-neutral-light-whisper">
-    <header class="ew-dialog__header"><h2 id="dtitle-neutral-light-whisper">Dialog</h2></header>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-memphis-light">
+    <header class="ew-dialog__header"><h2 id="dtitle-memphis-light">Dialog</h2></header>
     <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
     <footer class="ew-dialog__footer">
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
-  <ew-select class="ew-select" data-testid="select-neutral-light-whisper">
-    <label class="ew-select__label" for="country-neutral-light-whisper">Country</label>
-    <select id="country-neutral-light-whisper" class="ew-select__control">
+  <ew-select class="ew-select" data-testid="select-memphis-light">
+    <label class="ew-select__label" for="country-memphis-light">Country</label>
+    <select id="country-memphis-light" class="ew-select__control">
       <option value="us">United States</option>
       <option value="ca">Canada</option>
       <option value="mx">Mexico</option>
     </select>
   </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-neutral-light-whisper">
+  <ew-menu class="ew-menu" data-testid="menu-memphis-light">
     <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-neutral-light-whisper">
+    <div class="ew-menu__panel" role="menu" id="menu-panel-memphis-light">
       <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
       <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
     </div>
   </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-neutral-light-whisper">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neutral-light-whisper">Details</button>
-    <div id="pop-neutral-light-whisper" class="ew-popover__panel" popover>
+  <ew-popover class="ew-popover" data-testid="popover-memphis-light">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-memphis-light">Details</button>
+    <div id="pop-memphis-light" class="ew-popover__panel" popover>
+      <p>Popover content for memphis-light.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-memphis-light">
+    <button type="button" class="ew-button" aria-describedby="tip-memphis-light">Info</button>
+    <span id="tip-memphis-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-memphis-light">
+    <label class="ew-slider__label" for="vol-memphis-light">Volume</label>
+    <input id="vol-memphis-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-memphis-light">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-memphis-light" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="memphis" data-mode="dark" data-fidelity-band="costume" data-testid="case-memphis-dark">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">memphis / dark</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-memphis-dark">Email</label>
+    <input id="email-memphis-dark" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-memphis-dark" aria-selected="true" aria-controls="p1-memphis-dark">Basic</button>
+      <button type="button" role="tab" id="t2-memphis-dark" aria-selected="false" aria-controls="p2-memphis-dark" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-memphis-dark" aria-labelledby="t1-memphis-dark">Basic panel</div>
+    <div role="tabpanel" id="p2-memphis-dark" aria-labelledby="t2-memphis-dark" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-memphis-dark">
+    <header class="ew-dialog__header"><h2 id="dtitle-memphis-dark">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-memphis-dark">
+    <label class="ew-select__label" for="country-memphis-dark">Country</label>
+    <select id="country-memphis-dark" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-memphis-dark">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-memphis-dark">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-memphis-dark">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-memphis-dark">Details</button>
+    <div id="pop-memphis-dark" class="ew-popover__panel" popover>
+      <p>Popover content for memphis-dark.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-memphis-dark">
+    <button type="button" class="ew-button" aria-describedby="tip-memphis-dark">Info</button>
+    <span id="tip-memphis-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-memphis-dark">
+    <label class="ew-slider__label" for="vol-memphis-dark">Volume</label>
+    <input id="vol-memphis-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-memphis-dark">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-memphis-dark" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="neon" data-mode="light" data-fidelity-band="costume" data-testid="case-neon-light">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neon / light</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-neon-light">Email</label>
+    <input id="email-neon-light" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-neon-light" aria-selected="true" aria-controls="p1-neon-light">Basic</button>
+      <button type="button" role="tab" id="t2-neon-light" aria-selected="false" aria-controls="p2-neon-light" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-neon-light" aria-labelledby="t1-neon-light">Basic panel</div>
+    <div role="tabpanel" id="p2-neon-light" aria-labelledby="t2-neon-light" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-neon-light">
+    <header class="ew-dialog__header"><h2 id="dtitle-neon-light">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-neon-light">
+    <label class="ew-select__label" for="country-neon-light">Country</label>
+    <select id="country-neon-light" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neon-light">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neon-light">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neon-light">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neon-light">Details</button>
+    <div id="pop-neon-light" class="ew-popover__panel" popover>
+      <p>Popover content for neon-light.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neon-light">
+    <button type="button" class="ew-button" aria-describedby="tip-neon-light">Info</button>
+    <span id="tip-neon-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-neon-light">
+    <label class="ew-slider__label" for="vol-neon-light">Volume</label>
+    <input id="vol-neon-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neon-light">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neon-light" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="neon" data-mode="dark" data-fidelity-band="costume" data-testid="case-neon-dark">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neon / dark</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-neon-dark">Email</label>
+    <input id="email-neon-dark" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-neon-dark" aria-selected="true" aria-controls="p1-neon-dark">Basic</button>
+      <button type="button" role="tab" id="t2-neon-dark" aria-selected="false" aria-controls="p2-neon-dark" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-neon-dark" aria-labelledby="t1-neon-dark">Basic panel</div>
+    <div role="tabpanel" id="p2-neon-dark" aria-labelledby="t2-neon-dark" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-neon-dark">
+    <header class="ew-dialog__header"><h2 id="dtitle-neon-dark">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-neon-dark">
+    <label class="ew-select__label" for="country-neon-dark">Country</label>
+    <select id="country-neon-dark" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neon-dark">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neon-dark">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neon-dark">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neon-dark">Details</button>
+    <div id="pop-neon-dark" class="ew-popover__panel" popover>
+      <p>Popover content for neon-dark.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neon-dark">
+    <button type="button" class="ew-button" aria-describedby="tip-neon-dark">Info</button>
+    <span id="tip-neon-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-neon-dark">
+    <label class="ew-slider__label" for="vol-neon-dark">Volume</label>
+    <input id="vol-neon-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neon-dark">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neon-dark" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="neutral" data-mode="light" data-fidelity-band="costume" data-testid="case-neutral-light">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neutral / light</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-neutral-light">Email</label>
+    <input id="email-neutral-light" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-neutral-light" aria-selected="true" aria-controls="p1-neutral-light">Basic</button>
+      <button type="button" role="tab" id="t2-neutral-light" aria-selected="false" aria-controls="p2-neutral-light" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-neutral-light" aria-labelledby="t1-neutral-light">Basic panel</div>
+    <div role="tabpanel" id="p2-neutral-light" aria-labelledby="t2-neutral-light" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-neutral-light">
+    <header class="ew-dialog__header"><h2 id="dtitle-neutral-light">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-neutral-light">
+    <label class="ew-select__label" for="country-neutral-light">Country</label>
+    <select id="country-neutral-light" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neutral-light">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neutral-light">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neutral-light">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neutral-light">Details</button>
+    <div id="pop-neutral-light" class="ew-popover__panel" popover>
       <p>Popover content for neutral-light.</p>
     </div>
   </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neutral-light-whisper">
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neutral-light">
     <button type="button" class="ew-button" aria-describedby="tip-neutral-light">Info</button>
-    <span id="tip-neutral-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+    <span id="tip-neutral-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-neutral-light-whisper">
-    <label class="ew-slider__label" for="vol-neutral-light-whisper">Volume</label>
-    <input id="vol-neutral-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-neutral-light-whisper">40</output>
+  <ew-slider class="ew-slider" data-testid="slider-neutral-light">
+    <label class="ew-slider__label" for="vol-neutral-light">Volume</label>
+    <input id="vol-neutral-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neutral-light">40</output>
   </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-neutral-light-whisper" aria-live="polite"></ew-toast-region>
-
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neutral-light" aria-live="polite"></ew-toast-region>
 </section>
-<section class="ew-root case" data-era="neutral" data-mode="dark" data-fidelity-band="whisper" data-testid="case-neutral-dark-whisper">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neutral / dark / whisper</h1>
-  
+<section class="ew-root case" data-era="neutral" data-mode="dark" data-fidelity-band="costume" data-testid="case-neutral-dark">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neutral / dark</h1>
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -1059,8 +880,8 @@
     </footer>
   </article>
   <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-neutral-dark-whisper">Email</label>
-    <input id="email-neutral-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+    <label class="ew-text-field__label" for="email-neutral-dark">Email</label>
+    <input id="email-neutral-dark" class="ew-text-field__control" type="email" autocomplete="email" />
   </div>
   <label class="ew-switch">
     <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
@@ -1069,56 +890,317 @@
   </label>
   <ew-tabs class="ew-tabs">
     <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-neutral-dark-whisper" aria-selected="true" aria-controls="p1-neutral-dark-whisper">Basic</button>
-      <button type="button" role="tab" id="t2-neutral-dark-whisper" aria-selected="false" aria-controls="p2-neutral-dark-whisper" tabindex="-1">Pro</button>
+      <button type="button" role="tab" id="t1-neutral-dark" aria-selected="true" aria-controls="p1-neutral-dark">Basic</button>
+      <button type="button" role="tab" id="t2-neutral-dark" aria-selected="false" aria-controls="p2-neutral-dark" tabindex="-1">Pro</button>
     </div>
-    <div role="tabpanel" id="p1-neutral-dark-whisper" aria-labelledby="t1-neutral-dark-whisper">Basic panel</div>
-    <div role="tabpanel" id="p2-neutral-dark-whisper" aria-labelledby="t2-neutral-dark-whisper" hidden>Pro panel</div>
+    <div role="tabpanel" id="p1-neutral-dark" aria-labelledby="t1-neutral-dark">Basic panel</div>
+    <div role="tabpanel" id="p2-neutral-dark" aria-labelledby="t2-neutral-dark" hidden>Pro panel</div>
   </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-neutral-dark-whisper">
-    <header class="ew-dialog__header"><h2 id="dtitle-neutral-dark-whisper">Dialog</h2></header>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-neutral-dark">
+    <header class="ew-dialog__header"><h2 id="dtitle-neutral-dark">Dialog</h2></header>
     <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
     <footer class="ew-dialog__footer">
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
-  <ew-select class="ew-select" data-testid="select-neutral-dark-whisper">
-    <label class="ew-select__label" for="country-neutral-dark-whisper">Country</label>
-    <select id="country-neutral-dark-whisper" class="ew-select__control">
+  <ew-select class="ew-select" data-testid="select-neutral-dark">
+    <label class="ew-select__label" for="country-neutral-dark">Country</label>
+    <select id="country-neutral-dark" class="ew-select__control">
       <option value="us">United States</option>
       <option value="ca">Canada</option>
       <option value="mx">Mexico</option>
     </select>
   </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-neutral-dark-whisper">
+  <ew-menu class="ew-menu" data-testid="menu-neutral-dark">
     <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-neutral-dark-whisper">
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neutral-dark">
       <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
       <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
     </div>
   </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-neutral-dark-whisper">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neutral-dark-whisper">Details</button>
-    <div id="pop-neutral-dark-whisper" class="ew-popover__panel" popover>
+  <ew-popover class="ew-popover" data-testid="popover-neutral-dark">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neutral-dark">Details</button>
+    <div id="pop-neutral-dark" class="ew-popover__panel" popover>
       <p>Popover content for neutral-dark.</p>
     </div>
   </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neutral-dark-whisper">
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neutral-dark">
     <button type="button" class="ew-button" aria-describedby="tip-neutral-dark">Info</button>
-    <span id="tip-neutral-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+    <span id="tip-neutral-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-neutral-dark-whisper">
-    <label class="ew-slider__label" for="vol-neutral-dark-whisper">Volume</label>
-    <input id="vol-neutral-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-neutral-dark-whisper">40</output>
+  <ew-slider class="ew-slider" data-testid="slider-neutral-dark">
+    <label class="ew-slider__label" for="vol-neutral-dark">Volume</label>
+    <input id="vol-neutral-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neutral-dark">40</output>
   </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-neutral-dark-whisper" aria-live="polite"></ew-toast-region>
-
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neutral-dark" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="swiss" data-mode="light" data-fidelity-band="costume" data-testid="case-swiss-light">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">swiss / light</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-swiss-light">Email</label>
+    <input id="email-swiss-light" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-swiss-light" aria-selected="true" aria-controls="p1-swiss-light">Basic</button>
+      <button type="button" role="tab" id="t2-swiss-light" aria-selected="false" aria-controls="p2-swiss-light" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-swiss-light" aria-labelledby="t1-swiss-light">Basic panel</div>
+    <div role="tabpanel" id="p2-swiss-light" aria-labelledby="t2-swiss-light" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-swiss-light">
+    <header class="ew-dialog__header"><h2 id="dtitle-swiss-light">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-swiss-light">
+    <label class="ew-select__label" for="country-swiss-light">Country</label>
+    <select id="country-swiss-light" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-swiss-light">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-swiss-light">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-swiss-light">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-swiss-light">Details</button>
+    <div id="pop-swiss-light" class="ew-popover__panel" popover>
+      <p>Popover content for swiss-light.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-swiss-light">
+    <button type="button" class="ew-button" aria-describedby="tip-swiss-light">Info</button>
+    <span id="tip-swiss-light" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-swiss-light">
+    <label class="ew-slider__label" for="vol-swiss-light">Volume</label>
+    <input id="vol-swiss-light" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-swiss-light">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-swiss-light" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="swiss" data-mode="dark" data-fidelity-band="costume" data-testid="case-swiss-dark">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">swiss / dark</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-swiss-dark">Email</label>
+    <input id="email-swiss-dark" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-swiss-dark" aria-selected="true" aria-controls="p1-swiss-dark">Basic</button>
+      <button type="button" role="tab" id="t2-swiss-dark" aria-selected="false" aria-controls="p2-swiss-dark" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-swiss-dark" aria-labelledby="t1-swiss-dark">Basic panel</div>
+    <div role="tabpanel" id="p2-swiss-dark" aria-labelledby="t2-swiss-dark" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-swiss-dark">
+    <header class="ew-dialog__header"><h2 id="dtitle-swiss-dark">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-swiss-dark">
+    <label class="ew-select__label" for="country-swiss-dark">Country</label>
+    <select id="country-swiss-dark" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-swiss-dark">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-swiss-dark">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-swiss-dark">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-swiss-dark">Details</button>
+    <div id="pop-swiss-dark" class="ew-popover__panel" popover>
+      <p>Popover content for swiss-dark.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-swiss-dark">
+    <button type="button" class="ew-button" aria-describedby="tip-swiss-dark">Info</button>
+    <span id="tip-swiss-dark" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-swiss-dark">
+    <label class="ew-slider__label" for="vol-swiss-dark">Volume</label>
+    <input id="vol-swiss-dark" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-swiss-dark">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-swiss-dark" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="bauhaus" data-mode="light" data-fidelity-band="whisper" data-testid="case-bauhaus-light-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">bauhaus / light / whisper</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-bauhaus-light-whisper">Email</label>
+    <input id="email-bauhaus-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-bauhaus-light-whisper" aria-selected="true" aria-controls="p1-bauhaus-light-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-bauhaus-light-whisper" aria-selected="false" aria-controls="p2-bauhaus-light-whisper" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-bauhaus-light-whisper" aria-labelledby="t1-bauhaus-light-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-bauhaus-light-whisper" aria-labelledby="t2-bauhaus-light-whisper" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-bauhaus-light-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-bauhaus-light-whisper">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-bauhaus-light-whisper">
+    <label class="ew-select__label" for="country-bauhaus-light-whisper">Country</label>
+    <select id="country-bauhaus-light-whisper" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-bauhaus-light-whisper">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-bauhaus-light-whisper">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-bauhaus-light-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-bauhaus-light-whisper">Details</button>
+    <div id="pop-bauhaus-light-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for bauhaus-light-whisper.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-bauhaus-light-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-bauhaus-light-whisper">Info</button>
+    <span id="tip-bauhaus-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-bauhaus-light-whisper">
+    <label class="ew-slider__label" for="vol-bauhaus-light-whisper">Volume</label>
+    <input id="vol-bauhaus-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-bauhaus-light-whisper">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-bauhaus-light-whisper" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="bauhaus" data-mode="dark" data-fidelity-band="whisper" data-testid="case-bauhaus-dark-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">bauhaus / dark / whisper</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-bauhaus-dark-whisper">Email</label>
+    <input id="email-bauhaus-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-bauhaus-dark-whisper" aria-selected="true" aria-controls="p1-bauhaus-dark-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-bauhaus-dark-whisper" aria-selected="false" aria-controls="p2-bauhaus-dark-whisper" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-bauhaus-dark-whisper" aria-labelledby="t1-bauhaus-dark-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-bauhaus-dark-whisper" aria-labelledby="t2-bauhaus-dark-whisper" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-bauhaus-dark-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-bauhaus-dark-whisper">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-bauhaus-dark-whisper">
+    <label class="ew-select__label" for="country-bauhaus-dark-whisper">Country</label>
+    <select id="country-bauhaus-dark-whisper" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-bauhaus-dark-whisper">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-bauhaus-dark-whisper">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-bauhaus-dark-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-bauhaus-dark-whisper">Details</button>
+    <div id="pop-bauhaus-dark-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for bauhaus-dark-whisper.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-bauhaus-dark-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-bauhaus-dark-whisper">Info</button>
+    <span id="tip-bauhaus-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-bauhaus-dark-whisper">
+    <label class="ew-slider__label" for="vol-bauhaus-dark-whisper">Volume</label>
+    <input id="vol-bauhaus-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-bauhaus-dark-whisper">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-bauhaus-dark-whisper" aria-live="polite"></ew-toast-region>
 </section>
 <section class="ew-root case" data-era="deco" data-mode="light" data-fidelity-band="whisper" data-testid="case-deco-light-whisper">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">deco / light / whisper</h1>
-  
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -1151,7 +1233,6 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
   <ew-select class="ew-select" data-testid="select-deco-light-whisper">
     <label class="ew-select__label" for="country-deco-light-whisper">Country</label>
     <select id="country-deco-light-whisper" class="ew-select__control">
@@ -1170,11 +1251,11 @@
   <ew-popover class="ew-popover" data-testid="popover-deco-light-whisper">
     <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-deco-light-whisper">Details</button>
     <div id="pop-deco-light-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for deco-light.</p>
+      <p>Popover content for deco-light-whisper.</p>
     </div>
   </ew-popover>
   <ew-tooltip class="ew-tooltip" data-testid="tooltip-deco-light-whisper">
-    <button type="button" class="ew-button" aria-describedby="tip-deco-light">Info</button>
+    <button type="button" class="ew-button" aria-describedby="tip-deco-light-whisper">Info</button>
     <span id="tip-deco-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
   <ew-slider class="ew-slider" data-testid="slider-deco-light-whisper">
@@ -1183,11 +1264,9 @@
     <output class="ew-slider__value" for="vol-deco-light-whisper">40</output>
   </ew-slider>
   <ew-toast-region class="ew-toast-region" data-testid="toast-deco-light-whisper" aria-live="polite"></ew-toast-region>
-
 </section>
 <section class="ew-root case" data-era="deco" data-mode="dark" data-fidelity-band="whisper" data-testid="case-deco-dark-whisper">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">deco / dark / whisper</h1>
-  
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -1220,7 +1299,6 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
   <ew-select class="ew-select" data-testid="select-deco-dark-whisper">
     <label class="ew-select__label" for="country-deco-dark-whisper">Country</label>
     <select id="country-deco-dark-whisper" class="ew-select__control">
@@ -1239,11 +1317,11 @@
   <ew-popover class="ew-popover" data-testid="popover-deco-dark-whisper">
     <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-deco-dark-whisper">Details</button>
     <div id="pop-deco-dark-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for deco-dark.</p>
+      <p>Popover content for deco-dark-whisper.</p>
     </div>
   </ew-popover>
   <ew-tooltip class="ew-tooltip" data-testid="tooltip-deco-dark-whisper">
-    <button type="button" class="ew-button" aria-describedby="tip-deco-dark">Info</button>
+    <button type="button" class="ew-button" aria-describedby="tip-deco-dark-whisper">Info</button>
     <span id="tip-deco-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
   <ew-slider class="ew-slider" data-testid="slider-deco-dark-whisper">
@@ -1252,425 +1330,9 @@
     <output class="ew-slider__value" for="vol-deco-dark-whisper">40</output>
   </ew-slider>
   <ew-toast-region class="ew-toast-region" data-testid="toast-deco-dark-whisper" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="mcm-atomic" data-mode="light" data-fidelity-band="whisper" data-testid="case-mcm-atomic-light-whisper">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">mcm-atomic / light / whisper</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-mcm-atomic-light-whisper">Email</label>
-    <input id="email-mcm-atomic-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-mcm-atomic-light-whisper" aria-selected="true" aria-controls="p1-mcm-atomic-light-whisper">Basic</button>
-      <button type="button" role="tab" id="t2-mcm-atomic-light-whisper" aria-selected="false" aria-controls="p2-mcm-atomic-light-whisper" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-mcm-atomic-light-whisper" aria-labelledby="t1-mcm-atomic-light-whisper">Basic panel</div>
-    <div role="tabpanel" id="p2-mcm-atomic-light-whisper" aria-labelledby="t2-mcm-atomic-light-whisper" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-mcm-atomic-light-whisper">
-    <header class="ew-dialog__header"><h2 id="dtitle-mcm-atomic-light-whisper">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-atomic-light">
-    <label class="ew-select__label" for="country-mcm-atomic-light-whisper">Country</label>
-    <select id="country-mcm-atomic-light-whisper" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-atomic-light">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-mcm-atomic-light-whisper">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-atomic-light">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-mcm-atomic-light-whisper">Details</button>
-    <div id="pop-mcm-atomic-light-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for mcm-atomic-light.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-atomic-light">
-    <button type="button" class="ew-button" aria-describedby="tip-mcm-atomic-light">Info</button>
-    <span id="tip-mcm-atomic-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-atomic-light">
-    <label class="ew-slider__label" for="vol-mcm-atomic-light-whisper">Volume</label>
-    <input id="vol-mcm-atomic-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-mcm-atomic-light-whisper">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-atomic-light" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="mcm-atomic" data-mode="dark" data-fidelity-band="whisper" data-testid="case-mcm-atomic-dark-whisper">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">mcm-atomic / dark / whisper</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-mcm-atomic-dark-whisper">Email</label>
-    <input id="email-mcm-atomic-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-mcm-atomic-dark-whisper" aria-selected="true" aria-controls="p1-mcm-atomic-dark-whisper">Basic</button>
-      <button type="button" role="tab" id="t2-mcm-atomic-dark-whisper" aria-selected="false" aria-controls="p2-mcm-atomic-dark-whisper" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-mcm-atomic-dark-whisper" aria-labelledby="t1-mcm-atomic-dark-whisper">Basic panel</div>
-    <div role="tabpanel" id="p2-mcm-atomic-dark-whisper" aria-labelledby="t2-mcm-atomic-dark-whisper" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-mcm-atomic-dark-whisper">
-    <header class="ew-dialog__header"><h2 id="dtitle-mcm-atomic-dark-whisper">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-atomic-dark">
-    <label class="ew-select__label" for="country-mcm-atomic-dark-whisper">Country</label>
-    <select id="country-mcm-atomic-dark-whisper" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-atomic-dark">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-mcm-atomic-dark-whisper">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-atomic-dark">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-mcm-atomic-dark-whisper">Details</button>
-    <div id="pop-mcm-atomic-dark-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for mcm-atomic-dark.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-atomic-dark">
-    <button type="button" class="ew-button" aria-describedby="tip-mcm-atomic-dark">Info</button>
-    <span id="tip-mcm-atomic-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-atomic-dark">
-    <label class="ew-slider__label" for="vol-mcm-atomic-dark-whisper">Volume</label>
-    <input id="vol-mcm-atomic-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-mcm-atomic-dark-whisper">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-atomic-dark" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="neon" data-mode="light" data-fidelity-band="whisper" data-testid="case-neon-light-whisper">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neon / light / whisper</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-neon-light-whisper">Email</label>
-    <input id="email-neon-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-neon-light-whisper" aria-selected="true" aria-controls="p1-neon-light-whisper">Basic</button>
-      <button type="button" role="tab" id="t2-neon-light-whisper" aria-selected="false" aria-controls="p2-neon-light-whisper" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-neon-light-whisper" aria-labelledby="t1-neon-light-whisper">Basic panel</div>
-    <div role="tabpanel" id="p2-neon-light-whisper" aria-labelledby="t2-neon-light-whisper" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-neon-light-whisper">
-    <header class="ew-dialog__header"><h2 id="dtitle-neon-light-whisper">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-neon-light-whisper">
-    <label class="ew-select__label" for="country-neon-light-whisper">Country</label>
-    <select id="country-neon-light-whisper" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-neon-light-whisper">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-neon-light-whisper">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-neon-light-whisper">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neon-light-whisper">Details</button>
-    <div id="pop-neon-light-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for neon-light.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neon-light-whisper">
-    <button type="button" class="ew-button" aria-describedby="tip-neon-light">Info</button>
-    <span id="tip-neon-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-neon-light-whisper">
-    <label class="ew-slider__label" for="vol-neon-light-whisper">Volume</label>
-    <input id="vol-neon-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-neon-light-whisper">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-neon-light-whisper" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="neon" data-mode="dark" data-fidelity-band="whisper" data-testid="case-neon-dark-whisper">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neon / dark / whisper</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-neon-dark-whisper">Email</label>
-    <input id="email-neon-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-neon-dark-whisper" aria-selected="true" aria-controls="p1-neon-dark-whisper">Basic</button>
-      <button type="button" role="tab" id="t2-neon-dark-whisper" aria-selected="false" aria-controls="p2-neon-dark-whisper" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-neon-dark-whisper" aria-labelledby="t1-neon-dark-whisper">Basic panel</div>
-    <div role="tabpanel" id="p2-neon-dark-whisper" aria-labelledby="t2-neon-dark-whisper" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-neon-dark-whisper">
-    <header class="ew-dialog__header"><h2 id="dtitle-neon-dark-whisper">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-neon-dark-whisper">
-    <label class="ew-select__label" for="country-neon-dark-whisper">Country</label>
-    <select id="country-neon-dark-whisper" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-neon-dark-whisper">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-neon-dark-whisper">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-neon-dark-whisper">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neon-dark-whisper">Details</button>
-    <div id="pop-neon-dark-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for neon-dark.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neon-dark-whisper">
-    <button type="button" class="ew-button" aria-describedby="tip-neon-dark">Info</button>
-    <span id="tip-neon-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-neon-dark-whisper">
-    <label class="ew-slider__label" for="vol-neon-dark-whisper">Volume</label>
-    <input id="vol-neon-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-neon-dark-whisper">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-neon-dark-whisper" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="memphis" data-mode="light" data-fidelity-band="whisper" data-testid="case-memphis-light-whisper">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">memphis / light / whisper</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-memphis-light-whisper">Email</label>
-    <input id="email-memphis-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-memphis-light-whisper" aria-selected="true" aria-controls="p1-memphis-light-whisper">Basic</button>
-      <button type="button" role="tab" id="t2-memphis-light-whisper" aria-selected="false" aria-controls="p2-memphis-light-whisper" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-memphis-light-whisper" aria-labelledby="t1-memphis-light-whisper">Basic panel</div>
-    <div role="tabpanel" id="p2-memphis-light-whisper" aria-labelledby="t2-memphis-light-whisper" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-memphis-light-whisper">
-    <header class="ew-dialog__header"><h2 id="dtitle-memphis-light-whisper">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-memphis-light-whisper">
-    <label class="ew-select__label" for="country-memphis-light-whisper">Country</label>
-    <select id="country-memphis-light-whisper" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-memphis-light-whisper">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-memphis-light-whisper">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-memphis-light-whisper">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-memphis-light-whisper">Details</button>
-    <div id="pop-memphis-light-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for memphis-light.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-memphis-light-whisper">
-    <button type="button" class="ew-button" aria-describedby="tip-memphis-light">Info</button>
-    <span id="tip-memphis-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-memphis-light-whisper">
-    <label class="ew-slider__label" for="vol-memphis-light-whisper">Volume</label>
-    <input id="vol-memphis-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-memphis-light-whisper">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-memphis-light-whisper" aria-live="polite"></ew-toast-region>
-
-</section>
-<section class="ew-root case" data-era="memphis" data-mode="dark" data-fidelity-band="whisper" data-testid="case-memphis-dark-whisper">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">memphis / dark / whisper</h1>
-  
-  <article class="ew-card" data-variant="raised">
-    <header class="ew-card__header"><h2>Plan</h2></header>
-    <div class="ew-card__body"><p>Accessibility sample.</p></div>
-    <footer class="ew-card__footer">
-      <button type="button" class="ew-button">Primary</button>
-      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
-    </footer>
-  </article>
-  <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-memphis-dark-whisper">Email</label>
-    <input id="email-memphis-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
-  </div>
-  <label class="ew-switch">
-    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
-    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
-    <span class="ew-switch__label">Notifications</span>
-  </label>
-  <ew-tabs class="ew-tabs">
-    <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-memphis-dark-whisper" aria-selected="true" aria-controls="p1-memphis-dark-whisper">Basic</button>
-      <button type="button" role="tab" id="t2-memphis-dark-whisper" aria-selected="false" aria-controls="p2-memphis-dark-whisper" tabindex="-1">Pro</button>
-    </div>
-    <div role="tabpanel" id="p1-memphis-dark-whisper" aria-labelledby="t1-memphis-dark-whisper">Basic panel</div>
-    <div role="tabpanel" id="p2-memphis-dark-whisper" aria-labelledby="t2-memphis-dark-whisper" hidden>Pro panel</div>
-  </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-memphis-dark-whisper">
-    <header class="ew-dialog__header"><h2 id="dtitle-memphis-dark-whisper">Dialog</h2></header>
-    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
-    <footer class="ew-dialog__footer">
-      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
-    </footer>
-  </dialog>
-
-  <ew-select class="ew-select" data-testid="select-memphis-dark-whisper">
-    <label class="ew-select__label" for="country-memphis-dark-whisper">Country</label>
-    <select id="country-memphis-dark-whisper" class="ew-select__control">
-      <option value="us">United States</option>
-      <option value="ca">Canada</option>
-      <option value="mx">Mexico</option>
-    </select>
-  </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-memphis-dark-whisper">
-    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-memphis-dark-whisper">
-      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
-      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
-    </div>
-  </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-memphis-dark-whisper">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-memphis-dark-whisper">Details</button>
-    <div id="pop-memphis-dark-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for memphis-dark.</p>
-    </div>
-  </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-memphis-dark-whisper">
-    <button type="button" class="ew-button" aria-describedby="tip-memphis-dark">Info</button>
-    <span id="tip-memphis-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
-  </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-memphis-dark-whisper">
-    <label class="ew-slider__label" for="vol-memphis-dark-whisper">Volume</label>
-    <input id="vol-memphis-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-memphis-dark-whisper">40</output>
-  </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-memphis-dark-whisper" aria-live="polite"></ew-toast-region>
-
 </section>
 <section class="ew-root case" data-era="groovy" data-mode="light" data-fidelity-band="whisper" data-testid="case-groovy-light-whisper">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">groovy / light / whisper</h1>
-  
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -1703,7 +1365,6 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
   <ew-select class="ew-select" data-testid="select-groovy-light-whisper">
     <label class="ew-select__label" for="country-groovy-light-whisper">Country</label>
     <select id="country-groovy-light-whisper" class="ew-select__control">
@@ -1722,11 +1383,11 @@
   <ew-popover class="ew-popover" data-testid="popover-groovy-light-whisper">
     <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-groovy-light-whisper">Details</button>
     <div id="pop-groovy-light-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for groovy-light.</p>
+      <p>Popover content for groovy-light-whisper.</p>
     </div>
   </ew-popover>
   <ew-tooltip class="ew-tooltip" data-testid="tooltip-groovy-light-whisper">
-    <button type="button" class="ew-button" aria-describedby="tip-groovy-light">Info</button>
+    <button type="button" class="ew-button" aria-describedby="tip-groovy-light-whisper">Info</button>
     <span id="tip-groovy-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
   <ew-slider class="ew-slider" data-testid="slider-groovy-light-whisper">
@@ -1735,11 +1396,9 @@
     <output class="ew-slider__value" for="vol-groovy-light-whisper">40</output>
   </ew-slider>
   <ew-toast-region class="ew-toast-region" data-testid="toast-groovy-light-whisper" aria-live="polite"></ew-toast-region>
-
 </section>
 <section class="ew-root case" data-era="groovy" data-mode="dark" data-fidelity-band="whisper" data-testid="case-groovy-dark-whisper">
   <h1 style="font-family:system-ui;font-size:14px;opacity:.7">groovy / dark / whisper</h1>
-  
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -1772,7 +1431,6 @@
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
   <ew-select class="ew-select" data-testid="select-groovy-dark-whisper">
     <label class="ew-select__label" for="country-groovy-dark-whisper">Country</label>
     <select id="country-groovy-dark-whisper" class="ew-select__control">
@@ -1791,11 +1449,11 @@
   <ew-popover class="ew-popover" data-testid="popover-groovy-dark-whisper">
     <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-groovy-dark-whisper">Details</button>
     <div id="pop-groovy-dark-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for groovy-dark.</p>
+      <p>Popover content for groovy-dark-whisper.</p>
     </div>
   </ew-popover>
   <ew-tooltip class="ew-tooltip" data-testid="tooltip-groovy-dark-whisper">
-    <button type="button" class="ew-button" aria-describedby="tip-groovy-dark">Info</button>
+    <button type="button" class="ew-button" aria-describedby="tip-groovy-dark-whisper">Info</button>
     <span id="tip-groovy-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
   <ew-slider class="ew-slider" data-testid="slider-groovy-dark-whisper">
@@ -1804,11 +1462,9 @@
     <output class="ew-slider__value" for="vol-groovy-dark-whisper">40</output>
   </ew-slider>
   <ew-toast-region class="ew-toast-region" data-testid="toast-groovy-dark-whisper" aria-live="polite"></ew-toast-region>
-
 </section>
-<section class="ew-root case" data-era="earth" data-mode="light" data-fidelity-band="whisper" data-testid="case-earth-light-whisper">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">earth / light / whisper</h1>
-  
+<section class="ew-root case" data-era="mcm-atomic" data-mode="light" data-fidelity-band="whisper" data-testid="case-mcm-atomic-light-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">mcm-atomic / light / whisper</h1>
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -1818,8 +1474,8 @@
     </footer>
   </article>
   <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-earth-light-whisper">Email</label>
-    <input id="email-earth-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+    <label class="ew-text-field__label" for="email-mcm-atomic-light-whisper">Email</label>
+    <input id="email-mcm-atomic-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
   </div>
   <label class="ew-switch">
     <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
@@ -1828,56 +1484,53 @@
   </label>
   <ew-tabs class="ew-tabs">
     <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-earth-light-whisper" aria-selected="true" aria-controls="p1-earth-light-whisper">Basic</button>
-      <button type="button" role="tab" id="t2-earth-light-whisper" aria-selected="false" aria-controls="p2-earth-light-whisper" tabindex="-1">Pro</button>
+      <button type="button" role="tab" id="t1-mcm-atomic-light-whisper" aria-selected="true" aria-controls="p1-mcm-atomic-light-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-mcm-atomic-light-whisper" aria-selected="false" aria-controls="p2-mcm-atomic-light-whisper" tabindex="-1">Pro</button>
     </div>
-    <div role="tabpanel" id="p1-earth-light-whisper" aria-labelledby="t1-earth-light-whisper">Basic panel</div>
-    <div role="tabpanel" id="p2-earth-light-whisper" aria-labelledby="t2-earth-light-whisper" hidden>Pro panel</div>
+    <div role="tabpanel" id="p1-mcm-atomic-light-whisper" aria-labelledby="t1-mcm-atomic-light-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-mcm-atomic-light-whisper" aria-labelledby="t2-mcm-atomic-light-whisper" hidden>Pro panel</div>
   </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-earth-light-whisper">
-    <header class="ew-dialog__header"><h2 id="dtitle-earth-light-whisper">Dialog</h2></header>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-mcm-atomic-light-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-mcm-atomic-light-whisper">Dialog</h2></header>
     <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
     <footer class="ew-dialog__footer">
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
-  <ew-select class="ew-select" data-testid="select-earth-light-whisper">
-    <label class="ew-select__label" for="country-earth-light-whisper">Country</label>
-    <select id="country-earth-light-whisper" class="ew-select__control">
+  <ew-select class="ew-select" data-testid="select-atomic-light-whisper">
+    <label class="ew-select__label" for="country-mcm-atomic-light-whisper">Country</label>
+    <select id="country-mcm-atomic-light-whisper" class="ew-select__control">
       <option value="us">United States</option>
       <option value="ca">Canada</option>
       <option value="mx">Mexico</option>
     </select>
   </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-earth-light-whisper">
+  <ew-menu class="ew-menu" data-testid="menu-atomic-light-whisper">
     <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-earth-light-whisper">
+    <div class="ew-menu__panel" role="menu" id="menu-panel-mcm-atomic-light-whisper">
       <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
       <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
     </div>
   </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-earth-light-whisper">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-earth-light-whisper">Details</button>
-    <div id="pop-earth-light-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for earth-light.</p>
+  <ew-popover class="ew-popover" data-testid="popover-atomic-light-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-mcm-atomic-light-whisper">Details</button>
+    <div id="pop-mcm-atomic-light-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for mcm-atomic-light-whisper.</p>
     </div>
   </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-earth-light-whisper">
-    <button type="button" class="ew-button" aria-describedby="tip-earth-light">Info</button>
-    <span id="tip-earth-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-atomic-light-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-mcm-atomic-light-whisper">Info</button>
+    <span id="tip-mcm-atomic-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-earth-light-whisper">
-    <label class="ew-slider__label" for="vol-earth-light-whisper">Volume</label>
-    <input id="vol-earth-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-earth-light-whisper">40</output>
+  <ew-slider class="ew-slider" data-testid="slider-atomic-light-whisper">
+    <label class="ew-slider__label" for="vol-mcm-atomic-light-whisper">Volume</label>
+    <input id="vol-mcm-atomic-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-mcm-atomic-light-whisper">40</output>
   </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-earth-light-whisper" aria-live="polite"></ew-toast-region>
-
+  <ew-toast-region class="ew-toast-region" data-testid="toast-atomic-light-whisper" aria-live="polite"></ew-toast-region>
 </section>
-<section class="ew-root case" data-era="earth" data-mode="dark" data-fidelity-band="whisper" data-testid="case-earth-dark-whisper">
-  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">earth / dark / whisper</h1>
-  
+<section class="ew-root case" data-era="mcm-atomic" data-mode="dark" data-fidelity-band="whisper" data-testid="case-mcm-atomic-dark-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">mcm-atomic / dark / whisper</h1>
   <article class="ew-card" data-variant="raised">
     <header class="ew-card__header"><h2>Plan</h2></header>
     <div class="ew-card__body"><p>Accessibility sample.</p></div>
@@ -1887,8 +1540,8 @@
     </footer>
   </article>
   <div class="ew-text-field">
-    <label class="ew-text-field__label" for="email-earth-dark-whisper">Email</label>
-    <input id="email-earth-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+    <label class="ew-text-field__label" for="email-mcm-atomic-dark-whisper">Email</label>
+    <input id="email-mcm-atomic-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
   </div>
   <label class="ew-switch">
     <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
@@ -1897,52 +1550,578 @@
   </label>
   <ew-tabs class="ew-tabs">
     <div role="tablist" aria-label="Plans">
-      <button type="button" role="tab" id="t1-earth-dark-whisper" aria-selected="true" aria-controls="p1-earth-dark-whisper">Basic</button>
-      <button type="button" role="tab" id="t2-earth-dark-whisper" aria-selected="false" aria-controls="p2-earth-dark-whisper" tabindex="-1">Pro</button>
+      <button type="button" role="tab" id="t1-mcm-atomic-dark-whisper" aria-selected="true" aria-controls="p1-mcm-atomic-dark-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-mcm-atomic-dark-whisper" aria-selected="false" aria-controls="p2-mcm-atomic-dark-whisper" tabindex="-1">Pro</button>
     </div>
-    <div role="tabpanel" id="p1-earth-dark-whisper" aria-labelledby="t1-earth-dark-whisper">Basic panel</div>
-    <div role="tabpanel" id="p2-earth-dark-whisper" aria-labelledby="t2-earth-dark-whisper" hidden>Pro panel</div>
+    <div role="tabpanel" id="p1-mcm-atomic-dark-whisper" aria-labelledby="t1-mcm-atomic-dark-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-mcm-atomic-dark-whisper" aria-labelledby="t2-mcm-atomic-dark-whisper" hidden>Pro panel</div>
   </ew-tabs>
-  <dialog class="ew-dialog" open aria-labelledby="dtitle-earth-dark-whisper">
-    <header class="ew-dialog__header"><h2 id="dtitle-earth-dark-whisper">Dialog</h2></header>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-mcm-atomic-dark-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-mcm-atomic-dark-whisper">Dialog</h2></header>
     <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
     <footer class="ew-dialog__footer">
       <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
     </footer>
   </dialog>
-
-  <ew-select class="ew-select" data-testid="select-earth-dark-whisper">
-    <label class="ew-select__label" for="country-earth-dark-whisper">Country</label>
-    <select id="country-earth-dark-whisper" class="ew-select__control">
+  <ew-select class="ew-select" data-testid="select-atomic-dark-whisper">
+    <label class="ew-select__label" for="country-mcm-atomic-dark-whisper">Country</label>
+    <select id="country-mcm-atomic-dark-whisper" class="ew-select__control">
       <option value="us">United States</option>
       <option value="ca">Canada</option>
       <option value="mx">Mexico</option>
     </select>
   </ew-select>
-  <ew-menu class="ew-menu" data-testid="menu-earth-dark-whisper">
+  <ew-menu class="ew-menu" data-testid="menu-atomic-dark-whisper">
     <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
-    <div class="ew-menu__panel" role="menu" id="menu-panel-earth-dark-whisper">
+    <div class="ew-menu__panel" role="menu" id="menu-panel-mcm-atomic-dark-whisper">
       <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
       <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
     </div>
   </ew-menu>
-  <ew-popover class="ew-popover" data-testid="popover-earth-dark-whisper">
-    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-earth-dark-whisper">Details</button>
-    <div id="pop-earth-dark-whisper" class="ew-popover__panel" popover>
-      <p>Popover content for earth-dark.</p>
+  <ew-popover class="ew-popover" data-testid="popover-atomic-dark-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-mcm-atomic-dark-whisper">Details</button>
+    <div id="pop-mcm-atomic-dark-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for mcm-atomic-dark-whisper.</p>
     </div>
   </ew-popover>
-  <ew-tooltip class="ew-tooltip" data-testid="tooltip-earth-dark-whisper">
-    <button type="button" class="ew-button" aria-describedby="tip-earth-dark">Info</button>
-    <span id="tip-earth-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-atomic-dark-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-mcm-atomic-dark-whisper">Info</button>
+    <span id="tip-mcm-atomic-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
   </ew-tooltip>
-  <ew-slider class="ew-slider" data-testid="slider-earth-dark-whisper">
-    <label class="ew-slider__label" for="vol-earth-dark-whisper">Volume</label>
-    <input id="vol-earth-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
-    <output class="ew-slider__value" for="vol-earth-dark-whisper">40</output>
+  <ew-slider class="ew-slider" data-testid="slider-atomic-dark-whisper">
+    <label class="ew-slider__label" for="vol-mcm-atomic-dark-whisper">Volume</label>
+    <input id="vol-mcm-atomic-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-mcm-atomic-dark-whisper">40</output>
   </ew-slider>
-  <ew-toast-region class="ew-toast-region" data-testid="toast-earth-dark-whisper" aria-live="polite"></ew-toast-region>
-
+  <ew-toast-region class="ew-toast-region" data-testid="toast-atomic-dark-whisper" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="memphis" data-mode="light" data-fidelity-band="whisper" data-testid="case-memphis-light-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">memphis / light / whisper</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-memphis-light-whisper">Email</label>
+    <input id="email-memphis-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-memphis-light-whisper" aria-selected="true" aria-controls="p1-memphis-light-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-memphis-light-whisper" aria-selected="false" aria-controls="p2-memphis-light-whisper" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-memphis-light-whisper" aria-labelledby="t1-memphis-light-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-memphis-light-whisper" aria-labelledby="t2-memphis-light-whisper" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-memphis-light-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-memphis-light-whisper">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-memphis-light-whisper">
+    <label class="ew-select__label" for="country-memphis-light-whisper">Country</label>
+    <select id="country-memphis-light-whisper" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-memphis-light-whisper">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-memphis-light-whisper">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-memphis-light-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-memphis-light-whisper">Details</button>
+    <div id="pop-memphis-light-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for memphis-light-whisper.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-memphis-light-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-memphis-light-whisper">Info</button>
+    <span id="tip-memphis-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-memphis-light-whisper">
+    <label class="ew-slider__label" for="vol-memphis-light-whisper">Volume</label>
+    <input id="vol-memphis-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-memphis-light-whisper">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-memphis-light-whisper" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="memphis" data-mode="dark" data-fidelity-band="whisper" data-testid="case-memphis-dark-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">memphis / dark / whisper</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-memphis-dark-whisper">Email</label>
+    <input id="email-memphis-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-memphis-dark-whisper" aria-selected="true" aria-controls="p1-memphis-dark-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-memphis-dark-whisper" aria-selected="false" aria-controls="p2-memphis-dark-whisper" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-memphis-dark-whisper" aria-labelledby="t1-memphis-dark-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-memphis-dark-whisper" aria-labelledby="t2-memphis-dark-whisper" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-memphis-dark-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-memphis-dark-whisper">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-memphis-dark-whisper">
+    <label class="ew-select__label" for="country-memphis-dark-whisper">Country</label>
+    <select id="country-memphis-dark-whisper" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-memphis-dark-whisper">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-memphis-dark-whisper">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-memphis-dark-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-memphis-dark-whisper">Details</button>
+    <div id="pop-memphis-dark-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for memphis-dark-whisper.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-memphis-dark-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-memphis-dark-whisper">Info</button>
+    <span id="tip-memphis-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-memphis-dark-whisper">
+    <label class="ew-slider__label" for="vol-memphis-dark-whisper">Volume</label>
+    <input id="vol-memphis-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-memphis-dark-whisper">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-memphis-dark-whisper" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="neon" data-mode="light" data-fidelity-band="whisper" data-testid="case-neon-light-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neon / light / whisper</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-neon-light-whisper">Email</label>
+    <input id="email-neon-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-neon-light-whisper" aria-selected="true" aria-controls="p1-neon-light-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-neon-light-whisper" aria-selected="false" aria-controls="p2-neon-light-whisper" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-neon-light-whisper" aria-labelledby="t1-neon-light-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-neon-light-whisper" aria-labelledby="t2-neon-light-whisper" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-neon-light-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-neon-light-whisper">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-neon-light-whisper">
+    <label class="ew-select__label" for="country-neon-light-whisper">Country</label>
+    <select id="country-neon-light-whisper" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neon-light-whisper">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neon-light-whisper">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neon-light-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neon-light-whisper">Details</button>
+    <div id="pop-neon-light-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for neon-light-whisper.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neon-light-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-neon-light-whisper">Info</button>
+    <span id="tip-neon-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-neon-light-whisper">
+    <label class="ew-slider__label" for="vol-neon-light-whisper">Volume</label>
+    <input id="vol-neon-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neon-light-whisper">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neon-light-whisper" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="neon" data-mode="dark" data-fidelity-band="whisper" data-testid="case-neon-dark-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neon / dark / whisper</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-neon-dark-whisper">Email</label>
+    <input id="email-neon-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-neon-dark-whisper" aria-selected="true" aria-controls="p1-neon-dark-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-neon-dark-whisper" aria-selected="false" aria-controls="p2-neon-dark-whisper" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-neon-dark-whisper" aria-labelledby="t1-neon-dark-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-neon-dark-whisper" aria-labelledby="t2-neon-dark-whisper" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-neon-dark-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-neon-dark-whisper">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-neon-dark-whisper">
+    <label class="ew-select__label" for="country-neon-dark-whisper">Country</label>
+    <select id="country-neon-dark-whisper" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neon-dark-whisper">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neon-dark-whisper">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neon-dark-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neon-dark-whisper">Details</button>
+    <div id="pop-neon-dark-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for neon-dark-whisper.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neon-dark-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-neon-dark-whisper">Info</button>
+    <span id="tip-neon-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-neon-dark-whisper">
+    <label class="ew-slider__label" for="vol-neon-dark-whisper">Volume</label>
+    <input id="vol-neon-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neon-dark-whisper">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neon-dark-whisper" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="neutral" data-mode="light" data-fidelity-band="whisper" data-testid="case-neutral-light-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neutral / light / whisper</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-neutral-light-whisper">Email</label>
+    <input id="email-neutral-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-neutral-light-whisper" aria-selected="true" aria-controls="p1-neutral-light-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-neutral-light-whisper" aria-selected="false" aria-controls="p2-neutral-light-whisper" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-neutral-light-whisper" aria-labelledby="t1-neutral-light-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-neutral-light-whisper" aria-labelledby="t2-neutral-light-whisper" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-neutral-light-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-neutral-light-whisper">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-neutral-light-whisper">
+    <label class="ew-select__label" for="country-neutral-light-whisper">Country</label>
+    <select id="country-neutral-light-whisper" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neutral-light-whisper">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neutral-light-whisper">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neutral-light-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neutral-light-whisper">Details</button>
+    <div id="pop-neutral-light-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for neutral-light-whisper.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neutral-light-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-neutral-light-whisper">Info</button>
+    <span id="tip-neutral-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-neutral-light-whisper">
+    <label class="ew-slider__label" for="vol-neutral-light-whisper">Volume</label>
+    <input id="vol-neutral-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neutral-light-whisper">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neutral-light-whisper" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="neutral" data-mode="dark" data-fidelity-band="whisper" data-testid="case-neutral-dark-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">neutral / dark / whisper</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-neutral-dark-whisper">Email</label>
+    <input id="email-neutral-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-neutral-dark-whisper" aria-selected="true" aria-controls="p1-neutral-dark-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-neutral-dark-whisper" aria-selected="false" aria-controls="p2-neutral-dark-whisper" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-neutral-dark-whisper" aria-labelledby="t1-neutral-dark-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-neutral-dark-whisper" aria-labelledby="t2-neutral-dark-whisper" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-neutral-dark-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-neutral-dark-whisper">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-neutral-dark-whisper">
+    <label class="ew-select__label" for="country-neutral-dark-whisper">Country</label>
+    <select id="country-neutral-dark-whisper" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-neutral-dark-whisper">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-neutral-dark-whisper">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-neutral-dark-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-neutral-dark-whisper">Details</button>
+    <div id="pop-neutral-dark-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for neutral-dark-whisper.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-neutral-dark-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-neutral-dark-whisper">Info</button>
+    <span id="tip-neutral-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-neutral-dark-whisper">
+    <label class="ew-slider__label" for="vol-neutral-dark-whisper">Volume</label>
+    <input id="vol-neutral-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-neutral-dark-whisper">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-neutral-dark-whisper" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="swiss" data-mode="light" data-fidelity-band="whisper" data-testid="case-swiss-light-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">swiss / light / whisper</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-swiss-light-whisper">Email</label>
+    <input id="email-swiss-light-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-swiss-light-whisper" aria-selected="true" aria-controls="p1-swiss-light-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-swiss-light-whisper" aria-selected="false" aria-controls="p2-swiss-light-whisper" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-swiss-light-whisper" aria-labelledby="t1-swiss-light-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-swiss-light-whisper" aria-labelledby="t2-swiss-light-whisper" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-swiss-light-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-swiss-light-whisper">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-swiss-light-whisper">
+    <label class="ew-select__label" for="country-swiss-light-whisper">Country</label>
+    <select id="country-swiss-light-whisper" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-swiss-light-whisper">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-swiss-light-whisper">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-swiss-light-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-swiss-light-whisper">Details</button>
+    <div id="pop-swiss-light-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for swiss-light-whisper.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-swiss-light-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-swiss-light-whisper">Info</button>
+    <span id="tip-swiss-light-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-swiss-light-whisper">
+    <label class="ew-slider__label" for="vol-swiss-light-whisper">Volume</label>
+    <input id="vol-swiss-light-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-swiss-light-whisper">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-swiss-light-whisper" aria-live="polite"></ew-toast-region>
+</section>
+<section class="ew-root case" data-era="swiss" data-mode="dark" data-fidelity-band="whisper" data-testid="case-swiss-dark-whisper">
+  <h1 style="font-family:system-ui;font-size:14px;opacity:.7">swiss / dark / whisper</h1>
+  <article class="ew-card" data-variant="raised">
+    <header class="ew-card__header"><h2>Plan</h2></header>
+    <div class="ew-card__body"><p>Accessibility sample.</p></div>
+    <footer class="ew-card__footer">
+      <button type="button" class="ew-button">Primary</button>
+      <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+    </footer>
+  </article>
+  <div class="ew-text-field">
+    <label class="ew-text-field__label" for="email-swiss-dark-whisper">Email</label>
+    <input id="email-swiss-dark-whisper" class="ew-text-field__control" type="email" autocomplete="email" />
+  </div>
+  <label class="ew-switch">
+    <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+    <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+    <span class="ew-switch__label">Notifications</span>
+  </label>
+  <ew-tabs class="ew-tabs">
+    <div role="tablist" aria-label="Plans">
+      <button type="button" role="tab" id="t1-swiss-dark-whisper" aria-selected="true" aria-controls="p1-swiss-dark-whisper">Basic</button>
+      <button type="button" role="tab" id="t2-swiss-dark-whisper" aria-selected="false" aria-controls="p2-swiss-dark-whisper" tabindex="-1">Pro</button>
+    </div>
+    <div role="tabpanel" id="p1-swiss-dark-whisper" aria-labelledby="t1-swiss-dark-whisper">Basic panel</div>
+    <div role="tabpanel" id="p2-swiss-dark-whisper" aria-labelledby="t2-swiss-dark-whisper" hidden>Pro panel</div>
+  </ew-tabs>
+  <dialog class="ew-dialog" open aria-labelledby="dtitle-swiss-dark-whisper">
+    <header class="ew-dialog__header"><h2 id="dtitle-swiss-dark-whisper">Dialog</h2></header>
+    <div class="ew-dialog__body"><p>Native dialog sample (open attribute).</p></div>
+    <footer class="ew-dialog__footer">
+      <form method="dialog"><button type="submit" class="ew-button" data-variant="ghost">Close</button></form>
+    </footer>
+  </dialog>
+  <ew-select class="ew-select" data-testid="select-swiss-dark-whisper">
+    <label class="ew-select__label" for="country-swiss-dark-whisper">Country</label>
+    <select id="country-swiss-dark-whisper" class="ew-select__control">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="mx">Mexico</option>
+    </select>
+  </ew-select>
+  <ew-menu class="ew-menu" data-testid="menu-swiss-dark-whisper">
+    <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+    <div class="ew-menu__panel" role="menu" id="menu-panel-swiss-dark-whisper">
+      <button type="button" class="ew-menu__item" role="menuitem">Edit</button>
+      <button type="button" class="ew-menu__item" role="menuitem">Delete</button>
+    </div>
+  </ew-menu>
+  <ew-popover class="ew-popover" data-testid="popover-swiss-dark-whisper">
+    <button type="button" class="ew-button ew-popover__trigger" popovertarget="pop-swiss-dark-whisper">Details</button>
+    <div id="pop-swiss-dark-whisper" class="ew-popover__panel" popover>
+      <p>Popover content for swiss-dark-whisper.</p>
+    </div>
+  </ew-popover>
+  <ew-tooltip class="ew-tooltip" data-testid="tooltip-swiss-dark-whisper">
+    <button type="button" class="ew-button" aria-describedby="tip-swiss-dark-whisper">Info</button>
+    <span id="tip-swiss-dark-whisper" class="ew-tooltip__tip" role="tooltip">More detail</span>
+  </ew-tooltip>
+  <ew-slider class="ew-slider" data-testid="slider-swiss-dark-whisper">
+    <label class="ew-slider__label" for="vol-swiss-dark-whisper">Volume</label>
+    <input id="vol-swiss-dark-whisper" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+    <output class="ew-slider__value" for="vol-swiss-dark-whisper">40</output>
+  </ew-slider>
+  <ew-toast-region class="ew-toast-region" data-testid="toast-swiss-dark-whisper" aria-live="polite"></ew-toast-region>
 </section>
 </body>
 </html>

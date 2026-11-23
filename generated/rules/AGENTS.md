@@ -1,6 +1,6 @@
 # Era Widgets — agent notes (generated)
 
-Use **HTML** with `ew-*` classes. Flip eras with `data-era` (bauhaus|deco|earth|groovy|mcm-atomic|memphis|neon|neutral|swiss).
+Use **HTML** with `ew-*` classes. Flip eras with `data-era` (bauhaus|deco|groovy|mcm-atomic|memphis|neon|neutral|swiss).
 
 Fidelity is **bands only**: `data-fidelity-band="whisper|standard|costume"` (`default`/`signature` deprecated aliases of `standard`).
 **Costume is the default** when the attribute is absent; set whisper/standard to opt down.
