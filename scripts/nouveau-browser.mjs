@@ -44,7 +44,7 @@ try{
    if(site==='maison-botanique'){
     await page.locator('select[data-category]').selectOption('herb');
     if(await page.locator('[data-product]:visible').count()!==1)throw Error('category filtering failed');
-    await page.locator('[data-category]').selectOption('all');
+    await page.locator('select[data-category]').selectOption('all');
     await page.locator('[data-stock]').check();
     if(await page.locator('[data-product]:visible').count()!==2)throw Error('stock filter failed');
     await page.locator('[data-stock]').uncheck();
