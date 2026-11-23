@@ -1,0 +1,92 @@
+/* Layout only. Era geometry stays in Groovster CSS. */
+body { margin: 0; }
+.ew-root { min-height: 100vh; }
+.site-skip { position: absolute; left: 12px; top: -48px; z-index: 5; background: var(--ew-color-bg-elevated); padding: 8px 12px; }
+.site-skip:focus { top: 12px; }
+.site-wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 3px solid var(--ew-color-fg-default); }
+.site-nav__links { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+.site-brand { font-family: var(--ew-font-display, inherit); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.04em; text-transform: lowercase; text-decoration: none; }
+.site-section { padding: 2.5rem 0 0.5rem; }
+.site-section h2 { margin: 0 0 1rem; }
+.site-lead { max-width: 62ch; font-size: 1.125rem; line-height: 1.6; }
+.site-grid { display: grid; gap: 1.25rem; }
+.site-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.site-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.site-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.site-actions, .site-filters { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: end; }
+.site-price { margin: 0.25rem 0 0.75rem; font-variant-numeric: tabular-nums; font-weight: 700; }
+.site-muted { color: var(--ew-color-fg-muted); }
+.site-table-wrap { overflow-x: auto; }
+.site-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.site-table th, .site-table td { text-align: left; padding: 10px 12px; border-bottom: 2px solid var(--ew-color-fg-default); }
+.site-table caption { text-align: left; font-weight: 700; padding-bottom: 8px; }
+.site-foot { padding: 2rem 0 3rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.site-fiction { color: var(--ew-color-fg-muted); }
+.plate { position: relative; height: 168px; overflow: hidden; background: var(--ew-color-bg-elevated); margin: -20px -20px 4px; }
+.plate::before, .plate::after { content: ""; position: absolute; }
+.plate::before { width: 46%; aspect-ratio: 1; border-radius: 50%; background: var(--ew-color-primary-blue); right: -12%; bottom: -28%; }
+.plate::after { width: 34%; height: 46%; background: var(--ew-color-primary-red); top: 0; right: 0; }
+.plate[data-plate="2"]::before { left: -16%; right: auto; top: -20%; bottom: auto; }
+.plate[data-plate="2"]::after { left: 0; right: auto; top: auto; bottom: 0; width: 28%; height: 36%; background: linear-gradient(to top right, var(--ew-color-primary-yellow) 50%, transparent 50%); }
+.plate[data-plate="3"]::before { width: 18%; right: auto; left: 8%; top: 12%; bottom: auto; border-radius: 0; background: var(--ew-color-fg-default); }
+.plate[data-plate="3"]::after { width: 42%; height: 100%; left: auto; right: 0; top: 0; background: var(--ew-color-primary-yellow); }
+.desk {
+  background-color: var(--ew-color-bg-page);
+  background-image:
+    linear-gradient(var(--ew-color-primary-red), var(--ew-color-primary-red)),
+    linear-gradient(var(--ew-color-primary-blue), var(--ew-color-primary-blue)),
+    linear-gradient(to top right, var(--ew-color-primary-yellow) 50%, transparent 50%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 6.5rem 6.5rem, 7.5rem 7.5rem, 6.5rem 6.5rem;
+  background-position: right 1rem center, left 0 bottom, right 1rem bottom;
+}
+.desk-sheet {
+  position: relative;
+  height: 9.25rem;
+  overflow: hidden;
+  background-color: var(--ew-color-primary-red);
+  background-image: linear-gradient(var(--ew-color-fg-default), var(--ew-color-fg-default));
+  background-repeat: no-repeat;
+  background-size: 1.35rem 1.35rem;
+  background-position: 1.15rem 0.9rem;
+  border-block: 12px solid var(--ew-color-fg-default);
+}
+.desk-sheet::before {
+  content: "";
+  position: absolute;
+  width: 11rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ew-color-primary-blue);
+  right: -2.4rem;
+  top: 58%;
+  transform: translateY(-50%);
+}
+.desk-sheet::after {
+  content: "";
+  position: absolute;
+  left: 34%;
+  bottom: 0;
+  width: 7.5rem;
+  height: 6.2rem;
+  background: var(--ew-color-primary-yellow);
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+.desk .site-section h2 { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.desk .site-grid--4 > :nth-child(1) { border-top-color: var(--ew-color-primary-red); }
+.desk .site-grid--4 > :nth-child(2) { border-top-color: var(--ew-color-primary-blue); }
+.desk .site-grid--4 > :nth-child(3) { border-top-color: var(--ew-color-primary-yellow); }
+.desk .site-grid--4 > :nth-child(4) { border-top-color: var(--ew-color-fg-default); }
+.desk .ew-alert { border-inline-start: 8px solid var(--ew-color-primary-yellow); }
+.desk .site-grid { gap: 12px; }
+.desk .site-table th, .desk .site-table td { padding: 8px 10px; }
+.desk .site-metric { margin: 0; font-family: var(--ew-font-mono, ui-monospace, monospace); font-size: 1.6rem; }
+@media (max-width: 800px) {
+  .site-grid--2, .site-grid--3, .site-grid--4 { grid-template-columns: 1fr; }
+  .desk .site-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 801px) and (max-width: 1040px) {
+  .site-grid--3, .site-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

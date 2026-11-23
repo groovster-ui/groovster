@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Counter — print order</title>
+  <link rel="stylesheet" href="../../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <script src="../../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../../../recipes/shared/shell.js" defer></script>
+</head>
+<body>
+  <div class="ew-root" data-groovster-root data-recipe="memphis-counter" data-era="memphis" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link" href="#order">Skip to the order</a>
+    <div class="wrap">
+      <nav class="nav" aria-label="Primary">
+        <a class="ew-link brand" href="#order">Counter</a>
+        <div class="actions">
+          <a class="ew-link" href="#order">Order</a>
+          <a class="ew-link" href="#ticket">Ticket</a>
+        </div>
+      </nav>
+      <header>
+        <h1>Counter</h1>
+        <p class="lead">A fictional print counter. The ticket stays in this browser.</p>
+        <hr class="ew-ornament-divider" data-variant="ornament" />
+      </header>
+      <div class="grid grid-2" id="order">
+        <form class="form" data-demo-form="ticket" data-open-on-success="kept-dialog">
+          <div class="pair">
+            <div class="ew-text-field">
+              <label class="ew-text-field__label" for="job">Job name</label>
+              <input id="job" class="ew-text-field__control" type="text" value="Harbor menu" required />
+            </div>
+            <div class="ew-text-field">
+              <label class="ew-text-field__label" for="email">Client email</label>
+              <input id="email" class="ew-text-field__control" type="email" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="pair">
+            <ew-select class="ew-select">
+              <label class="ew-select__label" for="stock">Paper</label>
+              <select id="stock" class="ew-select__control">
+                <option>Cotton 300gsm</option>
+                <option>Newsprint</option>
+                <option>Kraft</option>
+              </select>
+            </ew-select>
+            <ew-select class="ew-select">
+              <label class="ew-select__label" for="bind">Binding</label>
+              <select id="bind" class="ew-select__control">
+                <option>Loose sheets</option>
+                <option>Saddle stitch</option>
+                <option>Sewn</option>
+              </select>
+            </ew-select>
+          </div>
+          <fieldset class="ew-radio-group">
+            <legend>Press</legend>
+            <label class="ew-radio"><input class="ew-radio__control" type="radio" name="press" checked /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Letterpress</span></label>
+            <label class="ew-radio"><input class="ew-radio__control" type="radio" name="press" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Offset</span></label>
+            <label class="ew-radio"><input class="ew-radio__control" type="radio" name="press" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Risograph</span></label>
+          </fieldset>
+          <label class="ew-checkbox"><input class="ew-checkbox__control" type="checkbox" checked /><span class="ew-checkbox__box" aria-hidden="true"></span><span class="ew-checkbox__label">Crop marks</span></label>
+          <label class="ew-switch"><input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" /><span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span><span class="ew-switch__label">Rush the sample</span></label>
+          <ew-slider class="ew-slider">
+            <label class="ew-slider__label" for="ink">Ink density</label>
+            <input id="ink" class="ew-slider__control" type="range" min="0" max="100" value="62" />
+            <output class="ew-slider__value">62</output>
+          </ew-slider>
+          <div class="ew-textarea">
+            <label class="ew-textarea__label" for="note">Note to the press</label>
+            <textarea id="note" class="ew-textarea__control" rows="3">Keep the blue under 40%.</textarea>
+          </div>
+          <div class="actions">
+            <button type="submit" class="ew-button">Send to press</button>
+            <button type="button" class="ew-button" data-variant="secondary">Duplicate</button>
+            <button type="button" class="ew-button" data-variant="ghost">Hold</button>
+            <button type="button" class="ew-button" data-variant="danger" data-open-dialog="void-dialog">Void job</button>
+          </div>
+          <div class="ew-alert" data-variant="success" role="status" data-demo-status hidden>
+            <strong class="ew-alert__title">Noted</strong>
+            <p class="ew-alert__body">Saved on this page only.</p>
+          </div>
+        </form>
+        <aside id="ticket">
+          <article class="ew-card">
+            <header class="ew-card__header"><h3>Open ticket</h3></header>
+            <div class="ew-card__body">
+              <p class="price">1844</p>
+              <p>Harbor menu · Cotton · Letterpress. Sample job. Nothing is queued.</p>
+            </div>
+            <footer class="ew-card__footer">
+              <div class="ew-alert" data-variant="warning" role="status">
+                <strong class="ew-alert__title">Proof is soft</strong>
+                <p class="ew-alert__body">The client has not approved the crop.</p>
+              </div>
+            </footer>
+          </article>
+        </aside>
+      </div>
+      <p class="foot">Fictional counter. No job is produced.</p>
+    </div>
+    <dialog class="ew-dialog" id="kept-dialog" aria-labelledby="kept-title">
+      <header class="ew-dialog__header"><h2 id="kept-title">Ticket kept here</h2></header>
+      <div class="ew-dialog__body"><p>Nothing was sent to a press.</p></div>
+      <footer class="ew-dialog__footer"><button type="button" class="ew-button" data-close-dialog>Close</button></footer>
+    </dialog>
+    <dialog class="ew-dialog" id="void-dialog" aria-labelledby="void-title">
+      <header class="ew-dialog__header"><h2 id="void-title">Void this sample?</h2></header>
+      <div class="ew-dialog__body"><p>The ticket stays on the page.</p></div>
+      <footer class="ew-dialog__footer">
+        <button type="button" class="ew-button" data-variant="ghost" data-close-dialog>Keep it</button>
+        <button type="button" class="ew-button" data-variant="danger" data-close-dialog>Void sample</button>
+      </footer>
+    </dialog>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>

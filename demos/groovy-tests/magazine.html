@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harvest Issue</title>
+  <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="layout.css" />
+  <script src="../../packages/elements/dist/era-elements.js" defer></script>
+</head>
+<body>
+  <div class="ew-root" data-era="groovy" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#essay">Skip to the essay</a>
+    <div class="site-wrap">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="ew-link site-brand" href="#masthead">Harvest</a>
+        <div class="site-nav__links">
+          <a class="ew-link" data-variant="nav" href="#essay">Essay</a>
+          <a class="ew-link" data-variant="nav" href="#departments">Departments</a>
+          <a class="ew-link" data-variant="nav" href="#letter">Letter</a>
+        </div>
+      </nav>
+      <nav class="ew-breadcrumb" aria-label="Breadcrumb">
+        <ol class="ew-breadcrumb__list">
+          <li class="ew-breadcrumb__item"><a class="ew-link" href="#masthead">Issues</a></li>
+          <li class="ew-breadcrumb__item" aria-current="page">No. 12</li>
+        </ol>
+      </nav>
+    </div>
+    <section class="ew-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true"></div>
+      <div class="ew-hero__panel">
+        <div class="ew-hero__rays" aria-hidden="true"></div>
+        <div class="ew-hero__content">
+          <div class="ew-hero__fan" aria-hidden="true"></div>
+          <p class="ew-script">Issue no. 12</p>
+          <h1 class="ew-hero__title">The long afternoon</h1>
+          <p class="ew-hero__subtitle">A fictional essay on paper lanterns, porch radios, and the color of late sun.</p>
+        </div>
+      </div>
+    </section>
+    <main class="site-wrap">
+      <article class="site-section" id="essay">
+        <div class="site-byline">
+          <span class="ew-avatar" data-variant="circle" aria-label="Ada Lovelace"><span class="ew-avatar__fallback">AL</span></span>
+          <p class="site-muted">Ada Lovelace · Field notes</p>
+        </div>
+        <div class="site-sheet site-essay">
+          <p>The porch radio kept the afternoon in one key. Someone had taped the dial so it could not leave the station that played only instrumentals, and the speaker cloth had faded to the same yellow as the awning.</p>
+          <p>We measured the day by when the shadow of the citrus tree reached the steps. Before that line, the magazine stayed open. After it, the pages went warm and the type looked printed in honey.</p>
+          <p>Nothing in this issue is a real assignment. The departments that follow are sample stories, set so the poster skin can carry a reading page without climbing into the paragraph.</p>
+        </div>
+      </article>
+      <hr class="ew-ornament-divider" data-variant="ornament" />
+      <section class="site-section" id="departments">
+        <h2>Departments</h2>
+        <ew-tabs class="ew-tabs">
+          <div role="tablist" aria-label="Departments">
+            <button type="button" role="tab" id="tab-field" aria-selected="true" aria-controls="panel-field">Field</button>
+            <button type="button" role="tab" id="tab-table" aria-selected="false" aria-controls="panel-table" tabindex="-1">Table</button>
+          </div>
+          <div role="tabpanel" id="panel-field" aria-labelledby="tab-field">
+            <div class="site-grid site-grid--2">
+              <article class="ew-card">
+                <header class="ew-card__header"><h3>Porch set</h3></header>
+                <div class="ew-card__body"><p>How a single speaker cloth changed the color of a whole block.</p></div>
+              </article>
+              <article class="ew-card">
+                <header class="ew-card__header"><h3>Paper lanterns</h3></header>
+                <div class="ew-card__body"><p>A short walk through the lights that never quite matched.</p></div>
+              </article>
+            </div>
+          </div>
+          <div role="tabpanel" id="panel-table" aria-labelledby="tab-table" hidden>
+            <div class="site-grid site-grid--2">
+              <article class="ew-card">
+                <header class="ew-card__header"><h3>Citrus hour</h3></header>
+                <div class="ew-card__body"><p>Recipes that stay on the page. No kitchen is contacted.</p></div>
+              </article>
+              <article class="ew-card">
+                <header class="ew-card__header"><h3>Late sun</h3></header>
+                <div class="ew-card__body"><p>A color note on honey type and cream paper.</p></div>
+              </article>
+            </div>
+          </div>
+        </ew-tabs>
+      </section>
+      <section class="site-section" id="letter">
+        <h2>Letter</h2>
+        <div class="site-sheet">
+        <p class="site-fiction">The note stays in this browser. No list is contacted.</p>
+        <form id="letter-form">
+          <div class="site-grid site-grid--2">
+            <div class="ew-text-field">
+              <label class="ew-text-field__label" for="letter-email">Email</label>
+              <input id="letter-email" class="ew-text-field__control" type="email" autocomplete="email" required />
+            </div>
+            <label class="ew-checkbox">
+              <input class="ew-checkbox__control" type="checkbox" id="letter-ok" required />
+              <span class="ew-checkbox__box" aria-hidden="true"></span>
+              <span class="ew-checkbox__label">I know this is a sample and no letter is sent</span>
+            </label>
+          </div>
+          <div class="site-actions" style="margin-top: 16px">
+            <button type="submit" class="ew-button">Keep a note</button>
+          </div>
+        </form>
+        <div class="ew-alert is-hidden" data-variant="success" role="status" id="letter-done">
+          <strong class="ew-alert__title">Noted here only</strong>
+          <p class="ew-alert__body">Nothing was mailed. The sample form stays on this page.</p>
+        </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-wrap site-foot"><p class="site-fiction">Fictional magazine. No subscription is created.</p></footer>
+  </div>
+  <script>
+    document.getElementById('letter-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      document.getElementById('letter-done').classList.remove('is-hidden');
+    });
+  </script>
+</body>
+</html>

@@ -149,8 +149,13 @@
     "packages/css/dist/eras/neutral.css",
     "packages/css/dist/eras/swiss.css",
     "packages/css/dist/fonts/ArchivoBlack-Regular.woff2",
+    "packages/css/dist/fonts/Bellefair-Regular.woff2",
     "packages/css/dist/fonts/Comfortaa-Bold.woff2",
     "packages/css/dist/fonts/Comfortaa-Regular.woff2",
+    "packages/css/dist/fonts/CormorantGaramond-Bold.woff2",
+    "packages/css/dist/fonts/CormorantGaramond-Italic.woff2",
+    "packages/css/dist/fonts/CormorantGaramond-Regular.woff2",
+    "packages/css/dist/fonts/CormorantGaramond-SemiBold.woff2",
     "packages/css/dist/fonts/CourierPrime-Regular.woff2",
     "packages/css/dist/fonts/Exo2-Bold.woff2",
     "packages/css/dist/fonts/Exo2-Regular.woff2",
@@ -166,6 +171,7 @@
     "packages/css/dist/fonts/Jost-Regular.woff2",
     "packages/css/dist/fonts/LeagueSpartan-Bold.woff2",
     "packages/css/dist/fonts/LeagueSpartan-Regular.woff2",
+    "packages/css/dist/fonts/LilitaOne-Regular.woff2",
     "packages/css/dist/fonts/Limelight-Regular.woff2",
     "packages/css/dist/fonts/Monoton-Regular.woff2",
     "packages/css/dist/fonts/MrDafoe-Regular.woff2",
@@ -605,11 +611,11 @@
         "budget": "mcp.defaultReply"
       },
       "mcp.eraCard:art-nouveau": {
-        "chars": 644,
+        "chars": 662,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:bauhaus": {
-        "chars": 426,
+        "chars": 477,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:deco": {
@@ -617,7 +623,7 @@
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:groovy": {
-        "chars": 350,
+        "chars": 400,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:mcm-atomic": {
@@ -641,7 +647,7 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 2393,
+        "chars": 2414,
         "budget": "llms.index"
       },
       "llms.recipeCard:commerce": {

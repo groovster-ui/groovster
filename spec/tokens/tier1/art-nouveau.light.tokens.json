@@ -4,71 +4,75 @@
     "tier": 1,
     "era": "art-nouveau",
     "mode": "light",
-    "description": "Original Art Nouveau light lithographic material palette"
+    "description": "Art Nouveau light palette: warm parchment, olive line, madder, antique gold, peacock"
   },
   "color": {
     "paper": {
       "$type": "color",
-      "$value": "#F5F0E2"
+      "$value": "#F4E8CC"
     },
     "panel": {
       "$type": "color",
-      "$value": "#FCF7EA"
+      "$value": "#FFF6E4"
     },
     "elevated": {
       "$type": "color",
-      "$value": "#FFFDF5"
+      "$value": "#FFFCF4"
     },
     "ink": {
       "$type": "color",
-      "$value": "#26372E"
+      "$value": "#1C2616"
     },
     "muted": {
       "$type": "color",
-      "$value": "#4C5B4F"
+      "$value": "#3C5340"
     },
     "sage": {
       "$type": "color",
-      "$value": "#748D79"
+      "$value": "#7E9874"
     },
     "leaf": {
       "$type": "color",
-      "$value": "#4B704E"
+      "$value": "#245C40"
     },
     "line": {
       "$type": "color",
-      "$value": "#B8BCA5"
+      "$value": "#D9CBA8"
     },
     "strong": {
       "$type": "color",
-      "$value": "#5E7763"
+      "$value": "#4A5C3C"
     },
     "rose": {
       "$type": "color",
-      "$value": "#BA827E"
+      "$value": "#B55256"
     },
     "brass": {
       "$type": "color",
-      "$value": "#917645"
+      "$value": "#A67C32"
+    },
+    "peacock": {
+      "$type": "color",
+      "$value": "#1A6A60"
     },
     "focus": {
       "$type": "color",
-      "$value": "#91682C"
+      "$value": "#7A4E12"
     },
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "#285747"
+        "$value": "#123E34"
       },
       "fg": {
         "$type": "color",
-        "$value": "#FFFDF5"
+        "$value": "#FFF6E4"
       }
     },
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "#943A45"
+        "$value": "#8C2E36"
       },
       "fg": {
         "$type": "color",
@@ -140,7 +144,8 @@
     "display": {
       "$type": "fontFamily",
       "$value": [
-        "Fraunces",
+        "Cormorant Garamond",
+        "Palatino",
         "Georgia",
         "serif"
       ]
@@ -148,7 +153,7 @@
     "body": {
       "$type": "fontFamily",
       "$value": [
-        "Jost",
+        "Source Sans 3",
         "system-ui",
         "sans-serif"
       ]

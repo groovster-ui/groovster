@@ -14,7 +14,7 @@
       },
       "muted": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.ink} 65%, {color.sand})"
+        "$value": "color-mix(in oklch, {color.ink} 78%, {color.sand})"
       },
       "inverse": {
         "$type": "color",
@@ -28,21 +28,21 @@
       },
       "surface": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 80%, {color.avocado})"
+        "$value": "color-mix(in oklch, {color.sand} 88%, {color.ink})"
       },
       "elevated": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 70%, {color.harvest})"
+        "$value": "color-mix(in oklch, {color.sand} 78%, {color.ink})"
       }
     },
     "border": {
       "subtle": {
         "$type": "color",
-        "$value": "{color.avocado}"
+        "$value": "{color.ink}"
       },
       "strong": {
         "$type": "color",
-        "$value": "{color.harvest}"
+        "$value": "{color.ink}"
       }
     },
     "action": {
@@ -62,15 +62,15 @@
     "field": {
       "bg": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 90%, {color.ink})"
+        "$value": "color-mix(in oklch, {color.sand} 78%, {color.ink})"
       },
       "border": {
         "$type": "color",
-        "$value": "{color.avocado}"
+        "$value": "{color.ink}"
       },
       "focus": {
         "$type": "color",
-        "$value": "{color.harvest}"
+        "$value": "{color.magenta}"
       }
     },
     "overlay": {
@@ -80,7 +80,7 @@
     "track": {
       "off": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.sand} 65%, {color.avocado})"
+        "$value": "{color.sand}"
       },
       "on": {
         "$type": "color",
@@ -103,11 +103,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "3px",
+          "offsetX": "4px",
+          "offsetY": "4px",
           "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.harvest} 40%, transparent)"
+          "color": "{color.magenta}"
         }
       ]
     },
@@ -115,11 +115,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "8px",
+          "offsetX": "6px",
+          "offsetY": "6px",
           "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.sand} 55%, transparent)"
+          "color": "{color.sun}"
         }
       ]
     },
@@ -127,11 +127,11 @@
       "$type": "shadow",
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "14px",
+          "offsetX": "8px",
+          "offsetY": "8px",
           "blur": "0px",
           "spread": "0px",
-          "color": "color-mix(in oklch, {color.sand} 65%, transparent)"
+          "color": "{color.tangerine}"
         }
       ]
     }

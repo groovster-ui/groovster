@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shelf — one object</title>
+  <link rel="stylesheet" href="../../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <script src="../../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../../../recipes/shared/shell.js" defer></script>
+</head>
+<body>
+  <div class="ew-root" data-groovster-root data-recipe="memphis-shelf" data-era="memphis" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link" href="#object">Skip to the object</a>
+    <div class="wrap">
+      <nav class="nav" aria-label="Primary">
+        <a class="ew-link brand" href="#object">Shelf</a>
+        <div class="actions">
+          <button type="button" class="ew-icon-button" data-variant="secondary" aria-label="Save this sample">
+            <span class="ew-icon-button__icon" aria-hidden="true">+</span>
+          </button>
+          <ew-menu class="ew-menu">
+            <button type="button" class="ew-button ew-menu__trigger" aria-haspopup="menu">Actions</button>
+            <div class="ew-menu__panel" role="menu">
+              <button type="button" class="ew-menu__item" role="menuitem">Share sample</button>
+              <button type="button" class="ew-menu__item" role="menuitem">Ask a question</button>
+              <button type="button" class="ew-menu__item" role="menuitem">Remove from page</button>
+            </div>
+          </ew-menu>
+        </div>
+      </nav>
+      <header>
+        <h1>Shelf</h1>
+        <p class="lead">One fictional object. Nothing is added to a cart.</p>
+        <hr class="ew-ornament-divider" data-variant="ornament" />
+      </header>
+      <div class="grid grid-2" id="object">
+        <article class="ew-card">
+          <header class="ew-card__header"><h3>Yellow lamp</h3></header>
+          <div class="ew-card__body">
+            <p class="price">$240</p>
+            <p>A sample lamp. The price is not a quote.</p>
+            <div class="ew-alert" data-variant="info" role="status">
+              <strong class="ew-alert__title">In the room</strong>
+              <p class="ew-alert__body">Shown here only. No warehouse is attached.</p>
+            </div>
+          </div>
+          <footer class="ew-card__footer">
+            <ew-popover class="ew-popover">
+              <button type="button" class="ew-button ew-popover__trigger" data-variant="ghost" popovertarget="size-note">Size note</button>
+              <div id="size-note" class="ew-popover__panel" popover>
+                <p>About 40 cm tall. A sample measure, not a specification.</p>
+              </div>
+            </ew-popover>
+          </footer>
+        </article>
+        <form class="form" data-demo-form="hold">
+          <ew-select class="ew-select">
+            <label class="ew-select__label" for="finish">Finish</label>
+            <select id="finish" class="ew-select__control">
+              <option>Yellow enamel</option>
+              <option>Pink enamel</option>
+              <option>Mint enamel</option>
+            </select>
+          </ew-select>
+          <ew-slider class="ew-slider">
+            <label class="ew-slider__label" for="shade">Shade height</label>
+            <input id="shade" class="ew-slider__control" type="range" min="0" max="100" value="40" />
+            <output class="ew-slider__value">40</output>
+          </ew-slider>
+          <label class="ew-switch">
+            <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" />
+            <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+            <span class="ew-switch__label">Gift note</span>
+          </label>
+          <div class="ew-textarea">
+            <label class="ew-textarea__label" for="gift">Note</label>
+            <textarea id="gift" class="ew-textarea__control" rows="3"></textarea>
+          </div>
+          <div class="actions">
+            <button type="submit" class="ew-button">Hold sample</button>
+            <button type="button" class="ew-button" data-variant="secondary" data-sample-export>Send a card</button>
+          </div>
+          <div class="ew-alert" data-variant="success" role="status" data-demo-status hidden>
+            <strong class="ew-alert__title">Noted</strong>
+            <p class="ew-alert__body">Saved on this page only.</p>
+          </div>
+        </form>
+      </div>
+      <p class="foot">Fictional shelf. No order is placed.</p>
+    </div>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>

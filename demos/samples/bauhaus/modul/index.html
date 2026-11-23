@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modul — Objects</title>
+  <link rel="stylesheet" href="../../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../sheet.css" />
+  <script src="../../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../sample.js" defer></script>
+</head>
+<body>
+  <div class="ew-root" data-era="bauhaus" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#catalog">Skip to content</a>
+    <div class="site-wrap">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-brand" href="#masthead">Modul</a>
+        <div class="site-nav__links">
+          <a class="ew-link" href="#catalog">Catalog</a>
+          <a class="ew-link" href="#cart">Cart</a>
+        </div>
+      </nav>
+    </div>
+    <section class="ew-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true"></div>
+      <div class="ew-hero__panel">
+        <div class="ew-hero__content">
+          <p class="ew-script">Workshop catalog</p>
+          <h1 class="ew-hero__title">modul</h1>
+          <p class="ew-hero__subtitle">Lamps, prints, and stools. Prices are marked. Checkout charges nothing.</p>
+        </div>
+      </div>
+    </section>
+    <div class="site-wrap">
+      <section class="site-section" id="catalog">
+        <h2>Catalog</h2>
+        <div class="site-filters">
+          <ew-select class="ew-select">
+            <label class="ew-select__label" for="kind">Kind</label>
+            <select id="kind" class="ew-select__control" data-filter>
+              <option value="all">All</option>
+              <option value="light">Light</option>
+              <option value="print">Print</option>
+              <option value="seat">Seat</option>
+            </select>
+          </ew-select>
+          <label class="ew-checkbox">
+            <input class="ew-checkbox__control" type="checkbox" data-stock />
+            <span class="ew-checkbox__box" aria-hidden="true"></span>
+            <span class="ew-checkbox__label">In stock only</span>
+          </label>
+          <p data-count role="status">3 objects</p>
+        </div>
+        <div class="site-grid site-grid--3" data-catalog>
+          <article class="ew-card" data-product="light" data-stock="in">
+            <div class="plate" data-plate="2"></div>
+            <h3>Orb lamp</h3>
+            <p class="site-price">$89</p>
+            <button type="button" class="ew-button" data-buy="89">Add</button>
+          </article>
+          <article class="ew-card" data-product="print" data-stock="out">
+            <div class="plate" data-plate="3"></div>
+            <h3>Triangle print</h3>
+            <p class="site-price">$28</p>
+            <p class="site-muted">Out of stock</p>
+          </article>
+          <article class="ew-card" data-product="seat" data-stock="in">
+            <div class="plate" data-plate="1"></div>
+            <h3>Plane stool</h3>
+            <p class="site-price">$140</p>
+            <button type="button" class="ew-button" data-buy="140">Add</button>
+          </article>
+        </div>
+      </section>
+      <section class="site-section" id="cart">
+        <h2>Cart</h2>
+        <p>Illustrative total <strong data-cart>$0.00</strong></p>
+        <p class="site-fiction">Fictional cart. No payment is taken.</p>
+        <form data-local-form="Order noted on this page. Nothing was charged." data-dialog="order">
+          <button type="submit" class="ew-button">Checkout</button>
+        </form>
+        <dialog class="ew-dialog" id="order" aria-labelledby="order-title">
+          <header class="ew-dialog__header"><h2 id="order-title">Fictional order</h2></header>
+          <div class="ew-dialog__body"><p>This checkout charges nothing and ships nothing.</p></div>
+          <footer class="ew-dialog__footer"><button type="button" class="ew-button" data-close>Close</button></footer>
+        </dialog>
+        <p data-note role="status" class="site-fiction"></p>
+      </section>
+      <footer class="site-foot"><span>Modul · Workshop</span><span class="site-fiction">Fictional catalog</span></footer>
+    </div>
+  </div>
+</body>
+</html>

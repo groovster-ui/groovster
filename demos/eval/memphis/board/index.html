@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Board — sample floor</title>
+  <link rel="stylesheet" href="../../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../shared.css" />
+  <script src="../../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../../../recipes/shared/shell.js" defer></script>
+</head>
+<body>
+  <div class="ew-root" data-groovster-root data-recipe="memphis-board" data-era="memphis" data-mode="light" data-fidelity-band="whisper">
+    <a class="ew-link" href="#filters">Skip to filters</a>
+    <div class="wrap">
+      <header class="nav">
+        <div>
+          <p class="muted" style="margin:0">Board</p>
+          <h1>Floor</h1>
+        </div>
+        <button type="button" class="ew-button" data-size="sm" data-sample-export>Export sample</button>
+      </header>
+      <div class="ew-alert" data-variant="warning" role="status">
+        <strong class="ew-alert__title">Fictional floor</strong>
+        <p class="ew-alert__body">These lanes are not live.</p>
+      </div>
+      <h2>Figures</h2>
+      <div class="grid metrics">
+        <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>On time</h3></header><div class="ew-card__body"><p class="price">96%</p></div></article>
+        <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Open</h3></header><div class="ew-card__body"><p class="price">7</p></div></article>
+        <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Out</h3></header><div class="ew-card__body"><p class="price">42</p></div></article>
+        <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Dwell</h3></header><div class="ew-card__body"><p class="price">38m</p></div></article>
+      </div>
+      <h2 id="filters">Filters</h2>
+      <div class="actions" style="align-items:end">
+        <div class="ew-text-field">
+          <label class="ew-text-field__label" for="q">Search ref or lane</label>
+          <input id="q" class="ew-text-field__control" type="search" data-row-filter />
+        </div>
+        <ew-select class="ew-select">
+          <label class="ew-select__label" for="status">Status</label>
+          <select id="status" class="ew-select__control" data-status-filter>
+            <option value="all">All statuses</option>
+            <option value="inbound">Inbound</option>
+            <option value="exception">Exception</option>
+            <option value="done">Done</option>
+          </select>
+        </ew-select>
+        <label class="ew-switch">
+          <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" data-freeze />
+          <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+          <span class="ew-switch__label">Freeze the sample</span>
+        </label>
+      </div>
+      <p data-freeze-note hidden>Sample clock stopped.</p>
+      <p data-row-count aria-live="polite">4 matching rows</p>
+      <div style="overflow-x:auto">
+        <table>
+          <caption>Sample lanes</caption>
+          <thead><tr><th>Ref</th><th>Lane</th><th>Window</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr data-row data-status="inbound"><td>NL-1044</td><td>Cedar yard</td><td>06:10</td><td>Inbound</td></tr>
+            <tr data-row data-status="exception"><td>NL-1048</td><td>West gate</td><td>06:40</td><td>Exception</td></tr>
+            <tr data-row data-status="done"><td>NL-0981</td><td>River dock</td><td>05:20</td><td>Done</td></tr>
+            <tr data-row data-status="inbound"><td>NL-1102</td><td>North ramp</td><td>07:05</td><td>Inbound</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="foot">Fictional board. No carrier is connected.</p>
+    </div>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atelier Paon</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../site.css" />
+  <script src="../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../site.js" defer></script>
+</head>
+<body>
+<div class="ew-root" data-era="art-nouveau" data-dialect="botanical" data-mode="light" data-fidelity-band="costume">
+  <a class="ew-link skip" href="#main">Skip to content</a>
+  <div class="wrap">
+    <nav class="bar" aria-label="Primary">
+      <a class="brand" href="#masthead">Atelier Paon</a>
+      <div class="links">
+        <a class="ew-link" href="#catalog">Pieces</a>
+        <span>Cart <strong data-cart>0</strong></span>
+      </div>
+    </nav>
+  </div>
+  <section class="ew-hero" id="masthead">
+    <div class="ew-hero__backdrop" aria-hidden="true"></div>
+    <div class="ew-hero__stage" aria-hidden="true"></div>
+    <div class="ew-hero__panel">
+      <div class="ew-hero__content">
+        <p class="ew-script">Jewelry in line and enamel</p>
+        <h1 class="ew-hero__title">Atelier Paon</h1>
+        <p class="ew-hero__subtitle">Rings, clasps, and a peacock eye. The cart is a demonstration and charges nothing.</p>
+        <a class="ew-button" href="#catalog">See the pieces</a>
+      </div>
+    </div>
+  </section>
+  <main id="main" class="wrap">
+    <section class="section" id="catalog">
+      <h2>The case</h2>
+      <p class="note" data-count aria-live="polite">3 pieces shown</p>
+      <form class="filters" data-filter="#pieces">
+        <ew-select class="ew-select">
+          <label class="ew-select__label" for="kind">Kind</label>
+          <select id="kind" class="ew-select__control" data-cat>
+            <option value="all">All</option>
+            <option value="ring">Rings</option>
+            <option value="clasp">Clasps</option>
+            <option value="brooch">Brooches</option>
+          </select>
+        </ew-select>
+        <label class="ew-checkbox">
+          <input class="ew-checkbox__control" type="checkbox" data-stock />
+          <span class="ew-checkbox__box" aria-hidden="true"></span>
+          <span class="ew-checkbox__label">In the case only</span>
+        </label>
+      </form>
+      <div class="grid3" id="pieces" style="margin-top:1.4rem">
+        <article class="ew-card" data-item data-cat="ring" data-stock="true">
+          <div class="plate" aria-hidden="true"><span class="ew-nouveau-ornament" data-motif="medallion"></span></div>
+          <header class="ew-card__header"><h3>Iris ring</h3></header>
+          <div class="ew-card__body"><p class="price">$480</p><p>Enamel and a thin gold band.</p><button type="button" class="ew-button" data-add>Add to cart</button></div>
+        </article>
+        <article class="ew-card" data-item data-cat="clasp" data-stock="true">
+          <div class="plate" data-tone="gold" aria-hidden="true"><span class="ew-nouveau-ornament" data-motif="whiplash"></span></div>
+          <header class="ew-card__header"><h3>Whiplash clasp</h3></header>
+          <div class="ew-card__body"><p class="price">$220</p><p>A hook that tapers to a hair.</p><button type="button" class="ew-button" data-add>Add to cart</button></div>
+        </article>
+        <article class="ew-card" data-item data-cat="brooch" data-stock="false">
+          <div class="plate" data-tone="rose" aria-hidden="true"><span class="ew-nouveau-ornament" data-motif="spray"></span></div>
+          <header class="ew-card__header"><h3>Peacock brooch</h3></header>
+          <div class="ew-card__body"><p class="price">$860</p><p>Spoken for. Shown as a sample only.</p><button type="button" class="ew-button" data-variant="secondary" disabled>Wait list</button></div>
+        </article>
+      </div>
+      <p class="note" data-cart-live aria-live="polite"></p>
+      <p class="note">Checkout is not offered. Prices are fictional.</p>
+    </section>
+    <footer class="foot"><p class="note">Atelier Paon · demonstration catalog</p></footer>
+  </main>
+</div>
+</body>
+</html>

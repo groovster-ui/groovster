@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memphis type library</title>
+  <link rel="stylesheet" href="../../../../packages/css/dist/era-widgets.css" />
+  <style>
+    @font-face {
+      font-family: "Nunito Sans";
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+      src: url("../../../../packages/css/dist/fonts/NunitoSans-Regular.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Nunito Sans";
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+      src: url("../../../../packages/css/dist/fonts/NunitoSans-Bold.woff2") format("woff2");
+    }
+    body { margin: 0; }
+    .ew-root { min-height: 100vh; padding: 36px 40px 48px; }
+    h1 { font-family: "Archivo Black", Impact, sans-serif; font-weight: 400; font-size: 4.4rem; line-height: 0.9; margin: 8px 0 12px; }
+    .kicker { font-family: Nunito, system-ui, sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; }
+    .lead { font-family: Nunito, system-ui, sans-serif; font-size: 1.15rem; max-width: 36rem; line-height: 1.45; }
+    .row { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; margin: 18px 0 28px; }
+    .ref { font-family: "Space Mono", monospace; font-size: 1.4rem; margin: 0; }
+    .cap { font-family: Nunito, system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ew-color-fg-muted); margin: 0 0 4px; }
+    .alts { display: grid; gap: 14px; max-width: 760px; }
+    .alt { display: grid; grid-template-columns: 9rem 1fr auto; gap: 16px; align-items: center; }
+    .alt p { margin: 0; font-size: 1.05rem; }
+    .btn {
+      font-size: 1rem; font-weight: 700; color: oklch(18% 0.04 280);
+      background: var(--ew-color-yellow); border: 3px solid var(--ew-color-ink);
+      box-shadow: 4px 4px 0 0 var(--ew-color-pink); padding: 10px 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ew-root" data-era="memphis" data-mode="light" data-fidelity-band="costume">
+    <p class="kicker">Shipped faces, as used</p>
+    <h1>Counter</h1>
+    <p class="cap">Archivo Black — display. One weight.</p>
+    <p class="lead">A fictional print counter. The ticket stays in this browser.</p>
+    <p class="cap">Nunito — body, labels, and buttons.</p>
+    <div class="row">
+      <button class="btn" style="font-family: Nunito, system-ui, sans-serif" type="button">Send to press</button>
+      <p class="ref">1844</p>
+    </div>
+    <p class="cap">Space Mono — the 1844.</p>
+    <h2 class="kicker" style="margin-top: 28px">Other body faces already in the library</h2>
+    <div class="alts">
+      <div class="alt" style="font-family: Nunito, sans-serif">
+        <strong>Nunito</strong>
+        <p>Keep the blue under 40%.</p>
+        <button class="btn" type="button">Send to press</button>
+      </div>
+      <div class="alt" style="font-family: 'Nunito Sans', sans-serif">
+        <strong>Nunito Sans</strong>
+        <p>Keep the blue under 40%.</p>
+        <button class="btn" type="button">Send to press</button>
+      </div>
+      <div class="alt" style="font-family: Jost, sans-serif">
+        <strong>Jost</strong>
+        <p>Keep the blue under 40%.</p>
+        <button class="btn" type="button">Send to press</button>
+      </div>
+      <div class="alt" style="font-family: 'League Spartan', sans-serif">
+        <strong>League Spartan</strong>
+        <p>Keep the blue under 40%.</p>
+        <button class="btn" type="button">Send to press</button>
+      </div>
+      <div class="alt" style="font-family: 'Work Sans', sans-serif">
+        <strong>Work Sans</strong>
+        <p>Keep the blue under 40%.</p>
+        <button class="btn" type="button">Send to press</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

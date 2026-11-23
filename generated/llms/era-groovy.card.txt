@@ -1,11 +1,11 @@
 era: groovy
-voice: 70s warm groove
-shape: flared radii
-edge: soft / tonal
-surface: warm paper
-elevation: soft lift
-ornament: sun/petal sparse
-type: Comfortaa + Mulish
+voice: psychedelic poster
+shape: bubble controls, organic cards
+edge: thick ink keyline
+surface: cream paper or plum night
+elevation: hard color offset
+ornament: sun, daisy, wave
+type: Lilita One + Mulish
 fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)
 modes: light, dark
 use: music, food, lifestyle

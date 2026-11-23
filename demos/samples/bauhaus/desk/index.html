@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Press check — Desk</title>
+  <link rel="stylesheet" href="../../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../sheet.css" />
+  <script src="../../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../sample.js" defer></script>
+</head>
+<body>
+  <div class="ew-root desk" data-era="bauhaus" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#queues">Skip to content</a>
+    <div class="site-wrap">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-brand" href="#masthead">Press check</a>
+        <div class="site-nav__links">
+          <a class="ew-link" href="#metrics">Figures</a>
+          <a class="ew-link" href="#queues">Queues</a>
+        </div>
+      </nav>
+    </div>
+    <div class="desk-sheet" aria-hidden="true"></div>
+    <div class="site-wrap">
+      <header class="site-section" id="masthead">
+        <p class="ew-script">Workshop desk</p>
+        <h1>press check</h1>
+        <p class="site-muted">Figures are fictional. The clock can stay frozen.</p>
+      </header>
+      <div class="ew-alert" data-variant="warning" role="status">
+        <strong class="ew-alert__title">Sample data</strong>
+        <p class="ew-alert__body">These rows are invented for the desk. They are not a live press.</p>
+      </div>
+      <section class="site-section" id="metrics">
+        <h2>Figures</h2>
+        <div class="site-grid site-grid--4">
+          <article class="ew-card"><h3>Open</h3><p class="site-metric">12</p></article>
+          <article class="ew-card"><h3>On press</h3><p class="site-metric">4</p></article>
+          <article class="ew-card"><h3>Held</h3><p class="site-metric">3</p></article>
+          <article class="ew-card"><h3>Done</h3><p class="site-metric">28</p></article>
+        </div>
+      </section>
+      <section class="site-section" id="filters">
+        <h2>Filters</h2>
+        <div class="site-filters">
+          <div class="ew-text-field">
+            <label class="ew-text-field__label" for="q">Search</label>
+            <input id="q" class="ew-text-field__control" type="search" data-search />
+          </div>
+          <ew-select class="ew-select">
+            <label class="ew-select__label" for="status">Status</label>
+            <select id="status" class="ew-select__control" data-status>
+              <option value="all">All</option>
+              <option value="open">Open</option>
+              <option value="press">On press</option>
+              <option value="held">Held</option>
+            </select>
+          </ew-select>
+          <label class="ew-switch">
+            <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" data-clock />
+            <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+            <span class="ew-switch__label">Run the sample clock</span>
+          </label>
+          <p data-clock-note class="site-muted">Sample clock is frozen.</p>
+          <p data-live role="status">4 rows</p>
+        </div>
+      </section>
+      <section class="site-section" id="queues">
+        <h2>Queues</h2>
+        <ew-tabs class="ew-tabs">
+          <div role="tablist" aria-label="Queues">
+            <button type="button" role="tab" id="tab-jobs" aria-selected="true" aria-controls="panel-jobs">Jobs</button>
+            <button type="button" role="tab" id="tab-notes" aria-selected="false" aria-controls="panel-notes" tabindex="-1">Notes</button>
+          </div>
+          <div role="tabpanel" id="panel-jobs" aria-labelledby="tab-jobs">
+            <div class="site-table-wrap">
+              <table class="site-table" data-queue>
+                <caption>Press jobs</caption>
+                <thead><tr><th scope="col">Job</th><th scope="col">Sheet</th><th scope="col">Status</th></tr></thead>
+                <tbody>
+                  <tr data-status="open"><td>Poster 14</td><td>Red plane</td><td>Open</td></tr>
+                  <tr data-status="press"><td>Catalog 3</td><td>Blue circle</td><td>On press</td></tr>
+                  <tr data-status="held"><td>Card set</td><td>Yellow wedge</td><td>Held</td></tr>
+                  <tr data-status="open"><td>Invite</td><td>Ink spine</td><td>Open</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div role="tabpanel" id="panel-notes" aria-labelledby="tab-notes" hidden>
+            <p>The sheet above the figures is the ground. The table stays in the body face.</p>
+          </div>
+        </ew-tabs>
+      </section>
+      <footer class="site-foot"><span>Press check</span><span class="site-fiction">Fictional desk</span></footer>
+    </div>
+  </div>
+</body>
+</html>

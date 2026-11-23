@@ -23,6 +23,7 @@ import { neonDecoratorCss } from './neon-decorators.js';
 import { modernistDecoratorCss } from './modernist-decorators.js';
 import { nouveauDecoratorCss } from './nouveau-decorators.js';
 import { memphisDecoratorCss } from './memphis-decorators.js';
+import { groovyDecoratorCss } from './groovy-decorators.js';
 import { loadRecipes, recipeIndexLines, writeRecipeDocs } from './recipes.js';
 import { loadEraCatalog } from './era-catalog.js';
 import { matrixDocument } from '../../../tests/a11y/matrix-html.mjs';
@@ -61,10 +62,18 @@ const FONT_FILES = {
   'Space Mono': { 400: 'SpaceMono-Regular.woff2', 700: 'SpaceMono-Bold.woff2' },
   'Courier Prime': { 400: 'CourierPrime-Regular.woff2' },
   Comfortaa: { 400: 'Comfortaa-Regular.woff2', 700: 'Comfortaa-Bold.woff2' },
+  'Lilita One': { 400: 'LilitaOne-Regular.woff2' },
   Mulish: { 400: 'Mulish-Regular.woff2', 700: 'Mulish-Bold.woff2' },
   'Archivo Black': { 400: 'ArchivoBlack-Regular.woff2' },
   Nunito: { 400: 'Nunito-Regular.woff2', 700: 'Nunito-Bold.woff2' },
   Fraunces: { 400: 'Fraunces-Regular.woff2', 700: 'Fraunces-Bold.woff2' },
+  'Cormorant Garamond': {
+    400: 'CormorantGaramond-Regular.woff2',
+    600: 'CormorantGaramond-SemiBold.woff2',
+    700: 'CormorantGaramond-Bold.woff2',
+    i400: 'CormorantGaramond-Italic.woff2',
+  },
+  Bellefair: { 400: 'Bellefair-Regular.woff2' },
   'Source Sans 3': { 400: 'SourceSans3-Regular.woff2', 700: 'SourceSans3-Bold.woff2' },
   'Inter Tight': { 400: 'InterTight-Regular.woff2', 700: 'InterTight-Bold.woff2' },
   'Source Code Pro': { 400: 'SourceCodePro-Regular.woff2', 700: 'SourceCodePro-Bold.woff2' },
@@ -100,15 +109,17 @@ function fontFaceBlock(era, { forBundle = false } = {}) {
   src: local("${family}");
 }`];
       }
-      return Object.entries(files).map(
-        ([weight, file]) => `@font-face {
+      return Object.entries(files).map(([key, file]) => {
+        const italic = String(key).startsWith('i');
+        const weight = italic ? String(key).slice(1) : key;
+        return `@font-face {
   font-family: "${family}";
-  font-style: normal;
+  font-style: ${italic ? 'italic' : 'normal'};
   font-weight: ${weight};
   font-display: swap;
   src: url("${prefix}${file}") format("woff2"), local("${family}");
-}`
-      );
+}`;
+      });
     })
     .join('\n');
 }
@@ -396,76 +407,7 @@ function genEraCss(era) {
   } else if (era.id === 'memphis') {
     blocks.push(memphisDecoratorCss());
   } else if (era.id === 'groovy') {
-    blocks.push(`  [data-era="groovy"] .ew-button {
-    border-radius: 999px;
-    box-shadow: 0 4px 0 0 color-mix(in oklch, var(--ew-color-fg-default) 18%, transparent);
-  }
-  [data-era="groovy"] .ew-card {
-    border-radius: 28px 36px 24px 40px / 32px 24px 36px 28px;
-    border-width: 0;
-    background-image:
-      radial-gradient(circle at 12% 18%, color-mix(in oklch, var(--ew-color-action-bg) 22%, transparent) 0 18%, transparent 19%),
-      radial-gradient(circle at 88% 12%, color-mix(in oklch, var(--ew-color-border-strong) 18%, transparent) 0 14%, transparent 15%);
-  }
-  [data-era="groovy"] .ew-card__header::after {
-    content: "";
-    display: block;
-    height: 10px;
-    margin-top: 10px;
-    background:
-      radial-gradient(circle at 10px 5px, var(--ew-color-action-bg) 0 3px, transparent 4px),
-      radial-gradient(circle at 28px 5px, var(--ew-color-border-strong) 0 3px, transparent 4px),
-      radial-gradient(circle at 46px 5px, var(--ew-color-action-bg) 0 3px, transparent 4px);
-    opacity: 0.7;
-  }
-  ${muteBandSel('groovy', ' .ew-card__header::after')} { display: none; }
-  [data-era="groovy"] .ew-text-field__control,
-  [data-era="groovy"] .ew-select__control,
-  [data-era="groovy"] .ew-select__trigger,
-  [data-era="groovy"] .ew-textarea__control {
-    border-radius: 999px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--ew-color-field-border);
-    background: var(--ew-color-field-bg);
-  }
-  [data-era="groovy"] .ew-dialog {
-    border-radius: 36px 28px 40px 32px / 28px 36px 30px 34px;
-  }
-  [data-era="groovy"] .ew-tabs [role="tablist"],
-  [data-era="groovy"] ew-tabs [role="tablist"] {
-    border-bottom: 0;
-    gap: 10px;
-  }
-  [data-era="groovy"] .ew-tabs [role="tab"],
-  [data-era="groovy"] ew-tabs [role="tab"] {
-    border-radius: 999px;
-    border-bottom: 0;
-    padding-inline: 14px;
-  }
-  [data-era="groovy"] .ew-tabs [role="tab"][aria-selected="true"],
-  [data-era="groovy"] ew-tabs [role="tab"][aria-selected="true"] {
-    background: var(--ew-color-action-bg);
-    color: var(--ew-color-action-fg);
-  }
-  [data-era="groovy"] .ew-tooltip__tip {
-    border-radius: 999px;
-    padding: 8px 12px;
-    box-shadow: 0 4px 0 color-mix(in oklch, var(--ew-color-fg-default) 20%, transparent);
-  }
-  [data-era="groovy"] .ew-slider__control {
-    height: var(--ew-structure-slider-track-height, 10px);
-    border-radius: 999px;
-  }
-  [data-era="groovy"] .ew-switch__track {
-    border-radius: 999px;
-    border: 2px solid var(--ew-color-border-strong);
-    box-shadow: none;
-  }
-  [data-era="groovy"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
-    background: var(--ew-color-fg-default);
-  }
-`);
+    blocks.push(groovyDecoratorCss());
   }
   blocks.push(`}`);
   return blocks.join('\n') + '\n';

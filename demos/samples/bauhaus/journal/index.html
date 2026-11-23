@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Element — Issue 07</title>
+  <link rel="stylesheet" href="../../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../sheet.css" />
+  <script src="../../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../sample.js" defer></script>
+</head>
+<body>
+  <div class="ew-root" data-era="bauhaus" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#essay">Skip to content</a>
+    <div class="site-wrap">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-brand" href="#masthead">Element</a>
+        <div class="site-nav__links">
+          <a class="ew-link" href="#essay">Essay</a>
+          <a class="ew-link" href="#departments">Departments</a>
+          <a class="ew-link" href="#newsletter">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+    <section class="ew-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true"></div>
+      <div class="ew-hero__panel">
+        <div class="ew-hero__content">
+          <p class="ew-script">Issue 07 · The sheet</p>
+          <h1 class="ew-hero__title">element</h1>
+          <p class="ew-hero__subtitle">A quarterly on circles, squares, and the work of putting them in order.</p>
+        </div>
+      </div>
+    </section>
+    <div class="site-wrap">
+      <article class="site-section" id="essay">
+        <p class="site-lead">The page is a sheet of paper. A spine divides the words from the construction, and every form has to share an edge with that spine or with the rule at the top.</p>
+        <p class="site-lead">This issue follows three workshops: color, type, and the object that has to survive both.</p>
+      </article>
+      <hr class="ew-ornament-divider" />
+      <section class="site-section" id="departments">
+        <h2>Departments</h2>
+        <ew-tabs class="ew-tabs">
+          <div role="tablist" aria-label="Departments">
+            <button type="button" role="tab" id="tab-color" aria-selected="true" aria-controls="panel-color">Color</button>
+            <button type="button" role="tab" id="tab-type" aria-selected="false" aria-controls="panel-type" tabindex="-1">Type</button>
+            <button type="button" role="tab" id="tab-object" aria-selected="false" aria-controls="panel-object" tabindex="-1">Object</button>
+          </div>
+          <div role="tabpanel" id="panel-color" aria-labelledby="tab-color">
+            <div class="site-grid site-grid--3">
+              <article class="ew-card"><div class="plate" data-plate="1"></div><h3>Red is the square</h3><p>A plane, not a sticker. It takes the top of the field.</p></article>
+              <article class="ew-card"><div class="plate" data-plate="2"></div><h3>Blue is the circle</h3><p>Cropped by the sheet so only the part that matters remains.</p></article>
+              <article class="ew-card"><div class="plate" data-plate="3"></div><h3>Yellow is the triangle</h3><p>Its right angle sits on the spine and the bottom rule.</p></article>
+            </div>
+          </div>
+          <div role="tabpanel" id="panel-type" aria-labelledby="tab-type" hidden>
+            <p class="site-lead">Display words stay lowercase. Labels are tracked capitals. Nothing functional is turned on its side.</p>
+          </div>
+          <div role="tabpanel" id="panel-object" aria-labelledby="tab-object" hidden>
+            <p class="site-lead">A lamp, a stool, a poster. Each one is a plane with a job.</p>
+          </div>
+        </ew-tabs>
+      </section>
+      <section class="site-section" id="newsletter">
+        <h2>The next sheet</h2>
+        <p class="site-fiction">A local note only. No list is contacted.</p>
+        <form class="site-actions" data-local-form="Noted locally. No list was contacted.">
+          <div class="ew-text-field">
+            <label class="ew-text-field__label" for="email">Email</label>
+            <input id="email" class="ew-text-field__control" type="email" autocomplete="email" required />
+          </div>
+          <label class="ew-checkbox">
+            <input class="ew-checkbox__control" type="checkbox" required />
+            <span class="ew-checkbox__box" aria-hidden="true"></span>
+            <span class="ew-checkbox__label">I understand this stays on this page</span>
+          </label>
+          <button type="submit" class="ew-button">Send</button>
+        </form>
+        <p data-note role="status" class="site-fiction"></p>
+      </section>
+      <footer class="site-foot"><span>Element · Issue 07</span><span class="site-fiction">Fictional quarterly</span></footer>
+    </div>
+  </div>
+</body>
+</html>

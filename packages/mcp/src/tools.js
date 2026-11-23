@@ -258,7 +258,7 @@ export function recommendTool({ description } = {}) {
     { test: /(synth|neon|game|night|festival|retro.?wave|outrun|cyber)/, era: 'neon', fidelityBand: 'standard', dialect: 'synthwave' },
     { test: /(miami|pastel|day.?glow|vice)/, era: 'neon', fidelityBand: 'standard', dialect: 'miami' },
     { test: /(memphis|confetti|postmodern|squiggle)/, era: 'memphis', fidelityBand: 'standard', dialect: null },
-    { test: /(groovy|70s|avocado|disco|funk)/, era: 'groovy', fidelityBand: 'standard', dialect: null },
+    { test: /(groovy|70s|avocado|disco|funk|psychedelic|sunburst)/, era: 'groovy', fidelityBand: 'standard', dialect: null },
     { test: /(cafe|lifestyle|mid.?century|atomic|playful|product.?stor)/, era: 'mcm-atomic', fidelityBand: 'standard', dialect: 'atomic' },
     { test: /(admin|settings|saas|dashboard|serious|enterprise|default)/, era: 'neutral', fidelityBand: 'whisper', dialect: null },
   ];

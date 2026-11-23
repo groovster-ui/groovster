@@ -9,8 +9,8 @@
     "organic-art-nouveau"
   ],
   "identity": {
-    "oneLiner": "Art Nouveau: flowing whiplash curves, botanical frames and organic ironwork.",
-    "summary": "Art Nouveau (c.1890–1914) unifies typography, botanical line work and architecture in composed organic forms. Botanical is Mucha/Grasset-inspired; Architectural interprets Guimard/Horta structural ironwork.",
+    "oneLiner": "Art Nouveau: a lithographic line, a halo, and flat inks of gold, olive, madder, and peacock.",
+    "summary": "Art Nouveau (c.1890–1914) is drawn, not filled. A tapered whiplash, an iris, and a peacock-eye halo sit on warm parchment; architectural iron is a Guimard hood and sinuous stems. Botanical is the poster; architectural is the metro.",
     "bestFit": [
       "Botanical luxury and independent boutiques",
       "Museums and historic cultural venues",
@@ -20,26 +20,26 @@
     "authenticityNotes": "Curves grow from structure; negative space protects content. No mass-repeated flowers, sticker art, or Deco geometry."
   },
   "axes": {
-    "shape": "Organic arches, tapered whiplash lines, asymmetrical floral frames; readable controls retain practical geometry",
-    "edge": "Paired fine stems and selected vegetal corner arcs",
-    "surface": "Ivory/parchment and deep forest ink; calm contrast with muted pastel lithographic accents",
-    "elevation": "Almost flat; delicate ink edge and soft offset where needed",
-    "ornament": "Original six-vector grammar: vine, whiplash, floral spray, arch, iron stem, medallion, curved rule and corner",
-    "typeVoice": "Fraunces display with Jost body; architectural alternate Josefin Sans for signage",
+    "shape": "Tapered whiplash, iris, peacock eye, and a hooded iron arch; fields stay simple",
+    "edge": "Double hairline, like a printed plate: brass rule, then an olive rule",
+    "surface": "Warm parchment and a reserved ivory panel; dark mode is leaded green with brass",
+    "elevation": "Almost flat; the line does the work, not a shadow",
+    "ornament": "Eight original masks: vine, whiplash, iris spray, Guimard arch, iron stems, peacock medallion, eyed rule, corner whip",
+    "typeVoice": "Cormorant Garamond display, italic for the small line, Source Sans 3 for reading; Bellefair signage in the architectural dialect",
     "motion": "Measured organic transitions; no animated wallpaper or excessive drift",
     "density": "Expansive ceremonial sections, disciplined forms and data",
     "iconography": "Natural line shapes; functional labels remain standard"
   },
   "fonts": {
-    "display": "Fraunces",
-    "displayAlt": "Josefin Sans",
-    "body": "Jost",
+    "display": "Cormorant Garamond",
+    "displayAlt": "Bellefair",
+    "body": "Source Sans 3",
     "mono": "Source Code Pro",
-    "license": "OFL-1.1 (all fonts already bundled in the repo)",
+    "license": "OFL-1.1 (all fonts bundled in the repo)",
     "sources": [
-      "https://fonts.google.com/specimen/Fraunces",
-      "https://fonts.google.com/specimen/Josefin+Sans",
-      "https://fonts.google.com/specimen/Jost",
+      "https://fonts.google.com/specimen/Cormorant+Garamond",
+      "https://fonts.google.com/specimen/Bellefair",
+      "https://fonts.google.com/specimen/Source+Sans+3",
       "https://fonts.google.com/specimen/Source+Code+Pro"
     ]
   },
@@ -90,22 +90,22 @@
   ],
   "card": {
     "lines": [
-      "era: art-nouveau; voice: botanical / architectural Belle Époque",
-      "identity: integrated whiplash, nature-inspired organic structure",
+      "era: art-nouveau; voice: botanical poster / architectural iron",
+      "identity: tapered line, halo, iris, peacock eye, Guimard hood",
       "dialects: botanical (default) | architectural",
-      "type: Fraunces + Jost; architectural: Josefin Sans display",
-      "palette: ivory/forest/sage/rose; dark forest/brass",
-      "shape: sinuous arch, stem, spray, medallion; no geometric Deco steps",
-      "fidelity: whisper restrained | standard one flourish | costume full composition",
+      "type: Cormorant Garamond + Source Sans 3; architectural: Bellefair",
+      "palette: parchment, gold, olive, madder, peacock; dark brass on leaded green",
+      "shape: whiplash, lily-iris, eyed medallion, hooded arch; no Deco steps",
+      "fidelity: whisper type | standard one stem | costume halo, bloom, and line",
       "modes: light/dark; costume default",
-      "use: organic luxury, museum, hospitality, botanical commerce",
+      "use: botanical luxury, museum, hospitality, jewelry",
       "never: sticker flowers, ornament over controls, external resources",
       "details: docs/art-nouveau-grammar.md on demand"
     ]
   },
   "structure": {
-    "controlRadius": "11px",
-    "surfaceRadius": "30px 14px 30px 14px",
+    "controlRadius": "4px",
+    "surfaceRadius": "36px 10px 28px 8px",
     "button": {
       "borderWidth": "1px",
       "borderStyle": "solid",
@@ -167,12 +167,12 @@
     {
       "id": "botanical",
       "label": "Botanical",
-      "description": "Mucha/Grasset-inspired organic flourishes, vine frames, floral curves and warm lithographic composition; the default."
+      "description": "Poster dialect: high-contrast roman, italic kicker, iris in a peacock halo, madder and gold on parchment."
     },
     {
       "id": "architectural",
       "label": "Architectural",
-      "description": "Guimard/Horta-inspired iron-stem arches, elongated supports, restrained structure and signage typography."
+      "description": "Iron dialect: Bellefair signage, sinuous cast stems, and a hooded arch on a glass-green field."
     }
   ]
 }

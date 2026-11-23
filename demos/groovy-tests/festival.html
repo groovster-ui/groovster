@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sunfield '74</title>
+  <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="layout.css" />
+  <script src="../../packages/elements/dist/era-elements.js" defer></script>
+</head>
+<body>
+  <div class="ew-root" data-era="groovy" data-mode="dark" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#content">Skip to content</a>
+    <div class="site-wrap">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="ew-link site-brand" href="#masthead">Sunfield</a>
+        <div class="site-nav__links">
+          <a class="ew-link" data-variant="nav" href="#lineup">Lineup</a>
+          <a class="ew-link" data-variant="nav" href="#schedule">Schedule</a>
+          <a class="ew-link" data-variant="nav" href="#tickets">Tickets</a>
+        </div>
+      </nav>
+    </div>
+    <section class="ew-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true"></div>
+      <div class="ew-hero__panel">
+        <div class="ew-hero__rays" aria-hidden="true"></div>
+        <div class="ew-hero__content">
+          <div class="ew-hero__fan" aria-hidden="true"></div>
+          <p class="ew-script">Three nights in the orchard</p>
+          <h1 class="ew-hero__title">Sunfield '74</h1>
+          <p class="ew-hero__subtitle">A fictional weekend of brass, disco, and paper lanterns. The hold does not charge a card.</p>
+        </div>
+      </div>
+    </section>
+    <main id="content" class="site-wrap">
+      <section class="site-section" id="lineup">
+        <h2>Lineup</h2>
+        <div class="site-grid site-grid--3">
+          <article class="ew-card">
+            <div class="site-swatch" data-swatch="sun" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Marigold Brass</h3></header>
+            <div class="ew-card__body"><p>Friday close. Horns on the lawn until the lights come up.</p></div>
+          </article>
+          <article class="ew-card">
+            <div class="site-swatch" data-swatch="magenta" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Velvet Orbit</h3></header>
+            <div class="ew-card__body"><p>Saturday dusk. A long disco set under the citrus trees.</p></div>
+          </article>
+          <article class="ew-card">
+            <div class="site-swatch" data-swatch="aqua" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Paper Saints</h3></header>
+            <div class="ew-card__body"><p>Sunday close. Fictional headliner, acoustic until midnight.</p></div>
+          </article>
+        </div>
+      </section>
+      <section class="site-section" id="schedule">
+        <h2>Schedule</h2>
+        <div class="site-sheet">
+        <ew-tabs class="ew-tabs">
+          <div role="tablist" aria-label="Festival days">
+            <button type="button" role="tab" id="day-fri" aria-selected="true" aria-controls="panel-fri">Friday</button>
+            <button type="button" role="tab" id="day-sat" aria-selected="false" aria-controls="panel-sat" tabindex="-1">Saturday</button>
+            <button type="button" role="tab" id="day-sun" aria-selected="false" aria-controls="panel-sun" tabindex="-1">Sunday</button>
+          </div>
+          <div role="tabpanel" id="panel-fri" aria-labelledby="day-fri">
+            <div class="site-table-wrap">
+              <table class="site-table">
+                <caption>Friday sets</caption>
+                <thead><tr><th scope="col">Time</th><th scope="col">Act</th><th scope="col">Stage</th></tr></thead>
+                <tbody>
+                  <tr><td>19:00</td><td>Lantern Parade</td><td>Orchard gate</td></tr>
+                  <tr><td>21:30</td><td>Marigold Brass</td><td>Main lawn</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div role="tabpanel" id="panel-sat" aria-labelledby="day-sat" hidden>
+            <div class="site-table-wrap">
+              <table class="site-table">
+                <caption>Saturday sets</caption>
+                <thead><tr><th scope="col">Time</th><th scope="col">Act</th><th scope="col">Stage</th></tr></thead>
+                <tbody><tr><td>20:00</td><td>Velvet Orbit</td><td>Citrus bowl</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+          <div role="tabpanel" id="panel-sun" aria-labelledby="day-sun" hidden>
+            <div class="site-table-wrap">
+              <table class="site-table">
+                <caption>Sunday sets</caption>
+                <thead><tr><th scope="col">Time</th><th scope="col">Act</th><th scope="col">Stage</th></tr></thead>
+                <tbody><tr><td>18:30</td><td>Paper Saints</td><td>Main lawn</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </ew-tabs>
+        </div>
+      </section>
+      <hr class="ew-ornament-divider" data-variant="ornament" />
+      <section class="site-section" id="tickets">
+        <h2>Tickets</h2>
+        <div class="site-sheet">
+        <p class="site-fiction">Sample prices. Review does not charge a card.</p>
+        <fieldset class="ew-radio-group">
+          <legend>Tier</legend>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="tier" value="lawn" checked /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Lawn — $48</span></label>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="tier" value="weekend" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Weekend — $110</span></label>
+        </fieldset>
+        <div class="site-actions">
+          <button type="button" class="ew-button" id="open-hold">Review hold</button>
+        </div>
+        <dialog class="ew-dialog" id="hold-dialog" aria-labelledby="hold-title">
+          <header class="ew-dialog__header"><h2 id="hold-title">Fictional hold</h2></header>
+          <div class="ew-dialog__body">
+            <div class="ew-alert" data-variant="info" role="status">
+              <strong class="ew-alert__title">No payment</strong>
+              <p class="ew-alert__body">This dialog does not connect to a box office.</p>
+            </div>
+          </div>
+          <footer class="ew-dialog__footer">
+            <button type="button" class="ew-button" data-variant="ghost" id="close-hold">Close</button>
+          </footer>
+        </dialog>
+        </div>
+      </section>
+    </main>
+    <footer class="site-wrap site-foot"><p class="site-fiction">Fictional festival. No ticket is issued and no payment is taken.</p></footer>
+  </div>
+  <script>
+    document.getElementById('open-hold').addEventListener('click', () => document.getElementById('hold-dialog').showModal());
+    document.getElementById('close-hold').addEventListener('click', () => document.getElementById('hold-dialog').close());
+  </script>
+</body>
+</html>

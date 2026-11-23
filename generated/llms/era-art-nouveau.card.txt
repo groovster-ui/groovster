@@ -1,11 +1,11 @@
-era: art-nouveau; voice: botanical / architectural Belle Époque
-identity: integrated whiplash, nature-inspired organic structure
+era: art-nouveau; voice: botanical poster / architectural iron
+identity: tapered line, halo, iris, peacock eye, Guimard hood
 dialects: botanical (default) | architectural
-type: Fraunces + Jost; architectural: Josefin Sans display
-palette: ivory/forest/sage/rose; dark forest/brass
-shape: sinuous arch, stem, spray, medallion; no geometric Deco steps
-fidelity: whisper restrained | standard one flourish | costume full composition
+type: Cormorant Garamond + Source Sans 3; architectural: Bellefair
+palette: parchment, gold, olive, madder, peacock; dark brass on leaded green
+shape: whiplash, lily-iris, eyed medallion, hooded arch; no Deco steps
+fidelity: whisper type | standard one stem | costume halo, bloom, and line
 modes: light/dark; costume default
-use: organic luxury, museum, hospitality, botanical commerce
+use: botanical luxury, museum, hospitality, jewelry
 never: sticker flowers, ornament over controls, external resources
 details: docs/art-nouveau-grammar.md on demand

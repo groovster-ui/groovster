@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daisy Press</title>
+  <link rel="stylesheet" href="../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="layout.css" />
+  <script src="../../packages/elements/dist/era-elements.js" defer></script>
+</head>
+<body>
+  <div class="ew-root" data-era="groovy" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#content">Skip to content</a>
+    <div class="site-wrap">
+      <nav class="site-nav" aria-label="Primary">
+        <a class="ew-link site-brand" href="#masthead">Daisy Press</a>
+        <div class="site-nav__links">
+          <a class="ew-link" data-variant="nav" href="#catalog">Catalog</a>
+          <a class="ew-link" data-variant="nav" href="#cart">Cart <span id="cart-count" aria-live="polite">0</span></a>
+        </div>
+      </nav>
+    </div>
+    <section class="ew-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true"></div>
+      <div class="ew-hero__panel">
+        <div class="ew-hero__rays" aria-hidden="true"></div>
+        <div class="ew-hero__content">
+          <div class="ew-hero__fan" aria-hidden="true"></div>
+          <p class="ew-script">Posters, sleeves, and paper goods</p>
+          <h1 class="ew-hero__title">Daisy Press</h1>
+          <p class="ew-hero__subtitle">A fictional print shop. Checkout writes nothing down and charges nothing.</p>
+        </div>
+      </div>
+    </section>
+    <main id="content" class="site-wrap">
+      <section class="site-section" id="catalog">
+        <h2>Catalog</h2>
+        <div class="site-sheet site-filters">
+          <ew-select class="ew-select">
+            <label class="ew-select__label" for="dept">Department</label>
+            <select id="dept" class="ew-select__control">
+              <option value="all">All</option>
+              <option value="poster">Posters</option>
+              <option value="sleeve">Sleeves</option>
+            </select>
+          </ew-select>
+          <label class="ew-checkbox">
+            <input class="ew-checkbox__control" type="checkbox" id="instock" checked />
+            <span class="ew-checkbox__box" aria-hidden="true"></span>
+            <span class="ew-checkbox__label">In stock</span>
+          </label>
+        </div>
+        <div class="site-grid site-grid--3" id="grid" style="margin-top: 20px">
+          <article class="ew-card" data-dept="poster">
+            <div class="site-swatch" data-swatch="sun" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Sunfield poster</h3></header>
+            <div class="ew-card__body"><p class="site-price">$24</p><p>18 × 24, sun on magenta.</p></div>
+            <footer class="ew-card__footer"><button type="button" class="ew-button add">Add</button></footer>
+          </article>
+          <article class="ew-card" data-dept="sleeve">
+            <div class="site-swatch" data-swatch="violet" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Orbit sleeve</h3></header>
+            <div class="ew-card__body"><p class="site-price">$12</p><p>Printed inner bag, fictional pressing.</p></div>
+            <footer class="ew-card__footer"><button type="button" class="ew-button add" data-variant="secondary">Add</button></footer>
+          </article>
+          <article class="ew-card" data-dept="poster">
+            <div class="site-swatch" data-swatch="lime" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Citrus study</h3></header>
+            <div class="ew-card__body"><p class="site-price">$28</p><p>Three-color daisy, cream stock.</p></div>
+            <footer class="ew-card__footer"><button type="button" class="ew-button add">Add</button></footer>
+          </article>
+        </div>
+      </section>
+      <section class="site-section" id="cart">
+        <h2>Cart</h2>
+        <div class="site-sheet">
+        <p class="site-fiction">Sample catalog. Nothing is reserved.</p>
+        <div class="site-actions">
+          <button type="button" class="ew-button" id="open-check">Fictional checkout</button>
+        </div>
+        <dialog class="ew-dialog" id="check-dialog" aria-labelledby="check-title">
+          <header class="ew-dialog__header"><h2 id="check-title">Fictional order</h2></header>
+          <div class="ew-dialog__body">
+            <div class="ew-text-field">
+              <label class="ew-text-field__label" for="ship-name">Name</label>
+              <input id="ship-name" class="ew-text-field__control" type="text" autocomplete="name" />
+            </div>
+            <div class="ew-alert" data-variant="warning" role="status">
+              <strong class="ew-alert__title">No charge</strong>
+              <p class="ew-alert__body">This shop does not take payment or save an address.</p>
+            </div>
+          </div>
+          <footer class="ew-dialog__footer">
+            <button type="button" class="ew-button" data-variant="ghost" id="close-check">Close</button>
+          </footer>
+        </dialog>
+        </div>
+      </section>
+    </main>
+    <footer class="site-wrap site-foot"><p class="site-fiction">Fictional shop. No order is placed.</p></footer>
+  </div>
+  <script>
+    const count = document.getElementById('cart-count');
+    let n = 0;
+    document.querySelectorAll('.add').forEach((button) => {
+      button.addEventListener('click', () => { n += 1; count.textContent = String(n); });
+    });
+    const dept = document.getElementById('dept');
+    dept.addEventListener('change', () => {
+      document.querySelectorAll('#grid .ew-card').forEach((card) => {
+        card.hidden = dept.value !== 'all' && card.dataset.dept !== dept.value;
+      });
+    });
+    document.getElementById('open-check').addEventListener('click', () => document.getElementById('check-dialog').showModal());
+    document.getElementById('close-check').addEventListener('click', () => document.getElementById('check-dialog').close());
+  </script>
+</body>
+</html>

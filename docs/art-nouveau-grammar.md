@@ -30,28 +30,28 @@ Source: \`tools/gen/src/nouveau-decorators.js\`. Reusable masks compiled as data
 
 | Primitive | Purpose | Controlled use |
 |---|---|---|
-| \`vine\` | curved growth, paired leaves | Botanical hero or curated story panel |
-| \`whiplash\` | continuous S curve | Section movement or architectural divider |
-| \`spray\` | floral stem and layered petals | Botanical hero, single featured illustration |
-| \`arch\` | asymmetrical enclosed gateway | Ceremonial hero boundary, venue façade |
-| \`iron\` | elongated column/support and branch | Architectural hero or gallery feature |
-| \`medallion\` | nested organic circular focus | One offset hero flourish, never form fields |
-| \`divider\` | horizontal tapered curved rule | Major section transition, not every card |
-| \`corner\` | curved framing junction | Optional raised card or hero corner |
+| \`vine\` | tapering stem and spade leaves | Botanical story panel |
+| \`whiplash\` | thick-to-thin ribbon that hooks and lashes | The line itself; section movement |
+| \`spray\` | iris in line: standards, falls, sword leaf, bud | Botanical hero and featured illustration |
+| \`arch\` | hooded iron gateway, overhanging crown, whipped feet | Architectural hero, not a roman arch |
+| \`iron\` | three sinuous cast stems and a whip tie | Architectural hero or gallery feature |
+| \`medallion\` | peacock eye: petal ring, rays, pupil | Costume halo behind the iris; never on fields |
+| \`divider\` | tapered wave interrupted by a small eye | Major section transition, not every card |
+| \`corner\` | one whip ending in a spade leaf | Optional raised card or hero corner |
 
 Use a decorative element such as \`<span class="ew-nouveau-ornament" data-motif="iron" aria-hidden="true"></span>\` with a sizing context. The exact **same canonical Groovster HTML** can switch dialect with \`data-dialect="botanical|architectural"\`. Do not use a different button or card DOM per dialect.
 
 ## Visual grammar
 
-**Botanical:** Fraunces display, Jost body, warm ivory, rose, olive/leaf ink, asymmetric spray and arches. Compositional bias to a botanical panel on the right and generous editorial copy on the left. The hero's botanical line is the central gesture; nearby cards remain legible. The form uses simple readable fields.
+**Botanical:** Cormorant Garamond (roman for the title, italic for the small line), Source Sans 3 for reading. The ground is warm parchment, not gray beige. Inks are separate lithographic plates: antique gold, olive, madder, peacock. The costume hero is a poster — a peacock-eye halo, a rose bloom behind it, and an iris drawn in olive line — with the words kept in a clear panel on the left. Cards carry a double hairline, brass then olive, like a plate mark.
 
-**Architectural:** Josefin Sans display (already bundled OFL), Jost body, elongated Guimard-style stems, structured arched silhouette, restrained greens and antique brass. Hero accents resemble iron supports rather than flowers. Cards use a structural side edge and vertical cadence. Ornament should feel like an extension of the layout, not a floral skin.
+**Architectural:** Bellefair, wide and unslanted, set as signage. The motifs are sinuous cast stems and a hooded arch (the canopy overhangs; the feet whip out). The field is a glass green, not a flower bed. Cards take a peacock edge. Josefin Sans is a geometric 1920s face and is not used here.
 
 **Whisper:** practically plain controls; type and curvilinear border radii remain; hero ornament hidden, section footprint reduced.
 
 **Standard:** one restrained structural arch, no medallion or dense floral stage; balanced copy and negative space.
 
-**Costume:** full coordinated hero including primary stem/spray, secondary arch, medallion and optional corner; protects a clearly defined text zone.
+**Costume:** the full poster. Botanical: gold halo, madder bloom, olive iris, and a brass whip, with type in the open panel. Architectural: iron stems in front of the hood, no flower. A clearly defined text zone stays clear of the masks.
 
 **Functional UI:** Labels, controls, tables, selection and validation do not use organic masks. Focus/pressed/disabled states must be legible independently of ornament. Use reduced-motion and forced-colors fallbacks.
 

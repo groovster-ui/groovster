@@ -16,7 +16,7 @@ See `OFL.txt` for the full license text and per-family copyright notices.
 | Memphis | Archivo Black (400), Nunito (400/700), Space Mono (400/700) |
 | Swiss | Inter Tight (400/700), Source Code Pro (400/700) |
 | Bauhaus | League Spartan (400/700), Source Sans 3 (400/700), Source Code Pro (400/700) |
-| Art Nouveau | Fraunces (400/700), Josefin Sans (400/700), Jost (400/700), Source Code Pro (400/700) |
+| Art Nouveau | Cormorant Garamond (400/600/700, italic 400), Bellefair (400), Source Sans 3 (400/700), Source Code Pro (400/700) |
 | Neutral | Source Serif 4 (400/700), Source Sans 3 (400/700), Source Code Pro (400/700) |
 
 Bold (700) faces are shipped so `font-weight: 600/700` is not synthesized by the browser.
