@@ -66,7 +66,6 @@ const FONT_FILES = {
   Mulish: { 400: 'Mulish-Regular.woff2', 700: 'Mulish-Bold.woff2' },
   'Archivo Black': { 400: 'ArchivoBlack-Regular.woff2' },
   Nunito: { 400: 'Nunito-Regular.woff2', 700: 'Nunito-Bold.woff2' },
-  Fraunces: { 400: 'Fraunces-Regular.woff2', 700: 'Fraunces-Bold.woff2' },
   'Cormorant Garamond': {
     400: 'CormorantGaramond-Regular.woff2',
     600: 'CormorantGaramond-SemiBold.woff2',
