@@ -4,3 +4,6 @@
 [data-era="bauhaus"] .ref-picture{background:linear-gradient(120deg,var(--ew-color-primary-blue) 0 29%,var(--ew-color-bg-elevated) 29% 65%,var(--ew-color-primary-yellow) 65%)}
 @media(max-width:700px){.ref-grid{grid-template-columns:1fr}.ref-head{align-items:flex-start}.ref-table{display:block;max-width:100%;overflow-x:auto}.ref-picture{height:140px}.ref-choices{gap:.35rem}}
 @media(min-width:701px) and (max-width:1000px){.ref-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Author-level card display rules must not override the native hidden state. */
+[data-filterable][hidden]{display:none!important}
