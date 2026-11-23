@@ -42,7 +42,7 @@ try{
   if(width===375){
    await page.locator('[data-band-switch]').selectOption('costume');
    if(site==='maison-botanique'){
-    await page.locator('[data-category]').selectOption('herb');
+    await page.locator('select[data-category]').selectOption('herb');
     if(await page.locator('[data-product]:visible').count()!==1)throw Error('category filtering failed');
     await page.locator('[data-category]').selectOption('all');
     await page.locator('[data-stock]').check();
