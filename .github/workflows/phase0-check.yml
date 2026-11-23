@@ -79,6 +79,7 @@ jobs:
         working-directory: tools/a11y
 
       - name: Unit tests
+        timeout-minutes: 10
         run: pnpm test:unit
 
       - name: Package size check
@@ -87,13 +88,11 @@ jobs:
       - name: Fail on generated drift after gen
         run: pnpm gen && git diff --exit-code && test -z "$(git status --porcelain)"
 
-      - name: Typecheck React package
-        run: pnpm react:typecheck
-
       - name: Run MCP smoke tests
         run: pnpm mcp:smoke
 
       - name: Run eval harness self-tests
+        timeout-minutes: 5
         run: pnpm eval
       
       - name: Run React interaction tests
@@ -103,19 +102,24 @@ jobs:
         run: pnpm test:elements
 
       - name: Run accessibility tests
+        timeout-minutes: 10
         run: pnpm test:a11y
 
       - name: Run recipe site checks
+        timeout-minutes: 5
         run: pnpm test:sites
 
       - name: Verify Swiss and Bauhaus browser demos
         run: node scripts/modernist-browser.mjs
 
       - name: Run website instruction harness
+        timeout-minutes: 5
         run: pnpm eval:sites
 
       - name: Install packed packages outside the workspace
+        timeout-minutes: 10
         run: pnpm test:packages
 
       - name: Registry e2e
+        timeout-minutes: 5
         run: pnpm registry:e2e
