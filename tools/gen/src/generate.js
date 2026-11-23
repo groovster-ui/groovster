@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { transformSync } from 'esbuild';
 import {
   BUDGETS_PATH,
   REPO_ROOT,
@@ -20,6 +21,7 @@ import { decoDecoratorCss } from './deco-decorators.js';
 import { atomicDecoratorCss } from './atomic-decorators.js';
 import { neonDecoratorCss } from './neon-decorators.js';
 import { modernistDecoratorCss } from './modernist-decorators.js';
+import { nouveauDecoratorCss } from './nouveau-decorators.js';
 import { loadRecipes, recipeIndexLines, writeRecipeDocs } from './recipes.js';
 import { loadEraCatalog } from './era-catalog.js';
 import { matrixDocument } from '../../../tests/a11y/matrix-html.mjs';
@@ -61,6 +63,7 @@ const FONT_FILES = {
   Mulish: { 400: 'Mulish-Regular.woff2', 700: 'Mulish-Bold.woff2' },
   'Archivo Black': { 400: 'ArchivoBlack-Regular.woff2' },
   Nunito: { 400: 'Nunito-Regular.woff2', 700: 'Nunito-Bold.woff2' },
+  Fraunces: { 400: 'Fraunces-Regular.woff2', 700: 'Fraunces-Bold.woff2' },
   'Source Sans 3': { 400: 'SourceSans3-Regular.woff2', 700: 'SourceSans3-Bold.woff2' },
   'Inter Tight': { 400: 'InterTight-Regular.woff2', 700: 'InterTight-Bold.woff2' },
   'Source Code Pro': { 400: 'SourceCodePro-Regular.woff2', 700: 'SourceCodePro-Bold.woff2' },
@@ -79,10 +82,9 @@ function fontFaceBlock(era, { forBundle = false } = {}) {
   if (!era.fonts) return '';
   const families = [era.fonts.display, era.fonts.body, era.fonts.mono].filter(Boolean);
   if (era.id === 'neon') families.push('Monoton', 'Mr Dafoe');
-  if (era.id === 'mcm-atomic') {
-    if (era.fonts.script) families.push(era.fonts.script);
-    if (era.fonts.displayAlt) families.push(era.fonts.displayAlt);
-  }
+  // Optional font roles work for any era, including independently contributed eras.
+  if (era.fonts.script) families.push(era.fonts.script);
+  if (era.fonts.displayAlt) families.push(era.fonts.displayAlt);
   const unique = [...new Set(families)];
   const prefix = forBundle ? './fonts/' : '../fonts/';
   return unique
@@ -364,6 +366,8 @@ function genEraCss(era) {
     blocks.push(atomicDecoratorCss());
   } else if (era.id === 'neon') {
     blocks.push(neonDecoratorCss());
+  } else if (era.id === 'art-nouveau') {
+    blocks.push(nouveauDecoratorCss());
   } else if (era.id === 'swiss' || era.id === 'bauhaus') {
     blocks.push(modernistDecoratorCss(era.id));
   } else if (era.id === 'neutral') {
@@ -590,8 +594,8 @@ function genLlmsIndex(components, eras, recipes = []) {
   const lines = [
     '# Era Widgets',
     '',
-    'CSS-first, spec-first UI skins for agents. Canonical API is HTML + ew- classes + data-* attrs.',
-    'Set personality with data-era on a root. Do not rewrite markup per era.',
+    'CSS-first, spec-first skins for agents. API: HTML + ew- classes + data-*.',
+    'Set data-era on root; reuse HTML across eras.',
     'Load only needed sections; avoid full-library context.',
     '',
     '## Quick start',
@@ -604,8 +608,7 @@ function genLlmsIndex(components, eras, recipes = []) {
     '',
     '## Fidelity & ornament',
     '- Bands: `whisper|standard|costume` (costume default; `default`/`signature` → standard).',
-    '- Neon and Atomic costume use `.ew-hero__stage`; see era cards.',
-    '- Deco uses `.ew-hero__panel`; FIDELITY.md defines bands.',
+    '- Costume heroes use `.ew-hero__stage` and `.ew-hero__panel`; see era cards.',
     '',
     '## Components (one file each)',
     ...components.map((c) => `- ${c.id}: generated/llms/${c.id}.md`),
@@ -708,7 +711,10 @@ export function generateAll() {
   const bundlePath = path.join(GEN_CSS, 'era-widgets.css');
   // Era CSS uses ../fonts/ (from dist/eras/); rewrite for dist/era-widgets.css.
   const bundleCss = bundleParts.join('\n').replaceAll('url("../fonts/', 'url("./fonts/');
-  writeText(bundlePath, bundleCss);
+  // Existing build-time esbuild removes repetition in the all-era delivery bundle.
+  // Standalone era/component CSS files stay readable and are not minified here.
+  const compactBundle = transformSync(bundleCss, { loader: 'css', minify: true, charset: 'utf8' }).code;
+  writeText(bundlePath, compactBundle);
   outputs.push(rel(outRoot, bundlePath));
 
   // Budget snapshots for CI

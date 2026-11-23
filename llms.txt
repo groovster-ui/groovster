@@ -1,7 +1,7 @@
 # Era Widgets
 
-CSS-first, spec-first UI skins for agents. Canonical API is HTML + ew- classes + data-* attrs.
-Set personality with data-era on a root. Do not rewrite markup per era.
+CSS-first, spec-first skins for agents. API: HTML + ew- classes + data-*.
+Set data-era on root; reuse HTML across eras.
 Load only needed sections; avoid full-library context.
 
 ## Quick start
@@ -10,6 +10,7 @@ Load only needed sections; avoid full-library context.
 - Rules: generated/rules/era-widgets.mdc
 
 ## Eras (cards: generated/llms/era-<id>.card.txt)
+- art-nouveau: Art Nouveau: flowing whiplash curves, botanical frames and organic ironwork.
 - bauhaus: Bauhaus: constructive geometric planes, functional type and disciplined color.
 - deco: Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer.
 - groovy: 70s groove: avocado & harvest gold, soft flares, lazy curves.
@@ -21,8 +22,7 @@ Load only needed sections; avoid full-library context.
 
 ## Fidelity & ornament
 - Bands: `whisper|standard|costume` (costume default; `default`/`signature` → standard).
-- Neon and Atomic costume use `.ew-hero__stage`; see era cards.
-- Deco uses `.ew-hero__panel`; FIDELITY.md defines bands.
+- Costume heroes use `.ew-hero__stage` and `.ew-hero__panel`; see era cards.
 
 ## Components (one file each)
 - alert: generated/llms/alert.md

@@ -84,6 +84,7 @@ body:
         - groovy
         - swiss
         - bauhaus
+        - art-nouveau
         - All eras
         - Not applicable
     validations:

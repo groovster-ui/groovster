@@ -27,7 +27,7 @@ Groovster skins HTML. Do not add React, Tailwind, or a component library. One HT
 
 ## Era and fidelity
 
-Eras: `neutral`, `deco`, `groovy`, `mcm-atomic`, `memphis`, `neon`, `swiss`, `bauhaus`.
+Eras: `neutral`, `deco`, `groovy`, `mcm-atomic`, `memphis`, `neon`, `swiss`, `bauhaus`, `art-nouveau`.
 
 Bands: `whisper`, `standard`, `costume`. Costume is the default when the attribute is absent.
 

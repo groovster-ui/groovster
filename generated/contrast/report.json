@@ -1,5 +1,18 @@
 {
   "eras": {
+    "art-nouveau": {
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
+    },
     "bauhaus": {
       "modes": {
         "light": {
