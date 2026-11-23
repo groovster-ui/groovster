@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { transformSync } from 'esbuild';
 import {
   BUDGETS_PATH,
   REPO_ROOT,
@@ -767,7 +768,10 @@ export function generateAll() {
   const bundlePath = path.join(GEN_CSS, 'era-widgets.css');
   // Era CSS uses ../fonts/ (from dist/eras/); rewrite for dist/era-widgets.css.
   const bundleCss = bundleParts.join('\n').replaceAll('url("../fonts/', 'url("./fonts/');
-  writeText(bundlePath, bundleCss);
+  // Existing build-time esbuild removes repetition in the all-era delivery bundle.
+  // Standalone era/component CSS files stay readable and are not minified here.
+  const compactBundle = transformSync(bundleCss, { loader: 'css', minify: true, charset: 'utf8' }).code;
+  writeText(bundlePath, compactBundle);
   outputs.push(rel(outRoot, bundlePath));
 
   // Budget snapshots for CI
