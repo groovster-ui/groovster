@@ -22,6 +22,7 @@ import { atomicDecoratorCss } from './atomic-decorators.js';
 import { neonDecoratorCss } from './neon-decorators.js';
 import { modernistDecoratorCss } from './modernist-decorators.js';
 import { nouveauDecoratorCss } from './nouveau-decorators.js';
+import { memphisDecoratorCss } from './memphis-decorators.js';
 import { loadRecipes, recipeIndexLines, writeRecipeDocs } from './recipes.js';
 import { loadEraCatalog } from './era-catalog.js';
 import { matrixDocument } from '../../../tests/a11y/matrix-html.mjs';
@@ -393,64 +394,7 @@ function genEraCss(era) {
   }
 `);
   } else if (era.id === 'memphis') {
-    blocks.push(`  [data-era="memphis"] .ew-button {
-    border-width: 3px;
-    box-shadow: 4px 4px 0 0 var(--ew-color-fg-default);
-    transform: rotate(-0.4deg);
-  }
-  [data-era="memphis"] .ew-button[data-variant="secondary"] {
-    background: var(--ew-color-bg-elevated);
-    box-shadow: 4px 4px 0 0 var(--ew-color-action-bg);
-    transform: rotate(0.5deg);
-  }
-  [data-era="memphis"] .ew-card {
-    border-width: 3px;
-    box-shadow: 6px 6px 0 0 var(--ew-color-fg-default);
-  }
-  [data-era="memphis"] .ew-card[data-variant="raised"] {
-    box-shadow: 8px 8px 0 0 var(--ew-color-action-bg), 14px 14px 0 0 var(--ew-color-fg-default);
-  }
-  [data-era="memphis"] .ew-card__header::before {
-    content: "";
-    display: block;
-    width: 18px; height: 18px;
-    margin-bottom: 8px;
-    background:
-      linear-gradient(45deg, var(--ew-color-action-bg) 25%, transparent 25%) 0 0 / 8px 8px,
-      linear-gradient(-45deg, var(--ew-color-border-strong) 25%, transparent 25%) 0 0 / 8px 8px;
-    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-  }
-  ${muteBandSel('memphis', ' .ew-card__header::before')} { display: none; }
-  [data-era="memphis"] .ew-text-field__control,
-  [data-era="memphis"] .ew-select__trigger {
-    border-width: 3px;
-    border-radius: 14px 4px 14px 4px;
-  }
-  [data-era="memphis"] .ew-dialog {
-    border-width: 3px;
-    box-shadow: 10px 10px 0 0 var(--ew-color-fg-default);
-  }
-  [data-era="memphis"] .ew-tabs [role="tab"][aria-selected="true"],
-  [data-era="memphis"] ew-tabs [role="tab"][aria-selected="true"] {
-    background: color-mix(in oklch, var(--ew-color-action-bg) 18%, transparent);
-    box-shadow: 3px 3px 0 0 var(--ew-color-fg-default);
-  }
-  [data-era="memphis"] .ew-tooltip__tip {
-    border: 2px solid var(--ew-color-fg-default);
-    border-radius: 2px;
-    box-shadow: 3px 3px 0 0 var(--ew-color-action-bg);
-    padding: var(--ew-structure-tooltip-padding, 6px 8px);
-  }
-  [data-era="memphis"] .ew-slider__control {
-    accent-color: var(--ew-color-action-bg);
-    height: var(--ew-structure-slider-track-height, 8px);
-  }
-  [data-era="memphis"] .ew-menu__panel,
-  [data-era="memphis"] .ew-popover__panel {
-    border-width: 3px;
-    box-shadow: 5px 5px 0 0 var(--ew-color-fg-default);
-  }
-`);
+    blocks.push(memphisDecoratorCss());
   } else if (era.id === 'groovy') {
     blocks.push(`  [data-era="groovy"] .ew-button {
     border-radius: 999px;
