@@ -1,0 +1,444 @@
+/* Layout for the sample applications. Era geometry stays in Groovster CSS. */
+
+.app-frame {
+  width: 100%;
+  height: min(88vh, 1040px);
+  border: 1px solid var(--ew-color-border-strong);
+  background: var(--ew-color-bg-page);
+}
+
+.app-chrome {
+  display: grid;
+  gap: 2px;
+  margin-top: 16px;
+  padding: 8px 12px 10px;
+  border: 1px solid var(--ew-color-border-subtle);
+  background: var(--ew-color-bg-elevated);
+}
+
+.app-chrome .site-switcher {
+  margin-top: 0;
+  gap: 6px 8px;
+}
+
+.app-chrome .site-switcher p {
+  flex-basis: 8.5rem;
+  margin: 0;
+}
+
+.app-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.app-gallery > .ew-card {
+  height: 100%;
+}
+
+.app-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.9fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.app-reader,
+.app-device,
+.app-doc {
+  border: 1px solid var(--ew-color-border-subtle);
+  background: var(--ew-color-bg-elevated);
+}
+
+.app-reader {
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+  padding: 20px 22px 16px;
+}
+
+.app-reader [data-mail-empty] {
+  margin: auto;
+  max-width: 28ch;
+  text-align: center;
+  color: var(--ew-color-fg-muted);
+  line-height: 1.5;
+}
+
+.app-reader [data-mail-view] {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-height: 100%;
+}
+
+.app-reader [data-mail-body] {
+  max-width: 62ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.app-reader [data-mail-body] p {
+  margin: 0;
+}
+
+.app-reader .app-toolbar {
+  margin-top: 16px;
+}
+
+.app-reader h3,
+.app-doc h2,
+.app-doc h3,
+.app-device h3 {
+  font-family: var(--ew-font-body, inherit);
+}
+
+.app-reader h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.app-editor {
+  width: min(74ch, 100%);
+}
+
+.app-sheet {
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px 24px;
+  border: 1px solid var(--ew-color-border-strong);
+  background: var(--ew-color-bg-elevated);
+}
+
+.app-sheet__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.app-title-field {
+  flex: 1 1 16rem;
+}
+
+.app-count,
+.app-find p {
+  margin: 0 0 8px;
+  color: var(--ew-color-fg-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+}
+
+.app-doc {
+  min-height: 26rem;
+  padding: 4px 4px 0;
+  border: 0;
+  background: transparent;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.app-doc p {
+  margin: 0 0 0.85em;
+}
+
+.app-doc h2,
+.app-doc h3 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin: 0.2em 0 0.45em;
+}
+
+.app-doc:focus-visible {
+  outline: 2px solid var(--ew-color-border-strong);
+  outline-offset: 3px;
+}
+
+.app-toolbar,
+.app-inline,
+.app-find {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: end;
+}
+
+.app-sheet .app-toolbar {
+  align-items: center;
+  padding: 8px;
+  border: 1px solid var(--ew-color-border-subtle);
+  background: var(--ew-color-bg-page);
+}
+
+.app-find .ew-text-field {
+  flex: 1 1 16rem;
+}
+
+.app-toolbar [data-doc-cmd][aria-pressed="true"],
+[data-watch][aria-pressed="true"] {
+  outline: 2px solid var(--ew-color-border-strong);
+  outline-offset: 2px;
+}
+
+.app-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+
+.app-device {
+  display: grid;
+  gap: 12px;
+  align-content: space-between;
+  height: 100%;
+  padding: 14px;
+}
+
+.app-device p {
+  margin: 0;
+}
+
+.app-device .ew-button {
+  justify-self: start;
+  width: auto;
+}
+
+.app-device .ew-slider {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.app-device .ew-slider__control {
+  grid-column: 1 / -1;
+}
+
+.app-device .ew-slider__value {
+  font-variant-numeric: tabular-nums;
+  justify-self: end;
+}
+
+.app-hearth #queues > h3 {
+  margin: 18px 0 8px;
+  font-family: var(--ew-font-body, inherit);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.app-subject {
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  padding: 2px 0;
+  white-space: normal;
+  text-align: left;
+  font-weight: 500;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.app-subject:hover {
+  background: transparent;
+}
+
+.app-mail tr[data-mail] {
+  cursor: pointer;
+}
+
+.app-mail tr[data-status="unread"] td:first-child,
+.app-mail tr[data-status="unread"] .app-subject {
+  font-weight: 700;
+}
+
+.app-mail tr[data-status="read"] td:first-child,
+.app-mail tr[data-status="read"] .app-subject {
+  font-weight: 450;
+  color: var(--ew-color-fg-muted);
+}
+
+.app-mail tbody tr[data-mail]:hover td {
+  background: color-mix(in srgb, var(--ew-color-fg-default) 6%, transparent);
+}
+
+.app-mail tr[aria-current="true"] td {
+  background: color-mix(in srgb, var(--ew-color-action-bg) 16%, var(--ew-color-bg-elevated));
+  box-shadow: inset 3px 0 0 var(--ew-color-border-strong);
+}
+
+.app-mail .site-table caption {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ew-color-fg-muted);
+}
+
+.app-mail .site-section {
+  padding-top: 10px;
+}
+
+.recipe-dashboard .site-grid--metrics .ew-card {
+  gap: 2px;
+  padding: 10px 12px;
+}
+
+.recipe-dashboard .site-grid--metrics .ew-card__header h3 {
+  font-family: var(--ew-font-body, inherit);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-grid > .ew-card {
+  height: 100%;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.site-grid .site-art {
+  height: 132px;
+  min-height: 132px;
+  margin-bottom: 0;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+.site-art[data-art="5"] {
+  background-image:
+    repeating-linear-gradient(0deg, var(--ew-color-border-strong) 0 6px, transparent 6px 18px),
+    linear-gradient(90deg, var(--ew-color-action-bg), transparent 72%);
+}
+
+.site-art[data-art="6"] {
+  background-image:
+    linear-gradient(115deg, transparent 40%, var(--ew-color-border-strong) 40% 44%, transparent 44%),
+    radial-gradient(circle at 24% 62%, var(--ew-color-action-bg) 0 22%, transparent 23%);
+}
+
+.site-art[data-art="7"] {
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 0 28%, var(--ew-color-border-strong) 29% 32%, transparent 33%),
+    radial-gradient(circle at 50% 50%, var(--ew-color-action-bg) 0 10%, transparent 11%);
+}
+
+.site-art[data-art="8"] {
+  background-image: repeating-linear-gradient(135deg, var(--ew-color-action-bg) 0 10px, transparent 10px 18px);
+}
+
+.site-art[data-art="9"] {
+  background-image:
+    linear-gradient(var(--ew-color-border-strong), var(--ew-color-border-strong)) 50% 50% / 76% 3px no-repeat,
+    linear-gradient(var(--ew-color-border-strong), var(--ew-color-border-strong)) 50% 50% / 3px 76% no-repeat,
+    radial-gradient(circle at 50% 50%, var(--ew-color-action-bg) 0 12%, transparent 13%),
+    radial-gradient(circle at 50% 50%, transparent 0 26%, var(--ew-color-border-strong) 27% 31%, transparent 32%);
+}
+
+.app-mail .site-filters > .ew-text-field {
+  flex: 1 1 18rem;
+  max-width: 28rem;
+}
+
+.app-mail .site-filters > .ew-select {
+  flex: 0 1 16rem;
+}
+
+.ew-card__footer.app-toolbar {
+  align-items: center;
+}
+
+.site-filters > .ew-text-field,
+.site-filters > .ew-select {
+  flex: 1 1 12rem;
+  min-width: min(100%, 12rem);
+}
+
+.site-filters > .ew-checkbox,
+.site-filters > .ew-switch {
+  align-self: end;
+  min-height: 40px;
+  padding-bottom: 8px;
+}
+
+.recipe-hospitality .ew-radio-group,
+.recipe-event .ew-radio-group {
+  display: grid;
+  gap: 10px;
+  max-width: 40rem;
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--ew-color-border-subtle);
+}
+
+.recipe-hospitality form[data-demo-form],
+.recipe-editorial form[data-demo-form] {
+  display: grid;
+  gap: 14px;
+}
+
+.recipe-event .ew-select {
+  max-width: 12rem;
+}
+
+[data-outline] {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding-left: 1.2rem;
+}
+
+html[data-embed="1"] a[href="../index.html"] {
+  display: none;
+}
+
+.ew-card[hidden],
+tr[hidden],
+[hidden] {
+  display: none !important;
+}
+
+@media (min-width: 801px) {
+  .app-reader {
+    position: sticky;
+    top: 12px;
+  }
+
+  .recipe-event .ew-radio-group {
+    max-width: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .app-controls,
+  .app-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .app-split,
+  .app-controls,
+  .app-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .app-frame {
+    height: 70vh;
+  }
+
+  .app-chrome .site-switcher p {
+    flex-basis: 100%;
+  }
+
+  .app-reader {
+    min-height: 220px;
+  }
+}

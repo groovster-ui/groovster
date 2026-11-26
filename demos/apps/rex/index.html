@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Rex — sample cinema</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../../recipes/shared/shell.css" />
+  <link rel="stylesheet" href="../shared/apps.css" />
+  <script src="../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../../recipes/shared/shell.js" defer></script>
+  <script src="../shared/apps.js" defer></script>
+</head>
+<body>
+  <div class="ew-root recipe-event" data-groovster-root data-recipe="the-rex" data-era="neon" data-mode="dark" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#content">Skip to content</a>
+    <div class="site-wrap">
+      <div data-skin-mount data-skin-open="false"></div>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="ew-link site-brand" href="#masthead">The Rex</a>
+        <div class="site-nav__links">
+          <a class="ew-link" data-variant="nav" href="../index.html">All applications</a>
+          <a class="ew-link" data-variant="nav" href="#lineup">Films</a>
+          <a class="ew-link" data-variant="nav" href="#schedule">Showtimes</a>
+          <a class="ew-link" data-variant="nav" href="#tickets">Tickets</a>
+        </div>
+      </nav>
+    </div>
+    <section class="ew-hero site-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true">
+        <div class="ew-hero__sun"></div><div class="ew-hero__mountains"></div><div class="ew-hero__grid"></div>
+        <div class="ew-hero__scanlines"></div><div class="ew-hero__twotone"></div><div class="ew-hero__starbursts"></div>
+        <div class="ew-hero__arch"></div><div class="ew-orbit"></div>
+      </div>
+      <div class="ew-hero__panel">
+        <div class="ew-hero__rays" aria-hidden="true"></div>
+        <div class="ew-hero__content site-poster">
+          <div class="ew-hero__fan" aria-hidden="true"></div>
+          <p class="ew-script">One screen</p>
+          <h1 class="ew-hero__title">The Rex</h1>
+          <p class="ew-hero__subtitle">A fictional repertory house. Reviewing a hold does not sell a seat.</p>
+        </div>
+      </div>
+    </section>
+    <main id="content" class="site-wrap">
+      <section class="site-section" id="lineup">
+        <h2>Films</h2>
+        <div class="site-grid site-grid--3">
+          <article class="ew-card"><div class="site-art" data-art="3" aria-hidden="true"></div><header class="ew-card__header"><h3>The Salt Stair</h3></header><div class="ew-card__body"><p>1958. A boarding house keeps a bowl of salt on every sill.</p></div></article>
+          <article class="ew-card"><div class="site-art" data-art="1" aria-hidden="true"></div><header class="ew-card__header"><h3>Night Operators</h3></header><div class="ew-card__body"><p>1971. Switchboard, rain, and a shift that will not end.</p></div></article>
+          <article class="ew-card"><div class="site-art" data-art="4" aria-hidden="true"></div><header class="ew-card__header"><h3>A Room in Lyon</h3></header><div class="ew-card__body"><p>1964. A printer sets captions by a window that faces the river.</p></div></article>
+        </div>
+      </section>
+      <section class="site-section" id="schedule">
+        <h2>Showtimes</h2>
+        <ew-tabs class="ew-tabs">
+          <div role="tablist" aria-label="Show days">
+            <button type="button" role="tab" id="day-fri" aria-selected="true" aria-controls="panel-fri">Friday</button>
+            <button type="button" role="tab" id="day-sat" aria-selected="false" aria-controls="panel-sat" tabindex="-1">Saturday</button>
+          </div>
+          <div role="tabpanel" id="panel-fri" aria-labelledby="day-fri">
+            <div class="site-table-wrap">
+              <table class="site-table">
+                <caption>Friday shows</caption>
+                <thead><tr><th scope="col">Time</th><th scope="col">Film</th><th scope="col">Screen</th></tr></thead>
+                <tbody>
+                  <tr><td>16:30</td><td>The Salt Stair</td><td>Rex</td></tr>
+                  <tr><td>19:00</td><td>The Salt Stair</td><td>Rex</td></tr>
+                  <tr><td>21:15</td><td>Night Operators</td><td>Rex</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div role="tabpanel" id="panel-sat" aria-labelledby="day-sat" hidden>
+            <div class="site-table-wrap">
+              <table class="site-table">
+                <caption>Saturday shows</caption>
+                <thead><tr><th scope="col">Time</th><th scope="col">Film</th><th scope="col">Screen</th></tr></thead>
+                <tbody>
+                  <tr><td>14:00</td><td>A Room in Lyon</td><td>Rex</td></tr>
+                  <tr><td>17:10</td><td>A Room in Lyon</td><td>Rex</td></tr>
+                  <tr><td>21:15</td><td>Night Operators</td><td>Rex</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ew-tabs>
+      </section>
+      <hr class="ew-ornament-divider" data-variant="ornament" />
+      <section class="site-section" id="tickets">
+        <h2>Tickets</h2>
+        <p class="site-fiction">Sample prices. Review does not charge a card or hold a seat.</p>
+        <fieldset class="ew-radio-group">
+          <legend>Seat</legend>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="tier" value="matinee" checked /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Matinee — $9</span></label>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="tier" value="evening" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Evening orchestra — $14</span></label>
+          <label class="ew-radio"><input class="ew-radio__control" type="radio" name="tier" value="balcony" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Balcony — $18</span></label>
+        </fieldset>
+        <ew-select class="ew-select">
+          <label class="ew-select__label" for="ticket-qty">Quantity</label>
+          <select id="ticket-qty" class="ew-select__control"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+        </ew-select>
+        <div class="site-actions"><button type="button" class="ew-button" data-open-dialog="ticket-dialog" data-summarize="tickets">Review hold</button></div>
+        <dialog class="ew-dialog" id="ticket-dialog" aria-labelledby="ticket-dialog-title">
+          <header class="ew-dialog__header"><h2 id="ticket-dialog-title">Fictional hold</h2></header>
+          <div class="ew-dialog__body">
+            <p data-summary>Choose a seat.</p>
+            <div class="ew-alert" data-variant="info" role="status">
+              <strong class="ew-alert__title">No payment</strong>
+              <p class="ew-alert__body">This dialog does not connect to a box office.</p>
+            </div>
+          </div>
+          <footer class="ew-dialog__footer"><button type="button" class="ew-button" data-variant="ghost" data-close-dialog>Close</button></footer>
+        </dialog>
+      </section>
+      <section class="site-section" id="visit">
+        <h2>The house</h2>
+        <div class="site-grid site-grid--2">
+          <article class="ew-card"><header class="ew-card__header"><h3>Booth</h3></header><div class="ew-card__body"><p>The window opens thirty minutes before the first show. One screen, 180 seats in this story.</p></div></article>
+          <article class="ew-card"><header class="ew-card__header"><h3>Aisle</h3></header><div class="ew-card__body"><p>Balcony stairs are on the left. The hold on this page does not mark a seat.</p></div></article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-wrap site-foot"><p class="site-fiction">Fictional cinema. No ticket is issued and no payment is taken.</p></footer>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>
