@@ -12,7 +12,7 @@ See `OFL.txt` for the full license text and per-family copyright notices.
 | Deco | Limelight (400), Jost (400/700), IBM Plex Mono (400/700) |
 | Neon | Orbitron (400/700), Exo 2 (400/700), Share Tech Mono (400), Monoton (400), Mr Dafoe (400) |
 | MCM Atomic | Yellowtail (400), League Spartan (400/700), Work Sans (400/700), Oswald (400/700), Courier Prime (400) |
-| Groovy | Comfortaa (400/700), Mulish (400/700), IBM Plex Mono (400/700) |
+| Groovy | Spicy Rice (400), Mulish (400/700), IBM Plex Mono (400/700) |
 | Memphis | Archivo Black (400), Nunito (400/700), Space Mono (400/700) |
 | Swiss | Inter Tight (400/700), Source Code Pro (400/700) |
 | Bauhaus | League Spartan (400/700), Source Sans 3 (400/700), Source Code Pro (400/700) |
@@ -20,3 +20,5 @@ See `OFL.txt` for the full license text and per-family copyright notices.
 | Neutral | Source Serif 4 (400/700), Source Sans 3 (400/700), Source Code Pro (400/700) |
 
 Bold (700) faces are shipped so `font-weight: 600/700` is not synthesized by the browser.
+
+Spicy Rice: Astigmatic / Brian J. Bonislawsky, OFL-1.1. Unmodified Latin WOFF2 from @fontsource/spicy-rice 5.3.0; upstream license verified at https://github.com/google/fonts/blob/main/ofl/spicyrice/OFL.txt. No runtime download.

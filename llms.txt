@@ -13,7 +13,7 @@ Load only needed sections; avoid full-library context.
 - art-nouveau: Art Nouveau: a lithographic line, a halo, and flat inks of gold, olive, madder, and peacock.
 - bauhaus: Bauhaus: one paper sheet, an ink spine, and three elementary forms sharing its edges.
 - deco: Jazz-age geometry: stepped edges, vertical emphasis, brass on lacquer.
-- groovy: Psychedelic poster groove: sunbursts, hot color, thick ink.
+- groovy: Late-1960s psychedelic print: interlocking contours, liquid lettering, flower-power forms.
 - mcm-atomic: 1950s Atomic / Googie: starbursts, atom orbits, kidney Formica, script over caps.
 - memphis: Playful postmodern: squiggles, confetti shapes, loud primaries on cream.
 - neon: 80s synthwave: perspective grid, striped sunset sun, chrome type, neon tubes.
