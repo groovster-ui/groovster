@@ -1,7 +1,8 @@
 {
   "bundle": {
-    "bytes": 263688,
-    "gzip": 33985,
-    "brotli": 23765
-  }
+    "bytes": 420940,
+    "gzip": 61709,
+    "brotli": 41561
+  },
+  "note": "Reviewed baseline for the approved nine-era bundle after Art Nouveau and Groovy expansion. Retains the existing 20% gzip growth guard; fonts are measured separately."
 }

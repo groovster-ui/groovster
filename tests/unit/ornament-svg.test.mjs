@@ -13,7 +13,16 @@ function dataUriMatches(css) {
 }
 
 const VALID_COLOR_RE =
-  /^(?:#[0-9A-Fa-f]{3,8}|rgb\(|rgba\(|hsl\(|hsla\(|oklch\(|currentColor|none|transparent|[a-z]+)$/i;
+  /^(?:#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})|(?:rgba?|hsla?|oklch)\(\s*[-+\d.eE%]+(?:[\s,/]+[-+\d.eE%]+){2,3}\s*\)|currentColor|none|transparent|[a-z]+)$/i;
+
+test('SVG color validation accepts complete functions and rejects malformed or encoded colors', () => {
+  for (const color of ['oklch(58% 0.14 250)', 'oklch(0.58 0.14 250 / 0.5)', 'rgb(12, 34, 56)', 'rgba(12,34,56,0.5)', 'hsl(120 50% 25%)', '#abc', '#abcd', '#aabbcc', '#aabbccdd', 'currentColor', 'none']) {
+    assert.ok(VALID_COLOR_RE.test(color), color);
+  }
+  for (const color of ['oklch(', 'rgb(', 'oklch()', 'oklch(58% 0.14)', 'oklch(58% invalid 250)', 'oklch(58% 0.14 250', '%23aabbcc', '#12345', '#1234567']) {
+    assert.equal(VALID_COLOR_RE.test(color), false, color);
+  }
+});
 
 function decodeDataUriPayload(payload) {
   let raw = payload.trim();
@@ -76,7 +85,7 @@ test('every generated era data-URI SVG has valid colors and ≥1 drawn path', ()
         );
         // Hex must be real #RGB, not #23B08D2C from a leftover encoding artifact
         if (color.startsWith('#')) {
-          assert.match(color, /^#[0-9A-Fa-f]{3}([0-9A-Fa-f]{3})?([0-9A-Fa-f]{2})?$/);
+          assert.match(color, /^#(?:[0-9A-Fa-f]{3,4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/);
         }
       }
     }

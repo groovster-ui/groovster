@@ -30,3 +30,6 @@ packages/*/dist/
 
 # Eval run artifacts (baseline.json only via --write-baseline)
 generated/eval/latest.json
+
+# Groovy browser-run reports and optional captures (review screenshots live in demos/).
+generated/a11y/groovy/

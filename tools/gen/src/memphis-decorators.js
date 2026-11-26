@@ -200,7 +200,7 @@ export function memphisDecoratorCss() {
   }
   [data-era="memphis"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
     transform: translateX(24px);
-    background: var(--ew-color-blue);
+    background: var(--ew-memphis-ink);
   }
   [data-era="memphis"] .ew-switch__control:focus-visible + .ew-switch__track {
     outline: 3px solid var(--ew-color-blue);

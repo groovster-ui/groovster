@@ -82,7 +82,7 @@ async function expectText(locator, expected, message) {
     await expect.poll(async () => (await locator.textContent())?.trim(), { message }).toBe(expected);
   } catch (error) {
     const actual = ((await locator.textContent()) || '').trim();
-    throw new Error(`${message}: expected "${expected}", got "${actual}". ${error.message}`);
+    throw new Error(`${message}: expected "${expected}", got "${actual}". ${error.message}`, { cause: error });
   }
 }
 

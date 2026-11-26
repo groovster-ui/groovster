@@ -84,7 +84,7 @@
       const vertical = this.#orientation === 'vertical';
       const prevKey = vertical ? 'ArrowUp' : 'ArrowLeft';
       const nextKey = vertical ? 'ArrowDown' : 'ArrowRight';
-      let next = null;
+      let next;
 
       switch (e.key) {
         case prevKey:
