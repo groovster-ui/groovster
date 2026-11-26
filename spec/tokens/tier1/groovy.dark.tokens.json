@@ -8,7 +8,7 @@
   "color": {
     "sand": {
       "$type": "color",
-      "$value": "oklch(22% 0.06 312)"
+      "$value": "#281d30"
     },
     "avocado": {
       "$type": "color",
@@ -24,23 +24,23 @@
     },
     "ink": {
       "$type": "color",
-      "$value": "oklch(96% 0.025 90)"
+      "$value": "#fff1d2"
     },
     "sun": {
       "$type": "color",
-      "$value": "oklch(86% 0.16 90)"
+      "$value": "#f0bc4c"
     },
     "tangerine": {
       "$type": "color",
-      "$value": "oklch(74% 0.15 50)"
+      "$value": "#e98440"
     },
     "magenta": {
       "$type": "color",
-      "$value": "oklch(70% 0.18 5)"
+      "$value": "#f19bb3"
     },
     "violet": {
       "$type": "color",
-      "$value": "oklch(74% 0.14 310)"
+      "$value": "#e3b0e3"
     },
     "lime": {
       "$type": "color",
@@ -48,22 +48,22 @@
     },
     "aqua": {
       "$type": "color",
-      "$value": "oklch(78% 0.11 200)"
+      "$value": "#82c5bb"
     },
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(86% 0.16 90)"
+        "$value": "#f0bc4c"
       },
       "fg": {
         "$type": "color",
-        "$value": "oklch(22% 0.05 45)"
+        "$value": "#442439"
       }
     },
     "danger": {
       "solid": {
         "$type": "color",
-        "$value": "oklch(68% 0.17 35)"
+        "$value": "#ffa695"
       },
       "fg": {
         "$type": "color",
@@ -135,9 +135,9 @@
     "display": {
       "$type": "fontFamily",
       "$value": [
-        "Lilita One",
-        "system-ui",
-        "sans-serif"
+        "Spicy Rice",
+        "Georgia",
+        "serif"
       ]
     },
     "body": {

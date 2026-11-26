@@ -196,6 +196,7 @@
     "packages/css/dist/fonts/SourceSerif4-Regular.woff2",
     "packages/css/dist/fonts/SpaceMono-Bold.woff2",
     "packages/css/dist/fonts/SpaceMono-Regular.woff2",
+    "packages/css/dist/fonts/SpicyRice-Regular.woff2",
     "packages/css/dist/fonts/WorkSans-Bold.woff2",
     "packages/css/dist/fonts/WorkSans-Regular.woff2",
     "packages/css/dist/fonts/Yellowtail-Regular.woff2",
@@ -247,6 +248,7 @@
     "packages/mcp/data/eras/bauhaus/era.spec.json",
     "packages/mcp/data/eras/deco/era.spec.json",
     "packages/mcp/data/eras/groovy/era.spec.json",
+    "packages/mcp/data/eras/groovy/print.spec.json",
     "packages/mcp/data/eras/mcm-atomic/era.spec.json",
     "packages/mcp/data/eras/memphis/era.spec.json",
     "packages/mcp/data/eras/neon/era.spec.json",
@@ -623,7 +625,7 @@
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:groovy": {
-        "chars": 400,
+        "chars": 528,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:mcm-atomic": {
@@ -647,7 +649,7 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 2414,
+        "chars": 2445,
         "budget": "llms.index"
       },
       "llms.recipeCard:commerce": {

@@ -7,33 +7,33 @@
     "psychedelic"
   ],
   "identity": {
-    "oneLiner": "Psychedelic poster groove: sunbursts, hot color, thick ink.",
-    "summary": "Cream paper or plum night, saturated sun, magenta, tangerine, and violet. Controls are sticker bubbles with a hard second-color offset. Motifs are suns, daisies, and waves, never neon grids or muted avocado chrome.",
+    "oneLiner": "Late-1960s psychedelic print: interlocking contours, liquid lettering, flower-power forms.",
+    "summary": "Plum, raspberry, orange, marigold and teal flowing around cream organic panels. Sculpted controls and tightly fitted display type carry identity even in dense dashboards; ornament grows from the frame rather than floating as stickers.",
     "bestFit": [
       "Music / lifestyle",
-      "Food brands",
+      "Expressive dashboards",
       "Retro product stories"
     ],
-    "authenticityNotes": "Poster flatness, a heavy keyline, and a second-color offset beat soft beige and pill forms."
+    "authenticityNotes": "Continuous B\u00e9zier contour bands, asymmetric botanical lobes and compact cream lettering. No circular floral halos, hard offset stickers, copied artwork or words baked into SVG."
   },
   "axes": {
-    "shape": "Bubble controls, organic cards",
-    "edge": "Thick ink keyline",
+    "shape": "Sculpted cartouches and asymmetric organic panels",
+    "edge": "Continuous nested ink contours",
     "surface": "Cream paper or plum night",
-    "elevation": "Hard color offset",
-    "ornament": "Sun, daisy, wave",
-    "typeVoice": "Poster display; warm body",
-    "motion": "Slow ease, groovy sway (respect reduced motion)",
-    "density": "Relaxed",
+    "elevation": "Flat nested print contours",
+    "ornament": "Flowing bands and asymmetric flower-power stems",
+    "typeVoice": "Spicy Rice display; Mulish body",
+    "motion": "Static print; short state transitions; reduced-motion safe",
+    "density": "Compact, content-led",
     "iconography": "Rounded stroke"
   },
   "fonts": {
-    "display": "Lilita One",
+    "display": "Spicy Rice",
     "body": "Mulish",
     "mono": "IBM Plex Mono",
     "license": "OFL-1.1",
     "sources": [
-      "https://fonts.google.com/specimen/Lilita+One",
+      "https://fonts.google.com/specimen/Spicy+Rice",
       "https://fonts.google.com/specimen/Mulish",
       "https://fonts.google.com/specimen/IBM+Plex+Mono"
     ]
@@ -49,19 +49,19 @@
         "id": "whisper",
         "min": 0,
         "max": 25,
-        "description": "Structure hints only."
+        "description": "Quiet warm paper, small asymmetric corners, display headings and fine rules."
       },
       {
         "id": "standard",
         "min": 26,
         "max": 66,
-        "description": "Clear era geometry. Alias: signature."
+        "description": "Sculpted controls, display lettering, single contours and restrained color. Alias: signature."
       },
       {
         "id": "costume",
         "min": 67,
         "max": 100,
-        "description": "Full decorative program. Applied when data-fidelity-band is absent."
+        "description": "Full interlocking print field, cream display cartouches, nested contours and original botanical ornaments. Default when band is absent."
       }
     ]
   },
@@ -70,10 +70,12 @@
     "dark"
   ],
   "neverDo": [
-    "Never mix synthwave neon into Groovy.",
-    "Never put Lilita One on dense form controls.",
-    "Never use sun, magenta, or avocado as the only contrast for small text.",
-    "Avoid spinning decorative flowers under reduced motion."
+    "Never use application-specific decorative CSS to rescue the Groovy identity.",
+    "Never bake heading words into artwork or reproduce reference artwork.",
+    "Keep display type off editable fields, table cells and small dense labels.",
+    "Never cover information, focus rings or hit targets with ornament.",
+    "No perfect circular floral halos, neon grids, sticker shadows or runtime network assets.",
+    "Keep native values and chart geometry accurate; decoration must not encode fabricated data."
   ],
   "tokenFiles": [
     "spec/tokens/tier1/groovy.light.tokens.json",
@@ -84,56 +86,53 @@
   ],
   "card": {
     "lines": [
-      "era: groovy",
-      "voice: psychedelic poster",
-      "shape: bubble controls, organic cards",
-      "edge: thick ink keyline",
-      "surface: cream paper or plum night",
-      "elevation: hard color offset",
-      "ornament: sun, daisy, wave",
-      "type: Lilita One + Mulish",
-      "fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)",
-      "modes: light, dark",
-      "use: music, food, lifestyle",
-      "never: neon grids, display on controls"
+      "era: groovy; voice: late-1960s psychedelic print",
+      "shape: sculpted controls, organic panels; no sticker offsets",
+      "palette: plum, raspberry, orange, marigold, teal, cream",
+      "ornament: continuous contour bands, asymmetric botanical lobes",
+      "type: Spicy Rice + Mulish; body type for dense data/fields",
+      "fidelity: costume full print | standard single contour | whisper fine ink",
+      "modes: light/dark; costume default; canonical HTML unchanged",
+      "use: expressive dashboards, music, lifestyle",
+      "details: docs/groovy-grammar.md on demand; no remote assets"
     ]
   },
   "structure": {
-    "controlRadius": "999px",
-    "surfaceRadius": "28px",
+    "controlRadius": "18px 28px 16px 24px / 24px 16px 26px 18px",
+    "surfaceRadius": "30px 44px 28px 38px / 38px 28px 42px 30px",
     "button": {
-      "borderWidth": "3px",
+      "borderWidth": "2px",
       "borderStyle": "solid",
-      "letterSpacing": "0.01em",
+      "letterSpacing": "0",
       "textTransform": "none",
       "fontWeight": "700",
-      "shadow": "4px 4px 0 0 var(--ew-color-magenta)",
+      "shadow": "none",
       "clipPath": "none",
       "paddingX": "20px",
-      "paddingY": "12px"
+      "paddingY": "10px"
     },
     "card": {
-      "borderWidth": "3px",
+      "borderWidth": "2px",
       "borderStyle": "solid",
-      "shadow": "6px 6px 0 0 var(--ew-color-magenta)",
-      "raisedShadow": "7px 7px 0 0 var(--ew-color-tangerine)",
+      "shadow": "none",
+      "raisedShadow": "none",
       "clipPath": "none",
-      "padding": "24px",
+      "padding": "18px",
       "headerRule": false,
-      "titleTracking": "0.01em",
+      "titleTracking": "-0.02em",
       "ornament": "none"
     },
     "field": {
-      "borderWidth": "3px",
+      "borderWidth": "2px",
       "borderStyle": "solid",
-      "radius": "18px",
+      "radius": "12px 18px 10px 16px",
       "underline": false
     },
     "dialog": {
-      "borderWidth": "3px",
+      "borderWidth": "2px",
       "borderStyle": "solid",
-      "radius": "28px",
-      "shadow": "var(--ew-elevation-dialog)",
+      "radius": "32px 24px 40px 28px",
+      "shadow": "0 0 0 4px var(--ew-color-tangerine)",
       "clipPath": "none"
     },
     "tabs": {
@@ -148,13 +147,13 @@
       "shadow": "none"
     },
     "tooltip": {
-      "radius": "16px",
-      "shadow": "4px 4px 0 0 var(--ew-color-aqua)",
+      "radius": "14px 20px 12px 18px",
+      "shadow": "none",
       "padding": "8px 12px"
     },
     "slider": {
-      "trackHeight": "16px",
-      "thumbSize": "32px",
+      "trackHeight": "12px",
+      "thumbSize": "28px",
       "trackRadius": "999px"
     }
   }

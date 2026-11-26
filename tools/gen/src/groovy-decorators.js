@@ -1,573 +1,289 @@
-import { bandSel, costumeSel, muteBandSel } from './band.js';
+import fs from 'node:fs';
+import { bandSel, costumeSel } from './band.js';
 
-/**
- * Groovy poster forms from the psychedelic brief: cream or plum paper,
- * a thick ink keyline, sun / daisy / wave motifs, and a hard second-color
- * offset. Fills that carry type (sun, magenta, lime) use a fixed dark ink
- * so dark mode does not flip that type to cream.
- */
-export function groovyDecoratorCss() {
-  const sun = 'oklch(86% 0.16 90)';
-  const tangerine = 'oklch(70% 0.17 48)';
-  const magenta = 'oklch(58% 0.21 5)';
-  const lime = 'oklch(78% 0.16 135)';
-  const aqua = 'oklch(74% 0.12 200)';
+const print = JSON.parse(fs.readFileSync(new URL('../../../spec/eras/groovy/print.spec.json', import.meta.url), 'utf8'));
+const n = v => Number(v.toFixed(1));
+const url = svg => `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+const svg = (body, box = '0 0 1200 400') => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${box}">${body}</svg>`;
 
-  const svgUrl = (svg) => `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
-
-  // Parallel outlined ribbons, the way the Stay Groovy poster is built:
-  // one shared curve, a black keyline on every band, daisies in a separate tile
-  // so a full-width stretch does not squash the flowers.
-  const inkLine = '#1c140f';
-  const curve = (y, amp) =>
-    `M0 ${y} C120 ${y - amp} 120 ${y - amp} 240 ${y} C360 ${y + amp} 360 ${y + amp} 480 ${y}`;
-  const flower = (cx, cy, petal, r) => {
-    let petals = '';
-    for (let i = 0; i < 8; i += 1) {
-      const angle = (i / 8) * Math.PI * 2;
-      const px = (cx + Math.cos(angle) * r * 0.62).toFixed(1);
-      const py = (cy + Math.sin(angle) * r * 0.62).toFixed(1);
-      const rot = ((angle * 180) / Math.PI).toFixed(1);
-      petals += `<ellipse cx='${px}' cy='${py}' rx='${(r * 0.46).toFixed(1)}' ry='${(r * 0.3).toFixed(1)}' transform='rotate(${rot} ${px} ${py})' fill='${petal}' stroke='${inkLine}' stroke-width='1.4'/>`;
-    }
-    return `${petals}<circle cx='${cx}' cy='${cy}' r='${(r * 0.34).toFixed(1)}' fill='#f2c14b' stroke='${inkLine}' stroke-width='1.4'/>`;
-  };
-  const sparkle = (x, y, s) =>
-    `<path d='M${x} ${y - s} L${(x + s * 0.2).toFixed(1)} ${(y - s * 0.2).toFixed(1)} L${x + s} ${y} L${(x + s * 0.2).toFixed(1)} ${(y + s * 0.2).toFixed(1)} L${x} ${y + s} L${(x - s * 0.2).toFixed(1)} ${(y + s * 0.2).toFixed(1)} L${x - s} ${y} L${(x - s * 0.2).toFixed(1)} ${(y - s * 0.2).toFixed(1)} Z' fill='#fffdf8' stroke='${inkLine}' stroke-width='0.8'/>`;
-  const ribbonField = (colors, { amp = 34, gap = 15, weight = 14, ink = inkLine } = {}) => {
-    const pad = 20;
-    const height = pad * 2 + (colors.length - 1) * gap + weight;
-    const y0 = pad + weight / 2;
-    const ribbons = colors.map((fill, index) => {
-      const d = curve(y0 + index * gap, amp);
-      return `<path d='${d}' fill='none' stroke='${ink}' stroke-width='${weight + 3.4}' stroke-linecap='round'/>` +
-        `<path d='${d}' fill='none' stroke='${fill}' stroke-width='${weight}' stroke-linecap='round'/>`;
-    }).join('');
-    return svgUrl(`<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' width='480' height='${height}' viewBox='0 0 480 ${height}'>${ribbons}</svg>`);
-  };
-  const daisyScatter = svgUrl(`<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'>${flower(36, 40, '#e7a0b4', 22)}${flower(176, 78, '#f08a3c', 26)}${flower(108, 176, '#f3b7c6', 16)}${flower(48, 150, '#f0a07a', 12)}${sparkle(120, 36, 7)}${sparkle(70, 96, 5)}${sparkle(168, 150, 6)}</svg>`);
-  const pageRibbons = ribbonField(['#e7a23a', '#f08a3c', '#f3c16a', '#f0b7c4', '#e48b9a', '#f6d7b0']);
-  const pageRibbonsDark = ribbonField(['#d0892e', '#e07a45', '#e0b15c', '#d9899a', '#c46b78', '#e7c49a'], { ink: '#f6efe4' });
-  const heroRibbons = ribbonField(['#f3c16a', '#e7a23a', '#f08a3c', '#e48b9a', '#f0b7c4', '#f6d7b0', '#e7a08a'], { amp: 42, gap: 16, weight: 16 });
-  const waveRule = ribbonField(['#e7a23a', '#f08a3c', '#e48b9a'], { amp: 12, gap: 10, weight: 9 });
-
-  const sunThumb = (stroke) => svgUrl(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
-      <g fill='none' stroke='${stroke}' stroke-width='2' stroke-linecap='round'>
-        <path d='M16 2.5v4.5M16 25v4.5M2.5 16h4.5M25 16h4.5M6.2 6.2l3.2 3.2M22.6 22.6l3.2 3.2M25.8 6.2l-3.2 3.2M9.4 22.6l-3.2 3.2'/>
-      </g>
-      <circle cx='16' cy='16' r='6.5' fill='${sun}' stroke='${stroke}' stroke-width='2'/>
-    </svg>`);
-
-  const daisy = (stroke) => svgUrl(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
-      <circle cx='32' cy='14' r='10' fill='${magenta}'/>
-      <circle cx='48' cy='24' r='10' fill='${tangerine}'/>
-      <circle cx='44' cy='42' r='10' fill='${sun}'/>
-      <circle cx='20' cy='42' r='10' fill='${lime}'/>
-      <circle cx='16' cy='24' r='10' fill='${aqua}'/>
-      <circle cx='32' cy='30' r='8' fill='${sun}' stroke='${stroke}' stroke-width='3'/>
-    </svg>`);
-
-  const ink = 'oklch(22% 0.05 45)';
-  const paper = 'oklch(97% 0.025 90)';
-  const thumbLight = sunThumb(ink);
-  const daisyLight = daisy(ink);
-  const costumeDark = costumeSel('groovy').replaceAll('[data-era="groovy"]', '[data-era="groovy"][data-mode="dark"]');
-  const whisperShadow = [
-    ' .ew-button',
-    ' .ew-icon-button',
-    ' .ew-checkbox__box',
-    ' .ew-radio__disc',
-    ' .ew-switch__track',
-    ' .ew-text-field__control',
-    ' .ew-textarea__control',
-    ' .ew-select__trigger',
-    ' .ew-select__control',
-    ' .ew-tabs [role="tab"]',
-    ' ew-tabs [role="tab"]',
-    ' .ew-card',
-    ' .ew-alert',
-    ' .ew-dialog',
-    ' .ew-toast',
-    ' .ew-menu__panel',
-    ' .ew-popover__panel',
-    ' .ew-tooltip__tip',
-    ' .ew-hero',
-  ].map((rest) => bandSel('groovy', 'whisper', rest)).join(',\n  ');
-
-  return `  [data-era="groovy"] {
-    --ew-groovy-ink: ${ink};
-    --ew-groovy-paper: ${paper};
-    --ew-groovy-blob: 28px 42px 22px 36px / 36px 22px 40px 26px;
-    --ew-groovy-field: 16px 22px 14px 20px / 20px 14px 22px 16px;
+/** Closed Catmull–Rom to cubic Bézier. Shared tangents are continuous at every join,
+ * including the seam. Unequal lobes prevent compass-drawn flower halos. */
+export function groovyBloomPath(radius, lobes, phase) {
+  const points = Array.from({ length: lobes * 4 }, (_, i) => {
+    const a = i * Math.PI * 2 / (lobes * 4);
+    const r = radius * (0.78 + 0.18 * Math.cos(lobes * a + phase)) * (1 + 0.08 * Math.sin(3 * a + phase));
+    return [r * Math.cos(a), r * Math.sin(a)];
+  });
+  const p = i => points[(i + points.length) % points.length];
+  let d = `M${p(0).map(n).join(' ')}`;
+  for (let i = 0; i < points.length; i++) {
+    const [a, b, c, e] = [p(i - 1), p(i), p(i + 1), p(i + 2)];
+    d += `C${[b[0] + (c[0] - a[0]) / 6, b[1] + (c[1] - a[1]) / 6, c[0] - (e[0] - b[0]) / 6, c[1] - (e[1] - b[1]) / 6, ...c].map(n).join(' ')}`;
   }
-  [data-era="groovy"] :is(h1, h2, h3, .ew-hero__title, .ew-card__header :is(h2, h3), .ew-dialog__header :is(h2, h3)) {
-    font-family: var(--ew-font-display, "Lilita One", system-ui, sans-serif);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    line-height: 1.05;
+  return d + 'Z';
+}
+
+export function groovyPrintSvg() {
+  const p = print.palette;
+  const ribbons = print.ribbon.widths.map((w, i) => `<path d="${print.ribbon.path}" fill="none" stroke="${p[print.ribbon.colors[i]]}" stroke-width="${w}"/>`).join('');
+  const stems = `<g fill="${p.teal}" stroke="${p.plum}" stroke-width="${print.lineWidth}" stroke-linejoin="round"><path d="M1190 410 C1020 340 1110 180 1040 95 M1100 330 C1050 280 970 330 910 295 M1110 360 C1160 330 1160 290 1130 260" fill="none"/><path d="M1100 330 C1000 325 1010 230 1040 225 C1080 240 1060 300 1100 330Z M1090 240 C1120 170 1180 180 1190 150 C1210 220 1150 250 1090 240Z M1150 345 C1170 290 1210 285 1230 280 C1230 340 1190 365 1150 345Z"/></g>`;
+  const defs = `<defs>${print.flowers.map((f,i) => `<path id="b${i}" d="${groovyBloomPath(100,f.lobes,f.phase)}"/>`).join('')}<path id="heart" d="${groovyBloomPath(100,5,0.3)}"/></defs>`;
+  const blooms = print.flowers.map((f,i) => `<g transform="translate(${f.x} ${f.y}) scale(${f.radius / 100})" stroke="${p.plum}" stroke-width="${print.lineWidth}"><use href="#b${i}" fill="${p[f.fill]}" vector-effect="non-scaling-stroke"/><use href="#b${i}" transform="scale(.62)" fill="${p.cream}" vector-effect="non-scaling-stroke"/><use href="#heart" transform="scale(.25)" fill="${p.marigold}" vector-effect="non-scaling-stroke"/></g>`).join('');
+  return svg(defs + ribbons + stems + blooms);
+}
+
+export function groovyDecoratorCss() {
+  const p = print.palette;
+  const field = url(groovyPrintSvg());
+  const rule = url(svg(`<path d="M-20 18 C90 -12 140 48 240 18 S390 -12 500 18 S650 48 780 18" fill="none" stroke="${p.raspberry}" stroke-width="14"/><path d="M-20 18 C90 -12 140 48 240 18 S390 -12 500 18 S650 48 780 18" fill="none" stroke="${p.marigold}" stroke-width="5"/>`, '0 0 760 38'));
+  const frame = url(svg(`<path d="M30 6 C140 16 260 -4 370 6 C392 8 394 30 392 52 C386 110 402 180 391 226 C386 246 364 246 340 242 C240 230 140 256 36 242 C10 238 4 224 8 192 C16 130 -2 72 8 34 C12 14 16 8 30 6Z" fill="none" stroke="${p.raspberry}" stroke-width="4" vector-effect="non-scaling-stroke"/>`, '0 0 400 250').replace('<svg ', '<svg preserveAspectRatio="none" '));
+  const bloom = url(svg(`<path d="${groovyBloomPath(24, 6, 0.18)}" transform="translate(30 30)" fill="${p.marigold}" stroke="${p.plum}" stroke-width="2.5"/>`, '0 0 60 60'));
+  const band = id => {
+    const b = print.bands[id];
+    return `--ew-groovy-line:${b.line}; --ew-groovy-panel:${b.panelRadius}; --ew-groovy-control:${b.controlRadius}; --ew-groovy-rim:${b.rim};`;
+  };
+  return `
+  [data-era="groovy"] {
+    --ew-groovy-ink: ${p.plum}; --ew-groovy-paper: ${p.cream};
+    --ew-groovy-raspberry: ${p.raspberry}; --ew-groovy-gold: ${p.marigold};
+    --ew-groovy-teal: ${p.teal}; --ew-groovy-orange: ${p.orange};
+    --ew-groovy-field: 12px 18px 10px 16px;
+    --ew-groovy-heading-bg: transparent; --ew-groovy-heading-fg: var(--ew-color-fg-default);
+    --ew-groovy-heading-pad: 0; --ew-groovy-heading-margin: 0;
+    --ew-groovy-control-font: var(--ew-font-display); --ew-groovy-control-size: 1.125rem;
+    --ew-groovy-control-weight: 400; --ew-groovy-ornament: none;
+    --ew-groovy-header-rule: none; --ew-groovy-inset: none; --ew-groovy-frame: none; --ew-groovy-figure-rim: none;
+    ${band('standard')}
   }
   ${costumeSel('groovy')} {
-    background-color: #fffaf4;
-    background-image: ${daisyScatter}, ${pageRibbons};
-    background-repeat: repeat, repeat-y;
-    background-size: 440px 440px, 100% 520px;
-    background-position: center top, center top;
+    ${band('costume')}
+    --ew-groovy-ornament: ${field};
+    --ew-groovy-inset: inset 0 0 0 3px var(--ew-color-bg-surface), inset 0 0 0 4px var(--ew-color-border-strong);
+    --ew-groovy-heading-bg: var(--ew-groovy-ink); --ew-groovy-heading-fg: var(--ew-groovy-paper);
+    --ew-groovy-heading-pad: 10px 16px 12px; --ew-groovy-heading-margin: -10px -10px 0;
+    --ew-groovy-header-rule: ${rule}; --ew-groovy-frame: ${frame};
+    --ew-groovy-figure-rim: inset 0 0 0 2px var(--ew-groovy-gold);
   }
-  ${costumeDark} {
-    background-color: oklch(24% 0.045 350);
-    background-image: ${daisyScatter}, ${pageRibbonsDark};
+  ${bandSel('groovy', 'whisper')} {
+    ${band('whisper')}
+    --ew-groovy-control-font: var(--ew-font-body); --ew-groovy-control-size: 1rem;
+    --ew-groovy-control-weight: 700;
   }
-  [data-era="groovy"] ::selection {
-    background: var(--ew-color-sun);
-    color: var(--ew-groovy-ink);
+  ${bandSel('groovy', ['standard','signature','default'])} {
+    --ew-groovy-heading-fg: var(--ew-color-violet);
+    --ew-groovy-inset: inset 0 -3px 0 var(--ew-color-tangerine);
   }
-  [data-era="groovy"] .ew-link:not([data-variant="nav"]) {
-    color: var(--ew-color-violet);
-    text-decoration-line: underline;
-    text-decoration-style: wavy;
-    text-decoration-color: var(--ew-color-magenta);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.2em;
+  [data-era="groovy"] :is(h1,h2,h3,.ew-hero__title) {
+    font-family: var(--ew-font-display); font-weight: 400; letter-spacing: -0.025em;
+    line-height: 1.12; text-wrap: balance; overflow-wrap: anywhere;
   }
-  [data-era="groovy"] .ew-button,
-  [data-era="groovy"] .ew-icon-button {
-    border: 3px solid var(--ew-groovy-ink);
-    border-radius: 999px;
-    background: var(--ew-color-sun);
-    color: var(--ew-groovy-ink);
-    box-shadow: 4px 4px 0 0 var(--ew-color-magenta);
-    font-family: var(--ew-font-body, Mulish, system-ui, sans-serif);
-    font-weight: 700;
+  [data-era="groovy"] ::selection { background: var(--ew-groovy-gold); color: var(--ew-groovy-ink); }
+  [data-era="groovy"] :is(.ew-button,.ew-icon-button) {
+    min-height: 44px; border: var(--ew-groovy-line) solid var(--ew-color-border-strong);
+    border-radius: var(--ew-groovy-control); background: var(--ew-groovy-raspberry); color: var(--ew-groovy-paper);
+    box-shadow: inset 0 0 0 2px var(--ew-groovy-paper);
+    font-family: var(--ew-groovy-control-font); font-size: var(--ew-groovy-control-size);
+    font-weight: var(--ew-groovy-control-weight); line-height: 1.2; letter-spacing: 0;
+    white-space: normal; overflow-wrap: anywhere;
   }
-  [data-era="groovy"] .ew-icon-button {
-    width: 44px;
-    height: 44px;
+  [data-era="groovy"] .ew-icon-button { min-width: 44px; padding: 8px; font-family: var(--ew-font-body); font-size: 1.5rem; font-weight: 700; }
+  [data-era="groovy"] :is(.ew-button,.ew-icon-button)[data-variant="secondary"] {
+    background: var(--ew-groovy-teal); color: var(--ew-groovy-paper); border-color: var(--ew-color-border-strong);
   }
-  [data-era="groovy"] .ew-button:not([data-variant]):hover,
-  [data-era="groovy"] .ew-button[data-variant="primary"]:hover,
-  [data-era="groovy"] .ew-icon-button:not([data-variant]):hover,
-  [data-era="groovy"] .ew-icon-button[data-variant="primary"]:hover {
-    background: color-mix(in oklch, var(--ew-color-sun) 78%, var(--ew-groovy-ink));
-  }
-  [data-era="groovy"] .ew-button:not([data-variant]):active,
-  [data-era="groovy"] .ew-button[data-variant="primary"]:active,
-  [data-era="groovy"] .ew-icon-button:not([data-variant]):active,
-  [data-era="groovy"] .ew-icon-button[data-variant="primary"]:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0 0 var(--ew-color-magenta);
-  }
-  [data-era="groovy"] .ew-button[data-variant="secondary"],
-  [data-era="groovy"] .ew-icon-button[data-variant="secondary"] {
-    background: var(--ew-color-magenta);
-    color: var(--ew-groovy-ink);
-    border-color: var(--ew-groovy-ink);
-    box-shadow: 4px 4px 0 0 var(--ew-color-aqua);
-  }
-  [data-era="groovy"] .ew-button[data-variant="secondary"]:hover,
-  [data-era="groovy"] .ew-icon-button[data-variant="secondary"]:hover {
-    background: color-mix(in oklch, var(--ew-color-magenta) 82%, var(--ew-groovy-ink));
-  }
-  [data-era="groovy"] .ew-button[data-variant="secondary"]:active,
-  [data-era="groovy"] .ew-icon-button[data-variant="secondary"]:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0 0 var(--ew-color-aqua);
-  }
-  [data-era="groovy"] .ew-button[data-variant="ghost"],
-  [data-era="groovy"] .ew-icon-button[data-variant="ghost"] {
-    background: transparent;
-    color: var(--ew-color-fg-default);
-    border-color: transparent;
-    box-shadow: none;
-  }
-  [data-era="groovy"] .ew-button[data-variant="ghost"]:hover,
-  [data-era="groovy"] .ew-icon-button[data-variant="ghost"]:hover {
-    background: color-mix(in oklch, var(--ew-color-sun) 55%, transparent);
-  }
-  [data-era="groovy"] .ew-button[data-variant="ghost"]:active,
-  [data-era="groovy"] .ew-icon-button[data-variant="ghost"]:active {
-    transform: none;
-    box-shadow: none;
+  [data-era="groovy"] :is(.ew-button,.ew-icon-button)[data-variant="ghost"],
+  [data-era="groovy"] .ew-icon-button:not([data-variant]) {
+    background: transparent; color: var(--ew-color-fg-default); border-color: transparent; box-shadow: none;
   }
   [data-era="groovy"] .ew-button[data-variant="danger"] {
-    background: var(--ew-color-danger-bg);
-    color: var(--ew-color-danger-fg);
-    border-color: var(--ew-groovy-ink);
-    box-shadow: 4px 4px 0 0 var(--ew-color-sun);
+    background: var(--ew-color-danger-bg); color: var(--ew-color-danger-fg);
   }
-  [data-era="groovy"] .ew-button[data-variant="danger"]:hover {
-    background: color-mix(in oklch, var(--ew-color-danger-bg) 86%, var(--ew-groovy-ink));
+  [data-era="groovy"] :is(.ew-button,.ew-icon-button):not(:disabled):hover {
+    text-decoration: underline; text-underline-offset: 0.2em;
+    filter: brightness(1.08);
   }
-  [data-era="groovy"] .ew-button[data-variant="danger"]:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0 0 var(--ew-color-sun);
+  [data-era="groovy"] :is(.ew-button,.ew-icon-button):not(:disabled):active { transform: translateY(1px); }
+  [data-era="groovy"] :is(.ew-button,.ew-icon-button):disabled { transform: none; }
+  [data-era="groovy"] :is(.ew-text-field__control,.ew-textarea__control,.ew-select__control,.ew-select__trigger) {
+    min-height: 44px; border: var(--ew-groovy-line) solid var(--ew-color-border-strong);
+    border-radius: var(--ew-groovy-field); background: var(--ew-color-field-bg); color: var(--ew-color-fg-default);
+    box-shadow: inset 0 -3px 0 color-mix(in srgb,var(--ew-color-tangerine) 45%,transparent);
+    font-family: var(--ew-font-body); font-size: 1rem;
   }
-  [data-era="groovy"] .ew-button:focus-visible,
-  [data-era="groovy"] .ew-icon-button:focus-visible {
-    outline: 3px solid var(--ew-color-violet);
-    outline-offset: 3px;
+  [data-era="groovy"] .ew-textarea__control { min-height: 96px; border-radius: var(--ew-groovy-panel); padding: 14px; }
+  [data-era="groovy"] :is(.ew-text-field__control,.ew-textarea__control)::placeholder { color: var(--ew-color-fg-muted); opacity: 1; }
+  [data-era="groovy"] :is(.ew-text-field,.ew-textarea)[data-invalid="true"] :is(input,textarea) {
+    border-color: var(--ew-color-danger-bg); border-style: double; border-width: 3px;
   }
-  [data-era="groovy"] .ew-text-field__control,
-  [data-era="groovy"] .ew-textarea__control,
-  [data-era="groovy"] .ew-select__trigger,
-  [data-era="groovy"] .ew-select__control,
-  [data-era="groovy"] .ew-text-field[data-variant="filled"] .ew-text-field__control,
-  [data-era="groovy"] .ew-text-field[data-variant="underline"] .ew-text-field__control,
-  [data-era="groovy"] .ew-text-field:where([data-underline="true"]) .ew-text-field__control {
-    background: var(--ew-color-bg-elevated);
-    color: var(--ew-color-fg-default);
-    border: 3px solid var(--ew-color-ink);
-    border-radius: var(--ew-groovy-field);
-    box-shadow: 4px 4px 0 0 var(--ew-color-tangerine);
+  [data-era="groovy"] :is(.ew-checkbox,.ew-radio,.ew-switch) { min-height: 44px; }
+  [data-era="groovy"] :is(.ew-checkbox__box,.ew-radio__disc) {
+    width: 24px; height: 24px; flex-shrink: 0; border: 2px solid var(--ew-color-border-strong);
+    background: var(--ew-color-bg-surface); box-shadow: none;
   }
-  [data-era="groovy"] .ew-textarea__control {
-    border-radius: var(--ew-groovy-blob);
-    box-shadow: 4px 4px 0 0 var(--ew-color-violet);
-    min-height: 112px;
-  }
-  [data-era="groovy"] .ew-text-field__control::placeholder,
-  [data-era="groovy"] .ew-textarea__control::placeholder {
-    color: var(--ew-color-fg-muted);
-  }
-  [data-era="groovy"] .ew-text-field__control:focus-visible,
-  [data-era="groovy"] .ew-textarea__control:focus-visible,
-  [data-era="groovy"] .ew-select__trigger:focus-visible,
-  [data-era="groovy"] .ew-select__control:focus-visible {
-    outline: 3px solid var(--ew-color-violet);
-    outline-offset: 3px;
-    border-color: var(--ew-color-magenta);
-  }
-  [data-era="groovy"] .ew-text-field[data-invalid="true"] .ew-text-field__control,
-  [data-era="groovy"] .ew-textarea[data-invalid="true"] .ew-textarea__control {
-    border-color: var(--ew-color-danger-bg);
-    box-shadow: 4px 4px 0 0 var(--ew-color-magenta);
-  }
-  [data-era="groovy"] .ew-select__list {
-    border: 3px solid var(--ew-color-ink);
-    border-radius: var(--ew-groovy-blob);
-    background: var(--ew-color-bg-elevated);
-    box-shadow: 5px 5px 0 0 var(--ew-color-magenta);
-  }
-  [data-era="groovy"] .ew-select__option,
-  [data-era="groovy"] .ew-menu__item {
-    border-radius: 12px;
-  }
-  [data-era="groovy"] .ew-select__option[aria-selected="true"],
-  [data-era="groovy"] .ew-select__option:hover,
-  [data-era="groovy"] .ew-menu__item:hover {
-    background: var(--ew-color-sun);
-    color: var(--ew-groovy-ink);
-  }
-  [data-era="groovy"] .ew-checkbox__box {
-    width: 22px;
-    height: 22px;
-    border: 3px solid var(--ew-color-ink);
-    border-radius: 8px;
-    background: var(--ew-color-bg-elevated);
-    box-shadow: 3px 3px 0 0 var(--ew-color-magenta);
-  }
-  [data-era="groovy"] .ew-checkbox__box::after {
-    border-color: var(--ew-groovy-ink);
-  }
+  [data-era="groovy"] .ew-checkbox__box { border-radius: 7px 10px 6px 9px; }
   [data-era="groovy"] .ew-checkbox__control:checked + .ew-checkbox__box {
-    background: var(--ew-color-sun);
-    border-color: var(--ew-color-ink);
+    background: var(--ew-groovy-raspberry); border-color: var(--ew-color-border-strong);
   }
-  [data-era="groovy"] .ew-checkbox__control:focus-visible + .ew-checkbox__box {
-    outline: 3px solid var(--ew-color-violet);
-    outline-offset: 3px;
-  }
-  [data-era="groovy"] .ew-radio__disc {
-    width: 22px;
-    height: 22px;
-    border: 3px solid var(--ew-color-ink);
-    background: var(--ew-color-bg-elevated);
-    box-shadow: 3px 3px 0 0 var(--ew-color-aqua);
-  }
-  [data-era="groovy"] .ew-radio__disc::after {
-    width: 10px;
-    height: 10px;
-    background: var(--ew-color-magenta);
-  }
-  [data-era="groovy"] .ew-radio__control:focus-visible + .ew-radio__disc {
-    outline: 3px solid var(--ew-color-violet);
-    outline-offset: 3px;
-  }
+  [data-era="groovy"] .ew-checkbox__box::after { border-color: var(--ew-groovy-paper); }
+  [data-era="groovy"] .ew-radio__disc::after { width: 12px; height: 12px; background: var(--ew-color-fg-default); border-radius: 40% 56% 44% 50%; }
   [data-era="groovy"] .ew-switch__track {
-    width: 56px;
-    height: 30px;
-    padding: 2px;
-    border-radius: 999px;
-    border: 3px solid var(--ew-color-ink);
-    background: var(--ew-color-bg-elevated);
-    box-shadow: 3px 3px 0 0 var(--ew-color-tangerine);
+    width: 56px; height: 30px; padding: 3px; border: 2px solid var(--ew-color-border-strong);
+    border-radius: 16px 20px 15px 18px; background: var(--ew-color-bg-surface); box-shadow: none;
   }
   [data-era="groovy"] .ew-switch__thumb {
-    width: 18px;
-    height: 18px;
-    border-radius: 999px;
-    background: var(--ew-color-sun);
-    border: 2px solid var(--ew-groovy-ink);
-    box-shadow: none;
+    width: 20px; height: 20px; border: 2px solid var(--ew-groovy-ink);
+    border-radius: 45% 55% 42% 58%; background: var(--ew-groovy-paper); box-shadow: none;
   }
-  [data-era="groovy"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb {
-    background: var(--ew-color-sun);
-  }
-  [data-era="groovy"] .ew-switch__control:checked + .ew-switch__track {
-    background: var(--ew-color-magenta);
-    border-color: var(--ew-color-ink);
-  }
-  [data-era="groovy"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb {
-    transform: translateX(24px);
-    background: var(--ew-color-lime);
-  }
-  [data-era="groovy"] .ew-switch__control:focus-visible + .ew-switch__track {
-    outline: 3px solid var(--ew-color-violet);
-    outline-offset: 3px;
-  }
+  [data-era="groovy"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb { background: var(--ew-color-fg-default); border-color: var(--ew-color-bg-surface); }
+  [data-era="groovy"] .ew-switch__control:checked + .ew-switch__track { background: var(--ew-groovy-teal); }
+  [data-era="groovy"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb { transform: translateX(24px); background: var(--ew-groovy-gold); }
   [data-era="groovy"] .ew-slider__control {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 16px;
-    margin: 10px 0;
-    border: 3px solid var(--ew-color-ink);
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--ew-color-sun), var(--ew-color-tangerine) 28%, var(--ew-color-magenta) 52%, var(--ew-color-violet) 74%, var(--ew-color-aqua));
-    accent-color: var(--ew-color-magenta);
+    appearance: none; height: 12px; margin: 16px 0; border: 2px solid var(--ew-color-border-strong);
+    border-radius: var(--ew-groovy-control); background: var(--ew-color-bg-surface); accent-color: var(--ew-color-action-bg);
   }
   [data-era="groovy"] .ew-slider__control::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 32px;
-    height: 32px;
-    margin-top: -8px;
-    border: 0;
-    border-radius: 0;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 32px 32px;
-    background-image: ${thumbLight};
-    box-shadow: none;
+    appearance: none; width: 28px; height: 28px; border: 2px solid var(--ew-groovy-ink);
+    border-radius: 42% 58% 46% 54%; background: var(--ew-groovy-gold); box-shadow: inset 0 0 0 3px var(--ew-groovy-paper);
   }
   [data-era="groovy"] .ew-slider__control::-moz-range-thumb {
-    appearance: none;
-    width: 32px;
-    height: 32px;
-    border: 0;
-    border-radius: 0;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 32px 32px;
-    background-image: ${thumbLight};
-    box-shadow: none;
+    width: 24px; height: 24px; border: 2px solid var(--ew-groovy-ink);
+    border-radius: 42% 58% 46% 54%; background: var(--ew-groovy-gold); box-shadow: inset 0 0 0 3px var(--ew-groovy-paper);
   }
-  [data-era="groovy"] .ew-slider__control:focus-visible {
-    outline: 3px solid var(--ew-color-violet);
-    outline-offset: 4px;
+  [data-era="groovy"] :is(.ew-tabs,ew-tabs) [role="tablist"] { border: 0; gap: 8px; flex-wrap: wrap; }
+  [data-era="groovy"] :is(.ew-tabs,ew-tabs) [role="tab"],
+  [data-era="groovy"] .ew-link[data-variant="nav"] {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+    padding: 8px 18px; border: var(--ew-groovy-line) solid var(--ew-color-border-strong);
+    border-radius: var(--ew-groovy-control); background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default);
+    font: var(--ew-groovy-control-weight) var(--ew-groovy-control-size)/1.2 var(--ew-groovy-control-font);
+    text-decoration: none; box-shadow: none;
   }
-  [data-era="groovy"] .ew-tabs [role="tablist"],
-  [data-era="groovy"] ew-tabs [role="tablist"] {
-    border-bottom: 0;
-    gap: 10px;
+  [data-era="groovy"] :is(.ew-tabs,ew-tabs) [role="tab"][aria-selected="true"],
+  [data-era="groovy"] .ew-link[data-variant="nav"][aria-current="page"] {
+    background: var(--ew-groovy-gold); color: var(--ew-groovy-ink);
+    box-shadow: inset 0 0 0 2px var(--ew-groovy-paper); border-color: var(--ew-color-border-strong);
   }
-  [data-era="groovy"] .ew-tabs [role="tab"],
-  [data-era="groovy"] ew-tabs [role="tab"] {
-    border: 3px solid var(--ew-color-ink);
-    border-radius: 999px;
-    background: var(--ew-color-bg-elevated);
-    color: var(--ew-color-fg-default);
-    padding: 8px 16px;
-    box-shadow: none;
+  [data-era="groovy"] .ew-link:not([data-variant="nav"]) {
+    color: var(--ew-color-violet); text-decoration: underline wavy; text-underline-offset: 0.22em; text-decoration-thickness: 1px;
   }
-  [data-era="groovy"] .ew-tabs [role="tab"][aria-selected="true"],
-  [data-era="groovy"] ew-tabs [role="tab"][aria-selected="true"] {
-    background: var(--ew-color-sun);
-    color: var(--ew-groovy-ink);
-    border-color: var(--ew-color-ink);
-    box-shadow: 3px 3px 0 0 var(--ew-color-magenta);
+  [data-era="groovy"] :is(.ew-card,.ew-dialog,.ew-menu__panel,.ew-popover__panel,.ew-select__list) {
+    border: var(--ew-groovy-line) solid var(--ew-color-border-strong);
+    border-radius: var(--ew-groovy-panel); background: var(--ew-color-bg-surface);
+    color: var(--ew-color-fg-default); box-shadow: var(--ew-groovy-rim);
   }
-  [data-era="groovy"] .ew-tabs [role="tab"]:focus-visible,
-  [data-era="groovy"] ew-tabs [role="tab"]:focus-visible {
-    outline: 3px solid var(--ew-color-violet);
-    outline-offset: 3px;
+  [data-era="groovy"] .ew-card { overflow: visible; gap: 12px; min-width: 0; }
+  ${costumeSel('groovy',' .ew-card:nth-child(3n+2)')} {
+    --ew-groovy-heading-bg: var(--ew-groovy-raspberry);
+    border-radius: 42px 28px 40px 26px / 28px 40px 26px 38px;
   }
-  [data-era="groovy"] .ew-card {
-    border: 3px solid var(--ew-color-ink);
-    border-radius: var(--ew-groovy-blob);
-    background: var(--ew-color-bg-elevated);
-    box-shadow: 6px 6px 0 0 var(--ew-color-magenta);
+  ${costumeSel('groovy',' .ew-card:nth-child(3n)')} {
+    --ew-groovy-heading-bg: var(--ew-groovy-teal);
+    border-radius: 26px 38px 30px 44px / 40px 26px 38px 28px;
   }
-  [data-era="groovy"] .ew-card[data-variant="raised"] {
-    box-shadow: 7px 7px 0 0 var(--ew-color-tangerine);
+  [data-era="groovy"] .ew-card::after {
+    content: ""; position: absolute; inset: -5px; pointer-events: none;
+    background: var(--ew-groovy-frame) center / 100% 100% no-repeat; z-index: 0;
   }
-  [data-era="groovy"] .ew-card[data-variant="outline"],
-  [data-era="groovy"] .ew-card[data-variant="flat"] {
-    box-shadow: none;
+  [data-era="groovy"] .ew-card::before {
+    content: ""; inset: 5px; border: 1px solid var(--ew-color-border-strong); border-radius: inherit;
+    opacity: var(--ew-structure-card-ornament-opacity,0); background: none;
   }
-  ${muteBandSel('groovy', ' .ew-card__header::after')} { display: none; }
-  [data-era="groovy"] .ew-card__header::after {
-    content: "";
-    display: block;
-    height: 48px;
-    margin-top: 8px;
-    border: 0;
-    border-radius: 0;
-    background-color: #fffaf4;
-    background-image: ${waveRule};
-    background-repeat: no-repeat;
-    background-size: 100% 48px;
-    background-position: left center;
+  [data-era="groovy"] .ew-card[data-variant="raised"] { box-shadow: var(--ew-groovy-rim); }
+  [data-era="groovy"] .ew-card[data-variant="outline"] { box-shadow: none; }
+  [data-era="groovy"] .ew-card[data-variant="flat"] { border-color: transparent; box-shadow: none; }
+  [data-era="groovy"] .ew-card:is([data-variant="flat"],[data-variant="outline"])::after { content: none; }
+  [data-era="groovy"] .ew-card[data-variant="inset"] { box-shadow: var(--ew-groovy-inset); }
+  [data-era="groovy"] :is(.ew-card__header,.ew-dialog__header) {
+    background: var(--ew-groovy-heading-bg); color: var(--ew-groovy-heading-fg);
+    border-radius: var(--ew-groovy-panel); padding: var(--ew-groovy-heading-pad); margin: var(--ew-groovy-heading-margin);
   }
-  [data-era="groovy"] .ew-dialog {
-    border: 3px solid var(--ew-color-ink);
-    border-radius: 36px 28px 44px 32px / 30px 40px 28px 38px;
-    background: var(--ew-color-bg-elevated);
-    box-shadow: 8px 8px 0 0 var(--ew-color-magenta);
+  [data-era="groovy"] .ew-card__header :is(h2,h3) { font-size: 1.65rem; letter-spacing: -0.025em; line-height: 1.12; }
+  [data-era="groovy"] .ew-card__header::after { content: none; }
+  [data-era="groovy"] .ew-dialog__header { margin-bottom: 16px; padding-inline-end: 42px; }
+  [data-era="groovy"] .ew-dialog__header h2 { margin: 0; }
+  [data-era="groovy"] .ew-dialog__close { color: var(--ew-groovy-heading-fg); }
+  [data-era="groovy"] :is(.ew-alert,.ew-toast) {
+    border: var(--ew-groovy-line) solid var(--ew-color-border-strong); border-inline-start-width: 8px;
+    border-inline-start-color: var(--ew-color-violet); border-radius: var(--ew-groovy-field);
+    background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default); box-shadow: none;
   }
-  [data-era="groovy"] .ew-alert,
-  [data-era="groovy"] .ew-toast {
-    border: 3px solid var(--ew-color-ink);
-    border-radius: var(--ew-groovy-field);
-    border-inline-start-width: 10px;
-    border-inline-start-color: var(--ew-color-violet);
-    background: var(--ew-color-bg-elevated);
-    box-shadow: 4px 4px 0 0 var(--ew-color-tangerine);
+  [data-era="groovy"] :is(.ew-alert,.ew-toast)[data-variant="success"] { border-inline-start-color: var(--ew-color-aqua); }
+  [data-era="groovy"] :is(.ew-alert,.ew-toast)[data-variant="danger"] { border-inline-start-color: var(--ew-color-danger-bg); }
+  [data-era="groovy"] :is(.ew-alert,.ew-toast)[data-variant="warning"] { border-inline-start-color: var(--ew-color-rust); }
+  [data-era="groovy"] :is(.ew-select__option,.ew-menu__item) { min-height: 44px; border-radius: var(--ew-groovy-field); }
+  [data-era="groovy"] :is(.ew-select__option[aria-selected="true"],.ew-select__option:hover,.ew-menu__item:hover,.ew-menu__item:focus-visible) {
+    background: var(--ew-groovy-gold); color: var(--ew-groovy-ink);
   }
-  [data-era="groovy"] .ew-alert[data-variant="success"] { border-inline-start-color: var(--ew-color-lime); }
-  [data-era="groovy"] .ew-alert[data-variant="warning"] { border-inline-start-color: var(--ew-color-sun); }
-  [data-era="groovy"] .ew-alert[data-variant="danger"] { border-inline-start-color: var(--ew-color-magenta); }
-  [data-era="groovy"] .ew-menu__panel,
-  [data-era="groovy"] .ew-popover__panel,
   [data-era="groovy"] .ew-tooltip__tip {
-    border: 3px solid var(--ew-color-ink);
-    border-radius: var(--ew-groovy-field);
-    background: var(--ew-color-bg-elevated);
-    color: var(--ew-color-fg-default);
-    box-shadow: 4px 4px 0 0 var(--ew-color-aqua);
+    border: 1px solid var(--ew-color-border-strong); border-radius: var(--ew-groovy-field);
+    background: var(--ew-groovy-ink); color: var(--ew-groovy-paper); box-shadow: none;
+  }
+  [data-era="groovy"] .ew-avatar { border: 2px solid var(--ew-color-border-strong); background: var(--ew-groovy-teal); color: var(--ew-groovy-paper); box-shadow: var(--ew-groovy-rim); }
+  [data-era="groovy"] .ew-avatar[data-variant="square"] { border-radius: var(--ew-groovy-field); }
+  [data-era="groovy"] .ew-breadcrumb__list { gap: 10px; align-items: center; }
+  [data-era="groovy"] .ew-breadcrumb__separator { color: var(--ew-color-violet); }
+  [data-era="groovy"] .ew-ornament-divider {
+    height: 2px; border: 0; background: var(--ew-color-border-strong); overflow: visible;
+  }
+  [data-era="groovy"] .ew-ornament-divider::before { content: none; }
+  ${costumeSel('groovy',' .ew-ornament-divider[data-variant="ornament"]')} {
+    height: 32px; background: ${rule} center / 100% 32px no-repeat;
   }
   [data-era="groovy"] .ew-hero {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    display: grid;
-    min-height: 320px;
-    padding: 28px;
-    border: 3px solid var(--ew-color-ink);
-    border-radius: 42px 28px 48px 32px / 32px 48px 28px 42px;
-    background: var(--ew-color-bg-page);
-    box-shadow: 8px 8px 0 0 var(--ew-color-magenta);
+    position: relative; isolation: isolate; overflow: hidden; min-height: 0;
+    padding: clamp(18px,2vw,28px); border: var(--ew-groovy-line) solid var(--ew-color-border-strong);
+    border-radius: var(--ew-groovy-panel); background: var(--ew-color-bg-surface); box-shadow: var(--ew-groovy-rim);
   }
-  [data-era="groovy"] .ew-hero__backdrop,
-  [data-era="groovy"] .ew-hero__stage {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-  [data-era="groovy"] .ew-hero__backdrop {
-    background-color: #fffaf4;
-    background-image: ${daisyScatter}, ${heroRibbons};
-    background-repeat: repeat, no-repeat;
-    background-size: 240px 240px, 100% 100%;
-    background-position: center, center;
-  }
-  [data-era="groovy"] .ew-hero__stage {
-    background: none;
-  }
+  [data-era="groovy"] :is(.ew-hero__backdrop,.ew-hero__stage) { position: absolute; inset: 0; pointer-events: none; z-index: -1; }
+  [data-era="groovy"] .ew-hero__backdrop { background: var(--ew-groovy-ornament) right center / cover no-repeat; }
   [data-era="groovy"] .ew-hero__panel {
-    position: relative;
-    z-index: 1;
-    justify-self: start;
-    align-self: end;
-    max-width: 34rem;
-    padding: 18px 20px 20px;
-    background: var(--ew-color-bg-elevated);
-    color: var(--ew-color-fg-default);
-    border: 3px solid var(--ew-color-ink);
-    border-radius: var(--ew-groovy-blob);
-    box-shadow: 6px 6px 0 0 var(--ew-color-aqua);
+    width: fit-content; max-width: 70%; padding: 16px 24px; border-radius: var(--ew-groovy-panel);
+    background: var(--ew-groovy-heading-bg); color: var(--ew-groovy-heading-fg);
   }
-  [data-era="groovy"] .ew-hero__rays {
-    position: absolute;
-    z-index: 2;
-    width: 72px;
-    height: 72px;
-    top: 12px;
-    inset-inline-end: 12px;
-    border-radius: 50%;
-    border: 3px solid var(--ew-groovy-ink);
-    pointer-events: none;
-    background:
-      radial-gradient(circle, var(--ew-color-sun) 0 34%, transparent 35%),
-      repeating-conic-gradient(from 0deg, var(--ew-color-tangerine) 0 12deg, var(--ew-color-sun) 12deg 24deg);
+  [data-era="groovy"] .ew-hero__title { margin: 0; font-size: clamp(2.4rem,5.2vw,5.5rem); line-height: 0.98; letter-spacing: -0.035em; color: inherit; text-shadow: none; }
+  [data-era="groovy"] .ew-hero__subtitle { max-width: 52ch; margin: 12px 0 0; font-size: 1rem; line-height: 1.5; }
+  [data-era="groovy"] :is(.ew-hero__rays,.ew-hero__fan) { display: none; }
+  ${costumeSel('groovy',' .ew-hero__fan')} { display: block; width: 42px; height: 42px; background: ${bloom} center / contain no-repeat; }
+  /* Native data primitives retain their real values; no invented chart component/API. */
+  [data-era="groovy"] :is(meter,progress) { width: 100%; height: 20px; accent-color: var(--ew-color-aqua); }
+  [data-era="groovy"] meter::-webkit-meter-bar,
+  [data-era="groovy"] progress::-webkit-progress-bar {
+    border: 1px solid var(--ew-color-border-strong); border-radius: var(--ew-groovy-control); background: var(--ew-color-bg-surface);
   }
-  [data-era="groovy"] .ew-hero__content {
-    position: relative;
-    z-index: 1;
-    padding-inline-end: 84px;
+  [data-era="groovy"] meter::-webkit-meter-optimum-value,
+  [data-era="groovy"] progress::-webkit-progress-value {
+    border-radius: var(--ew-groovy-control); background: var(--ew-color-aqua);
   }
-  [data-era="groovy"] .ew-hero__fan {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 8px;
-    background-image: ${daisyLight};
-    background-size: 52px 52px;
-    background-repeat: no-repeat;
+  [data-era="groovy"] meter::-moz-meter-bar { background: var(--ew-color-aqua); }
+  [data-era="groovy"] progress::-moz-progress-bar { background: var(--ew-color-aqua); }
+  [data-era="groovy"] .ew-card figure { margin: 0; padding: 12px; border: var(--ew-groovy-line) solid var(--ew-color-border-strong); border-radius: var(--ew-groovy-panel); box-shadow: var(--ew-groovy-figure-rim); }
+  [data-era="groovy"] .ew-card figcaption { font-family: var(--ew-font-display); font-size: 1.25rem; margin-bottom: 8px; }
+  [data-era="groovy"] .ew-card svg[role="img"] { max-width: 100%; height: auto; color: var(--ew-color-aqua); }
+  [data-era="groovy"] .ew-card svg[role="img"] text { font-family: var(--ew-font-body); fill: var(--ew-color-fg-default); }
+  [data-era="groovy"] .ew-card table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  [data-era="groovy"] .ew-card :is(th,td) { padding: 9px 8px; text-align: start; border-bottom: 1px solid color-mix(in srgb,var(--ew-color-border-strong) 28%,transparent); }
+  [data-era="groovy"] .ew-card th { font-weight: 700; }
+  [data-era="groovy"] :is(.ew-button,.ew-icon-button,.ew-link,.ew-text-field__control,.ew-textarea__control,.ew-select__control,.ew-select__trigger,.ew-slider__control,[role="tab"],.ew-menu__item):focus-visible,
+  [data-era="groovy"] :is(.ew-checkbox__control,.ew-radio__control,.ew-switch__control):focus-visible + span {
+    outline: 3px solid var(--ew-color-field-focus); outline-offset: 4px;
   }
-  [data-era="groovy"] .ew-hero__title {
-    margin: 0;
-    color: #e39b2d;
-    font-size: clamp(2.6rem, 5vw, 4.25rem);
-    -webkit-text-stroke: 2px #1c140f;
-    paint-order: stroke fill;
-    text-shadow: 4px 5px 0 #1c140f;
+  @media (max-width: 600px) {
+    [data-era="groovy"] .ew-hero { padding: 14px; }
+    [data-era="groovy"] .ew-hero__panel { max-width: 100%; padding: 16px; }
+    [data-era="groovy"] .ew-hero__backdrop { background-size: auto 100%; }
+    [data-era="groovy"] .ew-card__header :is(h2,h3) { font-size: 1.45rem; }
   }
-  [data-era="groovy"] .ew-hero__subtitle {
-    margin: 8px 0 0;
-    max-width: 36ch;
+  @media (prefers-reduced-motion: reduce) {
+    [data-era="groovy"] *, [data-era="groovy"] *::before, [data-era="groovy"] *::after { animation: none; transition: none; }
   }
-  ${costumeSel('groovy', ' .ew-ornament-divider')} {
-    height: 52px;
-    border: 0;
-    background-color: #fffaf4;
-    background-image: ${waveRule};
-    background-repeat: no-repeat;
-    background-size: 100% 52px;
-    background-position: left center;
-  }
-  ${costumeSel('groovy', ' .ew-ornament-divider::before')} {
-    content: none;
-  }
-  ${bandSel('groovy', 'whisper', ' .ew-hero__stage')},
-  ${bandSel('groovy', 'whisper', ' .ew-hero__rays')},
-  ${bandSel('groovy', 'whisper', ' .ew-hero__fan')} {
-    display: none;
-  }
-  ${bandSel('groovy', 'whisper', ' .ew-hero__backdrop')} {
-    background: none;
-  }
-  ${bandSel('groovy', 'whisper', ' .ew-hero__content')} {
-    padding-inline-end: 0;
-  }
-  ${whisperShadow} {
-    box-shadow: none;
-  }
-  @media (max-width: 700px) {
-    [data-era="groovy"] .ew-hero {
-      padding: 16px;
-      min-height: 0;
-    }
-    [data-era="groovy"] .ew-hero__content {
-      padding-inline-end: 0;
-    }
-    [data-era="groovy"] .ew-hero__rays {
-      position: static;
-      display: block;
-      margin-bottom: 10px;
-    }
-    [data-era="groovy"] .ew-hero__stage {
-      background-size: 72px 72px;
-    }
+  @media (forced-colors: active) {
+    [data-era="groovy"] { --ew-groovy-heading-bg: Canvas !important; --ew-groovy-heading-fg: CanvasText !important; --ew-groovy-rim: none !important; --ew-groovy-ornament: none !important; --ew-groovy-frame: none !important; --ew-groovy-figure-rim: none !important; }
+    [data-era="groovy"] :is(.ew-button,.ew-icon-button,.ew-card,.ew-dialog,[role="tab"],.ew-checkbox__box,.ew-radio__disc,.ew-switch__track,.ew-switch__thumb) { border-color: ButtonText; box-shadow: none; }
+    [data-era="groovy"] :is(.ew-button,.ew-icon-button,.ew-tooltip__tip) { background: ButtonFace !important; color: ButtonText !important; }
+    [data-era="groovy"] :is([role="tab"][aria-selected="true"],.ew-link[aria-current="page"]) { background: Highlight !important; color: HighlightText !important; }
+    [data-era="groovy"] .ew-checkbox__control:checked + .ew-checkbox__box { background: Highlight; }
+    [data-era="groovy"] .ew-checkbox__box::after { border-color: HighlightText; }
+    [data-era="groovy"] .ew-radio__disc::after { background: Highlight; }
+    [data-era="groovy"] :is(.ew-hero__fan,.ew-ornament-divider)::before { content: none; }
   }
 `;
 }

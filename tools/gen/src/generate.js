@@ -62,6 +62,7 @@ const FONT_FILES = {
   'Space Mono': { 400: 'SpaceMono-Regular.woff2', 700: 'SpaceMono-Bold.woff2' },
   'Courier Prime': { 400: 'CourierPrime-Regular.woff2' },
   Comfortaa: { 400: 'Comfortaa-Regular.woff2', 700: 'Comfortaa-Bold.woff2' },
+  'Spicy Rice': { 400: 'SpicyRice-Regular.woff2' },
   'Lilita One': { 400: 'LilitaOne-Regular.woff2' },
   Mulish: { 400: 'Mulish-Regular.woff2', 700: 'Mulish-Bold.woff2' },
   'Archivo Black': { 400: 'ArchivoBlack-Regular.woff2' },

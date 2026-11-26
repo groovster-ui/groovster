@@ -1,12 +1,9 @@
-era: groovy
-voice: psychedelic poster
-shape: bubble controls, organic cards
-edge: thick ink keyline
-surface: cream paper or plum night
-elevation: hard color offset
-ornament: sun, daisy, wave
-type: Lilita One + Mulish
-fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)
-modes: light, dark
-use: music, food, lifestyle
-never: neon grids, display on controls
+era: groovy; voice: late-1960s psychedelic print
+shape: sculpted controls, organic panels; no sticker offsets
+palette: plum, raspberry, orange, marigold, teal, cream
+ornament: continuous contour bands, asymmetric botanical lobes
+type: Spicy Rice + Mulish; body type for dense data/fields
+fidelity: costume full print | standard single contour | whisper fine ink
+modes: light/dark; costume default; canonical HTML unchanged
+use: expressive dashboards, music, lifestyle
+details: docs/groovy-grammar.md on demand; no remote assets

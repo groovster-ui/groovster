@@ -1,0 +1,77 @@
+{
+  "description": "Original build-time print geometry. No reference tracing, text paths, circles, randomness or runtime SVG generation.",
+  "palette": {
+    "plum": "#48243f",
+    "raspberry": "#972d56",
+    "orange": "#e98440",
+    "marigold": "#f0bc4c",
+    "teal": "#286d69",
+    "cream": "#fff1d2"
+  },
+  "lineWidth": 2.5,
+  "ribbon": {
+    "path": "M-180 230 C60 230 120 70 360 70 S660 330 900 330 S1180 170 1380 170",
+    "widths": [
+      320,
+      274,
+      228,
+      182,
+      136,
+      90
+    ],
+    "colors": [
+      "plum",
+      "raspberry",
+      "orange",
+      "marigold",
+      "teal",
+      "cream"
+    ]
+  },
+  "flowers": [
+    {
+      "x": 1040,
+      "y": 155,
+      "radius": 65,
+      "lobes": 6,
+      "phase": 0.18,
+      "fill": "orange"
+    },
+    {
+      "x": 1130,
+      "y": 260,
+      "radius": 45,
+      "lobes": 5,
+      "phase": 0.55,
+      "fill": "raspberry"
+    },
+    {
+      "x": 910,
+      "y": 295,
+      "radius": 34,
+      "lobes": 5,
+      "phase": 0.8,
+      "fill": "marigold"
+    }
+  ],
+  "bands": {
+    "costume": {
+      "line": "2px",
+      "panelRadius": "30px 44px 28px 38px / 38px 28px 42px 30px",
+      "controlRadius": "18px 30px 16px 26px / 26px 16px 28px 18px",
+      "rim": "0 0 0 3px var(--ew-groovy-gold), 0 0 0 5px var(--ew-groovy-raspberry)"
+    },
+    "standard": {
+      "line": "2px",
+      "panelRadius": "24px 34px 20px 30px / 30px 20px 32px 24px",
+      "controlRadius": "14px 22px 12px 20px",
+      "rim": "none"
+    },
+    "whisper": {
+      "line": "1px",
+      "panelRadius": "12px 20px 10px 16px",
+      "controlRadius": "8px 14px 8px 12px",
+      "rim": "none"
+    }
+  }
+}
