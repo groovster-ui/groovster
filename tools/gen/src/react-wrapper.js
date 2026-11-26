@@ -640,7 +640,7 @@ function packageJsonSource() {
         devDependencies: {
           '@types/react': '^19.0.2',
           react: '^19.0.0',
-          typescript: '^5.7.3',
+          typescript: '^7.0.2',
         },
         publishConfig: { access: 'public' },
         keywords: ['groovster', 'react', 'design-systems'],
