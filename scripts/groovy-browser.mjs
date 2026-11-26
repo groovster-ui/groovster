@@ -29,7 +29,9 @@ try {
   browser=await chromium.launch();
   report.engine=browser.version();
   for(const [site,url] of [['home','/demos/reference/groovy-home/index.html'],['gallery','/demos/showcase/groovy.html']]) {
-    const page=await browser.newPage();
+    // axe opens a second page to collect results, so use an explicit context.
+    const context=await browser.newContext({reducedMotion:'reduce'});
+    const page=await context.newPage();
     page.on('pageerror',e=>report.errors.push(e.message));
     page.on('request',r=>{if(!r.url().startsWith(origin)&&!r.url().startsWith('data:'))report.errors.push('Network asset: '+r.url());});
     await page.goto(origin+url);
@@ -70,7 +72,7 @@ try {
       await page.emulateMedia({forcedColors:'active'});
       assert.equal(await page.locator('.ew-button').first().evaluate(el=>getComputedStyle(el).borderTopStyle),'solid');
     }
-    await page.close();
+    await context.close();
   }
   const failed=report.cases.filter(c=>c.errors.length||c.axe?.length);
   console.log(JSON.stringify({cases:report.cases.length,axeAudits:report.cases.filter(c=>c.axe).length,failed,errors:report.errors,interactions:report.interactions},null,2));
