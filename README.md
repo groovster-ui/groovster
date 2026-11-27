@@ -27,6 +27,7 @@ Five reference sites and an every-era preview:
 
 - `demos/recipes/editorial/`, `event/`, `commerce/`, `hospitality/`, `dashboard/`
 - `demos/launch/` — one page, every era
+- `demos/showcase/style-lab.html` — catalog-driven era/dialect, fidelity, mode and density preview (serve repo after generation)
 - Agent skill: `skills/groovster/SKILL.md`
 - Install notes: `docs/agents.md`
 
@@ -53,6 +54,10 @@ Link one stylesheet. Full bundle, or a base file plus the components and eras yo
 ```
 
 Published CSS is self-contained: no `@import`. Fonts are OFL WOFF2 files under `@groovster/css/fonts/*`.
+
+### Dialects
+
+Optional `data-dialect` selects a substyle of the current era; discover supported IDs in its spec or MCP `get_era_spec` (full detail). Omitting it keeps the default style. Fidelity and mode remain independent. See [Style expansion](docs/style-expansion.md).
 
 ### Fidelity
 

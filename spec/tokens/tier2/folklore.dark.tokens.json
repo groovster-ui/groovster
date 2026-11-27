@@ -80,7 +80,7 @@
     "track": {
       "off": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.ink} 55%, {color.cream})"
+        "$value": "{color.sand}"
       },
       "on": {
         "$type": "color",

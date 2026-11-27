@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Groovster — Style lab</title>
+<link rel="stylesheet" href="../../packages/css/dist/era-widgets.css">
+<style>
+body { margin: 0; }
+.lab { max-width: 1160px; margin: auto; padding: 20px; }
+.lab-controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; margin-bottom: 20px; }
+.lab-controls label { display: grid; gap: 4px; }
+.lab-controls select { min-width: 120px; }
+#stage { min-height: 70vh; padding-bottom: 24px; }
+.lab-content { padding: clamp(12px, 3vw, 24px); }
+.lab-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,260px),1fr)); gap: 16px; }
+.lab-grid > * { min-width: 0; }
+.lab-sample { padding: 14px; overflow-wrap: anywhere; }
+.lab-sample > h3 { margin-top: 0; }
+.lab-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.lab-table { overflow-x: auto; }
+.lab-status { margin: 8px 0; }
+</style>
+<script src="../../packages/elements/dist/era-elements.js" defer></script>
+<script type="module" src="./style-lab.js"></script>
+</head>
+<body>
+<div class="lab ew-root" data-era="neutral" data-mode="light" data-fidelity-band="whisper">
+  <h1>Style lab</h1>
+  <p>One dashboard and the canonical component gallery. Switch era, dialect, fidelity, mode and density independently.</p>
+  <div class="lab-controls">
+    <label>Era <select id="era" class="ew-select__control"></select></label>
+    <label>Dialect <select id="dialect" class="ew-select__control"></select></label>
+    <label>Fidelity <select id="fidelity" class="ew-select__control"><option>costume</option><option>standard</option><option>whisper</option></select></label>
+    <label>Mode <select id="mode" class="ew-select__control"><option>light</option><option>dark</option></select></label>
+    <label>Density <select id="density" class="ew-select__control"><option value="">comfortable</option><option>compact</option></select></label>
+  </div>
+  <p id="status" class="lab-status" role="status">Loading generated catalog…</p>
+  <main id="stage" class="ew-root" data-era="nordic" data-mode="light" data-fidelity-band="costume">
+    <section class="ew-hero">
+      <div class="ew-hero__stage" aria-hidden="true"></div>
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__content ew-hero__panel">
+        <p class="ew-hero__eyebrow">FIELD NOTES / 01</p>
+        <h2 class="ew-hero__title">A brighter everyday.</h2>
+        <p class="ew-hero__subtitle">One interface, different visual languages. A practical dashboard for the things that matter.</p>
+        <button type="button" class="ew-button">Explore overview</button>
+      </div>
+    </section>
+    <div class="lab-content">
+      <h2 class="ew-section-heading">Overview</h2>
+      <div class="lab-grid">
+        <div class="ew-stat"><p class="ew-stat__label">Temperature</p><p class="ew-stat__value">68°F</p><p class="ew-stat__delta" data-dir="up">+2°F</p></div>
+        <div class="ew-stat"><p class="ew-stat__label">Energy today</p><p class="ew-stat__value">8.2 kWh</p><p class="ew-stat__delta" data-dir="down">−8%</p></div>
+        <article class="ew-card"><header class="ew-card__header"><h3>Home status</h3></header><div class="ew-card__body"><p>All devices online.</p><span class="ew-badge">12 online</span></div><footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="secondary">Details</button></footer></article>
+      </div>
+      <hr class="ew-ornament-divider" data-variant="ornament">
+      <h2 class="ew-section-heading">Canonical components</h2>
+      <div id="gallery" class="lab-grid"></div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

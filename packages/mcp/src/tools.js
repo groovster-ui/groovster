@@ -37,6 +37,7 @@ export function listEras({ detail } = {}) {
         fidelityBand: 'costume',
         bands: ['whisper', 'standard', 'costume'],
         bestFit: e.identity.bestFit,
+        dialects: e.dialects || [],
         neverDo: e.neverDo,
       })),
     });
@@ -252,6 +253,21 @@ export function findRecipeTool({ query } = {}) {
 export function recommendTool({ description } = {}) {
   const text = String(description || '').toLowerCase();
   const rules = [
+    { test: /(nordic botanical|scandinavian pop|botanical pop)/, era: 'nordic', fidelityBand: 'standard', dialect: 'botanical-pop' },
+    { test: /(nordic minimal|scandinavian minimal)/, era: 'nordic', fidelityBand: 'standard', dialect: 'minimal' },
+    { test: /(scandinavian folk)/, era: 'nordic', fidelityBand: 'standard', dialect: 'folk' },
+    { test: /(nordic|scandinavian)/, era: 'nordic', fidelityBand: 'standard', dialect: null },
+    { test: /(futurist typographic|futurism typography)/, era: 'futurist', fidelityBand: 'standard', dialect: 'typographic' },
+    { test: /(futurist aero|aero futurism)/, era: 'futurist', fidelityBand: 'standard', dialect: 'aero' },
+    { test: /(futurist|futurism|mechanical poster)/, era: 'futurist', fidelityBand: 'standard', dialect: 'mechanical' },
+    { test: /(woodland|storybook|folk illustration)/, era: 'folklore', fidelityBand: 'standard', dialect: 'woodland' },
+    { test: /(cottagecore|folklore cottage)/, era: 'folklore', fidelityBand: 'standard', dialect: 'cottage' },
+    { test: /(traditional folk|folklore traditional)/, era: 'folklore', fidelityBand: 'standard', dialect: 'traditional' },
+    { test: /(folklore)/, era: 'folklore', fidelityBand: 'standard', dialect: null },
+    { test: /(organic mid.century|atomic organic)/, era: 'mcm-atomic', fidelityBand: 'standard', dialect: 'organic' },
+    { test: /(riviera|vintage travel poster)/, era: 'deco', fidelityBand: 'standard', dialect: 'riviera' },
+    { test: /(liquid psychedelic|groovy liquid|psychedelic marbling)/, era: 'groovy', fidelityBand: 'standard', dialect: 'liquid' },
+    { test: /(new wave typography|postmodern new wave)/, era: 'memphis', fidelityBand: 'standard', dialect: 'new-wave' },
     { test: /(swiss|international|architecture|museum|editorial[- ]grid)/, era: 'swiss', fidelityBand: 'standard', dialect: null },
     { test: /(bauhaus|design school|furniture|exhibition)/, era: 'bauhaus', fidelityBand: 'standard', dialect: null },
     { test: /(law|legal|luxury|hotel|editorial|finance|brass|jazz)/, era: 'deco', fidelityBand: 'whisper', dialect: null },
