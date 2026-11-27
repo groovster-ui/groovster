@@ -235,4 +235,15 @@
   :is([data-era="swiss"][data-fidelity-band="standard"],[data-fidelity-band="standard"] [data-era="swiss"],[data-era="swiss"][data-fidelity-band="default"],[data-fidelity-band="default"] [data-era="swiss"],[data-era="swiss"][data-fidelity-band="signature"],[data-fidelity-band="signature"] [data-era="swiss"]) .ew-hero__title{font-size:clamp(3.25rem,7vw,7rem)}
   @media(max-width:700px){[data-era="swiss"] .ew-hero{padding:1.5rem;min-height:320px}[data-era="swiss"] .ew-hero__content{grid-column:2/-1}[data-era="swiss"] .ew-hero__title{font-size:clamp(3.1rem,12vw,6rem);letter-spacing:-.03em}}
 
+
+  [data-era="swiss"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet) {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="swiss"] .ew-table { border-collapse: collapse; }
+  [data-era="swiss"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="swiss"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+
+  [data-era="swiss"] .ew-chip, [data-era="swiss"] .ew-badge, [data-era="swiss"] .ew-segmented { border-radius: 0; }
+  [data-era="swiss"] .ew-table th { border-bottom: 2px solid var(--ew-color-fg-default); }
+  [data-era="swiss"] .ew-stat__value { color: var(--ew-color-action-bg); }
 }

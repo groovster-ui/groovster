@@ -513,6 +513,25 @@
       ]
     },
     {
+      "name": "ew-sheet",
+      "type": "registry:ui",
+      "title": "Era Widgets — Sheet",
+      "description": "Surface for a document or a mobile filter sheet.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/sheet.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/sheet.css"
+        },
+        {
+          "path": "era-widgets/sheet.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/sheet.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-shelf",
       "type": "registry:ui",
       "title": "Era Widgets — Shelf",
@@ -571,6 +590,25 @@
           "path": "era-widgets/slider.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/slider.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-split",
+      "type": "registry:ui",
+      "title": "Era Widgets — Split pane",
+      "description": "Two-column app split that stacks under 800px.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/split.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/split.css"
+        },
+        {
+          "path": "era-widgets/split.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/split.example.html"
         }
       ]
     },

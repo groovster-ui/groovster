@@ -1,0 +1,125 @@
+{
+  "$schema": "../schema/recipe.schema.json",
+  "priority": 40,
+  "eras": {
+    "recommended": [
+      "neutral"
+    ],
+    "alsoFits": [
+      "swiss",
+      "bauhaus",
+      "deco",
+      "groovy",
+      "memphis",
+      "mcm-atomic",
+      "neon",
+      "art-nouveau"
+    ],
+    "avoid": []
+  },
+  "fidelity": {
+    "page": "costume",
+    "forms": "standard",
+    "data": "whisper",
+    "notes": "The hero is costume. The work card can keep a feature frame."
+  },
+  "hierarchy": [
+    "h1 page title",
+    "h2 section or panel"
+  ],
+  "responsive": {
+    "breakpoint": "800px",
+    "behavior": "Panes stack. Toolbars wrap. No horizontal page scroll at 390."
+  },
+  "typography": {
+    "priorities": [
+      "Body face on controls and card titles in compact density.",
+      "Display face on the page title."
+    ]
+  },
+  "spacing": {
+    "priority": "Use data-density=compact so card padding is about 10px."
+  },
+  "ornament": {
+    "use": [
+      "Era palette, price, and chips."
+    ],
+    "avoid": [
+      "Pattern behind body text.",
+      "Full frames on every card."
+    ]
+  },
+  "density": "compact",
+  "eraDeviations": [
+    {
+      "eras": [
+        "deco",
+        "groovy",
+        "neon",
+        "mcm-atomic",
+        "memphis"
+      ],
+      "note": "Era character stays in palette, type, and one accent. Quiet cards inside compact density."
+    }
+  ],
+  "customization": [
+    "Sample names and counts.",
+    "Era and mode stay on the root."
+  ],
+  "id": "personal",
+  "name": "Personal site",
+  "category": "One-page studio",
+  "summary": "A personal page with a hero, a section heading, a feature card, and a code sample.",
+  "keywords": [
+    "personal",
+    "portfolio",
+    "studio",
+    "about",
+    "homepage"
+  ],
+  "sections": {
+    "required": [
+      {
+        "id": "hero",
+        "purpose": "Name and line"
+      },
+      {
+        "id": "work",
+        "purpose": "Selected work"
+      },
+      {
+        "id": "notes",
+        "purpose": "Code sample"
+      }
+    ],
+    "optional": []
+  },
+  "layouts": [
+    "Toolbar, hero, then a single column of work."
+  ],
+  "components": {
+    "required": [
+      "toolbar",
+      "card",
+      "code"
+    ],
+    "optional": [
+      "nav-rail"
+    ]
+  },
+  "interactions": [
+    "Jump to a section.",
+    "Copy the code sample."
+  ],
+  "accessibility": [
+    "One h1 in the hero.",
+    "The code sample is text.",
+    "Links have a 4.5:1 contrast."
+  ],
+  "demo": {
+    "path": "demos/apps-dense/site/index.html",
+    "era": "deco",
+    "mode": "light",
+    "fidelity": "costume"
+  }
+}

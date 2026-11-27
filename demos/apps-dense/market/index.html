@@ -10,11 +10,11 @@
 <script src="../shared/switch.js" defer></script>
 </head>
 <body>
-<div class="ew-root" data-groovster-root data-era="groovy" data-mode="light" data-fidelity-band="whisper" data-density="compact">
-  <header class="ew-toolbar" role="toolbar" aria-label="Market">
+<div class="ew-root" data-groovster-root data-recipe="marketplace" data-era="groovy" data-mode="light" data-fidelity-band="whisper" data-density="compact">
+  <header><div class="ew-toolbar" role="toolbar" aria-label="Market" >
     <div class="ew-toolbar__start"><h1 class="ew-title--page">Harbor Lot</h1></div>
     <div class="ew-toolbar__center">
-      <search class="ew-search" role="search">
+      <ew-search class="ew-search" role="search">
         <label class="ew-select">
           <span class="ew-select__label">Scope</span>
           <select class="ew-select__control ew-search__scope" aria-label="Search scope">
@@ -23,12 +23,12 @@
           </select>
         </label>
         <input class="ew-text-field__control ew-search__control" type="search" aria-label="Search lots">
-      </search>
+      </ew-search>
     </div>
     <div class="ew-toolbar__end"><div data-era-switch></div></div>
-  </header>
-  <div class="market">
-    <div class="cards">
+  </div></header>
+  <div id="filters" class="market">
+    <div id="results" class="cards">
       <article class="ew-card is-selected">
         <header class="ew-card__header"><h2 class="ew-card__title">Brass lamp with a very long lot title that must wrap inside the card</h2></header>
         <div class="ew-card__body"><p>$48 · 4 bids</p></div>
@@ -45,7 +45,7 @@
         <footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="secondary">Watch</button></footer>
       </article>
     </div>
-    <article class="ew-card ew-card--quiet">
+    <article id="detail" class="ew-card ew-card--quiet">
       <header class="ew-card__header"><h2 class="ew-title--panel">Brass lamp</h2></header>
       <div class="ew-card__body">
         <p>Working socket. Shade is later.</p>

@@ -10,27 +10,27 @@
 <script src="../shared/switch.js" defer></script>
 </head>
 <body>
-<div class="ew-root" data-groovster-root data-era="neutral" data-mode="light" data-fidelity-band="whisper" data-density="compact">
-  <header class="ew-toolbar" data-sticky="true" role="toolbar" aria-label="Mailbox">
+<div class="ew-root" data-groovster-root data-recipe="mail" data-era="neutral" data-mode="light" data-fidelity-band="whisper" data-density="compact">
+  <header><div class="ew-toolbar" data-sticky="true" role="toolbar" aria-label="Mailbox" >
     <div class="ew-toolbar__start"><h1 class="ew-title--page">Posthorn</h1></div>
     <div class="ew-toolbar__center">
-      <search class="ew-search" role="search">
+      <ew-search class="ew-search" role="search">
         <input class="ew-text-field__control ew-search__control" type="search" aria-label="Search mail">
         <button type="button" class="ew-icon-button ew-search__clear" aria-label="Clear search">×</button>
-      </search>
+      </ew-search>
     </div>
     <div class="ew-toolbar__end">
       <button type="button" class="ew-button" data-variant="primary">Compose</button>
       <div data-era-switch></div>
     </div>
-  </header>
+  </div></header>
   <div class="panes">
-    <nav class="ew-nav-rail pane" aria-label="Folders">
+    <nav id="folders" class="ew-nav-rail pane" aria-label="Folders">
       <a class="ew-nav-rail__item" href="#inbox" aria-current="page"><span class="ew-nav-rail__label">Inbox</span><span class="ew-badge">3</span></a>
       <a class="ew-nav-rail__item" href="#sent"><span class="ew-nav-rail__label">Sent</span></a>
       <a class="ew-nav-rail__item" href="#drafts"><span class="ew-nav-rail__label">Drafts</span><span class="ew-badge" data-variant="neutral">1</span></a>
     </nav>
-    <div class="ew-list pane" role="listbox" aria-label="Messages">
+    <div id="list" class="ew-list pane" role="listbox" aria-label="Messages">
       <button type="button" class="ew-list-item is-unread is-selected" role="option" aria-selected="true">
         <span class="ew-list-item__main"><span class="ew-list-item__primary">Maya Okafor</span><span class="ew-list-item__secondary">The kiln fired clean</span></span>
         <span class="ew-list-item__meta">9:40</span>
@@ -44,7 +44,7 @@
         <span class="ew-list-item__meta">Mon</span>
       </button>
     </div>
-    <article class="ew-card ew-card--quiet pane">
+    <article id="reader" class="ew-card ew-card--quiet pane">
       <header class="ew-card__header">
         <h2 class="ew-title--panel">The kiln fired clean</h2>
         <p>Maya Okafor · 9:40</p>

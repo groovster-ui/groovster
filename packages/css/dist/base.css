@@ -76,6 +76,28 @@
     }
   }
 
+  .ew-truncate,
+  .ew-card__title--truncate,
+  .ew-list-item__primary,
+  .ew-media-card__title.ew-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .ew-clamp-2, .ew-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .ew-clamp-2 { -webkit-line-clamp: 2; line-clamp: 2; }
+  .ew-clamp-3 { -webkit-line-clamp: 3; line-clamp: 3; }
+
   @media (prefers-reduced-motion: reduce) {
     .ew-root *, .ew-root *::before, .ew-root *::after {
       animation-duration: 0.01ms !important;

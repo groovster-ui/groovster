@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-export type ChipProps = Omit<React.ComponentPropsWithoutRef<'button'>, 'size'> & {
+export type ChipProps = Omit<React.HTMLAttributes<HTMLElement>, 'size'> & {
   variant?: "default";
   size?: "sm" | "md";
 };
 
 /** Filter, label, or removable token. Selectable chips use aria-pressed. */
-export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>(function Chip(
-  { className, variant, size, children, type = 'button', ...rest },
+export const Chip = React.forwardRef<HTMLElement, ChipProps>(function Chip(
+  { className, variant, size, children, ...rest },
   ref
 ) {
   const dataProps: Record<string, string> = {};
@@ -15,8 +15,8 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>(function Chip
   if (size != null) dataProps["data-size"] = size;
   const cls = ["ew-chip", className].filter(Boolean).join(' ');
   return React.createElement(
-    "button",
-    { ref, ...rest, className: cls, type, ...dataProps },
+    "ew-chip",
+    { ref, ...rest, className: cls, ...dataProps },
     children
   );
 });

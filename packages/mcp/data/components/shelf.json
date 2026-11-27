@@ -4,8 +4,8 @@
   "name": "Shelf",
   "summary": "Horizontal title row with scroll-snap and keyboard access.",
   "className": "ew-shelf",
-  "nativeElement": "section",
-  "behavior": "css-only",
+  "nativeElement": "section (custom element later: ew-shelf)",
+  "behavior": "web-component",
   "anatomy": [
     {
       "part": "root",

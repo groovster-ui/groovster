@@ -478,7 +478,7 @@ export function neonDecoratorCss() {
     min-width: 0;
     max-width: 100%;
     /* Clear the 45° cut so titles are never clipped */
-    padding: 32px 32px 28px;
+    padding: var(--ew-card-pad, 32px);
     min-width: 0;
     max-width: 100%;
   }
@@ -522,7 +522,7 @@ export function neonDecoratorCss() {
   }
   @media (max-width: 640px) {
     [data-era="neon"] .ew-card {
-      padding: 20px 14px 16px;
+      padding: var(--ew-card-pad, 16px);
     }
     [data-era="neon"] .ew-card__header h2,
     [data-era="neon"] .ew-card__header h3 {
@@ -545,7 +545,7 @@ export function neonDecoratorCss() {
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-weight: 700;
-    font-family: var(--ew-font-body);
+    font-family: var(--ew-font-display);
     border-radius: 0;
     border: none;
     box-shadow: var(--ew-glow-magenta);

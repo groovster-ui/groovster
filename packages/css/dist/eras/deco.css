@@ -537,7 +537,7 @@
     box-shadow:
       inset 0 1px 0 color-mix(in srgb, var(--ew-color-champagne, #E6D4AE) 24%, transparent),
       0 4px 0 0 color-mix(in srgb, var(--ew-color-brassDeep) 46%, transparent);
-    padding: 22px;
+    padding: var(--ew-card-pad, 22px);
   }
   [data-era="deco"] .ew-card[data-variant="raised"] {
     background-color: var(--ew-color-bg-elevated);
@@ -629,7 +629,7 @@
     text-transform: uppercase;
     letter-spacing: 0.11em;
     font-weight: 600;
-    font-family: var(--ew-font-body);
+    font-family: var(--ew-font-display);
     clip-path: none;
     border-style: solid;
     box-shadow:
@@ -1045,7 +1045,7 @@
     [data-era="deco"] .ew-section-heading::before,
     [data-era="deco"] .ew-section-heading::after { width: 26px; }
     [data-era="deco"] .ew-button { letter-spacing: 0.08em; }
-    [data-era="deco"] .ew-card { padding: 16px; }
+    [data-era="deco"] .ew-card { padding: var(--ew-card-pad, 16px); }
     [data-era="deco"] .ew-card__header h2,
     [data-era="deco"] .ew-card__header h3 { letter-spacing: 0.08em; }
     [data-era="deco"] .ew-tabs [role="tab"],
@@ -1075,4 +1075,15 @@
     [data-era="deco"] .ew-tier-card::before { display: none; }
   }
 
+
+  [data-era="deco"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet) {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="deco"] .ew-table { border-collapse: collapse; }
+  [data-era="deco"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="deco"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+
+  [data-era="deco"]:not([data-density="compact"]) .ew-chip, [data-era="deco"]:not([data-density="compact"]) .ew-badge { border-radius: 0; border-color: var(--ew-color-gold, var(--ew-color-border-strong)); }
+  [data-era="deco"] .ew-stat__value { color: var(--ew-color-gold, var(--ew-color-action-bg)); font-variant-numeric: tabular-nums; }
+  [data-era="deco"]:not([data-density="compact"]) .ew-table th { letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.75rem; }
 }

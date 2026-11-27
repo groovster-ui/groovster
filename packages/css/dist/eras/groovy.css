@@ -481,4 +481,15 @@
     [data-era="groovy"] :is(.ew-hero__fan,.ew-ornament-divider)::before { content: none; }
   }
 
+
+  [data-era="groovy"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet) {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="groovy"] .ew-table { border-collapse: collapse; }
+  [data-era="groovy"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="groovy"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+
+  [data-era="groovy"] .ew-chip, [data-era="groovy"] .ew-segmented { border-radius: 999px; }
+  [data-era="groovy"]:not([data-density="compact"]) .ew-stat__value { font-family: var(--ew-font-display, inherit); }
+  [data-era="groovy"] .ew-list-item { border-radius: 16px; }
 }

@@ -15,7 +15,7 @@ export const Code = React.forwardRef<HTMLElement, CodeProps>(function Code(
   if (size != null) dataProps["data-size"] = size;
   const cls = ["ew-code", className].filter(Boolean).join(' ');
   return React.createElement(
-    "pre",
+    "ew-code",
     { ref, ...rest, className: cls, ...dataProps },
     children
   );

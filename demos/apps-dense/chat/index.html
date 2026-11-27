@@ -10,18 +10,18 @@
 <script src="../shared/switch.js" defer></script>
 </head>
 <body>
-<div class="ew-root" data-groovster-root data-era="neutral" data-mode="light" data-fidelity-band="whisper" data-density="compact">
-  <header class="ew-toolbar" role="toolbar" aria-label="Chat">
+<div class="ew-root" data-groovster-root data-recipe="chat" data-era="neutral" data-mode="light" data-fidelity-band="whisper" data-density="compact">
+  <header><div class="ew-toolbar" role="toolbar" aria-label="Chat" >
     <div class="ew-toolbar__start"><h1 class="ew-title--page">Studio</h1></div>
     <div class="ew-toolbar__end">
-      <search class="ew-search" role="search">
+      <ew-search class="ew-search" role="search">
         <input class="ew-text-field__control ew-search__control" type="search" aria-label="Search messages">
-      </search>
+      </ew-search>
       <div data-era-switch></div>
     </div>
-  </header>
+  </div></header>
   <div class="chat">
-    <nav class="ew-nav-rail pane" aria-label="Channels">
+    <nav id="channels" class="ew-nav-rail pane" aria-label="Channels">
       <details class="ew-nav-rail__group" open>
         <summary>Rooms</summary>
         <a class="ew-nav-rail__item" href="#kiln" aria-current="page"><span class="ew-nav-rail__label">Kiln</span><span class="ew-badge">2</span></a>
@@ -29,7 +29,7 @@
       </details>
     </nav>
     <div class="stack pane">
-      <div class="ew-list" aria-label="Thread">
+      <div id="thread" class="ew-list" aria-label="Thread">
         <div class="ew-list-item is-unread">
           <span class="ew-avatar">M<span class="ew-avatar__presence" data-presence="online"></span></span>
           <span class="ew-list-item__main"><span class="ew-list-item__primary">Maya Okafor</span><span class="ew-list-item__secondary">Shelf three is cool enough to open.</span></span>
@@ -40,7 +40,7 @@
         </div>
       </div>
       <p><span class="ew-typing-indicator" role="status" aria-label="Maya is typing"><i></i><i></i><i></i></span></p>
-      <form class="ew-toolbar" aria-label="Composer">
+      <form id="composer" class="ew-toolbar" aria-label="Composer">
         <div class="ew-toolbar__start">
           <textarea class="ew-textarea__control" aria-label="Message" rows="2"></textarea>
         </div>

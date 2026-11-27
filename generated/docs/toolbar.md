@@ -7,7 +7,7 @@ App bar with start, center, and end slots. Optional sticky and overflow.
 ## Canonical HTML
 
 ```html
-<div class="ew-toolbar" role="toolbar" aria-label="Mailbox" data-sticky="true"><div class="ew-toolbar__start"></div><div class="ew-toolbar__center"></div><div class="ew-toolbar__end"></div></div>
+<header><div class="ew-toolbar" role="toolbar" aria-label="Mailbox" data-sticky="true"><div class="ew-toolbar__start"></div><div class="ew-toolbar__center"></div><div class="ew-toolbar__end"></div></div></header>
 ```
 
 ## Imports
@@ -22,7 +22,8 @@ App bar with start, center, and end slots. Optional sticky and overflow.
 ## ARIA
 
 - Role: toolbar
-- role=toolbar when the bar holds related controls. Put overflow in .ew-toolbar__overflow.
+- Put the toolbar group inside a header landmark. Do not set role=toolbar on the header itself.
+- The group is role=toolbar with an accessible name. Overflow goes in .ew-toolbar__overflow.
 
 ## Do
 

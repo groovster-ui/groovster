@@ -619,4 +619,15 @@
     box-shadow: none;
   }
 
+
+  [data-era="memphis"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet) {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="memphis"] .ew-table { border-collapse: collapse; }
+  [data-era="memphis"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="memphis"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+
+  [data-era="memphis"] .ew-badge, [data-era="memphis"] .ew-chip { border-radius: 0; background: var(--ew-color-yellow, var(--ew-color-bg-surface)); color: var(--ew-color-ink, var(--ew-color-fg-default)); box-shadow: 3px 3px 0 0 var(--ew-color-ink, var(--ew-color-fg-default)); }
+  [data-era="memphis"] .ew-stat { box-shadow: 6px 6px 0 0 var(--ew-color-blue, var(--ew-color-action-bg)); }
+  [data-era="memphis"] .ew-section-heading::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-inline-end: 8px; background: var(--ew-color-pink, var(--ew-color-action-bg)); box-shadow: 4px 4px 0 var(--ew-color-yellow, var(--ew-color-action-bg)); vertical-align: 0.1em; }
 }

@@ -1,0 +1,126 @@
+{
+  "$schema": "../schema/recipe.schema.json",
+  "priority": 40,
+  "eras": {
+    "recommended": [
+      "neutral"
+    ],
+    "alsoFits": [
+      "swiss",
+      "bauhaus",
+      "deco",
+      "groovy",
+      "memphis",
+      "mcm-atomic",
+      "neon",
+      "art-nouveau"
+    ],
+    "avoid": []
+  },
+  "fidelity": {
+    "page": "whisper",
+    "forms": "whisper",
+    "data": "whisper",
+    "notes": "Compact density. Costume stays on the hero only when the page has one."
+  },
+  "hierarchy": [
+    "h1 page title",
+    "h2 section or panel"
+  ],
+  "responsive": {
+    "breakpoint": "800px",
+    "behavior": "Panes stack. Toolbars wrap. No horizontal page scroll at 390."
+  },
+  "typography": {
+    "priorities": [
+      "Body face on controls and card titles in compact density.",
+      "Display face on the page title."
+    ]
+  },
+  "spacing": {
+    "priority": "Use data-density=compact so card padding is about 10px."
+  },
+  "ornament": {
+    "use": [
+      "Era palette, price, and chips."
+    ],
+    "avoid": [
+      "Pattern behind body text.",
+      "Full frames on every card."
+    ]
+  },
+  "density": "compact",
+  "eraDeviations": [
+    {
+      "eras": [
+        "deco",
+        "groovy",
+        "neon",
+        "mcm-atomic",
+        "memphis"
+      ],
+      "note": "Era character stays in palette, type, and one accent. Quiet cards inside compact density."
+    }
+  ],
+  "customization": [
+    "Sample names and counts.",
+    "Era and mode stay on the root."
+  ],
+  "id": "chat",
+  "name": "Chat workspace",
+  "category": "Channels and a thread",
+  "summary": "A channel rail, a thread of messages, and a composer. Presence uses shape as well as colour.",
+  "keywords": [
+    "chat",
+    "slack",
+    "channel",
+    "thread",
+    "composer"
+  ],
+  "sections": {
+    "required": [
+      {
+        "id": "channels",
+        "purpose": "Nav rail"
+      },
+      {
+        "id": "thread",
+        "purpose": "Messages"
+      },
+      {
+        "id": "composer",
+        "purpose": "Reply field"
+      }
+    ],
+    "optional": []
+  },
+  "layouts": [
+    "Toolbar, channel rail, thread, composer."
+  ],
+  "components": {
+    "required": [
+      "toolbar",
+      "list",
+      "avatar",
+      "search"
+    ],
+    "optional": [
+      "typing-indicator"
+    ]
+  },
+  "interactions": [
+    "Switch channels.",
+    "Send a sample reply."
+  ],
+  "accessibility": [
+    "Presence dots differ by shape.",
+    "The composer has a label.",
+    "The toolbar sits inside a header landmark."
+  ],
+  "demo": {
+    "path": "demos/apps-dense/chat/index.html",
+    "era": "neutral",
+    "mode": "light",
+    "fidelity": "whisper"
+  }
+}

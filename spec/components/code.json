@@ -4,8 +4,8 @@
   "name": "Code",
   "summary": "Inline or block code in the era monospace, with a copy slot.",
   "className": "ew-code",
-  "nativeElement": "pre",
-  "behavior": "css-only",
+  "nativeElement": "pre (custom element later: ew-code)",
+  "behavior": "web-component",
   "anatomy": [
     {
       "part": "root",

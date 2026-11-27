@@ -1,0 +1,127 @@
+{
+  "$schema": "../schema/recipe.schema.json",
+  "priority": 40,
+  "eras": {
+    "recommended": [
+      "neutral"
+    ],
+    "alsoFits": [
+      "swiss",
+      "bauhaus",
+      "deco",
+      "groovy",
+      "memphis",
+      "mcm-atomic",
+      "neon",
+      "art-nouveau"
+    ],
+    "avoid": []
+  },
+  "fidelity": {
+    "page": "whisper",
+    "forms": "whisper",
+    "data": "whisper",
+    "notes": "Compact density. Costume stays on the hero only when the page has one."
+  },
+  "hierarchy": [
+    "h1 page title",
+    "h2 section or panel"
+  ],
+  "responsive": {
+    "breakpoint": "800px",
+    "behavior": "Panes stack. Toolbars wrap. No horizontal page scroll at 390."
+  },
+  "typography": {
+    "priorities": [
+      "Body face on controls and card titles in compact density.",
+      "Display face on the page title."
+    ]
+  },
+  "spacing": {
+    "priority": "Use data-density=compact so card padding is about 10px."
+  },
+  "ornament": {
+    "use": [
+      "Era palette, price, and chips."
+    ],
+    "avoid": [
+      "Pattern behind body text.",
+      "Full frames on every card."
+    ]
+  },
+  "density": "compact",
+  "eraDeviations": [
+    {
+      "eras": [
+        "deco",
+        "groovy",
+        "neon",
+        "mcm-atomic",
+        "memphis"
+      ],
+      "note": "Era character stays in palette, type, and one accent. Quiet cards inside compact density."
+    }
+  ],
+  "customization": [
+    "Sample names and counts.",
+    "Era and mode stay on the root."
+  ],
+  "id": "marketplace",
+  "name": "Marketplace",
+  "category": "Product grid and detail",
+  "summary": "A calm product grid with filters, prices, and a detail table. Era character stays in the price and chips.",
+  "keywords": [
+    "marketplace",
+    "auction",
+    "product",
+    "listing",
+    "bid"
+  ],
+  "sections": {
+    "required": [
+      {
+        "id": "results",
+        "purpose": "Product grid"
+      },
+      {
+        "id": "filters",
+        "purpose": "Filter sidebar"
+      },
+      {
+        "id": "detail",
+        "purpose": "Item specifics"
+      }
+    ],
+    "optional": []
+  },
+  "layouts": [
+    "Results header, category chips, grid, and a specifics table."
+  ],
+  "components": {
+    "required": [
+      "toolbar",
+      "card",
+      "search",
+      "table"
+    ],
+    "optional": [
+      "badge",
+      "pagination"
+    ]
+  },
+  "interactions": [
+    "Sort and filter the grid.",
+    "Open a listing."
+  ],
+  "accessibility": [
+    "Titles clamp to two lines.",
+    "Prices are text, not colour alone.",
+    "The table has a caption."
+  ],
+  "demo": {
+    "path": "demos/apps-dense/market/index.html",
+    "era": "neutral",
+    "mode": "light",
+    "fidelity": "whisper"
+  }
+}

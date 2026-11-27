@@ -15,7 +15,7 @@ export const Search = React.forwardRef<HTMLElement, SearchProps>(function Search
   if (size != null) dataProps["data-size"] = size;
   const cls = ["ew-search", className].filter(Boolean).join(' ');
   return React.createElement(
-    "search",
+    "ew-search",
     { ref, ...rest, className: cls, ...dataProps },
     children
   );

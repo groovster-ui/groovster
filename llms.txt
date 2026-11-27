@@ -51,9 +51,11 @@ Load only needed sections; avoid full-library context.
 - search: generated/llms/search.md
 - segmented: generated/llms/segmented.md
 - select: generated/llms/select.md
+- sheet: generated/llms/sheet.md
 - shelf: generated/llms/shelf.md
 - skeleton: generated/llms/skeleton.md
 - slider: generated/llms/slider.md
+- split: generated/llms/split.md
 - stat: generated/llms/stat.md
 - switch: generated/llms/switch.md
 - table: generated/llms/table.md
@@ -66,7 +68,7 @@ Load only needed sections; avoid full-library context.
 - typing-indicator: generated/llms/typing-indicator.md
 
 ## Recipes (cards: generated/llms/recipe-<id>.card.txt)
-commerce, dashboard, editorial, event, hospitality. Composition, not a new era.
+chat, commerce, dashboard, editorial, event, hospitality, mail, marketplace, personal, streaming. Composition, not a new era.
 
 ## Rules
 - Prefer native elements. Zero attrs = defaults. Glow ≠ contrast.

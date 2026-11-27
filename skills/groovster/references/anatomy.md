@@ -201,6 +201,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   </select>
 </ew-select>
 ```
+## sheet
+
+```html
+<div class="ew-sheet"><div class="ew-sheet__head"></div><div class="ew-sheet__body"></div></div>
+```
 ## shelf
 
 ```html
@@ -219,6 +224,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   <input id="vol" class="ew-slider__control" type="range" min="0" max="100" value="40" />
   <output class="ew-slider__value">40</output>
 </ew-slider>
+```
+## split
+
+```html
+<div class="ew-split"><div class="ew-split__side"></div><div class="ew-split__main"></div></div>
 ```
 ## stat
 
@@ -276,7 +286,7 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
 ## toolbar
 
 ```html
-<div class="ew-toolbar" role="toolbar" aria-label="Mailbox" data-sticky="true"><div class="ew-toolbar__start"></div><div class="ew-toolbar__center"></div><div class="ew-toolbar__end"></div></div>
+<header><div class="ew-toolbar" role="toolbar" aria-label="Mailbox" data-sticky="true"><div class="ew-toolbar__start"></div><div class="ew-toolbar__center"></div><div class="ew-toolbar__end"></div></div></header>
 ```
 ## tooltip
 

@@ -4,8 +4,8 @@
   "name": "Segmented control",
   "summary": "A single-choice control with radiogroup semantics.",
   "className": "ew-segmented",
-  "nativeElement": "div",
-  "behavior": "css-only",
+  "nativeElement": "div (custom element later: ew-segmented)",
+  "behavior": "web-component",
   "anatomy": [
     {
       "part": "root",

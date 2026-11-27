@@ -27,9 +27,11 @@
     "search",
     "segmented",
     "select",
+    "sheet",
     "shelf",
     "skeleton",
     "slider",
+    "split",
     "stat",
     "switch",
     "table",
@@ -53,11 +55,16 @@
     "swiss"
   ],
   "recipes": [
+    "chat",
     "commerce",
     "dashboard",
     "editorial",
     "event",
-    "hospitality"
+    "hospitality",
+    "mail",
+    "marketplace",
+    "personal",
+    "streaming"
   ],
   "outputs": [
     "generated/docs/alert.md",
@@ -86,9 +93,11 @@
     "generated/docs/search.md",
     "generated/docs/segmented.md",
     "generated/docs/select.md",
+    "generated/docs/sheet.md",
     "generated/docs/shelf.md",
     "generated/docs/skeleton.md",
     "generated/docs/slider.md",
+    "generated/docs/split.md",
     "generated/docs/stat.md",
     "generated/docs/switch.md",
     "generated/docs/table.md",
@@ -150,9 +159,11 @@
     "generated/llms/mcp-search.default.txt",
     "generated/llms/mcp-segmented.default.txt",
     "generated/llms/mcp-select.default.txt",
+    "generated/llms/mcp-sheet.default.txt",
     "generated/llms/mcp-shelf.default.txt",
     "generated/llms/mcp-skeleton.default.txt",
     "generated/llms/mcp-slider.default.txt",
+    "generated/llms/mcp-split.default.txt",
     "generated/llms/mcp-stat.default.txt",
     "generated/llms/mcp-switch.default.txt",
     "generated/llms/mcp-table.default.txt",
@@ -171,17 +182,24 @@
     "generated/llms/pagination.md",
     "generated/llms/popover.md",
     "generated/llms/radio.md",
+    "generated/llms/recipe-chat.card.txt",
     "generated/llms/recipe-commerce.card.txt",
     "generated/llms/recipe-dashboard.card.txt",
     "generated/llms/recipe-editorial.card.txt",
     "generated/llms/recipe-event.card.txt",
     "generated/llms/recipe-hospitality.card.txt",
+    "generated/llms/recipe-mail.card.txt",
+    "generated/llms/recipe-marketplace.card.txt",
+    "generated/llms/recipe-personal.card.txt",
+    "generated/llms/recipe-streaming.card.txt",
     "generated/llms/search.md",
     "generated/llms/segmented.md",
     "generated/llms/select.md",
+    "generated/llms/sheet.md",
     "generated/llms/shelf.md",
     "generated/llms/skeleton.md",
     "generated/llms/slider.md",
+    "generated/llms/split.md",
     "generated/llms/stat.md",
     "generated/llms/switch.md",
     "generated/llms/table.md",
@@ -193,11 +211,16 @@
     "generated/llms/tooltip.md",
     "generated/llms/typing-indicator.md",
     "generated/manifest.json",
+    "generated/recipes/chat.md",
     "generated/recipes/commerce.md",
     "generated/recipes/dashboard.md",
     "generated/recipes/editorial.md",
     "generated/recipes/event.md",
     "generated/recipes/hospitality.md",
+    "generated/recipes/mail.md",
+    "generated/recipes/marketplace.md",
+    "generated/recipes/personal.md",
+    "generated/recipes/streaming.md",
     "generated/rules/AGENTS.md",
     "generated/rules/era-widgets.mdc",
     "llms.txt",
@@ -291,9 +314,11 @@
     "packages/css/dist/search.css",
     "packages/css/dist/segmented.css",
     "packages/css/dist/select.css",
+    "packages/css/dist/sheet.css",
     "packages/css/dist/shelf.css",
     "packages/css/dist/skeleton.css",
     "packages/css/dist/slider.css",
+    "packages/css/dist/split.css",
     "packages/css/dist/stat.css",
     "packages/css/dist/switch.css",
     "packages/css/dist/table.css",
@@ -306,9 +331,15 @@
     "packages/css/dist/tooltip.css",
     "packages/css/dist/typing-indicator.css",
     "packages/elements/dist/era-elements.js",
+    "packages/elements/dist/ew-chip.js",
+    "packages/elements/dist/ew-code.js",
     "packages/elements/dist/ew-menu.js",
+    "packages/elements/dist/ew-pagination.js",
     "packages/elements/dist/ew-popover.js",
+    "packages/elements/dist/ew-search.js",
+    "packages/elements/dist/ew-segmented.js",
     "packages/elements/dist/ew-select.js",
+    "packages/elements/dist/ew-shelf.js",
     "packages/elements/dist/ew-slider.js",
     "packages/elements/dist/ew-tabs.js",
     "packages/elements/dist/ew-toast.js",
@@ -339,9 +370,11 @@
     "packages/mcp/data/components/search.json",
     "packages/mcp/data/components/segmented.json",
     "packages/mcp/data/components/select.json",
+    "packages/mcp/data/components/sheet.json",
     "packages/mcp/data/components/shelf.json",
     "packages/mcp/data/components/skeleton.json",
     "packages/mcp/data/components/slider.json",
+    "packages/mcp/data/components/split.json",
     "packages/mcp/data/components/stat.json",
     "packages/mcp/data/components/switch.json",
     "packages/mcp/data/components/table.json",
@@ -362,16 +395,26 @@
     "packages/mcp/data/eras/neon/era.spec.json",
     "packages/mcp/data/eras/neutral/era.spec.json",
     "packages/mcp/data/eras/swiss/era.spec.json",
+    "packages/mcp/data/llms/recipe-chat.card.txt",
     "packages/mcp/data/llms/recipe-commerce.card.txt",
     "packages/mcp/data/llms/recipe-dashboard.card.txt",
     "packages/mcp/data/llms/recipe-editorial.card.txt",
     "packages/mcp/data/llms/recipe-event.card.txt",
     "packages/mcp/data/llms/recipe-hospitality.card.txt",
+    "packages/mcp/data/llms/recipe-mail.card.txt",
+    "packages/mcp/data/llms/recipe-marketplace.card.txt",
+    "packages/mcp/data/llms/recipe-personal.card.txt",
+    "packages/mcp/data/llms/recipe-streaming.card.txt",
+    "packages/mcp/data/recipes/chat.json",
     "packages/mcp/data/recipes/commerce.json",
     "packages/mcp/data/recipes/dashboard.json",
     "packages/mcp/data/recipes/editorial.json",
     "packages/mcp/data/recipes/event.json",
     "packages/mcp/data/recipes/hospitality.json",
+    "packages/mcp/data/recipes/mail.json",
+    "packages/mcp/data/recipes/marketplace.json",
+    "packages/mcp/data/recipes/personal.json",
+    "packages/mcp/data/recipes/streaming.json",
     "packages/mcp/data/tokens/tier1/art-nouveau.dark.tokens.json",
     "packages/mcp/data/tokens/tier1/art-nouveau.light.tokens.json",
     "packages/mcp/data/tokens/tier1/bauhaus.dark.tokens.json",
@@ -438,9 +481,11 @@
     "packages/react/src/Search.tsx",
     "packages/react/src/Segmented.tsx",
     "packages/react/src/Select.tsx",
+    "packages/react/src/Sheet.tsx",
     "packages/react/src/Shelf.tsx",
     "packages/react/src/Skeleton.tsx",
     "packages/react/src/Slider.tsx",
+    "packages/react/src/Split.tsx",
     "packages/react/src/Stat.tsx",
     "packages/react/src/Switch.tsx",
     "packages/react/src/Table.tsx",
@@ -517,9 +562,11 @@
     "registry/r/search.json",
     "registry/r/segmented.json",
     "registry/r/select.json",
+    "registry/r/sheet.json",
     "registry/r/shelf.json",
     "registry/r/skeleton.json",
     "registry/r/slider.json",
+    "registry/r/split.json",
     "registry/r/stat.json",
     "registry/r/switch.json",
     "registry/r/table.json",
@@ -532,6 +579,7 @@
     "registry/r/typing-indicator.json",
     "registry/registry.json",
     "skills/groovster/references/anatomy.md",
+    "skills/groovster/references/chat.md",
     "skills/groovster/references/commerce.md",
     "skills/groovster/references/dashboard.md",
     "skills/groovster/references/editorial.md",
@@ -563,9 +611,11 @@
     "skills/groovster/references/llms/search.md",
     "skills/groovster/references/llms/segmented.md",
     "skills/groovster/references/llms/select.md",
+    "skills/groovster/references/llms/sheet.md",
     "skills/groovster/references/llms/shelf.md",
     "skills/groovster/references/llms/skeleton.md",
     "skills/groovster/references/llms/slider.md",
+    "skills/groovster/references/llms/split.md",
     "skills/groovster/references/llms/stat.md",
     "skills/groovster/references/llms/switch.md",
     "skills/groovster/references/llms/table.md",
@@ -576,6 +626,10 @@
     "skills/groovster/references/llms/toolbar.md",
     "skills/groovster/references/llms/tooltip.md",
     "skills/groovster/references/llms/typing-indicator.md",
+    "skills/groovster/references/mail.md",
+    "skills/groovster/references/marketplace.md",
+    "skills/groovster/references/personal.md",
+    "skills/groovster/references/streaming.md",
     "tests/a11y/fixtures/matrix.html"
   ],
   "budgetReport": {
@@ -814,6 +868,14 @@
         "chars": 456,
         "budget": "mcp.defaultReply"
       },
+      "llms.section:sheet": {
+        "chars": 464,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:sheet": {
+        "chars": 300,
+        "budget": "mcp.defaultReply"
+      },
       "llms.section:shelf": {
         "chars": 541,
         "budget": "llms.section"
@@ -836,6 +898,14 @@
       },
       "mcp.defaultReply:slider": {
         "chars": 428,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:split": {
+        "chars": 465,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:split": {
+        "chars": 290,
         "budget": "mcp.defaultReply"
       },
       "llms.section:stat": {
@@ -895,11 +965,11 @@
         "budget": "mcp.defaultReply"
       },
       "llms.section:toolbar": {
-        "chars": 594,
+        "chars": 611,
         "budget": "llms.section"
       },
       "mcp.defaultReply:toolbar": {
-        "chars": 408,
+        "chars": 430,
         "budget": "mcp.defaultReply"
       },
       "llms.section:tooltip": {
@@ -955,8 +1025,12 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 3115,
+        "chars": 3227,
         "budget": "llms.index"
+      },
+      "llms.recipeCard:chat": {
+        "chars": 1511,
+        "budget": "llms.recipeCard"
       },
       "llms.recipeCard:commerce": {
         "chars": 2018,
@@ -976,6 +1050,22 @@
       },
       "llms.recipeCard:hospitality": {
         "chars": 2093,
+        "budget": "llms.recipeCard"
+      },
+      "llms.recipeCard:mail": {
+        "chars": 1495,
+        "budget": "llms.recipeCard"
+      },
+      "llms.recipeCard:marketplace": {
+        "chars": 1541,
+        "budget": "llms.recipeCard"
+      },
+      "llms.recipeCard:personal": {
+        "chars": 1440,
+        "budget": "llms.recipeCard"
+      },
+      "llms.recipeCard:streaming": {
+        "chars": 1526,
         "budget": "llms.recipeCard"
       }
     }

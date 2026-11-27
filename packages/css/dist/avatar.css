@@ -2,7 +2,7 @@
 
 @layer components {
   .ew-avatar {
-    /* anatomy: root, image, fallback */
+    /* anatomy: root, image, fallback, presence */
   }
   .ew-avatar {
     position: relative;

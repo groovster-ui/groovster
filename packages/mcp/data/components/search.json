@@ -4,8 +4,8 @@
   "name": "Search",
   "summary": "Search field with a leading icon, clear button, and optional scope.",
   "className": "ew-search",
-  "nativeElement": "search",
-  "behavior": "css-only",
+  "nativeElement": "search (custom element later: ew-search)",
+  "behavior": "web-component",
   "anatomy": [
     {
       "part": "root",

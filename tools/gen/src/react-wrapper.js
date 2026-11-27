@@ -485,12 +485,12 @@ function emitAvatar(comp) {
   return `import * as React from 'react';
 
 export type ${name}Props = Omit<React.ComponentPropsWithoutRef<'span'>, 'size'> & {
-${propTypeBlock(comp, [`  fallback?: React.ReactNode;`])}
+${propTypeBlock(comp, [`  fallback?: React.ReactNode;`, `  presence?: "online" | "away" | "busy" | "offline";`])}
 };
 
 /** ${comp.summary} */
 export const ${name} = React.forwardRef<HTMLSpanElement, ${name}Props>(function ${name}(
-  { ${destructureNames(comp, ['fallback', 'children'])} },
+  { ${destructureNames(comp, ['fallback', 'presence', 'children'])} },
   ref
 ) {
 ${dataBindSource(comp)}
@@ -499,6 +499,7 @@ ${dataBindSource(comp)}
     'span',
     { ref, className: cls, ...dataProps, ...rest },
     fallback != null ? React.createElement('span', { className: ${jsString(requiredPartClass(comp, 'fallback'))} }, fallback) : null,
+    presence != null ? React.createElement('span', { className: 'ew-avatar__presence', 'data-presence': presence }) : null,
     children
   );
 });

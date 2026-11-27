@@ -1,0 +1,25 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-sheet {
+    /* anatomy: root */
+  }
+  .ew-sheet { min-width: 0; max-width: 100%; background: var(--ew-color-bg-surface); color: inherit; border: 1px solid var(--ew-color-border-subtle); }
+  .ew-sheet__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; padding: var(--ew-card-pad, 12px); border-bottom: 1px solid var(--ew-color-border-subtle); }
+  .ew-sheet__body { min-width: 0; padding: var(--ew-card-pad, 12px); }
+  @media (max-width: 600px) {
+    .ew-sheet[data-variant="mobile"] { position: fixed; inset: auto 0 0 0; z-index: 20; max-height: 85vh; overflow: auto; border-radius: 12px 12px 0 0; }
+  }
+  /* spec variant variant=default */
+  .ew-sheet[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-sheet:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-sheet[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-sheet[data-size="md"] { --ew-spec-size: md; }
+  .ew-sheet:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-sheet, .ew-sheet *, .ew-sheet *::before, .ew-sheet *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

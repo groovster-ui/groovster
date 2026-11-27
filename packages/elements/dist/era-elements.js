@@ -1,5 +1,5 @@
 /* era-elements.js — Era Widgets light-DOM WC. Generated/copied by scripts/bundle-elements.mjs. Must import nothing. */
-/* Bundle of Tabs, Select, Menu, Popover, Tooltip, Toast, Slider. Zag.js not used. */
+/* Bundle of Tabs, Select, Menu, Popover, Tooltip, Toast, Slider, Search, Segmented, Chip, Code, Shelf, Pagination. Zag.js not used. */
 
 /* ---- ew-tabs.js ---- */
 /**
@@ -1330,4 +1330,297 @@
   }
 
   customElements.define(TAG, EwSlider);
+})();
+
+
+/* ---- ew-search.js ---- */
+/**
+ * <ew-search> — search field with a clear button. No imports.
+ * Clear hides while the field is empty, then clears, refocuses, and fires input.
+ */
+(() => {
+  const TAG = 'ew-search';
+  if (customElements.get(TAG)) return;
+
+  class EwSearch extends HTMLElement {
+    #input = null;
+    #clear = null;
+
+    connectedCallback() {
+      this.classList.add('ew-search');
+      if (!this.getAttribute('role')) this.setAttribute('role', 'search');
+      this.#input = this.querySelector('input');
+      this.#clear = this.querySelector('.ew-search__clear, [data-clear]');
+      if (!this.#input || !this.#clear) return;
+      this.#input.addEventListener('input', this.#sync);
+      this.#input.addEventListener('keydown', this.#onKey);
+      this.#clear.addEventListener('click', this.#onClear);
+      this.#sync();
+    }
+
+    disconnectedCallback() {
+      this.#input?.removeEventListener('input', this.#sync);
+      this.#input?.removeEventListener('keydown', this.#onKey);
+      this.#clear?.removeEventListener('click', this.#onClear);
+    }
+
+    #sync = () => {
+      if (!this.#clear || !this.#input) return;
+      this.#clear.hidden = this.#input.value.length === 0;
+    };
+
+    #onClear = () => {
+      if (!this.#input) return;
+      this.#input.value = '';
+      this.#input.dispatchEvent(new Event('input', { bubbles: true }));
+      this.#input.focus();
+      this.#sync();
+    };
+
+    #onKey = (event) => {
+      if (event.key === 'Escape' && this.#input?.value) {
+        event.preventDefault();
+        this.#onClear();
+      }
+    };
+  }
+
+  customElements.define(TAG, EwSearch);
+})();
+
+
+/* ---- ew-segmented.js ---- */
+/**
+ * <ew-segmented> — radiogroup with arrow-key roving. No imports.
+ */
+(() => {
+  const TAG = 'ew-segmented';
+  if (customElements.get(TAG)) return;
+
+  class EwSegmented extends HTMLElement {
+    connectedCallback() {
+      this.classList.add('ew-segmented');
+      if (!this.getAttribute('role')) this.setAttribute('role', 'radiogroup');
+      this.addEventListener('keydown', this.#onKey);
+      this.addEventListener('click', this.#onClick);
+      this.#sync();
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('keydown', this.#onKey);
+      this.removeEventListener('click', this.#onClick);
+    }
+
+    #items() {
+      return [...this.querySelectorAll('.ew-segmented__item, [role="radio"]')];
+    }
+
+    #sync() {
+      const items = this.#items();
+      if (!items.some((item) => item.getAttribute('aria-checked') === 'true') && items[0]) {
+        items[0].setAttribute('aria-checked', 'true');
+      }
+      for (const item of items) {
+        const on = item.getAttribute('aria-checked') === 'true';
+        item.setAttribute('role', 'radio');
+        item.tabIndex = on ? 0 : -1;
+      }
+    }
+
+    #select(next) {
+      for (const item of this.#items()) item.setAttribute('aria-checked', item === next ? 'true' : 'false');
+      this.#sync();
+      next.focus();
+      this.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+
+    #onClick = (event) => {
+      const item = event.target.closest?.('.ew-segmented__item, [role="radio"]');
+      if (item && this.contains(item)) this.#select(item);
+    };
+
+    #onKey = (event) => {
+      const items = this.#items();
+      const index = items.findIndex((item) => item.getAttribute('aria-checked') === 'true');
+      if (index < 0) return;
+      const dir = event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1
+        : event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 0;
+      if (!dir && event.key !== 'Home' && event.key !== 'End') return;
+      event.preventDefault();
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1
+        : (index + dir + items.length) % items.length;
+      this.#select(items[next]);
+    };
+  }
+
+  customElements.define(TAG, EwSegmented);
+})();
+
+
+/* ---- ew-chip.js ---- */
+/**
+ * <ew-chip> — selectable and removable chips. No imports.
+ */
+(() => {
+  const TAG = 'ew-chip';
+  if (customElements.get(TAG)) return;
+
+  class EwChip extends HTMLElement {
+    connectedCallback() {
+      this.classList.add('ew-chip');
+      if (this.hasAttribute('aria-pressed') && !this.getAttribute('role')) this.setAttribute('role', 'button');
+      if (this.getAttribute('role') === 'button' && !this.hasAttribute('tabindex')) this.tabIndex = 0;
+      this.addEventListener('click', this.#onClick);
+      this.addEventListener('keydown', this.#onKey);
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('click', this.#onClick);
+      this.removeEventListener('keydown', this.#onKey);
+    }
+
+    #onKey = (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      if (event.target !== this) return;
+      event.preventDefault();
+      this.click();
+    };
+
+    #onClick = (event) => {
+      const remove = event.target.closest?.('.ew-chip__remove, [data-remove]');
+      if (remove && this.contains(remove)) {
+        this.dispatchEvent(new Event('ew-chip-remove', { bubbles: true }));
+        this.remove();
+        return;
+      }
+      if (this.hasAttribute('aria-pressed')) {
+        const next = this.getAttribute('aria-pressed') !== 'true';
+        this.setAttribute('aria-pressed', next ? 'true' : 'false');
+        this.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    };
+  }
+
+  customElements.define(TAG, EwChip);
+})();
+
+
+/* ---- ew-code.js ---- */
+/**
+ * <ew-code> — copy button writes the code text. No imports.
+ */
+(() => {
+  const TAG = 'ew-code';
+  if (customElements.get(TAG)) return;
+
+  class EwCode extends HTMLElement {
+    connectedCallback() {
+      this.classList.add('ew-code');
+      this.addEventListener('click', this.#onClick);
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('click', this.#onClick);
+    }
+
+    #onClick = async (event) => {
+      const button = event.target.closest?.('.ew-code__copy, [data-copy]');
+      if (!button || !this.contains(button)) return;
+      const text = (this.querySelector('code') || this).innerText.replace(/\s*Copy\s*$/, '').trim();
+      try {
+        await navigator.clipboard.writeText(text);
+        button.dataset.copied = 'true';
+      } catch {
+        button.dataset.copied = 'false';
+      }
+    };
+  }
+
+  customElements.define(TAG, EwCode);
+})();
+
+
+/* ---- ew-shelf.js ---- */
+/**
+ * <ew-shelf> — horizontal row, arrow keys, and prev/next buttons. No imports.
+ */
+(() => {
+  const TAG = 'ew-shelf';
+  if (customElements.get(TAG)) return;
+
+  class EwShelf extends HTMLElement {
+    connectedCallback() {
+      this.classList.add('ew-shelf');
+      this.addEventListener('keydown', this.#onKey);
+      this.addEventListener('click', this.#onClick);
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('keydown', this.#onKey);
+      this.removeEventListener('click', this.#onClick);
+    }
+
+    #row() {
+      return this.querySelector('.ew-shelf__row');
+    }
+
+    #step(dir) {
+      const row = this.#row();
+      if (!row) return;
+      const card = row.querySelector(':scope > *');
+      const amount = (card?.getBoundingClientRect().width || 180) + 12;
+      row.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    }
+
+    #onClick = (event) => {
+      if (event.target.closest?.('[data-shelf="prev"]')) this.#step(-1);
+      if (event.target.closest?.('[data-shelf="next"]')) this.#step(1);
+    };
+
+    #onKey = (event) => {
+      if (event.key === 'ArrowRight') { event.preventDefault(); this.#step(1); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); this.#step(-1); }
+    };
+  }
+
+  customElements.define(TAG, EwShelf);
+})();
+
+
+/* ---- ew-pagination.js ---- */
+/**
+ * <ew-pagination> — moves aria-current when a page is chosen. No imports.
+ */
+(() => {
+  const TAG = 'ew-pagination';
+  if (customElements.get(TAG)) return;
+
+  class EwPagination extends HTMLElement {
+    connectedCallback() {
+      this.classList.add('ew-pagination');
+      if (!this.getAttribute('role')) this.setAttribute('role', 'navigation');
+      this.addEventListener('click', this.#onClick);
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('click', this.#onClick);
+    }
+
+    #pages() {
+      return [...this.querySelectorAll('.ew-pagination__page')];
+    }
+
+    #onClick = (event) => {
+      const page = event.target.closest?.('.ew-pagination__page');
+      if (!page || !this.contains(page) || page.hasAttribute('aria-disabled')) return;
+      if (page.classList.contains('ew-pagination__prev') || page.classList.contains('ew-pagination__next')) return;
+      for (const item of this.#pages()) {
+        if (item === page) item.setAttribute('aria-current', 'page');
+        else item.removeAttribute('aria-current');
+      }
+      this.dispatchEvent(new Event('change', { bubbles: true }));
+    };
+  }
+
+  customElements.define(TAG, EwPagination);
 })();

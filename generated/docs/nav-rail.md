@@ -28,6 +28,7 @@ Sidebar items with an icon, label, and count. Collapses to icons.
 ## Do
 
 - Keep markup era-neutral and set data-era on an ancestor.
+- Put the icon in .ew-nav-rail__icon. In data-collapsed=true, set data-label so the hover and focus tooltip names the item.
 
 ## Don't
 

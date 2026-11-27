@@ -10,8 +10,8 @@
 <script src="../shared/switch.js" defer></script>
 </head>
 <body>
-<div class="ew-root" data-groovster-root data-era="neon" data-mode="dark" data-fidelity-band="costume">
-  <header class="ew-toolbar" data-sticky="true" role="toolbar" aria-label="Stream">
+<div class="ew-root" data-groovster-root data-recipe="streaming" data-era="neon" data-mode="dark" data-fidelity-band="costume">
+  <header><div class="ew-toolbar" data-sticky="true" role="toolbar" aria-label="Stream" >
     <div class="ew-toolbar__start"><h1 class="ew-title--page">Night Market</h1></div>
     <div class="ew-toolbar__end">
       <nav class="ew-pagination" aria-label="Browse" data-compact="true">
@@ -21,8 +21,8 @@
       </nav>
       <div data-era-switch></div>
     </div>
-  </header>
-  <section class="ew-hero">
+  </div></header>
+  <section id="hero" class="ew-hero">
     <div class="ew-hero__backdrop" aria-hidden="true"></div>
     <div class="ew-hero__stage" aria-hidden="true"></div>
     <div class="ew-hero__panel">
@@ -35,7 +35,7 @@
     </div>
   </section>
   <div class="stream" data-density="compact">
-    <section class="ew-shelf" aria-label="Continue">
+    <section id="shelves" class="ew-shelf" aria-label="Continue">
       <h2 class="ew-shelf__title ew-title--section">Continue</h2>
       <div class="ew-shelf__row" tabindex="0">
         <a class="ew-media-card" data-ratio="poster" href="#a"><span class="ew-media-card__title">Kiln night</span><span class="ew-media-card__progress" style="width:40%"></span></a>

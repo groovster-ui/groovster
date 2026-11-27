@@ -575,4 +575,15 @@
     [data-era="bauhaus"] .ew-hero__backdrop::after { display: none; }
   }
 
+
+  [data-era="bauhaus"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet) {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="bauhaus"] .ew-table { border-collapse: collapse; }
+  [data-era="bauhaus"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="bauhaus"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+
+  [data-era="bauhaus"] .ew-badge, [data-era="bauhaus"] .ew-chip, [data-era="bauhaus"] .ew-segmented { border-radius: 0; }
+  [data-era="bauhaus"] .ew-stat__value { font-weight: 800; }
+  [data-era="bauhaus"] .ew-table th { border-bottom: 3px solid var(--ew-color-fg-default); }
 }

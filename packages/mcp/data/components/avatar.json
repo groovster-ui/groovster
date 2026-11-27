@@ -74,6 +74,12 @@
       "required": false,
       "selector": ".ew-avatar__fallback",
       "description": "Initials."
+    },
+    {
+      "part": "presence",
+      "required": false,
+      "selector": ".ew-avatar__presence",
+      "description": "Status dot. data-presence is online (filled circle), away (ring), busy (square), or offline (hollow circle)."
     }
   ],
   "variants": {
@@ -95,13 +101,15 @@
     ],
     "notes": [
       "Decorative avatars can be aria-hidden.",
-      "Meaningful avatars need a name."
+      "Meaningful avatars need a name.",
+      "Presence is a separate cue from colour: online is a disc, away a ring, busy a square, offline a hollow circle."
     ]
   },
   "canonicalHtml": "<span class=\"ew-avatar\" data-variant=\"circle\" aria-label=\"Ada Lovelace\">\n  <span class=\"ew-avatar__fallback\">AL</span>\n</span>",
   "do": [
     "Provide alt/name when meaningful.",
-    "Use initials fallback."
+    "Use initials fallback.",
+    "Set data-presence to online, away, busy, or offline on .ew-avatar__presence."
   ],
   "dont": [
     "Don't rely on image alone without fallback.",
