@@ -20,6 +20,7 @@
     "eval:baseline": "pnpm --filter @groovster/eval baseline",
     "eval:sites": "pnpm --filter @groovster/eval websites",
     "test:sites": "node scripts/test-sites.mjs",
+    "test:market": "node scripts/test-market.mjs",
     "fidelity:density": "node scripts/fidelity-density.mjs",
     "skill:install": "node scripts/install-skill.mjs",
     "skill:verify": "node scripts/verify-skill-install.mjs",

@@ -1084,6 +1084,7 @@
   [data-era="deco"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
 
   [data-era="deco"]:not([data-density="compact"]) .ew-chip, [data-era="deco"]:not([data-density="compact"]) .ew-badge { border-radius: 0; border-color: var(--ew-color-gold, var(--ew-color-border-strong)); }
-  [data-era="deco"] .ew-stat__value { color: var(--ew-color-gold, var(--ew-color-action-bg)); font-variant-numeric: tabular-nums; }
+  [data-era="deco"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-brassDeep, #5C4510); font-variant-numeric: tabular-nums; }
+  [data-era="deco"][data-mode="dark"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-gold, #E6C56A); }
   [data-era="deco"]:not([data-density="compact"]) .ew-table th { letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.75rem; }
 }

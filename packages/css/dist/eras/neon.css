@@ -1268,7 +1268,7 @@
   [data-era="neon"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
 
   [data-era="neon"] .ew-chip, [data-era="neon"] .ew-segmented { box-shadow: 0 0 0 1px var(--ew-color-magenta, var(--ew-color-action-bg)); }
-  [data-era="neon"] .ew-stat__value { color: var(--ew-color-magenta, var(--ew-color-action-bg)); }
+  [data-era="neon"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-magenta, var(--ew-color-action-bg)); }
   [data-era="neon"][data-mode="light"] .ew-link { text-decoration: underline; text-decoration-color: #E2186A; text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
   [data-era="neon"]:not([data-density="compact"]) .ew-media-card:hover { box-shadow: 0 0 0 1px var(--ew-color-cyan, var(--ew-color-action-bg)); }
 }

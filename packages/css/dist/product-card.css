@@ -1,0 +1,40 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-product-card {
+    /* anatomy: root */
+  }
+  .ew-product-card {
+    display: grid; grid-template-rows: auto minmax(2.6em, auto) auto auto; align-content: start;
+    min-width: 0; height: 100%; position: relative; overflow: hidden;
+    background: var(--ew-color-bg-surface); color: inherit;
+    border: 1px solid var(--ew-color-border-subtle); padding: 0;
+  }
+  .ew-product-card__media { aspect-ratio: 1; background: color-mix(in oklch, var(--ew-color-action-bg) 18%, var(--ew-color-bg-page)); position: relative; }
+  .ew-product-card[data-ratio="wide"] .ew-product-card__media { aspect-ratio: 4 / 3; }
+  .ew-product-card__media img { width: 100%; height: 100%; object-fit: cover; }
+  .ew-product-card__watch { position: absolute; top: 8px; inset-inline-end: 8px; }
+  .ew-product-card__title {
+    margin: 8px 10px 0; min-width: 0; min-height: 2.6em; max-height: 2.6em;
+    font: 600 0.95rem/1.3 var(--ew-font-body, system-ui, sans-serif);
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
+    overflow: hidden; text-transform: none; letter-spacing: normal;
+  }
+  .ew-product-card__price { margin: 6px 10px 0; }
+  .ew-product-card__meta { margin: 2px 10px 10px; color: var(--ew-color-fg-muted); font-size: 0.8rem; }
+  .ew-product-card.is-selected { box-shadow: inset 0 0 0 2px var(--ew-color-action-bg); }
+  .ew-product-card:hover, .ew-product-card:focus-within { transform: translateY(-2px); }
+  @media (prefers-reduced-motion: reduce) { .ew-product-card:hover, .ew-product-card:focus-within { transform: none; } }
+  /* spec variant variant=default */
+  .ew-product-card[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-product-card:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-product-card[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-product-card[data-size="md"] { --ew-spec-size: md; }
+  .ew-product-card:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-product-card, .ew-product-card *, .ew-product-card *::before, .ew-product-card *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

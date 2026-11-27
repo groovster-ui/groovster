@@ -1,0 +1,23 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-filter-group {
+    /* anatomy: root */
+  }
+  .ew-filter-group { margin: 0 0 8px; min-width: 0; border-bottom: 1px solid var(--ew-color-border-subtle); }
+  .ew-filter-group summary { cursor: pointer; font-weight: 700; padding: 8px 0; }
+  .ew-filter-group__row { display: flex; justify-content: space-between; gap: 8px; min-width: 0; padding: 4px 0; }
+  .ew-filter-group__more { background: none; border: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
+  /* spec variant variant=default */
+  .ew-filter-group[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-filter-group:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-filter-group[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-filter-group[data-size="md"] { --ew-spec-size: md; }
+  .ew-filter-group:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-filter-group, .ew-filter-group *, .ew-filter-group *::before, .ew-filter-group *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

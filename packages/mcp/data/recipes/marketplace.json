@@ -102,7 +102,12 @@
       "toolbar",
       "card",
       "search",
-      "table"
+      "table",
+      "product-card",
+      "price",
+      "rating",
+      "countdown",
+      "filter-group"
     ],
     "optional": [
       "badge",

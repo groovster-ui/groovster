@@ -245,5 +245,5 @@
 
   [data-era="swiss"] .ew-chip, [data-era="swiss"] .ew-badge, [data-era="swiss"] .ew-segmented { border-radius: 0; }
   [data-era="swiss"] .ew-table th { border-bottom: 2px solid var(--ew-color-fg-default); }
-  [data-era="swiss"] .ew-stat__value { color: var(--ew-color-action-bg); }
+  [data-era="swiss"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-action-bg); }
 }

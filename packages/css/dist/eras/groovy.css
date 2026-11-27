@@ -490,6 +490,6 @@
   [data-era="groovy"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
 
   [data-era="groovy"] .ew-chip, [data-era="groovy"] .ew-segmented { border-radius: 999px; }
-  [data-era="groovy"]:not([data-density="compact"]) .ew-stat__value { font-family: var(--ew-font-display, inherit); }
+  [data-era="groovy"]:not([data-density="compact"]) .ew-stat__value, [data-era="groovy"] .ew-price { font-family: var(--ew-font-display, inherit); }
   [data-era="groovy"] .ew-list-item { border-radius: 16px; }
 }

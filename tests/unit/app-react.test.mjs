@@ -27,6 +27,11 @@ const cases = [
   ['Toolbar', { role: 'toolbar', 'aria-label': 'Mailbox' }, 'div', 'toolbar'],
   ['TypingIndicator', { children: '…' }, 'span', null],
   ['Density', { children: 'Inbox' }, 'div', null],
+  ['ProductCard', { children: 'Lamp' }, 'div', null],
+  ['Price', { children: '$48' }, 'div', null],
+  ['Rating', { children: '4' }, 'div', null],
+  ['Countdown', { children: '42m' }, 'div', null],
+  ['FilterGroup', { children: 'Used' }, 'div', null],
 ];
 
 for (const [name, props, tag] of cases) {

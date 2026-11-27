@@ -221,7 +221,7 @@ ${bandTokenCss()}
     min-width: 0;
     max-width: 100%;
   }
-  .ew-clamp-2, .ew-clamp-3 {
+  .ew-clamp-2, .ew-clamp-3, .ew-product-card__title {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -229,7 +229,16 @@ ${bandTokenCss()}
     min-width: 0;
     max-width: 100%;
   }
-  .ew-clamp-2 { -webkit-line-clamp: 2; line-clamp: 2; }
+  .ew-clamp-2, .ew-product-card__title { -webkit-line-clamp: 2; line-clamp: 2; }
+  .ew-product-card__title {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    font-weight: 600;
+    max-height: 2.6em;
+  }
   .ew-clamp-3 { -webkit-line-clamp: 3; line-clamp: 3; }
 
   @media (prefers-reduced-motion: reduce) {

@@ -6,7 +6,7 @@ Category: Product grid and detail
 Eras: neutral. Also: swiss, bauhaus, deco, groovy, memphis, mcm-atomic, neon, art-nouveau. Avoid: none.
 Fidelity: page whisper; forms whisper; data whisper. Compact density. Costume stays on the hero only when the page has one.
 Sections: results, filters, detail. Optional: none.
-Components: toolbar, card, search, table. Optional: badge, pagination.
+Components: toolbar, card, search, table, product-card, price, rating, countdown, filter-group. Optional: badge, pagination.
 Layout: Results header, category chips, grid, and a specifics table.
 Responsive (800px): Panes stack. Toolbars wrap. No horizontal page scroll at 390.
 Type: Body face on controls and card titles in compact density. Display face on the page title.

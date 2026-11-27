@@ -531,6 +531,6 @@
   [data-era="art-nouveau"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
 
   [data-era="art-nouveau"] .ew-chip { border-radius: 999px 4px; border-color: var(--ew-color-brass, var(--ew-color-border-strong)); }
-  [data-era="art-nouveau"] .ew-stat__value { color: var(--ew-color-leaf, var(--ew-color-action-bg)); }
+  [data-era="art-nouveau"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-leaf, var(--ew-color-action-bg)); }
   [data-era="art-nouveau"]:not([data-density="compact"]) .ew-media-card { border-radius: 48% 48% 8px 8px; overflow: hidden; }
 }

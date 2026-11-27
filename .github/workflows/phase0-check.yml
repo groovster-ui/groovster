@@ -126,6 +126,9 @@ jobs:
         timeout-minutes: 5
         run: pnpm test:sites
 
+      - name: Market grid
+        run: pnpm test:market
+
       - name: Verify Swiss and Bauhaus browser demos
         timeout-minutes: 5
         run: pnpm test:modernist

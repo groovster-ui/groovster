@@ -10,9 +10,11 @@
     "checkbox",
     "chip",
     "code",
+    "countdown",
     "density",
     "dialog",
     "empty-state",
+    "filter-group",
     "icon-button",
     "link",
     "list",
@@ -23,7 +25,10 @@
     "ornament-divider",
     "pagination",
     "popover",
+    "price",
+    "product-card",
     "radio",
+    "rating",
     "search",
     "segmented",
     "select",
@@ -76,9 +81,11 @@
     "generated/docs/checkbox.md",
     "generated/docs/chip.md",
     "generated/docs/code.md",
+    "generated/docs/countdown.md",
     "generated/docs/density.md",
     "generated/docs/dialog.md",
     "generated/docs/empty-state.md",
+    "generated/docs/filter-group.md",
     "generated/docs/icon-button.md",
     "generated/docs/link.md",
     "generated/docs/list.md",
@@ -89,7 +96,10 @@
     "generated/docs/ornament-divider.md",
     "generated/docs/pagination.md",
     "generated/docs/popover.md",
+    "generated/docs/price.md",
+    "generated/docs/product-card.md",
     "generated/docs/radio.md",
+    "generated/docs/rating.md",
     "generated/docs/search.md",
     "generated/docs/segmented.md",
     "generated/docs/select.md",
@@ -117,6 +127,7 @@
     "generated/llms/checkbox.md",
     "generated/llms/chip.md",
     "generated/llms/code.md",
+    "generated/llms/countdown.md",
     "generated/llms/density.md",
     "generated/llms/dialog.md",
     "generated/llms/empty-state.md",
@@ -129,6 +140,7 @@
     "generated/llms/era-neon.card.txt",
     "generated/llms/era-neutral.card.txt",
     "generated/llms/era-swiss.card.txt",
+    "generated/llms/filter-group.md",
     "generated/llms/icon-button.md",
     "generated/llms/link.md",
     "generated/llms/list.md",
@@ -142,9 +154,11 @@
     "generated/llms/mcp-checkbox.default.txt",
     "generated/llms/mcp-chip.default.txt",
     "generated/llms/mcp-code.default.txt",
+    "generated/llms/mcp-countdown.default.txt",
     "generated/llms/mcp-density.default.txt",
     "generated/llms/mcp-dialog.default.txt",
     "generated/llms/mcp-empty-state.default.txt",
+    "generated/llms/mcp-filter-group.default.txt",
     "generated/llms/mcp-icon-button.default.txt",
     "generated/llms/mcp-link.default.txt",
     "generated/llms/mcp-list.default.txt",
@@ -155,7 +169,10 @@
     "generated/llms/mcp-ornament-divider.default.txt",
     "generated/llms/mcp-pagination.default.txt",
     "generated/llms/mcp-popover.default.txt",
+    "generated/llms/mcp-price.default.txt",
+    "generated/llms/mcp-product-card.default.txt",
     "generated/llms/mcp-radio.default.txt",
+    "generated/llms/mcp-rating.default.txt",
     "generated/llms/mcp-search.default.txt",
     "generated/llms/mcp-segmented.default.txt",
     "generated/llms/mcp-select.default.txt",
@@ -181,7 +198,10 @@
     "generated/llms/ornament-divider.md",
     "generated/llms/pagination.md",
     "generated/llms/popover.md",
+    "generated/llms/price.md",
+    "generated/llms/product-card.md",
     "generated/llms/radio.md",
+    "generated/llms/rating.md",
     "generated/llms/recipe-chat.card.txt",
     "generated/llms/recipe-commerce.card.txt",
     "generated/llms/recipe-dashboard.card.txt",
@@ -234,6 +254,7 @@
     "packages/css/dist/checkbox.css",
     "packages/css/dist/chip.css",
     "packages/css/dist/code.css",
+    "packages/css/dist/countdown.css",
     "packages/css/dist/density.css",
     "packages/css/dist/dialects.css",
     "packages/css/dist/dialog.css",
@@ -248,6 +269,7 @@
     "packages/css/dist/eras/neon.css",
     "packages/css/dist/eras/neutral.css",
     "packages/css/dist/eras/swiss.css",
+    "packages/css/dist/filter-group.css",
     "packages/css/dist/fonts/ArchivoBlack-Regular.woff2",
     "packages/css/dist/fonts/Bellefair-Regular.woff2",
     "packages/css/dist/fonts/Comfortaa-Bold.woff2",
@@ -310,7 +332,10 @@
     "packages/css/dist/ornament-divider.css",
     "packages/css/dist/pagination.css",
     "packages/css/dist/popover.css",
+    "packages/css/dist/price.css",
+    "packages/css/dist/product-card.css",
     "packages/css/dist/radio.css",
+    "packages/css/dist/rating.css",
     "packages/css/dist/search.css",
     "packages/css/dist/segmented.css",
     "packages/css/dist/select.css",
@@ -353,9 +378,11 @@
     "packages/mcp/data/components/checkbox.json",
     "packages/mcp/data/components/chip.json",
     "packages/mcp/data/components/code.json",
+    "packages/mcp/data/components/countdown.json",
     "packages/mcp/data/components/density.json",
     "packages/mcp/data/components/dialog.json",
     "packages/mcp/data/components/empty-state.json",
+    "packages/mcp/data/components/filter-group.json",
     "packages/mcp/data/components/icon-button.json",
     "packages/mcp/data/components/link.json",
     "packages/mcp/data/components/list.json",
@@ -366,7 +393,10 @@
     "packages/mcp/data/components/ornament-divider.json",
     "packages/mcp/data/components/pagination.json",
     "packages/mcp/data/components/popover.json",
+    "packages/mcp/data/components/price.json",
+    "packages/mcp/data/components/product-card.json",
     "packages/mcp/data/components/radio.json",
+    "packages/mcp/data/components/rating.json",
     "packages/mcp/data/components/search.json",
     "packages/mcp/data/components/segmented.json",
     "packages/mcp/data/components/select.json",
@@ -463,10 +493,12 @@
     "packages/react/src/Checkbox.tsx",
     "packages/react/src/Chip.tsx",
     "packages/react/src/Code.tsx",
+    "packages/react/src/Countdown.tsx",
     "packages/react/src/Density.tsx",
     "packages/react/src/Dialog.tsx",
     "packages/react/src/EmptyState.tsx",
     "packages/react/src/EraRoot.tsx",
+    "packages/react/src/FilterGroup.tsx",
     "packages/react/src/IconButton.tsx",
     "packages/react/src/Link.tsx",
     "packages/react/src/List.tsx",
@@ -477,7 +509,10 @@
     "packages/react/src/OrnamentDivider.tsx",
     "packages/react/src/Pagination.tsx",
     "packages/react/src/Popover.tsx",
+    "packages/react/src/Price.tsx",
+    "packages/react/src/ProductCard.tsx",
     "packages/react/src/Radio.tsx",
+    "packages/react/src/Rating.tsx",
     "packages/react/src/Search.tsx",
     "packages/react/src/Segmented.tsx",
     "packages/react/src/Select.tsx",
@@ -545,9 +580,11 @@
     "registry/r/checkbox.json",
     "registry/r/chip.json",
     "registry/r/code.json",
+    "registry/r/countdown.json",
     "registry/r/density.json",
     "registry/r/dialog.json",
     "registry/r/empty-state.json",
+    "registry/r/filter-group.json",
     "registry/r/icon-button.json",
     "registry/r/link.json",
     "registry/r/list.json",
@@ -558,7 +595,10 @@
     "registry/r/ornament-divider.json",
     "registry/r/pagination.json",
     "registry/r/popover.json",
+    "registry/r/price.json",
+    "registry/r/product-card.json",
     "registry/r/radio.json",
+    "registry/r/rating.json",
     "registry/r/search.json",
     "registry/r/segmented.json",
     "registry/r/select.json",
@@ -594,9 +634,11 @@
     "skills/groovster/references/llms/checkbox.md",
     "skills/groovster/references/llms/chip.md",
     "skills/groovster/references/llms/code.md",
+    "skills/groovster/references/llms/countdown.md",
     "skills/groovster/references/llms/density.md",
     "skills/groovster/references/llms/dialog.md",
     "skills/groovster/references/llms/empty-state.md",
+    "skills/groovster/references/llms/filter-group.md",
     "skills/groovster/references/llms/icon-button.md",
     "skills/groovster/references/llms/link.md",
     "skills/groovster/references/llms/list.md",
@@ -607,7 +649,10 @@
     "skills/groovster/references/llms/ornament-divider.md",
     "skills/groovster/references/llms/pagination.md",
     "skills/groovster/references/llms/popover.md",
+    "skills/groovster/references/llms/price.md",
+    "skills/groovster/references/llms/product-card.md",
     "skills/groovster/references/llms/radio.md",
+    "skills/groovster/references/llms/rating.md",
     "skills/groovster/references/llms/search.md",
     "skills/groovster/references/llms/segmented.md",
     "skills/groovster/references/llms/select.md",
@@ -732,6 +777,14 @@
         "chars": 309,
         "budget": "mcp.defaultReply"
       },
+      "llms.section:countdown": {
+        "chars": 421,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:countdown": {
+        "chars": 221,
+        "budget": "mcp.defaultReply"
+      },
       "llms.section:density": {
         "chars": 613,
         "budget": "llms.section"
@@ -754,6 +807,14 @@
       },
       "mcp.defaultReply:empty-state": {
         "chars": 350,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:filter-group": {
+        "chars": 431,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:filter-group": {
+        "chars": 233,
         "budget": "mcp.defaultReply"
       },
       "llms.section:icon-button": {
@@ -836,12 +897,36 @@
         "chars": 414,
         "budget": "mcp.defaultReply"
       },
+      "llms.section:price": {
+        "chars": 398,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:price": {
+        "chars": 205,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:product-card": {
+        "chars": 430,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:product-card": {
+        "chars": 233,
+        "budget": "mcp.defaultReply"
+      },
       "llms.section:radio": {
         "chars": 821,
         "budget": "llms.section"
       },
       "mcp.defaultReply:radio": {
         "chars": 647,
+        "budget": "mcp.defaultReply"
+      },
+      "llms.section:rating": {
+        "chars": 385,
+        "budget": "llms.section"
+      },
+      "mcp.defaultReply:rating": {
+        "chars": 209,
         "budget": "mcp.defaultReply"
       },
       "llms.section:search": {
@@ -1025,7 +1110,7 @@
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 3227,
+        "chars": 3430,
         "budget": "llms.index"
       },
       "llms.recipeCard:chat": {
@@ -1057,7 +1142,7 @@
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:marketplace": {
-        "chars": 1541,
+        "chars": 1595,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:personal": {

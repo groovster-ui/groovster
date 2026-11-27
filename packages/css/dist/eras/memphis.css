@@ -627,7 +627,7 @@
   [data-era="memphis"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
   [data-era="memphis"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
 
-  [data-era="memphis"] .ew-badge, [data-era="memphis"] .ew-chip { border-radius: 0; background: var(--ew-color-yellow, var(--ew-color-bg-surface)); color: var(--ew-color-ink, var(--ew-color-fg-default)); box-shadow: 3px 3px 0 0 var(--ew-color-ink, var(--ew-color-fg-default)); }
+  [data-era="memphis"] .ew-badge, [data-era="memphis"] .ew-chip { border-radius: 0; background: var(--ew-color-yellow, #EACC56); color: #1A1408; box-shadow: 3px 3px 0 0 var(--ew-color-ink, #1A1408); }
   [data-era="memphis"] .ew-stat { box-shadow: 6px 6px 0 0 var(--ew-color-blue, var(--ew-color-action-bg)); }
   [data-era="memphis"] .ew-section-heading::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-inline-end: 8px; background: var(--ew-color-pink, var(--ew-color-action-bg)); box-shadow: 4px 4px 0 var(--ew-color-yellow, var(--ew-color-action-bg)); vertical-align: 0.1em; }
 }

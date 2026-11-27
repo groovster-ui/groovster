@@ -584,6 +584,8 @@
   [data-era="bauhaus"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
 
   [data-era="bauhaus"] .ew-badge, [data-era="bauhaus"] .ew-chip, [data-era="bauhaus"] .ew-segmented { border-radius: 0; }
+  [data-era="bauhaus"] .ew-price { color: #9E1018; font-weight: 800; }
+  [data-era="bauhaus"][data-mode="dark"] .ew-price { color: #FF9B94; }
   [data-era="bauhaus"] .ew-stat__value { font-weight: 800; }
   [data-era="bauhaus"] .ew-table th { border-bottom: 3px solid var(--ew-color-fg-default); }
 }

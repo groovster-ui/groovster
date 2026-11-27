@@ -1435,7 +1435,8 @@
   [data-era="mcm-atomic"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
 
   [data-era="mcm-atomic"] .ew-badge { border-radius: 4px 14px 4px 14px; }
-  [data-era="mcm-atomic"] .ew-stat__value { color: var(--ew-color-coral, var(--ew-color-action-bg)); }
+  [data-era="mcm-atomic"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-coral, var(--ew-color-action-bg)); }
+  [data-era="mcm-atomic"][data-mode="dark"] :is(.ew-stat__value, .ew-price) { color: #FFB4A8; }
   [data-era="mcm-atomic"]:not([data-density="compact"]) .ew-chip { border-radius: 14px 4px; }
   [data-era="mcm-atomic"][data-mode="dark"] :is(.ew-link, .ew-card__title a, .ew-card h2 a, .ew-card h3 a) { color: #FFB4A8; }
 }

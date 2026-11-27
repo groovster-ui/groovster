@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"price","html":"<div class=\"ew-price\"></div>","css":"import \"@groovster/css/price.css\";","a11y":"Price uses the shared app class. Pair a written label with any icon."}
