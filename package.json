@@ -19,7 +19,7 @@
     "eval": "pnpm --filter @groovster/eval eval",
     "eval:baseline": "pnpm --filter @groovster/eval baseline",
     "eval:sites": "pnpm --filter @groovster/eval websites",
-    "test:sites": "node scripts/recipes-browser.mjs && node scripts/apps-dense-browser.mjs",
+    "test:sites": "node scripts/test-sites.mjs",
     "fidelity:density": "node scripts/fidelity-density.mjs",
     "skill:install": "node scripts/install-skill.mjs",
     "skill:verify": "node scripts/verify-skill-install.mjs",

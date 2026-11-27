@@ -230,7 +230,8 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    min-height: clamp(420px, 62vw, 720px);
+    /* Stay inside a 900px and an 844px first viewport, including the recipe skin above the hero. */
+    min-height: clamp(280px, 42vh, 460px);
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     align-items: end;
