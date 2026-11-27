@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"nav-rail","html":"<nav class=\"ew-nav-rail\" aria-label=\"Mail\"><a class=\"ew-nav-rail__item\" href=\"#inbox\" aria-current=\"page\"><span class=\"ew-nav-rail__label\">Inbox</span><span class=\"ew-badge\">8</span></a></nav>","css":"import \"@groovster/css/nav-rail.css\";","a11y":"aria-current=page marks the current item with weight and a bar."}

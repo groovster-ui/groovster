@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"stat","html":"<div class=\"ew-stat\"><p class=\"ew-stat__label\">Watched</p><p class=\"ew-stat__value\">128</p><p class=\"ew-stat__delta\" data-dir=\"up\">12%</p></div>","css":"import \"@groovster/css/stat.css\";","a11y":"data-dir=up or down adds a triangle so the delta is not color alone. Sparkline goes in .ew-stat__spark."}

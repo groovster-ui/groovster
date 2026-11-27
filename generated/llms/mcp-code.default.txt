@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"code","html":"<pre class=\"ew-code\"><code>npm test</code><button type=\"button\" class=\"ew-button ew-code__copy\">Copy</button></pre>","css":"import \"@groovster/css/code.css\";","a11y":"Use code for inline and pre.ew-code for a block. The copy control is a real button."}

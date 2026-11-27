@@ -1,0 +1,27 @@
+{
+  "name": "ew-badge",
+  "type": "registry:ui",
+  "title": "Era Widgets — Badge",
+  "description": "Count or status dot for labels, nav, and reactions.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/badge.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-badge {\n    /* anatomy: root */\n  }\n  .ew-badge {\n    display: inline-flex; align-items: center; justify-content: center; min-width: 1.25rem; height: 1.25rem;\n    padding: 0 6px; border-radius: 999px; font: 700 0.75rem/1 var(--ew-font-body, system-ui, sans-serif);\n    background: var(--ew-color-action-bg); color: var(--ew-color-action-fg, #fff); vertical-align: middle;\n  }\n  .ew-badge[data-variant=\"dot\"] { width: 8px; height: 8px; min-width: 8px; padding: 0; border-radius: 999px; }\n  .ew-badge[data-variant=\"neutral\"] { background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default); box-shadow: inset 0 0 0 1px var(--ew-color-border-strong); }\n  /* spec variant variant=count */\n  .ew-badge[data-variant=\"count\"] { --ew-spec-variant-variant: count; }\n  /* spec variant variant=dot */\n  .ew-badge[data-variant=\"dot\"] { --ew-spec-variant-variant: dot; }\n  /* spec variant variant=neutral */\n  .ew-badge[data-variant=\"neutral\"] { --ew-spec-variant-variant: neutral; }\n  .ew-badge:not([data-variant]) { --ew-spec-variant-variant: count; }\n  .ew-badge[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-badge[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-badge:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-badge, .ew-badge *, .ew-badge *::before, .ew-badge *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/badge.css"
+    },
+    {
+      "path": "era-widgets/badge.example.html",
+      "content": "<!-- Era Widgets Badge — set data-era on an ancestor -->\n<span class=\"ew-badge\">3</span>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/badge.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-badge",
+    "canonicalHtml": "<span class=\"ew-badge\">3</span>",
+    "cssPackage": "@groovster/css/badge.css"
+  }
+}

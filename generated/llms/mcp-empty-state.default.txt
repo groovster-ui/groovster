@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"empty-state","html":"<div class=\"ew-empty-state\"><h2 class=\"ew-empty-state__title ew-title--panel\">Nothing here</h2><p class=\"ew-empty-state__body\">No messages match.</p></div>","css":"import \"@groovster/css/empty-state.css\";","a11y":"Pair with .is-empty on the parent list or card. Keep one clear action."}

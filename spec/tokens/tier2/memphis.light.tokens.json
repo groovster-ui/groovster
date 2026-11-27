@@ -14,7 +14,7 @@
       },
       "muted": {
         "$type": "color",
-        "$value": "color-mix(in oklch, {color.ink} 55%, {color.cream})"
+        "$value": "color-mix(in oklch, {color.ink} 72%, {color.cream})"
       },
       "inverse": {
         "$type": "color",

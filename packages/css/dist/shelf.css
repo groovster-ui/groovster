@@ -1,0 +1,26 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-shelf {
+    /* anatomy: root */
+  }
+  .ew-shelf { min-width: 0; }
+  .ew-shelf__title { margin: 0 0 8px; }
+  .ew-shelf__row {
+    display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-bottom: 8px; max-width: 100%;
+  }
+  .ew-shelf__row > * { flex: 0 0 auto; scroll-snap-align: start; width: min(180px, 70vw); }
+  /* spec variant variant=default */
+  .ew-shelf[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-shelf:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-shelf[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-shelf[data-size="md"] { --ew-spec-size: md; }
+  .ew-shelf:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-shelf, .ew-shelf *, .ew-shelf *::before, .ew-shelf *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

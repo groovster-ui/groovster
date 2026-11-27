@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"density","html":"<div class=\"ew-density\" data-density=\"compact\"><h1 class=\"ew-title ew-title--page\">Inbox</h1></div>","css":"import \"@groovster/css/density.css\";","a11y":"data-density=comfortable|compact tightens padding. Inside compact or whisper, cards are quiet unless they have .ew-feature."}

@@ -1,0 +1,27 @@
+{
+  "name": "ew-list",
+  "type": "registry:ui",
+  "title": "Era Widgets — List",
+  "description": "Dense row with a lead, truncated text, and trailing meta. Selected and unread states.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/list.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-list {\n    /* anatomy: root, item, primary, meta */\n  }\n  .ew-list { display: flex; flex-direction: column; min-width: 0; margin: 0; padding: 0; list-style: none; }\n  .ew-list-item, .ew-list-item {\n    display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%;\n    min-height: var(--ew-row-min, 44px); padding: 6px 10px; margin: 0;\n    border: 0; background: transparent; color: inherit; font: inherit; text-align: start;\n    text-decoration: none; box-sizing: border-box;\n  }\n  .ew-list-item__lead, .ew-list-item__meta { flex: 0 0 auto; }\n  .ew-list-item__main { min-width: 0; flex: 1 1 auto; display: grid; }\n  .ew-list-item__primary, .ew-list-item__secondary {\n    min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;\n  }\n  .ew-list-item__secondary { color: var(--ew-color-fg-muted); font-size: 0.85em; font-weight: 400; }\n  .ew-list-item.is-selected .ew-list-item__secondary,\n  .ew-list-item[aria-selected=\"true\"] .ew-list-item__secondary,\n  .ew-list-item.is-selected .ew-list-item__meta,\n  .ew-list-item[aria-selected=\"true\"] .ew-list-item__meta { color: var(--ew-color-fg-default); }\n  .ew-list-item__meta { color: var(--ew-color-fg-muted); font-size: 0.8em; font-variant-numeric: tabular-nums; }\n  [data-density=\"compact\"] .ew-list-item { min-height: 36px; padding-block: 4px; }\n  /* spec variant variant=default */\n  .ew-list[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-list:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-list[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-list[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-list:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-list, .ew-list *, .ew-list *::before, .ew-list *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/list.css"
+    },
+    {
+      "path": "era-widgets/list.example.html",
+      "content": "<!-- Era Widgets List — set data-era on an ancestor -->\n<ul class=\"ew-list\" role=\"listbox\" aria-label=\"Messages\"><li><button type=\"button\" class=\"ew-list-item is-unread\" role=\"option\" aria-selected=\"false\" tabindex=\"0\"><span class=\"ew-list-item__main\"><span class=\"ew-list-item__primary\">Maya Okafor</span><span class=\"ew-list-item__secondary\">The kiln fired clean</span></span><span class=\"ew-list-item__meta\">9:40</span></button></li></ul>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/list.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-list",
+    "canonicalHtml": "<ul class=\"ew-list\" role=\"listbox\" aria-label=\"Messages\"><li><button type=\"button\" class=\"ew-list-item is-unread\" role=\"option\" aria-selected=\"false\" tabindex=\"0\"><span class=\"ew-list-item__main\"><span class=\"ew-list-item__primary\">Maya Okafor</span><span class=\"ew-list-item__secondary\">The kiln fired clean</span></span><span class=\"ew-list-item__meta\">9:40</span></button></li></ul>",
+    "cssPackage": "@groovster/css/list.css"
+  }
+}

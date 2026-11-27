@@ -1,0 +1,100 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "empty-state",
+  "name": "Empty state",
+  "summary": "Title, short explanation, and an optional action when a list or card is empty.",
+  "className": "ew-empty-state",
+  "nativeElement": "div",
+  "behavior": "css-only",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-empty-state",
+      "description": "Root element."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default"
+      ],
+      "default": "default",
+      "description": "Visual."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "hover",
+      "selector": ":hover",
+      "description": "Pointer hover."
+    },
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    },
+    {
+      "name": "busy",
+      "selector": "[aria-busy=true]",
+      "description": "Loading."
+    },
+    {
+      "name": "empty",
+      "selector": ".is-empty",
+      "description": "No content yet."
+    }
+  ],
+  "aria": {
+    "role": "status",
+    "requiredAttributes": [],
+    "optionalAttributes": [],
+    "notes": [
+      "Pair with .is-empty on the parent list or card. Keep one clear action."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Move to the action if there is one."
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Content."
+    }
+  ],
+  "canonicalHtml": "<div class=\"ew-empty-state\"><h2 class=\"ew-empty-state__title ew-title--panel\">Nothing here</h2><p class=\"ew-empty-state__body\">No messages match.</p></div>",
+  "imports": [
+    "@groovster/css/empty-state.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "do": [
+    "Keep markup era-neutral and set data-era on an ancestor."
+  ],
+  "dont": [
+    "Do not restyle this with a display face or uppercase tracking."
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "color.action.*",
+    "type.body"
+  ]
+}

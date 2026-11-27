@@ -74,13 +74,102 @@ export function memphisDecoratorCss() {
   }
   ${costumeSel('memphis')} {
     background-color: var(--ew-color-bg-page);
-    background-image: ${groundLight};
-    background-repeat: repeat;
-    background-size: 640px 640px;
+    background-image: none;
   }
   ${costumeDark} {
     background-color: var(--ew-color-bg-page);
+    background-image: none;
+  }
+  [data-era="memphis"] .ew-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: clamp(420px, 62vw, 720px);
+    display: grid;
+    align-items: end;
+    padding: clamp(28px, 5vw, 72px);
+    background-color: var(--ew-color-bg-page);
+    background-image: ${groundLight};
+    background-size: 640px 640px;
+    border-block: 10px solid var(--ew-color-ink, var(--ew-memphis-ink));
+  }
+  [data-era="memphis"][data-mode="dark"] .ew-hero {
     background-image: ${groundDark};
+  }
+  [data-era="memphis"] .ew-hero__backdrop,
+  [data-era="memphis"] .ew-hero__stage {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  [data-era="memphis"] .ew-hero__stage::before,
+  [data-era="memphis"] .ew-hero__stage::after,
+  [data-era="memphis"] .ew-hero::before,
+  [data-era="memphis"] .ew-hero::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+  }
+  [data-era="memphis"] .ew-hero::before {
+    width: min(34%, 280px);
+    height: 42%;
+    right: 8%;
+    top: 14%;
+    background: var(--ew-color-yellow);
+    box-shadow: 16px 0 0 0 var(--ew-color-ink, var(--ew-memphis-ink));
+  }
+  [data-era="memphis"] .ew-hero::after {
+    width: min(18%, 140px);
+    height: min(18%, 140px);
+    right: 28%;
+    top: 8%;
+    border-radius: 50%;
+    background: var(--ew-color-blue);
+  }
+  [data-era="memphis"] .ew-hero__stage::before {
+    width: min(34%, 280px);
+    height: 14%;
+    right: 8%;
+    top: 56%;
+    background: var(--ew-color-pink);
+    box-shadow: 16px 0 0 0 var(--ew-color-ink, var(--ew-memphis-ink));
+  }
+  [data-era="memphis"] .ew-hero__stage::after {
+    left: 8%;
+    right: 8%;
+    bottom: 12%;
+    height: 18px;
+    background: ${squiggleLight} left center / 104px 28px repeat-x;
+  }
+  [data-era="memphis"][data-mode="dark"] .ew-hero__stage::after {
+    background-image: ${squiggleDark};
+  }
+  [data-era="memphis"] .ew-hero__panel,
+  [data-era="memphis"] .ew-hero__content {
+    position: relative;
+    z-index: 2;
+    width: max-content;
+    max-width: 100%;
+    background: var(--ew-color-bg-page);
+    box-shadow: 0 0 0 8px var(--ew-color-bg-page);
+    padding: 12px 16px;
+  }
+  [data-era="memphis"] .ew-hero__title {
+    font-family: var(--ew-font-display);
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.9;
+    margin: 0;
+  }
+  [data-era="memphis"] .ew-ornament-divider {
+    height: 28px;
+    background-color: transparent;
+    background-image: ${squiggleLight};
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: 104px 28px;
+  }
+  [data-era="memphis"][data-mode="dark"] .ew-ornament-divider {
+    background-image: ${squiggleDark};
   }
   [data-era="memphis"] .ew-button,
   [data-era="memphis"] .ew-icon-button {

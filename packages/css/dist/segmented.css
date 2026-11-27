@@ -1,0 +1,26 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-segmented {
+    /* anatomy: root */
+  }
+  .ew-segmented { display: inline-flex; flex-wrap: wrap; min-width: 0; max-width: 100%; padding: 2px; gap: 2px; border: 1px solid var(--ew-color-border-subtle); border-radius: var(--ew-structure-control-radius, 8px); }
+  .ew-segmented__item {
+    min-height: 32px; padding: 4px 10px; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer;
+  }
+  .ew-segmented__item[aria-checked="true"], .ew-segmented :checked + .ew-segmented__item {
+    font-weight: 700; background: var(--ew-color-bg-surface); box-shadow: inset 0 -2px 0 var(--ew-color-action-bg);
+  }
+  /* spec variant variant=default */
+  .ew-segmented[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-segmented:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-segmented[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-segmented[data-size="md"] { --ew-spec-size: md; }
+  .ew-segmented:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-segmented, .ew-segmented *, .ew-segmented *::before, .ew-segmented *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

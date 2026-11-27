@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"badge","html":"<span class=\"ew-badge\">3</span>","css":"import \"@groovster/css/badge.css\";","a11y":"A count needs visible text. A dot sets data-variant=dot and an aria-label on the parent."}

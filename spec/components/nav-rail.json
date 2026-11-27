@@ -1,0 +1,117 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "nav-rail",
+  "name": "Nav rail",
+  "summary": "Sidebar items with an icon, label, and count. Collapses to icons.",
+  "className": "ew-nav-rail",
+  "nativeElement": "nav",
+  "behavior": "css-only",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-nav-rail",
+      "description": "Root element."
+    },
+    {
+      "part": "item",
+      "required": true,
+      "selector": ".ew-nav-rail__item",
+      "description": "Rail item."
+    },
+    {
+      "part": "label",
+      "required": true,
+      "selector": ".ew-nav-rail__label",
+      "description": "Item label."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default"
+      ],
+      "default": "default",
+      "description": "Visual."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "hover",
+      "selector": ":hover",
+      "description": "Pointer hover."
+    },
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    },
+    {
+      "name": "busy",
+      "selector": "[aria-busy=true]",
+      "description": "Loading."
+    },
+    {
+      "name": "empty",
+      "selector": ".is-empty",
+      "description": "No content yet."
+    }
+  ],
+  "aria": {
+    "role": "navigation",
+    "requiredAttributes": [],
+    "optionalAttributes": [],
+    "notes": [
+      "aria-current=page marks the current item with weight and a bar.",
+      "data-collapsed=true hides labels. Groups are details/summary."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Move between items."
+    },
+    {
+      "keys": "Enter",
+      "action": "Activate a link or button."
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Content."
+    }
+  ],
+  "canonicalHtml": "<nav class=\"ew-nav-rail\" aria-label=\"Mail\"><a class=\"ew-nav-rail__item\" href=\"#inbox\" aria-current=\"page\"><span class=\"ew-nav-rail__label\">Inbox</span><span class=\"ew-badge\">8</span></a></nav>",
+  "imports": [
+    "@groovster/css/nav-rail.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "do": [
+    "Keep markup era-neutral and set data-era on an ancestor."
+  ],
+  "dont": [
+    "Do not restyle this with a display face or uppercase tracking."
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "color.action.*",
+    "type.body"
+  ]
+}

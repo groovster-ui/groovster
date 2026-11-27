@@ -1,3 +1,5 @@
+import { appComponentCss, densityDecoratorCss, isAppComponent } from './app-components.js';
+
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
 
 /** Emit variant/size hooks from the component spec so CSS stays spec-driven. */
@@ -70,6 +72,7 @@ export function genComponentCss(comp) {
   }[comp.id];
 
   if (body) lines.push(body(cls));
+  else if (isAppComponent(comp.id)) lines.push(appComponentCss(comp.id, cls));
   else lines.push(`  /* stub styles for ${comp.id} */`);
 
   const hooks = specDrivenHooks(comp);
@@ -77,6 +80,7 @@ export function genComponentCss(comp) {
   lines.push(reducedMotionBlock(cls));
 
   lines.push(`}`);
+  if (comp.id === 'density') lines.push(densityDecoratorCss());
   return lines.join('\n') + '\n';
 }
 
@@ -684,7 +688,8 @@ function linkCss(cls) {
 
 function avatarCss(cls) {
   return `  .${cls} {
-    display: inline-grid; place-items: center; overflow: hidden;
+    position: relative;
+    display: inline-grid; place-items: center; overflow: visible;
     width: 40px; height: 40px;
     border-radius: var(--ew-structure-control-radius, 999px);
     background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default);
@@ -695,7 +700,17 @@ function avatarCss(cls) {
   .${cls}[data-size="sm"] { width: 32px; height: 32px; font-size: 12px; }
   .${cls}[data-size="lg"] { width: 56px; height: 56px; font-size: 16px; }
   .${cls}__image { width: 100%; height: 100%; object-fit: cover; }
-  .${cls}__fallback { line-height: 1; }`;
+  .${cls}__fallback { line-height: 1; }
+  .${cls}__presence {
+    position: absolute; right: 0; bottom: 0; width: 10px; height: 10px;
+    border: 2px solid var(--ew-color-bg-surface); box-sizing: border-box;
+  }
+  .${cls}__presence[data-presence="online"] { background: var(--ew-color-action-bg); border-radius: 999px; }
+  .${cls}__presence[data-presence="away"] { background: transparent; border-radius: 999px; box-shadow: inset 0 0 0 2px var(--ew-color-action-bg); }
+  .${cls}__presence[data-presence="busy"] { background: var(--ew-color-danger-bg); border-radius: 2px; }
+  .${cls}__presence[data-presence="offline"] { background: transparent; border-radius: 999px; box-shadow: inset 0 0 0 2px var(--ew-color-fg-muted); }
+  .${cls}-group { display: flex; padding-inline-start: 8px; }
+  .${cls}-group .${cls} { margin-inline-start: -8px; }`;
 }
 
 function breadcrumbCss(cls) {

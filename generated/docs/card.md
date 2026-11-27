@@ -33,7 +33,7 @@ Surface container for grouped content. Cards are interaction containers — eras
 
 - Use semantic root (article/section) when content warrants it.
 - Let eras own elevation — avoid ad-hoc box-shadows on top.
-- Keep one primary action in the footer when actions exist.
+- Use .ew-card--quiet, or data-density=compact, for a hairline frame. Add .ew-feature to keep the full era frame. .ew-card__title--truncate ellipsizes a title.
 
 ## Don't
 

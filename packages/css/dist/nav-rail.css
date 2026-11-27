@@ -1,0 +1,31 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-nav-rail {
+    /* anatomy: root, item, label */
+  }
+  .ew-nav-rail { display: flex; flex-direction: column; gap: 2px; min-width: 0; margin: 0; padding: 8px; list-style: none; }
+  .ew-nav-rail__item {
+    display: flex; align-items: center; gap: 8px; min-width: 0; min-height: var(--ew-row-min, 40px);
+    padding: 6px 8px; border-radius: var(--ew-structure-control-radius, 8px);
+    color: inherit; text-decoration: none; font: inherit;
+  }
+  .ew-nav-rail__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 auto; }
+  .ew-nav-rail__group { margin: 8px 0 0; padding: 0; border: 0; min-width: 0; }
+  .ew-nav-rail__group summary { cursor: pointer; font-weight: 700; padding: 6px 8px; }
+  .ew-nav-rail[data-collapsed="true"] { width: 56px; }
+  .ew-nav-rail[data-collapsed="true"] .ew-nav-rail__label,
+  .ew-nav-rail[data-collapsed="true"] .ew-badge { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  /* spec variant variant=default */
+  .ew-nav-rail[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-nav-rail:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-nav-rail[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-nav-rail[data-size="md"] { --ew-spec-size: md; }
+  .ew-nav-rail:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-nav-rail, .ew-nav-rail *, .ew-nav-rail *::before, .ew-nav-rail *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

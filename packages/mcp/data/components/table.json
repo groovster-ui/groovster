@@ -1,0 +1,100 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "table",
+  "name": "Table",
+  "summary": "Era table with a caption, rules, optional zebra, and sortable headers.",
+  "className": "ew-table",
+  "nativeElement": "table",
+  "behavior": "css-only",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-table",
+      "description": "Root element."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default"
+      ],
+      "default": "default",
+      "description": "Visual."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "hover",
+      "selector": ":hover",
+      "description": "Pointer hover."
+    },
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    },
+    {
+      "name": "busy",
+      "selector": "[aria-busy=true]",
+      "description": "Loading."
+    },
+    {
+      "name": "empty",
+      "selector": ".is-empty",
+      "description": "No content yet."
+    }
+  ],
+  "aria": {
+    "role": "table",
+    "requiredAttributes": [],
+    "optionalAttributes": [],
+    "notes": [
+      "aria-sort on sortable headers. data-responsive=stack stacks rows under 600px using data-label. Wrap with .ew-table-scroll to scroll instead."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Move to a sortable header button if the header is a button."
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Content."
+    }
+  ],
+  "canonicalHtml": "<table class=\"ew-table\" data-responsive=\"stack\"><caption>Specifics</caption><thead><tr><th aria-sort=\"ascending\">Lot</th></tr></thead><tbody><tr class=\"is-selected\" aria-selected=\"true\"><td data-label=\"Lot\">Bowl</td></tr></tbody></table>",
+  "imports": [
+    "@groovster/css/table.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "do": [
+    "Keep markup era-neutral and set data-era on an ancestor."
+  ],
+  "dont": [
+    "Do not restyle this with a display face or uppercase tracking."
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "color.action.*",
+    "type.body"
+  ]
+}

@@ -305,6 +305,14 @@ function structureVars(structure) {
   return lines;
 }
 
+/** Drop `--token: var(--token)` cycles. Tier-2 `color.danger.fg` aliases the tier-1 name and would erase the literal. */
+function withoutSelfReference(vars) {
+  return vars.filter((line) => {
+    const match = line.match(/--([a-z0-9-]+):\s*var\(--([a-z0-9-]+)\)\s*;/i);
+    return !(match && match[1] === match[2]);
+  });
+}
+
 function tokenFileFor(era, tierDir, mode) {
   const match = era.tokenFiles.find(
     (f) => f.includes(`/${tierDir}/`) && f.includes(`.${mode}.`)
@@ -323,7 +331,7 @@ function genEraCss(era) {
   for (const mode of era.modes) {
     const t1 = readJson(tokenFileFor(era, 'tier1', mode));
     const t2 = readJson(tokenFileFor(era, 'tier2', mode));
-    const vars = [...flattenTokens(t1), ...flattenTokens(t2)];
+    const vars = withoutSelfReference([...flattenTokens(t1), ...flattenTokens(t2)]);
     // Neon defaults to dark (synthwave night) when data-mode is absent; other eras default to light.
     const defaultMode = era.id === 'neon' ? 'dark' : 'light';
     const selector =

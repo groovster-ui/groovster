@@ -246,6 +246,34 @@ export function atomicDecoratorCss() {
     pointer-events: none;
     overflow: hidden;
   }
+  /* Empty documented stage still draws a starburst and orbits. */
+  [data-era="mcm-atomic"] .ew-hero__stage:empty::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    width: min(280px, 72%);
+    height: min(280px, 72%);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background: url("data:image/svg+xml,${STAR_CORAL}") center / contain no-repeat;
+    pointer-events: none;
+  }
+  [data-era="mcm-atomic"] .ew-hero__stage:empty::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    width: min(220px, 58%);
+    height: min(220px, 58%);
+    transform: translate(-50%, -50%);
+    border: 2px solid color-mix(in oklch, var(--ew-color-teal, var(--ew-color-action-bg)) 75%, transparent);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 22px color-mix(in oklch, var(--ew-color-mustard, var(--ew-color-accent-solid)) 35%, transparent),
+      inset 0 0 0 14px color-mix(in oklch, var(--ew-color-coral, var(--ew-color-action-bg)) 28%, transparent);
+    pointer-events: none;
+  }
   /* Panel wraps the copy in the canonical tree. It occupies the text cell; direct .ew-hero__content still does when there is no panel. */
   [data-era="mcm-atomic"] .ew-hero__panel {
     position: relative;

@@ -1,0 +1,30 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-badge {
+    /* anatomy: root */
+  }
+  .ew-badge {
+    display: inline-flex; align-items: center; justify-content: center; min-width: 1.25rem; height: 1.25rem;
+    padding: 0 6px; border-radius: 999px; font: 700 0.75rem/1 var(--ew-font-body, system-ui, sans-serif);
+    background: var(--ew-color-action-bg); color: var(--ew-color-action-fg, #fff); vertical-align: middle;
+  }
+  .ew-badge[data-variant="dot"] { width: 8px; height: 8px; min-width: 8px; padding: 0; border-radius: 999px; }
+  .ew-badge[data-variant="neutral"] { background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default); box-shadow: inset 0 0 0 1px var(--ew-color-border-strong); }
+  /* spec variant variant=count */
+  .ew-badge[data-variant="count"] { --ew-spec-variant-variant: count; }
+  /* spec variant variant=dot */
+  .ew-badge[data-variant="dot"] { --ew-spec-variant-variant: dot; }
+  /* spec variant variant=neutral */
+  .ew-badge[data-variant="neutral"] { --ew-spec-variant-variant: neutral; }
+  .ew-badge:not([data-variant]) { --ew-spec-variant-variant: count; }
+  .ew-badge[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-badge[data-size="md"] { --ew-spec-size: md; }
+  .ew-badge:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-badge, .ew-badge *, .ew-badge *::before, .ew-badge *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

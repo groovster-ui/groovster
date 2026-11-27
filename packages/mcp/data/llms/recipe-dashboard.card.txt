@@ -7,7 +7,7 @@ Eras: neutral, swiss. Also: deco, groovy, memphis, mcm-atomic, neon, bauhaus. Av
 Fidelity: page whisper; forms whisper; data whisper. Whisper is the default so tables and filters stay quiet. Costume may be switched on; it must not hide rows or labels.
 Sections: masthead, metrics, filters, queues. Optional: notes.
 Components: button, card, tabs, select, text-field, switch, alert, link. Optional: menu.
-Layout: One compact bar, a metric row, filters, then tabbed tables. Do not use a full-viewport .ew-hero. There is no table component; use a native table.
+Layout: One compact bar, a metric row, filters, then tabbed tables. Do not use a full-viewport .ew-hero. Use ew-table for the data, with data-responsive=stack under 600px.
 Responsive (800px): Metrics wrap. Filters wrap. Tables scroll inside a region instead of widening the page.
 Type: Body or mono for figures. Short labels. Display faces stay off controls and table cells.
 Spacing: 8 to 12 pixel gaps. Row padding stays compact in page CSS, not a new global density token.

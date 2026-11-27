@@ -42,6 +42,25 @@
       ]
     },
     {
+      "name": "ew-badge",
+      "type": "registry:ui",
+      "title": "Era Widgets — Badge",
+      "description": "Count or status dot for labels, nav, and reactions.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/badge.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/badge.css"
+        },
+        {
+          "path": "era-widgets/badge.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/badge.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-breadcrumb",
       "type": "registry:ui",
       "title": "Era Widgets — Breadcrumb",
@@ -118,6 +137,63 @@
       ]
     },
     {
+      "name": "ew-chip",
+      "type": "registry:ui",
+      "title": "Era Widgets — Chip",
+      "description": "Filter, label, or removable token. Selectable chips use aria-pressed.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/chip.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/chip.css"
+        },
+        {
+          "path": "era-widgets/chip.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/chip.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-code",
+      "type": "registry:ui",
+      "title": "Era Widgets — Code",
+      "description": "Inline or block code in the era monospace, with a copy slot.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/code.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/code.css"
+        },
+        {
+          "path": "era-widgets/code.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/code.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-density",
+      "type": "registry:ui",
+      "title": "Era Widgets — Density",
+      "description": "App heading scale and compact or comfortable density. Quiet cards and body type on controls.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/density.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/density.css"
+        },
+        {
+          "path": "era-widgets/density.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/density.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-dialog",
       "type": "registry:ui",
       "title": "Era Widgets — Dialog",
@@ -133,6 +209,25 @@
           "path": "era-widgets/dialog.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/dialog.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-empty-state",
+      "type": "registry:ui",
+      "title": "Era Widgets — Empty state",
+      "description": "Title, short explanation, and an optional action when a list or card is empty.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/empty-state.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/empty-state.css"
+        },
+        {
+          "path": "era-widgets/empty-state.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/empty-state.example.html"
         }
       ]
     },
@@ -175,6 +270,44 @@
       ]
     },
     {
+      "name": "ew-list",
+      "type": "registry:ui",
+      "title": "Era Widgets — List",
+      "description": "Dense row with a lead, truncated text, and trailing meta. Selected and unread states.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/list.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/list.css"
+        },
+        {
+          "path": "era-widgets/list.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/list.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-media-card",
+      "type": "registry:ui",
+      "title": "Era Widgets — Media card",
+      "description": "Poster or widescreen card with an overlay title and a watched bar.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/media-card.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/media-card.css"
+        },
+        {
+          "path": "era-widgets/media-card.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/media-card.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-menu",
       "type": "registry:ui",
       "title": "Era Widgets — Menu",
@@ -199,6 +332,44 @@
       ]
     },
     {
+      "name": "ew-meter",
+      "type": "registry:ui",
+      "title": "Era Widgets — Meter",
+      "description": "Labeled linear meter or progress, plus a small radial.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/meter.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/meter.css"
+        },
+        {
+          "path": "era-widgets/meter.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/meter.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-nav-rail",
+      "type": "registry:ui",
+      "title": "Era Widgets — Nav rail",
+      "description": "Sidebar items with an icon, label, and count. Collapses to icons.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/nav-rail.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/nav-rail.css"
+        },
+        {
+          "path": "era-widgets/nav-rail.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/nav-rail.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-ornament-divider",
       "type": "registry:ui",
       "title": "Era Widgets — OrnamentDivider",
@@ -214,6 +385,25 @@
           "path": "era-widgets/ornament-divider.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/ornament-divider.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-pagination",
+      "type": "registry:ui",
+      "title": "Era Widgets — Pagination",
+      "description": "Previous, next, and page links. The current page uses aria-current.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/pagination.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/pagination.css"
+        },
+        {
+          "path": "era-widgets/pagination.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/pagination.example.html"
         }
       ]
     },
@@ -261,6 +451,44 @@
       ]
     },
     {
+      "name": "ew-search",
+      "type": "registry:ui",
+      "title": "Era Widgets — Search",
+      "description": "Search field with a leading icon, clear button, and optional scope.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/search.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/search.css"
+        },
+        {
+          "path": "era-widgets/search.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/search.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-segmented",
+      "type": "registry:ui",
+      "title": "Era Widgets — Segmented control",
+      "description": "A single-choice control with radiogroup semantics.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/segmented.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/segmented.css"
+        },
+        {
+          "path": "era-widgets/segmented.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/segmented.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-select",
       "type": "registry:ui",
       "title": "Era Widgets — Select",
@@ -281,6 +509,44 @@
           "path": "era-widgets/select.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/select.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-shelf",
+      "type": "registry:ui",
+      "title": "Era Widgets — Shelf",
+      "description": "Horizontal title row with scroll-snap and keyboard access.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/shelf.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/shelf.css"
+        },
+        {
+          "path": "era-widgets/shelf.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/shelf.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-skeleton",
+      "type": "registry:ui",
+      "title": "Era Widgets — Skeleton",
+      "description": "Placeholder while content loads. Still when motion is reduced.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/skeleton.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/skeleton.css"
+        },
+        {
+          "path": "era-widgets/skeleton.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/skeleton.example.html"
         }
       ]
     },
@@ -309,6 +575,25 @@
       ]
     },
     {
+      "name": "ew-stat",
+      "type": "registry:ui",
+      "title": "Era Widgets — Stat",
+      "description": "A value, a label, and an up or down delta that is not color alone.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/stat.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/stat.css"
+        },
+        {
+          "path": "era-widgets/stat.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/stat.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-switch",
       "type": "registry:ui",
       "title": "Era Widgets — Switch",
@@ -324,6 +609,25 @@
           "path": "era-widgets/switch.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/switch.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-table",
+      "type": "registry:ui",
+      "title": "Era Widgets — Table",
+      "description": "Era table with a caption, rules, optional zebra, and sortable headers.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/table.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/table.css"
+        },
+        {
+          "path": "era-widgets/table.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/table.example.html"
         }
       ]
     },
@@ -414,6 +718,25 @@
       ]
     },
     {
+      "name": "ew-toolbar",
+      "type": "registry:ui",
+      "title": "Era Widgets — Toolbar",
+      "description": "App bar with start, center, and end slots. Optional sticky and overflow.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/toolbar.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/toolbar.css"
+        },
+        {
+          "path": "era-widgets/toolbar.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/toolbar.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-tooltip",
       "type": "registry:ui",
       "title": "Era Widgets — Tooltip",
@@ -434,6 +757,25 @@
           "path": "era-widgets/tooltip.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/tooltip.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-typing-indicator",
+      "type": "registry:ui",
+      "title": "Era Widgets — Typing indicator",
+      "description": "Three dots while someone is typing. Static when motion is reduced.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/typing-indicator.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/typing-indicator.css"
+        },
+        {
+          "path": "era-widgets/typing-indicator.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/typing-indicator.example.html"
         }
       ]
     }

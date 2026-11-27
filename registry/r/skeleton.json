@@ -1,0 +1,27 @@
+{
+  "name": "ew-skeleton",
+  "type": "registry:ui",
+  "title": "Era Widgets — Skeleton",
+  "description": "Placeholder while content loads. Still when motion is reduced.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/skeleton.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-skeleton {\n    /* anatomy: root */\n  }\n  .ew-skeleton {\n    display: block; min-width: 0; height: 1em; border-radius: 6px;\n    background: linear-gradient(90deg, var(--ew-color-border-subtle), var(--ew-color-bg-surface), var(--ew-color-border-subtle));\n    background-size: 200% 100%;\n    animation: ew-skeleton 1.2s ease-in-out infinite;\n  }\n  .ew-skeleton[data-variant=\"block\"] { height: 96px; }\n  @keyframes ew-skeleton { from { background-position: 100% 0; } to { background-position: -100% 0; } }\n  @media (prefers-reduced-motion: reduce) { .ew-skeleton { animation: none; } }\n  /* spec variant variant=line */\n  .ew-skeleton[data-variant=\"line\"] { --ew-spec-variant-variant: line; }\n  /* spec variant variant=block */\n  .ew-skeleton[data-variant=\"block\"] { --ew-spec-variant-variant: block; }\n  .ew-skeleton:not([data-variant]) { --ew-spec-variant-variant: line; }\n  .ew-skeleton[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-skeleton[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-skeleton:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-skeleton, .ew-skeleton *, .ew-skeleton *::before, .ew-skeleton *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/skeleton.css"
+    },
+    {
+      "path": "era-widgets/skeleton.example.html",
+      "content": "<!-- Era Widgets Skeleton — set data-era on an ancestor -->\n<div class=\"ew-skeleton\" data-variant=\"block\" aria-hidden=\"true\"></div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/skeleton.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-skeleton",
+    "canonicalHtml": "<div class=\"ew-skeleton\" data-variant=\"block\" aria-hidden=\"true\"></div>",
+    "cssPackage": "@groovster/css/skeleton.css"
+  }
+}

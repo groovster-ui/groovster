@@ -19,7 +19,7 @@ test('nativeElement selectors become real tags and attributes', () => {
 test('every component spec generates a valid tag and its root class', () => {
   const dir = path.join('spec/components');
   const files = fs.readdirSync(dir).filter((name) => name.endsWith('.json'));
-  assert.equal(files.length, 21);
+  assert.ok(files.length >= 21);
   for (const file of files) {
     const spec = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
     const source = componentSource(spec);

@@ -39,6 +39,7 @@ function section(era, mode, fidelity) {
     <footer class="ew-card__footer">
       <button type="button" class="ew-button">Primary</button>
       <button type="button" class="ew-button" data-variant="secondary">Secondary</button>
+      <button type="button" class="ew-button" data-variant="danger">Delete</button>
     </footer>
   </article>
   <div class="ew-text-field">
@@ -95,6 +96,10 @@ function section(era, mode, fidelity) {
     <input id="vol-${slug}" class="ew-slider__control" type="range" min="0" max="100" value="40" />
     <output class="ew-slider__value" for="vol-${slug}">40</output>
   </ew-slider>
+  <a class="ew-link" href="#plan-${slug}">Read the note</a>
+  <div class="ew-list">
+    <button type="button" class="ew-list-item is-selected is-unread" aria-pressed="true">Maya Okafor</button>
+  </div>
   <ew-toast-region class="ew-toast-region" data-testid="toast-${sid}" aria-live="polite"></ew-toast-region>
 </section>`;
 }

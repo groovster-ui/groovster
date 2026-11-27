@@ -93,7 +93,6 @@
     --ew-color-track-off: color-mix(in oklch, var(--ew-color-panel) 90%, var(--ew-color-brass) 10%);
     --ew-color-track-on: var(--ew-color-accent-solid);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
-    --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 0px 2px 0px 0px color-mix(in oklch, var(--ew-color-brassDeep) 35%, transparent);
     --ew-elevation-2: 0px 4px 0px 0px color-mix(in oklch, var(--ew-color-ink) 25%, transparent), 0px 8px 0px 0px color-mix(in oklch, var(--ew-color-brassDeep) 20%, transparent);
     --ew-elevation-dialog: 0px 12px 0px 0px color-mix(in oklch, var(--ew-color-ink) 35%, transparent);
@@ -161,7 +160,6 @@
     --ew-color-track-off: color-mix(in oklch, var(--ew-color-panel) 90%, var(--ew-color-brass) 10%);
     --ew-color-track-on: var(--ew-color-accent-solid);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
-    --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 0px 2px 0px 0px color-mix(in oklch, var(--ew-color-brass) 40%, transparent);
     --ew-elevation-2: 0px 4px 0px 0px color-mix(in oklch, var(--ew-color-paper) 55%, transparent), 0px 8px 0px 0px color-mix(in oklch, var(--ew-color-brassDeep) 30%, transparent);
     --ew-elevation-dialog: 0px 12px 0px 0px color-mix(in oklch, var(--ew-color-paper) 65%, transparent);

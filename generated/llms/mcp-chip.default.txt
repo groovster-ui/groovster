@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"chip","html":"<button type=\"button\" class=\"ew-chip\" aria-pressed=\"false\">Unread</button>","css":"import \"@groovster/css/chip.css\";","a11y":"Selectable chips toggle aria-pressed. Removable chips include a button.ew-chip__remove with an accessible name."}

@@ -135,6 +135,40 @@ export function neonDecoratorCss() {
     pointer-events: none;
     overflow: hidden;
   }
+  /* Documented markup often leaves the stage empty. Paint sun, mountains, and floor anyway. */
+  [data-era="neon"] .ew-hero__stage:empty {
+    background-image:
+      linear-gradient(to bottom, transparent 0 calc(100% - 2px), color-mix(in srgb, var(--ew-color-cyan) 90%, white) calc(100% - 2px)),
+      linear-gradient(to right, transparent 0 calc(100% - 2px), color-mix(in srgb, var(--ew-color-magenta) 88%, white) calc(100% - 2px));
+    background-size: 100% 28px, 72px 100%;
+    background-position: center bottom;
+    background-repeat: repeat;
+  }
+  [data-era="neon"] .ew-hero__stage:empty::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: min(280px, 42vw);
+    height: var(--ew-hero-sun-h);
+    transform: translateX(-50%);
+    border-radius: 999px 999px 0 0;
+    background: var(--ew-gradient-sunset);
+    pointer-events: none;
+  }
+  [data-era="neon"] .ew-hero__stage:empty::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: calc(var(--ew-hero-sun-h) - 64px);
+    width: min(1100px, 120%);
+    height: 88px;
+    transform: translateX(-50%);
+    background-color: var(--ew-color-cyan);
+    -webkit-mask: var(--ew-ornament-mountains) center / 100% 100% no-repeat;
+    mask: var(--ew-ornament-mountains) center / 100% 100% no-repeat;
+    pointer-events: none;
+  }
   /* Shared hero tree puts a backdrop and a panel around the copy. The backdrop must not take row 1, and the panel must, or the title falls below the floor. */
   [data-era="neon"] .ew-hero__backdrop {
     position: absolute;

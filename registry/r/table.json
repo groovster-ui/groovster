@@ -1,0 +1,27 @@
+{
+  "name": "ew-table",
+  "type": "registry:ui",
+  "title": "Era Widgets — Table",
+  "description": "Era table with a caption, rules, optional zebra, and sortable headers.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/table.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-table {\n    /* anatomy: root */\n  }\n  .ew-table { width: 100%; max-width: 100%; border-collapse: collapse; font: inherit; }\n  .ew-table caption { text-align: start; font-weight: 700; padding: 8px 0; }\n  .ew-table th, .ew-table td { min-width: 0; padding: 8px; text-align: start; border-bottom: 1px solid var(--ew-color-border-subtle); overflow-wrap: anywhere; }\n  .ew-table th { font-weight: 700; }\n  .ew-table th[aria-sort] { cursor: pointer; }\n  .ew-table th[aria-sort=\"ascending\"]::after { content: \" \\2191\"; }\n  .ew-table th[aria-sort=\"descending\"]::after { content: \" \\2193\"; }\n  .ew-table[data-zebra=\"true\"] tbody tr:nth-child(even) { background: color-mix(in oklch, var(--ew-color-fg-default) 5%, transparent); }\n  .ew-table-scroll { max-width: 100%; overflow-x: auto; }\n  @media (max-width: 600px) {\n    .ew-table[data-responsive=\"stack\"] thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }\n    .ew-table[data-responsive=\"stack\"] tr { display: grid; border-bottom: 1px solid var(--ew-color-border-subtle); }\n    .ew-table[data-responsive=\"stack\"] td { display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); border: 0; }\n    .ew-table[data-responsive=\"stack\"] td::before { content: attr(data-label); font-weight: 700; }\n  }\n  /* spec variant variant=default */\n  .ew-table[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-table:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-table[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-table[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-table:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-table, .ew-table *, .ew-table *::before, .ew-table *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/table.css"
+    },
+    {
+      "path": "era-widgets/table.example.html",
+      "content": "<!-- Era Widgets Table — set data-era on an ancestor -->\n<table class=\"ew-table\" data-responsive=\"stack\"><caption>Specifics</caption><thead><tr><th aria-sort=\"ascending\">Lot</th></tr></thead><tbody><tr class=\"is-selected\" aria-selected=\"true\"><td data-label=\"Lot\">Bowl</td></tr></tbody></table>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/table.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-table",
+    "canonicalHtml": "<table class=\"ew-table\" data-responsive=\"stack\"><caption>Specifics</caption><thead><tr><th aria-sort=\"ascending\">Lot</th></tr></thead><tbody><tr class=\"is-selected\" aria-selected=\"true\"><td data-label=\"Lot\">Bowl</td></tr></tbody></table>",
+    "cssPackage": "@groovster/css/table.css"
+  }
+}

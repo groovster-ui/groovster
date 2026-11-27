@@ -1,0 +1,30 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-typing-indicator {
+    /* anatomy: root */
+  }
+  .ew-typing-indicator { display: inline-flex; gap: 4px; align-items: center; min-height: 24px; }
+  .ew-typing-indicator i {
+    width: 6px; height: 6px; border-radius: 999px; background: var(--ew-color-fg-muted);
+    animation: ew-typing 1s ease-in-out infinite;
+  }
+  .ew-typing-indicator i:nth-child(2) { animation-delay: 0.15s; }
+  .ew-typing-indicator i:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes ew-typing { 50% { transform: translateY(-3px); } }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-typing-indicator i { animation: none; opacity: 0.8; }
+  }
+  /* spec variant variant=default */
+  .ew-typing-indicator[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-typing-indicator:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-typing-indicator[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-typing-indicator[data-size="md"] { --ew-spec-size: md; }
+  .ew-typing-indicator:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-typing-indicator, .ew-typing-indicator *, .ew-typing-indicator *::before, .ew-typing-indicator *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

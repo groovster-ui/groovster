@@ -1,0 +1,103 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "density",
+  "name": "Density",
+  "summary": "App heading scale and compact or comfortable density. Quiet cards and body type on controls.",
+  "className": "ew-density",
+  "nativeElement": "div",
+  "behavior": "css-only",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-density",
+      "description": "Root element."
+    }
+  ],
+  "variants": {
+    "density": {
+      "attribute": "data-density",
+      "values": [
+        "comfortable",
+        "compact"
+      ],
+      "default": "comfortable",
+      "description": "Row and heading density."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "hover",
+      "selector": ":hover",
+      "description": "Pointer hover."
+    },
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    },
+    {
+      "name": "busy",
+      "selector": "[aria-busy=true]",
+      "description": "Loading."
+    },
+    {
+      "name": "empty",
+      "selector": ".is-empty",
+      "description": "No content yet."
+    }
+  ],
+  "aria": {
+    "role": "none",
+    "requiredAttributes": [],
+    "optionalAttributes": [],
+    "notes": [
+      "data-density=comfortable|compact tightens padding. Inside compact or whisper, cards are quiet unless they have .ew-feature.",
+      "Headings: .ew-title--page, --section, --panel. .ew-caps opts into uppercase."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "Tab",
+      "action": "Moves through controls. Density does not change keyboard order."
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Content."
+    }
+  ],
+  "canonicalHtml": "<div class=\"ew-density\" data-density=\"compact\"><h1 class=\"ew-title ew-title--page\">Inbox</h1></div>",
+  "imports": [
+    "@groovster/css/density.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "do": [
+    "Put data-density on any container. Use .ew-title--page for the screen title, --section for groups, --panel inside cards and dialogs.",
+    "Mark a card .ew-feature when it should keep the full era frame inside compact or whisper."
+  ],
+  "dont": [
+    "Do not use the Swiss section clamp on dialog, card, or shelf titles."
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "color.action.*",
+    "type.body"
+  ]
+}

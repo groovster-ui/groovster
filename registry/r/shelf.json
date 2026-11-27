@@ -1,0 +1,27 @@
+{
+  "name": "ew-shelf",
+  "type": "registry:ui",
+  "title": "Era Widgets — Shelf",
+  "description": "Horizontal title row with scroll-snap and keyboard access.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/shelf.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-shelf {\n    /* anatomy: root */\n  }\n  .ew-shelf { min-width: 0; }\n  .ew-shelf__title { margin: 0 0 8px; }\n  .ew-shelf__row {\n    display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;\n    padding-bottom: 8px; max-width: 100%;\n  }\n  .ew-shelf__row > * { flex: 0 0 auto; scroll-snap-align: start; width: min(180px, 70vw); }\n  /* spec variant variant=default */\n  .ew-shelf[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-shelf:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-shelf[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-shelf[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-shelf:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-shelf, .ew-shelf *, .ew-shelf *::before, .ew-shelf *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/shelf.css"
+    },
+    {
+      "path": "era-widgets/shelf.example.html",
+      "content": "<!-- Era Widgets Shelf — set data-era on an ancestor -->\n<section class=\"ew-shelf\" aria-label=\"Continue\"><h2 class=\"ew-shelf__title ew-title--section\">Continue</h2><div class=\"ew-shelf__row\" tabindex=\"0\"></div></section>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/shelf.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-shelf",
+    "canonicalHtml": "<section class=\"ew-shelf\" aria-label=\"Continue\"><h2 class=\"ew-shelf__title ew-title--section\">Continue</h2><div class=\"ew-shelf__row\" tabindex=\"0\"></div></section>",
+    "cssPackage": "@groovster/css/shelf.css"
+  }
+}

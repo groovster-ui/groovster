@@ -40,6 +40,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   <span class="ew-avatar__fallback">AL</span>
 </span>
 ```
+## badge
+
+```html
+<span class="ew-badge">3</span>
+```
 ## breadcrumb
 
 ```html
@@ -74,6 +79,21 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   <span class="ew-checkbox__label">Accept terms</span>
 </label>
 ```
+## chip
+
+```html
+<button type="button" class="ew-chip" aria-pressed="false">Unread</button>
+```
+## code
+
+```html
+<pre class="ew-code"><code>npm test</code><button type="button" class="ew-button ew-code__copy">Copy</button></pre>
+```
+## density
+
+```html
+<div class="ew-density" data-density="compact"><h1 class="ew-title ew-title--page">Inbox</h1></div>
+```
 ## dialog
 
 ```html
@@ -82,6 +102,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   <div class="ew-dialog__body"><!-- fields --></div>
   <footer class="ew-dialog__footer"><button type="button" class="ew-button" data-variant="ghost" onclick="this.closest('dialog').close()">Cancel</button><button type="submit" class="ew-button">Continue</button></footer>
 </dialog>
+```
+## empty-state
+
+```html
+<div class="ew-empty-state"><h2 class="ew-empty-state__title ew-title--panel">Nothing here</h2><p class="ew-empty-state__body">No messages match.</p></div>
 ```
 ## icon-button
 
@@ -95,6 +120,16 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
 ```html
 <a class="ew-link" href="/pricing">View pricing</a>
 ```
+## list
+
+```html
+<ul class="ew-list" role="listbox" aria-label="Messages"><li><button type="button" class="ew-list-item is-unread" role="option" aria-selected="false" tabindex="0"><span class="ew-list-item__main"><span class="ew-list-item__primary">Maya Okafor</span><span class="ew-list-item__secondary">The kiln fired clean</span></span><span class="ew-list-item__meta">9:40</span></button></li></ul>
+```
+## media-card
+
+```html
+<a class="ew-media-card" data-ratio="poster" href="#title"><span class="ew-media-card__title">Night Market</span><span class="ew-media-card__progress" style="width:40%"></span></a>
+```
 ## menu
 
 ```html
@@ -106,10 +141,25 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   </div>
 </ew-menu>
 ```
+## meter
+
+```html
+<div class="ew-meter"><span class="ew-meter__label" id="m1">Storage</span><meter class="ew-meter__bar" min="0" max="100" value="18" aria-labelledby="m1">18%</meter></div>
+```
+## nav-rail
+
+```html
+<nav class="ew-nav-rail" aria-label="Mail"><a class="ew-nav-rail__item" href="#inbox" aria-current="page"><span class="ew-nav-rail__label">Inbox</span><span class="ew-badge">8</span></a></nav>
+```
 ## ornament-divider
 
 ```html
 <hr class="ew-ornament-divider" data-variant="ornament" />
+```
+## pagination
+
+```html
+<nav class="ew-pagination" aria-label="Pages"><a class="ew-pagination__prev" href="#p1">Prev</a><a class="ew-pagination__page" href="#p2" aria-current="page">2</a><a class="ew-pagination__next" href="#p3">Next</a></nav>
 ```
 ## popover
 
@@ -130,6 +180,16 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   <label class="ew-radio"><input class="ew-radio__control" type="radio" name="plan" value="pro" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Pro</span></label>
 </fieldset>
 ```
+## search
+
+```html
+<search class="ew-search" role="search"><input class="ew-text-field__control ew-search__control" type="search" aria-label="Search mail"><button type="button" class="ew-icon-button ew-search__clear" aria-label="Clear search">×</button></search>
+```
+## segmented
+
+```html
+<div class="ew-segmented" role="radiogroup" aria-label="View"><button type="button" class="ew-segmented__item" role="radio" aria-checked="true">List</button><button type="button" class="ew-segmented__item" role="radio" aria-checked="false">Grid</button></div>
+```
 ## select
 
 ```html
@@ -141,6 +201,16 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   </select>
 </ew-select>
 ```
+## shelf
+
+```html
+<section class="ew-shelf" aria-label="Continue"><h2 class="ew-shelf__title ew-title--section">Continue</h2><div class="ew-shelf__row" tabindex="0"></div></section>
+```
+## skeleton
+
+```html
+<div class="ew-skeleton" data-variant="block" aria-hidden="true"></div>
+```
 ## slider
 
 ```html
@@ -150,6 +220,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   <output class="ew-slider__value">40</output>
 </ew-slider>
 ```
+## stat
+
+```html
+<div class="ew-stat"><p class="ew-stat__label">Watched</p><p class="ew-stat__value">128</p><p class="ew-stat__delta" data-dir="up">12%</p></div>
+```
 ## switch
 
 ```html
@@ -158,6 +233,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
   <span class="ew-switch__label">Notifications</span>
 </label>
+```
+## table
+
+```html
+<table class="ew-table" data-responsive="stack"><caption>Specifics</caption><thead><tr><th aria-sort="ascending">Lot</th></tr></thead><tbody><tr class="is-selected" aria-selected="true"><td data-label="Lot">Bowl</td></tr></tbody></table>
 ```
 ## tabs
 
@@ -193,6 +273,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
 <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
 <!-- region.show({ title, body, variant }) -->
 ```
+## toolbar
+
+```html
+<div class="ew-toolbar" role="toolbar" aria-label="Mailbox" data-sticky="true"><div class="ew-toolbar__start"></div><div class="ew-toolbar__center"></div><div class="ew-toolbar__end"></div></div>
+```
 ## tooltip
 
 ```html
@@ -200,4 +285,9 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   <button type="button" class="ew-button" aria-describedby="tip-1">Info</button>
   <span id="tip-1" class="ew-tooltip__tip" role="tooltip">More detail</span>
 </ew-tooltip>
+```
+## typing-indicator
+
+```html
+<span class="ew-typing-indicator" role="status" aria-label="Maya is typing"><i></i><i></i><i></i></span>
 ```

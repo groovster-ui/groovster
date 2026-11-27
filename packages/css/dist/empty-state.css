@@ -1,0 +1,22 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-empty-state {
+    /* anatomy: root */
+  }
+  .ew-empty-state { display: grid; justify-items: start; gap: 8px; min-width: 0; padding: 24px 8px; color: var(--ew-color-fg-muted); }
+  .ew-empty-state__title { margin: 0; color: var(--ew-color-fg-default); font: 700 1rem/1.3 var(--ew-font-body, system-ui, sans-serif); }
+  .ew-empty-state__body { margin: 0; max-width: 42ch; }
+  /* spec variant variant=default */
+  .ew-empty-state[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-empty-state:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-empty-state[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-empty-state[data-size="md"] { --ew-spec-size: md; }
+  .ew-empty-state:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-empty-state, .ew-empty-state *, .ew-empty-state *::before, .ew-empty-state *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

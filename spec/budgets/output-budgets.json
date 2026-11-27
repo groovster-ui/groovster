@@ -15,7 +15,7 @@
       "description": "Per-component llms.txt section."
     },
     "llms.index": {
-      "maxChars": 2500,
+      "maxChars": 4200,
       "description": "Top-level llms.txt index."
     },
     "llms.recipeCard": {

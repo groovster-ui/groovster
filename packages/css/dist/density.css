@@ -1,0 +1,131 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-density {
+    /* anatomy: root */
+  }
+  .ew-density { display: contents; }
+  .ew-title--page { font-family: var(--ew-font-display, inherit); font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1.15; margin: 0; overflow-wrap: anywhere; }
+  .ew-title--section { font-family: var(--ew-font-display, inherit); font-size: clamp(1.15rem, 1.5vw, 1.4rem); line-height: 1.2; margin: 0; overflow-wrap: anywhere; }
+  .ew-title--panel { font-family: var(--ew-font-body, system-ui, sans-serif); font-size: 1rem; font-weight: 700; line-height: 1.3; margin: 0; overflow-wrap: anywhere; }
+  [data-density="comfortable"] { --ew-row-min: 48px; --ew-card-padding: 16px; }
+  [data-density="compact"] { --ew-row-min: 36px; --ew-card-padding: 8px; --ew-card-gap: 6px; --ew-structure-card-ornament-opacity: 0; }
+  [data-density="compact"] :is(.ew-title--page, h1.ew-title) { font-size: 1.25rem; }
+  [data-density="compact"] .ew-title--section { font-size: 1rem; }
+  .ew-list-item[aria-selected="true"], .ew-list-item.is-selected,
+  .ew-card[aria-selected="true"], .ew-card.is-selected,
+  .ew-table tr[aria-selected="true"], .ew-table tr.is-selected,
+  .ew-media-card[aria-selected="true"], .ew-media-card.is-selected {
+    font-weight: 700;
+    box-shadow: inset 3px 0 0 var(--ew-color-action-bg);
+    background: color-mix(in oklch, var(--ew-color-action-bg) 16%, var(--ew-color-bg-surface));
+  }
+  :is(.ew-nav-rail__item, .ew-pagination__page)[aria-current="page"],
+  :is(.ew-nav-rail__item, .ew-pagination__page)[aria-current="true"] {
+    font-weight: 700;
+    box-shadow: inset 3px 0 0 var(--ew-color-action-bg);
+  }
+  .ew-list-item.is-unread { font-weight: 700; }
+  .ew-list-item.is-unread::before {
+    content: "";
+    width: 8px; height: 8px; flex: 0 0 auto; border-radius: 999px;
+    background: var(--ew-color-action-bg);
+  }
+  :is(.ew-list-item, .ew-nav-rail__item, .ew-table tbody tr, .ew-media-card):hover {
+    background: color-mix(in oklch, var(--ew-color-action-bg) 10%, var(--ew-color-bg-surface));
+  }
+  :is(.ew-list-item, .ew-nav-rail__item, .ew-pagination__page, .ew-chip, .ew-media-card):focus-visible {
+    outline: 2px solid var(--ew-color-field-focus);
+    outline-offset: 2px;
+  }
+  :is(.ew-button, .ew-text-field, .ew-list, .ew-card)[aria-busy="true"] { cursor: progress; }
+  :is(.ew-button, .ew-text-field__control, .ew-list-item, .ew-card)[aria-disabled="true"],
+  :is(.ew-button, .ew-text-field__control):disabled { opacity: 0.55; cursor: not-allowed; }
+  .is-empty { color: var(--ew-color-fg-muted); }
+  /* spec variant density=comfortable */
+  .ew-density[data-density="comfortable"] { --ew-spec-variant-density: comfortable; }
+  /* spec variant density=compact */
+  .ew-density[data-density="compact"] { --ew-spec-variant-density: compact; }
+  .ew-density:not([data-density]) { --ew-spec-variant-density: comfortable; }
+  .ew-density[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-density[data-size="md"] { --ew-spec-size: md; }
+  .ew-density:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-density, .ew-density *, .ew-density *::before, .ew-density *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
+@layer decorators {
+  [data-era] :is(.ew-button, .ew-icon-button, .ew-chip, .ew-badge, .ew-menu__item, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search__control, .ew-text-field__label, .ew-select__label, .ew-textarea__label, .ew-tabs [role="tab"], ew-tabs [role="tab"]) {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+  .ew-caps {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  [data-era] :is(.ew-dialog, .ew-card, .ew-shelf, .ew-media-card) :is(h1, h2, h3, h4) {
+    font-size: 1.05rem;
+    line-height: 1.3;
+    letter-spacing: normal;
+  }
+  [data-era] .ew-title--page { font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1.15; }
+  [data-era] .ew-title--section { font-size: clamp(1.15rem, 1.5vw, 1.4rem); line-height: 1.2; }
+  [data-era] .ew-title--panel { font-size: 1rem; line-height: 1.3; font-family: var(--ew-font-body, system-ui, sans-serif); }
+  [data-era] .ew-button[data-variant="ghost"]:not(.ew-button--framed):not(:hover):not(:focus-visible),
+  [data-era] .ew-icon-button:not(.ew-button--framed):not(:hover):not(:focus-visible) {
+    border-color: transparent;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    clip-path: none;
+  }
+  [data-era] .ew-card--quiet,
+  [data-era][data-density="compact"] .ew-card:not(.ew-feature),
+  [data-era] [data-density="compact"] .ew-card:not(.ew-feature),
+  [data-era][data-fidelity-band="whisper"] .ew-card:not(.ew-feature),
+  [data-era] [data-fidelity-band="whisper"] .ew-card:not(.ew-feature) {
+    clip-path: none;
+    box-shadow: none;
+    background-image: none;
+    filter: none;
+    border: 1px solid var(--ew-color-border-subtle);
+    border-radius: var(--ew-structure-surface-radius, 8px);
+  }
+  [data-era] .ew-card--quiet::before,
+  [data-era] .ew-card--quiet::after,
+  [data-era][data-density="compact"] .ew-card:not(.ew-feature)::before,
+  [data-era][data-density="compact"] .ew-card:not(.ew-feature)::after,
+  [data-era] [data-density="compact"] .ew-card:not(.ew-feature)::before,
+  [data-era] [data-density="compact"] .ew-card:not(.ew-feature)::after,
+  [data-era][data-fidelity-band="whisper"] .ew-card:not(.ew-feature)::before,
+  [data-era][data-fidelity-band="whisper"] .ew-card:not(.ew-feature)::after,
+  [data-era] [data-fidelity-band="whisper"] .ew-card:not(.ew-feature)::before,
+  [data-era] [data-fidelity-band="whisper"] .ew-card:not(.ew-feature)::after {
+    content: none;
+    display: none;
+  }
+  [data-era] .ew-card[data-variant="flat"]:not(.ew-feature) {
+    border-color: transparent;
+    box-shadow: none;
+    background-image: none;
+    clip-path: none;
+    background: transparent;
+  }
+  [data-era] .ew-card[data-variant="outline"]:not(.ew-feature) {
+    box-shadow: none;
+    background-image: none;
+    clip-path: none;
+    background: transparent;
+    border: 2px solid var(--ew-color-border-strong);
+  }
+  [data-era] .ew-card[data-variant="inset"]:not(.ew-feature) {
+    background-image: none;
+    clip-path: none;
+    box-shadow: inset 0 0 0 2px var(--ew-color-border-subtle);
+    background: color-mix(in oklch, var(--ew-color-bg-page) 86%, var(--ew-color-fg-default));
+  }
+}

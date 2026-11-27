@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Site</title>
+<link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css">
+<link rel="stylesheet" href="../shared/layout.css">
+<script src="../../../packages/elements/dist/era-elements.js" defer></script>
+<script src="../shared/switch.js" defer></script>
+</head>
+<body>
+<div class="ew-root" data-groovster-root data-era="deco" data-mode="light" data-fidelity-band="costume">
+  <header class="ew-toolbar" role="toolbar" aria-label="Site">
+    <div class="ew-toolbar__start"><a class="ew-link" href="#top">Ada Voss</a></div>
+    <div class="ew-toolbar__end">
+      <nav class="ew-nav-rail" aria-label="Sections" style="flex-direction:row">
+        <a class="ew-nav-rail__item" href="#work" aria-current="page"><span class="ew-nav-rail__label">Work</span></a>
+        <a class="ew-nav-rail__item" href="#notes"><span class="ew-nav-rail__label">Notes</span></a>
+      </nav>
+      <div data-era-switch></div>
+    </div>
+  </header>
+  <section class="ew-hero" id="top">
+    <div class="ew-hero__backdrop" aria-hidden="true"></div>
+    <div class="ew-hero__stage" aria-hidden="true"></div>
+    <div class="ew-hero__panel">
+      <div class="ew-hero__content">
+        <p class="ew-script">Printer and editor</p>
+        <h1 class="ew-hero__title">Sunday print</h1>
+        <p class="ew-hero__subtitle">A one-page studio for type, paper, and the notes in the margin.</p>
+      </div>
+    </div>
+  </section>
+  <main class="folio" data-density="comfortable">
+    <h2 class="ew-section-heading">Selected work</h2>
+    <article class="ew-card ew-feature">
+      <header class="ew-card__header"><h3 class="ew-title--panel">Margin notes</h3></header>
+      <div class="ew-card__body"><p>A short essay set in the era body face. The display face stays on the hero.</p></div>
+    </article>
+    <p>Inline sample <code class="ew-code">ew-title--panel</code> stays in monospace.</p>
+    <pre class="ew-code"><code>print(sunday)</code><button type="button" class="ew-button ew-code__copy" data-variant="ghost">Copy</button></pre>
+  </main>
+</div>
+</body>
+</html>
