@@ -72,7 +72,6 @@ const QUIET_CARDS = [
   '[data-era][data-fidelity-band="whisper"] .ew-card:not(.ew-feature)',
   '[data-era] [data-fidelity-band="whisper"] .ew-card:not(.ew-feature)',
 ];
-const QUIET = QUIET_CARDS.join(',\n  ');
 const QUIET_HEADER_BOX = QUIET_CARDS.map((sel) => `${sel} .ew-card__header`).join(',\n  ');
 const QUIET_HEADER = QUIET_CARDS.map((sel) => `${sel} :is(.ew-card__header, .ew-card__title)::before,\n  ${sel} :is(.ew-card__header, .ew-card__title)::after`).join(',\n  ');
 
