@@ -189,6 +189,8 @@ function bauhausCss() {
     background-image: none;
     box-shadow: none;
     overflow: visible;
+    min-width: 0;
+    max-width: 100%;
   }
   [data-era="bauhaus"] .ew-card:nth-child(3n + 1) { border-top-color: var(--ew-color-primary-red); }
   [data-era="bauhaus"] .ew-card:nth-child(3n + 2) { border-top-color: var(--ew-color-primary-blue); }

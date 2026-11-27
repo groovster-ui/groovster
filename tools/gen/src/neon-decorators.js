@@ -441,6 +441,8 @@ export function neonDecoratorCss() {
       drop-shadow(0 0 16px color-mix(in srgb, var(--ew-color-magenta) 40%, transparent));
     clip-path: ${WEDGE_FILL};
     overflow: visible;
+    min-width: 0;
+    max-width: 100%;
     /* Clear the 45° cut so titles are never clipped */
     padding: 32px 32px 28px;
     min-width: 0;

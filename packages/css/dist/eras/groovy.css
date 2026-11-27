@@ -360,7 +360,8 @@
     border-radius: var(--ew-groovy-panel); background: var(--ew-color-bg-surface);
     color: var(--ew-color-fg-default); box-shadow: var(--ew-groovy-rim);
   }
-  [data-era="groovy"] .ew-card { overflow: visible; gap: 12px; min-width: 0; }
+  [data-era="groovy"] .ew-card { overflow: visible; gap: 12px; min-width: 0; max-width: 100%; }
+  [data-era="groovy"] .ew-card > * { min-width: 0; max-width: 100%; }
   [data-era="groovy"]:not([data-fidelity-band="whisper"]):not([data-fidelity-band="standard"]):not([data-fidelity-band="default"]):not([data-fidelity-band="signature"]):not([data-fidelity-band="whisper"] *):not([data-fidelity-band="standard"] *):not([data-fidelity-band="default"] *):not([data-fidelity-band="signature"] *) .ew-card:nth-child(3n+2),
   [data-fidelity-band="costume"] [data-era="groovy"] .ew-card:nth-child(3n+2) {
     --ew-groovy-heading-bg: var(--ew-groovy-raspberry);

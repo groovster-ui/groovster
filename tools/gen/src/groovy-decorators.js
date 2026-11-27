@@ -170,7 +170,8 @@ export function groovyDecoratorCss() {
     border-radius: var(--ew-groovy-panel); background: var(--ew-color-bg-surface);
     color: var(--ew-color-fg-default); box-shadow: var(--ew-groovy-rim);
   }
-  [data-era="groovy"] .ew-card { overflow: visible; gap: 12px; min-width: 0; }
+  [data-era="groovy"] .ew-card { overflow: visible; gap: 12px; min-width: 0; max-width: 100%; }
+  [data-era="groovy"] .ew-card > * { min-width: 0; max-width: 100%; }
   ${costumeSel('groovy',' .ew-card:nth-child(3n+2)')} {
     --ew-groovy-heading-bg: var(--ew-groovy-raspberry);
     border-radius: 42px 28px 40px 26px / 28px 40px 26px 38px;

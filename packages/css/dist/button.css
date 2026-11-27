@@ -13,7 +13,11 @@
     --_btn-bevel: var(--ew-structure-button-bevel, none);
     display: inline-flex;
     align-items: center;
+    align-self: center;
     justify-content: center;
+    flex: 0 0 auto;
+    height: auto;
+    max-height: none;
     gap: var(--ew-button-gap, 8px);
     padding: var(--ew-structure-button-padding-y, var(--ew-button-padding-y, 8px)) var(--ew-structure-button-padding-x, var(--ew-button-padding-x, 16px));
     border: var(--_btn-border-w) var(--_btn-border-style) var(--ew-color-border-strong, currentColor);

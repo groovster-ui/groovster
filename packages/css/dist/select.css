@@ -6,6 +6,7 @@
   }
   .ew-select, ew-select.ew-select, ew-select {
     display: grid; gap: 6px; font-family: var(--ew-font-body, system-ui, sans-serif); position: relative;
+    min-width: 0; max-width: 100%; flex: 1 1 12rem;
   }
   .ew-select__label { font-size: 14px; font-weight: 600; color: var(--ew-color-fg-default); }
   .ew-select__control {
@@ -15,6 +16,7 @@
     border-radius: var(--ew-structure-field-radius, 8px);
     background: var(--ew-color-field-bg);
     color: var(--ew-color-fg-default); font: inherit;
+    min-width: 0; max-width: 100%; width: 100%; box-sizing: border-box;
   }
   .ew-select__trigger {
     appearance: none; text-align: start; cursor: pointer; font: inherit;
@@ -22,6 +24,7 @@
     border: var(--ew-structure-field-border-width, 1px) var(--ew-structure-field-border-style, solid) var(--ew-color-field-border);
     border-radius: var(--ew-structure-field-radius, 8px);
     background: var(--ew-color-field-bg); color: var(--ew-color-fg-default);
+    min-width: 0; max-width: 100%; width: 100%; box-sizing: border-box;
     anchor-name: --ew-select-trigger;
   }
   .ew-select__trigger:focus-visible, .ew-select__control:focus-visible {

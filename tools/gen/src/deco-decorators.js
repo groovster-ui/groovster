@@ -339,6 +339,8 @@ export function decoDecoratorCss() {
     position: relative;
     clip-path: none;
     overflow: visible;
+    min-width: 0;
+    max-width: 100%;
     border: 1px solid var(--ew-color-gold);
     background-color: var(--ew-color-bg-surface);
     background-image: var(--ew-deco-corners);

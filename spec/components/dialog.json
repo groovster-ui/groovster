@@ -58,7 +58,7 @@
         "sheet"
       ],
       "default": "modal",
-      "description": "Presentation."
+      "description": "Presentation. Width classes: .ew-dialog--sm (320px), --md (420px, default), --lg (720px). .ew-dialog--fullscreen-mobile becomes a bottom sheet below 600px."
     }
   },
   "sizes": {
