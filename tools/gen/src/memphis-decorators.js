@@ -86,6 +86,7 @@ export function memphisDecoratorCss() {
     overflow: hidden;
     min-height: clamp(420px, 62vw, 720px);
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     align-items: end;
     padding: clamp(28px, 5vw, 72px);
     background-color: var(--ew-color-bg-page);
@@ -150,6 +151,8 @@ export function memphisDecoratorCss() {
     z-index: 2;
     width: max-content;
     max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     background: var(--ew-color-bg-page);
     box-shadow: 0 0 0 8px var(--ew-color-bg-page);
     padding: 12px 16px;
@@ -159,6 +162,9 @@ export function memphisDecoratorCss() {
     font-size: clamp(3rem, 8vw, 7rem);
     line-height: 0.9;
     margin: 0;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
   }
   [data-era="memphis"] .ew-ornament-divider {
     height: 28px;
