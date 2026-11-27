@@ -34,11 +34,11 @@ export function appEraCss(eraId) {
   ${e} :is(.ew-stat__value, .ew-price) { color: var(--ew-color-coral, var(--ew-color-action-bg)); }
   ${e}[data-mode="dark"] :is(.ew-stat__value, .ew-price) { color: #FFB4A8; }
   ${open} .ew-chip { border-radius: 14px 4px; }
-  ${e}[data-mode="dark"] :is(.ew-link, .ew-card__title a, .ew-card h2 a, .ew-card h3 a) { color: #FFB4A8; }`,
+  ${e}[data-mode="dark"] :is(.ew-link, a.ew-card__title, .ew-card__title a, .ew-card :is(h2, h3, h4) a) { color: #FFB4A8; }`,
     neon: `
   ${e} :is(.ew-chip, .ew-segmented, .ew-search, .ew-code) { box-shadow: 0 0 0 1px var(--ew-color-magenta, var(--ew-color-action-bg)); }
   ${e} :is(.ew-stat__value, .ew-price) { color: var(--ew-color-magenta, var(--ew-color-action-bg)); }
-  ${e}[data-mode="light"] .ew-link { text-decoration: underline; text-decoration-color: #E2186A; text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
+  ${e}[data-mode="light"] .ew-link { color: #8E1248; text-decoration: underline; text-decoration-color: #E2186A; text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
   ${open} :is(.ew-media-card:hover, .ew-search:focus-within) { box-shadow: 0 0 0 1px var(--ew-color-cyan, var(--ew-color-action-bg)), 0 0 12px color-mix(in oklch, var(--ew-color-cyan, var(--ew-color-action-bg)) 45%, transparent); }`,
     memphis: `
   ${e} .ew-badge, ${e} .ew-chip { border-radius: 0; background: var(--ew-color-yellow, #EACC56); color: #1A1408; box-shadow: 3px 3px 0 0 #1A1408; }
@@ -62,7 +62,9 @@ export function appEraCss(eraId) {
   ${e} :is(.ew-stat__value, .ew-price, .ew-pagination__page[aria-current="page"]) { color: var(--ew-color-action-bg); }`,
     neutral: `
   ${e} .ew-hero { min-height: min(42vh, 420px); display: grid; align-items: start; padding: clamp(28px, 5vw, 64px); background: radial-gradient(circle at 90% 10%, color-mix(in oklch, var(--ew-color-action-bg) 22%, transparent), transparent 46%), linear-gradient(180deg, var(--ew-color-bg-surface), var(--ew-color-bg-page)); border-bottom: 1px solid var(--ew-color-border-subtle); }
+  ${e} .ew-hero__content { display: grid; gap: clamp(12px, 2vw, 20px); justify-items: start; }
   ${e} .ew-hero__title { font-size: clamp(2.5rem, 5vw, 4.25rem); letter-spacing: -0.04em; line-height: 0.95; max-width: 14ch; }
+  ${e} .ew-hero__subtitle { max-width: 36ch; font-size: 1.125rem; margin: 0; }
   ${e} :is(.ew-chip, .ew-media-card, .ew-stat, .ew-search, .ew-code) { box-shadow: 0 1px 2px color-mix(in oklch, black 14%, transparent); }
   ${e} .ew-stat__value { letter-spacing: -0.03em; }`,
   };

@@ -4,7 +4,7 @@ GENERATED FILE — do not edit. Source: spec/recipes/. Run: pnpm gen
 A personal page with a hero, a section heading, a feature card, and a code sample.
 Category: One-page studio
 Eras: neutral. Also: swiss, bauhaus, deco, groovy, memphis, mcm-atomic, neon, art-nouveau. Avoid: none.
-Fidelity: page costume; forms standard; data whisper. The hero is costume. The work card can keep a feature frame.
+Fidelity: page costume; forms standard; data whisper. Neutral hero: large title, even rhythm, one accent wash, hairline below. Other eras may use costume on the hero. The work card can keep a feature frame.
 Sections: hero, work, notes. Optional: none.
 Components: toolbar, card, code. Optional: nav-rail.
 Layout: Toolbar, hero, then a single column of work.

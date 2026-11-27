@@ -1146,7 +1146,7 @@
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:personal": {
-        "chars": 1440,
+        "chars": 1532,
         "budget": "llms.recipeCard"
       },
       "llms.recipeCard:streaming": {

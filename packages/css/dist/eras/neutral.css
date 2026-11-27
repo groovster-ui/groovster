@@ -265,7 +265,9 @@
   [data-era="neutral"] .ew-meter__bar { border-radius: 999px; }
 
   [data-era="neutral"] .ew-hero { min-height: min(42vh, 420px); display: grid; align-items: start; padding: clamp(28px, 5vw, 64px); background: radial-gradient(circle at 90% 10%, color-mix(in oklch, var(--ew-color-action-bg) 22%, transparent), transparent 46%), linear-gradient(180deg, var(--ew-color-bg-surface), var(--ew-color-bg-page)); border-bottom: 1px solid var(--ew-color-border-subtle); }
+  [data-era="neutral"] .ew-hero__content { display: grid; gap: clamp(12px, 2vw, 20px); justify-items: start; }
   [data-era="neutral"] .ew-hero__title { font-size: clamp(2.5rem, 5vw, 4.25rem); letter-spacing: -0.04em; line-height: 0.95; max-width: 14ch; }
+  [data-era="neutral"] .ew-hero__subtitle { max-width: 36ch; font-size: 1.125rem; margin: 0; }
   [data-era="neutral"] :is(.ew-chip, .ew-media-card, .ew-stat, .ew-search, .ew-code) { box-shadow: 0 1px 2px color-mix(in oklch, black 14%, transparent); }
   [data-era="neutral"] .ew-stat__value { letter-spacing: -0.03em; }
 }

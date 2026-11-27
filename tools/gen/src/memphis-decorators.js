@@ -158,6 +158,20 @@ export function memphisDecoratorCss() {
     box-shadow: 0 0 0 8px var(--ew-color-bg-page);
     padding: 12px 16px;
   }
+  [data-era="memphis"] .ew-section-heading::after {
+    content: "";
+    display: block;
+    height: 12px;
+    margin-top: 8px;
+    background-image: ${squiggleLight};
+    background-repeat: repeat-x;
+    background-position: left center;
+    background-size: 104px 28px;
+    pointer-events: none;
+  }
+  [data-era="memphis"][data-mode="dark"] .ew-section-heading::after {
+    background-image: ${squiggleDark};
+  }
   [data-era="memphis"] .ew-hero__title {
     font-family: var(--ew-font-display);
     font-size: clamp(3rem, 8vw, 7rem);

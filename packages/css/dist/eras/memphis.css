@@ -304,6 +304,20 @@
     box-shadow: 0 0 0 8px var(--ew-color-bg-page);
     padding: 12px 16px;
   }
+  [data-era="memphis"] .ew-section-heading::after {
+    content: "";
+    display: block;
+    height: 12px;
+    margin-top: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'104'%20height%3D'28'%20viewBox%3D'0%200%20104%2028'%3E%3Cpath%20d%3D'M4%2016c10-12%2010-12%2020%200s10%2012%2020%200%2010-12%2020%200%2010%2012%2020%200%2010-12%2020%200'%20fill%3D'none'%20stroke%3D'oklch(55%25%200.14%20255)'%20stroke-width%3D'6'%20stroke-linecap%3D'square'%20opacity%3D'0.72'%2F%3E%3C%2Fsvg%3E");
+    background-repeat: repeat-x;
+    background-position: left center;
+    background-size: 104px 28px;
+    pointer-events: none;
+  }
+  [data-era="memphis"][data-mode="dark"] .ew-section-heading::after {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'104'%20height%3D'28'%20viewBox%3D'0%200%20104%2028'%3E%3Cpath%20d%3D'M4%2016c10-12%2010-12%2020%200s10%2012%2020%200%2010-12%2020%200%2010%2012%2020%200%2010-12%2020%200'%20fill%3D'none'%20stroke%3D'oklch(78%25%200.1%20250)'%20stroke-width%3D'6'%20stroke-linecap%3D'square'%20opacity%3D'0.72'%2F%3E%3C%2Fsvg%3E");
+  }
   [data-era="memphis"] .ew-hero__title {
     font-family: var(--ew-font-display);
     font-size: clamp(3rem, 8vw, 7rem);
