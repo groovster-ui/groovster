@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export type PaginationProps = Omit<React.ComponentPropsWithoutRef<'nav'>, 'size'> & {
+export type PaginationProps = Omit<React.HTMLAttributes<HTMLElement>, 'size'> & {
   variant?: "default";
   size?: "sm" | "md";
 };
@@ -15,7 +15,7 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(functio
   if (size != null) dataProps["data-size"] = size;
   const cls = ["ew-pagination", className].filter(Boolean).join(' ');
   return React.createElement(
-    "nav",
+    "ew-pagination",
     { ref, ...rest, className: cls, ...dataProps },
     children
   );

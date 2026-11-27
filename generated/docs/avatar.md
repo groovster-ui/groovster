@@ -26,11 +26,13 @@ User/image avatar with initials fallback.
 - Role: img when meaningful
 - Decorative avatars can be aria-hidden.
 - Meaningful avatars need a name.
+- Presence is a separate cue from colour: online is a disc, away a ring, busy a square, offline a hollow circle.
 
 ## Do
 
 - Provide alt/name when meaningful.
 - Use initials fallback.
+- Set data-presence to online, away, busy, or offline on .ew-avatar__presence.
 
 ## Don't
 

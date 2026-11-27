@@ -12,9 +12,9 @@ test('recipe specs validate', () => {
   assert.deepEqual(validateAll(), []);
 });
 
-test('five recipes and portable skill', () => {
+test('recipes and portable skill', () => {
   const recipes = loadRecipes();
-  assert.deepEqual(recipes.map((recipe) => recipe.id), ['commerce', 'dashboard', 'editorial', 'event', 'hospitality']);
+  assert.deepEqual(recipes.map((recipe) => recipe.id), ['chat', 'commerce', 'dashboard', 'editorial', 'event', 'hospitality', 'mail', 'marketplace', 'personal', 'streaming']);
   const skill = fs.readFileSync(path.join(root, 'skills/groovster/SKILL.md'), 'utf8');
   assert.ok(skill.startsWith('---\nname: groovster\n'));
   assert.equal(skill.includes('disable-model-invocation'), false);

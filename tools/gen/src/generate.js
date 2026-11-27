@@ -24,6 +24,7 @@ import { modernistDecoratorCss } from './modernist-decorators.js';
 import { nouveauDecoratorCss } from './nouveau-decorators.js';
 import { memphisDecoratorCss } from './memphis-decorators.js';
 import { groovyDecoratorCss } from './groovy-decorators.js';
+import { appEraCss } from './app-era.js';
 import { loadRecipes, recipeIndexLines, writeRecipeDocs } from './recipes.js';
 import { loadEraCatalog } from './era-catalog.js';
 import { matrixDocument } from '../../../tests/a11y/matrix-html.mjs';
@@ -208,6 +209,37 @@ ${bandTokenCss()}
       outline-offset: 2px;
     }
   }
+
+  .ew-truncate,
+  .ew-card__title--truncate,
+  .ew-list-item__primary,
+  .ew-media-card__title.ew-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .ew-clamp-2, .ew-clamp-3, .ew-product-card__title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .ew-clamp-2, .ew-product-card__title { -webkit-line-clamp: 2; line-clamp: 2; }
+  .ew-product-card__title {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    font-weight: 600;
+    max-height: 2.6em;
+  }
+  .ew-clamp-3 { -webkit-line-clamp: 3; line-clamp: 3; }
 
   @media (prefers-reduced-motion: reduce) {
     .ew-root *, .ew-root *::before, .ew-root *::after {
@@ -418,6 +450,7 @@ function genEraCss(era) {
   } else if (era.id === 'groovy') {
     blocks.push(groovyDecoratorCss());
   }
+  blocks.push(appEraCss(era.id));
   blocks.push(`}`);
   return blocks.join('\n') + '\n';
 }

@@ -9,7 +9,7 @@
     padding: 8px 12px; box-sizing: border-box;
   }
   .ew-toolbar__start, .ew-toolbar__end { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1 1 auto; }
-  .ew-toolbar__end { justify-content: flex-end; }
+  .ew-toolbar__end { justify-content: flex-end; flex-wrap: wrap; }
   .ew-toolbar__center { display: flex; justify-content: center; min-width: 0; flex: 0 1 auto; }
   .ew-toolbar[data-sticky="true"] { position: sticky; top: 0; z-index: 5; background: var(--ew-color-bg-page); }
   .ew-toolbar__overflow { margin-inline-start: auto; }

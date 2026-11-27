@@ -3,65 +3,148 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Market</title>
+<title>Harbor Lot</title>
 <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css">
 <link rel="stylesheet" href="../shared/layout.css">
 <script src="../../../packages/elements/dist/era-elements.js" defer></script>
 <script src="../shared/switch.js" defer></script>
 </head>
 <body>
-<div class="ew-root" data-groovster-root data-era="groovy" data-mode="light" data-fidelity-band="whisper" data-density="compact">
-  <header class="ew-toolbar" role="toolbar" aria-label="Market">
-    <div class="ew-toolbar__start"><h1 class="ew-title--page">Harbor Lot</h1></div>
-    <div class="ew-toolbar__center">
-      <search class="ew-search" role="search">
-        <label class="ew-select">
-          <span class="ew-select__label">Scope</span>
-          <select class="ew-select__control ew-search__scope" aria-label="Search scope">
-            <option>All lots</option>
-            <option>Lamps</option>
-          </select>
-        </label>
-        <input class="ew-text-field__control ew-search__control" type="search" aria-label="Search lots">
-      </search>
-    </div>
-    <div class="ew-toolbar__end"><div data-era-switch></div></div>
-  </header>
-  <div class="market">
-    <div class="cards">
-      <article class="ew-card is-selected">
-        <header class="ew-card__header"><h2 class="ew-card__title">Brass lamp with a very long lot title that must wrap inside the card</h2></header>
-        <div class="ew-card__body"><p>$48 · 4 bids</p></div>
-        <footer class="ew-card__footer"><button type="button" class="ew-button">Bid</button></footer>
-      </article>
-      <article class="ew-card">
-        <header class="ew-card__header"><h2 class="ew-card__title">Oak chair</h2></header>
-        <div class="ew-card__body"><p>$30 · 1 bid</p></div>
-        <footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="secondary">Watch</button></footer>
-      </article>
-      <article class="ew-card">
-        <header class="ew-card__header"><h2 class="ew-card__title ew-card__title--truncate">Typewriter ribbon tin from the Cedar Stair desk drawer</h2></header>
-        <div class="ew-card__body"><p>$12</p></div>
-        <footer class="ew-card__footer"><button type="button" class="ew-button" data-variant="secondary">Watch</button></footer>
-      </article>
-    </div>
-    <article class="ew-card ew-card--quiet">
-      <header class="ew-card__header"><h2 class="ew-title--panel">Brass lamp</h2></header>
-      <div class="ew-card__body">
-        <p>Working socket. Shade is later.</p>
-        <div class="ew-table-scroll">
-          <table class="ew-table" data-responsive="stack" data-zebra="true">
-            <caption>Specifics</caption>
-            <thead><tr><th aria-sort="ascending">Detail</th><th>Value</th></tr></thead>
-            <tbody>
-              <tr><td data-label="Detail">Material</td><td data-label="Value">Brass</td></tr>
-              <tr class="is-selected" aria-selected="true"><td data-label="Detail">Height</td><td data-label="Value">16 in</td></tr>
-            </tbody>
-          </table>
-        </div>
+<div class="ew-root" data-groovster-root data-recipe="marketplace" data-era="neutral" data-mode="light" data-fidelity-band="whisper" data-density="compact">
+  <header>
+    <div class="ew-toolbar" role="toolbar" aria-label="Market">
+      <div class="ew-toolbar__start"><h1 class="ew-title--page">Harbor Lot</h1></div>
+      <div class="ew-toolbar__center">
+        <ew-search class="ew-search" role="search">
+          <input class="ew-text-field__control ew-search__control" type="search" aria-label="Search lots">
+          <button type="button" class="ew-icon-button ew-search__clear" aria-label="Clear search">×</button>
+        </ew-search>
       </div>
-    </article>
+      <div class="ew-toolbar__end"><button type="button" class="ew-button" data-variant="secondary">Saved search</button></div>
+    </div>
+  </header>
+  <div class="category-row" role="navigation" aria-label="Categories">
+    <button type="button" class="ew-chip" aria-current="true" aria-pressed="true">All</button>
+    <button type="button" class="ew-chip" aria-pressed="false">Lighting</button>
+    <button type="button" class="ew-chip" aria-pressed="false">Seating</button>
+    <button type="button" class="ew-chip" aria-pressed="false">Paper</button>
+    <button type="button" class="ew-chip" aria-pressed="false">Tools</button>
   </div>
+  <div class="results-head">
+    <p class="ew-title--panel">10 lots</p>
+    <div class="ew-segmented" role="radiogroup" aria-label="View">
+      <button type="button" class="ew-segmented__item" role="radio" aria-checked="true">Grid</button>
+      <button type="button" class="ew-segmented__item" role="radio" aria-checked="false">List</button>
+    </div>
+  </div>
+  <details class="ew-sheet market-filters" data-variant="mobile">
+    <summary class="ew-sheet__head">Filters</summary>
+    <div class="ew-sheet__body">
+      <label class="ew-filter-group__row"><input type="checkbox" checked> <span>Used</span><span class="ew-badge" data-variant="neutral">6</span></label>
+      <label class="ew-filter-group__row"><input type="checkbox"> <span>New</span><span class="ew-badge" data-variant="neutral">4</span></label>
+    </div>
+  </details>
+  <div id="filters" class="market">
+    <aside class="ew-card ew-card--quiet">
+      <details class="ew-filter-group" open>
+        <summary>Condition</summary>
+        <label class="ew-filter-group__row"><input type="checkbox" checked> <span>Used</span><span class="ew-badge" data-variant="neutral">6</span></label>
+        <label class="ew-filter-group__row"><input type="checkbox"> <span>New</span><span class="ew-badge" data-variant="neutral">4</span></label>
+        <button type="button" class="ew-filter-group__more">Show more</button>
+      </details>
+      <details class="ew-filter-group" open>
+        <summary>Price</summary>
+        <div class="ew-text-field"><label class="ew-text-field__label" for="min">Min</label><input id="min" class="ew-text-field__control" inputmode="numeric" value="10"></div>
+        <div class="ew-text-field"><label class="ew-text-field__label" for="max">Max</label><input id="max" class="ew-text-field__control" inputmode="numeric" value="80"></div>
+      </details>
+      <button type="button" class="ew-chip" aria-pressed="true">Used <span class="ew-chip__remove" aria-label="Remove Used">×</span></button>
+    </aside>
+    <div>
+      <div id="results" class="product-grid">
+        <article class="ew-product-card is-selected">
+          <div class="ew-product-card__media"><span class="ew-badge">Ending soon</span><button type="button" class="ew-icon-button ew-product-card__watch" aria-pressed="true" aria-label="Watching brass lamp">♥</button></div>
+          <h2 class="ew-product-card__title">Brass lamp with a very long lot title that must stay on two lines</h2>
+          <p class="ew-price">$48 <s class="ew-price__was">$60</s> <span class="ew-price__note">or best offer</span></p>
+          <p class="ew-product-card__meta"><span class="ew-countdown" data-urgent="true">42m</span> · 4 bids · Free shipping</p>
+        </article>
+        <article class="ew-product-card">
+          <div class="ew-product-card__media"><button type="button" class="ew-icon-button ew-product-card__watch" aria-pressed="false" aria-label="Watch oak chair">♡</button></div>
+          <h2 class="ew-product-card__title">Oak chair</h2>
+          <p class="ew-price">$30</p>
+          <p class="ew-product-card__meta"><span class="ew-countdown">2d</span> · 1 bid</p>
+        </article>
+        <article class="ew-product-card">
+          <div class="ew-product-card__media"><span class="ew-badge" data-variant="neutral">Buy It Now</span><button type="button" class="ew-icon-button ew-product-card__watch" aria-label="Watch ribbon tin">♡</button></div>
+          <h2 class="ew-product-card__title">Typewriter ribbon tin from the Cedar Stair desk drawer</h2>
+          <p class="ew-price">$12</p>
+          <p class="ew-product-card__meta"><span class="ew-countdown">5d</span> · 0 bids</p>
+        </article>
+        <article class="ew-product-card">
+          <div class="ew-product-card__media"><button type="button" class="ew-icon-button ew-product-card__watch" aria-label="Watch press">♡</button></div>
+          <h2 class="ew-product-card__title">Proofing press</h2>
+          <p class="ew-price">$220</p>
+          <p class="ew-product-card__meta"><span class="ew-countdown">3d</span> · 9 bids</p>
+        </article>
+        <article class="ew-product-card">
+          <div class="ew-product-card__media"><button type="button" class="ew-icon-button ew-product-card__watch" aria-label="Watch quoins">♡</button></div>
+          <h2 class="ew-product-card__title">Brass quoins</h2>
+          <p class="ew-price">$18</p>
+          <p class="ew-product-card__meta"><span class="ew-countdown">6h</span> · 2 bids</p>
+        </article>
+        <article class="ew-product-card">
+          <div class="ew-product-card__media"><button type="button" class="ew-icon-button ew-product-card__watch" aria-label="Watch stool">♡</button></div>
+          <h2 class="ew-product-card__title">Studio stool</h2>
+          <p class="ew-price">$40</p>
+          <p class="ew-product-card__meta"><span class="ew-countdown">1d</span> · 3 bids</p>
+        </article>
+        <article class="ew-product-card">
+          <div class="ew-product-card__media"><button type="button" class="ew-icon-button ew-product-card__watch" aria-label="Watch ink">♡</button></div>
+          <h2 class="ew-product-card__title">Black ink, sealed</h2>
+          <p class="ew-price">$9</p>
+          <p class="ew-product-card__meta"><span class="ew-countdown">4d</span> · Free shipping</p>
+        </article>
+        <article class="ew-product-card">
+          <div class="ew-product-card__media"><button type="button" class="ew-icon-button ew-product-card__watch" aria-label="Watch tray">♡</button></div>
+          <h2 class="ew-product-card__title">Lead tray</h2>
+          <p class="ew-price">$26</p>
+          <p class="ew-product-card__meta"><span class="ew-countdown">8h</span> · 5 bids</p>
+        </article>
+        <article class="ew-product-card">
+          <div class="ew-product-card__media"><button type="button" class="ew-icon-button ew-product-card__watch" aria-label="Watch paper">♡</button></div>
+          <h2 class="ew-product-card__title">Cotton paper ream</h2>
+          <p class="ew-price">$34</p>
+          <p class="ew-product-card__meta"><span class="ew-countdown">2d</span> · 1 bid</p>
+        </article>
+        <article class="ew-product-card">
+          <div class="ew-product-card__media"><button type="button" class="ew-icon-button ew-product-card__watch" aria-label="Watch lamp shade">♡</button></div>
+          <h2 class="ew-product-card__title">Glass shade</h2>
+          <p class="ew-price">$15</p>
+          <p class="ew-product-card__meta"><span class="ew-countdown">12h</span> · 2 bids</p>
+        </article>
+      </div>
+      <article id="detail" class="ew-card ew-card--quiet">
+        <header class="ew-card__header"><h2 class="ew-title--panel">Brass lamp</h2><span class="ew-badge" data-variant="neutral">Used</span></header>
+        <div class="ew-card__body">
+          <p class="ew-price">$48</p>
+          <p class="ew-rating"><span class="ew-rating__stars" aria-hidden="true"></span><span class="ew-rating__count">128 reviews</span></p>
+          <p>Working socket. Shade is later.</p>
+          <div class="ew-table-scroll">
+            <table class="ew-table" data-responsive="stack" data-zebra="true">
+              <caption>Specifics</caption>
+              <thead><tr><th aria-sort="ascending">Detail</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td data-label="Detail">Material</td><td data-label="Value">Brass</td></tr>
+                <tr class="is-selected"><td data-label="Detail">Height</td><td data-label="Value">16 in</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <button type="button" class="ew-button">Place bid</button>
+          <button type="button" class="ew-button" data-variant="secondary">Buy It Now</button>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="bid-bar"><span class="ew-price">$48</span><button type="button" class="ew-button">Place bid</button></div>
 </div>
 </body>
 </html>

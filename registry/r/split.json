@@ -1,0 +1,27 @@
+{
+  "name": "ew-split",
+  "type": "registry:ui",
+  "title": "Era Widgets — Split pane",
+  "description": "Two-column app split that stacks under 800px.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/split.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-split {\n    /* anatomy: root */\n  }\n  .ew-split { display: grid; grid-template-columns: var(--ew-split-track, minmax(0, 1.15fr) minmax(280px, 0.9fr)); gap: 12px; align-items: start; min-width: 0; max-width: 100%; }\n  .ew-split__side, .ew-split__main { min-width: 0; max-width: 100%; }\n  @media (max-width: 800px) { .ew-split { grid-template-columns: minmax(0, 1fr); } }\n  /* spec variant variant=default */\n  .ew-split[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-split:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-split[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-split[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-split:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-split, .ew-split *, .ew-split *::before, .ew-split *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/split.css"
+    },
+    {
+      "path": "era-widgets/split.example.html",
+      "content": "<!-- Era Widgets Split pane — set data-era on an ancestor -->\n<div class=\"ew-split\"><div class=\"ew-split__side\"></div><div class=\"ew-split__main\"></div></div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/split.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-split",
+    "canonicalHtml": "<div class=\"ew-split\"><div class=\"ew-split__side\"></div><div class=\"ew-split__main\"></div></div>",
+    "cssPackage": "@groovster/css/split.css"
+  }
+}

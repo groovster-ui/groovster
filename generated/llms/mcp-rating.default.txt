@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"rating","html":"<div class=\"ew-rating\"></div>","css":"import \"@groovster/css/rating.css\";","a11y":"Rating uses the shared app class. Pair a written label with any icon."}

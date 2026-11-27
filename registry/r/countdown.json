@@ -1,0 +1,27 @@
+{
+  "name": "ew-countdown",
+  "type": "registry:ui",
+  "title": "Era Widgets — Countdown",
+  "description": "Time left, with an urgent state that is not colour alone.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/countdown.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-countdown {\n    /* anatomy: root */\n  }\n  .ew-countdown { font-variant-numeric: tabular-nums; font-weight: 700; }\n  .ew-countdown[data-urgent=\"true\"] { font-weight: 800; }\n  .ew-countdown[data-urgent=\"true\"]::before { content: \"\\25B6\\00a0\"; }\n  /* spec variant variant=default */\n  .ew-countdown[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-countdown:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-countdown[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-countdown[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-countdown:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-countdown, .ew-countdown *, .ew-countdown *::before, .ew-countdown *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/countdown.css"
+    },
+    {
+      "path": "era-widgets/countdown.example.html",
+      "content": "<!-- Era Widgets Countdown — set data-era on an ancestor -->\n<div class=\"ew-countdown\"></div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/countdown.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-countdown",
+    "canonicalHtml": "<div class=\"ew-countdown\"></div>",
+    "cssPackage": "@groovster/css/countdown.css"
+  }
+}

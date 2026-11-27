@@ -1,0 +1,126 @@
+{
+  "$schema": "../schema/recipe.schema.json",
+  "priority": 40,
+  "eras": {
+    "recommended": [
+      "neutral"
+    ],
+    "alsoFits": [
+      "swiss",
+      "bauhaus",
+      "deco",
+      "groovy",
+      "memphis",
+      "mcm-atomic",
+      "neon",
+      "art-nouveau"
+    ],
+    "avoid": []
+  },
+  "fidelity": {
+    "page": "whisper",
+    "forms": "whisper",
+    "data": "whisper",
+    "notes": "Compact density. Costume stays on the hero only when the page has one."
+  },
+  "hierarchy": [
+    "h1 page title",
+    "h2 section or panel"
+  ],
+  "responsive": {
+    "breakpoint": "800px",
+    "behavior": "Panes stack. Toolbars wrap. No horizontal page scroll at 390."
+  },
+  "typography": {
+    "priorities": [
+      "Body face on controls and card titles in compact density.",
+      "Display face on the page title."
+    ]
+  },
+  "spacing": {
+    "priority": "Use data-density=compact so card padding is about 10px."
+  },
+  "ornament": {
+    "use": [
+      "Era palette, price, and chips."
+    ],
+    "avoid": [
+      "Pattern behind body text.",
+      "Full frames on every card."
+    ]
+  },
+  "density": "compact",
+  "eraDeviations": [
+    {
+      "eras": [
+        "deco",
+        "groovy",
+        "neon",
+        "mcm-atomic",
+        "memphis"
+      ],
+      "note": "Era character stays in palette, type, and one accent. Quiet cards inside compact density."
+    }
+  ],
+  "customization": [
+    "Sample names and counts.",
+    "Era and mode stay on the root."
+  ],
+  "id": "mail",
+  "name": "Mail client",
+  "category": "Three-pane inbox",
+  "summary": "A dense inbox with folders, a message list, and a reader. Selection and unread are not colour alone.",
+  "keywords": [
+    "mail",
+    "inbox",
+    "email",
+    "message",
+    "unread"
+  ],
+  "sections": {
+    "required": [
+      {
+        "id": "folders",
+        "purpose": "Nav rail"
+      },
+      {
+        "id": "list",
+        "purpose": "Message rows"
+      },
+      {
+        "id": "reader",
+        "purpose": "Open letter"
+      }
+    ],
+    "optional": []
+  },
+  "layouts": [
+    "Toolbar, then a nav rail, list, and reader."
+  ],
+  "components": {
+    "required": [
+      "toolbar",
+      "list",
+      "search",
+      "badge"
+    ],
+    "optional": [
+      "dialog"
+    ]
+  },
+  "interactions": [
+    "Select a row.",
+    "Search filters the list."
+  ],
+  "accessibility": [
+    "The list is a listbox.",
+    "Unread uses weight and a dot.",
+    "The toolbar sits inside a header landmark."
+  ],
+  "demo": {
+    "path": "demos/apps-dense/mail/index.html",
+    "era": "neutral",
+    "mode": "light",
+    "fidelity": "whisper"
+  }
+}

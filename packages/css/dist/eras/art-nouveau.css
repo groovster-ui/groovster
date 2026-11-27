@@ -522,4 +522,22 @@
  [data-era="art-nouveau"] .ew-card[data-variant="raised"]::before{display:none}
 }
 
+
+  [data-era="art-nouveau"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet, .ew-shelf) {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="art-nouveau"] .ew-table { border-collapse: collapse; }
+  [data-era="art-nouveau"] .ew-table tbody tr:nth-child(even) { background: color-mix(in oklch, var(--ew-color-fg-default) 5%, transparent); }
+  [data-era="art-nouveau"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="art-nouveau"] .ew-nav-rail__item[aria-current="page"], [data-era="art-nouveau"] .ew-list-item[aria-current="true"] { font-weight: 700; box-shadow: inset 3px 0 0 var(--ew-color-action-bg); }
+  [data-era="art-nouveau"] .ew-pagination__page[aria-current="page"] { font-weight: 700; box-shadow: inset 0 -2px 0 var(--ew-color-action-bg); }
+  [data-era="art-nouveau"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+  [data-era="art-nouveau"] .ew-code, [data-era="art-nouveau"] .ew-code code { font-family: var(--ew-font-mono, ui-monospace, monospace); }
+  [data-era="art-nouveau"] .ew-skeleton { background: color-mix(in oklch, var(--ew-color-fg-muted) 18%, var(--ew-color-bg-surface)); }
+  [data-era="art-nouveau"] .ew-empty-state { border: 1px dashed var(--ew-color-border-subtle); }
+  [data-era="art-nouveau"] .ew-meter__bar { border-radius: 999px; }
+
+  [data-era="art-nouveau"] .ew-chip, [data-era="art-nouveau"] .ew-search { border-radius: 999px 4px; border-color: var(--ew-color-brass, var(--ew-color-border-strong)); }
+  [data-era="art-nouveau"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-leaf, var(--ew-color-action-bg)); }
+  [data-era="art-nouveau"]:not([data-density="compact"]) .ew-media-card, [data-era="art-nouveau"]:not([data-density="compact"]) .ew-shelf { border-radius: 48% 48% 8px 8px; overflow: hidden; }
 }

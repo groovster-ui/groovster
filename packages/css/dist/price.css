@@ -1,0 +1,22 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-price {
+    /* anatomy: root */
+  }
+  .ew-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; margin: 0; font-variant-numeric: tabular-nums; font-weight: 800; color: var(--ew-color-action-bg); font-family: var(--ew-font-body, system-ui, sans-serif); }
+  .ew-price__was { color: var(--ew-color-fg-muted); font-weight: 500; text-decoration: line-through; }
+  .ew-price__note { color: var(--ew-color-fg-muted); font-size: 0.75rem; font-weight: 600; }
+  /* spec variant variant=default */
+  .ew-price[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-price:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-price[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-price[data-size="md"] { --ew-spec-size: md; }
+  .ew-price:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-price, .ew-price *, .ew-price *::before, .ew-price *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

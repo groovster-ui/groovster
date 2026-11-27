@@ -199,6 +199,10 @@ export function atomicDecoratorCss() {
   [data-era="mcm-atomic"][data-mode="dark"] {
     background-image: var(--ew-ornament-boomerang-night);
   }
+  [data-era="mcm-atomic"] :is(.ew-shelf, .ew-media-card, .ew-card, .ew-list, .ew-toolbar, .ew-table, .ew-stat, .stream, .folio, .panes, .market) {
+    background-color: var(--ew-color-bg-page);
+    background-image: none;
+  }
   [data-era="mcm-atomic"] .ew-backdrop,
   [data-era="mcm-atomic"].ew-backdrop {
     position: absolute;
@@ -644,7 +648,7 @@ export function atomicDecoratorCss() {
     z-index: 2;
     background: var(--ew-color-teal);
     color: var(--ew-color-fg-inverse, #fff);
-    padding: 14px 20px;
+    padding: var(--ew-card-pad, 14px) var(--ew-card-pad, 20px);
     border-radius: 16px 16px 0 0;
   }
   [data-era="mcm-atomic"] .ew-card__header h2,
@@ -660,7 +664,7 @@ export function atomicDecoratorCss() {
   [data-era="mcm-atomic"] .ew-card__footer {
     position: relative;
     z-index: 2;
-    padding: 16px 20px 52px;
+    padding: var(--ew-card-pad, 16px) var(--ew-card-pad, 20px) 52px;
     background: transparent;
   }
   [data-era="mcm-atomic"] .ew-card > :not(.ew-card__header):not(.ew-card__body):not(.ew-card__footer) {

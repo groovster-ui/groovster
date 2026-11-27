@@ -84,7 +84,8 @@ export function memphisDecoratorCss() {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    min-height: clamp(420px, 62vw, 720px);
+    /* Stay inside a 900px and an 844px first viewport, including the recipe skin above the hero. */
+    min-height: clamp(280px, 42vh, 460px);
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     align-items: end;
@@ -156,6 +157,20 @@ export function memphisDecoratorCss() {
     background: var(--ew-color-bg-page);
     box-shadow: 0 0 0 8px var(--ew-color-bg-page);
     padding: 12px 16px;
+  }
+  [data-era="memphis"] .ew-section-heading::after {
+    content: "";
+    display: block;
+    height: 12px;
+    margin-top: 8px;
+    background-image: ${squiggleLight};
+    background-repeat: repeat-x;
+    background-position: left center;
+    background-size: 104px 28px;
+    pointer-events: none;
+  }
+  [data-era="memphis"][data-mode="dark"] .ew-section-heading::after {
+    background-image: ${squiggleDark};
   }
   [data-era="memphis"] .ew-hero__title {
     font-family: var(--ew-font-display);

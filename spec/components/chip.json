@@ -4,8 +4,8 @@
   "name": "Chip",
   "summary": "Filter, label, or removable token. Selectable chips use aria-pressed.",
   "className": "ew-chip",
-  "nativeElement": "button",
-  "behavior": "css-only",
+  "nativeElement": "button (custom element later: ew-chip)",
+  "behavior": "web-component",
   "anatomy": [
     {
       "part": "root",

@@ -89,6 +89,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
 ```html
 <pre class="ew-code"><code>npm test</code><button type="button" class="ew-button ew-code__copy">Copy</button></pre>
 ```
+## countdown
+
+```html
+<div class="ew-countdown"></div>
+```
 ## density
 
 ```html
@@ -107,6 +112,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
 
 ```html
 <div class="ew-empty-state"><h2 class="ew-empty-state__title ew-title--panel">Nothing here</h2><p class="ew-empty-state__body">No messages match.</p></div>
+```
+## filter-group
+
+```html
+<div class="ew-filter-group"></div>
 ```
 ## icon-button
 
@@ -171,6 +181,16 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   </div>
 </ew-popover>
 ```
+## price
+
+```html
+<div class="ew-price"></div>
+```
+## product-card
+
+```html
+<div class="ew-product-card"></div>
+```
 ## radio
 
 ```html
@@ -179,6 +199,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   <label class="ew-radio"><input class="ew-radio__control" type="radio" name="plan" value="basic" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Basic</span></label>
   <label class="ew-radio"><input class="ew-radio__control" type="radio" name="plan" value="pro" /><span class="ew-radio__disc" aria-hidden="true"></span><span class="ew-radio__label">Pro</span></label>
 </fieldset>
+```
+## rating
+
+```html
+<div class="ew-rating"></div>
 ```
 ## search
 
@@ -201,6 +226,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   </select>
 </ew-select>
 ```
+## sheet
+
+```html
+<div class="ew-sheet"><div class="ew-sheet__head"></div><div class="ew-sheet__body"></div></div>
+```
 ## shelf
 
 ```html
@@ -219,6 +249,11 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
   <input id="vol" class="ew-slider__control" type="range" min="0" max="100" value="40" />
   <output class="ew-slider__value">40</output>
 </ew-slider>
+```
+## split
+
+```html
+<div class="ew-split"><div class="ew-split__side"></div><div class="ew-split__main"></div></div>
 ```
 ## stat
 
@@ -276,7 +311,7 @@ Hard widgets need @groovster/elements/era-elements.js: ew-tabs, ew-select, ew-me
 ## toolbar
 
 ```html
-<div class="ew-toolbar" role="toolbar" aria-label="Mailbox" data-sticky="true"><div class="ew-toolbar__start"></div><div class="ew-toolbar__center"></div><div class="ew-toolbar__end"></div></div>
+<header><div class="ew-toolbar" role="toolbar" aria-label="Mailbox" data-sticky="true"><div class="ew-toolbar__start"></div><div class="ew-toolbar__center"></div><div class="ew-toolbar__end"></div></div></header>
 ```
 ## tooltip
 

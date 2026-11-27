@@ -4,8 +4,8 @@
   "name": "Pagination",
   "summary": "Previous, next, and page links. The current page uses aria-current.",
   "className": "ew-pagination",
-  "nativeElement": "nav",
-  "behavior": "css-only",
+  "nativeElement": "nav (custom element later: ew-pagination)",
+  "behavior": "web-component",
   "anatomy": [
     {
       "part": "root",

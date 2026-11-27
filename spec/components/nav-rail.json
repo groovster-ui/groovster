@@ -103,7 +103,8 @@
     "@groovster/css/eras/<era>.css"
   ],
   "do": [
-    "Keep markup era-neutral and set data-era on an ancestor."
+    "Keep markup era-neutral and set data-era on an ancestor.",
+    "Put the icon in .ew-nav-rail__icon. In data-collapsed=true, set data-label so the hover and focus tooltip names the item."
   ],
   "dont": [
     "Do not restyle this with a display face or uppercase tracking."

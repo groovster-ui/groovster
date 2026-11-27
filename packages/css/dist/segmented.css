@@ -4,9 +4,9 @@
   .ew-segmented {
     /* anatomy: root */
   }
-  .ew-segmented { display: inline-flex; flex-wrap: wrap; min-width: 0; max-width: 100%; padding: 2px; gap: 2px; border: 1px solid var(--ew-color-border-subtle); border-radius: var(--ew-structure-control-radius, 8px); }
+  .ew-segmented { display: inline-flex; flex-wrap: nowrap; overflow-x: auto; min-width: 0; max-width: 100%; padding: 2px; gap: 2px; border: 1px solid var(--ew-color-border-subtle); border-radius: var(--ew-structure-control-radius, 8px); }
   .ew-segmented__item {
-    min-height: 32px; padding: 4px 10px; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer;
+    flex: 0 0 auto; white-space: nowrap; min-height: 32px; padding: 4px 10px; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer;
   }
   .ew-segmented__item[aria-checked="true"], .ew-segmented :checked + .ew-segmented__item {
     font-weight: 700; background: var(--ew-color-bg-surface); box-shadow: inset 0 -2px 0 var(--ew-color-action-bg);

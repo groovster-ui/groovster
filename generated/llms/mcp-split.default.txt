@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"split","html":"<div class=\"ew-split\"><div class=\"ew-split__side\"></div><div class=\"ew-split__main\"></div></div>","css":"import \"@groovster/css/split.css\";","a11y":"The side and main regions need their own labels when they are navigation or main."}

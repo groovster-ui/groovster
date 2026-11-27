@@ -1,0 +1,126 @@
+{
+  "$schema": "../schema/recipe.schema.json",
+  "priority": 40,
+  "eras": {
+    "recommended": [
+      "neutral"
+    ],
+    "alsoFits": [
+      "swiss",
+      "bauhaus",
+      "deco",
+      "groovy",
+      "memphis",
+      "mcm-atomic",
+      "neon",
+      "art-nouveau"
+    ],
+    "avoid": []
+  },
+  "fidelity": {
+    "page": "whisper",
+    "forms": "whisper",
+    "data": "whisper",
+    "notes": "Compact density. Costume stays on the hero only when the page has one."
+  },
+  "hierarchy": [
+    "h1 page title",
+    "h2 section or panel"
+  ],
+  "responsive": {
+    "breakpoint": "800px",
+    "behavior": "Panes stack. Toolbars wrap. No horizontal page scroll at 390."
+  },
+  "typography": {
+    "priorities": [
+      "Body face on controls and card titles in compact density.",
+      "Display face on the page title."
+    ]
+  },
+  "spacing": {
+    "priority": "Use data-density=compact so card padding is about 10px."
+  },
+  "ornament": {
+    "use": [
+      "Era palette, price, and chips."
+    ],
+    "avoid": [
+      "Pattern behind body text.",
+      "Full frames on every card."
+    ]
+  },
+  "density": "compact",
+  "eraDeviations": [
+    {
+      "eras": [
+        "deco",
+        "groovy",
+        "neon",
+        "mcm-atomic",
+        "memphis"
+      ],
+      "note": "Era character stays in palette, type, and one accent. Quiet cards inside compact density."
+    }
+  ],
+  "customization": [
+    "Sample names and counts.",
+    "Era and mode stay on the root."
+  ],
+  "id": "streaming",
+  "name": "Streaming shelf",
+  "category": "Hero, shelves, and a title dialog",
+  "summary": "A title hero, horizontal shelves of posters, and a detail dialog. Posters keep a fixed ratio.",
+  "keywords": [
+    "streaming",
+    "video",
+    "shelf",
+    "poster",
+    "watch"
+  ],
+  "sections": {
+    "required": [
+      {
+        "id": "hero",
+        "purpose": "Featured title"
+      },
+      {
+        "id": "shelves",
+        "purpose": "Poster rows"
+      },
+      {
+        "id": "detail",
+        "purpose": "Title dialog"
+      }
+    ],
+    "optional": []
+  },
+  "layouts": [
+    "Sticky toolbar, hero, then scroll-snap shelves."
+  ],
+  "components": {
+    "required": [
+      "toolbar",
+      "shelf",
+      "media-card"
+    ],
+    "optional": [
+      "dialog",
+      "pagination"
+    ]
+  },
+  "interactions": [
+    "Scroll a shelf.",
+    "Open the title dialog."
+  ],
+  "accessibility": [
+    "Shelf cards are links with names.",
+    "The dialog has a label.",
+    "Reduced motion keeps the shelf still."
+  ],
+  "demo": {
+    "path": "demos/apps-dense/stream/index.html",
+    "era": "neon",
+    "mode": "dark",
+    "fidelity": "costume"
+  }
+}

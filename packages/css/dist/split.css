@@ -1,0 +1,22 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-split {
+    /* anatomy: root */
+  }
+  .ew-split { display: grid; grid-template-columns: var(--ew-split-track, minmax(0, 1.15fr) minmax(280px, 0.9fr)); gap: 12px; align-items: start; min-width: 0; max-width: 100%; }
+  .ew-split__side, .ew-split__main { min-width: 0; max-width: 100%; }
+  @media (max-width: 800px) { .ew-split { grid-template-columns: minmax(0, 1fr); } }
+  /* spec variant variant=default */
+  .ew-split[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-split:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-split[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-split[data-size="md"] { --ew-spec-size: md; }
+  .ew-split:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-split, .ew-split *, .ew-split *::before, .ew-split *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

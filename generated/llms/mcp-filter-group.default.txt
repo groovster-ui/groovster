@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"filter-group","html":"<div class=\"ew-filter-group\"></div>","css":"import \"@groovster/css/filter-group.css\";","a11y":"Filter group uses the shared app class. Pair a written label with any icon."}

@@ -15,7 +15,7 @@ export const Shelf = React.forwardRef<HTMLElement, ShelfProps>(function Shelf(
   if (size != null) dataProps["data-size"] = size;
   const cls = ["ew-shelf", className].filter(Boolean).join(' ');
   return React.createElement(
-    "section",
+    "ew-shelf",
     { ref, ...rest, className: cls, ...dataProps },
     children
   );

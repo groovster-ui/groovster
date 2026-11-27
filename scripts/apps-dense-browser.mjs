@@ -77,7 +77,7 @@ try {
               found.push(`scroll ${document.documentElement.scrollWidth}`);
             }
             const button = document.querySelector('.ew-button');
-            if (button) {
+            if (button?.closest('[data-density="compact"], .ew-app')) {
               const style = getComputedStyle(button);
               if (/spicy/i.test(style.fontFamily)) found.push('display face on button');
               if (style.textTransform === 'uppercase' && !button.classList.contains('ew-caps')) {

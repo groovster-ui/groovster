@@ -1,0 +1,27 @@
+{
+  "name": "ew-sheet",
+  "type": "registry:ui",
+  "title": "Era Widgets — Sheet",
+  "description": "Surface for a document or a mobile filter sheet.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/sheet.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-sheet {\n    /* anatomy: root */\n  }\n  .ew-sheet { min-width: 0; max-width: 100%; background: var(--ew-color-bg-surface); color: inherit; border: 1px solid var(--ew-color-border-subtle); }\n  .ew-sheet__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; padding: var(--ew-card-pad, 12px); border-bottom: 1px solid var(--ew-color-border-subtle); }\n  .ew-sheet__body { min-width: 0; padding: var(--ew-card-pad, 12px); }\n  @media (max-width: 600px) {\n    .ew-sheet[data-variant=\"mobile\"] { position: fixed; inset: auto 0 0 0; z-index: 20; max-height: 85vh; overflow: auto; border-radius: 12px 12px 0 0; }\n  }\n  /* spec variant variant=default */\n  .ew-sheet[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-sheet:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-sheet[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-sheet[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-sheet:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-sheet, .ew-sheet *, .ew-sheet *::before, .ew-sheet *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/sheet.css"
+    },
+    {
+      "path": "era-widgets/sheet.example.html",
+      "content": "<!-- Era Widgets Sheet — set data-era on an ancestor -->\n<div class=\"ew-sheet\"><div class=\"ew-sheet__head\"></div><div class=\"ew-sheet__body\"></div></div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/sheet.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-sheet",
+    "canonicalHtml": "<div class=\"ew-sheet\"><div class=\"ew-sheet__head\"></div><div class=\"ew-sheet__body\"></div></div>",
+    "cssPackage": "@groovster/css/sheet.css"
+  }
+}

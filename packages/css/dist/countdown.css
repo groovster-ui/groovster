@@ -1,0 +1,22 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-countdown {
+    /* anatomy: root */
+  }
+  .ew-countdown { font-variant-numeric: tabular-nums; font-weight: 700; }
+  .ew-countdown[data-urgent="true"] { font-weight: 800; }
+  .ew-countdown[data-urgent="true"]::before { content: "\25B6\00a0"; }
+  /* spec variant variant=default */
+  .ew-countdown[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-countdown:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-countdown[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-countdown[data-size="md"] { --ew-spec-size: md; }
+  .ew-countdown:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-countdown, .ew-countdown *, .ew-countdown *::before, .ew-countdown *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

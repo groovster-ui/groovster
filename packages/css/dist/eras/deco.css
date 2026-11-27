@@ -537,7 +537,7 @@
     box-shadow:
       inset 0 1px 0 color-mix(in srgb, var(--ew-color-champagne, #E6D4AE) 24%, transparent),
       0 4px 0 0 color-mix(in srgb, var(--ew-color-brassDeep) 46%, transparent);
-    padding: 22px;
+    padding: var(--ew-card-pad, 22px);
   }
   [data-era="deco"] .ew-card[data-variant="raised"] {
     background-color: var(--ew-color-bg-elevated);
@@ -629,7 +629,7 @@
     text-transform: uppercase;
     letter-spacing: 0.11em;
     font-weight: 600;
-    font-family: var(--ew-font-body);
+    font-family: var(--ew-font-display);
     clip-path: none;
     border-style: solid;
     box-shadow:
@@ -1045,7 +1045,7 @@
     [data-era="deco"] .ew-section-heading::before,
     [data-era="deco"] .ew-section-heading::after { width: 26px; }
     [data-era="deco"] .ew-button { letter-spacing: 0.08em; }
-    [data-era="deco"] .ew-card { padding: 16px; }
+    [data-era="deco"] .ew-card { padding: var(--ew-card-pad, 16px); }
     [data-era="deco"] .ew-card__header h2,
     [data-era="deco"] .ew-card__header h3 { letter-spacing: 0.08em; }
     [data-era="deco"] .ew-tabs [role="tab"],
@@ -1075,4 +1075,24 @@
     [data-era="deco"] .ew-tier-card::before { display: none; }
   }
 
+
+  [data-era="deco"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet, .ew-shelf) {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="deco"] .ew-table { border-collapse: collapse; }
+  [data-era="deco"] .ew-table tbody tr:nth-child(even) { background: color-mix(in oklch, var(--ew-color-fg-default) 5%, transparent); }
+  [data-era="deco"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="deco"] .ew-nav-rail__item[aria-current="page"], [data-era="deco"] .ew-list-item[aria-current="true"] { font-weight: 700; box-shadow: inset 3px 0 0 var(--ew-color-action-bg); }
+  [data-era="deco"] .ew-pagination__page[aria-current="page"] { font-weight: 700; box-shadow: inset 0 -2px 0 var(--ew-color-action-bg); }
+  [data-era="deco"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+  [data-era="deco"] .ew-code, [data-era="deco"] .ew-code code { font-family: var(--ew-font-mono, ui-monospace, monospace); }
+  [data-era="deco"] .ew-skeleton { background: color-mix(in oklch, var(--ew-color-fg-muted) 18%, var(--ew-color-bg-surface)); }
+  [data-era="deco"] .ew-empty-state { border: 1px dashed var(--ew-color-border-subtle); }
+  [data-era="deco"] .ew-meter__bar { border-radius: 999px; }
+
+  [data-era="deco"] :is(.ew-chip, .ew-badge, .ew-segmented, .ew-search, .ew-code) { border-radius: 0; }
+  [data-era="deco"]:not([data-density="compact"]) :is(.ew-toolbar, .ew-search, .ew-code) { box-shadow: inset 0 -1px 0 var(--ew-color-gold, currentColor), inset 0 -4px 0 color-mix(in srgb, var(--ew-color-gold, currentColor) 35%, transparent); }
+  [data-era="deco"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-brassDeep, #5C4510); font-variant-numeric: tabular-nums; }
+  [data-era="deco"][data-mode="dark"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-gold, #E6C56A); }
+  [data-era="deco"]:not([data-density="compact"]) .ew-table th { letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.75rem; }
 }

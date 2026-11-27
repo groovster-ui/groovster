@@ -575,4 +575,25 @@
     [data-era="bauhaus"] .ew-hero__backdrop::after { display: none; }
   }
 
+
+  [data-era="bauhaus"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet, .ew-shelf) {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="bauhaus"] .ew-table { border-collapse: collapse; }
+  [data-era="bauhaus"] .ew-table tbody tr:nth-child(even) { background: color-mix(in oklch, var(--ew-color-fg-default) 5%, transparent); }
+  [data-era="bauhaus"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="bauhaus"] .ew-nav-rail__item[aria-current="page"], [data-era="bauhaus"] .ew-list-item[aria-current="true"] { font-weight: 700; box-shadow: inset 3px 0 0 var(--ew-color-action-bg); }
+  [data-era="bauhaus"] .ew-pagination__page[aria-current="page"] { font-weight: 700; box-shadow: inset 0 -2px 0 var(--ew-color-action-bg); }
+  [data-era="bauhaus"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+  [data-era="bauhaus"] .ew-code, [data-era="bauhaus"] .ew-code code { font-family: var(--ew-font-mono, ui-monospace, monospace); }
+  [data-era="bauhaus"] .ew-skeleton { background: color-mix(in oklch, var(--ew-color-fg-muted) 18%, var(--ew-color-bg-surface)); }
+  [data-era="bauhaus"] .ew-empty-state { border: 1px dashed var(--ew-color-border-subtle); }
+  [data-era="bauhaus"] .ew-meter__bar { border-radius: 999px; }
+
+  [data-era="bauhaus"] .ew-badge, [data-era="bauhaus"] .ew-chip, [data-era="bauhaus"] .ew-segmented, [data-era="bauhaus"] .ew-toolbar, [data-era="bauhaus"] .ew-search { border-radius: 0; }
+  [data-era="bauhaus"] .ew-badge { box-shadow: inset 4px 0 0 var(--ew-color-action-bg); }
+  [data-era="bauhaus"] .ew-price { color: #9E1018; font-weight: 800; }
+  [data-era="bauhaus"][data-mode="dark"] .ew-price { color: #FF9B94; }
+  [data-era="bauhaus"] .ew-stat__value { font-weight: 800; }
+  [data-era="bauhaus"] .ew-table th { border-bottom: 3px solid var(--ew-color-fg-default); }
 }

@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"product-card","html":"<div class=\"ew-product-card\"></div>","css":"import \"@groovster/css/product-card.css\";","a11y":"Product card uses the shared app class. Pair a written label with any icon."}

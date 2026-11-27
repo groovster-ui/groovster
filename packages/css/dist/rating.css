@@ -1,0 +1,23 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-rating {
+    /* anatomy: root */
+  }
+  .ew-rating { display: inline-flex; align-items: center; gap: 4px; font: 600 0.8rem/1 var(--ew-font-body, system-ui, sans-serif); }
+  .ew-rating__stars { letter-spacing: 0.08em; }
+  .ew-rating__stars::before { content: "\2605\2605\2605\2605\2606"; }
+  .ew-rating__count { color: var(--ew-color-fg-muted); }
+  /* spec variant variant=default */
+  .ew-rating[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-rating:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-rating[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-rating[data-size="md"] { --ew-spec-size: md; }
+  .ew-rating:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-rating, .ew-rating *, .ew-rating *::before, .ew-rating *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

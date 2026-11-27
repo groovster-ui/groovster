@@ -350,7 +350,7 @@ export function decoDecoratorCss() {
     box-shadow:
       inset 0 1px 0 color-mix(in srgb, var(--ew-color-champagne, #E6D4AE) 24%, transparent),
       0 4px 0 0 color-mix(in srgb, var(--ew-color-brassDeep) 46%, transparent);
-    padding: 22px;
+    padding: var(--ew-card-pad, 22px);
   }
   [data-era="deco"] .ew-card[data-variant="raised"] {
     background-color: var(--ew-color-bg-elevated);
@@ -442,7 +442,7 @@ export function decoDecoratorCss() {
     text-transform: uppercase;
     letter-spacing: 0.11em;
     font-weight: 600;
-    font-family: var(--ew-font-body);
+    font-family: var(--ew-font-display);
     clip-path: none;
     border-style: solid;
     box-shadow:
@@ -849,7 +849,7 @@ export function decoDecoratorCss() {
     [data-era="deco"] .ew-section-heading::before,
     [data-era="deco"] .ew-section-heading::after { width: 26px; }
     [data-era="deco"] .ew-button { letter-spacing: 0.08em; }
-    [data-era="deco"] .ew-card { padding: 16px; }
+    [data-era="deco"] .ew-card { padding: var(--ew-card-pad, 16px); }
     [data-era="deco"] .ew-card__header h2,
     [data-era="deco"] .ew-card__header h3 { letter-spacing: 0.08em; }
     [data-era="deco"] .ew-tabs [role="tab"],

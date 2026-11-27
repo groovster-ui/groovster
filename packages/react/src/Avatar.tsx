@@ -2,13 +2,14 @@ import * as React from 'react';
 
 export type AvatarProps = Omit<React.ComponentPropsWithoutRef<'span'>, 'size'> & {
   fallback?: React.ReactNode;
+  presence?: "online" | "away" | "busy" | "offline";
   variant?: "circle" | "square";
   size?: "sm" | "md" | "lg";
 };
 
 /** User/image avatar with initials fallback. */
 export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
-  { className, variant, size, fallback, children, ...rest },
+  { className, variant, size, fallback, presence, children, ...rest },
   ref
 ) {
   const dataProps: Record<string, string> = {};
@@ -19,6 +20,7 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(function Av
     'span',
     { ref, className: cls, ...dataProps, ...rest },
     fallback != null ? React.createElement('span', { className: "ew-avatar__fallback" }, fallback) : null,
+    presence != null ? React.createElement('span', { className: 'ew-avatar__presence', 'data-presence': presence }) : null,
     children
   );
 });

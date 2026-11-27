@@ -32,6 +32,12 @@ const ORDER = [
   'ew-tooltip.js',
   'ew-toast.js',
   'ew-slider.js',
+  'ew-search.js',
+  'ew-segmented.js',
+  'ew-chip.js',
+  'ew-code.js',
+  'ew-shelf.js',
+  'ew-pagination.js',
 ];
 
 const IMPORT_RE =
@@ -62,7 +68,7 @@ for (const file of ORDER) {
 
 const bundle =
   banner('era-elements.js') +
-  '/* Bundle of Tabs, Select, Menu, Popover, Tooltip, Toast, Slider. Zag.js not used. */\n' +
+  '/* Bundle of Tabs, Select, Menu, Popover, Tooltip, Toast, Slider, Search, Segmented, Chip, Code, Shelf, Pagination. Zag.js not used. */\n' +
   parts.join('\n');
 if (IMPORT_RE.test(bundle)) {
   console.error('Bundle unexpectedly contains imports');

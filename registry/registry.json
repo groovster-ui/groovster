@@ -175,6 +175,25 @@
       ]
     },
     {
+      "name": "ew-countdown",
+      "type": "registry:ui",
+      "title": "Era Widgets — Countdown",
+      "description": "Time left, with an urgent state that is not colour alone.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/countdown.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/countdown.css"
+        },
+        {
+          "path": "era-widgets/countdown.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/countdown.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-density",
       "type": "registry:ui",
       "title": "Era Widgets — Density",
@@ -228,6 +247,25 @@
           "path": "era-widgets/empty-state.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/empty-state.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-filter-group",
+      "type": "registry:ui",
+      "title": "Era Widgets — Filter group",
+      "description": "Collapsible filter with counts and a show-more control.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/filter-group.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/filter-group.css"
+        },
+        {
+          "path": "era-widgets/filter-group.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/filter-group.example.html"
         }
       ]
     },
@@ -432,6 +470,44 @@
       ]
     },
     {
+      "name": "ew-price",
+      "type": "registry:ui",
+      "title": "Era Widgets — Price",
+      "description": "Tabular price with an optional was-price and note.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/price.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/price.css"
+        },
+        {
+          "path": "era-widgets/price.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/price.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-product-card",
+      "type": "registry:ui",
+      "title": "Era Widgets — Product card",
+      "description": "Fixed-ratio listing with a two-line title and a price.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/product-card.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/product-card.css"
+        },
+        {
+          "path": "era-widgets/product-card.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/product-card.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-radio",
       "type": "registry:ui",
       "title": "Era Widgets — Radio",
@@ -447,6 +523,25 @@
           "path": "era-widgets/radio.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/radio.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-rating",
+      "type": "registry:ui",
+      "title": "Era Widgets — Rating",
+      "description": "Star rating with a written count.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/rating.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/rating.css"
+        },
+        {
+          "path": "era-widgets/rating.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/rating.example.html"
         }
       ]
     },
@@ -513,6 +608,25 @@
       ]
     },
     {
+      "name": "ew-sheet",
+      "type": "registry:ui",
+      "title": "Era Widgets — Sheet",
+      "description": "Surface for a document or a mobile filter sheet.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/sheet.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/sheet.css"
+        },
+        {
+          "path": "era-widgets/sheet.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/sheet.example.html"
+        }
+      ]
+    },
+    {
       "name": "ew-shelf",
       "type": "registry:ui",
       "title": "Era Widgets — Shelf",
@@ -571,6 +685,25 @@
           "path": "era-widgets/slider.example.html",
           "type": "registry:file",
           "target": "components/era-widgets/slider.example.html"
+        }
+      ]
+    },
+    {
+      "name": "ew-split",
+      "type": "registry:ui",
+      "title": "Era Widgets — Split pane",
+      "description": "Two-column app split that stacks under 800px.",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "era-widgets/split.css",
+          "type": "registry:file",
+          "target": "styles/era-widgets/split.css"
+        },
+        {
+          "path": "era-widgets/split.example.html",
+          "type": "registry:file",
+          "target": "components/era-widgets/split.example.html"
         }
       ]
     },

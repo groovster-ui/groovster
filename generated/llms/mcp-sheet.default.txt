@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"sheet","html":"<div class=\"ew-sheet\"><div class=\"ew-sheet__head\"></div><div class=\"ew-sheet__body\"></div></div>","css":"import \"@groovster/css/sheet.css\";","a11y":"Use data-variant=mobile for a bottom sheet under 600px. Give the region an accessible name."}
