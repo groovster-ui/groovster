@@ -25,7 +25,8 @@ body { margin: 0; }
 <script type="module" src="./style-lab.js"></script>
 </head>
 <body>
-<div class="lab ew-root" data-era="neutral" data-mode="light" data-fidelity-band="whisper">
+<div class="lab">
+  <div class="ew-root" data-era="neutral" data-mode="light" data-fidelity-band="whisper">
   <h1>Style lab</h1>
   <p>One dashboard and the canonical component gallery. Switch era, dialect, fidelity, mode and density independently.</p>
   <div class="lab-controls">
@@ -36,6 +37,7 @@ body { margin: 0; }
     <label>Density <select id="density" class="ew-select__control"><option value="">comfortable</option><option>compact</option></select></label>
   </div>
   <p id="status" class="lab-status" role="status">Loading generated catalog…</p>
+  </div>
   <main id="stage" class="ew-root" data-era="nordic" data-mode="light" data-fidelity-band="costume">
     <section class="ew-hero">
       <div class="ew-hero__stage" aria-hidden="true"></div>
