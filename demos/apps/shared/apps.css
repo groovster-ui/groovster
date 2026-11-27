@@ -271,14 +271,6 @@
   align-items: stretch;
 }
 
-.app-mail[data-era="neutral"] :is(.ew-text-field__control, .ew-select__control, .ew-select__trigger) {
-  border: 0;
-  border-bottom: 1px solid var(--ew-color-fg-default);
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
 .app-mail[data-era="neutral"] .app-reader {
   border: 0;
   border-left: 1px solid var(--ew-color-fg-default);
