@@ -366,7 +366,7 @@
       try {
         on = document.queryCommandState(button.dataset.docCmd);
       } catch {
-        on = false;
+        /* queryCommandState throws when the document has no selection. */
       }
       button.setAttribute("aria-pressed", on ? "true" : "false");
     }
