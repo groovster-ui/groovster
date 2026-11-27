@@ -26,6 +26,7 @@ import { memphisDecoratorCss } from './memphis-decorators.js';
 import { groovyDecoratorCss } from './groovy-decorators.js';
 import { appEraCss } from './app-era.js';
 import { loadRecipes, recipeIndexLines, writeRecipeDocs } from './recipes.js';
+import { additionalEraCss } from './additional-era-decorators.js';
 import { loadEraCatalog } from './era-catalog.js';
 import { matrixDocument } from '../../../tests/a11y/matrix-html.mjs';
 
@@ -451,6 +452,7 @@ function genEraCss(era) {
     blocks.push(groovyDecoratorCss());
   }
   blocks.push(appEraCss(era.id));
+  blocks.push(additionalEraCss(era.id));
   blocks.push(`}`);
   return blocks.join('\n') + '\n';
 }

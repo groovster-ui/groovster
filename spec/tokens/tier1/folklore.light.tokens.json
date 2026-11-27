@@ -1,0 +1,148 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 1,
+    "era": "folklore",
+    "mode": "light",
+    "description": "Folklore light pigments"
+  },
+  "color": {
+    "cream": {
+      "$type": "color",
+      "$value": "#F4EAD6"
+    },
+    "sand": {
+      "$type": "color",
+      "$value": "#E3D5B8"
+    },
+    "white": {
+      "$type": "color",
+      "$value": "#FFF9E9"
+    },
+    "teal": {
+      "$type": "color",
+      "$value": "#526139"
+    },
+    "coral": {
+      "$type": "color",
+      "$value": "#A13C24"
+    },
+    "mustard": {
+      "$type": "color",
+      "$value": "#805719"
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#392E27"
+    },
+    "accent": {
+      "solid": {
+        "$type": "color",
+        "$value": "#526139",
+        "$description": "coral primary"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "#FFF9E9"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$type": "color",
+        "$value": "#942829"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      }
+    }
+  },
+  "space": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "64px"
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "5px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "9px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "organic": {
+      "$type": "dimension",
+      "$value": "23px"
+    }
+  },
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": [
+        "Bodoni Moda",
+        "serif"
+      ]
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "Work Sans",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "Courier Prime",
+        "monospace"
+      ]
+    }
+  }
+}
