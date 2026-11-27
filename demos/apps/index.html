@@ -39,14 +39,14 @@
       <div class="site-switcher" role="group" aria-label="Fidelity and color mode">
         <p>Fidelity and mode</p>
         <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-band="whisper">Whisper</button>
-        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-band="standard" aria-pressed="true">Standard</button>
-        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-band="costume">Costume</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-band="standard">Standard</button>
+        <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-band="costume" aria-pressed="true">Costume</button>
         <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-mode="light" aria-pressed="true">Light</button>
         <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-pick-mode="dark">Dark</button>
-        <a class="ew-link" id="open-app" href="lot/index.html?era=memphis&amp;mode=light&amp;band=standard">Open this application</a>
+        <a class="ew-link" id="open-app" href="lot/index.html?era=memphis&amp;mode=light&amp;band=costume">Open this application</a>
       </div>
       </div>
-      <iframe class="app-frame" id="preview" title="Harbor Lot preview" src="lot/index.html?embed=1&amp;era=memphis&amp;mode=light&amp;band=standard"></iframe>
+      <iframe class="app-frame" id="preview" title="Harbor Lot preview" src="lot/index.html?embed=1&amp;era=memphis&amp;mode=light&amp;band=costume"></iframe>
       <div class="app-gallery">
         <article class="ew-card"><header class="ew-card__header"><h2>Posthorn</h2></header><div class="ew-card__body"><p>Mail, with folders, a reading pane, and drafts that stay in the browser.</p><p><a class="ew-link" href="mail/index.html">Open Posthorn</a></p></div></article>
         <article class="ew-card"><header class="ew-card__header"><h2>Folio</h2></header><div class="ew-card__body"><p>A word processor. Formatting, find, and an outline follow the document.</p><p><a class="ew-link" href="folio/index.html">Open Folio</a></p></div></article>
@@ -61,7 +61,7 @@
     const apps = {
       mail: { title: "Posthorn", href: "mail/index.html", era: "neutral", mode: "light", band: "whisper" },
       folio: { title: "Folio", href: "folio/index.html", era: "swiss", mode: "light", band: "costume" },
-      lot: { title: "Harbor Lot", href: "lot/index.html", era: "memphis", mode: "light", band: "standard" },
+      lot: { title: "Harbor Lot", href: "lot/index.html", era: "memphis", mode: "light", band: "costume" },
       hearth: { title: "Hearth", href: "hearth/index.html", era: "swiss", mode: "dark", band: "whisper" },
       inn: { title: "Cedar Stair", href: "inn/index.html", era: "deco", mode: "light", band: "costume" },
       rex: { title: "The Rex", href: "rex/index.html", era: "neon", mode: "dark", band: "costume" },
@@ -69,7 +69,7 @@
     const root = document.getElementById("gallery-root");
     const frame = document.getElementById("preview");
     const openLink = document.getElementById("open-app");
-    const state = { app: "lot", era: "memphis", mode: "light", band: "standard" };
+    const state = { app: "lot", era: "memphis", mode: "light", band: "costume" };
     function query() {
       return `era=${state.era}&mode=${state.mode}&band=${state.band}`;
     }

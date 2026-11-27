@@ -1,4 +1,341 @@
-/* Layout for the sample applications. Era geometry stays in Groovster CSS. */
+/* Layout for the sample applications. Era geometry stays in Groovster CSS.
+   The shared recipe shell flattens commerce and editorial heroes. These pages
+   give that picture its height back so each era can show its own drawing. */
+
+.recipe-commerce[data-era] .site-hero.ew-hero,
+.recipe-editorial[data-era] .site-hero.ew-hero {
+  min-height: clamp(460px, 62vw, 740px);
+  padding-top: 0;
+}
+
+.recipe-commerce[data-era] .ew-hero__stage,
+.recipe-editorial[data-era] .ew-hero__stage {
+  max-height: none;
+}
+
+/* Memphis has no hero drawing of its own. Shapes share edges: circle on the
+   square's corner, pink flush under the square, a black bar as their right edge. */
+[data-era="memphis"] .ew-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-block: 10px solid var(--ew-color-ink);
+}
+
+[data-era="memphis"] .ew-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  right: 6%;
+  top: 10%;
+  width: 36%;
+  height: 62%;
+  background: var(--ew-color-yellow);
+  box-shadow: 18px 0 0 0 var(--ew-color-ink);
+}
+
+[data-era="memphis"] .ew-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  right: 2%;
+  top: 6%;
+  width: 64%;
+  height: 82%;
+  background: linear-gradient(
+    128deg,
+    transparent 41%,
+    var(--ew-color-ink) 41% 44.2%,
+    transparent 44.2%
+  );
+}
+
+[data-era="memphis"] .ew-hero__stage {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: none;
+}
+
+[data-era="memphis"] .ew-hero__stage::before {
+  content: "";
+  position: absolute;
+  width: 16vw;
+  height: 16vw;
+  right: calc(42% - 10vw);
+  top: calc(10% - 5vw);
+  border-radius: 50%;
+  background: var(--ew-color-blue);
+}
+
+[data-era="memphis"] .ew-hero__stage::after {
+  content: "";
+  position: absolute;
+  right: 6%;
+  top: 72%;
+  width: 36%;
+  height: 12%;
+  background: var(--ew-color-pink);
+  box-shadow: 18px 0 0 0 var(--ew-color-ink);
+}
+
+[data-era="memphis"] .ew-hero__panel,
+[data-era="memphis"] .ew-hero__content {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 800px) {
+  .recipe-commerce[data-era="memphis"] .site-hero.ew-hero {
+    min-height: 0;
+  }
+
+  [data-era="memphis"] .ew-hero::before {
+    right: auto;
+    left: 96px;
+    top: auto;
+    bottom: 28px;
+    width: 128px;
+    height: 64px;
+  }
+
+  [data-era="memphis"] .ew-hero::after {
+    left: 168px;
+    right: auto;
+    top: auto;
+    bottom: 8px;
+    width: 92px;
+    height: 96px;
+  }
+
+  [data-era="memphis"] .ew-hero__stage {
+    top: auto;
+    height: 120px;
+  }
+
+  [data-era="memphis"] .ew-hero__stage::before {
+    width: 78px;
+    height: 78px;
+    right: auto;
+    left: 34px;
+    top: auto;
+    bottom: 22px;
+  }
+
+  [data-era="memphis"] .ew-hero__stage::after {
+    right: auto;
+    left: 96px;
+    top: auto;
+    bottom: 10px;
+    width: 128px;
+    height: 18px;
+  }
+
+  [data-era="memphis"] .ew-hero__content {
+    padding-bottom: 140px;
+  }
+}
+
+/* Art Nouveau: a framed poster, with the flower reaching the edge and a vine in the open field. */
+[data-era="art-nouveau"] .ew-hero {
+  align-items: stretch;
+  grid-template-rows: minmax(0, 1fr);
+  box-shadow:
+    inset 0 0 0 16px var(--ew-color-bg-page),
+    inset 0 0 0 18px var(--ew-color-brass),
+    inset 0 0 0 24px var(--ew-color-bg-page),
+    inset 0 0 0 25px var(--ew-color-leaf);
+}
+
+[data-era="art-nouveau"] .ew-hero__backdrop::before,
+[data-era="art-nouveau"] .ew-hero::after,
+[data-era="art-nouveau"] .ew-hero__stage::before {
+  width: min(54%, 640px);
+  height: 112%;
+  right: 1%;
+  top: -6%;
+}
+
+[data-era="art-nouveau"] .ew-hero__panel {
+  height: 100%;
+  align-items: start;
+  align-content: start;
+}
+
+[data-era="art-nouveau"] .ew-hero__panel::before {
+  width: clamp(140px, 18vw, 220px);
+  opacity: 1;
+}
+
+[data-era="art-nouveau"] .ew-hero__content {
+  position: static;
+}
+
+[data-era="art-nouveau"] .ew-hero__rays {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  left: 4%;
+  bottom: 5%;
+  width: min(64%, 760px);
+  height: 34%;
+  background: var(--ew-color-leaf);
+  -webkit-mask: var(--ew-nv-whiplash) left center / contain no-repeat;
+  mask: var(--ew-nv-whiplash) left center / contain no-repeat;
+}
+
+[data-era="art-nouveau"] .ew-hero__fan {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  [data-era="art-nouveau"] .ew-hero__rays {
+    display: none;
+  }
+
+  [data-era="art-nouveau"] .ew-hero__backdrop::before,
+  [data-era="art-nouveau"] .ew-hero::after,
+  [data-era="art-nouveau"] .ew-hero__stage::before {
+    width: min(34%, 220px);
+    height: 58%;
+    right: 6%;
+    top: auto;
+    bottom: 6%;
+  }
+}
+
+/* Neutral mail is a printed desk: one serif name, rules instead of boxes. */
+.app-mail[data-era="neutral"] .site-bar {
+  padding-bottom: 14px;
+  border-bottom: 3px solid var(--ew-color-fg-default);
+  box-shadow: 0 7px 0 0 var(--ew-color-bg-page), 0 10px 0 0 var(--ew-color-fg-default);
+}
+
+.app-mail[data-era="neutral"] .site-bar h1 {
+  font-family: var(--ew-font-display, Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 7vw, 5.4rem);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+}
+
+.app-mail[data-era="neutral"] .site-section {
+  padding-top: 6px;
+}
+
+.app-mail[data-era="neutral"] .site-section h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.app-mail[data-era="neutral"] .ew-alert {
+  background: transparent;
+  border: 0;
+  border-left: 3px solid var(--ew-color-action-bg);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 2px 0 2px 14px;
+  margin-top: 14px;
+}
+
+.app-mail[data-era="neutral"] .site-grid--metrics {
+  gap: 18px;
+}
+
+.app-mail[data-era="neutral"] .site-grid--metrics .ew-card {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--ew-color-fg-default);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 12px 8px 4px 0;
+}
+
+.app-mail[data-era="neutral"] .site-table th,
+.app-mail[data-era="neutral"] .site-table td {
+  padding: 11px 10px;
+}
+
+.app-mail[data-era="neutral"] .app-split {
+  align-items: stretch;
+}
+
+.app-mail[data-era="neutral"] :is(.ew-text-field__control, .ew-select__control, .ew-select__trigger) {
+  border: 0;
+  border-bottom: 1px solid var(--ew-color-fg-default);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.app-mail[data-era="neutral"] .app-reader {
+  border: 0;
+  border-left: 1px solid var(--ew-color-fg-default);
+  border-radius: 0;
+  background:
+    linear-gradient(var(--ew-color-danger-bg), var(--ew-color-danger-bg)) 36px 0 / 2px 100% no-repeat,
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 2.05rem,
+      color-mix(in oklch, var(--ew-color-fg-default) 55%, transparent) 2.05rem calc(2.05rem + 1px)
+    ),
+    var(--ew-color-bg-elevated);
+  padding: 8px 28px 22px 56px;
+}
+
+.app-mail[data-era="neutral"] .app-reader [data-mail-empty] {
+  margin: 0;
+  max-width: 36ch;
+  text-align: left;
+}
+
+/* Swiss desk: the red bar is the poster, the sheet is the page. */
+.app-folio[data-era="swiss"] .app-sheet {
+  border: 0;
+  border-left: 10px solid var(--ew-color-action-bg);
+  background: var(--ew-color-bg-elevated);
+  padding: 22px 28px 40px;
+}
+
+.app-folio[data-era="swiss"] [data-doc-title] {
+  border: 0;
+  border-bottom: 1px solid var(--ew-color-fg-default);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--ew-font-display, inherit);
+  font-size: 1.2rem;
+  box-shadow: none;
+}
+
+.app-folio[data-era="swiss"] [data-doc-title]:focus-visible {
+  outline: 2px solid var(--ew-color-border-strong);
+  outline-offset: 4px;
+}
+
+/* Swiss house: an instrument scored with rules, one accent spine. */
+.app-hearth[data-era="swiss"] {
+  box-shadow: inset 8px 0 0 var(--ew-color-action-bg);
+}
+
+.app-hearth[data-era="swiss"] .site-grid--metrics .ew-card,
+.app-hearth[data-era="swiss"] .app-device {
+  background: transparent;
+  border: 0;
+  border-top: 2px solid var(--ew-color-border-strong);
+  border-radius: 0;
+  box-shadow: none;
+}
 
 .app-frame {
   width: 100%;
