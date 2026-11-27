@@ -3,11 +3,11 @@ import { muteBandSel, bandSel } from './band.js';
 /* Original, self-contained print motifs. Deliberately not copies of reference artwork. */
 const svg = (body) => 'url("data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 160">'+body+'</svg>') + '")';
 
-const bloom = svg('<path fill="#21503b" d="M0 160Q25 90 71 37Q91 88 31 126Q105 85 125 109Q97 151 55 160ZM320 160Q276 104 314 72Q329 110 298 133L320 160Z"/><path fill="#de5180" d="M26 154Q31 95 112 52L120 58Q57 105 58 160Z"/><path fill="#eacb23" d="M141 48L149 19L170 39L192 6L197 37L229 25L225 57L252 64L229 85L247 112L213 111L203 144L180 119L157 147L150 116L116 124L128 95L96 82L128 68L114 44Z"/><path fill="#cc452b" d="M149 69Q165 50 190 55Q216 59 217 81Q214 109 185 110Q154 111 146 88Z"/><g fill="#ee8bab"><path d="M159 78l4-5 6 2-1 6-6 2ZM181 64l5-2 3 6-4 4-5-3ZM193 84l5-5 6 4-1 6-6 1ZM170 94l4-3 6 4-2 6-6-1Z"/></g>');
+const bloom = svg('<g fill="#d85983"><path d="M105 190Q80 103 31 80Q39 134 90 160ZM182 180Q176 80 286 41Q260 106 209 130Z"/><path d="M162 168Q143 77 171 16L185 20Q165 92 178 168Z"/></g><g fill="#e8c829"><path d="M145 38L152 10L173 29L192 3L199 32L226 18L222 47L250 53L228 75L246 98L213 98L203 130L181 108L158 133L151 103L120 110L132 83L103 69L134 55L120 34Z"/><path d="M20 35L25 12L40 28L58 7L66 31L86 19L86 43L108 50L89 65L105 84L80 83L75 109L56 92L36 109L33 86L9 92L18 69L-4 56L20 47Z"/></g><g fill="#c94631"><path d="M148 62Q166 43 188 46Q215 48 218 71Q216 95 189 96Q159 99 148 79Z"/><path d="M25 46Q40 33 59 37Q83 40 82 59Q80 78 56 80Q31 79 25 64Z"/></g><g fill="#f2a1b5"><circle cx="165" cy="62" r="3"/><circle cx="180" cy="56" r="3"/><circle cx="198" cy="68" r="4"/><circle cx="175" cy="80" r="4"/><circle cx="196" cy="86" r="3"/><circle cx="44" cy="48" r="3"/><circle cx="62" cy="56" r="4"/><circle cx="47" cy="68" r="3"/></g>');
 const nordicFolk = svg('<path d="M16 150Q70 32 160 70Q250 31 304 150" fill="none" stroke="#986b3f" stroke-width="3"/><g fill="#45623a"><path d="M58 101Q9 77 35 46Q74 56 58 101ZM80 80Q74 36 115 32Q132 60 80 80ZM240 80Q205 35 236 30Q270 46 240 80ZM263 103Q255 61 293 49Q314 82 263 103Z"/></g><path fill="#b85c42" d="M160 92C121 64 131 28 160 50C189 28 199 64 160 92Z"/><path fill="#c7a14b" d="M159 90L154 126L165 126Z"/>');
-const mechanical = svg('<path fill="#a62936" d="M0 121L320 8V45L0 150Z"/><path fill="#247b92" d="M57 160L320 63V81L101 160Z"/><path fill="#283338" d="M169 160L320 111V122L202 160Z"/><g fill="none" stroke="#d6a74d" stroke-width="3"><path d="M213 22l28-10M227 30l55-20M243 37l75-27"/></g>');
+const mechanical = svg('<path fill="#a62936" d="M0 130L320 17V54L0 160Z"/><path fill="#247b92" d="M0 70L320 0V12L0 89ZM62 160L320 72V88L102 160Z"/><path fill="#283338" d="M0 148L320 43V50L0 155Z"/><g transform="translate(172 83) rotate(-16)"><circle r="61" fill="#263238"/><circle r="48" fill="#f4e7c9"/><circle r="42" fill="#247b92"/><path fill="#263238" d="M-8-43H8L13-14L43-8V8L14 13L8 43H-8L-13 14L-43 8V-8L-14-13Z"/><circle r="13" fill="#a62936"/><circle r="5" fill="#f4e7c9"/><path d="M-32-31L-18-43M31 32L43 18" stroke="#f4e7c9" stroke-width="3"/></g><path d="M0 112L100 80M0 122L105 88M231 133L320 104M243 143L320 118" stroke="#263238" stroke-width="3"/>');
 const aero = svg('<path fill="#247b92" d="M0 90H225Q281 90 320 40V73Q279 111 225 111H0Z"/><path fill="#a62936" d="M0 122H237Q292 122 320 93V108Q289 140 237 140H0Z"/><path fill="#d6a74d" d="M80 151H277L320 137V150L277 159H80Z"/>');
-const woodland = svg('<path fill="#263746" d="M0 160V96L28 69L47 94L64 50L94 92L119 24L148 96L171 60L202 100L229 43L251 94L279 62L320 101V160Z"/><path fill="#718149" d="M0 160Q59 104 134 135Q188 151 244 121Q291 111 320 131V160Z"/><path fill="#ac5939" d="M7 158Q26 91 58 65Q45 116 24 158ZM285 160Q273 102 308 76Q300 123 301 160Z"/><path fill="#f0d5a1" d="M195 12Q173 55 219 57Q194 77 177 51Q165 30 195 12Z"/><g fill="#e8c477"><path d="M82 19l2 5 5 2-5 2-2 5-2-5-5-2 5-2ZM243 24l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/><circle cx="133" cy="48" r="2"/><circle cx="275" cy="14" r="2"/></g><path d="M40 160Q58 122 80 113M42 145l-16-14M62 127l19 4" stroke="#d3a455" fill="none" stroke-width="2"/>');
+const woodland = svg('<circle cx="195" cy="43" r="27" fill="#f0d5a1"/><path fill="#40515a" d="M0 116L38 60L60 105L104 36L138 102L167 64L202 111L249 43L282 97L320 68V160H0Z"/><path fill="#718149" d="M0 160Q59 104 134 135Q188 151 244 121Q291 111 320 131V160Z"/><path d="M24 160L28 25M28 86L2 56M28 67L78 26M289 160L281 3M281 67L319 33M281 94L238 54" stroke="#a46542" stroke-width="8" fill="none"/><g fill="#c38a42"><path d="M30 45Q9 17 12 3Q34 9 30 45ZM45 57Q52 22 78 25Q75 50 45 57ZM270 60Q239 45 247 27Q270 32 270 60ZM284 34Q303 4 320 12Q312 37 284 34Z"/></g><g fill="#f0d5a1"><circle cx="98" cy="14" r="2"/><circle cx="135" cy="35" r="2"/><circle cx="229" cy="15" r="2"/><path d="M153 12l2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/></g><path d="M82 160Q83 123 63 108M80 144L102 126M111 160Q109 143 128 127M242 160Q249 138 233 121M245 146L269 131" fill="none" stroke="#c7ad63" stroke-width="2"/>');
 const cottage = svg('<path fill="#a05b3c" d="M44 160Q51 69 100 47Q73 118 62 160ZM180 160Q157 91 208 67Q197 112 197 160Z"/><g fill="#687947"><path d="M80 115Q30 106 41 68Q75 65 80 115ZM86 94Q108 50 134 67Q133 95 86 94ZM187 119Q144 106 148 79Q177 74 187 119ZM196 101Q224 67 255 86Q246 111 196 101Z"/></g><path fill="#c57b55" d="M109 54Q91 24 111 19Q130 14 137 39Q159 24 173 44Q183 64 155 73Q155 98 132 95Q112 91 109 54Z"/><path fill="#d6b35c" d="M130 53Q143 43 151 56Q154 68 140 72Q127 70 130 53Z"/>');
 const folkFrame = svg('<path d="M10 130Q75 35 160 84Q245 35 310 130M10 147Q75 52 160 101Q245 52 310 147" stroke="#b4884f" stroke-width="2" fill="none"/><g fill="#657642"><path d="M55 86Q18 68 34 44Q68 48 55 86ZM102 68Q74 28 113 25Q143 43 102 68ZM218 68Q177 43 207 25Q246 28 218 68ZM265 86Q252 48 286 44Q302 68 265 86Z"/></g><path fill="#a45235" d="M160 80Q121 49 160 26Q199 49 160 80Z"/>');
 const organic = svg('<path fill="#a9bb7a" d="M0 160V107L80 12L160 107V160ZM150 160V120L220 45L290 120V160Z"/><path fill="#3f6651" d="M20 124Q71 80 77 30Q91 80 132 124Q76 100 20 124ZM183 132Q225 94 230 60Q237 94 280 132Q230 115 183 132Z"/><path fill="#a96345" d="M75 87H83V160H75ZM227 105H234V160H227Z"/><path d="M0 159Q80 128 160 155T320 145" stroke="#795747" fill="none" stroke-width="4"/>');
@@ -24,12 +24,16 @@ const band = (id, name, tail) => bandSel(id, name, tail);
 function family(id, art, look) {
   const e = scope(id);
   const roomy = e+':not([data-density="compact"])';
+  const ink = id === 'nordic' ? '#194633' : id === 'futurist' ? '#e7dbc4' : '#263746';
   return [
-    '  '+e+' { --ew-expansion-art: '+art+'; --ew-expansion-radius: '+look.radius+'; --ew-expansion-rule: '+look.rule+'; }',
+    '  '+e+' { --ew-expansion-art: '+art+'; --ew-expansion-radius: '+look.radius+'; --ew-expansion-rule: '+look.rule+'; --ew-print-ink: '+ink+'; }',
     '  '+e+' .ew-hero { position: relative; isolation: isolate; display: grid; align-items: center; min-height: min(42vh, 350px); padding: clamp(24px, 5vw, 64px); background: var(--ew-color-bg-surface); border-bottom: var(--ew-expansion-rule) solid var(--ew-color-border-strong); }',
-    '  '+e+' .ew-hero__stage { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--ew-expansion-art) right bottom / min(44%, 480px) auto no-repeat; }',
-    '  '+e+' .ew-hero__content { max-width: min(52%, 38rem); min-width: 0; }',
-    '  '+e+' .ew-hero__title { font-family: var(--ew-font-display); font-size: clamp(2.15rem, 5vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: '+look.tracking+'; }',
+    '  '+e+' .ew-hero__stage { position: absolute; inset: 0 0 0 auto; width: 44%; z-index: -1; pointer-events: none; background: var(--ew-print-ink) var(--ew-expansion-art) center / cover no-repeat; }',
+    '  '+e+' .ew-hero__content { max-width: 38rem; min-width: 0; }',
+    '  '+e+' .ew-hero:has(.ew-hero__stage) .ew-hero__content { max-width: min(52%, 38rem); }',
+    '  '+e+' .ew-hero__eyebrow { font-family: var(--ew-font-body); font-size: .78rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }',
+    '  '+e+' .ew-hero__subtitle { max-width: 34ch; line-height: 1.55; }',
+    '  '+e+' .ew-hero__title { margin: .18em 0; overflow-wrap: anywhere; font-family: var(--ew-font-display); font-size: clamp(2.15rem, 5vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: '+look.tracking+'; }',
     '  '+e+' :is(.ew-card,.ew-dialog,.ew-media-card,.ew-stat,.ew-sheet) { border-radius: var(--ew-expansion-radius); }',
     '  '+e+' :is(.ew-button,.ew-icon-button,.ew-text-field__control,.ew-textarea__control,.ew-select__control,.ew-select__trigger) { font-family: var(--ew-font-body); }',
     '  '+e+' :is(.ew-card__header,.ew-dialog__header) { border-block-end: 1px solid var(--ew-color-border-subtle); }',
@@ -51,13 +55,13 @@ function family(id, art, look) {
     '  '+e+' :is(.ew-alert,.ew-toast) { border-inline-start: 4px solid var(--ew-color-border-strong); }',
     '  '+muted(id,null,' .ew-hero__stage')+' { background: none; }',
     '  '+muted(id,null,' .ew-hero')+' { min-height: 0; }',
-    '  '+muted(id,null,' .ew-hero__content')+' { max-width: 38rem; }',
+    '  '+muted(id,null,' .ew-hero:has(.ew-hero__stage) .ew-hero__content')+' { max-width: 38rem; }',
     '  '+muted(id,null,' .ew-ornament-divider[data-variant="ornament"]')+' { height: 1px; background: var(--ew-color-border-subtle); }',
     '  '+band(id,'whisper',' .ew-hero')+' { border-bottom-width: 1px; }',
     '  '+band(id,'whisper',' .ew-card__header')+', '+band(id,'whisper',' .ew-dialog__header')+' { box-shadow: none; }',
     '  '+band(id,'whisper',' .ew-table th')+' { border-bottom-width: 1px; }',
-    '  @media (max-width: 620px) { '+e+' .ew-hero__content { max-width: 100%; } '+e+' .ew-hero__stage { background-size: 125px auto; } '+e+' .ew-hero:has(.ew-hero__stage) { padding-bottom: 96px; } '+muted(id,null,' .ew-hero:has(.ew-hero__stage)')+' { padding-bottom: 24px; } }',
-    '  @media (forced-colors: active) { '+e+' .ew-hero__stage, '+e+' .ew-ornament-divider[data-variant="ornament"] { background-image: none; } }',
+    '  @media (max-width: 620px) { '+e+' .ew-hero:has(.ew-hero__stage) .ew-hero__content { max-width: 100%; } '+e+' .ew-hero__stage { inset: auto 0 0; width: 100%; height: 124px; } '+e+' .ew-hero:has(.ew-hero__stage) { padding-bottom: calc(clamp(24px, 5vw, 64px) + 124px); } '+muted(id,null,' .ew-hero:has(.ew-hero__stage)')+' { padding-bottom: 24px; } }',
+    '  @media (forced-colors: active) { '+e+' .ew-hero__stage { display: none; } '+e+' .ew-ornament-divider[data-variant="ornament"] { background-image: none; } }',
   ].join('\n');
 }
 
@@ -76,10 +80,17 @@ export function additionalEraCss(id) {
       + palette(pop,['#9f2650','#fffaf2'],['#f2a5be','#26342b'])
       + variant(min,'none','6px','1px','.02em')
       + palette(min,['#345949','#fffaf2'],['#c1d6c7','#20352d'])
-      + '  '+min+' .ew-hero__content { max-width: 38rem; }\n'
+      + '  '+min+' .ew-hero:has(.ew-hero__stage) .ew-hero__content { max-width: 38rem; }\n'
+      + '  '+min+' .ew-hero__stage { display: none; }\n'
+      + '  '+min+' .ew-hero:has(.ew-hero__stage) { min-height: 0; padding-bottom: clamp(24px, 5vw, 64px); }\n'
       + '  '+min+' .ew-ornament-divider[data-variant="ornament"] { height: 1px; }\n'
       + variant(folk,nordicFolk,'10px','2px','.025em')
-      + palette(folk,['#8c3f2b','#fff8ec'],['#edb28e','#342c23']);
+      + palette(folk,['#8c3f2b','#fff8ec'],['#edb28e','#342c23'])
+      + '  '+folk+' { --ew-print-ink: #f2e3c7; }\n'
+      + '  '+e+' .ew-hero__title { letter-spacing: -.055em; }\n'
+      + '  '+e+' .ew-stat { border: 1px solid var(--ew-color-border-subtle); }\n'
+      + '  '+e+' .ew-stat__label { font-weight: 700; letter-spacing: .035em; }\n'
+      + '  '+pop+' .ew-button:not([data-variant]) { border-radius: 999px; }\n';
   }
   if (id === 'futurist') {
     const mech=scope(id,'mechanical'), type=scope(id,'typographic'), air=scope(id,'aero');
@@ -87,12 +98,18 @@ export function additionalEraCss(id) {
       + variant(mech,mechanical,'2px','4px','.09em')
       + variant(type,'none','0','2px','.12em')
       + palette(type,['#215d75','#fffaf0'],['#8ad6e8','#20262a'])
-      + '  '+type+' .ew-hero__content { max-width: 38rem; }\n'
+      + '  '+type+' .ew-hero:has(.ew-hero__stage) .ew-hero__content { max-width: 38rem; }\n'
+      + '  '+type+' .ew-hero__stage { display: none; }\n'
+      + '  '+type+' .ew-hero:has(.ew-hero__stage) { min-height: 0; padding-bottom: clamp(24px, 5vw, 64px); }\n'
       + '  '+type+' .ew-hero__title { text-transform: uppercase; letter-spacing: .04em; }\n'
       + variant(air,aero,'14px 3px 14px 3px','2px','.06em')
       + palette(air,['#155e70','#fffaf0'],['#90d9e5','#20262a'])
       + '  '+air+' { --ew-structure-control-radius: 8px 2px 8px 2px; }\n'
-      + '  '+e+' .ew-table th { text-transform: uppercase; }\n';
+      + '  '+e+' .ew-table th { text-transform: uppercase; }\n'
+      + '  '+e+' .ew-hero__title { text-transform: uppercase; line-height: .96; }\n'
+      + '  '+e+' .ew-stat { border: 1px solid var(--ew-color-border-strong); border-inline-start: 5px solid var(--ew-color-action-bg); }\n'
+      + '  '+e+' .ew-stat__label { font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }\n'
+      + '  '+band(id,'whisper',' .ew-stat')+' { border-inline-start-width: 1px; }\n';
   }
   if (id === 'folklore') {
     const woods=scope(id,'woodland'), cot=scope(id,'cottage'), trad=scope(id,'traditional');
@@ -103,7 +120,12 @@ export function additionalEraCss(id) {
       + variant(trad,folkFrame,'6px','3px','.035em')
       + palette(trad,['#4d6034','#fff9ed'],['#cddba2','#273323'])
       + '  '+trad+' :is(.ew-card,.ew-dialog) { border-style: double; border-width: 3px; }\n'
-      + '  '+e+' .ew-hero__title { font-weight: 700; }\n';
+      + '  '+cot+', '+trad+' { --ew-print-ink: #f0e1c1; }\n'
+      + '  '+e+' .ew-hero__title { font-weight: 400; letter-spacing: -.035em; line-height: 1.04; }\n'
+      + '  '+e+' .ew-stat { border: 1px solid var(--ew-color-border-subtle); }\n'
+      + '  '+e+' .ew-stat__label { font-style: italic; }\n'
+      + '  '+e+' .ew-card__header { border-block-end: 3px double var(--ew-color-border-subtle); }\n'
+      + '  '+band(id,'whisper',' .ew-card__header')+' { border-block-end: 1px solid var(--ew-color-border-subtle); }\n';
   }
   if (id === 'mcm-atomic') {
     const s=scope(id,'organic');
