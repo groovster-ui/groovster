@@ -620,14 +620,22 @@
   }
 
 
-  [data-era="memphis"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet) {
+  [data-era="memphis"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet, .ew-shelf) {
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="memphis"] .ew-table { border-collapse: collapse; }
+  [data-era="memphis"] .ew-table tbody tr:nth-child(even) { background: color-mix(in oklch, var(--ew-color-fg-default) 5%, transparent); }
   [data-era="memphis"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="memphis"] .ew-nav-rail__item[aria-current="page"], [data-era="memphis"] .ew-list-item[aria-current="true"] { font-weight: 700; box-shadow: inset 3px 0 0 var(--ew-color-action-bg); }
+  [data-era="memphis"] .ew-pagination__page[aria-current="page"] { font-weight: 700; box-shadow: inset 0 -2px 0 var(--ew-color-action-bg); }
   [data-era="memphis"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+  [data-era="memphis"] .ew-code, [data-era="memphis"] .ew-code code { font-family: var(--ew-font-mono, ui-monospace, monospace); }
+  [data-era="memphis"] .ew-skeleton { background: color-mix(in oklch, var(--ew-color-fg-muted) 18%, var(--ew-color-bg-surface)); }
+  [data-era="memphis"] .ew-empty-state { border: 1px dashed var(--ew-color-border-subtle); }
+  [data-era="memphis"] .ew-meter__bar { border-radius: 999px; }
 
-  [data-era="memphis"] .ew-badge, [data-era="memphis"] .ew-chip { border-radius: 0; background: var(--ew-color-yellow, #EACC56); color: #1A1408; box-shadow: 3px 3px 0 0 var(--ew-color-ink, #1A1408); }
-  [data-era="memphis"] .ew-stat { box-shadow: 6px 6px 0 0 var(--ew-color-blue, var(--ew-color-action-bg)); }
+  [data-era="memphis"] .ew-badge, [data-era="memphis"] .ew-chip { border-radius: 0; background: var(--ew-color-yellow, #EACC56); color: #1A1408; box-shadow: 3px 3px 0 0 #1A1408; }
+  [data-era="memphis"]:not([data-density="compact"]) .ew-stat { box-shadow: 6px 6px 0 0 var(--ew-color-blue, var(--ew-color-action-bg)); }
+  [data-era="memphis"]:not([data-density="compact"]) .ew-table { box-shadow: 4px 4px 0 0 var(--ew-color-pink, var(--ew-color-action-bg)); }
   [data-era="memphis"] .ew-section-heading::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-inline-end: 8px; background: var(--ew-color-pink, var(--ew-color-action-bg)); box-shadow: 4px 4px 0 var(--ew-color-yellow, var(--ew-color-action-bg)); vertical-align: 0.1em; }
 }

@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>App widgets</title>
+<ew-search class="ew-search">
+  <input class="ew-search__control" type="search" aria-label="Find">
+  <button type="button" class="ew-search__clear" aria-label="Clear search">×</button>
+</ew-search>
+<ew-segmented class="ew-segmented" aria-label="View">
+  <button type="button" class="ew-segmented__item" role="radio" aria-checked="true">List</button>
+  <button type="button" class="ew-segmented__item" role="radio" aria-checked="false">Grid</button>
+  <button type="button" class="ew-segmented__item" role="radio" aria-checked="false">Map</button>
+</ew-segmented>
+<ew-chip class="ew-chip" aria-pressed="false">Used <button type="button" class="ew-chip__remove" aria-label="Remove Used">×</button></ew-chip>
+<ew-code class="ew-code"><code>print(1)</code><button type="button" class="ew-code__copy">Copy</button></ew-code>
+<ew-shelf class="ew-shelf" tabindex="0">
+  <div class="ew-shelf__row" style="width:160px; overflow:auto; display:flex">
+    <article style="flex:0 0 140px">One</article>
+    <article style="flex:0 0 140px">Two</article>
+    <article style="flex:0 0 140px">Three</article>
+  </div>
+  <button type="button" data-shelf="next">Next</button>
+  <button type="button" data-shelf="prev">Previous</button>
+</ew-shelf>
+<ew-pagination class="ew-pagination" aria-label="Pages">
+  <button type="button" class="ew-pagination__page ew-pagination__prev">Prev</button>
+  <button type="button" class="ew-pagination__page" aria-current="page">1</button>
+  <button type="button" class="ew-pagination__page">2</button>
+  <button type="button" class="ew-pagination__page ew-pagination__next">Next</button>
+</ew-pagination>
+<script src="/packages/elements/dist/era-elements.js"></script>

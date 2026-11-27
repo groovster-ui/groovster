@@ -482,14 +482,22 @@
   }
 
 
-  [data-era="groovy"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet) {
+  [data-era="groovy"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet, .ew-shelf) {
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="groovy"] .ew-table { border-collapse: collapse; }
+  [data-era="groovy"] .ew-table tbody tr:nth-child(even) { background: color-mix(in oklch, var(--ew-color-fg-default) 5%, transparent); }
   [data-era="groovy"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="groovy"] .ew-nav-rail__item[aria-current="page"], [data-era="groovy"] .ew-list-item[aria-current="true"] { font-weight: 700; box-shadow: inset 3px 0 0 var(--ew-color-action-bg); }
+  [data-era="groovy"] .ew-pagination__page[aria-current="page"] { font-weight: 700; box-shadow: inset 0 -2px 0 var(--ew-color-action-bg); }
   [data-era="groovy"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+  [data-era="groovy"] .ew-code, [data-era="groovy"] .ew-code code { font-family: var(--ew-font-mono, ui-monospace, monospace); }
+  [data-era="groovy"] .ew-skeleton { background: color-mix(in oklch, var(--ew-color-fg-muted) 18%, var(--ew-color-bg-surface)); }
+  [data-era="groovy"] .ew-empty-state { border: 1px dashed var(--ew-color-border-subtle); }
+  [data-era="groovy"] .ew-meter__bar { border-radius: 999px; }
 
-  [data-era="groovy"] .ew-chip, [data-era="groovy"] .ew-segmented { border-radius: 999px; }
+  [data-era="groovy"] :is(.ew-chip, .ew-segmented, .ew-search, .ew-code, .ew-toolbar) { border-radius: 999px; }
   [data-era="groovy"]:not([data-density="compact"]) .ew-stat__value, [data-era="groovy"] .ew-price { font-family: var(--ew-font-display, inherit); }
-  [data-era="groovy"] .ew-list-item { border-radius: 16px; }
+  [data-era="groovy"] .ew-list-item, [data-era="groovy"] .ew-empty-state { border-radius: 16px; }
+  [data-era="groovy"]:not([data-density="compact"]) .ew-shelf__row > * { border-radius: 20px; }
 }

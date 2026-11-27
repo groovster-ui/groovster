@@ -1569,7 +1569,8 @@
       if (!row) return;
       const card = row.querySelector(':scope > *');
       const amount = (card?.getBoundingClientRect().width || 180) + 12;
-      row.scrollBy({ left: dir * amount, behavior: 'smooth' });
+      const motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      row.scrollBy({ left: dir * amount, behavior: motion });
     }
 
     #onClick = (event) => {

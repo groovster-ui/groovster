@@ -1260,15 +1260,22 @@
   }
 
 
-  [data-era="neon"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet) {
+  [data-era="neon"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet, .ew-shelf) {
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   [data-era="neon"] .ew-table { border-collapse: collapse; }
+  [data-era="neon"] .ew-table tbody tr:nth-child(even) { background: color-mix(in oklch, var(--ew-color-fg-default) 5%, transparent); }
   [data-era="neon"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="neon"] .ew-nav-rail__item[aria-current="page"], [data-era="neon"] .ew-list-item[aria-current="true"] { font-weight: 700; box-shadow: inset 3px 0 0 var(--ew-color-action-bg); }
+  [data-era="neon"] .ew-pagination__page[aria-current="page"] { font-weight: 700; box-shadow: inset 0 -2px 0 var(--ew-color-action-bg); }
   [data-era="neon"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+  [data-era="neon"] .ew-code, [data-era="neon"] .ew-code code { font-family: var(--ew-font-mono, ui-monospace, monospace); }
+  [data-era="neon"] .ew-skeleton { background: color-mix(in oklch, var(--ew-color-fg-muted) 18%, var(--ew-color-bg-surface)); }
+  [data-era="neon"] .ew-empty-state { border: 1px dashed var(--ew-color-border-subtle); }
+  [data-era="neon"] .ew-meter__bar { border-radius: 999px; }
 
-  [data-era="neon"] .ew-chip, [data-era="neon"] .ew-segmented { box-shadow: 0 0 0 1px var(--ew-color-magenta, var(--ew-color-action-bg)); }
+  [data-era="neon"] :is(.ew-chip, .ew-segmented, .ew-search, .ew-code) { box-shadow: 0 0 0 1px var(--ew-color-magenta, var(--ew-color-action-bg)); }
   [data-era="neon"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-magenta, var(--ew-color-action-bg)); }
   [data-era="neon"][data-mode="light"] .ew-link { text-decoration: underline; text-decoration-color: #E2186A; text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
-  [data-era="neon"]:not([data-density="compact"]) .ew-media-card:hover { box-shadow: 0 0 0 1px var(--ew-color-cyan, var(--ew-color-action-bg)); }
+  [data-era="neon"]:not([data-density="compact"]) :is(.ew-media-card:hover, .ew-search:focus-within) { box-shadow: 0 0 0 1px var(--ew-color-cyan, var(--ew-color-action-bg)), 0 0 12px color-mix(in oklch, var(--ew-color-cyan, var(--ew-color-action-bg)) 45%, transparent); }
 }
