@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harbor Lot — sample auction floor</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../../recipes/shared/shell.css" />
+  <link rel="stylesheet" href="../shared/apps.css" />
+  <script src="../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../../recipes/shared/shell.js" defer></script>
+  <script src="../shared/apps.js" defer></script>
+</head>
+<body>
+  <div class="ew-root recipe-commerce" data-groovster-root data-recipe="harbor-lot" data-era="memphis" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#content">Skip to content</a>
+    <div class="site-wrap">
+      <div data-skin-mount data-skin-open="false"></div>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="ew-link site-brand" href="#masthead">Harbor Lot</a>
+        <div class="site-nav__links">
+          <a class="ew-link" data-variant="nav" href="../index.html">All applications</a>
+          <a class="ew-link" data-variant="nav" href="#catalog">Lots</a>
+          <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-open-dialog="cart-dialog">Tray <span data-cart-count aria-live="polite">0</span></button>
+        </div>
+      </nav>
+    </div>
+    <section class="ew-hero site-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true">
+        <div class="ew-hero__sun"></div><div class="ew-hero__mountains"></div><div class="ew-hero__grid"></div>
+        <div class="ew-hero__scanlines"></div><div class="ew-hero__twotone"></div><div class="ew-hero__starbursts"></div>
+        <div class="ew-hero__arch"></div><div class="ew-orbit"></div>
+      </div>
+      <div class="ew-hero__panel">
+        <div class="ew-hero__rays" aria-hidden="true"></div>
+        <div class="ew-hero__content">
+          <div class="ew-hero__fan" aria-hidden="true"></div>
+          <p class="ew-script">Auction floor</p>
+          <h1 class="ew-hero__title">Harbor Lot</h1>
+          <p class="ew-hero__subtitle">A fictional marketplace of bids and buy-it-now lots. The tray never charges a card.</p>
+        </div>
+      </div>
+    </section>
+    <main id="content" class="site-wrap">
+      <section class="site-section" id="filters">
+        <h2>Filter the floor</h2>
+        <div class="site-filters">
+          <div class="ew-text-field">
+            <label class="ew-text-field__label" for="lot-search">Search lots</label>
+            <input id="lot-search" class="ew-text-field__control" type="search" data-lot-query />
+          </div>
+          <ew-select class="ew-select">
+            <label class="ew-select__label" for="lot-category">Category</label>
+            <select id="lot-category" class="ew-select__control" data-item-filter>
+              <option value="all">All lots</option>
+              <option value="furniture">Furniture</option>
+              <option value="cameras">Cameras</option>
+              <option value="music">Music</option>
+              <option value="tools">Tools</option>
+              <option value="clothing">Clothing</option>
+              <option value="kitchen">Kitchen</option>
+            </select>
+          </ew-select>
+          <ew-select class="ew-select">
+            <label class="ew-select__label" for="lot-condition">Condition</label>
+            <select id="lot-condition" class="ew-select__control" data-lot-condition>
+              <option value="all">Any condition</option>
+              <option value="used">Used</option>
+              <option value="vintage">Vintage</option>
+            </select>
+          </ew-select>
+          <ew-select class="ew-select">
+            <label class="ew-select__label" for="lot-sort">Sort</label>
+            <select id="lot-sort" class="ew-select__control" data-lot-sort>
+              <option value="featured">Featured</option>
+              <option value="ending">Ending soon</option>
+              <option value="price-asc">Price, low to high</option>
+              <option value="price-desc">Price, high to low</option>
+            </select>
+          </ew-select>
+          <label class="ew-checkbox">
+            <input class="ew-checkbox__control" type="checkbox" data-stock-filter />
+            <span class="ew-checkbox__box" aria-hidden="true"></span>
+            <span class="ew-checkbox__label">Buy it now only</span>
+          </label>
+        </div>
+        <p data-lot-count aria-live="polite">9 lots showing</p>
+      </section>
+      <section class="site-section" id="catalog">
+        <h2>Lots</h2>
+        <div class="site-grid site-grid--3" data-lot-grid>
+          <article class="ew-card" data-variant="raised" data-item data-category="furniture" data-condition="vintage" data-stock="in" data-price="86" data-ending="9999" data-featured="1" data-sku="lamp">
+            <div class="site-art" data-art="1" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Brass pharmacy lamp</h3></header>
+            <div class="ew-card__body">
+              <p class="site-price">$86</p>
+              <p>Buy it now. Vintage. Seller North Room.</p>
+              <ew-popover class="ew-popover">
+                <button type="button" class="ew-button ew-popover__trigger" data-variant="ghost" data-size="sm" popovertarget="note-lamp">Seller note</button>
+                <div id="note-lamp" class="ew-popover__panel" popover><p>The shade is original. The price is a sample and holds nothing.</p></div>
+              </ew-popover>
+            </div>
+            <footer class="ew-card__footer app-toolbar">
+              <button type="button" class="ew-button" data-cart-add data-sku="lamp" data-name="Brass pharmacy lamp" data-price="86">Buy</button>
+              <button type="button" class="ew-button" data-variant="secondary" data-watch="Brass pharmacy lamp" aria-pressed="false">Watch</button>
+            </footer>
+          </article>
+          <article class="ew-card" data-variant="raised" data-item data-category="cameras" data-condition="used" data-stock="bid" data-price="140" data-ending="180" data-featured="2">
+            <div class="site-art" data-art="4" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Rangefinder body</h3></header>
+            <div class="ew-card__body"><p class="site-price">$140</p><p>Current bid · 9 bids · 3h left. Used. Seller Glass &amp; Gear.</p></div>
+            <footer class="ew-card__footer app-toolbar">
+              <button type="button" class="ew-button" data-open-bid data-sku="range" data-name="Rangefinder body" data-price="140">Bid</button>
+              <button type="button" class="ew-button" data-variant="secondary" data-watch="Rangefinder body" aria-pressed="false">Watch</button>
+            </footer>
+          </article>
+          <article class="ew-card" data-variant="raised" data-item data-category="music" data-condition="vintage" data-stock="bid" data-price="28" data-ending="45" data-featured="3">
+            <div class="site-art" data-art="2" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Jazz LP lot</h3></header>
+            <div class="ew-card__body"><p class="site-price">$28</p><p>Current bid · 4 bids · 45m left. Vintage. Seller Pier Records. Six records.</p></div>
+            <footer class="ew-card__footer app-toolbar">
+              <button type="button" class="ew-button" data-open-bid data-sku="jazz" data-name="Jazz LP lot" data-price="28">Bid</button>
+              <button type="button" class="ew-button" data-variant="secondary" data-watch="Jazz LP lot" aria-pressed="false">Watch</button>
+            </footer>
+          </article>
+          <article class="ew-card" data-variant="raised" data-item data-category="furniture" data-condition="vintage" data-stock="in" data-price="210" data-ending="9999" data-featured="4">
+            <div class="site-art" data-art="3" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Oak flat file</h3></header>
+            <div class="ew-card__body"><p class="site-price">$210</p><p>Buy it now. Vintage. Seller Studio North. Five drawers.</p></div>
+            <footer class="ew-card__footer app-toolbar">
+              <button type="button" class="ew-button" data-cart-add data-sku="file" data-name="Oak flat file" data-price="210">Buy</button>
+              <button type="button" class="ew-button" data-variant="secondary" data-watch="Oak flat file" aria-pressed="false">Watch</button>
+            </footer>
+          </article>
+          <article class="ew-card" data-variant="raised" data-item data-category="clothing" data-condition="used" data-stock="bid" data-price="45" data-ending="300" data-featured="5">
+            <div class="site-art" data-art="5" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Stadium coat</h3></header>
+            <div class="ew-card__body"><p class="site-price">$45</p><p>Current bid · 6 bids · 5h left. Used. Seller Wool Hall.</p></div>
+            <footer class="ew-card__footer app-toolbar">
+              <button type="button" class="ew-button" data-open-bid data-sku="coat" data-name="Stadium coat" data-price="45">Bid</button>
+              <button type="button" class="ew-button" data-variant="secondary" data-watch="Stadium coat" aria-pressed="false">Watch</button>
+            </footer>
+          </article>
+          <article class="ew-card" data-variant="raised" data-item data-category="tools" data-condition="used" data-stock="in" data-price="62" data-ending="9999" data-featured="6">
+            <div class="site-art" data-art="6" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Hand plane</h3></header>
+            <div class="ew-card__body"><p class="site-price">$62</p><p>Buy it now. Used. Seller Bench Nine. Iron is sharp in this story.</p></div>
+            <footer class="ew-card__footer app-toolbar">
+              <button type="button" class="ew-button" data-cart-add data-sku="plane" data-name="Hand plane" data-price="62">Buy</button>
+              <button type="button" class="ew-button" data-variant="secondary" data-watch="Hand plane" aria-pressed="false">Watch</button>
+            </footer>
+          </article>
+          <article class="ew-card" data-variant="raised" data-item data-category="kitchen" data-condition="vintage" data-stock="bid" data-price="33" data-ending="90" data-featured="7">
+            <div class="site-art" data-art="7" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Enamel diner clock</h3></header>
+            <div class="ew-card__body"><p class="site-price">$33</p><p>Current bid · 11 bids · 90m left. Vintage. Seller Night Lunch. Reserve not met in this sample.</p></div>
+            <footer class="ew-card__footer app-toolbar">
+              <button type="button" class="ew-button" data-open-bid data-sku="clock" data-name="Enamel diner clock" data-price="33">Bid</button>
+              <button type="button" class="ew-button" data-variant="secondary" data-watch="Enamel diner clock" aria-pressed="false">Watch</button>
+            </footer>
+          </article>
+          <article class="ew-card" data-variant="raised" data-item data-category="tools" data-condition="vintage" data-stock="in" data-price="180" data-ending="9999" data-featured="8">
+            <div class="site-art" data-art="8" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Travel typewriter</h3></header>
+            <div class="ew-card__body"><p class="site-price">$180</p><p>Buy it now. Vintage. Seller Folio Supply. Ribbon still red at the edge.</p></div>
+            <footer class="ew-card__footer app-toolbar">
+              <button type="button" class="ew-button" data-cart-add data-sku="typewriter" data-name="Travel typewriter" data-price="180">Buy</button>
+              <button type="button" class="ew-button" data-variant="secondary" data-watch="Travel typewriter" aria-pressed="false">Watch</button>
+            </footer>
+          </article>
+          <article class="ew-card" data-variant="raised" data-item data-category="cameras" data-condition="used" data-stock="bid" data-price="54" data-ending="20" data-featured="9">
+            <div class="site-art" data-art="9" aria-hidden="true"></div>
+            <header class="ew-card__header"><h3>Field binoculars</h3></header>
+            <div class="ew-card__body"><p class="site-price">$54</p><p>Current bid · 3 bids · 20m left. Used. Seller Glass &amp; Gear.</p></div>
+            <footer class="ew-card__footer app-toolbar">
+              <button type="button" class="ew-button" data-open-bid data-sku="bins" data-name="Field binoculars" data-price="54">Bid</button>
+              <button type="button" class="ew-button" data-variant="secondary" data-watch="Field binoculars" aria-pressed="false">Watch</button>
+            </footer>
+          </article>
+        </div>
+      </section>
+      <section id="cart">
+        <dialog class="ew-dialog" id="cart-dialog" aria-labelledby="cart-title">
+          <header class="ew-dialog__header"><h2 id="cart-title">Fictional tray</h2></header>
+          <div class="ew-dialog__body">
+            <ul data-cart-lines></ul>
+            <p data-cart-total></p>
+            <form data-demo-form="checkout">
+              <div class="ew-text-field"><label class="ew-text-field__label" for="buyer">Name</label><input id="buyer" class="ew-text-field__control" type="text" autocomplete="name" required /></div>
+              <div class="ew-text-field"><label class="ew-text-field__label" for="buyer-email">Email</label><input id="buyer-email" class="ew-text-field__control" type="email" autocomplete="email" required /></div>
+              <div class="ew-alert" data-variant="warning" role="status"><strong class="ew-alert__title">Sample checkout</strong><p class="ew-alert__body">Nothing is charged. Bids and buy-it-now prices are fiction.</p></div>
+              <div class="ew-alert" data-variant="success" role="status" data-demo-status hidden><strong class="ew-alert__title">Recorded</strong><p class="ew-alert__body">Order recorded locally.</p></div>
+              <footer class="ew-dialog__footer">
+                <button type="button" class="ew-button" data-variant="ghost" data-close-dialog>Close</button>
+                <button type="submit" class="ew-button">Place fictional order</button>
+              </footer>
+            </form>
+          </div>
+        </dialog>
+        <dialog class="ew-dialog" id="bid-dialog" aria-labelledby="bid-title">
+          <form id="bid-form">
+            <header class="ew-dialog__header"><h2 id="bid-title">Fictional bid</h2></header>
+            <div class="ew-dialog__body">
+              <p data-bid-copy>Choose a lot.</p>
+              <div class="ew-text-field">
+                <label class="ew-text-field__label" for="bid-amount">Your bid in dollars</label>
+                <input id="bid-amount" class="ew-text-field__control" type="number" min="1" step="1" required />
+              </div>
+              <div class="ew-alert" data-variant="warning" role="status"><strong class="ew-alert__title">No payment</strong><p class="ew-alert__body">The bid is added to the tray on this page.</p></div>
+            </div>
+            <footer class="ew-dialog__footer">
+              <button type="button" class="ew-button" data-variant="ghost" data-close-dialog>Close</button>
+              <button type="submit" class="ew-button">Place fictional bid</button>
+            </footer>
+          </form>
+        </dialog>
+      </section>
+    </main>
+    <footer class="site-wrap site-foot"><p class="site-fiction">Fictional auction floor. No payment is taken and no seller is notified.</p></footer>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>

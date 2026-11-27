@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Posthorn — sample mail</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../../recipes/shared/shell.css" />
+  <link rel="stylesheet" href="../shared/apps.css" />
+  <script src="../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../../recipes/shared/shell.js" defer></script>
+  <script src="../shared/apps.js" defer></script>
+</head>
+<body>
+  <div class="ew-root recipe-dashboard app-mail" data-groovster-root data-recipe="posthorn" data-era="neutral" data-mode="light" data-fidelity-band="whisper">
+    <a class="ew-link site-skip" href="#content">Skip to content</a>
+    <div class="site-wrap">
+      <div data-skin-mount data-skin-open="false"></div>
+      <header class="site-bar" id="masthead">
+        <div>
+          <p class="site-kicker">Posthorn Mail</p>
+          <h1>Inbox</h1>
+        </div>
+        <nav class="site-nav__links" aria-label="Primary">
+          <a class="ew-link" data-variant="nav" href="../index.html">All applications</a>
+          <a class="ew-link" data-variant="nav" href="#queues">Folders</a>
+          <button type="button" class="ew-button" data-size="sm" data-open-dialog="compose-dialog" data-compose-new>New message</button>
+        </nav>
+      </header>
+      <main id="content">
+        <div class="ew-alert" data-variant="warning" role="status">
+          <strong class="ew-alert__title">Fictional mailbox</strong>
+          <p class="ew-alert__body">No account is signed in. Nothing on this page is sent.</p>
+        </div>
+        <section class="site-section" id="metrics">
+          <h2>Figures</h2>
+          <div class="site-grid site-grid--metrics">
+            <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Unread</h3></header><div class="ew-card__body"><p class="site-metric" data-metric="unread">3</p></div></article>
+            <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Flagged</h3></header><div class="ew-card__body"><p class="site-metric" data-metric="flagged">2</p></div></article>
+            <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Drafts</h3></header><div class="ew-card__body"><p class="site-metric" data-metric="drafts">1</p></div></article>
+            <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Storage</h3></header><div class="ew-card__body"><p class="site-metric">18%</p></div></article>
+          </div>
+        </section>
+        <section class="site-section" id="filters">
+          <h2>Filters</h2>
+          <div class="site-filters">
+            <div class="ew-text-field">
+              <label class="ew-text-field__label" for="mail-search">Search sender or subject</label>
+              <input id="mail-search" class="ew-text-field__control" type="search" data-row-filter />
+            </div>
+            <ew-select class="ew-select">
+              <label class="ew-select__label" for="mail-status">Status</label>
+              <select id="mail-status" class="ew-select__control" data-status-filter>
+                <option value="all">All statuses</option>
+                <option value="unread">Unread</option>
+                <option value="flagged">Flagged</option>
+                <option value="read">Read</option>
+              </select>
+            </ew-select>
+          </div>
+          <p data-row-count aria-live="polite">8 matching messages</p>
+        </section>
+        <section class="site-section" id="queues">
+          <h2>Folders</h2>
+          <div class="app-split">
+          <ew-tabs class="ew-tabs">
+            <div role="tablist" aria-label="Folders">
+              <button type="button" role="tab" id="tab-inbox" aria-selected="true" aria-controls="panel-inbox">Inbox</button>
+              <button type="button" role="tab" id="tab-sent" aria-selected="false" aria-controls="panel-sent" tabindex="-1">Sent</button>
+              <button type="button" role="tab" id="tab-drafts" aria-selected="false" aria-controls="panel-drafts" tabindex="-1">Drafts</button>
+            </div>
+            <div role="tabpanel" id="panel-inbox" aria-labelledby="tab-inbox">
+                <div class="site-table-wrap">
+                  <table class="site-table">
+                    <caption>Inbox</caption>
+                    <thead>
+                      <tr><th scope="col">From</th><th scope="col">Subject</th><th scope="col">Status</th><th scope="col">When</th></tr>
+                    </thead>
+                    <tbody id="inbox-rows">
+                      <tr data-row data-mail data-folder="inbox" data-status="unread" data-from="Mira Chen" data-email="mira@example.com" data-subject="The kiln fired clean" data-when="Tue 7:14" data-letter="letter-kiln">
+                        <td>Mira Chen</td>
+                        <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">The kiln fired clean</button></td>
+                        <td data-mail-state>Unread</td>
+                        <td>Tue 7:14</td>
+                      </tr>
+                      <tr data-row data-mail data-folder="inbox" data-status="flagged" data-from="Harbor Lot" data-email="floor@example.com" data-subject="Outbid on the brass lamp" data-when="Tue 6:02" data-letter="letter-outbid">
+                        <td>Harbor Lot</td>
+                        <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Outbid on the brass lamp</button></td>
+                        <td data-mail-state>Flagged</td>
+                        <td>Tue 6:02</td>
+                      </tr>
+                      <tr data-row data-mail data-folder="inbox" data-status="unread" data-from="Hearth" data-email="house@example.com" data-subject="Porch contact is open" data-when="Tue 5:40" data-letter="letter-porch">
+                        <td>Hearth</td>
+                        <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Porch contact is open</button></td>
+                        <td data-mail-state>Unread</td>
+                        <td>Tue 5:40</td>
+                      </tr>
+                      <tr data-row data-mail data-folder="inbox" data-status="read" data-from="Jonah Hale" data-email="jonah@example.com" data-subject="Margin notes" data-when="Mon 21:18" data-letter="letter-margin">
+                        <td>Jonah Hale</td>
+                        <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Margin notes</button></td>
+                        <td data-mail-state>Read</td>
+                        <td>Mon 21:18</td>
+                      </tr>
+                      <tr data-row data-mail data-folder="inbox" data-status="read" data-from="Cedar Stair" data-email="desk@example.com" data-subject="Your request is a sample" data-when="Mon 16:05" data-letter="letter-stay">
+                        <td>Cedar Stair</td>
+                        <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Your request is a sample</button></td>
+                        <td data-mail-state>Read</td>
+                        <td>Mon 16:05</td>
+                      </tr>
+                      <tr data-row data-mail data-folder="inbox" data-status="flagged" data-from="The Rex" data-email="booth@example.com" data-subject="Hold released" data-when="Mon 11:42" data-letter="letter-hold">
+                        <td>The Rex</td>
+                        <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Hold released</button></td>
+                        <td data-mail-state>Flagged</td>
+                        <td>Mon 11:42</td>
+                      </tr>
+                      <tr data-row data-mail data-folder="inbox" data-status="unread" data-from="Ada Voss" data-email="ada@example.com" data-subject="Sunday print" data-when="Sun 19:26" data-letter="letter-print">
+                        <td>Ada Voss</td>
+                        <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Sunday print</button></td>
+                        <td data-mail-state>Unread</td>
+                        <td>Sun 19:26</td>
+                      </tr>
+                      <tr data-row data-mail data-folder="inbox" data-status="read" data-from="City Light" data-email="billing@example.com" data-subject="Sample account" data-when="Sun 8:01" data-letter="letter-bill">
+                        <td>City Light</td>
+                        <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Sample account</button></td>
+                        <td data-mail-state>Read</td>
+                        <td>Sun 8:01</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div role="tabpanel" id="panel-sent" aria-labelledby="tab-sent" hidden>
+              <div class="site-table-wrap">
+                <table class="site-table">
+                  <caption>Sent</caption>
+                  <thead>
+                    <tr><th scope="col">To</th><th scope="col">Subject</th><th scope="col">Status</th><th scope="col">When</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr data-mail data-folder="sent" data-status="read" data-from="Jonah Hale" data-email="jonah@example.com" data-subject="Re: Margin notes" data-when="Mon 21:40" data-letter="letter-re-margin">
+                      <td>Jonah Hale</td>
+                      <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Re: Margin notes</button></td>
+                      <td>Sent</td>
+                      <td>Mon 21:40</td>
+                    </tr>
+                    <tr data-mail data-folder="sent" data-status="read" data-from="Cedar Stair" data-email="desk@example.com" data-subject="Dates in June" data-when="Mon 15:12" data-letter="letter-dates">
+                      <td>Cedar Stair</td>
+                      <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Dates in June</button></td>
+                      <td>Sent</td>
+                      <td>Mon 15:12</td>
+                    </tr>
+                    <tr data-mail data-folder="sent" data-status="read" data-from="Harbor Lot" data-email="floor@example.com" data-subject="Question about the typewriter" data-when="Sun 18:04" data-letter="letter-typewriter">
+                      <td>Harbor Lot</td>
+                      <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Question about the typewriter</button></td>
+                      <td>Sent</td>
+                      <td>Sun 18:04</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div role="tabpanel" id="panel-drafts" aria-labelledby="tab-drafts" hidden>
+              <div class="site-table-wrap">
+                <table class="site-table">
+                  <caption>Drafts</caption>
+                  <thead>
+                    <tr><th scope="col">To</th><th scope="col">Subject</th><th scope="col">Status</th><th scope="col">When</th></tr>
+                  </thead>
+                  <tbody id="draft-rows">
+                    <tr data-mail data-folder="draft" data-status="draft" data-from="Ada Voss" data-email="ada@example.com" data-subject="Unfinished caption" data-when="Sun 20:02" data-letter="letter-caption">
+                      <td>Ada Voss</td>
+                      <td><button type="button" class="ew-button app-subject" data-variant="ghost" data-size="sm">Unfinished caption</button></td>
+                      <td data-mail-state>Draft</td>
+                      <td>Sun 20:02</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </ew-tabs>
+          <article class="app-reader" data-mail-reader aria-live="polite">
+            <p data-mail-empty>Select a message. The letter stays on this page.</p>
+            <div data-mail-view hidden>
+              <p class="site-kicker" data-mail-when></p>
+              <h3 data-mail-subject></h3>
+              <p data-mail-from></p>
+              <div data-mail-body></div>
+              <div class="app-toolbar">
+                <button type="button" class="ew-button" data-size="sm" data-open-dialog="compose-dialog" data-reply>Reply</button>
+                <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-mail-flag>Flag</button>
+                <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-mail-archive>Archive</button>
+              </div>
+            </div>
+          </article>
+          </div>
+        </section>
+      </main>
+      <footer class="site-foot"><p class="site-fiction">Fictional mail. No message leaves this browser.</p></footer>
+    </div>
+
+    <template id="letter-kiln"><p>The bisque came out even and the glaze pooled only on the foot. I set the lamp aside for the shelf if you still want it photographed before Thursday.</p></template>
+    <template id="letter-outbid"><p>A sample bidder passed your figure on the brass pharmacy lamp. The tray on this site is not a live auction, and this note charges nothing.</p></template>
+    <template id="letter-porch"><p>The porch contact has been open since dusk in the sample house. The board is fictional and no alarm was sent.</p></template>
+    <template id="letter-margin"><p>I marked the paragraph about the third tread. Leave the salt bowl where it is. The rest of the letter can stay in your own words.</p></template>
+    <template id="letter-stay"><p>The dates you asked about are written on the desk pad. This note does not hold the Pine Double or any other room.</p></template>
+    <template id="letter-hold"><p>The balcony hold for Sunday expired. No ticket was issued and no card was charged.</p></template>
+    <template id="letter-print"><p>The Sunday caption is still short by a line. If you send the unfinished draft, I will read it as a sample and reply on paper.</p></template>
+    <template id="letter-bill"><p>City Light shows a sample balance of $42.10. This message is not a bill and no payment is requested.</p></template>
+    <template id="letter-re-margin"><p>I kept the third tread and cut the sentence about the ledger. The letter is still only on my desk.</p></template>
+    <template id="letter-dates"><p>If the stair room is free the second weekend in June, I would like to see it. This note does not reserve anything.</p></template>
+    <template id="letter-typewriter"><p>Does the ribbon still have red at the edge, or was that only in the listing copy? I am asking on this page alone.</p></template>
+    <template id="letter-caption"><p>The Sunday print needs one more concrete noun. I have not sent this.</p></template>
+
+    <dialog class="ew-dialog" id="compose-dialog" aria-labelledby="compose-title">
+      <form id="compose-form">
+        <header class="ew-dialog__header"><h2 id="compose-title">New message</h2></header>
+        <div class="ew-dialog__body">
+          <div class="ew-text-field">
+            <label class="ew-text-field__label" for="compose-to">To</label>
+            <input id="compose-to" class="ew-text-field__control" type="email" autocomplete="email" required />
+          </div>
+          <div class="ew-text-field">
+            <label class="ew-text-field__label" for="compose-subject">Subject</label>
+            <input id="compose-subject" class="ew-text-field__control" type="text" required />
+          </div>
+          <div class="ew-textarea">
+            <label class="ew-textarea__label" for="compose-body">Message</label>
+            <textarea id="compose-body" class="ew-textarea__control" rows="6" required></textarea>
+          </div>
+          <div class="ew-alert" data-variant="warning" role="status">
+            <strong class="ew-alert__title">Nothing is sent</strong>
+            <p class="ew-alert__body">Keeping a draft stores it in the Drafts folder on this page.</p>
+          </div>
+        </div>
+        <footer class="ew-dialog__footer">
+          <button type="button" class="ew-button" data-variant="ghost" data-close-dialog>Close</button>
+          <button type="submit" class="ew-button">Keep draft</button>
+        </footer>
+      </form>
+    </dialog>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>

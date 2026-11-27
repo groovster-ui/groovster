@@ -1,0 +1,781 @@
+/* Layout for the sample applications. Era geometry stays in Groovster CSS.
+   The shared recipe shell flattens commerce and editorial heroes. These pages
+   give that picture its height back so each era can show its own drawing. */
+
+.recipe-commerce[data-era] .site-hero.ew-hero,
+.recipe-editorial[data-era] .site-hero.ew-hero {
+  min-height: clamp(460px, 62vw, 740px);
+  padding-top: 0;
+}
+
+.recipe-commerce[data-era] .ew-hero__stage,
+.recipe-editorial[data-era] .ew-hero__stage {
+  max-height: none;
+}
+
+/* Memphis has no hero drawing of its own. Shapes share edges: circle on the
+   square's corner, pink flush under the square, a black bar as their right edge. */
+[data-era="memphis"] .ew-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-block: 10px solid var(--ew-color-ink);
+}
+
+[data-era="memphis"] .ew-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  right: 6%;
+  top: 10%;
+  width: 36%;
+  height: 62%;
+  background: var(--ew-color-yellow);
+  box-shadow: 18px 0 0 0 var(--ew-color-ink);
+}
+
+[data-era="memphis"] .ew-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  right: 2%;
+  top: 6%;
+  width: 64%;
+  height: 82%;
+  background: linear-gradient(
+    128deg,
+    transparent 41%,
+    var(--ew-color-ink) 41% 44.2%,
+    transparent 44.2%
+  );
+}
+
+[data-era="memphis"] .ew-hero__stage {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: none;
+}
+
+[data-era="memphis"] .ew-hero__stage::before {
+  content: "";
+  position: absolute;
+  width: 16vw;
+  height: 16vw;
+  right: calc(42% - 10vw);
+  top: calc(10% - 5vw);
+  border-radius: 50%;
+  background: var(--ew-color-blue);
+}
+
+[data-era="memphis"] .ew-hero__stage::after {
+  content: "";
+  position: absolute;
+  right: 6%;
+  top: 72%;
+  width: 36%;
+  height: 12%;
+  background: var(--ew-color-pink);
+  box-shadow: 18px 0 0 0 var(--ew-color-ink);
+}
+
+[data-era="memphis"] .ew-hero__panel,
+[data-era="memphis"] .ew-hero__content {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 800px) {
+  .recipe-commerce[data-era="memphis"] .site-hero.ew-hero {
+    min-height: 0;
+  }
+
+  [data-era="memphis"] .ew-hero::before {
+    right: auto;
+    left: 96px;
+    top: auto;
+    bottom: 28px;
+    width: 128px;
+    height: 64px;
+  }
+
+  [data-era="memphis"] .ew-hero::after {
+    left: 168px;
+    right: auto;
+    top: auto;
+    bottom: 8px;
+    width: 92px;
+    height: 96px;
+  }
+
+  [data-era="memphis"] .ew-hero__stage {
+    top: auto;
+    height: 120px;
+  }
+
+  [data-era="memphis"] .ew-hero__stage::before {
+    width: 78px;
+    height: 78px;
+    right: auto;
+    left: 34px;
+    top: auto;
+    bottom: 22px;
+  }
+
+  [data-era="memphis"] .ew-hero__stage::after {
+    right: auto;
+    left: 96px;
+    top: auto;
+    bottom: 10px;
+    width: 128px;
+    height: 18px;
+  }
+
+  [data-era="memphis"] .ew-hero__content {
+    padding-bottom: 140px;
+  }
+}
+
+/* Art Nouveau: a framed poster, with the flower reaching the edge and a vine in the open field. */
+[data-era="art-nouveau"] .ew-hero {
+  align-items: stretch;
+  grid-template-rows: minmax(0, 1fr);
+  box-shadow:
+    inset 0 0 0 16px var(--ew-color-bg-page),
+    inset 0 0 0 18px var(--ew-color-brass),
+    inset 0 0 0 24px var(--ew-color-bg-page),
+    inset 0 0 0 25px var(--ew-color-leaf);
+}
+
+[data-era="art-nouveau"] .ew-hero__backdrop::before,
+[data-era="art-nouveau"] .ew-hero::after,
+[data-era="art-nouveau"] .ew-hero__stage::before {
+  width: min(54%, 640px);
+  height: 112%;
+  right: 1%;
+  top: -6%;
+}
+
+[data-era="art-nouveau"] .ew-hero__panel {
+  height: 100%;
+  align-items: start;
+  align-content: start;
+}
+
+[data-era="art-nouveau"] .ew-hero__panel::before {
+  width: clamp(140px, 18vw, 220px);
+  opacity: 1;
+}
+
+[data-era="art-nouveau"] .ew-hero__content {
+  position: static;
+}
+
+[data-era="art-nouveau"] .ew-hero__rays {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  left: 4%;
+  bottom: 5%;
+  width: min(64%, 760px);
+  height: 34%;
+  background: var(--ew-color-leaf);
+  -webkit-mask: var(--ew-nv-whiplash) left center / contain no-repeat;
+  mask: var(--ew-nv-whiplash) left center / contain no-repeat;
+}
+
+[data-era="art-nouveau"] .ew-hero__fan {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  [data-era="art-nouveau"] .ew-hero__rays {
+    display: none;
+  }
+
+  [data-era="art-nouveau"] .ew-hero__backdrop::before,
+  [data-era="art-nouveau"] .ew-hero::after,
+  [data-era="art-nouveau"] .ew-hero__stage::before {
+    width: min(34%, 220px);
+    height: 58%;
+    right: 6%;
+    top: auto;
+    bottom: 6%;
+  }
+}
+
+/* Neutral mail is a printed desk: one serif name, rules instead of boxes. */
+.app-mail[data-era="neutral"] .site-bar {
+  padding-bottom: 14px;
+  border-bottom: 3px solid var(--ew-color-fg-default);
+  box-shadow: 0 7px 0 0 var(--ew-color-bg-page), 0 10px 0 0 var(--ew-color-fg-default);
+}
+
+.app-mail[data-era="neutral"] .site-bar h1 {
+  font-family: var(--ew-font-display, Georgia, serif);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 7vw, 5.4rem);
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+}
+
+.app-mail[data-era="neutral"] .site-section {
+  padding-top: 6px;
+}
+
+.app-mail[data-era="neutral"] .site-section h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.app-mail[data-era="neutral"] .ew-alert {
+  background: transparent;
+  border: 0;
+  border-left: 3px solid var(--ew-color-action-bg);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 2px 0 2px 14px;
+  margin-top: 14px;
+}
+
+.app-mail[data-era="neutral"] .site-grid--metrics {
+  gap: 18px;
+}
+
+.app-mail[data-era="neutral"] .site-grid--metrics .ew-card {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--ew-color-fg-default);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 12px 8px 4px 0;
+}
+
+.app-mail[data-era="neutral"] .site-table th,
+.app-mail[data-era="neutral"] .site-table td {
+  padding: 11px 10px;
+}
+
+.app-mail[data-era="neutral"] .app-split {
+  align-items: stretch;
+}
+
+.app-mail[data-era="neutral"] :is(.ew-text-field__control, .ew-select__control, .ew-select__trigger) {
+  border: 0;
+  border-bottom: 1px solid var(--ew-color-fg-default);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.app-mail[data-era="neutral"] .app-reader {
+  border: 0;
+  border-left: 1px solid var(--ew-color-fg-default);
+  border-radius: 0;
+  background:
+    linear-gradient(var(--ew-color-danger-bg), var(--ew-color-danger-bg)) 36px 0 / 2px 100% no-repeat,
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 2.05rem,
+      color-mix(in oklch, var(--ew-color-fg-default) 55%, transparent) 2.05rem calc(2.05rem + 1px)
+    ),
+    var(--ew-color-bg-elevated);
+  padding: 8px 28px 22px 56px;
+}
+
+.app-mail[data-era="neutral"] .app-reader [data-mail-empty] {
+  margin: 0;
+  max-width: 36ch;
+  text-align: left;
+}
+
+/* Swiss desk: the red bar is the poster, the sheet is the page. */
+.app-folio[data-era="swiss"] .app-sheet {
+  border: 0;
+  border-left: 10px solid var(--ew-color-action-bg);
+  background: var(--ew-color-bg-elevated);
+  padding: 22px 28px 40px;
+}
+
+.app-folio[data-era="swiss"] [data-doc-title] {
+  border: 0;
+  border-bottom: 1px solid var(--ew-color-fg-default);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--ew-font-display, inherit);
+  font-size: 1.2rem;
+  box-shadow: none;
+}
+
+.app-folio[data-era="swiss"] [data-doc-title]:focus-visible {
+  outline: 2px solid var(--ew-color-border-strong);
+  outline-offset: 4px;
+}
+
+/* Swiss house: an instrument scored with rules, one accent spine. */
+.app-hearth[data-era="swiss"] {
+  box-shadow: inset 8px 0 0 var(--ew-color-action-bg);
+}
+
+.app-hearth[data-era="swiss"] .site-grid--metrics .ew-card,
+.app-hearth[data-era="swiss"] .app-device {
+  background: transparent;
+  border: 0;
+  border-top: 2px solid var(--ew-color-border-strong);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.app-frame {
+  width: 100%;
+  height: min(88vh, 1040px);
+  border: 1px solid var(--ew-color-border-strong);
+  background: var(--ew-color-bg-page);
+}
+
+.app-chrome {
+  display: grid;
+  gap: 2px;
+  margin-top: 16px;
+  padding: 8px 12px 10px;
+  border: 1px solid var(--ew-color-border-subtle);
+  background: var(--ew-color-bg-elevated);
+}
+
+.app-chrome .site-switcher {
+  margin-top: 0;
+  gap: 6px 8px;
+}
+
+.app-chrome .site-switcher p {
+  flex-basis: 8.5rem;
+  margin: 0;
+}
+
+.app-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.app-gallery > .ew-card {
+  height: 100%;
+}
+
+.app-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.9fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.app-reader,
+.app-device,
+.app-doc {
+  border: 1px solid var(--ew-color-border-subtle);
+  background: var(--ew-color-bg-elevated);
+}
+
+.app-reader {
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+  padding: 20px 22px 16px;
+}
+
+.app-reader [data-mail-empty] {
+  margin: auto;
+  max-width: 28ch;
+  text-align: center;
+  color: var(--ew-color-fg-muted);
+  line-height: 1.5;
+}
+
+.app-reader [data-mail-view] {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-height: 100%;
+}
+
+.app-reader [data-mail-body] {
+  max-width: 62ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.app-reader [data-mail-body] p {
+  margin: 0;
+}
+
+.app-reader .app-toolbar {
+  margin-top: 16px;
+}
+
+.app-reader h3,
+.app-doc h2,
+.app-doc h3,
+.app-device h3 {
+  font-family: var(--ew-font-body, inherit);
+}
+
+.app-reader h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.app-editor {
+  width: min(74ch, 100%);
+}
+
+.app-sheet {
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px 24px;
+  border: 1px solid var(--ew-color-border-strong);
+  background: var(--ew-color-bg-elevated);
+}
+
+.app-sheet__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.app-title-field {
+  flex: 1 1 16rem;
+}
+
+.app-count,
+.app-find p {
+  margin: 0 0 8px;
+  color: var(--ew-color-fg-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+}
+
+.app-doc {
+  min-height: 26rem;
+  padding: 4px 4px 0;
+  border: 0;
+  background: transparent;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.app-doc p {
+  margin: 0 0 0.85em;
+}
+
+.app-doc h2,
+.app-doc h3 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin: 0.2em 0 0.45em;
+}
+
+.app-doc:focus-visible {
+  outline: 2px solid var(--ew-color-border-strong);
+  outline-offset: 3px;
+}
+
+.app-toolbar,
+.app-inline,
+.app-find {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: end;
+}
+
+.app-sheet .app-toolbar {
+  align-items: center;
+  padding: 8px;
+  border: 1px solid var(--ew-color-border-subtle);
+  background: var(--ew-color-bg-page);
+}
+
+.app-find .ew-text-field {
+  flex: 1 1 16rem;
+}
+
+.app-toolbar [data-doc-cmd][aria-pressed="true"],
+[data-watch][aria-pressed="true"] {
+  outline: 2px solid var(--ew-color-border-strong);
+  outline-offset: 2px;
+}
+
+.app-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+
+.app-device {
+  display: grid;
+  gap: 12px;
+  align-content: space-between;
+  height: 100%;
+  padding: 14px;
+}
+
+.app-device p {
+  margin: 0;
+}
+
+.app-device .ew-button {
+  justify-self: start;
+  width: auto;
+}
+
+.app-device .ew-slider {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.app-device .ew-slider__control {
+  grid-column: 1 / -1;
+}
+
+.app-device .ew-slider__value {
+  font-variant-numeric: tabular-nums;
+  justify-self: end;
+}
+
+.app-hearth #queues > h3 {
+  margin: 18px 0 8px;
+  font-family: var(--ew-font-body, inherit);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.app-subject {
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  padding: 2px 0;
+  white-space: normal;
+  text-align: left;
+  font-weight: 500;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.app-subject:hover {
+  background: transparent;
+}
+
+.app-mail tr[data-mail] {
+  cursor: pointer;
+}
+
+.app-mail tr[data-status="unread"] td:first-child,
+.app-mail tr[data-status="unread"] .app-subject {
+  font-weight: 700;
+}
+
+.app-mail tr[data-status="read"] td:first-child,
+.app-mail tr[data-status="read"] .app-subject {
+  font-weight: 450;
+  color: var(--ew-color-fg-muted);
+}
+
+.app-mail tbody tr[data-mail]:hover td {
+  background: color-mix(in srgb, var(--ew-color-fg-default) 6%, transparent);
+}
+
+.app-mail tr[aria-current="true"] td {
+  background: color-mix(in srgb, var(--ew-color-action-bg) 16%, var(--ew-color-bg-elevated));
+  box-shadow: inset 3px 0 0 var(--ew-color-border-strong);
+}
+
+.app-mail .site-table caption {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ew-color-fg-muted);
+}
+
+.app-mail .site-section {
+  padding-top: 10px;
+}
+
+.recipe-dashboard .site-grid--metrics .ew-card {
+  gap: 2px;
+  padding: 10px 12px;
+}
+
+.recipe-dashboard .site-grid--metrics .ew-card__header h3 {
+  font-family: var(--ew-font-body, inherit);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-grid > .ew-card {
+  height: 100%;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.site-grid .site-art {
+  height: 132px;
+  min-height: 132px;
+  margin-bottom: 0;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+.site-art[data-art="5"] {
+  background-image:
+    repeating-linear-gradient(0deg, var(--ew-color-border-strong) 0 6px, transparent 6px 18px),
+    linear-gradient(90deg, var(--ew-color-action-bg), transparent 72%);
+}
+
+.site-art[data-art="6"] {
+  background-image:
+    linear-gradient(115deg, transparent 40%, var(--ew-color-border-strong) 40% 44%, transparent 44%),
+    radial-gradient(circle at 24% 62%, var(--ew-color-action-bg) 0 22%, transparent 23%);
+}
+
+.site-art[data-art="7"] {
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 0 28%, var(--ew-color-border-strong) 29% 32%, transparent 33%),
+    radial-gradient(circle at 50% 50%, var(--ew-color-action-bg) 0 10%, transparent 11%);
+}
+
+.site-art[data-art="8"] {
+  background-image: repeating-linear-gradient(135deg, var(--ew-color-action-bg) 0 10px, transparent 10px 18px);
+}
+
+.site-art[data-art="9"] {
+  background-image:
+    linear-gradient(var(--ew-color-border-strong), var(--ew-color-border-strong)) 50% 50% / 76% 3px no-repeat,
+    linear-gradient(var(--ew-color-border-strong), var(--ew-color-border-strong)) 50% 50% / 3px 76% no-repeat,
+    radial-gradient(circle at 50% 50%, var(--ew-color-action-bg) 0 12%, transparent 13%),
+    radial-gradient(circle at 50% 50%, transparent 0 26%, var(--ew-color-border-strong) 27% 31%, transparent 32%);
+}
+
+.app-mail .site-filters > .ew-text-field {
+  flex: 1 1 18rem;
+  max-width: 28rem;
+}
+
+.app-mail .site-filters > .ew-select {
+  flex: 0 1 16rem;
+}
+
+.ew-card__footer.app-toolbar {
+  align-items: center;
+}
+
+.site-filters > .ew-text-field,
+.site-filters > .ew-select {
+  flex: 1 1 12rem;
+  min-width: min(100%, 12rem);
+}
+
+.site-filters > .ew-checkbox,
+.site-filters > .ew-switch {
+  align-self: end;
+  min-height: 40px;
+  padding-bottom: 8px;
+}
+
+.recipe-hospitality .ew-radio-group,
+.recipe-event .ew-radio-group {
+  display: grid;
+  gap: 10px;
+  max-width: 40rem;
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--ew-color-border-subtle);
+}
+
+.recipe-hospitality form[data-demo-form],
+.recipe-editorial form[data-demo-form] {
+  display: grid;
+  gap: 14px;
+}
+
+.recipe-event .ew-select {
+  max-width: 12rem;
+}
+
+[data-outline] {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding-left: 1.2rem;
+}
+
+html[data-embed="1"] a[href="../index.html"] {
+  display: none;
+}
+
+.ew-card[hidden],
+tr[hidden],
+[hidden] {
+  display: none !important;
+}
+
+@media (min-width: 801px) {
+  .app-reader {
+    position: sticky;
+    top: 12px;
+  }
+
+  .recipe-event .ew-radio-group {
+    max-width: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .app-controls,
+  .app-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .app-split,
+  .app-controls,
+  .app-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .app-frame {
+    height: 70vh;
+  }
+
+  .app-chrome .site-switcher p {
+    flex-basis: 100%;
+  }
+
+  .app-reader {
+    min-height: 220px;
+  }
+}

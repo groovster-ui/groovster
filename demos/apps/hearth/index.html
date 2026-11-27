@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hearth — sample home</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../../recipes/shared/shell.css" />
+  <link rel="stylesheet" href="../shared/apps.css" />
+  <script src="../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../../recipes/shared/shell.js" defer></script>
+  <script src="../shared/apps.js" defer></script>
+</head>
+<body>
+  <div class="ew-root recipe-dashboard app-hearth" data-groovster-root data-recipe="hearth" data-era="swiss" data-mode="dark" data-fidelity-band="whisper">
+    <a class="ew-link site-skip" href="#content">Skip to content</a>
+    <div class="site-wrap">
+      <div data-skin-mount data-skin-open="false"></div>
+      <header class="site-bar" id="masthead">
+        <div>
+          <p class="site-kicker">Home automation</p>
+          <h1>Hearth</h1>
+        </div>
+        <nav class="site-nav__links" aria-label="Primary">
+          <a class="ew-link" data-variant="nav" href="../index.html">All applications</a>
+          <a class="ew-link" data-variant="nav" href="#metrics">Figures</a>
+          <a class="ew-link" data-variant="nav" href="#queues">House</a>
+          <button type="button" class="ew-button" data-size="sm" data-sample-export>Export sample</button>
+        </nav>
+      </header>
+      <main id="content">
+        <div class="ew-alert" data-variant="warning" role="status" data-house-alert>
+          <strong class="ew-alert__title">Porch contact is open</strong>
+          <p class="ew-alert__body">Fictional sensor. The same status is written in the security board.</p>
+        </div>
+        <section class="site-section" id="metrics">
+          <h2>Figures</h2>
+          <div class="site-grid site-grid--metrics">
+            <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Lights on</h3></header><div class="ew-card__body"><p class="site-metric" data-metric="lights">3</p></div></article>
+            <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Indoor</h3></header><div class="ew-card__body"><p class="site-metric" data-metric="indoor">68°F</p></div></article>
+            <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Draw</h3></header><div class="ew-card__body"><p class="site-metric" data-metric="draw">1.3 kW</p></div></article>
+            <article class="ew-card" data-variant="outline"><header class="ew-card__header"><h3>Open entries</h3></header><div class="ew-card__body"><p class="site-metric" data-metric="entries">1</p></div></article>
+          </div>
+        </section>
+        <section class="site-section" id="filters">
+          <h2>Filters</h2>
+          <div class="site-filters">
+            <div class="ew-text-field">
+              <label class="ew-text-field__label" for="device-search">Search devices</label>
+              <input id="device-search" class="ew-text-field__control" type="search" data-row-filter />
+            </div>
+            <ew-select class="ew-select">
+              <label class="ew-select__label" for="device-status">Status</label>
+              <select id="device-status" class="ew-select__control" data-status-filter>
+                <option value="all">All statuses</option>
+                <option value="on">On</option>
+                <option value="idle">Idle</option>
+                <option value="alert">Alert</option>
+              </select>
+            </ew-select>
+            <label class="ew-switch">
+              <input class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" data-freeze />
+              <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+              <span class="ew-switch__label">Freeze sample clock</span>
+            </label>
+          </div>
+          <p data-freeze-note hidden>Sample clock stopped. Device changes wait.</p>
+          <p data-row-count aria-live="polite">14 matching devices</p>
+        </section>
+        <section class="site-section" id="queues">
+          <h2>House</h2>
+          <h3>Scenes</h3>
+          <div class="app-toolbar" role="group" aria-label="Scenes">
+            <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-scene="day" aria-pressed="false">Day</button>
+            <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-scene="evening" aria-pressed="false">Evening</button>
+            <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-scene="away" aria-pressed="false">Away</button>
+            <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-scene="movie" aria-pressed="false">Movie</button>
+            <button type="button" class="ew-button" data-variant="secondary" data-size="sm" data-scene="sleep" aria-pressed="false">Sleep</button>
+          </div>
+          <h3>Controls</h3>
+          <div class="app-controls">
+            <article class="app-device">
+              <label class="ew-switch">
+                <input id="living-lamp-switch" class="ew-switch__control" type="checkbox" role="switch" aria-checked="true" checked data-device-switch data-device="living-lamp" data-kind="light" data-device-label="Living floor lamp" data-on-text="On" data-off-text="Off" />
+                <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+                <span class="ew-switch__label">Living floor lamp</span>
+              </label>
+              <ew-slider class="ew-slider">
+                <label class="ew-slider__label" for="living-level">Brightness</label>
+                <input id="living-level" class="ew-slider__control" type="range" min="0" max="100" value="80" data-device-range data-device="living-lamp" data-kind="light" />
+                <output class="ew-slider__value" for="living-level">80</output>
+              </ew-slider>
+            </article>
+            <article class="app-device">
+              <label class="ew-switch">
+                <input id="kitchen-switch" class="ew-switch__control" type="checkbox" role="switch" aria-checked="true" checked data-device-switch data-device="kitchen-pendants" data-kind="light" data-device-label="Kitchen pendants" data-on-text="On" data-off-text="Off" />
+                <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+                <span class="ew-switch__label">Kitchen pendants</span>
+              </label>
+              <ew-slider class="ew-slider">
+                <label class="ew-slider__label" for="kitchen-level">Brightness</label>
+                <input id="kitchen-level" class="ew-slider__control" type="range" min="0" max="100" value="60" data-device-range data-device="kitchen-pendants" data-kind="light" />
+                <output class="ew-slider__value" for="kitchen-level">60</output>
+              </ew-slider>
+            </article>
+            <article class="app-device">
+              <label class="ew-switch">
+                <input id="bedroom-switch" class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" data-device-switch data-device="bedroom-lamp" data-kind="light" data-device-label="Bedroom reading lamp" data-on-text="On" data-off-text="Off" />
+                <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+                <span class="ew-switch__label">Bedroom reading lamp</span>
+              </label>
+              <ew-slider class="ew-slider">
+                <label class="ew-slider__label" for="bedroom-level">Brightness</label>
+                <input id="bedroom-level" class="ew-slider__control" type="range" min="0" max="100" value="30" data-device-range data-device="bedroom-lamp" data-kind="light" />
+                <output class="ew-slider__value" for="bedroom-level">30</output>
+              </ew-slider>
+            </article>
+            <article class="app-device">
+              <label class="ew-switch">
+                <input id="bath-switch" class="ew-switch__control" type="checkbox" role="switch" aria-checked="false" data-device-switch data-device="bath-mirror" data-kind="light" data-device-label="Bath mirror light" data-on-text="On" data-off-text="Off" />
+                <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+                <span class="ew-switch__label">Bath mirror light</span>
+              </label>
+            </article>
+            <article class="app-device">
+              <label class="ew-switch">
+                <input id="porch-switch" class="ew-switch__control" type="checkbox" role="switch" aria-checked="true" checked data-device-switch data-device="porch-sconce" data-kind="light" data-device-label="Porch sconce" data-on-text="On" data-off-text="Off" />
+                <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+                <span class="ew-switch__label">Porch sconce</span>
+              </label>
+              <ew-slider class="ew-slider">
+                <label class="ew-slider__label" for="porch-level">Brightness</label>
+                <input id="porch-level" class="ew-slider__control" type="range" min="0" max="100" value="40" data-device-range data-device="porch-sconce" data-kind="light" />
+                <output class="ew-slider__value" for="porch-level">40</output>
+              </ew-slider>
+            </article>
+            <article class="app-device">
+              <label class="ew-switch">
+                <input id="entry-switch" class="ew-switch__control" type="checkbox" role="switch" aria-checked="true" checked data-device-switch data-device="entry-lock" data-kind="lock" data-device-label="Entry lock" data-on-text="Locked" data-off-text="Unlocked" />
+                <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+                <span class="ew-switch__label">Entry locked</span>
+              </label>
+              <label class="ew-switch">
+                <input id="back-switch" class="ew-switch__control" type="checkbox" role="switch" aria-checked="true" checked data-device-switch data-device="back-lock" data-kind="lock" data-device-label="Back lock" data-on-text="Locked" data-off-text="Unlocked" />
+                <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+                <span class="ew-switch__label">Back door locked</span>
+              </label>
+            </article>
+            <article class="app-device">
+              <ew-slider class="ew-slider">
+                <label class="ew-slider__label" for="hall-setpoint">Hall setpoint (°F)</label>
+                <input id="hall-setpoint" class="ew-slider__control" type="range" min="60" max="78" value="68" data-device-range data-device="hall-temp" data-kind="climate" />
+                <output class="ew-slider__value" for="hall-setpoint">68</output>
+              </ew-slider>
+            </article>
+            <article class="app-device">
+              <p class="site-kicker">Porch contact</p>
+              <p data-sensor="porch-contact" data-open="true">Open for 14 minutes in this sample.</p>
+              <button type="button" class="ew-button" data-size="sm" data-ack-sensor>Mark closed</button>
+            </article>
+          </div>
+          <h3>Boards</h3>
+          <ew-tabs class="ew-tabs">
+            <div role="tablist" aria-label="House boards">
+              <button type="button" role="tab" id="tab-devices" aria-selected="true" aria-controls="panel-devices">Devices</button>
+              <button type="button" role="tab" id="tab-climate" aria-selected="false" aria-controls="panel-climate" tabindex="-1">Climate</button>
+              <button type="button" role="tab" id="tab-security" aria-selected="false" aria-controls="panel-security" tabindex="-1">Security</button>
+              <button type="button" role="tab" id="tab-energy" aria-selected="false" aria-controls="panel-energy" tabindex="-1">Energy</button>
+              <button type="button" role="tab" id="tab-activity" aria-selected="false" aria-controls="panel-activity" tabindex="-1">Activity</button>
+            </div>
+            <div role="tabpanel" id="panel-devices" aria-labelledby="tab-devices">
+              <div class="site-table-wrap">
+                <table class="site-table">
+                  <caption>Sample devices</caption>
+                  <thead><tr><th scope="col">Device</th><th scope="col">Room</th><th scope="col">Kind</th><th scope="col">State</th></tr></thead>
+                  <tbody id="device-rows">
+                    <tr data-row data-device-row="living-lamp" data-status="on"><td>Living floor lamp</td><td>Living</td><td>Light</td><td data-device-state="living-lamp">On · 80%</td></tr>
+                    <tr data-row data-device-row="kitchen-pendants" data-status="on"><td>Kitchen pendants</td><td>Kitchen</td><td>Light</td><td data-device-state="kitchen-pendants">On · 60%</td></tr>
+                    <tr data-row data-device-row="bedroom-lamp" data-status="idle"><td>Bedroom reading lamp</td><td>Bedroom</td><td>Light</td><td data-device-state="bedroom-lamp">Off</td></tr>
+                    <tr data-row data-device-row="bath-mirror" data-status="idle"><td>Bath mirror light</td><td>Bath</td><td>Light</td><td data-device-state="bath-mirror">Off</td></tr>
+                    <tr data-row data-device-row="porch-sconce" data-status="on"><td>Porch sconce</td><td>Porch</td><td>Light</td><td data-device-state="porch-sconce">On · 40%</td></tr>
+                    <tr data-row data-device-row="entry-lock" data-status="idle"><td>Entry lock</td><td>Entry</td><td>Lock</td><td data-device-state="entry-lock">Locked</td></tr>
+                    <tr data-row data-device-row="back-lock" data-status="idle"><td>Back lock</td><td>Entry</td><td>Lock</td><td data-device-state="back-lock">Locked</td></tr>
+                    <tr data-row data-device-row="porch-contact" data-status="alert"><td>Porch contact</td><td>Porch</td><td>Sensor</td><td data-device-state="porch-contact">Open</td></tr>
+                    <tr data-row data-device-row="hall-temp" data-status="on"><td>Hall thermostat</td><td>Hall</td><td>Climate</td><td data-device-state="hall-temp">68°F heat</td></tr>
+                    <tr data-row data-device-row="garage-door" data-status="idle"><td>Garage door</td><td>Garage</td><td>Entry</td><td>Closed</td></tr>
+                    <tr data-row data-device-row="living-shade" data-status="idle"><td>Living shade</td><td>Living</td><td>Shade</td><td>Open</td></tr>
+                    <tr data-row data-device-row="kitchen-leak" data-status="idle"><td>Kitchen leak sensor</td><td>Kitchen</td><td>Sensor</td><td>Dry</td></tr>
+                    <tr data-row data-device-row="bedroom-shade" data-status="idle"><td>Bedroom shade</td><td>Bedroom</td><td>Shade</td><td>Closed</td></tr>
+                    <tr data-row data-device-row="bath-fan" data-status="idle"><td>Bath fan</td><td>Bath</td><td>Fan</td><td>Off</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div role="tabpanel" id="panel-climate" aria-labelledby="tab-climate" hidden>
+              <div class="site-table-wrap">
+                <table class="site-table">
+                  <caption>Climate zones</caption>
+                  <thead><tr><th scope="col">Zone</th><th scope="col">Setpoint</th><th scope="col">Mode</th></tr></thead>
+                  <tbody>
+                    <tr><td>Hall</td><td data-device-state="hall-temp">68°F heat</td><td>Heat</td></tr>
+                    <tr><td>Bedroom</td><td>66°F hold</td><td>Hold. Not on a control.</td></tr>
+                    <tr><td>Bath floor</td><td>Off</td><td>Idle</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div role="tabpanel" id="panel-security" aria-labelledby="tab-security" hidden>
+              <div class="site-table-wrap">
+                <table class="site-table">
+                  <caption>Entries and sensors</caption>
+                  <thead><tr><th scope="col">Point</th><th scope="col">State</th></tr></thead>
+                  <tbody>
+                    <tr><td>Entry lock</td><td data-device-state="entry-lock">Locked</td></tr>
+                    <tr><td>Back lock</td><td data-device-state="back-lock">Locked</td></tr>
+                    <tr><td>Porch contact</td><td data-device-state="porch-contact">Open</td></tr>
+                    <tr><td>Garage door</td><td>Closed</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div role="tabpanel" id="panel-energy" aria-labelledby="tab-energy" hidden>
+              <div class="site-table-wrap">
+                <table class="site-table">
+                  <caption>Sample draw</caption>
+                  <thead><tr><th scope="col">Circuit</th><th scope="col">Now</th></tr></thead>
+                  <tbody>
+                    <tr><td>Lighting</td><td data-energy="lighting">108 W</td></tr>
+                    <tr><td>Heating</td><td data-energy="hvac">980 W</td></tr>
+                    <tr><td>Other</td><td data-energy="other">180 W</td></tr>
+                    <tr><td>Total</td><td data-energy="total">1.3 kW</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div role="tabpanel" id="panel-activity" aria-labelledby="tab-activity" hidden>
+              <div class="site-table-wrap">
+                <table class="site-table">
+                  <caption>Sample activity</caption>
+                  <thead><tr><th scope="col">Time</th><th scope="col">Note</th></tr></thead>
+                  <tbody data-activity>
+                    <tr><td>07:55</td><td>Hall setpoint held at 68°F.</td></tr>
+                    <tr><td>07:10</td><td>No scene has been applied yet.</td></tr>
+                    <tr><td>06:40</td><td>Porch contact opened. Sample sensor.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </ew-tabs>
+        </section>
+      </main>
+      <footer class="site-foot"><p class="site-fiction">Fictional house. No hub, lock, or utility is connected.</p></footer>
+    </div>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>

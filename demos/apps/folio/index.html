@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Folio — sample desk</title>
+  <link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css" />
+  <link rel="stylesheet" href="../../recipes/shared/shell.css" />
+  <link rel="stylesheet" href="../shared/apps.css" />
+  <script src="../../../packages/elements/dist/era-elements.js" defer></script>
+  <script src="../../recipes/shared/shell.js" defer></script>
+  <script src="../shared/apps.js" defer></script>
+</head>
+<body>
+  <div class="ew-root recipe-editorial app-folio" data-groovster-root data-recipe="folio" data-era="swiss" data-mode="light" data-fidelity-band="costume">
+    <a class="ew-link site-skip" href="#story">Skip to the document</a>
+    <div class="site-wrap">
+      <div data-skin-mount data-skin-open="false"></div>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="ew-link site-brand" href="#masthead">Folio</a>
+        <div class="site-nav__links">
+          <a class="ew-link" data-variant="nav" href="../index.html">All applications</a>
+          <a class="ew-link" data-variant="nav" href="#story">Document</a>
+          <a class="ew-link" data-variant="nav" href="#departments">Desk</a>
+          <a class="ew-link" data-variant="nav" href="#newsletter">Send</a>
+          <ew-menu class="ew-menu">
+            <button type="button" class="ew-button ew-menu__trigger" data-variant="secondary" data-size="sm" aria-haspopup="menu">Document</button>
+            <div class="ew-menu__panel" role="menu">
+              <button type="button" class="ew-menu__item" role="menuitem" data-doc-restore>Restore opening text</button>
+              <button type="button" class="ew-menu__item" role="menuitem" data-doc-export>Export sample</button>
+            </div>
+          </ew-menu>
+        </div>
+      </nav>
+    </div>
+    <section class="ew-hero site-hero" id="masthead">
+      <div class="ew-hero__backdrop" aria-hidden="true"></div>
+      <div class="ew-hero__stage" aria-hidden="true">
+        <div class="ew-hero__sun"></div><div class="ew-hero__mountains"></div><div class="ew-hero__grid"></div>
+        <div class="ew-hero__scanlines"></div><div class="ew-hero__twotone"></div><div class="ew-hero__starbursts"></div>
+        <div class="ew-hero__arch"></div><div class="ew-orbit"></div>
+      </div>
+      <div class="ew-hero__panel">
+        <div class="ew-hero__rays" aria-hidden="true"></div>
+        <div class="ew-hero__content">
+          <div class="ew-hero__fan" aria-hidden="true"></div>
+          <p class="ew-script">Writing desk</p>
+          <h1 class="ew-hero__title">Folio</h1>
+          <p class="ew-hero__subtitle">A sample word processor. Era, mode, and fidelity restyle the desk. The words stay on this page.</p>
+        </div>
+      </div>
+    </section>
+    <main id="content" class="site-wrap">
+      <article class="site-section" id="story">
+        <nav class="ew-breadcrumb" aria-label="Breadcrumb">
+          <ol class="ew-breadcrumb__list">
+            <li class="ew-breadcrumb__item"><a class="ew-link" href="#masthead">Folio</a></li>
+            <li class="ew-breadcrumb__item"><a class="ew-link" href="#story">Documents</a></li>
+            <li class="ew-breadcrumb__item" aria-current="page" data-doc-crumb>Letter from the coast</li>
+          </ol>
+        </nav>
+        <p class="site-kicker">Open document</p>
+        <h2 data-doc-heading>Letter from the coast</h2>
+        <div class="site-byline">
+          <span class="ew-avatar" data-variant="circle" aria-label="N. Hale"><span class="ew-avatar__fallback">NH</span></span>
+          <p class="site-muted">N. Hale · Fictional draft</p>
+        </div>
+        <div class="app-editor">
+          <div class="app-sheet">
+          <div class="app-sheet__head">
+            <div class="ew-text-field app-title-field">
+              <label class="ew-text-field__label" for="doc-title">Document title</label>
+              <input id="doc-title" class="ew-text-field__control" type="text" value="Letter from the coast" data-doc-title />
+            </div>
+            <p class="app-count" data-word-count>0 words · 0 min read</p>
+          </div>
+          <div class="app-toolbar" role="toolbar" aria-label="Formatting">
+            <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-doc-cmd="bold" aria-pressed="false">Bold</button>
+            <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-doc-cmd="italic" aria-pressed="false">Italic</button>
+            <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-doc-cmd="formatBlock" data-doc-arg="p">Paragraph</button>
+            <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-doc-cmd="formatBlock" data-doc-arg="h2">Heading</button>
+            <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-doc-cmd="formatBlock" data-doc-arg="blockquote">Quote</button>
+            <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-doc-cmd="insertUnorderedList">List</button>
+            <button type="button" class="ew-button" data-variant="ghost" data-size="sm" data-doc-cmd="removeFormat">Clear</button>
+          </div>
+          <div class="app-find">
+            <div class="ew-text-field">
+              <label class="ew-text-field__label" for="doc-find">Find in document</label>
+              <input id="doc-find" class="ew-text-field__control" type="search" data-doc-find />
+            </div>
+            <p data-find-count>Find is empty.</p>
+          </div>
+          <p id="doc-body-label" class="ew-text-field__label">Document</p>
+          <div id="doc-body" class="app-doc" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="doc-body-label" data-doc>
+            <h2 id="doc-h-coast">Letter from the coast</h2>
+            <p>The stair down to the water is cedar, and it squeaks on the third tread. I keep meaning to write that down before the season changes the sound.</p>
+            <p>Today the lot sold a typewriter with a ribbon still red at the edge. I brought it back to the desk and let it sit without a page.</p>
+            <h2 id="doc-h-rooms">Rooms we keep</h2>
+            <p>A house is a set of decisions about light. The mirror stays dark until someone means to use it. The porch tells the truth about the door.</p>
+            <p>If this letter reaches you, it reached you from this page alone.</p>
+          </div>
+          </div>
+        </div>
+      </article>
+      <hr class="ew-ornament-divider" data-variant="ornament" />
+      <section class="site-section" id="departments">
+        <h2>Desk</h2>
+        <ew-tabs class="ew-tabs">
+          <div role="tablist" aria-label="Desk">
+            <button type="button" role="tab" id="tab-outline" aria-selected="true" aria-controls="panel-outline">Outline</button>
+            <button type="button" role="tab" id="tab-notes" aria-selected="false" aria-controls="panel-notes" tabindex="-1">Notes</button>
+            <button type="button" role="tab" id="tab-versions" aria-selected="false" aria-controls="panel-versions" tabindex="-1">Versions</button>
+          </div>
+          <div role="tabpanel" id="panel-outline" aria-labelledby="tab-outline">
+            <ul data-outline></ul>
+          </div>
+          <div role="tabpanel" id="panel-notes" aria-labelledby="tab-notes" hidden>
+            <div class="site-grid site-grid--3">
+              <article class="ew-card"><header class="ew-card__header"><h3>Third tread</h3></header><div class="ew-card__body"><p>Jonah marked this paragraph. The note is fictional and is not a comment thread.</p></div></article>
+              <article class="ew-card"><header class="ew-card__header"><h3>Ribbon</h3></header><div class="ew-card__body"><p>Keep the red edge. It is the only color in the first page.</p></div></article>
+              <article class="ew-card"><header class="ew-card__header"><h3>Porch</h3></header><div class="ew-card__body"><p>Do not explain the sensor. The door is enough.</p></div></article>
+            </div>
+          </div>
+          <div role="tabpanel" id="panel-versions" aria-labelledby="tab-versions" hidden>
+            <div class="site-grid site-grid--3">
+              <article class="ew-card"><header class="ew-card__header"><h3>Opening text</h3></header><div class="ew-card__body"><p>The words this page opened with.</p></div><footer class="ew-card__footer"><button type="button" class="ew-button" data-size="sm" data-doc-restore>Restore</button></footer></article>
+              <article class="ew-card"><header class="ew-card__header"><h3>Margin pass</h3></header><div class="ew-card__body"><p>Jonah's notes stay in the Notes tab. They are not a second file.</p></div></article>
+              <article class="ew-card"><header class="ew-card__header"><h3>Desk copy</h3></header><div class="ew-card__body"><p>Export reports that no file was written.</p></div></article>
+            </div>
+          </div>
+        </ew-tabs>
+      </section>
+      <section class="site-section" id="newsletter">
+        <h2>Send a copy</h2>
+        <form data-demo-form="newsletter" style="max-width:36rem">
+          <div class="ew-text-field">
+            <label class="ew-text-field__label" for="reader-email">Email</label>
+            <input id="reader-email" class="ew-text-field__control" type="email" autocomplete="email" required />
+          </div>
+          <label class="ew-checkbox">
+            <input class="ew-checkbox__control" type="checkbox" required />
+            <span class="ew-checkbox__box" aria-hidden="true"></span>
+            <span class="ew-checkbox__label">I understand this copy is a demo and contacts nobody.</span>
+          </label>
+          <div class="site-actions"><button type="submit" class="ew-button">Keep the request here</button></div>
+          <div class="ew-alert" data-variant="success" role="status" data-demo-status hidden>
+            <strong class="ew-alert__title">Noted</strong>
+            <p class="ew-alert__body">Saved on this page only.</p>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer class="site-wrap site-foot"><p class="site-fiction">Fictional desk. No file is saved and no message is sent.</p></footer>
+    <ew-toast-region class="ew-toast-region" aria-live="polite"></ew-toast-region>
+  </div>
+</body>
+</html>
