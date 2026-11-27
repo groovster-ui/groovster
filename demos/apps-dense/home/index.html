@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home</title>
+<link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css">
+<link rel="stylesheet" href="../shared/layout.css">
+<script src="../../../packages/elements/dist/era-elements.js" defer></script>
+<script src="../shared/switch.js" defer></script>
+</head>
+<body>
+<div class="ew-root" data-groovster-root data-era="bauhaus" data-mode="light" data-fidelity-band="whisper" data-density="compact">
+  <header class="ew-toolbar" data-sticky="true" role="toolbar" aria-label="Home">
+    <div class="ew-toolbar__start"><h1 class="ew-title--page">Hearth</h1></div>
+    <div class="ew-toolbar__end">
+      <div class="ew-segmented" role="radiogroup" aria-label="Floor">
+        <button type="button" class="ew-segmented__item" role="radio" aria-checked="true">Downstairs</button>
+        <button type="button" class="ew-segmented__item" role="radio" aria-checked="false">Studio</button>
+      </div>
+      <div data-era-switch></div>
+    </div>
+  </header>
+  <div class="dash">
+    <article class="ew-card">
+      <header class="ew-card__header"><h2 class="ew-title--panel">Porch</h2></header>
+      <div class="ew-card__body">
+        <label class="ew-switch">
+          <input class="ew-switch__control" type="checkbox" role="switch" checked>
+          <span class="ew-switch__track" aria-hidden="true"><span class="ew-switch__thumb"></span></span>
+          <span class="ew-switch__label">Lamp</span>
+        </label>
+      </div>
+    </article>
+    <article class="ew-card">
+      <div class="ew-slider">
+        <label class="ew-slider__label" for="heat">Heat</label>
+        <input id="heat" class="ew-slider__control" type="range" min="0" max="100" value="40">
+        <output class="ew-slider__value" for="heat">40</output>
+      </div>
+    </article>
+    <article class="ew-card">
+      <div class="ew-meter">
+        <span class="ew-meter__label" id="store">Sensor</span>
+        <meter class="ew-meter__bar" min="0" max="100" value="18" aria-labelledby="store">18%</meter>
+        <span class="ew-meter__radial" style="--ew-meter-value:18" role="img" aria-label="18 percent"></span>
+      </div>
+    </article>
+    <article class="ew-card">
+      <div class="ew-stat">
+        <p class="ew-stat__label">Indoor</p>
+        <p class="ew-stat__value">68°</p>
+        <p class="ew-stat__delta" data-dir="down">2°</p>
+      </div>
+    </article>
+    <article class="ew-card">
+      <div class="ew-alert" role="alert"><p>Porch contact is open.</p></div>
+      <button type="button" class="ew-button" data-variant="danger">Silence alarm</button>
+    </article>
+    <article class="ew-card">
+      <h2 class="ew-title--panel">Camera</h2>
+      <a class="ew-media-card" data-ratio="wide" href="#cam"><span class="ew-media-card__title">Porch</span></a>
+    </article>
+    <article class="ew-card is-empty">
+      <div class="ew-empty-state">
+        <h2 class="ew-empty-state__title">No clips</h2>
+        <p class="ew-empty-state__body">The camera has not saved a clip today.</p>
+      </div>
+    </article>
+    <article class="ew-card" aria-busy="true">
+      <div class="ew-skeleton" data-variant="block" aria-hidden="true"></div>
+    </article>
+  </div>
+</div>
+</body>
+</html>

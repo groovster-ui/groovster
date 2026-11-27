@@ -55,13 +55,13 @@
     --ew-mode: light;
     --ew-color-sky: #FFD0E4;
     --ew-color-panel: #FFE8F2;
-    --ew-color-magenta: #D12B6A;
+    --ew-color-magenta: #8E1248;
     --ew-color-cyan: #066A80;
     --ew-color-violet: #9B4F8A;
     --ew-color-ink: #1A0A2E;
     --ew-color-sun: #E89B20;
     --ew-color-orange: #E85A2A;
-    --ew-color-accent-solid: #D12B6A;
+    --ew-color-accent-solid: #8E1248;
     --ew-color-accent-fg: #FFFFFF;
     --ew-color-danger-solid: #C62828;
     --ew-color-danger-fg: #FFFFFF;
@@ -105,7 +105,6 @@
     --ew-color-ornament-secondary: var(--ew-color-cyan);
     --ew-color-ornament-tertiary: var(--ew-color-sun);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
-    --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 0px 0px 0px 1px color-mix(in oklch, var(--ew-color-magenta) 40%, transparent);
     --ew-elevation-2: 0px 0px 12px 0px color-mix(in oklch, var(--ew-color-magenta) 25%, transparent), 0px 8px 24px 0px color-mix(in oklch, var(--ew-color-ink) 12%, transparent);
     --ew-elevation-dialog: 0px 0px 24px 0px color-mix(in oklch, var(--ew-color-cyan) 25%, transparent), 0px 20px 48px 0px color-mix(in oklch, var(--ew-color-ink) 18%, transparent);
@@ -168,7 +167,6 @@
     --ew-color-ornament-secondary: var(--ew-color-cyan);
     --ew-color-ornament-tertiary: var(--ew-color-sun);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
-    --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 0px 0px 0px 1px color-mix(in oklch, var(--ew-color-magenta) 55%, transparent);
     --ew-elevation-2: 0px 0px 12px 0px color-mix(in oklch, var(--ew-color-magenta) 35%, transparent), 0px 8px 24px 0px color-mix(in oklch, var(--ew-color-sky) 60%, transparent);
     --ew-elevation-dialog: 0px 0px 24px 0px color-mix(in oklch, var(--ew-color-cyan) 35%, transparent), 0px 20px 48px 0px color-mix(in oklch, var(--ew-color-sky) 70%, transparent);
@@ -333,6 +331,40 @@
     z-index: 1;
     pointer-events: none;
     overflow: hidden;
+  }
+  /* Documented markup often leaves the stage empty. Paint sun, mountains, and floor anyway. */
+  [data-era="neon"] .ew-hero__stage:empty {
+    background-image:
+      linear-gradient(to bottom, transparent 0 calc(100% - 2px), color-mix(in srgb, var(--ew-color-cyan) 90%, white) calc(100% - 2px)),
+      linear-gradient(to right, transparent 0 calc(100% - 2px), color-mix(in srgb, var(--ew-color-magenta) 88%, white) calc(100% - 2px));
+    background-size: 100% 28px, 72px 100%;
+    background-position: center bottom;
+    background-repeat: repeat;
+  }
+  [data-era="neon"] .ew-hero__stage:empty::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: min(280px, 42vw);
+    height: var(--ew-hero-sun-h);
+    transform: translateX(-50%);
+    border-radius: 999px 999px 0 0;
+    background: var(--ew-gradient-sunset);
+    pointer-events: none;
+  }
+  [data-era="neon"] .ew-hero__stage:empty::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: calc(var(--ew-hero-sun-h) - 64px);
+    width: min(1100px, 120%);
+    height: 88px;
+    transform: translateX(-50%);
+    background-color: var(--ew-color-cyan);
+    -webkit-mask: var(--ew-ornament-mountains) center / 100% 100% no-repeat;
+    mask: var(--ew-ornament-mountains) center / 100% 100% no-repeat;
+    pointer-events: none;
   }
   /* Shared hero tree puts a backdrop and a panel around the copy. The backdrop must not take row 1, and the panel must, or the title falls below the floor. */
   [data-era="neon"] .ew-hero__backdrop {
@@ -640,6 +672,8 @@
       drop-shadow(0 0 16px color-mix(in srgb, var(--ew-color-magenta) 40%, transparent));
     clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
     overflow: visible;
+    min-width: 0;
+    max-width: 100%;
     /* Clear the 45° cut so titles are never clipped */
     padding: 32px 32px 28px;
     min-width: 0;

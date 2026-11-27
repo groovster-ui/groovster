@@ -1,0 +1,26 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-stat {
+    /* anatomy: root */
+  }
+  .ew-stat { display: grid; gap: 4px; min-width: 0; }
+  .ew-stat__value { font: 700 clamp(1.4rem, 2vw, 2rem)/1.1 var(--ew-font-body, system-ui, sans-serif); margin: 0; font-variant-numeric: tabular-nums; }
+  .ew-stat__label { color: var(--ew-color-fg-muted); margin: 0; }
+  .ew-stat__delta { font-weight: 700; }
+  .ew-stat__delta[data-dir="up"]::before { content: "\25B2\00a0"; }
+  .ew-stat__delta[data-dir="down"]::before { content: "\25BC\00a0"; }
+  .ew-stat__spark { min-width: 0; height: 28px; }
+  /* spec variant variant=default */
+  .ew-stat[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-stat:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-stat[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-stat[data-size="md"] { --ew-spec-size: md; }
+  .ew-stat:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-stat, .ew-stat *, .ew-stat *::before, .ew-stat *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

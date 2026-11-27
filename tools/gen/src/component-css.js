@@ -1,3 +1,5 @@
+import { appComponentCss, densityDecoratorCss, isAppComponent } from './app-components.js';
+
 const HEADER = '/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n';
 
 /** Emit variant/size hooks from the component spec so CSS stays spec-driven. */
@@ -70,6 +72,7 @@ export function genComponentCss(comp) {
   }[comp.id];
 
   if (body) lines.push(body(cls));
+  else if (isAppComponent(comp.id)) lines.push(appComponentCss(comp.id, cls));
   else lines.push(`  /* stub styles for ${comp.id} */`);
 
   const hooks = specDrivenHooks(comp);
@@ -77,6 +80,7 @@ export function genComponentCss(comp) {
   lines.push(reducedMotionBlock(cls));
 
   lines.push(`}`);
+  if (comp.id === 'density') lines.push(densityDecoratorCss());
   return lines.join('\n') + '\n';
 }
 
@@ -90,7 +94,11 @@ function buttonCss(cls) {
     --_btn-bevel: var(--ew-structure-button-bevel, none);
     display: inline-flex;
     align-items: center;
+    align-self: center;
     justify-content: center;
+    flex: 0 0 auto;
+    height: auto;
+    max-height: none;
     gap: var(--ew-button-gap, 8px);
     padding: var(--ew-structure-button-padding-y, var(--ew-button-padding-y, 8px)) var(--ew-structure-button-padding-x, var(--ew-button-padding-x, 16px));
     border: var(--_btn-border-w) var(--_btn-border-style) var(--ew-color-border-strong, currentColor);
@@ -137,6 +145,9 @@ function textFieldCss(cls) {
   return `  .${cls} {
     display: grid;
     gap: 6px;
+    min-width: 0;
+    max-width: 100%;
+    flex: 1 1 12rem;
     font-family: var(--ew-font-body, system-ui, sans-serif);
   }
   .${cls}__label { color: var(--ew-color-fg-default, inherit); font-size: 14px; font-weight: 600; }
@@ -148,6 +159,10 @@ function textFieldCss(cls) {
     color: var(--ew-color-fg-default, inherit);
     font: inherit;
     box-shadow: var(--ew-structure-field-shadow, none);
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
   .${cls}[data-variant="filled"] .${cls}__control {
     background: color-mix(in oklch, var(--ew-color-bg-surface) 80%, var(--ew-color-fg-default));
@@ -175,6 +190,12 @@ function cardCss(cls) {
     --_card-clip: var(--ew-structure-card-clip, none);
     position: relative;
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    align-content: start;
+    align-items: start;
+    min-width: 0;
+    max-width: 100%;
     gap: var(--ew-card-gap, 12px);
     padding: var(--ew-structure-card-padding, var(--ew-card-padding, 16px));
     border: var(--_card-border-w) var(--_card-border-style) var(--ew-color-border-subtle, #ccc);
@@ -193,11 +214,21 @@ function cardCss(cls) {
   .${cls}[data-variant="outline"] { box-shadow: none; }
   .${cls}[data-variant="flat"] { border-color: transparent; box-shadow: none; }
   .${cls}[data-variant="inset"] { box-shadow: inset 0 1px 2px color-mix(in oklch, black 12%, transparent); }
-  .${cls}__header { display: grid; gap: 8px; }
-  .${cls}__header h3, .${cls}__header h2 {
+  .${cls} > * { min-width: 0; max-width: 100%; }
+  .${cls}__header { display: grid; gap: 8px; min-width: 0; }
+  .${cls}__header :is(h1, h2, h3, h4), .${cls}__title {
     margin: 0;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     font-family: var(--ew-font-display, inherit);
     letter-spacing: var(--ew-structure-card-title-tracking, 0);
+  }
+  .${cls}__title--truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-wrap: normal;
   }
   .${cls}[data-header-rule="true"] .${cls}__header::after {
     content: "";
@@ -207,7 +238,8 @@ function cardCss(cls) {
     background: var(--ew-structure-card-header-rule, var(--ew-color-border-strong));
   }
   .${cls}__body { margin: 0; }
-  .${cls}__footer { display: flex; gap: 8px; flex-wrap: wrap; }
+  .${cls}__footer { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; align-self: start; }
+  .${cls}__footer .ew-button, .${cls} .ew-button { align-self: center; height: auto; flex: 0 0 auto; }
   .${cls}::before {
     content: var(--ew-structure-card-ornament-content, none);
     pointer-events: none;
@@ -248,8 +280,19 @@ function dialogCss(cls) {
     top: 12px;
     inset-inline-end: 12px;
   }
-  .${cls}[data-size="sm"] { max-width: 320px; }
-  .${cls}[data-size="lg"] { max-width: 560px; }
+  .${cls}--sm, .${cls}[data-size="sm"] { max-width: min(320px, calc(100vw - 32px)); }
+  .${cls}--md, .${cls}[data-size="md"] { max-width: min(420px, calc(100vw - 32px)); }
+  .${cls}--lg, .${cls}[data-size="lg"] { max-width: min(720px, calc(100vw - 32px)); }
+  @media (max-width: 600px) {
+    .${cls}--fullscreen-mobile, .${cls}[data-size="fullscreen-mobile"] {
+      width: 100%;
+      max-width: 100%;
+      max-height: min(92vh, 100%);
+      margin: auto 0 0;
+      border-end-start-radius: 0;
+      border-end-end-radius: 0;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     .${cls}, .${cls}::backdrop { transition: none; }
   }`;
@@ -440,6 +483,7 @@ function textareaCss(cls) {
 function selectCss(cls) {
   return `  .${cls}, ew-select.${cls}, ew-select {
     display: grid; gap: 6px; font-family: var(--ew-font-body, system-ui, sans-serif); position: relative;
+    min-width: 0; max-width: 100%; flex: 1 1 12rem;
   }
   .${cls}__label { font-size: 14px; font-weight: 600; color: var(--ew-color-fg-default); }
   .${cls}__control {
@@ -449,6 +493,7 @@ function selectCss(cls) {
     border-radius: var(--ew-structure-field-radius, 8px);
     background: var(--ew-color-field-bg);
     color: var(--ew-color-fg-default); font: inherit;
+    min-width: 0; max-width: 100%; width: 100%; box-sizing: border-box;
   }
   .${cls}__trigger {
     appearance: none; text-align: start; cursor: pointer; font: inherit;
@@ -456,6 +501,7 @@ function selectCss(cls) {
     border: var(--ew-structure-field-border-width, 1px) var(--ew-structure-field-border-style, solid) var(--ew-color-field-border);
     border-radius: var(--ew-structure-field-radius, 8px);
     background: var(--ew-color-field-bg); color: var(--ew-color-fg-default);
+    min-width: 0; max-width: 100%; width: 100%; box-sizing: border-box;
     anchor-name: --ew-select-trigger;
   }
   .${cls}__trigger:focus-visible, .${cls}__control:focus-visible {
@@ -642,7 +688,8 @@ function linkCss(cls) {
 
 function avatarCss(cls) {
   return `  .${cls} {
-    display: inline-grid; place-items: center; overflow: hidden;
+    position: relative;
+    display: inline-grid; place-items: center; overflow: visible;
     width: 40px; height: 40px;
     border-radius: var(--ew-structure-control-radius, 999px);
     background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default);
@@ -653,7 +700,17 @@ function avatarCss(cls) {
   .${cls}[data-size="sm"] { width: 32px; height: 32px; font-size: 12px; }
   .${cls}[data-size="lg"] { width: 56px; height: 56px; font-size: 16px; }
   .${cls}__image { width: 100%; height: 100%; object-fit: cover; }
-  .${cls}__fallback { line-height: 1; }`;
+  .${cls}__fallback { line-height: 1; }
+  .${cls}__presence {
+    position: absolute; right: 0; bottom: 0; width: 10px; height: 10px;
+    border: 2px solid var(--ew-color-bg-surface); box-sizing: border-box;
+  }
+  .${cls}__presence[data-presence="online"] { background: var(--ew-color-action-bg); border-radius: 999px; }
+  .${cls}__presence[data-presence="away"] { background: transparent; border-radius: 999px; box-shadow: inset 0 0 0 2px var(--ew-color-action-bg); }
+  .${cls}__presence[data-presence="busy"] { background: var(--ew-color-danger-bg); border-radius: 2px; }
+  .${cls}__presence[data-presence="offline"] { background: transparent; border-radius: 999px; box-shadow: inset 0 0 0 2px var(--ew-color-fg-muted); }
+  .${cls}-group { display: flex; padding-inline-start: 8px; }
+  .${cls}-group .${cls} { margin-inline-start: -8px; }`;
 }
 
 function breadcrumbCss(cls) {

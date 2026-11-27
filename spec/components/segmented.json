@@ -1,0 +1,100 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "segmented",
+  "name": "Segmented control",
+  "summary": "A single-choice control with radiogroup semantics.",
+  "className": "ew-segmented",
+  "nativeElement": "div",
+  "behavior": "css-only",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-segmented",
+      "description": "Root element."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default"
+      ],
+      "default": "default",
+      "description": "Visual."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "hover",
+      "selector": ":hover",
+      "description": "Pointer hover."
+    },
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    },
+    {
+      "name": "busy",
+      "selector": "[aria-busy=true]",
+      "description": "Loading."
+    },
+    {
+      "name": "empty",
+      "selector": ".is-empty",
+      "description": "No content yet."
+    }
+  ],
+  "aria": {
+    "role": "radiogroup",
+    "requiredAttributes": [],
+    "optionalAttributes": [],
+    "notes": [
+      "One item has aria-checked=true. Arrow keys move the check. Only the checked item is in the tab order."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "ArrowLeft / ArrowRight",
+      "action": "Move the checked segment."
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Content."
+    }
+  ],
+  "canonicalHtml": "<div class=\"ew-segmented\" role=\"radiogroup\" aria-label=\"View\"><button type=\"button\" class=\"ew-segmented__item\" role=\"radio\" aria-checked=\"true\">List</button><button type=\"button\" class=\"ew-segmented__item\" role=\"radio\" aria-checked=\"false\">Grid</button></div>",
+  "imports": [
+    "@groovster/css/segmented.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "do": [
+    "Keep markup era-neutral and set data-era on an ancestor."
+  ],
+  "dont": [
+    "Do not restyle this with a display face or uppercase tracking."
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "color.action.*",
+    "type.body"
+  ]
+}

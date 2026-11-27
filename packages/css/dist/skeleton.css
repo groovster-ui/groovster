@@ -1,0 +1,30 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-skeleton {
+    /* anatomy: root */
+  }
+  .ew-skeleton {
+    display: block; min-width: 0; height: 1em; border-radius: 6px;
+    background: linear-gradient(90deg, var(--ew-color-border-subtle), var(--ew-color-bg-surface), var(--ew-color-border-subtle));
+    background-size: 200% 100%;
+    animation: ew-skeleton 1.2s ease-in-out infinite;
+  }
+  .ew-skeleton[data-variant="block"] { height: 96px; }
+  @keyframes ew-skeleton { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+  @media (prefers-reduced-motion: reduce) { .ew-skeleton { animation: none; } }
+  /* spec variant variant=line */
+  .ew-skeleton[data-variant="line"] { --ew-spec-variant-variant: line; }
+  /* spec variant variant=block */
+  .ew-skeleton[data-variant="block"] { --ew-spec-variant-variant: block; }
+  .ew-skeleton:not([data-variant]) { --ew-spec-variant-variant: line; }
+  .ew-skeleton[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-skeleton[data-size="md"] { --ew-spec-size: md; }
+  .ew-skeleton:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-skeleton, .ew-skeleton *, .ew-skeleton *::before, .ew-skeleton *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

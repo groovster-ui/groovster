@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"typing-indicator","html":"<span class=\"ew-typing-indicator\" role=\"status\" aria-label=\"Maya is typing\"><i></i><i></i><i></i></span>","css":"import \"@groovster/css/typing-indicator.css\";","a11y":"The accessible name says who is typing. Reduced motion shows still dots."}

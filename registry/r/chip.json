@@ -1,0 +1,27 @@
+{
+  "name": "ew-chip",
+  "type": "registry:ui",
+  "title": "Era Widgets — Chip",
+  "description": "Filter, label, or removable token. Selectable chips use aria-pressed.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/chip.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-chip {\n    /* anatomy: root */\n  }\n  .ew-chip {\n    display: inline-flex; align-items: center; gap: 6px; max-width: 100%; min-width: 0;\n    min-height: 32px; padding: 4px 10px; border-radius: 999px;\n    border: 1px solid var(--ew-color-border-strong); background: var(--ew-color-bg-surface);\n    color: var(--ew-color-fg-default); font: inherit; cursor: pointer;\n  }\n  .ew-chip[aria-pressed=\"true\"] { font-weight: 700; box-shadow: inset 0 -2px 0 var(--ew-color-action-bg); }\n  .ew-chip__remove { border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; padding: 0 2px; }\n  .ew-chip:disabled, .ew-chip[aria-disabled=\"true\"] { opacity: 0.55; cursor: not-allowed; }\n  /* spec variant variant=default */\n  .ew-chip[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-chip:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-chip[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-chip[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-chip:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-chip, .ew-chip *, .ew-chip *::before, .ew-chip *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/chip.css"
+    },
+    {
+      "path": "era-widgets/chip.example.html",
+      "content": "<!-- Era Widgets Chip — set data-era on an ancestor -->\n<button type=\"button\" class=\"ew-chip\" aria-pressed=\"false\">Unread</button>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/chip.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-chip",
+    "canonicalHtml": "<button type=\"button\" class=\"ew-chip\" aria-pressed=\"false\">Unread</button>",
+    "cssPackage": "@groovster/css/chip.css"
+  }
+}

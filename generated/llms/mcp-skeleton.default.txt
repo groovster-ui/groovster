@@ -1,0 +1,1 @@
+{"version":"0.1.0-alpha.0","name":"skeleton","html":"<div class=\"ew-skeleton\" data-variant=\"block\" aria-hidden=\"true\"></div>","css":"import \"@groovster/css/skeleton.css\";","a11y":"Hide skeletons from assistive tech with aria-hidden and set aria-busy on the region that is loading."}

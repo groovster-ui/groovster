@@ -34,6 +34,6 @@ Pressable control for primary actions. Zero attributes = medium primary button.
 
 ## Don't
 
-- Don't put warped display fonts on the control label.
+- Don't put a display face, uppercase, or wide tracking on the label. Opt in with .ew-caps. Ghost and icon buttons frame only on hover, focus, or .ew-button--framed.
 - Don't rely on glow for contrast.
 - Don't nest interactive elements inside the button.

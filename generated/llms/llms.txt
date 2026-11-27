@@ -27,25 +27,43 @@ Load only needed sections; avoid full-library context.
 ## Components (one file each)
 - alert: generated/llms/alert.md
 - avatar: generated/llms/avatar.md
+- badge: generated/llms/badge.md
 - breadcrumb: generated/llms/breadcrumb.md
 - button: generated/llms/button.md
 - card: generated/llms/card.md
 - checkbox: generated/llms/checkbox.md
+- chip: generated/llms/chip.md
+- code: generated/llms/code.md
+- density: generated/llms/density.md
 - dialog: generated/llms/dialog.md
+- empty-state: generated/llms/empty-state.md
 - icon-button: generated/llms/icon-button.md
 - link: generated/llms/link.md
+- list: generated/llms/list.md
+- media-card: generated/llms/media-card.md
 - menu: generated/llms/menu.md
+- meter: generated/llms/meter.md
+- nav-rail: generated/llms/nav-rail.md
 - ornament-divider: generated/llms/ornament-divider.md
+- pagination: generated/llms/pagination.md
 - popover: generated/llms/popover.md
 - radio: generated/llms/radio.md
+- search: generated/llms/search.md
+- segmented: generated/llms/segmented.md
 - select: generated/llms/select.md
+- shelf: generated/llms/shelf.md
+- skeleton: generated/llms/skeleton.md
 - slider: generated/llms/slider.md
+- stat: generated/llms/stat.md
 - switch: generated/llms/switch.md
+- table: generated/llms/table.md
 - tabs: generated/llms/tabs.md
 - text-field: generated/llms/text-field.md
 - textarea: generated/llms/textarea.md
 - toast: generated/llms/toast.md
+- toolbar: generated/llms/toolbar.md
 - tooltip: generated/llms/tooltip.md
+- typing-indicator: generated/llms/typing-indicator.md
 
 ## Recipes (cards: generated/llms/recipe-<id>.card.txt)
 commerce, dashboard, editorial, event, hospitality. Composition, not a new era.

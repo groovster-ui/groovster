@@ -12,4 +12,4 @@ Variants: variant=primary|secondary|ghost|danger(default:primary)
 Sizes: sm|md|lg (default md)
 ARIA: button (native <button> preferred)
 Do: Use a real <button> with an accessible name.
-Don't: Don't put warped display fonts on the control label.
+Don't: Don't put a display face, uppercase, or wide tracking on the label. Opt in with .ew-caps. Ghost and icon buttons frame only on hover, focus, or .ew-button--framed.

@@ -1,0 +1,38 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-media-card {
+    /* anatomy: root */
+  }
+  .ew-media-card {
+    display: grid; min-width: 0; position: relative; overflow: hidden; padding: 0;
+    background: var(--ew-color-bg-surface); color: inherit; text-decoration: none;
+  }
+  .ew-media-card[data-ratio="poster"] { aspect-ratio: 2 / 3; }
+  .ew-media-card[data-ratio="wide"] { aspect-ratio: 16 / 9; }
+  .ew-media-card__media { width: 100%; height: 100%; object-fit: cover; }
+  .ew-media-card__title {
+    position: absolute; inset: auto 0 0 0; margin: 0; padding: 28px 10px 10px;
+    background: linear-gradient(transparent, color-mix(in oklch, var(--ew-color-bg-page) 88%, transparent));
+    font: 700 0.95rem/1.2 var(--ew-font-body, system-ui, sans-serif);
+  }
+  .ew-media-card__progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--ew-color-action-bg); transform-origin: left; }
+  .ew-media-card:hover, .ew-media-card:focus-visible { transform: translateY(-2px); }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-media-card:hover, .ew-media-card:focus-visible { transform: none; }
+  }
+  /* spec variant ratio=poster */
+  .ew-media-card[data-ratio="poster"] { --ew-spec-variant-ratio: poster; }
+  /* spec variant ratio=wide */
+  .ew-media-card[data-ratio="wide"] { --ew-spec-variant-ratio: wide; }
+  .ew-media-card:not([data-ratio]) { --ew-spec-variant-ratio: poster; }
+  .ew-media-card[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-media-card[data-size="md"] { --ew-spec-size: md; }
+  .ew-media-card:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-media-card, .ew-media-card *, .ew-media-card *::before, .ew-media-card *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

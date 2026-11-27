@@ -109,7 +109,6 @@
     --ew-color-track-off: var(--ew-color-sand);
     --ew-color-track-on: var(--ew-color-coral);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
-    --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 4px 4px 0px 0px color-mix(in oklch, var(--ew-color-ink) 22%, transparent);
     --ew-elevation-2: 6px 6px 0px 0px color-mix(in oklch, var(--ew-color-ink) 28%, transparent);
     --ew-elevation-dialog: 8px 8px 0px 0px color-mix(in oklch, var(--ew-color-ink) 32%, transparent);
@@ -164,7 +163,6 @@
     --ew-color-track-off: var(--ew-color-sand);
     --ew-color-track-on: var(--ew-color-coral);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
-    --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 4px 4px 0px 0px color-mix(in oklch, var(--ew-color-ink) 18%, transparent);
     --ew-elevation-2: 6px 6px 0px 0px color-mix(in oklch, var(--ew-color-ink) 24%, transparent);
     --ew-elevation-dialog: 8px 8px 0px 0px color-mix(in oklch, var(--ew-color-ink) 30%, transparent);
@@ -340,6 +338,34 @@
     min-height: 100%;
     pointer-events: none;
     overflow: hidden;
+  }
+  /* Empty documented stage still draws a starburst and orbits. */
+  [data-era="mcm-atomic"] .ew-hero__stage:empty::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    width: min(280px, 72%);
+    height: min(280px, 72%);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22%23B23A2A%22%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%2232.00%2C2.00%2036.59%2C20.91%2053.21%2C10.79%2043.09%2C27.41%2062.00%2C32.00%2043.09%2C36.59%2053.21%2C53.21%2036.59%2C43.09%2032.00%2C62.00%2027.41%2C43.09%2010.79%2C53.21%2020.91%2C36.59%202.00%2C32.00%2020.91%2C27.41%2010.79%2C10.79%2027.41%2C20.91%22%2F%3E%0A%20%20%20%20%3C%2Fsvg%3E") center / contain no-repeat;
+    pointer-events: none;
+  }
+  [data-era="mcm-atomic"] .ew-hero__stage:empty::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    width: min(220px, 58%);
+    height: min(220px, 58%);
+    transform: translate(-50%, -50%);
+    border: 2px solid color-mix(in oklch, var(--ew-color-teal, var(--ew-color-action-bg)) 75%, transparent);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 22px color-mix(in oklch, var(--ew-color-mustard, var(--ew-color-accent-solid)) 35%, transparent),
+      inset 0 0 0 14px color-mix(in oklch, var(--ew-color-coral, var(--ew-color-action-bg)) 28%, transparent);
+    pointer-events: none;
   }
   /* Panel wraps the copy in the canonical tree. It occupies the text cell; direct .ew-hero__content still does when there is no panel. */
   [data-era="mcm-atomic"] .ew-hero__panel {

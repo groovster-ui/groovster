@@ -1,0 +1,27 @@
+{
+  "name": "ew-segmented",
+  "type": "registry:ui",
+  "title": "Era Widgets — Segmented control",
+  "description": "A single-choice control with radiogroup semantics.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/segmented.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-segmented {\n    /* anatomy: root */\n  }\n  .ew-segmented { display: inline-flex; flex-wrap: wrap; min-width: 0; max-width: 100%; padding: 2px; gap: 2px; border: 1px solid var(--ew-color-border-subtle); border-radius: var(--ew-structure-control-radius, 8px); }\n  .ew-segmented__item {\n    min-height: 32px; padding: 4px 10px; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer;\n  }\n  .ew-segmented__item[aria-checked=\"true\"], .ew-segmented :checked + .ew-segmented__item {\n    font-weight: 700; background: var(--ew-color-bg-surface); box-shadow: inset 0 -2px 0 var(--ew-color-action-bg);\n  }\n  /* spec variant variant=default */\n  .ew-segmented[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-segmented:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-segmented[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-segmented[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-segmented:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-segmented, .ew-segmented *, .ew-segmented *::before, .ew-segmented *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/segmented.css"
+    },
+    {
+      "path": "era-widgets/segmented.example.html",
+      "content": "<!-- Era Widgets Segmented control — set data-era on an ancestor -->\n<div class=\"ew-segmented\" role=\"radiogroup\" aria-label=\"View\"><button type=\"button\" class=\"ew-segmented__item\" role=\"radio\" aria-checked=\"true\">List</button><button type=\"button\" class=\"ew-segmented__item\" role=\"radio\" aria-checked=\"false\">Grid</button></div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/segmented.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-segmented",
+    "canonicalHtml": "<div class=\"ew-segmented\" role=\"radiogroup\" aria-label=\"View\"><button type=\"button\" class=\"ew-segmented__item\" role=\"radio\" aria-checked=\"true\">List</button><button type=\"button\" class=\"ew-segmented__item\" role=\"radio\" aria-checked=\"false\">Grid</button></div>",
+    "cssPackage": "@groovster/css/segmented.css"
+  }
+}

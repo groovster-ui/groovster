@@ -19,8 +19,8 @@
     },
     "magenta": {
       "$type": "color",
-      "$value": "#D12B6A",
-      "$description": "saturated magenta on light"
+      "$value": "#8E1248",
+      "$description": "saturated magenta, 4.5:1 on dusk pink"
     },
     "cyan": {
       "$type": "color",
@@ -50,7 +50,7 @@
     "accent": {
       "solid": {
         "$type": "color",
-        "$value": "#D12B6A"
+        "$value": "#8E1248"
       },
       "fg": {
         "$type": "color",

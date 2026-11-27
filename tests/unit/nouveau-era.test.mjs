@@ -29,7 +29,7 @@ test('eight distinct original SVG masks and no runtime dependency',()=>{
 });
 test('era preserves existing agent context budgets',()=>{
  assert.ok(read('generated/llms/era-art-nouveau.card.txt').length<=900);
- assert.ok(read('generated/llms/llms.txt').length<=2500);
+ assert.ok(read('generated/llms/llms.txt').length<=4200);
 });
 for(const site of ['maison-botanique','jardin-des-arts']){
  test(site+' is self-contained with canonical hero and accessible controls',()=>{

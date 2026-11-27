@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stream</title>
+<link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css">
+<link rel="stylesheet" href="../shared/layout.css">
+<script src="../../../packages/elements/dist/era-elements.js" defer></script>
+<script src="../shared/switch.js" defer></script>
+</head>
+<body>
+<div class="ew-root" data-groovster-root data-era="neon" data-mode="dark" data-fidelity-band="costume">
+  <header class="ew-toolbar" data-sticky="true" role="toolbar" aria-label="Stream">
+    <div class="ew-toolbar__start"><h1 class="ew-title--page">Night Market</h1></div>
+    <div class="ew-toolbar__end">
+      <nav class="ew-pagination" aria-label="Browse" data-compact="true">
+        <a class="ew-pagination__prev" href="#1">Prev</a>
+        <a class="ew-pagination__page" href="#2" aria-current="page">2</a>
+        <a class="ew-pagination__next" href="#3">Next</a>
+      </nav>
+      <div data-era-switch></div>
+    </div>
+  </header>
+  <section class="ew-hero">
+    <div class="ew-hero__backdrop" aria-hidden="true"></div>
+    <div class="ew-hero__stage" aria-hidden="true"></div>
+    <div class="ew-hero__panel">
+      <div class="ew-hero__content">
+        <p class="ew-script">Tonight</p>
+        <h2 class="ew-hero__title">The late shelf</h2>
+        <p class="ew-hero__subtitle">A short film about the studio after hours.</p>
+        <button type="button" class="ew-button">Play</button>
+      </div>
+    </div>
+  </section>
+  <div class="stream" data-density="compact">
+    <section class="ew-shelf" aria-label="Continue">
+      <h2 class="ew-shelf__title ew-title--section">Continue</h2>
+      <div class="ew-shelf__row" tabindex="0">
+        <a class="ew-media-card" data-ratio="poster" href="#a"><span class="ew-media-card__title">Kiln night</span><span class="ew-media-card__progress" style="width:40%"></span></a>
+        <a class="ew-media-card" data-ratio="poster" href="#b"><span class="ew-media-card__title">Harbor</span><span class="ew-media-card__progress" style="width:80%"></span></a>
+        <a class="ew-media-card" data-ratio="wide" href="#c"><span class="ew-media-card__title">Select all the quiet hours</span></a>
+      </div>
+    </section>
+    <button type="button" class="ew-button" data-variant="secondary" onclick="document.getElementById('detail').showModal()">Details</button>
+  </div>
+  <dialog id="detail" class="ew-dialog ew-dialog--lg">
+    <header class="ew-dialog__header"><h2 class="ew-title--panel">Kiln night</h2></header>
+    <div class="ew-dialog__body"><p>42 minutes. Watched to 40%.</p><progress class="ew-progress__bar" max="100" value="40">40%</progress></div>
+    <footer class="ew-dialog__footer"><form method="dialog"><button class="ew-button" data-variant="ghost">Close</button></form></footer>
+  </dialog>
+</div>
+</body>
+</html>

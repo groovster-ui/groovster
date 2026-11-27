@@ -1,0 +1,127 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "list",
+  "name": "List",
+  "summary": "Dense row with a lead, truncated text, and trailing meta. Selected and unread states.",
+  "className": "ew-list",
+  "nativeElement": "ul",
+  "behavior": "css-only",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-list",
+      "description": "Root element."
+    },
+    {
+      "part": "item",
+      "required": true,
+      "selector": ".ew-list-item",
+      "description": "Row."
+    },
+    {
+      "part": "primary",
+      "required": true,
+      "selector": ".ew-list-item__primary",
+      "description": "Primary text, truncated."
+    },
+    {
+      "part": "meta",
+      "required": false,
+      "selector": ".ew-list-item__meta",
+      "description": "Trailing time or badge."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default"
+      ],
+      "default": "default",
+      "description": "Visual."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "hover",
+      "selector": ":hover",
+      "description": "Pointer hover."
+    },
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    },
+    {
+      "name": "busy",
+      "selector": "[aria-busy=true]",
+      "description": "Loading."
+    },
+    {
+      "name": "empty",
+      "selector": ".is-empty",
+      "description": "No content yet."
+    }
+  ],
+  "aria": {
+    "role": "listbox",
+    "requiredAttributes": [],
+    "optionalAttributes": [],
+    "notes": [
+      "Roving tabindex: one option tabindex=0, the rest -1. Arrow keys move the tab stop. Home and End jump. Enter or Space selects.",
+      "is-unread is bold plus a marker. aria-selected or .is-selected adds a bar."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "ArrowUp / ArrowDown",
+      "action": "Move the roving tab stop between options."
+    },
+    {
+      "keys": "Home / End",
+      "action": "Jump to the first or last option."
+    },
+    {
+      "keys": "Enter / Space",
+      "action": "Select the focused option."
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Content."
+    }
+  ],
+  "canonicalHtml": "<ul class=\"ew-list\" role=\"listbox\" aria-label=\"Messages\"><li><button type=\"button\" class=\"ew-list-item is-unread\" role=\"option\" aria-selected=\"false\" tabindex=\"0\"><span class=\"ew-list-item__main\"><span class=\"ew-list-item__primary\">Maya Okafor</span><span class=\"ew-list-item__secondary\">The kiln fired clean</span></span><span class=\"ew-list-item__meta\">9:40</span></button></li></ul>",
+  "imports": [
+    "@groovster/css/list.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "do": [
+    "Use a button or link as the row so it is in the tab order."
+  ],
+  "dont": [
+    "Do not put the display face on the row label."
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "color.action.*",
+    "type.body"
+  ]
+}

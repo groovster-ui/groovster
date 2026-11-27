@@ -1,0 +1,100 @@
+{
+  "$schema": "../schema/component.schema.json",
+  "id": "chip",
+  "name": "Chip",
+  "summary": "Filter, label, or removable token. Selectable chips use aria-pressed.",
+  "className": "ew-chip",
+  "nativeElement": "button",
+  "behavior": "css-only",
+  "anatomy": [
+    {
+      "part": "root",
+      "required": true,
+      "selector": ".ew-chip",
+      "description": "Root element."
+    }
+  ],
+  "variants": {
+    "variant": {
+      "attribute": "data-variant",
+      "values": [
+        "default"
+      ],
+      "default": "default",
+      "description": "Visual."
+    }
+  },
+  "sizes": {
+    "attribute": "data-size",
+    "values": [
+      "sm",
+      "md"
+    ],
+    "default": "md"
+  },
+  "states": [
+    {
+      "name": "hover",
+      "selector": ":hover",
+      "description": "Pointer hover."
+    },
+    {
+      "name": "focus-visible",
+      "selector": ":focus-visible",
+      "description": "Keyboard focus."
+    },
+    {
+      "name": "disabled",
+      "selector": ":disabled, [aria-disabled=true]",
+      "description": "Non-interactive."
+    },
+    {
+      "name": "busy",
+      "selector": "[aria-busy=true]",
+      "description": "Loading."
+    },
+    {
+      "name": "empty",
+      "selector": ".is-empty",
+      "description": "No content yet."
+    }
+  ],
+  "aria": {
+    "role": "button",
+    "requiredAttributes": [],
+    "optionalAttributes": [],
+    "notes": [
+      "Selectable chips toggle aria-pressed. Removable chips include a button.ew-chip__remove with an accessible name."
+    ]
+  },
+  "keyboard": [
+    {
+      "keys": "Enter / Space",
+      "action": "Toggle or remove."
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "kind": "content",
+      "description": "Content."
+    }
+  ],
+  "canonicalHtml": "<button type=\"button\" class=\"ew-chip\" aria-pressed=\"false\">Unread</button>",
+  "imports": [
+    "@groovster/css/chip.css",
+    "@groovster/css/eras/<era>.css"
+  ],
+  "do": [
+    "Use a button for filters so aria-pressed is valid."
+  ],
+  "dont": [
+    "Do not encode selection with color alone."
+  ],
+  "tokenDeps": [
+    "color.fg.*",
+    "color.bg.*",
+    "color.action.*",
+    "type.body"
+  ]
+}

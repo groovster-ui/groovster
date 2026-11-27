@@ -1,0 +1,38 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-list {
+    /* anatomy: root, item, primary, meta */
+  }
+  .ew-list { display: flex; flex-direction: column; min-width: 0; margin: 0; padding: 0; list-style: none; }
+  .ew-list-item, .ew-list-item {
+    display: flex; align-items: center; gap: 8px; min-width: 0; width: 100%;
+    min-height: var(--ew-row-min, 44px); padding: 6px 10px; margin: 0;
+    border: 0; background: transparent; color: inherit; font: inherit; text-align: start;
+    text-decoration: none; box-sizing: border-box;
+  }
+  .ew-list-item__lead, .ew-list-item__meta { flex: 0 0 auto; }
+  .ew-list-item__main { min-width: 0; flex: 1 1 auto; display: grid; }
+  .ew-list-item__primary, .ew-list-item__secondary {
+    min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .ew-list-item__secondary { color: var(--ew-color-fg-muted); font-size: 0.85em; font-weight: 400; }
+  .ew-list-item.is-selected .ew-list-item__secondary,
+  .ew-list-item[aria-selected="true"] .ew-list-item__secondary,
+  .ew-list-item.is-selected .ew-list-item__meta,
+  .ew-list-item[aria-selected="true"] .ew-list-item__meta { color: var(--ew-color-fg-default); }
+  .ew-list-item__meta { color: var(--ew-color-fg-muted); font-size: 0.8em; font-variant-numeric: tabular-nums; }
+  [data-density="compact"] .ew-list-item { min-height: 36px; padding-block: 4px; }
+  /* spec variant variant=default */
+  .ew-list[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-list:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-list[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-list[data-size="md"] { --ew-spec-size: md; }
+  .ew-list:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-list, .ew-list *, .ew-list *::before, .ew-list *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

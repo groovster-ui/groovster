@@ -17,7 +17,7 @@ function swissCss() {
   [data-era="swiss"] .ew-script{font:700 .82rem/1.4 var(--ew-font-body);text-transform:uppercase;letter-spacing:.1em}
   [data-era="swiss"] .ew-hero__stage{position:absolute;inset:0 auto 0 10%;width:2px;background:var(--ew-color-action-bg);pointer-events:none}
   [data-era="swiss"] .ew-hero__stage::after{content:"";position:absolute;top:0;left:0;width:clamp(12px,2vw,30px);height:clamp(30px,7vw,100px);background:var(--ew-color-action-bg)}
-  [data-era="swiss"] h2,[data-era="swiss"] .ew-section-heading{font-family:var(--ew-font-display);font-size:clamp(2.8rem,6.4vw,5.6rem);font-weight:700;line-height:.9;letter-spacing:-.03em;text-align:left}
+  [data-era="swiss"] .ew-section-heading{font-family:var(--ew-font-display);font-size:clamp(2.8rem,6.4vw,5.6rem);font-weight:700;line-height:.9;letter-spacing:-.03em;text-align:left}
   [data-era="swiss"] .ew-card{border-radius:0;box-shadow:none;background-image:none}
   [data-era="swiss"] .ew-card[data-variant="raised"]{border-top:3px solid var(--ew-color-action-bg);box-shadow:none}
   [data-era="swiss"] .ew-card__header{border-bottom:1px solid var(--ew-color-border-subtle)}
@@ -50,7 +50,7 @@ function bauhausCss() {
     line-height: 0.92;
     text-transform: lowercase;
   }
-  [data-era="bauhaus"] :is(h2, .ew-section-heading) {
+  [data-era="bauhaus"] .ew-section-heading {
     font-size: clamp(2rem, 4.4vw, 3.5rem);
   }
   [data-era="bauhaus"] :is(h2, .ew-section-heading)::before {
@@ -189,6 +189,8 @@ function bauhausCss() {
     background-image: none;
     box-shadow: none;
     overflow: visible;
+    min-width: 0;
+    max-width: 100%;
   }
   [data-era="bauhaus"] .ew-card:nth-child(3n + 1) { border-top-color: var(--ew-color-primary-red); }
   [data-era="bauhaus"] .ew-card:nth-child(3n + 2) { border-top-color: var(--ew-color-primary-blue); }

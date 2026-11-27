@@ -1,0 +1,27 @@
+{
+  "name": "ew-meter",
+  "type": "registry:ui",
+  "title": "Era Widgets — Meter",
+  "description": "Labeled linear meter or progress, plus a small radial.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/meter.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-meter {\n    /* anatomy: root */\n  }\n  .ew-meter, .ew-progress { display: grid; gap: 4px; min-width: 0; }\n  .ew-meter__label, .ew-progress__label { font: 600 0.85rem/1.3 var(--ew-font-body, system-ui, sans-serif); }\n  .ew-meter__bar, progress.ew-progress__bar {\n    appearance: none; width: 100%; height: 8px; border: 0; border-radius: 999px;\n    background: var(--ew-color-border-subtle); color: var(--ew-color-action-bg);\n  }\n  .ew-meter__bar::-webkit-meter-bar { background: var(--ew-color-border-subtle); border-radius: 999px; }\n  .ew-meter__bar::-webkit-meter-optimum-value { background: var(--ew-color-action-bg); }\n  progress.ew-progress__bar::-webkit-progress-bar { background: var(--ew-color-border-subtle); border-radius: 999px; }\n  progress.ew-progress__bar::-webkit-progress-value { background: var(--ew-color-action-bg); border-radius: 999px; }\n  progress.ew-progress__bar::-moz-progress-bar { background: var(--ew-color-action-bg); }\n  .ew-meter__radial {\n    width: 36px; height: 36px; border-radius: 50%;\n    background: conic-gradient(var(--ew-color-action-bg) calc(var(--ew-meter-value, 40) * 1%), var(--ew-color-border-subtle) 0);\n  }\n  /* spec variant variant=linear */\n  .ew-meter[data-variant=\"linear\"] { --ew-spec-variant-variant: linear; }\n  /* spec variant variant=radial */\n  .ew-meter[data-variant=\"radial\"] { --ew-spec-variant-variant: radial; }\n  .ew-meter:not([data-variant]) { --ew-spec-variant-variant: linear; }\n  .ew-meter[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-meter[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-meter:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-meter, .ew-meter *, .ew-meter *::before, .ew-meter *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/meter.css"
+    },
+    {
+      "path": "era-widgets/meter.example.html",
+      "content": "<!-- Era Widgets Meter — set data-era on an ancestor -->\n<div class=\"ew-meter\"><span class=\"ew-meter__label\" id=\"m1\">Storage</span><meter class=\"ew-meter__bar\" min=\"0\" max=\"100\" value=\"18\" aria-labelledby=\"m1\">18%</meter></div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/meter.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-meter",
+    "canonicalHtml": "<div class=\"ew-meter\"><span class=\"ew-meter__label\" id=\"m1\">Storage</span><meter class=\"ew-meter__bar\" min=\"0\" max=\"100\" value=\"18\" aria-labelledby=\"m1\">18%</meter></div>",
+    "cssPackage": "@groovster/css/meter.css"
+  }
+}

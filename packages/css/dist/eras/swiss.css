@@ -81,7 +81,6 @@
     --ew-color-track-off: var(--ew-color-gray-3);
     --ew-color-track-on: var(--ew-color-accent-solid);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
-    --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 0px 1px 2px 0px color-mix(in oklch, var(--ew-color-gray-8) 8%, transparent);
     --ew-elevation-2: 0px 4px 12px 0px color-mix(in oklch, var(--ew-color-gray-8) 12%, transparent);
     --ew-elevation-dialog: 0px 16px 40px 0px color-mix(in oklch, var(--ew-color-gray-8) 20%, transparent);
@@ -141,7 +140,6 @@
     --ew-color-track-off: var(--ew-color-gray-3);
     --ew-color-track-on: var(--ew-color-accent-solid);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
-    --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 0px 1px 2px 0px color-mix(in oklch, var(--ew-color-gray-0) 45%, transparent);
     --ew-elevation-2: 0px 4px 12px 0px color-mix(in oklch, var(--ew-color-gray-0) 55%, transparent);
     --ew-elevation-dialog: 0px 16px 40px 0px color-mix(in oklch, var(--ew-color-gray-0) 70%, transparent);
@@ -225,7 +223,7 @@
   [data-era="swiss"] .ew-script{font:700 .82rem/1.4 var(--ew-font-body);text-transform:uppercase;letter-spacing:.1em}
   [data-era="swiss"] .ew-hero__stage{position:absolute;inset:0 auto 0 10%;width:2px;background:var(--ew-color-action-bg);pointer-events:none}
   [data-era="swiss"] .ew-hero__stage::after{content:"";position:absolute;top:0;left:0;width:clamp(12px,2vw,30px);height:clamp(30px,7vw,100px);background:var(--ew-color-action-bg)}
-  [data-era="swiss"] h2,[data-era="swiss"] .ew-section-heading{font-family:var(--ew-font-display);font-size:clamp(2.8rem,6.4vw,5.6rem);font-weight:700;line-height:.9;letter-spacing:-.03em;text-align:left}
+  [data-era="swiss"] .ew-section-heading{font-family:var(--ew-font-display);font-size:clamp(2.8rem,6.4vw,5.6rem);font-weight:700;line-height:.9;letter-spacing:-.03em;text-align:left}
   [data-era="swiss"] .ew-card{border-radius:0;box-shadow:none;background-image:none}
   [data-era="swiss"] .ew-card[data-variant="raised"]{border-top:3px solid var(--ew-color-action-bg);box-shadow:none}
   [data-era="swiss"] .ew-card__header{border-bottom:1px solid var(--ew-color-border-subtle)}

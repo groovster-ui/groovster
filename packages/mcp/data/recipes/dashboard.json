@@ -67,7 +67,7 @@
   ],
   "layouts": [
     "One compact bar, a metric row, filters, then tabbed tables.",
-    "Do not use a full-viewport .ew-hero. There is no table component; use a native table."
+    "Do not use a full-viewport .ew-hero. Use ew-table for the data, with data-responsive=stack under 600px."
   ],
   "responsive": {
     "breakpoint": "800px",

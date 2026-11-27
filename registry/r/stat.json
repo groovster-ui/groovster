@@ -1,0 +1,27 @@
+{
+  "name": "ew-stat",
+  "type": "registry:ui",
+  "title": "Era Widgets — Stat",
+  "description": "A value, a label, and an up or down delta that is not color alone.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/stat.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-stat {\n    /* anatomy: root */\n  }\n  .ew-stat { display: grid; gap: 4px; min-width: 0; }\n  .ew-stat__value { font: 700 clamp(1.4rem, 2vw, 2rem)/1.1 var(--ew-font-body, system-ui, sans-serif); margin: 0; font-variant-numeric: tabular-nums; }\n  .ew-stat__label { color: var(--ew-color-fg-muted); margin: 0; }\n  .ew-stat__delta { font-weight: 700; }\n  .ew-stat__delta[data-dir=\"up\"]::before { content: \"\\25B2\\00a0\"; }\n  .ew-stat__delta[data-dir=\"down\"]::before { content: \"\\25BC\\00a0\"; }\n  .ew-stat__spark { min-width: 0; height: 28px; }\n  /* spec variant variant=default */\n  .ew-stat[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-stat:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-stat[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-stat[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-stat:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-stat, .ew-stat *, .ew-stat *::before, .ew-stat *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/stat.css"
+    },
+    {
+      "path": "era-widgets/stat.example.html",
+      "content": "<!-- Era Widgets Stat — set data-era on an ancestor -->\n<div class=\"ew-stat\"><p class=\"ew-stat__label\">Watched</p><p class=\"ew-stat__value\">128</p><p class=\"ew-stat__delta\" data-dir=\"up\">12%</p></div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/stat.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-stat",
+    "canonicalHtml": "<div class=\"ew-stat\"><p class=\"ew-stat__label\">Watched</p><p class=\"ew-stat__value\">128</p><p class=\"ew-stat__delta\" data-dir=\"up\">12%</p></div>",
+    "cssPackage": "@groovster/css/stat.css"
+  }
+}

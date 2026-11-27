@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mail</title>
+<link rel="stylesheet" href="../../../packages/css/dist/era-widgets.css">
+<link rel="stylesheet" href="../shared/layout.css">
+<script src="../../../packages/elements/dist/era-elements.js" defer></script>
+<script src="../shared/switch.js" defer></script>
+</head>
+<body>
+<div class="ew-root" data-groovster-root data-era="neutral" data-mode="light" data-fidelity-band="whisper" data-density="compact">
+  <header class="ew-toolbar" data-sticky="true" role="toolbar" aria-label="Mailbox">
+    <div class="ew-toolbar__start"><h1 class="ew-title--page">Posthorn</h1></div>
+    <div class="ew-toolbar__center">
+      <search class="ew-search" role="search">
+        <input class="ew-text-field__control ew-search__control" type="search" aria-label="Search mail">
+        <button type="button" class="ew-icon-button ew-search__clear" aria-label="Clear search">×</button>
+      </search>
+    </div>
+    <div class="ew-toolbar__end">
+      <button type="button" class="ew-button" data-variant="primary">Compose</button>
+      <div data-era-switch></div>
+    </div>
+  </header>
+  <div class="panes">
+    <nav class="ew-nav-rail pane" aria-label="Folders">
+      <a class="ew-nav-rail__item" href="#inbox" aria-current="page"><span class="ew-nav-rail__label">Inbox</span><span class="ew-badge">3</span></a>
+      <a class="ew-nav-rail__item" href="#sent"><span class="ew-nav-rail__label">Sent</span></a>
+      <a class="ew-nav-rail__item" href="#drafts"><span class="ew-nav-rail__label">Drafts</span><span class="ew-badge" data-variant="neutral">1</span></a>
+    </nav>
+    <div class="ew-list pane" role="listbox" aria-label="Messages">
+      <button type="button" class="ew-list-item is-unread is-selected" role="option" aria-selected="true">
+        <span class="ew-list-item__main"><span class="ew-list-item__primary">Maya Okafor</span><span class="ew-list-item__secondary">The kiln fired clean</span></span>
+        <span class="ew-list-item__meta">9:40</span>
+      </button>
+      <button type="button" class="ew-list-item is-unread" role="option" aria-selected="false">
+        <span class="ew-list-item__main"><span class="ew-list-item__primary">Harbor Lot</span><span class="ew-list-item__secondary">Outbid on the brass lamp</span></span>
+        <span class="ew-list-item__meta">6:02</span>
+      </button>
+      <button type="button" class="ew-list-item" role="option" aria-selected="false">
+        <span class="ew-list-item__main"><span class="ew-list-item__primary">Jonah Hale</span><span class="ew-list-item__secondary">Margin notes</span></span>
+        <span class="ew-list-item__meta">Mon</span>
+      </button>
+    </div>
+    <article class="ew-card ew-card--quiet pane">
+      <header class="ew-card__header">
+        <h2 class="ew-title--panel">The kiln fired clean</h2>
+        <p>Maya Okafor · 9:40</p>
+      </header>
+      <div class="ew-card__body">
+        <p>The firing finished overnight. The glaze settled even, and the shelf is ready for the Thursday pickup.</p>
+        <button type="button" class="ew-chip" aria-pressed="true">Studio</button>
+        <button type="button" class="ew-chip" aria-pressed="false">Later</button>
+      </div>
+      <footer class="ew-card__footer">
+        <button type="button" class="ew-button" data-variant="primary">Reply</button>
+        <button type="button" class="ew-button" data-variant="ghost">Archive</button>
+      </footer>
+    </article>
+  </div>
+  <dialog class="ew-dialog ew-dialog--lg">
+    <header class="ew-dialog__header"><h2 class="ew-title--panel">New message</h2></header>
+    <div class="ew-dialog__body">
+      <div class="ew-text-field">
+        <label class="ew-text-field__label" for="to">To</label>
+        <input id="to" class="ew-text-field__control" type="email" value="maya@example.com">
+      </div>
+    </div>
+  </dialog>
+</div>
+</body>
+</html>

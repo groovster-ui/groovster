@@ -1,0 +1,27 @@
+{
+  "name": "ew-media-card",
+  "type": "registry:ui",
+  "title": "Era Widgets — Media card",
+  "description": "Poster or widescreen card with an overlay title and a watched bar.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/media-card.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-media-card {\n    /* anatomy: root */\n  }\n  .ew-media-card {\n    display: grid; min-width: 0; position: relative; overflow: hidden; padding: 0;\n    background: var(--ew-color-bg-surface); color: inherit; text-decoration: none;\n  }\n  .ew-media-card[data-ratio=\"poster\"] { aspect-ratio: 2 / 3; }\n  .ew-media-card[data-ratio=\"wide\"] { aspect-ratio: 16 / 9; }\n  .ew-media-card__media { width: 100%; height: 100%; object-fit: cover; }\n  .ew-media-card__title {\n    position: absolute; inset: auto 0 0 0; margin: 0; padding: 28px 10px 10px;\n    background: linear-gradient(transparent, color-mix(in oklch, var(--ew-color-bg-page) 88%, transparent));\n    font: 700 0.95rem/1.2 var(--ew-font-body, system-ui, sans-serif);\n  }\n  .ew-media-card__progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--ew-color-action-bg); transform-origin: left; }\n  .ew-media-card:hover, .ew-media-card:focus-visible { transform: translateY(-2px); }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-media-card:hover, .ew-media-card:focus-visible { transform: none; }\n  }\n  /* spec variant ratio=poster */\n  .ew-media-card[data-ratio=\"poster\"] { --ew-spec-variant-ratio: poster; }\n  /* spec variant ratio=wide */\n  .ew-media-card[data-ratio=\"wide\"] { --ew-spec-variant-ratio: wide; }\n  .ew-media-card:not([data-ratio]) { --ew-spec-variant-ratio: poster; }\n  .ew-media-card[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-media-card[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-media-card:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-media-card, .ew-media-card *, .ew-media-card *::before, .ew-media-card *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/media-card.css"
+    },
+    {
+      "path": "era-widgets/media-card.example.html",
+      "content": "<!-- Era Widgets Media card — set data-era on an ancestor -->\n<a class=\"ew-media-card\" data-ratio=\"poster\" href=\"#title\"><span class=\"ew-media-card__title\">Night Market</span><span class=\"ew-media-card__progress\" style=\"width:40%\"></span></a>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/media-card.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-media-card",
+    "canonicalHtml": "<a class=\"ew-media-card\" data-ratio=\"poster\" href=\"#title\"><span class=\"ew-media-card__title\">Night Market</span><span class=\"ew-media-card__progress\" style=\"width:40%\"></span></a>",
+    "cssPackage": "@groovster/css/media-card.css"
+  }
+}

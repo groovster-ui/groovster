@@ -1,0 +1,36 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-meter {
+    /* anatomy: root */
+  }
+  .ew-meter, .ew-progress { display: grid; gap: 4px; min-width: 0; }
+  .ew-meter__label, .ew-progress__label { font: 600 0.85rem/1.3 var(--ew-font-body, system-ui, sans-serif); }
+  .ew-meter__bar, progress.ew-progress__bar {
+    appearance: none; width: 100%; height: 8px; border: 0; border-radius: 999px;
+    background: var(--ew-color-border-subtle); color: var(--ew-color-action-bg);
+  }
+  .ew-meter__bar::-webkit-meter-bar { background: var(--ew-color-border-subtle); border-radius: 999px; }
+  .ew-meter__bar::-webkit-meter-optimum-value { background: var(--ew-color-action-bg); }
+  progress.ew-progress__bar::-webkit-progress-bar { background: var(--ew-color-border-subtle); border-radius: 999px; }
+  progress.ew-progress__bar::-webkit-progress-value { background: var(--ew-color-action-bg); border-radius: 999px; }
+  progress.ew-progress__bar::-moz-progress-bar { background: var(--ew-color-action-bg); }
+  .ew-meter__radial {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: conic-gradient(var(--ew-color-action-bg) calc(var(--ew-meter-value, 40) * 1%), var(--ew-color-border-subtle) 0);
+  }
+  /* spec variant variant=linear */
+  .ew-meter[data-variant="linear"] { --ew-spec-variant-variant: linear; }
+  /* spec variant variant=radial */
+  .ew-meter[data-variant="radial"] { --ew-spec-variant-variant: radial; }
+  .ew-meter:not([data-variant]) { --ew-spec-variant-variant: linear; }
+  .ew-meter[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-meter[data-size="md"] { --ew-spec-size: md; }
+  .ew-meter:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-meter, .ew-meter *, .ew-meter *::before, .ew-meter *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

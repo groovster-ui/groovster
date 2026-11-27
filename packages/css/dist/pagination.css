@@ -1,0 +1,25 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-pagination {
+    /* anatomy: root */
+  }
+  .ew-pagination { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; min-width: 0; margin: 0; padding: 0; list-style: none; }
+  .ew-pagination__page, .ew-pagination__prev, .ew-pagination__next {
+    display: inline-flex; align-items: center; justify-content: center; min-width: 32px; min-height: 32px;
+    padding: 4px 8px; border: 0; background: transparent; color: inherit; font: inherit; text-decoration: none; cursor: pointer;
+  }
+  .ew-pagination[data-compact="true"] .ew-pagination__page:not([aria-current="page"]) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  /* spec variant variant=default */
+  .ew-pagination[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-pagination:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-pagination[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-pagination[data-size="md"] { --ew-spec-size: md; }
+  .ew-pagination:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-pagination, .ew-pagination *, .ew-pagination *::before, .ew-pagination *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@layer components {
+  .ew-code {
+    /* anatomy: root */
+  }
+  .ew-code, code.ew-code {
+    font-family: var(--ew-font-mono, ui-monospace, monospace); font-size: 0.9em;
+    background: var(--ew-color-bg-surface); padding: 0.1em 0.35em; border-radius: 4px;
+  }
+  pre.ew-code { display: grid; gap: 8px; margin: 0; padding: 12px; overflow-x: auto; max-width: 100%; white-space: pre; }
+  .ew-code__copy { justify-self: end; }
+  /* spec variant variant=default */
+  .ew-code[data-variant="default"] { --ew-spec-variant-variant: default; }
+  .ew-code:not([data-variant]) { --ew-spec-variant-variant: default; }
+  .ew-code[data-size="sm"] { --ew-spec-size: sm; }
+  .ew-code[data-size="md"] { --ew-spec-size: md; }
+  .ew-code:not([data-size]) { --ew-spec-size: md; }
+  @media (prefers-reduced-motion: reduce) {
+    .ew-code, .ew-code *, .ew-code *::before, .ew-code *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

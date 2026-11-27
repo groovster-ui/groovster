@@ -95,7 +95,6 @@
     --ew-color-track-off: var(--ew-color-gray-3);
     --ew-color-track-on: var(--ew-color-accent-solid);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
-    --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 0px 1px 2px 0px color-mix(in oklch, var(--ew-color-gray-8) 8%, transparent);
     --ew-elevation-2: 0px 4px 12px 0px color-mix(in oklch, var(--ew-color-gray-8) 12%, transparent);
     --ew-elevation-dialog: 0px 16px 40px 0px color-mix(in oklch, var(--ew-color-gray-8) 20%, transparent);
@@ -152,7 +151,6 @@
     --ew-color-track-off: var(--ew-color-gray-3);
     --ew-color-track-on: var(--ew-color-accent-solid);
     --ew-color-danger-bg: var(--ew-color-danger-solid);
-    --ew-color-danger-fg: var(--ew-color-danger-fg);
     --ew-elevation-1: 0px 1px 2px 0px color-mix(in oklch, var(--ew-color-gray-0) 45%, transparent);
     --ew-elevation-2: 0px 4px 12px 0px color-mix(in oklch, var(--ew-color-gray-0) 55%, transparent);
     --ew-elevation-dialog: 0px 16px 40px 0px color-mix(in oklch, var(--ew-color-gray-0) 70%, transparent);

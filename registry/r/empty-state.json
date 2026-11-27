@@ -1,0 +1,27 @@
+{
+  "name": "ew-empty-state",
+  "type": "registry:ui",
+  "title": "Era Widgets — Empty state",
+  "description": "Title, short explanation, and an optional action when a list or card is empty.",
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "era-widgets/empty-state.css",
+      "content": "/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */\n\n@layer components {\n  .ew-empty-state {\n    /* anatomy: root */\n  }\n  .ew-empty-state { display: grid; justify-items: start; gap: 8px; min-width: 0; padding: 24px 8px; color: var(--ew-color-fg-muted); }\n  .ew-empty-state__title { margin: 0; color: var(--ew-color-fg-default); font: 700 1rem/1.3 var(--ew-font-body, system-ui, sans-serif); }\n  .ew-empty-state__body { margin: 0; max-width: 42ch; }\n  /* spec variant variant=default */\n  .ew-empty-state[data-variant=\"default\"] { --ew-spec-variant-variant: default; }\n  .ew-empty-state:not([data-variant]) { --ew-spec-variant-variant: default; }\n  .ew-empty-state[data-size=\"sm\"] { --ew-spec-size: sm; }\n  .ew-empty-state[data-size=\"md\"] { --ew-spec-size: md; }\n  .ew-empty-state:not([data-size]) { --ew-spec-size: md; }\n  @media (prefers-reduced-motion: reduce) {\n    .ew-empty-state, .ew-empty-state *, .ew-empty-state *::before, .ew-empty-state *::after {\n      transition: none !important;\n      animation: none !important;\n    }\n  }\n}\n",
+      "type": "registry:file",
+      "target": "styles/era-widgets/empty-state.css"
+    },
+    {
+      "path": "era-widgets/empty-state.example.html",
+      "content": "<!-- Era Widgets Empty state — set data-era on an ancestor -->\n<div class=\"ew-empty-state\"><h2 class=\"ew-empty-state__title ew-title--panel\">Nothing here</h2><p class=\"ew-empty-state__body\">No messages match.</p></div>\n",
+      "type": "registry:file",
+      "target": "components/era-widgets/empty-state.example.html"
+    }
+  ],
+  "meta": {
+    "className": "ew-empty-state",
+    "canonicalHtml": "<div class=\"ew-empty-state\"><h2 class=\"ew-empty-state__title ew-title--panel\">Nothing here</h2><p class=\"ew-empty-state__body\">No messages match.</p></div>",
+    "cssPackage": "@groovster/css/empty-state.css"
+  }
+}
