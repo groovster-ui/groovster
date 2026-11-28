@@ -1,0 +1,11 @@
+era: nordic
+voice: Scandinavian Modern: bold botanical silhouettes, tactile matte color and functional simplicity.
+shape: Rounded rectangles with selective asymmetric organic corners
+edge: Fine dark outlines, no heavy outlines everywhere
+ornament: Oversized cut-paper leaves and petals, sparse on surfaces
+type: League Spartan + Work Sans + Courier Prime
+fidelity: whisper | standard | costume (default)
+modes: light, dark
+dialects: botanical-pop | minimal | folk
+use: Gardening and lifestyle, Consumer commerce, Calm dashboards
+never: Never use generic floral wallpaper or circular flower halos.

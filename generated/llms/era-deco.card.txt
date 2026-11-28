@@ -11,3 +11,4 @@ modes: light, dark
 use: luxury, editorial, pricing
 never: neon glow, display type on controls
 dialect: streamline (optional)
+dialect: riviera (optional)

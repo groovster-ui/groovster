@@ -270,4 +270,5 @@
   [data-era="neutral"] .ew-hero__subtitle { max-width: 36ch; font-size: 1.125rem; margin: 0; }
   [data-era="neutral"] :is(.ew-chip, .ew-media-card, .ew-stat, .ew-search, .ew-code) { box-shadow: 0 1px 2px color-mix(in oklch, black 14%, transparent); }
   [data-era="neutral"] .ew-stat__value { letter-spacing: -0.03em; }
+
 }

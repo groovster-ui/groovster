@@ -39,6 +39,32 @@
       },
       "pass": true
     },
+    "folklore": {
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
+    },
+    "futurist": {
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
+    },
     "groovy": {
       "modes": {
         "light": {
@@ -92,6 +118,19 @@
       "pass": true
     },
     "neutral": {
+      "modes": {
+        "light": {
+          "pass": true,
+          "issues": []
+        },
+        "dark": {
+          "pass": true,
+          "issues": []
+        }
+      },
+      "pass": true
+    },
+    "nordic": {
       "modes": {
         "light": {
           "pass": true,

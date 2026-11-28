@@ -1,0 +1,148 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 1,
+    "era": "futurist",
+    "mode": "light",
+    "description": "Futurist light pigments"
+  },
+  "color": {
+    "cream": {
+      "$type": "color",
+      "$value": "#F3EDE0"
+    },
+    "sand": {
+      "$type": "color",
+      "$value": "#E2D9C9"
+    },
+    "white": {
+      "$type": "color",
+      "$value": "#FFFBF2"
+    },
+    "teal": {
+      "$type": "color",
+      "$value": "#14637A"
+    },
+    "coral": {
+      "$type": "color",
+      "$value": "#AD2634"
+    },
+    "mustard": {
+      "$type": "color",
+      "$value": "#14637A"
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#22272B"
+    },
+    "accent": {
+      "solid": {
+        "$type": "color",
+        "$value": "#AD2634",
+        "$description": "coral primary"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "#FFFBF2"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$type": "color",
+        "$value": "#942829"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "#FFFFFF"
+      }
+    }
+  },
+  "space": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "64px"
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "2px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "organic": {
+      "$type": "dimension",
+      "$value": "4px"
+    }
+  },
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": [
+        "Oswald",
+        "sans-serif"
+      ]
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "Work Sans",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "Courier Prime",
+        "monospace"
+      ]
+    }
+  }
+}

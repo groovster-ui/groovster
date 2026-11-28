@@ -14,7 +14,7 @@
       "Expressive dashboards",
       "Retro product stories"
     ],
-    "authenticityNotes": "Continuous B\u00e9zier contour bands, asymmetric botanical lobes and compact cream lettering. No circular floral halos, hard offset stickers, copied artwork or words baked into SVG."
+    "authenticityNotes": "Continuous Bézier contour bands, asymmetric botanical lobes and compact cream lettering. No circular floral halos, hard offset stickers, copied artwork or words baked into SVG."
   },
   "axes": {
     "shape": "Sculpted cartouches and asymmetric organic panels",
@@ -94,7 +94,8 @@
       "fidelity: costume full print | standard single contour | whisper fine ink",
       "modes: light/dark; costume default; canonical HTML unchanged",
       "use: expressive dashboards, music, lifestyle",
-      "details: docs/groovy-grammar.md on demand; no remote assets"
+      "details: docs/groovy-grammar.md on demand; no remote assets",
+      "dialect: liquid (optional)"
     ]
   },
   "structure": {
@@ -156,5 +157,12 @@
       "thumbSize": "28px",
       "trackRadius": "999px"
     }
-  }
+  },
+  "dialects": [
+    {
+      "id": "liquid",
+      "label": "Liquid",
+      "description": "Long flowing chromatic contours rather than discrete floral motifs."
+    }
+  ]
 }

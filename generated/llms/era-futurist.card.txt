@@ -1,0 +1,11 @@
+era: futurist
+voice: Futurist poster geometry: directional diagonals, mechanical rhythm and bold compressed lettering.
+shape: Squared controls, angled decorative panel corners
+edge: Strong straight ink rules and oblique graphic accents
+ornament: Speed wedges and parallel diagonal rules
+type: Oswald + Work Sans + Courier Prime
+fidelity: whisper | standard | costume (default)
+modes: light, dark
+dialects: mechanical | typographic | aero
+use: Transport and industrial dashboards, Technology events, Performance reports
+never: Do not rotate body text or interactive controls.

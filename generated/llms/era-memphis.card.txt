@@ -10,3 +10,4 @@ fidelity: costume default; bands whisper|standard|costume (default deprecated al
 modes: light, dark
 use: youth, events, creative
 never: display type on controls
+dialect: new-wave (optional)

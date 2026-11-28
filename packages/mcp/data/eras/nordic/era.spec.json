@@ -1,0 +1,176 @@
+{
+  "$schema": "../../schema/era.schema.json",
+  "id": "nordic",
+  "name": "Nordic",
+  "aliases": [
+    "scandinavian-modern",
+    "scandinavian-pop"
+  ],
+  "identity": {
+    "oneLiner": "Scandinavian Modern: bold botanical silhouettes, tactile matte color and functional simplicity.",
+    "summary": "Nordic modernism balances useful, quiet geometry with large hand-cut botanical forms and confident printed colors. Botanical Pop foregrounds graphic nature; Minimal and Folk tune the same functional language.",
+    "bestFit": [
+      "Gardening and lifestyle",
+      "Consumer commerce",
+      "Calm dashboards"
+    ],
+    "authenticityNotes": "Never use generic floral wallpaper or circular flower halos. Keep saturated yellow and pink as accents rather than low-contrast body text. Avoid Googie starbursts and heavy offset shadows."
+  },
+  "axes": {
+    "shape": "Rounded rectangles with selective asymmetric organic corners",
+    "edge": "Fine dark outlines, no heavy outlines everywhere",
+    "surface": "Matte paper and saturated spot inks",
+    "elevation": "Low, soft lift",
+    "ornament": "Oversized cut-paper leaves and petals, sparse on surfaces",
+    "typeVoice": "Geometric display, readable humanist body",
+    "motion": "Gentle, restrained ease",
+    "density": "Generous but compact-capable",
+    "iconography": "Simple rounded silhouettes"
+  },
+  "fonts": {
+    "display": "League Spartan",
+    "body": "Work Sans",
+    "mono": "Courier Prime",
+    "license": "OFL-1.1",
+    "sources": [
+      "https://fonts.google.com/specimen/League+Spartan",
+      "https://fonts.google.com/specimen/Work+Sans",
+      "https://fonts.google.com/specimen/Courier+Prime"
+    ]
+  },
+  "fidelity": {
+    "recommended": {
+      "min": 67,
+      "max": 100,
+      "default": 75
+    },
+    "bands": [
+      {
+        "id": "whisper",
+        "min": 0,
+        "max": 25,
+        "description": "Functional typography and geometry; no decorative illustration."
+      },
+      {
+        "id": "standard",
+        "min": 26,
+        "max": 66,
+        "description": "Recognizable geometry and one restrained graphic rule."
+      },
+      {
+        "id": "costume",
+        "min": 67,
+        "max": 100,
+        "description": "Full graphic program on focal surfaces, not on every control. Default when absent."
+      }
+    ]
+  },
+  "dialects": [
+    {
+      "id": "botanical-pop",
+      "label": "Botanical Pop",
+      "description": "Large irregular botanical silhouettes and saturated inks."
+    },
+    {
+      "id": "minimal",
+      "label": "Minimal",
+      "description": "Quiet functional surfaces and reduced ornament."
+    },
+    {
+      "id": "folk",
+      "label": "Scandinavian Folk",
+      "description": "Small rhythmic leaf border and warmer earth pigments."
+    }
+  ],
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "neverDo": [
+    "Never use generic floral wallpaper or circular flower halos.",
+    "Keep saturated yellow and pink as accents rather than low-contrast body text.",
+    "Avoid Googie starbursts and heavy offset shadows."
+  ],
+  "tokenFiles": [
+    "spec/tokens/tier1/nordic.light.tokens.json",
+    "spec/tokens/tier1/nordic.dark.tokens.json",
+    "spec/tokens/tier2/nordic.light.tokens.json",
+    "spec/tokens/tier2/nordic.dark.tokens.json",
+    "spec/tokens/tier3/components.shared.tokens.json"
+  ],
+  "card": {
+    "lines": [
+      "era: nordic",
+      "voice: Scandinavian Modern: bold botanical silhouettes, tactile matte color and functional simplicity.",
+      "shape: Rounded rectangles with selective asymmetric organic corners",
+      "edge: Fine dark outlines, no heavy outlines everywhere",
+      "ornament: Oversized cut-paper leaves and petals, sparse on surfaces",
+      "type: League Spartan + Work Sans + Courier Prime",
+      "fidelity: whisper | standard | costume (default)",
+      "modes: light, dark",
+      "dialects: botanical-pop | minimal | folk",
+      "use: Gardening and lifestyle, Consumer commerce, Calm dashboards",
+      "never: Never use generic floral wallpaper or circular flower halos."
+    ]
+  },
+  "structure": {
+    "controlRadius": "10px",
+    "surfaceRadius": "20px",
+    "button": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "letterSpacing": "0.01em",
+      "textTransform": "none",
+      "fontWeight": "700",
+      "shadow": "none",
+      "clipPath": "none",
+      "paddingX": "18px",
+      "paddingY": "10px"
+    },
+    "card": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "shadow": "0 4px 12px color-mix(in oklch, var(--ew-color-fg-default) 9%, transparent)",
+      "raisedShadow": "0 8px 24px color-mix(in oklch, var(--ew-color-fg-default) 13%, transparent)",
+      "clipPath": "none",
+      "padding": "0",
+      "headerRule": false,
+      "titleTracking": "0",
+      "ornament": "none"
+    },
+    "field": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "radius": "10px",
+      "underline": false
+    },
+    "dialog": {
+      "borderWidth": "1px",
+      "borderStyle": "solid",
+      "radius": "20px",
+      "shadow": "0 8px 24px color-mix(in oklch, var(--ew-color-fg-default) 13%, transparent)",
+      "clipPath": "none"
+    },
+    "tabs": {
+      "indicatorHeight": "3px",
+      "indicatorStyle": "solid",
+      "radius": "10px",
+      "enclosed": false
+    },
+    "switch": {
+      "trackRadius": "999px",
+      "thumbRadius": "999px",
+      "shadow": "none"
+    },
+    "tooltip": {
+      "radius": "10px",
+      "shadow": "none",
+      "padding": "6px 8px"
+    },
+    "slider": {
+      "trackHeight": "6px",
+      "thumbSize": "16px",
+      "trackRadius": "999px"
+    }
+  }
+}

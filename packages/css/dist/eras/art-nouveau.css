@@ -540,4 +540,5 @@
   [data-era="art-nouveau"] .ew-chip, [data-era="art-nouveau"] .ew-search { border-radius: 999px 4px; border-color: var(--ew-color-brass, var(--ew-color-border-strong)); }
   [data-era="art-nouveau"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-leaf, var(--ew-color-action-bg)); }
   [data-era="art-nouveau"]:not([data-density="compact"]) .ew-media-card, [data-era="art-nouveau"]:not([data-density="compact"]) .ew-shelf { border-radius: 48% 48% 8px 8px; overflow: hidden; }
+
 }

@@ -22,7 +22,7 @@
     "edge": "Double-line and stepped brass rules",
     "surface": "Lacquer panels, subtle linen/noise, high contrast fields",
     "elevation": "Terraced stacks (hard steps) more than soft blur shadows",
-    "ornament": "Stepped corners, nested rules, a hero fan, and diamond dividers \u2014 one motif per surface",
+    "ornament": "Stepped corners, nested rules, a hero fan, and diamond dividers — one motif per surface",
     "typeVoice": "Limelight for ceremonial titles only; Jost for sections, controls, and reading text",
     "motion": "Measured, linear accents; reveal like curtains, not bouncy",
     "density": "Airy, ceremonial; larger titles",
@@ -72,6 +72,11 @@
       "id": "streamline",
       "label": "Streamline",
       "description": "Streamline Moderne: rounded chrome, horizontal speed lines, pill controls, and soft elevation. Same brass and type, without stepped corners."
+    },
+    {
+      "id": "riviera",
+      "label": "Riviera",
+      "description": "Travel-poster architecture, broad horizontal bands and Mediterranean spot inks."
     }
   ],
   "modes": [
@@ -80,9 +85,9 @@
   ],
   "neverDo": [
     "Never put Cinzel/display faces on Button or TextField labels.",
-    "Never use neon pink/cyan \u2014 Deco metal is brass/gold/silver, not synthwave.",
+    "Never use neon pink/cyan — Deco metal is brass/gold/silver, not synthwave.",
     "Never scatter sunburst SVGs on every card; one architectural motif per surface max.",
-    "Never soft-blur elevation as the primary model \u2014 prefer terraced steps.",
+    "Never soft-blur elevation as the primary model — prefer terraced steps.",
     "Glow never counts toward contrast; lacquer text must pass AA on fills alone."
   ],
   "tokenFiles": [
@@ -106,7 +111,8 @@
       "modes: light, dark",
       "use: luxury, editorial, pricing",
       "never: neon glow, display type on controls",
-      "dialect: streamline (optional)"
+      "dialect: streamline (optional)",
+      "dialect: riviera (optional)"
     ]
   },
   "structure": {
