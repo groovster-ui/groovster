@@ -652,4 +652,21 @@
   [data-era="memphis"]:not([data-density="compact"]) .ew-stat { box-shadow: 6px 6px 0 0 var(--ew-color-blue, var(--ew-color-action-bg)); }
   [data-era="memphis"]:not([data-density="compact"]) .ew-table { box-shadow: 4px 4px 0 0 var(--ew-color-pink, var(--ew-color-action-bg)); }
   [data-era="memphis"] .ew-section-heading::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-inline-end: 8px; background: var(--ew-color-pink, var(--ew-color-action-bg)); box-shadow: 4px 4px 0 var(--ew-color-yellow, var(--ew-color-action-bg)); vertical-align: 0.1em; }
+  [data-era="memphis"][data-dialect="new-wave"] { --ew-color-action-bg: #a92d61; --ew-color-action-fg: #fff7ef; --ew-color-track-on: #a92d61; --ew-color-action-hover: color-mix(in oklch, #a92d61 90%, var(--ew-color-bg-page)); }
+  [data-era="memphis"][data-dialect="new-wave"][data-mode="dark"] { --ew-color-action-bg: #f5a5c4; --ew-color-action-fg: #282230; --ew-color-track-on: #f5a5c4; --ew-color-action-hover: color-mix(in oklch, #f5a5c4 90%, var(--ew-color-bg-page)); }
+  [data-era="memphis"][data-dialect="new-wave"] :is(.ew-card,.ew-stat,.ew-media-card) { border-radius: 0; box-shadow: none; }
+  [data-era="memphis"][data-dialect="new-wave"] .ew-card__header { border-inline-start: 5px solid var(--ew-color-action-bg); padding-inline-start: 1rem; }
+  [data-era="memphis"][data-dialect="new-wave"] :is(.ew-hero,.ew-hero__stage)::before, [data-era="memphis"][data-dialect="new-wave"] :is(.ew-hero,.ew-hero__stage)::after { display: none; }
+  [data-era="memphis"][data-dialect="new-wave"] .ew-hero__stage { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20160%22%3E%3Cpath%20fill%3D%22%23ca3c68%22%20d%3D%22M0%20100L105%2018L144%2018L39%20100Z%22%2F%3E%3Cpath%20fill%3D%22%23264c86%22%20d%3D%22M138%2065H320V79H138Z%22%2F%3E%3Cpath%20fill%3D%22%23d5a837%22%20d%3D%22M182%2091H320V126H182Z%22%2F%3E%3Cpath%20d%3D%22M11%20145L111%2061M29%20159L130%2075%22%20stroke%3D%22%2322272b%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E") right bottom / min(45%, 360px) auto no-repeat; }
+  [data-era="memphis"][data-dialect="new-wave"] :is(.ew-chip,.ew-badge) { background: var(--ew-color-bg-surface); color: var(--ew-color-fg-default); box-shadow: none; }
+  [data-era="memphis"][data-dialect="new-wave"] .ew-table { box-shadow: none; }
+  [data-era="memphis"][data-fidelity-band="whisper"][data-dialect="new-wave"] .ew-hero__stage,
+  [data-fidelity-band="whisper"] [data-era="memphis"][data-dialect="new-wave"] .ew-hero__stage,
+  [data-era="memphis"][data-fidelity-band="standard"][data-dialect="new-wave"] .ew-hero__stage,
+  [data-fidelity-band="standard"] [data-era="memphis"][data-dialect="new-wave"] .ew-hero__stage,
+  [data-era="memphis"][data-fidelity-band="default"][data-dialect="new-wave"] .ew-hero__stage,
+  [data-fidelity-band="default"] [data-era="memphis"][data-dialect="new-wave"] .ew-hero__stage,
+  [data-era="memphis"][data-fidelity-band="signature"][data-dialect="new-wave"] .ew-hero__stage,
+  [data-fidelity-band="signature"] [data-era="memphis"][data-dialect="new-wave"] .ew-hero__stage { background: none; }
+
 }

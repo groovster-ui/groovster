@@ -596,4 +596,5 @@
   [data-era="bauhaus"][data-mode="dark"] .ew-price { color: #FF9B94; }
   [data-era="bauhaus"] .ew-stat__value { font-weight: 800; }
   [data-era="bauhaus"] .ew-table th { border-bottom: 3px solid var(--ew-color-fg-default); }
+
 }

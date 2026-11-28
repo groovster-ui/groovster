@@ -1278,4 +1278,5 @@
   [data-era="neon"] :is(.ew-stat__value, .ew-price) { color: var(--ew-color-magenta, var(--ew-color-action-bg)); }
   [data-era="neon"][data-mode="light"] .ew-link { color: #8E1248; text-decoration: underline; text-decoration-color: #E2186A; text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
   [data-era="neon"]:not([data-density="compact"]) :is(.ew-media-card:hover, .ew-search:focus-within) { box-shadow: 0 0 0 1px var(--ew-color-cyan, var(--ew-color-action-bg)), 0 0 12px color-mix(in oklch, var(--ew-color-cyan, var(--ew-color-action-bg)) 45%, transparent); }
+
 }

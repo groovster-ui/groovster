@@ -253,4 +253,5 @@
   [data-era="swiss"] :is(.ew-chip, .ew-badge, .ew-segmented, .ew-search, .ew-toolbar, .ew-code, .ew-table) { border-radius: 0; }
   [data-era="swiss"] .ew-table th { border-bottom: 2px solid var(--ew-color-fg-default); }
   [data-era="swiss"] :is(.ew-stat__value, .ew-price, .ew-pagination__page[aria-current="page"]) { color: var(--ew-color-action-bg); }
+
 }

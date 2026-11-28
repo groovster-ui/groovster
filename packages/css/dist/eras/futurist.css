@@ -1,0 +1,329 @@
+/* GENERATED FILE — do not edit. Source: spec/. Run: pnpm gen */
+
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/Oswald-Regular.woff2") format("woff2"), local("Oswald");
+}
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Oswald-Bold.woff2") format("woff2"), local("Oswald");
+}
+@font-face {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/WorkSans-Regular.woff2") format("woff2"), local("Work Sans");
+}
+@font-face {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/WorkSans-Bold.woff2") format("woff2"), local("Work Sans");
+}
+@font-face {
+  font-family: "Courier Prime";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/CourierPrime-Regular.woff2") format("woff2"), local("Courier Prime");
+}
+@layer tokens {
+  [data-era="futurist"], [data-era="futurist"][data-mode="light"] {
+    --ew-era: futurist;
+    --ew-mode: light;
+    --ew-color-cream: #F3EDE0;
+    --ew-color-sand: #E2D9C9;
+    --ew-color-white: #FFFBF2;
+    --ew-color-teal: #14637A;
+    --ew-color-coral: #AD2634;
+    --ew-color-mustard: #14637A;
+    --ew-color-ink: #22272B;
+    --ew-color-accent-solid: #AD2634;
+    --ew-color-accent-fg: #FFFBF2;
+    --ew-color-danger-solid: #942829;
+    --ew-color-danger-fg: #FFFFFF;
+    --ew-space-0: 0px;
+    --ew-space-1: 4px;
+    --ew-space-2: 8px;
+    --ew-space-3: 12px;
+    --ew-space-4: 16px;
+    --ew-space-5: 24px;
+    --ew-space-6: 32px;
+    --ew-space-7: 48px;
+    --ew-space-8: 64px;
+    --ew-radius-none: 0px;
+    --ew-radius-sm: 0px;
+    --ew-radius-md: 2px;
+    --ew-radius-lg: 4px;
+    --ew-radius-pill: 4px;
+    --ew-radius-organic: 4px;
+    --ew-font-display: Oswald, sans-serif;
+    --ew-font-body: "Work Sans", system-ui, sans-serif;
+    --ew-font-mono: "Courier Prime", monospace;
+    --ew-color-fg-default: var(--ew-color-ink);
+    --ew-color-fg-muted: color-mix(in oklch, var(--ew-color-ink) 72%, var(--ew-color-cream));
+    --ew-color-fg-inverse: var(--ew-color-cream);
+    --ew-color-bg-page: var(--ew-color-cream);
+    --ew-color-bg-surface: var(--ew-color-white);
+    --ew-color-bg-elevated: var(--ew-color-white);
+    --ew-color-border-subtle: color-mix(in oklch, var(--ew-color-ink) 22%, var(--ew-color-cream));
+    --ew-color-border-strong: var(--ew-color-ink);
+    --ew-color-action-bg: var(--ew-color-accent-solid);
+    --ew-color-action-fg: var(--ew-color-accent-fg);
+    --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 88%, var(--ew-color-cream));
+    --ew-color-field-bg: var(--ew-color-white);
+    --ew-color-field-border: var(--ew-color-ink);
+    --ew-color-field-focus: var(--ew-color-mustard);
+    --ew-color-overlay: color-mix(in oklch, var(--ew-color-ink) 40%, transparent);
+    --ew-color-track-off: var(--ew-color-sand);
+    --ew-color-track-on: var(--ew-color-accent-solid);
+    --ew-color-danger-bg: var(--ew-color-danger-solid);
+    --ew-elevation-1: 4px 4px 0px 0px color-mix(in oklch, var(--ew-color-ink) 22%, transparent);
+    --ew-elevation-2: 6px 6px 0px 0px color-mix(in oklch, var(--ew-color-ink) 28%, transparent);
+    --ew-elevation-dialog: 8px 8px 0px 0px color-mix(in oklch, var(--ew-color-ink) 32%, transparent);
+    color: var(--ew-color-fg-default);
+    background: var(--ew-color-bg-page);
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="futurist"][data-mode="dark"] {
+    --ew-era: futurist;
+    --ew-mode: dark;
+    --ew-color-cream: #20262A;
+    --ew-color-sand: #303B40;
+    --ew-color-white: #3B494F;
+    --ew-color-teal: #75D2E6;
+    --ew-color-coral: #F78183;
+    --ew-color-mustard: #75D2E6;
+    --ew-color-ink: #F5EEE1;
+    --ew-color-accent-solid: #F78183;
+    --ew-color-accent-fg: #20262A;
+    --ew-color-danger-solid: #FF9D94;
+    --ew-color-danger-fg: #241A18;
+    --ew-space-0: 0px;
+    --ew-space-1: 4px;
+    --ew-space-2: 8px;
+    --ew-space-3: 12px;
+    --ew-space-4: 16px;
+    --ew-space-5: 24px;
+    --ew-space-6: 32px;
+    --ew-space-7: 48px;
+    --ew-space-8: 64px;
+    --ew-radius-none: 0px;
+    --ew-radius-sm: 0px;
+    --ew-radius-md: 2px;
+    --ew-radius-lg: 4px;
+    --ew-radius-pill: 4px;
+    --ew-radius-organic: 4px;
+    --ew-font-display: Oswald, sans-serif;
+    --ew-font-body: "Work Sans", system-ui, sans-serif;
+    --ew-font-mono: "Courier Prime", monospace;
+    --ew-color-fg-default: var(--ew-color-ink);
+    --ew-color-fg-muted: color-mix(in oklch, var(--ew-color-ink) 70%, var(--ew-color-cream));
+    --ew-color-fg-inverse: var(--ew-color-cream);
+    --ew-color-bg-page: var(--ew-color-cream);
+    --ew-color-bg-surface: var(--ew-color-sand);
+    --ew-color-bg-elevated: var(--ew-color-white);
+    --ew-color-border-subtle: color-mix(in oklch, var(--ew-color-ink) 28%, var(--ew-color-cream));
+    --ew-color-border-strong: var(--ew-color-ink);
+    --ew-color-action-bg: var(--ew-color-accent-solid);
+    --ew-color-action-fg: var(--ew-color-accent-fg);
+    --ew-color-action-hover: color-mix(in oklch, var(--ew-color-accent-solid) 88%, var(--ew-color-cream));
+    --ew-color-field-bg: var(--ew-color-white);
+    --ew-color-field-border: var(--ew-color-ink);
+    --ew-color-field-focus: var(--ew-color-mustard);
+    --ew-color-overlay: color-mix(in oklch, var(--ew-color-cream) 72%, transparent);
+    --ew-color-track-off: var(--ew-color-sand);
+    --ew-color-track-on: var(--ew-color-accent-solid);
+    --ew-color-danger-bg: var(--ew-color-danger-solid);
+    --ew-elevation-1: 4px 4px 0px 0px color-mix(in oklch, var(--ew-color-ink) 18%, transparent);
+    --ew-elevation-2: 6px 6px 0px 0px color-mix(in oklch, var(--ew-color-ink) 24%, transparent);
+    --ew-elevation-dialog: 8px 8px 0px 0px color-mix(in oklch, var(--ew-color-ink) 30%, transparent);
+    color: var(--ew-color-fg-default);
+    background: var(--ew-color-bg-page);
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+}
+@layer era {
+  [data-era="futurist"] {
+    --ew-fidelity-default: 75;
+    --ew-structure-control-radius: 2px;
+    --ew-structure-surface-radius: 2px;
+    --ew-structure-button-border-width: 2px;
+    --ew-structure-button-border-style: solid;
+    --ew-structure-button-letter-spacing: .09em;
+    --ew-structure-button-text-transform: uppercase;
+    --ew-structure-button-font-weight: 700;
+    --ew-structure-button-shadow: 3px 3px 0 color-mix(in oklch, var(--ew-color-fg-default) 30%, transparent);
+    --ew-structure-button-clip: none;
+    --ew-structure-button-padding-x: 18px;
+    --ew-structure-button-padding-y: 10px;
+    --ew-structure-button-bevel: none;
+    --ew-structure-card-border-width: 2px;
+    --ew-structure-card-border-style: solid;
+    --ew-structure-card-shadow: 4px 4px 0 color-mix(in oklch, var(--ew-color-fg-default) 22%, transparent);
+    --ew-structure-card-raised-shadow: 6px 6px 0 color-mix(in oklch, var(--ew-color-fg-default) 25%, transparent);
+    --ew-structure-card-clip: none;
+    --ew-structure-card-padding: 0;
+    --ew-structure-card-title-tracking: .05em;
+    --ew-structure-card-header-rule-display: none;
+    --ew-structure-card-header-rule: linear-gradient(90deg, transparent, var(--ew-color-border-strong), transparent);
+    --ew-structure-card-ornament-content: none;
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-card-ornament-bg: none;
+    --ew-structure-card-ornament-size: auto;
+    --ew-structure-card-ornament-blend: normal;
+    --ew-structure-field-border-width: 2px;
+    --ew-structure-field-border-style: solid;
+    --ew-structure-field-radius: 2px;
+    --ew-structure-dialog-border-width: 2px;
+    --ew-structure-dialog-border-style: solid;
+    --ew-structure-dialog-radius: 2px;
+    --ew-structure-dialog-shadow: 6px 6px 0 color-mix(in oklch, var(--ew-color-fg-default) 25%, transparent);
+    --ew-structure-dialog-clip: none;
+    --ew-structure-tabs-indicator-height: 3px;
+    --ew-structure-tabs-indicator-style: solid;
+    --ew-structure-tabs-radius: 2px;
+    --ew-structure-switch-track-radius: 3px;
+    --ew-structure-switch-thumb-radius: 2px;
+    --ew-structure-switch-shadow: none;
+    --ew-structure-tooltip-radius: 2px;
+    --ew-structure-tooltip-shadow: none;
+    --ew-structure-tooltip-padding: 6px 8px;
+    --ew-structure-slider-track-height: 6px;
+    --ew-structure-slider-thumb-size: 16px;
+    --ew-structure-slider-track-radius: 0px;
+  }
+  [data-era="futurist"][data-fidelity-band="whisper"],
+  [data-fidelity-band="whisper"] [data-era="futurist"],
+  [data-era="futurist"][data-fidelity-band="standard"],
+  [data-fidelity-band="standard"] [data-era="futurist"],
+  [data-era="futurist"][data-fidelity-band="default"],
+  [data-fidelity-band="default"] [data-era="futurist"],
+  [data-era="futurist"][data-fidelity-band="signature"],
+  [data-fidelity-band="signature"] [data-era="futurist"] {
+    --ew-structure-card-ornament-opacity: 0;
+    --ew-structure-button-clip: none;
+    --ew-structure-card-clip: none;
+    --ew-structure-button-shadow: none;
+    --ew-structure-card-raised-shadow: var(--ew-elevation-1, none);
+  }
+}
+@layer decorators {
+
+  [data-era="futurist"] :is(.ew-badge, .ew-chip, .ew-nav-rail__item, .ew-pagination__page, .ew-segmented__item, .ew-search, .ew-table, .ew-list-item, .ew-toolbar, .ew-stat, .ew-meter, .ew-empty-state, .ew-code, .ew-media-card, .ew-split, .ew-sheet, .ew-shelf) {
+    font-family: var(--ew-font-body, system-ui, sans-serif);
+  }
+  [data-era="futurist"] .ew-table { border-collapse: collapse; }
+  [data-era="futurist"] .ew-table tbody tr:nth-child(even) { background: color-mix(in oklch, var(--ew-color-fg-default) 5%, transparent); }
+  [data-era="futurist"] .ew-list-item + .ew-list-item { border-top: 1px solid var(--ew-color-border-subtle); }
+  [data-era="futurist"] .ew-nav-rail__item[aria-current="page"], [data-era="futurist"] .ew-list-item[aria-current="true"] { font-weight: 700; box-shadow: inset 3px 0 0 var(--ew-color-action-bg); }
+  [data-era="futurist"] .ew-pagination__page[aria-current="page"] { font-weight: 700; box-shadow: inset 0 -2px 0 var(--ew-color-action-bg); }
+  [data-era="futurist"] .ew-stat { background: var(--ew-color-bg-surface); padding: var(--ew-card-pad, 12px); }
+  [data-era="futurist"] .ew-code, [data-era="futurist"] .ew-code code { font-family: var(--ew-font-mono, ui-monospace, monospace); }
+  [data-era="futurist"] .ew-skeleton { background: color-mix(in oklch, var(--ew-color-fg-muted) 18%, var(--ew-color-bg-surface)); }
+  [data-era="futurist"] .ew-empty-state { border: 1px dashed var(--ew-color-border-subtle); }
+  [data-era="futurist"] .ew-meter__bar { border-radius: 999px; }
+
+  [data-era="futurist"] { --ew-expansion-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20160%22%3E%3Cpath%20fill%3D%22%23a62936%22%20d%3D%22M0%20130L320%2017V54L0%20160Z%22%2F%3E%3Cpath%20fill%3D%22%23247b92%22%20d%3D%22M0%2070L320%200V12L0%2089ZM62%20160L320%2072V88L102%20160Z%22%2F%3E%3Cpath%20fill%3D%22%23283338%22%20d%3D%22M0%20148L320%2043V50L0%20155Z%22%2F%3E%3Cg%20transform%3D%22translate(172%2083)%20rotate(-16)%22%3E%3Ccircle%20r%3D%2261%22%20fill%3D%22%23263238%22%2F%3E%3Ccircle%20r%3D%2248%22%20fill%3D%22%23f4e7c9%22%2F%3E%3Ccircle%20r%3D%2242%22%20fill%3D%22%23247b92%22%2F%3E%3Cpath%20fill%3D%22%23263238%22%20d%3D%22M-8-43H8L13-14L43-8V8L14%2013L8%2043H-8L-13%2014L-43%208V-8L-14-13Z%22%2F%3E%3Ccircle%20r%3D%2213%22%20fill%3D%22%23a62936%22%2F%3E%3Ccircle%20r%3D%225%22%20fill%3D%22%23f4e7c9%22%2F%3E%3Cpath%20d%3D%22M-32-31L-18-43M31%2032L43%2018%22%20stroke%3D%22%23f4e7c9%22%20stroke-width%3D%223%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M0%20112L100%2080M0%20122L105%2088M231%20133L320%20104M243%20143L320%20118%22%20stroke%3D%22%23263238%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E"); --ew-expansion-radius: 2px; --ew-expansion-rule: 4px; --ew-print-ink: #e7dbc4; }
+  [data-era="futurist"] .ew-hero { position: relative; isolation: isolate; display: grid; align-items: center; min-height: min(42vh, 350px); padding: clamp(24px, 5vw, 64px); background: var(--ew-color-bg-surface); border-bottom: var(--ew-expansion-rule) solid var(--ew-color-border-strong); }
+  [data-era="futurist"] .ew-hero__stage { position: absolute; inset: 0 0 0 auto; width: 44%; z-index: -1; pointer-events: none; background: var(--ew-print-ink) var(--ew-expansion-art) center / cover no-repeat; }
+  [data-era="futurist"] .ew-hero__content { max-width: 38rem; min-width: 0; }
+  [data-era="futurist"] .ew-hero:has(.ew-hero__stage) .ew-hero__content { max-width: min(52%, 38rem); }
+  [data-era="futurist"] .ew-hero__eyebrow { font-family: var(--ew-font-body); font-size: .78rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+  [data-era="futurist"] .ew-hero__subtitle { max-width: 34ch; line-height: 1.55; }
+  [data-era="futurist"] .ew-hero__title { margin: .18em 0; overflow-wrap: anywhere; font-family: var(--ew-font-display); font-size: clamp(2.15rem, 5vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: -.015em; }
+  [data-era="futurist"] :is(.ew-card,.ew-dialog,.ew-media-card,.ew-stat,.ew-sheet) { border-radius: var(--ew-expansion-radius); }
+  [data-era="futurist"] :is(.ew-button,.ew-icon-button,.ew-text-field__control,.ew-textarea__control,.ew-select__control,.ew-select__trigger) { font-family: var(--ew-font-body); }
+  [data-era="futurist"] :is(.ew-card__header,.ew-dialog__header) { border-block-end: 1px solid var(--ew-color-border-subtle); }
+  [data-era="futurist"]:not([data-density="compact"]) :is(.ew-card__header,.ew-dialog__header) { box-shadow: inset 0 var(--ew-expansion-rule) 0 var(--ew-color-action-bg); }
+  [data-era="futurist"] :is(.ew-card__title,.ew-card__header h3,.ew-section-heading) { font-family: var(--ew-font-display); letter-spacing: -.015em; }
+  [data-era="futurist"] :is(.ew-badge,.ew-chip,.ew-search,.ew-segmented,.ew-toolbar,.ew-code,.ew-pagination__page) { border-radius: 2px; }
+  [data-era="futurist"] :is(.ew-badge,.ew-chip) { border: 1px solid var(--ew-color-border-strong); }
+  [data-era="futurist"] .ew-chip[aria-pressed="true"], [data-era="futurist"] .ew-segmented__item[aria-checked="true"] { background: var(--ew-color-action-bg); color: var(--ew-color-action-fg); }
+  [data-era="futurist"] :is(.ew-stat__value,.ew-price) { color: var(--ew-color-action-bg); font-variant-numeric: tabular-nums; }
+  [data-era="futurist"]:not([data-density="compact"]) .ew-stat__value { font-family: var(--ew-font-display); font-weight: 700; }
+  [data-era="futurist"] .ew-table th { border-block-end: var(--ew-expansion-rule) solid var(--ew-color-border-strong); font-size: .82rem; letter-spacing: .08em; }
+  [data-era="futurist"] .ew-nav-rail__item[aria-current="page"] { background: color-mix(in oklch, var(--ew-color-action-bg) 9%, var(--ew-color-bg-surface)); }
+  [data-era="futurist"] .ew-switch__track { border: 1px solid var(--ew-color-border-strong); }
+  [data-era="futurist"] .ew-switch__control:not(:checked) + .ew-switch__track .ew-switch__thumb { background: var(--ew-color-fg-default); }
+  [data-era="futurist"] .ew-switch__control:checked + .ew-switch__track .ew-switch__thumb { background: var(--ew-color-action-fg); }
+  [data-era="futurist"] .ew-checkbox__box { border-radius: 0; }
+  [data-era="futurist"] .ew-ornament-divider[data-variant="ornament"] { height: 18px; border: 0; background: var(--ew-expansion-art) center / 92px auto no-repeat, linear-gradient(var(--ew-color-border-subtle),var(--ew-color-border-subtle)) center / 100% 1px no-repeat; }
+  [data-era="futurist"]:not([data-density="compact"]) .ew-empty-state { border-radius: var(--ew-expansion-radius); }
+  [data-era="futurist"] :is(.ew-alert,.ew-toast) { border-inline-start: 4px solid var(--ew-color-border-strong); }
+  [data-era="futurist"][data-fidelity-band="whisper"] .ew-hero__stage,
+  [data-fidelity-band="whisper"] [data-era="futurist"] .ew-hero__stage,
+  [data-era="futurist"][data-fidelity-band="standard"] .ew-hero__stage,
+  [data-fidelity-band="standard"] [data-era="futurist"] .ew-hero__stage,
+  [data-era="futurist"][data-fidelity-band="default"] .ew-hero__stage,
+  [data-fidelity-band="default"] [data-era="futurist"] .ew-hero__stage,
+  [data-era="futurist"][data-fidelity-band="signature"] .ew-hero__stage,
+  [data-fidelity-band="signature"] [data-era="futurist"] .ew-hero__stage { background: none; }
+  [data-era="futurist"][data-fidelity-band="whisper"] .ew-hero,
+  [data-fidelity-band="whisper"] [data-era="futurist"] .ew-hero,
+  [data-era="futurist"][data-fidelity-band="standard"] .ew-hero,
+  [data-fidelity-band="standard"] [data-era="futurist"] .ew-hero,
+  [data-era="futurist"][data-fidelity-band="default"] .ew-hero,
+  [data-fidelity-band="default"] [data-era="futurist"] .ew-hero,
+  [data-era="futurist"][data-fidelity-band="signature"] .ew-hero,
+  [data-fidelity-band="signature"] [data-era="futurist"] .ew-hero { min-height: 0; }
+  [data-era="futurist"][data-fidelity-band="whisper"] .ew-hero:has(.ew-hero__stage) .ew-hero__content,
+  [data-fidelity-band="whisper"] [data-era="futurist"] .ew-hero:has(.ew-hero__stage) .ew-hero__content,
+  [data-era="futurist"][data-fidelity-band="standard"] .ew-hero:has(.ew-hero__stage) .ew-hero__content,
+  [data-fidelity-band="standard"] [data-era="futurist"] .ew-hero:has(.ew-hero__stage) .ew-hero__content,
+  [data-era="futurist"][data-fidelity-band="default"] .ew-hero:has(.ew-hero__stage) .ew-hero__content,
+  [data-fidelity-band="default"] [data-era="futurist"] .ew-hero:has(.ew-hero__stage) .ew-hero__content,
+  [data-era="futurist"][data-fidelity-band="signature"] .ew-hero:has(.ew-hero__stage) .ew-hero__content,
+  [data-fidelity-band="signature"] [data-era="futurist"] .ew-hero:has(.ew-hero__stage) .ew-hero__content { max-width: 38rem; }
+  [data-era="futurist"][data-fidelity-band="whisper"] .ew-ornament-divider[data-variant="ornament"],
+  [data-fidelity-band="whisper"] [data-era="futurist"] .ew-ornament-divider[data-variant="ornament"],
+  [data-era="futurist"][data-fidelity-band="standard"] .ew-ornament-divider[data-variant="ornament"],
+  [data-fidelity-band="standard"] [data-era="futurist"] .ew-ornament-divider[data-variant="ornament"],
+  [data-era="futurist"][data-fidelity-band="default"] .ew-ornament-divider[data-variant="ornament"],
+  [data-fidelity-band="default"] [data-era="futurist"] .ew-ornament-divider[data-variant="ornament"],
+  [data-era="futurist"][data-fidelity-band="signature"] .ew-ornament-divider[data-variant="ornament"],
+  [data-fidelity-band="signature"] [data-era="futurist"] .ew-ornament-divider[data-variant="ornament"] { height: 1px; background: var(--ew-color-border-subtle); }
+  [data-era="futurist"][data-fidelity-band="whisper"] .ew-hero,
+  [data-fidelity-band="whisper"] [data-era="futurist"] .ew-hero { border-bottom-width: 1px; }
+  [data-era="futurist"][data-fidelity-band="whisper"] .ew-card__header,
+  [data-fidelity-band="whisper"] [data-era="futurist"] .ew-card__header, [data-era="futurist"][data-fidelity-band="whisper"] .ew-dialog__header,
+  [data-fidelity-band="whisper"] [data-era="futurist"] .ew-dialog__header { box-shadow: none; }
+  [data-era="futurist"][data-fidelity-band="whisper"] .ew-table th,
+  [data-fidelity-band="whisper"] [data-era="futurist"] .ew-table th { border-bottom-width: 1px; }
+  @media (max-width: 620px) { [data-era="futurist"] .ew-hero:has(.ew-hero__stage) .ew-hero__content { max-width: 100%; } [data-era="futurist"] .ew-hero__stage { inset: auto 0 0; width: 100%; height: 124px; } [data-era="futurist"] .ew-hero:has(.ew-hero__stage) { padding-bottom: calc(clamp(24px, 5vw, 64px) + 124px); } [data-era="futurist"][data-fidelity-band="whisper"] .ew-hero:has(.ew-hero__stage),
+  [data-fidelity-band="whisper"] [data-era="futurist"] .ew-hero:has(.ew-hero__stage),
+  [data-era="futurist"][data-fidelity-band="standard"] .ew-hero:has(.ew-hero__stage),
+  [data-fidelity-band="standard"] [data-era="futurist"] .ew-hero:has(.ew-hero__stage),
+  [data-era="futurist"][data-fidelity-band="default"] .ew-hero:has(.ew-hero__stage),
+  [data-fidelity-band="default"] [data-era="futurist"] .ew-hero:has(.ew-hero__stage),
+  [data-era="futurist"][data-fidelity-band="signature"] .ew-hero:has(.ew-hero__stage),
+  [data-fidelity-band="signature"] [data-era="futurist"] .ew-hero:has(.ew-hero__stage) { padding-bottom: 24px; } }
+  @media (forced-colors: active) { [data-era="futurist"] .ew-hero__stage { display: none; } [data-era="futurist"] .ew-ornament-divider[data-variant="ornament"] { background-image: none; } }
+  [data-era="futurist"][data-dialect="mechanical"] { --ew-expansion-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20160%22%3E%3Cpath%20fill%3D%22%23a62936%22%20d%3D%22M0%20130L320%2017V54L0%20160Z%22%2F%3E%3Cpath%20fill%3D%22%23247b92%22%20d%3D%22M0%2070L320%200V12L0%2089ZM62%20160L320%2072V88L102%20160Z%22%2F%3E%3Cpath%20fill%3D%22%23283338%22%20d%3D%22M0%20148L320%2043V50L0%20155Z%22%2F%3E%3Cg%20transform%3D%22translate(172%2083)%20rotate(-16)%22%3E%3Ccircle%20r%3D%2261%22%20fill%3D%22%23263238%22%2F%3E%3Ccircle%20r%3D%2248%22%20fill%3D%22%23f4e7c9%22%2F%3E%3Ccircle%20r%3D%2242%22%20fill%3D%22%23247b92%22%2F%3E%3Cpath%20fill%3D%22%23263238%22%20d%3D%22M-8-43H8L13-14L43-8V8L14%2013L8%2043H-8L-13%2014L-43%208V-8L-14-13Z%22%2F%3E%3Ccircle%20r%3D%2213%22%20fill%3D%22%23a62936%22%2F%3E%3Ccircle%20r%3D%225%22%20fill%3D%22%23f4e7c9%22%2F%3E%3Cpath%20d%3D%22M-32-31L-18-43M31%2032L43%2018%22%20stroke%3D%22%23f4e7c9%22%20stroke-width%3D%223%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M0%20112L100%2080M0%20122L105%2088M231%20133L320%20104M243%20143L320%20118%22%20stroke%3D%22%23263238%22%20stroke-width%3D%223%22%2F%3E%3C%2Fsvg%3E"); --ew-expansion-radius: 2px; --ew-expansion-rule: 4px; --ew-structure-button-letter-spacing: .09em; }
+  [data-era="futurist"][data-dialect="typographic"] { --ew-expansion-art: none; --ew-expansion-radius: 0; --ew-expansion-rule: 2px; --ew-structure-button-letter-spacing: .12em; }
+  [data-era="futurist"][data-dialect="typographic"] { --ew-color-action-bg: #215d75; --ew-color-action-fg: #fffaf0; --ew-color-track-on: #215d75; --ew-color-action-hover: color-mix(in oklch, #215d75 90%, var(--ew-color-bg-page)); }
+  [data-era="futurist"][data-dialect="typographic"][data-mode="dark"] { --ew-color-action-bg: #8ad6e8; --ew-color-action-fg: #20262a; --ew-color-track-on: #8ad6e8; --ew-color-action-hover: color-mix(in oklch, #8ad6e8 90%, var(--ew-color-bg-page)); }
+  [data-era="futurist"][data-dialect="typographic"] .ew-hero:has(.ew-hero__stage) .ew-hero__content { max-width: 38rem; }
+  [data-era="futurist"][data-dialect="typographic"] .ew-hero__stage { display: none; }
+  [data-era="futurist"][data-dialect="typographic"] .ew-hero:has(.ew-hero__stage) { min-height: 0; padding-bottom: clamp(24px, 5vw, 64px); }
+  [data-era="futurist"][data-dialect="typographic"] .ew-hero__title { text-transform: uppercase; letter-spacing: .04em; }
+  [data-era="futurist"][data-dialect="aero"] { --ew-expansion-art: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20160%22%3E%3Cpath%20fill%3D%22%23247b92%22%20d%3D%22M0%2090H225Q281%2090%20320%2040V73Q279%20111%20225%20111H0Z%22%2F%3E%3Cpath%20fill%3D%22%23a62936%22%20d%3D%22M0%20122H237Q292%20122%20320%2093V108Q289%20140%20237%20140H0Z%22%2F%3E%3Cpath%20fill%3D%22%23d6a74d%22%20d%3D%22M80%20151H277L320%20137V150L277%20159H80Z%22%2F%3E%3C%2Fsvg%3E"); --ew-expansion-radius: 14px 3px 14px 3px; --ew-expansion-rule: 2px; --ew-structure-button-letter-spacing: .06em; }
+  [data-era="futurist"][data-dialect="aero"] { --ew-color-action-bg: #155e70; --ew-color-action-fg: #fffaf0; --ew-color-track-on: #155e70; --ew-color-action-hover: color-mix(in oklch, #155e70 90%, var(--ew-color-bg-page)); }
+  [data-era="futurist"][data-dialect="aero"][data-mode="dark"] { --ew-color-action-bg: #90d9e5; --ew-color-action-fg: #20262a; --ew-color-track-on: #90d9e5; --ew-color-action-hover: color-mix(in oklch, #90d9e5 90%, var(--ew-color-bg-page)); }
+  [data-era="futurist"][data-dialect="aero"] { --ew-structure-control-radius: 8px 2px 8px 2px; }
+  [data-era="futurist"] .ew-table th { text-transform: uppercase; }
+  [data-era="futurist"] .ew-hero__title { text-transform: uppercase; line-height: .96; }
+  [data-era="futurist"] .ew-stat { border: 1px solid var(--ew-color-border-strong); border-inline-start: 5px solid var(--ew-color-action-bg); }
+  [data-era="futurist"] .ew-stat__label { font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }
+  [data-era="futurist"][data-fidelity-band="whisper"] .ew-stat,
+  [data-fidelity-band="whisper"] [data-era="futurist"] .ew-stat { border-inline-start-width: 1px; }
+
+}

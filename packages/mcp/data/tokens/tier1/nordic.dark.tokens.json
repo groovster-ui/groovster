@@ -1,0 +1,147 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 1,
+    "era": "nordic",
+    "mode": "dark",
+    "description": "Nordic dark pigments"
+  },
+  "color": {
+    "cream": {
+      "$type": "color",
+      "$value": "#18342B"
+    },
+    "sand": {
+      "$type": "color",
+      "$value": "#23453A"
+    },
+    "white": {
+      "$type": "color",
+      "$value": "#305449"
+    },
+    "teal": {
+      "$type": "color",
+      "$value": "#E7C74C"
+    },
+    "coral": {
+      "$type": "color",
+      "$value": "#F08CB1"
+    },
+    "mustard": {
+      "$type": "color",
+      "$value": "#F2D05B"
+    },
+    "ink": {
+      "$type": "color",
+      "$value": "#F6F0DC"
+    },
+    "accent": {
+      "solid": {
+        "$type": "color",
+        "$value": "#E7C74C"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "#18342B"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$type": "color",
+        "$value": "#FF9D94"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "#241A18"
+      }
+    }
+  },
+  "space": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "64px"
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "6px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "pill": {
+      "$type": "dimension",
+      "$value": "999px"
+    },
+    "organic": {
+      "$type": "dimension",
+      "$value": "26px"
+    }
+  },
+  "font": {
+    "display": {
+      "$type": "fontFamily",
+      "$value": [
+        "League Spartan",
+        "sans-serif"
+      ]
+    },
+    "body": {
+      "$type": "fontFamily",
+      "$value": [
+        "Work Sans",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "Courier Prime",
+        "monospace"
+      ]
+    }
+  }
+}

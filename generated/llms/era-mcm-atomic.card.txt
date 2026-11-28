@@ -11,3 +11,4 @@ modes: light (Formica day), dark (Googie night)
 dialects: mcm | atomic
 use: lifestyle, diner, realtor, playful marketing
 never: motif wallpaper, neon grids on forms
+dialect: organic (optional)

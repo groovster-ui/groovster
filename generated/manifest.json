@@ -52,11 +52,14 @@
     "art-nouveau",
     "bauhaus",
     "deco",
+    "folklore",
+    "futurist",
     "groovy",
     "mcm-atomic",
     "memphis",
     "neon",
     "neutral",
+    "nordic",
     "swiss"
   ],
   "recipes": [
@@ -134,11 +137,14 @@
     "generated/llms/era-art-nouveau.card.txt",
     "generated/llms/era-bauhaus.card.txt",
     "generated/llms/era-deco.card.txt",
+    "generated/llms/era-folklore.card.txt",
+    "generated/llms/era-futurist.card.txt",
     "generated/llms/era-groovy.card.txt",
     "generated/llms/era-mcm-atomic.card.txt",
     "generated/llms/era-memphis.card.txt",
     "generated/llms/era-neon.card.txt",
     "generated/llms/era-neutral.card.txt",
+    "generated/llms/era-nordic.card.txt",
     "generated/llms/era-swiss.card.txt",
     "generated/llms/filter-group.md",
     "generated/llms/icon-button.md",
@@ -263,11 +269,14 @@
     "packages/css/dist/eras/art-nouveau.css",
     "packages/css/dist/eras/bauhaus.css",
     "packages/css/dist/eras/deco.css",
+    "packages/css/dist/eras/folklore.css",
+    "packages/css/dist/eras/futurist.css",
     "packages/css/dist/eras/groovy.css",
     "packages/css/dist/eras/mcm-atomic.css",
     "packages/css/dist/eras/memphis.css",
     "packages/css/dist/eras/neon.css",
     "packages/css/dist/eras/neutral.css",
+    "packages/css/dist/eras/nordic.css",
     "packages/css/dist/eras/swiss.css",
     "packages/css/dist/filter-group.css",
     "packages/css/dist/fonts/ArchivoBlack-Regular.woff2",
@@ -418,12 +427,15 @@
     "packages/mcp/data/eras/art-nouveau/era.spec.json",
     "packages/mcp/data/eras/bauhaus/era.spec.json",
     "packages/mcp/data/eras/deco/era.spec.json",
+    "packages/mcp/data/eras/folklore/era.spec.json",
+    "packages/mcp/data/eras/futurist/era.spec.json",
     "packages/mcp/data/eras/groovy/era.spec.json",
     "packages/mcp/data/eras/groovy/print.spec.json",
     "packages/mcp/data/eras/mcm-atomic/era.spec.json",
     "packages/mcp/data/eras/memphis/era.spec.json",
     "packages/mcp/data/eras/neon/era.spec.json",
     "packages/mcp/data/eras/neutral/era.spec.json",
+    "packages/mcp/data/eras/nordic/era.spec.json",
     "packages/mcp/data/eras/swiss/era.spec.json",
     "packages/mcp/data/llms/recipe-chat.card.txt",
     "packages/mcp/data/llms/recipe-commerce.card.txt",
@@ -451,6 +463,10 @@
     "packages/mcp/data/tokens/tier1/bauhaus.light.tokens.json",
     "packages/mcp/data/tokens/tier1/deco.dark.tokens.json",
     "packages/mcp/data/tokens/tier1/deco.light.tokens.json",
+    "packages/mcp/data/tokens/tier1/folklore.dark.tokens.json",
+    "packages/mcp/data/tokens/tier1/folklore.light.tokens.json",
+    "packages/mcp/data/tokens/tier1/futurist.dark.tokens.json",
+    "packages/mcp/data/tokens/tier1/futurist.light.tokens.json",
     "packages/mcp/data/tokens/tier1/groovy.dark.tokens.json",
     "packages/mcp/data/tokens/tier1/groovy.light.tokens.json",
     "packages/mcp/data/tokens/tier1/mcm-atomic.dark.tokens.json",
@@ -461,6 +477,8 @@
     "packages/mcp/data/tokens/tier1/neon.light.tokens.json",
     "packages/mcp/data/tokens/tier1/neutral.dark.tokens.json",
     "packages/mcp/data/tokens/tier1/neutral.light.tokens.json",
+    "packages/mcp/data/tokens/tier1/nordic.dark.tokens.json",
+    "packages/mcp/data/tokens/tier1/nordic.light.tokens.json",
     "packages/mcp/data/tokens/tier1/swiss.dark.tokens.json",
     "packages/mcp/data/tokens/tier1/swiss.light.tokens.json",
     "packages/mcp/data/tokens/tier2/art-nouveau.dark.tokens.json",
@@ -469,6 +487,10 @@
     "packages/mcp/data/tokens/tier2/bauhaus.light.tokens.json",
     "packages/mcp/data/tokens/tier2/deco.dark.tokens.json",
     "packages/mcp/data/tokens/tier2/deco.light.tokens.json",
+    "packages/mcp/data/tokens/tier2/folklore.dark.tokens.json",
+    "packages/mcp/data/tokens/tier2/folklore.light.tokens.json",
+    "packages/mcp/data/tokens/tier2/futurist.dark.tokens.json",
+    "packages/mcp/data/tokens/tier2/futurist.light.tokens.json",
     "packages/mcp/data/tokens/tier2/groovy.dark.tokens.json",
     "packages/mcp/data/tokens/tier2/groovy.light.tokens.json",
     "packages/mcp/data/tokens/tier2/mcm-atomic.dark.tokens.json",
@@ -479,6 +501,8 @@
     "packages/mcp/data/tokens/tier2/neon.light.tokens.json",
     "packages/mcp/data/tokens/tier2/neutral.dark.tokens.json",
     "packages/mcp/data/tokens/tier2/neutral.light.tokens.json",
+    "packages/mcp/data/tokens/tier2/nordic.dark.tokens.json",
+    "packages/mcp/data/tokens/tier2/nordic.light.tokens.json",
     "packages/mcp/data/tokens/tier2/swiss.dark.tokens.json",
     "packages/mcp/data/tokens/tier2/swiss.light.tokens.json",
     "packages/mcp/data/tokens/tier3/components.shared.tokens.json",
@@ -539,6 +563,10 @@
     "packages/tokens/dist/tier1/bauhaus.light.tokens.json",
     "packages/tokens/dist/tier1/deco.dark.tokens.json",
     "packages/tokens/dist/tier1/deco.light.tokens.json",
+    "packages/tokens/dist/tier1/folklore.dark.tokens.json",
+    "packages/tokens/dist/tier1/folklore.light.tokens.json",
+    "packages/tokens/dist/tier1/futurist.dark.tokens.json",
+    "packages/tokens/dist/tier1/futurist.light.tokens.json",
     "packages/tokens/dist/tier1/groovy.dark.tokens.json",
     "packages/tokens/dist/tier1/groovy.light.tokens.json",
     "packages/tokens/dist/tier1/mcm-atomic.dark.tokens.json",
@@ -549,6 +577,8 @@
     "packages/tokens/dist/tier1/neon.light.tokens.json",
     "packages/tokens/dist/tier1/neutral.dark.tokens.json",
     "packages/tokens/dist/tier1/neutral.light.tokens.json",
+    "packages/tokens/dist/tier1/nordic.dark.tokens.json",
+    "packages/tokens/dist/tier1/nordic.light.tokens.json",
     "packages/tokens/dist/tier1/swiss.dark.tokens.json",
     "packages/tokens/dist/tier1/swiss.light.tokens.json",
     "packages/tokens/dist/tier2/art-nouveau.dark.tokens.json",
@@ -557,6 +587,10 @@
     "packages/tokens/dist/tier2/bauhaus.light.tokens.json",
     "packages/tokens/dist/tier2/deco.dark.tokens.json",
     "packages/tokens/dist/tier2/deco.light.tokens.json",
+    "packages/tokens/dist/tier2/folklore.dark.tokens.json",
+    "packages/tokens/dist/tier2/folklore.light.tokens.json",
+    "packages/tokens/dist/tier2/futurist.dark.tokens.json",
+    "packages/tokens/dist/tier2/futurist.light.tokens.json",
     "packages/tokens/dist/tier2/groovy.dark.tokens.json",
     "packages/tokens/dist/tier2/groovy.light.tokens.json",
     "packages/tokens/dist/tier2/mcm-atomic.dark.tokens.json",
@@ -567,6 +601,8 @@
     "packages/tokens/dist/tier2/neon.light.tokens.json",
     "packages/tokens/dist/tier2/neutral.dark.tokens.json",
     "packages/tokens/dist/tier2/neutral.light.tokens.json",
+    "packages/tokens/dist/tier2/nordic.dark.tokens.json",
+    "packages/tokens/dist/tier2/nordic.light.tokens.json",
     "packages/tokens/dist/tier2/swiss.dark.tokens.json",
     "packages/tokens/dist/tier2/swiss.light.tokens.json",
     "packages/tokens/dist/tier3/components.shared.tokens.json",
@@ -1082,19 +1118,27 @@
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:deco": {
-        "chars": 438,
+        "chars": 466,
+        "budget": "mcp.eraCard"
+      },
+      "mcp.eraCard:folklore": {
+        "chars": 586,
+        "budget": "mcp.eraCard"
+      },
+      "mcp.eraCard:futurist": {
+        "chars": 575,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:groovy": {
-        "chars": 528,
+        "chars": 555,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:mcm-atomic": {
-        "chars": 572,
+        "chars": 600,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:memphis": {
-        "chars": 376,
+        "chars": 405,
         "budget": "mcp.eraCard"
       },
       "mcp.eraCard:neon": {
@@ -1105,12 +1149,16 @@
         "chars": 331,
         "budget": "mcp.eraCard"
       },
+      "mcp.eraCard:nordic": {
+        "chars": 597,
+        "budget": "mcp.eraCard"
+      },
       "mcp.eraCard:swiss": {
         "chars": 439,
         "budget": "mcp.eraCard"
       },
       "llms.index": {
-        "chars": 3430,
+        "chars": 3753,
         "budget": "llms.index"
       },
       "llms.recipeCard:chat": {

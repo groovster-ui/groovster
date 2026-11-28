@@ -1,0 +1,11 @@
+era: folklore
+voice: Handcrafted storybook folk aesthetic: woodland silhouettes, ink contours and natural pigments.
+shape: Soft uneven-looking corners on surfaces, stable controls
+edge: Fine ink contours and inset botanical rules
+ornament: Leaf sprigs, crescent and star details at focal surfaces
+type: Bodoni Moda + Work Sans + Courier Prime
+fidelity: whisper | standard | costume (default)
+modes: light, dark
+dialects: woodland | cottage | traditional
+use: Nature and weather, Personal journals, Children and family apps
+never: Never copy specific picture-book characters or artwork.

@@ -16,7 +16,7 @@
       "Playful SaaS marketing",
       "Retro-modern portfolios"
     ],
-    "authenticityNotes": "Signature motifs carry the era: starbursts, atom orbits, boomerangs/kidneys, LAX arch, Googie script, hairpins, two-tone. Motifs are few and large \u2014 never wallpaper every surface."
+    "authenticityNotes": "Signature motifs carry the era: starbursts, atom orbits, boomerangs/kidneys, LAX arch, Googie script, hairpins, two-tone. Motifs are few and large — never wallpaper every surface."
   },
   "axes": {
     "shape": "Organic radii + boomerang-friendly asymmetry; kidney cards at high fidelity",
@@ -25,7 +25,7 @@
     "elevation": "Soft lifted cards; occasional hard offset shadow (print-like)",
     "ornament": "Starbursts, atom orbits, kidneys, boomerangs, hairpins via decorator slots",
     "typeVoice": "Yellowtail script accent over League Spartan geometric caps; Work Sans UI",
-    "motion": "Breezy ease; gentle float \u2014 never violent bounce",
+    "motion": "Breezy ease; gentle float — never violent bounce",
     "density": "Relaxed marketing density",
     "iconography": "Rounded geometric; period-simple"
   },
@@ -80,7 +80,12 @@
     {
       "id": "atomic",
       "label": "Atomic",
-      "description": "Sharper geometry, punchier teal\u2013coral."
+      "description": "Sharper geometry, punchier teal–coral."
+    },
+    {
+      "id": "organic",
+      "label": "Organic",
+      "description": "Mid-century natural shapes, architectural curves and quiet warm surfaces."
     }
   ],
   "modes": [
@@ -116,7 +121,8 @@
       "modes: light (Formica day), dark (Googie night)",
       "dialects: mcm | atomic",
       "use: lifestyle, diner, realtor, playful marketing",
-      "never: motif wallpaper, neon grids on forms"
+      "never: motif wallpaper, neon grids on forms",
+      "dialect: organic (optional)"
     ]
   },
   "structure": {

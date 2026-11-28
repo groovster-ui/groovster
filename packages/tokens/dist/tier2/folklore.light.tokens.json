@@ -1,0 +1,140 @@
+{
+  "$schema": "../../../schema/tokens.schema.json",
+  "meta": {
+    "tier": 2,
+    "era": "folklore",
+    "mode": "light",
+    "description": "Folklore light semantic roles"
+  },
+  "color": {
+    "fg": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.ink}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.ink} 72%, {color.cream})"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.cream}"
+      }
+    },
+    "bg": {
+      "page": {
+        "$type": "color",
+        "$value": "{color.cream}"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.white}"
+      },
+      "elevated": {
+        "$type": "color",
+        "$value": "{color.white}"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.ink} 22%, {color.cream})"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.ink}",
+        "$description": "charcoal 2px outlines ≥3:1"
+      }
+    },
+    "action": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "{color.accent.fg}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "color-mix(in oklch, {color.accent.solid} 88%, {color.cream})"
+      }
+    },
+    "field": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.white}"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.ink}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.mustard}"
+      }
+    },
+    "overlay": {
+      "$type": "color",
+      "$value": "color-mix(in oklch, {color.ink} 40%, transparent)"
+    },
+    "track": {
+      "off": {
+        "$type": "color",
+        "$value": "{color.sand}"
+      },
+      "on": {
+        "$type": "color",
+        "$value": "{color.accent.solid}"
+      }
+    },
+    "danger": {
+      "bg": {
+        "$type": "color",
+        "$value": "{color.danger.solid}"
+      },
+      "fg": {
+        "$type": "color",
+        "$value": "{color.danger.fg}"
+      }
+    }
+  },
+  "elevation": {
+    "1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "12px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.ink} 12%, transparent)"
+        }
+      ]
+    },
+    "2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "6px",
+          "blur": "12px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.ink} 12%, transparent)"
+        }
+      ]
+    },
+    "dialog": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "12px",
+          "spread": "0px",
+          "color": "color-mix(in oklch, {color.ink} 12%, transparent)"
+        }
+      ]
+    }
+  }
+}

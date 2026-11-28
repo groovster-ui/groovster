@@ -95,7 +95,8 @@
       "fidelity: costume default; bands whisper|standard|costume (default deprecated alias of standard)",
       "modes: light, dark",
       "use: youth, events, creative",
-      "never: display type on controls"
+      "never: display type on controls",
+      "dialect: new-wave (optional)"
     ]
   },
   "structure": {
@@ -157,5 +158,12 @@
       "thumbSize": "18px",
       "trackRadius": "2px"
     }
-  }
+  },
+  "dialects": [
+    {
+      "id": "new-wave",
+      "label": "New Wave",
+      "description": "Postmodern editorial typography, asymmetric rules and fewer Memphis confetti motifs."
+    }
+  ]
 }

@@ -7,3 +7,4 @@ fidelity: costume full print | standard single contour | whisper fine ink
 modes: light/dark; costume default; canonical HTML unchanged
 use: expressive dashboards, music, lifestyle
 details: docs/groovy-grammar.md on demand; no remote assets
+dialect: liquid (optional)
